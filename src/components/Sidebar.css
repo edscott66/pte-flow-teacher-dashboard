@@ -1,0 +1,121 @@
+/* WRAPPER HOLDS BOTH SIDEBAR + TOGGLE */
+.sidebar-wrapper {
+  position: fixed;
+  top: calc(var(--header-height) + 20px);
+  bottom: 20px;
+  left: 0;
+  height: calc(100vh - (var(--header-height) + 40px));
+  display: flex;
+  align-items: flex-start;
+}
+
+/* SIDEBAR CONTAINER */
+.sidebar-container {
+  width: 260px;
+  height: 100%;
+  max-height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.35s ease, width 0.35s ease;
+  position: relative;
+}
+
+/* COLLAPSED SIDEBAR */
+.sidebar-container.closed {
+  transform: translateX(-260px);
+  width: 0 !important;
+}
+
+/* SIDEBAR CARD */
+.sidebar-card {
+  background: #2563eb;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+  /* FIX: allow flexbox to position logout correctly */
+  height: auto;
+  min-height: 100%;
+}
+
+/* TITLE */
+.sidebar-title {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* LINKS */
+.sidebar-links a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.sidebar-links a:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.sidebar-links a.active {
+  background: rgba(255,255,255,0.2);
+  border-left: 4px solid white;
+}
+
+/* ICONS */
+.sidebar-icon {
+  font-size: 20px;
+}
+
+/* LOGOUT */
+.sidebar-logout {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #ef4444;
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ALWAYS-VISIBLE TOGGLE BUTTON */
+.sidebar-toggle {
+  position: absolute;
+  top: 50%;
+  left: 260px;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  background: #f8fafc;
+  border: 2px solid #3b82f6;
+  color: #2563eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: left 0.35s ease;
+}
+
+/* WHEN SIDEBAR IS CLOSED */
+.sidebar-toggle.closed {
+  left: 0px;
+}
+
+.sidebar-links {
+  flex-grow: 1;        /* pushes logout upward */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;            /* optional: tidy spacing */
+}
+
+.sidebar-spacer {
+  flex-grow: 1;
+}

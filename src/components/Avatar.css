@@ -1,0 +1,27 @@
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Fallback avatar */
+.fallback-avatar {
+  background: #3b82f6; /* blue accent */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.student-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}

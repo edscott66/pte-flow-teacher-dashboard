@@ -1,0 +1,121 @@
+/* Premium Students Page Layout */
+
+/* Main page container */
+.page-content {
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Header alignment */
+.page-content h1 {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+/* Summary grid alignment */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-items: start; /* aligns each card left */
+  margin-bottom: 32px;
+}
+
+/* Summary card alignment */
+.dashboard-card {
+  text-align: left;
+}
+
+.topbar-title {
+  text-align: left;
+}
+
+.dashboard-card-content {
+  text-align: left;
+}
+
+.topbar-title {
+  text-align: left;
+}
+
+.topbar-container {
+  text-align: left;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.student-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-warning {
+  background: #d9534f;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: #6c757d;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.class-dropdown {
+  margin-top: 4px;
+  padding: 6px 10px;
+  font-size: 0.9em;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Dropdown styling */
+.class-dropdown {
+  padding: 6px 10px;
+  font-size: 0.9em;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #007bff; /* blue text */
+  cursor: pointer;
+}
+
+/* Highlight option in green when hovered */
+.class-dropdown option:hover {
+  background-color: #c8f7c5; /* light green */
+}
+
+/* Optional: highlight selected option in green */
+.class-dropdown option:checked {
+  background-color: #a8f0a2;
+}

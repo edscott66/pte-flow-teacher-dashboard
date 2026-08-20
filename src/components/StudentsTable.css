@@ -1,0 +1,121 @@
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+  padding-right: 40px;
+  margin-top: 30px;
+  table-layout: auto; /* allow responsive resizing */
+}
+
+/* Column widths */
+.students-table th:nth-child(1),
+.students-table td:nth-child(1) {
+  width: 240px; /* Student column */
+}
+
+.students-table th:nth-child(2),
+.students-table td:nth-child(2) {
+  width: 140px; /* Class column */
+}
+
+.students-table th:nth-child(3),
+.students-table td:nth-child(3) {
+  width: 140px; /* Status column */
+}
+
+.students-table th:nth-child(4),
+.students-table td:nth-child(4) {
+  width: 160px; /* Joined column */
+}
+
+.students-table th:nth-child(5),
+.students-table td:nth-child(5) {
+  width: 120px; /* Actions column */
+}
+
+.students-table th {
+  text-align: left;
+  padding: 14px 20px; /* wider spacing */
+  padding-right: 40px;
+  color: #475569;
+  font-size: 14px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.students-table td {
+  padding: 18px 20px; /* wider spacing */
+  padding-right: 40px;
+  white-space: nowrap;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 15px;
+  color: #1e293b;
+}
+
+/* Student cell spacing */
+.student-cell {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* increased gap */
+}
+
+/* Status badges */
+.status-badge {
+  padding: 6px 14px; /* slightly larger */
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Row action button */
+.row-action {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 14px; /* wider button */
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.row-action:hover {
+  background: #1e40af;
+}
+
+/* Premium alignment additions */
+
+/* Ensure table aligns left cleanly */
+.students-table {
+  text-align: left;
+  margin-left: 0;
+}
+
+/* Align all table header and cell content left */
+.students-table th,
+.students-table td {
+  text-align: left;
+}
+
+/* Make the student cell perfectly aligned */
+.student-cell {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: flex-start;
+}
+
+/* Ensure the avatar inside the table aligns left */
+.student-cell .avatar {
+  flex-shrink: 0;
+}
+
+/* Make the status badge align left inside its cell */
+.status-badge {
+  display: inline-block;
+  text-align: left;
+}
+
+/* Ensure the View button aligns left inside its column */
+.row-action {
+  display: inline-block;
+  text-align: left;
+}

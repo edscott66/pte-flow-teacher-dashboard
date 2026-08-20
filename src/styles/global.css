@@ -11,12 +11,25 @@ body {
 
 .app-content {
   flex: 1;
-  overflow-y: auto;
-  background-color: #F5F5F5;
+  transition: margin-left 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  overflow-x: hidden; /* prevents table spilling */
+  min-width: 0 !important;
+}
+
+.app-content.shifted {
+  margin-left: 260px; /* sidebar open */
+}
+
+.app-content.collapsed {
+  margin-left: 40px; /* sidebar closed */
 }
 
 .page-content {
-  padding: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  max-width: 1400px;
+  overflow-x: auto;
+  min-width: 0 !important;
 }
 
 .spinner {
@@ -26,6 +39,51 @@ body {
   border-top-color: #D4AF37;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
+}
+
+.dashboard-grid {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.dashboard-grid > * {
+  flex: 1;              /* each card takes equal width */
+  min-width: 0;         /* prevents overflow */
+}
+
+.page-content {
+  padding: 0 30px;
+  max-width: 1400px;
+}
+
+.app-content {
+  padding-top: 96px;
+  padding-left: 24px;
+  padding-right: 24px;
+  transition: margin-left 0.3s ease;
+}
+
+:root {
+  --header-height: 80px;
+}
+
+.header-logout {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ef4444;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+}
+
+.header-logout:hover {
+  background: #dc2626;
 }
 
 @keyframes spin {
