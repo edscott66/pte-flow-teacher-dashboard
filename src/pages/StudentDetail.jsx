@@ -3,11 +3,10 @@ import { useEffect, useState } from "react";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
-import { useAuth } from "../AuthContext";   // ⭐ Add this
+import { useAuth } from "../AuthContext";
 import Avatar from "../components/Avatar";
 import "./StudentDetail.css";
 
-// Class options
 const classOptions = [
   "Beginners",
   "A1",
@@ -22,15 +21,20 @@ const classOptions = [
 export default function StudentDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { roleData } = useAuth();           // ⭐ Get role + permissions
+  const { roleData } = useAuth();
+
+  const role = roleData?.role;
+  const teacherClass = roleData?.className;
+  const consultantList = roleData?.assignedStudents || [];
 
   const [student, setStudent] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // ⭐ Access control
-  const role = roleData?.role;
-  const teacherClass = roleData?.className;
-  const consultantList = roleData?.assignedStudents || [];
+  const isAdmin = role === "admin";
+  const isTeacher = role === "teacher";
+  const isConsultant = role === "consultant";
+
+  const canSeeAnalytics = isAdmin || isTeacher || isConsultant;
 
   useEffect(() => {
     async function fetchStudent() {
@@ -46,21 +50,17 @@ export default function StudentDetail() {
 
         const data = { id, ...snap.data() };
 
-        // ⭐ TEACHER ACCESS CHECK
-        if (role === "teacher" && data.className !== teacherClass) {
+        if (isTeacher && data.className !== teacherClass) {
           navigate("/students");
           return;
         }
 
-        // ⭐ CONSULTANT ACCESS CHECK
-        if (role === "consultant" && !consultantList.includes(id)) {
+        if (isConsultant && !consultantList.includes(id)) {
           navigate("/students");
           return;
         }
 
-        // ⭐ ADMIN — full access
         setStudent(data);
-
       } catch (err) {
         console.error("Error fetching student:", err);
         setStudent(null);
@@ -72,46 +72,29 @@ export default function StudentDetail() {
     fetchStudent();
   }, [id, role, teacherClass, consultantList, navigate]);
 
-  if (loading) {
-    return <p>Loading student...</p>;
-  }
-
-  if (!student) {
-    return <p>Student not found.</p>;
-  }
-
-  const canEditClass = role === "admin";   // ⭐ Only admin can change class
+  if (loading) return <p>Loading student...</p>;
+  if (!student) return <p>Student not found.</p>;
 
   return (
-    <>
-      <div className="page-content student-detail">
-        <div className="student-detail-container">
+    <div className="page-content student-detail">
+      <div className="student-detail-container">
 
-          {/* Top Row: Back + Class Dropdown */}
-          <div className="top-row">
-            <button className="back-button" onClick={() => navigate("/students")}>
-              ← Back to Students
-            </button>
+        <div className="top-row">
+          <button className="back-button" onClick={() => navigate("/students")}>
+            ← Back to Students
+          </button>
 
+          {/* Admin ONLY: class dropdown */}
+          {isAdmin ? (
             <select
               className="class-dropdown"
               value={student.className}
-              disabled={!canEditClass}     // ⭐ Teachers/Consultants cannot change class
               onChange={async (e) => {
                 const newClass = e.target.value;
-
-                try {
-                  await updateDoc(doc(db, "students", id), {
-                    className: newClass
-                  });
-
-                  setStudent((prev) => ({
-                    ...prev,
-                    className: newClass
-                  }));
-                } catch (err) {
-                  console.error("Error updating class:", err);
-                }
+                await updateDoc(doc(db, "students", id), {
+                  className: newClass
+                });
+                setStudent((prev) => ({ ...prev, className: newClass }));
               }}
             >
               {classOptions.map((cls) => (
@@ -120,52 +103,50 @@ export default function StudentDetail() {
                 </option>
               ))}
             </select>
+          ) : (
+            // Teachers & Consultants: read-only class display
+            <div className="class-readonly">
+              <strong>Class:</strong> {student.className}
+            </div>
+          )}
+        </div>
+
+        <div className="student-header">
+          <Avatar name={student.name} photoUrl={student.photoUrl} />
+          <h2>{student.name}</h2>
+        </div>
+
+        <div className="info-grid">
+          <div className="info-card">
+            <h4>Status</h4>
+            <p>{student.status}</p>
           </div>
 
-          {/* Header Section */}
-          <div className="student-header">
-            <Avatar name={student.name} photoUrl={student.photoUrl} />
-            <div>
-              <h2>{student.name}</h2>
-            </div>
+          <div className="info-card">
+            <h4>Joined</h4>
+            <p>{student.joined}</p>
           </div>
 
-          {/* Info Cards Grid */}
-          <div className="info-grid">
-            <div className="info-card">
-              <h4>Status</h4>
-              <p>{student.status}</p>
-            </div>
+          <div className="info-card">
+            <h4>Student ID</h4>
+            <p>{student.id}</p>
+          </div>
 
-            <div className="info-card">
-              <h4>Joined</h4>
-              <p>{student.joined}</p>
-            </div>
-
-            <div className="info-card">
-              <h4>Student ID</h4>
-              <p>{student.id}</p>
-            </div>
-
+          {/* Activation Code: Admin sees it, others only if it exists */}
+          {(isAdmin || student.activationCode) && (
             <div className="info-card">
               <h4>Activation Code</h4>
               <p>{student.activationCode || "N/A"}</p>
             </div>
+          )}
 
-            <div className="info-card">
-              <h4>Last Login</h4>
-              <p>{student.lastLogin || "N/A"}</p>
-            </div>
+          <div className="info-card">
+            <h4>Last Login</h4>
+            <p>{student.lastLogin || "N/A"}</p>
           </div>
+        </div>
 
-          {/* Action Buttons */}
-          <div className="student-actions">
-            <button className="btn-primary">Reset Password</button>
-            <button className="btn-warning">Deactivate</button>
-            <button className="btn-secondary">Send Message</button>
-          </div>
-
-          {/* Progress & Activity */}
+        {canSeeAnalytics && (
           <div className="detail-section">
             <h3>Progress & Activity</h3>
 
@@ -177,21 +158,18 @@ export default function StudentDetail() {
 
             <div className="activity-section">
               <h4>Recent Activity</h4>
-
               <ul className="activity-list">
-                {student.activity && student.activity.length > 0 ? (
-                  student.activity.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))
-                ) : (
-                  <li>No recent activity</li>
-                )}
+                {student.activity?.length > 0
+                  ? student.activity.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))
+                  : <li>No recent activity</li>}
               </ul>
             </div>
           </div>
+        )}
 
-        </div>
       </div>
-    </>
+    </div>
   );
 }

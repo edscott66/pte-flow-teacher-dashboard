@@ -43,16 +43,17 @@
 /* TITLE */
 .sidebar-title {
   color: white;
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
 /* LINKS */
 .sidebar-links a {
   display: flex;
+  font-size: 18px;
   align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
+  gap: 16px;
+  padding: 14px 18px;
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -70,7 +71,7 @@
 
 /* ICONS */
 .sidebar-icon {
-  font-size: 20px;
+  font-size: 24px;
 }
 
 /* LOGOUT */
@@ -89,7 +90,7 @@
 .sidebar-toggle {
   position: absolute;
   top: 50%;
-  left: 260px;
+  left: 245px;
   transform: translateY(-50%);
   width: 32px;
   height: 32px;
@@ -102,6 +103,7 @@
   justify-content: center;
   cursor: pointer;
   transition: left 0.35s ease;
+  z-index: 999;
 }
 
 /* WHEN SIDEBAR IS CLOSED */
@@ -116,6 +118,6 @@
   gap: 8px;            /* optional: tidy spacing */
 }
 
-.sidebar-spacer {
+/*.sidebar-spacer {
   flex-grow: 1;
-}
+}*/

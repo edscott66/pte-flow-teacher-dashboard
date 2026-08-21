@@ -28,9 +28,9 @@ export default function App() {
   }
 
   // TEMPORARILY DISABLED LOGIN
-// if (!user) {
-  // return <Login />;
- // }
+if (!user) {
+  return <Login />;
+ }
 
   return (
     <div className="app-container">
