@@ -1,0 +1,93 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  transition: margin-left 0.3s ease;
+  z-index: 10;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* ⭐ 30px space between logout and logo */
+}
+
+.header-left h1 {
+  margin-top: 4px; /* optional fine-tuning */
+}
+
+.header {
+  margin-left: 0 !important;
+}
+
+.header-left h1 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* FINAL LOGO STYLE */
+.header-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #c9a227; /* gold border */
+  animation: logoPulse 2.6s infinite ease-in-out;
+}
+
+.wave-hand {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: wave 1.8s infinite ease-in-out;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* PULSE ANIMATION */
+@keyframes logoPulse {
+  0% {
+    box-shadow: 0 0 0px rgba(201, 162, 39, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(201, 162, 39, 0.55);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(201, 162, 39, 0.25);
+  }
+}
+
+.logout-btn {
+  margin-left: 16px;
+  padding: 8px 14px;
+  background: #ef4444; /* red */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}

@@ -1,0 +1,21 @@
+/* Make the entire Overview page align left */
+.overview-page {
+  width: 100%;
+  padding-left: 0px;   /* ← reduce this */
+  padding-right: 12px;  /* ← optional */
+  text-align: left;
+}
+
+/* Align headings inside Overview */
+.overview-page h1,
+.overview-page h2,
+.overview-page h3 {
+  text-align: left;
+}
+
+/* Align any cards or grids inside Overview */
+.overview-grid,
+.overview-card {
+  text-align: left;
+  justify-items: start;
+}
