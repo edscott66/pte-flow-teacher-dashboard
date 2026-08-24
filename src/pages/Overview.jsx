@@ -1,14 +1,13 @@
-import TopBar from "../components/TopBar";
 import "./Overview.css";
+import { useAuth } from "../AuthContext";
 
 export default function Overview() {
+  const { roleData } = useAuth();
+  const displayName = roleData?.name || "User";
+
   return (
-    <>
-      <TopBar title="Overview" />
-      <div className="overview-page">
-        <h2>Welcome back, Teacher</h2>
-        <p>This is your dashboard overview.</p>
-      </div>
-    </>
+    <div className="overview-page">
+      <h2 className="page-subtitle">This is your dashboard overview.</h2>
+    </div>
   );
 }

@@ -2,22 +2,27 @@ import "./Header.css";
 import { useAuth } from "../AuthContext";
 import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
-import { FaSignOutAlt } from "react-icons/fa";
+import { FaSignOutAlt, FaUserPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-export default function Header({ sidebarOpen }) {
+export default function Header({ onAddStudent }) {
   const { roleData } = useAuth();
-
-  const displayName = roleData?.name || "User";
   const navigate = useNavigate();
 
+  const displayName = roleData?.name || "User";
+
   const handleLogout = async () => {
-  // await signOut(auth);
-  // navigate("/login");   // ⭐ redirect after logout
-};
+    try {
+      await signOut(auth);
+      navigate("/login");
+      window.location.reload();
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
 
   return (
-    <header className={`header ${sidebarOpen ? "shifted" : "collapsed"}`}>
+    <header className="header">
       <div className="header-left">
         <h1>
           Welcome back, {displayName} <span className="wave-hand">👋</span>
@@ -25,6 +30,11 @@ export default function Header({ sidebarOpen }) {
       </div>
 
       <div className="header-right">
+        <button className="header-add-student" onClick={onAddStudent}>
+          <FaUserPlus size={18} />
+          <span>Add Student</span>
+        </button>
+
         <button className="header-logout" onClick={handleLogout}>
           <FaSignOutAlt size={18} />
           <span>Logout</span>

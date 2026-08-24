@@ -1,12 +1,14 @@
-import TopBar from "../components/TopBar";
+import "./Settings.css";
+import { useAuth } from "../AuthContext";
 
 export default function Settings() {
+  const { roleData } = useAuth();
+  const displayName = roleData?.name || "User";
+
   return (
-    <>
-      <TopBar title="Settings" />
-      <div className="page-content">
-        <p>Settings will appear here.</p>
-      </div>
-    </>
+    <div className="page-content">
+      <h2>Settings</h2>
+      <p>Settings will appear here.</p>
+    </div>
   );
 }

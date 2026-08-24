@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { createStudentRecord } from "../services/createStudent";
+import { createStudentRecord } from "../../services/students/createStudent";
 
-export default function AddStudentForm({ onStudentAdded }) {
+export default function AddStudentForm({ onStudentAdded, hideTitle }) {
   const [form, setForm] = useState({
     name: "",
     passportNumber: "",
@@ -39,12 +39,44 @@ export default function AddStudentForm({ onStudentAdded }) {
 
   return (
     <form onSubmit={handleSubmit} className="add-student-form">
-      <input name="name" placeholder="Student Name" value={form.name} onChange={handleChange} required />
-      <input name="passportNumber" placeholder="Passport Number" value={form.passportNumber} onChange={handleChange} />
-      <input name="consultant" placeholder="Consultant Name" value={form.consultant} onChange={handleChange} required />
-      <input name="className" placeholder="Class" value={form.className} onChange={handleChange} />
-      <input name="phone" placeholder="Phone" value={form.phone} onChange={handleChange} />
-      <input name="email" placeholder="Email" value={form.email} onChange={handleChange} />
+      <input
+        name="name"
+        placeholder="Student Name"
+        value={form.name}
+        onChange={handleChange}
+        required
+      />
+      <input
+        name="passportNumber"
+        placeholder="Passport Number"
+        value={form.passportNumber}
+        onChange={handleChange}
+      />
+      <input
+        name="consultant"
+        placeholder="Consultant Name"
+        value={form.consultant}
+        onChange={handleChange}
+        required
+      />
+      <input
+        name="className"
+        placeholder="Class"
+        value={form.className}
+        onChange={handleChange}
+      />
+      <input
+        name="phone"
+        placeholder="Phone"
+        value={form.phone}
+        onChange={handleChange}
+      />
+      <input
+        name="email"
+        placeholder="Email"
+        value={form.email}
+        onChange={handleChange}
+      />
 
       <button type="submit">Add Student</button>
     </form>

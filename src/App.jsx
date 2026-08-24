@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 
 import Sidebar from "./components/Sidebar";
@@ -11,32 +11,53 @@ import Students from "./pages/Students";
 import StudentDetail from "./pages/StudentDetail";
 import ActivationCodes from "./pages/ActivationCodes";
 import Settings from "./pages/Settings";
-import AdminTools from "./pages/AdminTools";   // ⭐ Make sure this is imported
+import AdminTools from "./pages/AdminTools";
 import Profile from "./pages/Profile";
+import StudentRegistration from "./pages/StudentRegistration";
 
 import Login from "./pages/Login";
 import "./styles/global.css";
 
-export default function App() {
-  const { user, roleData, loading } = useAuth();
+import Analytics from "./pages/Analytics";
+import Broadcast from "./pages/Broadcast";
+import Reports from "./pages/Reports";
 
-  // ⭐ Add this here
+export default function App() {
+  const { user, loading } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
+  const handleAddStudent = () => {
+    // If already on students page, just show the form
+    if (location.pathname === "/students") {
+      // We need to trigger the form to show
+      // Using a custom event or we can use a ref
+      window.dispatchEvent(new CustomEvent("showAddStudentForm"));
+    } else {
+      // Navigate to students page with state
+      navigate("/students", { state: { showAddForm: true } });
+    }
+  };
 
   if (loading) {
     return <div className="app-loading">Loading...</div>;
   }
 
-  // TEMPORARILY DISABLED LOGIN
-if (!user) {
-  return <Login />;
- }
+  if (!user) {
+    return <Login />;
+  }
 
   return (
     <div className="app-container">
-      <Header sidebarOpen={sidebarOpen} />
-      <Sidebar onToggle={setSidebarOpen} sidebarOpen={sidebarOpen} />
-
+      <Sidebar sidebarOpen={sidebarOpen} onToggle={toggleSidebar} />
+      
+      <Header onAddStudent={handleAddStudent} />
+      
       <div className={`app-content ${sidebarOpen ? "shifted" : "collapsed"}`}>
         <Routes>
           <Route path="/" element={<Overview />} />
@@ -47,6 +68,10 @@ if (!user) {
           <Route path="/settings" element={<Settings />} />
           <Route path="/admin-tools" element={<AdminTools />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/broadcast" element={<Broadcast />} />
+          <Route path="/reports" element={<Reports />} />
+          <Route path="/register" element={<StudentRegistration />} />
         </Routes>
       </div>
     </div>

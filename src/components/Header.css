@@ -52,6 +52,76 @@
   animation: wave 1.8s infinite ease-in-out;
 }
 
+.header-add-student {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #2563eb;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.header-add-student:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.header-add-student:active {
+  transform: translateY(0);
+}
+
+/* Keep existing logout styles */
+.header-logout {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ef4444;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.header-logout:hover {
+  background: #dc2626;
+}
+
+.header-add-student {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #2563eb;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.header-add-student:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.header-add-student:active {
+  transform: translateY(0);
+}
+
 @keyframes wave {
   0% { transform: rotate(0deg); }
   10% { transform: rotate(14deg); }

@@ -1,106 +1,99 @@
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 import "./Sidebar.css";
-
-import {
-  FaChevronLeft,
-  FaChevronRight,
-  FaUserGraduate,
-  FaChalkboardTeacher,
-  FaKey,
-  FaBullhorn,
-  FaChartLine,
-  FaUser,
-  FaCog
-} from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 export default function Sidebar({ sidebarOpen, onToggle }) {
   const { roleData } = useAuth();
   const role = roleData?.role;
 
-  console.log("SIDEBAR LOADED FROM:", import.meta.url);
-
   return (
     <div className="sidebar-wrapper">
-
-      {/* SIDEBAR CONTAINER (slides in/out) */}
-      <div className={`sidebar-container ${sidebarOpen ? "" : "closed"}`}>
+      <div className={`sidebar-container ${sidebarOpen ? "open" : "closed"}`}>
         <div className="sidebar-card">
           <h2 className="sidebar-title">Dashboard</h2>
 
-          <div className="sidebar-links">
-
-            <NavLink to="/overview">
-              <FaChartLine className="sidebar-icon" color="#60a5fa" />
+          <nav className="sidebar-links">
+            {/* Overview - Using emoji with color */}
+            <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>
+              <span className="sidebar-icon" style={{ color: '#3b82f6', fontSize: '22px' }}>📊</span>
               <span>Overview</span>
             </NavLink>
 
-            <NavLink to="/students">
-              <FaUserGraduate className="sidebar-icon" color="#facc15" />
+            <NavLink to="/students" className={({ isActive }) => isActive ? "active" : ""}>
+              <span className="sidebar-icon" style={{ color: '#22c55e', fontSize: '22px' }}>👨‍🎓</span>
               <span>Students</span>
             </NavLink>
 
             {role === "teacher" && (
-              <NavLink to="/activation-codes">
-                <FaKey className="sidebar-icon" color="#fb923c" />
-                <span>Activation Codes</span>
-              </NavLink>
-            )}
-
-            {role === "consultant" && (
-              <NavLink to="/reports">
-                <FaChalkboardTeacher className="sidebar-icon" color="#34d399" />
-                <span>My Reports</span>
-              </NavLink>
-            )}
-
-            {role === "admin" && (
               <>
-                <NavLink to="/admin-tools">
-                  <FaKey className="sidebar-icon" color="#eab308" />
-                  <span>Admin Tools</span>
+                <NavLink to="/activation-codes" className={({ isActive }) => isActive ? "active" : ""}>
+                  <span className="sidebar-icon" style={{ color: '#f59e0b', fontSize: '22px' }}>🔑</span>
+                  <span>Activation Codes</span>
                 </NavLink>
 
-                <NavLink to="/classroom">
-                  <FaChalkboardTeacher className="sidebar-icon" color="#34d399" />
-                  <span>Classes</span>
-                </NavLink>
-
-                <NavLink to="/analytics">
-                  <FaChartLine className="sidebar-icon" color="#60a5fa" />
+                <NavLink to="/analytics" className={({ isActive }) => isActive ? "active" : ""}>
+                  <span className="sidebar-icon" style={{ color: '#8b5cf6', fontSize: '22px' }}>📈</span>
                   <span>Analytics</span>
                 </NavLink>
 
-                <NavLink to="/broadcast">
-                  <FaBullhorn className="sidebar-icon" color="#f472b6" />
+                <NavLink to="/broadcast" className={({ isActive }) => isActive ? "active" : ""}>
+                  <span className="sidebar-icon" style={{ color: '#ec4899', fontSize: '22px' }}>📢</span>
                   <span>Broadcast</span>
                 </NavLink>
               </>
             )}
 
-            {/* Bottom section */}
-            <NavLink to="/profile">
-              <FaUser className="sidebar-icon" color="#ffffff" />
+            {role === "admin" && (
+              <>
+                <NavLink to="/admin-tools" className={({ isActive }) => isActive ? "active" : ""}>
+                  <span className="sidebar-icon" style={{ color: '#ef4444', fontSize: '22px' }}>🛠️</span>
+                  <span>Admin Tools</span>
+                </NavLink>
+
+                <NavLink to="/classroom" className={({ isActive }) => isActive ? "active" : ""}>
+                  <span className="sidebar-icon" style={{ color: '#06b6d4', fontSize: '22px' }}>🏫</span>
+                  <span>Classroom</span>
+                </NavLink>
+
+                <NavLink to="/analytics" className={({ isActive }) => isActive ? "active" : ""}>
+                  <span className="sidebar-icon" style={{ color: '#8b5cf6', fontSize: '22px' }}>📈</span>
+                  <span>Analytics</span>
+                </NavLink>
+
+                <NavLink to="/broadcast" className={({ isActive }) => isActive ? "active" : ""}>
+                  <span className="sidebar-icon" style={{ color: '#ec4899', fontSize: '22px' }}>📢</span>
+                  <span>Broadcast</span>
+                </NavLink>
+              </>
+            )}
+
+            {role === "consultant" && (
+              <NavLink to="/reports" className={({ isActive }) => isActive ? "active" : ""}>
+                <span className="sidebar-icon" style={{ color: '#f97316', fontSize: '22px' }}>📋</span>
+                <span>Reports</span>
+              </NavLink>
+            )}
+
+            <NavLink to="/profile" className={({ isActive }) => isActive ? "active" : ""}>
+              <span className="sidebar-icon" style={{ color: '#6366f1', fontSize: '22px' }}>👤</span>
               <span>Profile</span>
             </NavLink>
 
-            <NavLink to="/settings">
-              <FaCog className="sidebar-icon" color="#ffffff" />
+            <NavLink to="/settings" className={({ isActive }) => isActive ? "active" : ""}>
+              <span className="sidebar-icon" style={{ color: '#6b7280', fontSize: '22px' }}>⚙️</span>
               <span>Settings</span>
             </NavLink>
-
-          </div>
+          </nav>
         </div>
       </div>
 
-      {/* TOGGLE BUTTON — OUTSIDE THE CONTAINER */}
-      <div
+      <button 
         className={`sidebar-toggle ${sidebarOpen ? "" : "closed"}`}
-        onClick={() => onToggle(!sidebarOpen)}
+        onClick={onToggle}
       >
-        {sidebarOpen ? <FaChevronLeft /> : <FaChevronRight />}
-      </div>
-
+        {sidebarOpen ? <FaChevronLeft size={14} /> : <FaChevronRight size={14} />}
+      </button>
     </div>
   );
 }

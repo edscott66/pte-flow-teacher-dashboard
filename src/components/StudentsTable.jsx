@@ -1,66 +1,20 @@
-import Avatar from "./Avatar";
+import React from "react";
 import "./StudentsTable.css";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
-// ⭐ Correct import (named export)
-import { createStudentRecord } from "../services/students/createStudent";
-
-export default function StudentsTable({ students, refreshStudents }) {
-  const navigate = useNavigate();
-
-  const [form, setForm] = useState({
-    name: "",
-    passportNumber: "",
-    consultant: "",
-    className: "",
-    phone: "",
-    email: "",
-  });
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleAddStudent = async (e) => {
-    e.preventDefault();
-
-    const result = await createStudentRecord(form);
-
-    if (result.success) {
-      alert("Student added successfully!");
-
-      setForm({
-        name: "",
-        passportNumber: "",
-        consultant: "",
-        className: "",
-        phone: "",
-        email: "",
-      });
-
-      if (refreshStudents) refreshStudents();
-    } else {
-      alert("Error adding student.");
-    }
-  };
+export default function StudentsTable({ students, refreshStudents, onView }) {
+  if (!students || students.length === 0) {
+    return (
+      <div className="students-table-wrapper">
+        <div className="empty-state">
+          <p>No students found.</p>
+          <p className="hint">Click "Add Student" in the header to add a new student.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <>
-      <div className="add-student-container">
-        <h3>Add New Student</h3>
-
-        <form onSubmit={handleAddStudent} className="add-student-form">
-          <input name="name" placeholder="Student Name" value={form.name} onChange={handleChange} required />
-          <input name="passportNumber" placeholder="Passport Number" value={form.passportNumber} onChange={handleChange} />
-          <input name="consultant" placeholder="Consultant Name" value={form.consultant} onChange={handleChange} required />
-          <input name="className" placeholder="Class" value={form.className} onChange={handleChange} />
-          <input name="phone" placeholder="Phone" value={form.phone} onChange={handleChange} />
-          <input name="email" placeholder="Email" value={form.email} onChange={handleChange} />
-          <button type="submit">Add Student</button>
-        </form>
-      </div>
-
+    <div className="students-table-wrapper">
       <table className="students-table">
         <thead>
           <tr>
@@ -68,30 +22,32 @@ export default function StudentsTable({ students, refreshStudents }) {
             <th>Class</th>
             <th>Status</th>
             <th>Joined</th>
-            <th></th>
+            <th>Actions</th>
           </tr>
         </thead>
-
         <tbody>
-          {students.map((s) => (
-            <tr key={s.id}>
+          {students.map((student) => (
+            <tr key={student.id}>
               <td>
-                <div className="student-cell">
-                  <Avatar name={s.name} photoUrl={s.photoUrl} />
-                  <span>{s.name}</span>
+                <div className="student-name-cell">
+                  <span className="student-avatar">
+                    {student.name?.charAt(0) || "?"}
+                  </span>
+                  {student.name || "Unnamed"}
                 </div>
               </td>
-
-              <td>{s.className}</td>
-
+              <td>{student.className || "-"}</td>
               <td>
-                <span className={`status-badge ${s.status}`}>{s.status}</span>
+                <span className={`status-badge ${student.status || "active"}`}>
+                  {student.status || "active"}
+                </span>
               </td>
-
-              <td>{s.joined}</td>
-
+              <td>{student.joined || "-"}</td>
               <td>
-                <button className="row-action" onClick={() => navigate(`/students/${s.id}`)}>
+                <button 
+                  className="view-btn"
+                  onClick={() => onView(student.id)}
+                >
                   View
                 </button>
               </td>
@@ -99,6 +55,6 @@ export default function StudentsTable({ students, refreshStudents }) {
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }

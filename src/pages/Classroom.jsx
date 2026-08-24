@@ -1,12 +1,10 @@
-import TopBar from "../components/TopBar";
+import "./Classroom.css";
 
 export default function Classroom() {
   return (
-    <>
-      <TopBar title="Classroom" />
-      <div className="page-content">
-        <p>Classroom tools will appear here.</p>
-      </div>
-    </>
+    <div className="page-content">
+      <h2>Classroom</h2>
+      <p>Classroom tools will appear here.</p>
+    </div>
   );
 }
