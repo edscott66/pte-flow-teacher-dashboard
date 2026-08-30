@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 import "./StudentRegistration.css";
 
 export default function StudentRegistration() {
+  console.log("✅ StudentRegistration component is rendering!");
+
   const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
   const className = searchParams.get("class") || "";
   const consultant = searchParams.get("consultant") || "";
 
@@ -20,6 +21,7 @@ export default function StudentRegistration() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -28,8 +30,15 @@ export default function StudentRegistration() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError("");
 
     try {
+      if (!form.name || !form.passportNumber) {
+        setError("Name and Passport Number are required.");
+        setIsSubmitting(false);
+        return;
+      }
+
       const studentsCollection = collection(db, "students");
 
       const newStudent = {
@@ -70,13 +79,12 @@ export default function StudentRegistration() {
         email: "",
       });
 
-      // Redirect after 3 seconds
       setTimeout(() => {
         setSuccess(false);
-      }, 3000);
+      }, 5000);
     } catch (error) {
       console.error("Error registering student:", error);
-      alert("Error registering: " + error.message);
+      setError(error.message || "Error registering. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -101,6 +109,12 @@ export default function StudentRegistration() {
           <h1>Student Registration</h1>
           <p>Please fill in your details below</p>
         </div>
+
+        {error && (
+          <div className="registration-error">
+            <p>❌ {error}</p>
+          </div>
+        )}
 
         {success ? (
           <div className="registration-success">

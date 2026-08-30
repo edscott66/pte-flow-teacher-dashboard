@@ -1,0 +1,636 @@
+/* ============================================================
+   ATTENDANCE CHART - STYLES
+   ============================================================ */
+
+.attendance-section {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 2px solid #e2e8f0;
+}
+
+.attendance-section-header {
+  margin-bottom: 20px;
+}
+
+.attendance-section-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+}
+
+.attendance-section-header p {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ============================================================
+   CHART CONTROLS
+   ============================================================ */
+
+.attendance-chart {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.attendance-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.month-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.month-selector label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.month-selector select {
+  padding: 6px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  color: #0f172a;
+  cursor: pointer;
+  outline: none;
+}
+
+.month-selector select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* ============================================================
+   LEGEND
+   ============================================================ */
+
+.attendance-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  padding: 10px 16px;
+  background: #f8fafc;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #1e293b;
+}
+
+.legend-color {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.legend-hint {
+  margin-left: auto;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+
+.attendance-table-wrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 500px;
+}
+
+.attendance-table th,
+.attendance-table td {
+  padding: 6px 4px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+}
+
+.attendance-table thead {
+  background: #f8fafc;
+}
+
+.student-name-header {
+  text-align: left !important;
+  padding: 10px 14px !important;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #475569;
+  position: sticky;
+  left: 0;
+  background: #f8fafc;
+  z-index: 2;
+  min-width: 120px;
+}
+
+.date-header {
+  padding: 6px 2px !important;
+  min-width: 40px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.date-header.today {
+  background: #dbeafe;
+}
+
+.date-header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.date-day {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.date-month {
+  font-size: 9px;
+  font-weight: 500;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.student-name-cell {
+  text-align: left !important;
+  padding: 6px 14px !important;
+  font-weight: 500;
+  color: #0f172a;
+  position: sticky;
+  left: 0;
+  background: white;
+  z-index: 1;
+  min-width: 120px;
+  font-size: 13px;
+}
+
+.attendance-table tbody tr:hover .student-name-cell {
+  background: #f8fafc;
+}
+
+/* Cells */
+.attendance-cell {
+  min-width: 50px;
+  height: 44px;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  position: relative;
+  font-size: 10px;
+  color: white;
+  font-weight: 500;
+}
+
+.attendance-cell:hover {
+  transform: scale(1.03);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 3;
+}
+
+.cell-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+
+.cell-status {
+  font-size: 9px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.cell-badge {
+  font-size: 9px;
+  opacity: 0.9;
+}
+
+/* ============================================================
+   EDIT CELL
+   ============================================================ */
+
+.edit-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 4px;
+  background: white;
+  border-radius: 4px;
+  min-width: 100px;
+}
+
+.edit-cell select {
+  padding: 3px 6px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  background: white;
+}
+
+.edit-cell input[type="datetime-local"] {
+  padding: 3px 6px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 10px;
+  background: white;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+}
+
+.edit-actions button {
+  padding: 2px 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.edit-actions button:first-child {
+  background: #22c55e;
+  color: white;
+}
+
+.edit-actions button:first-child:hover {
+  background: #16a34a;
+}
+
+.edit-actions button:last-child {
+  background: #ef4444;
+  color: white;
+}
+
+.edit-actions button:last-child:hover {
+  background: #dc2626;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.attendance-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 4px 0 4px;
+  font-size: 12px;
+  color: #94a3b8;
+  border-top: 1px solid #f1f5f9;
+  margin-top: 12px;
+}
+
+.attendance-updated {
+  font-style: italic;
+}
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+
+.attendance-empty {
+  text-align: center;
+  padding: 30px 20px;
+  color: #94a3b8;
+}
+
+.attendance-empty p {
+  margin: 4px 0;
+}
+
+.attendance-hint {
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .attendance-section {
+    margin-top: 24px;
+    padding-top: 16px;
+  }
+
+  .attendance-section-header h3 {
+    font-size: 17px;
+  }
+
+  .attendance-chart {
+    padding: 12px;
+  }
+
+  .attendance-table {
+    font-size: 11px;
+    min-width: 400px;
+  }
+
+  .attendance-cell {
+    min-width: 36px;
+    height: 36px;
+    font-size: 8px;
+  }
+
+  .cell-status {
+    font-size: 7px;
+  }
+
+  .student-name-header,
+  .student-name-cell {
+    min-width: 80px;
+    padding: 4px 8px !important;
+    font-size: 11px;
+  }
+
+  .date-day {
+    font-size: 12px;
+  }
+
+  .date-month {
+    font-size: 8px;
+  }
+
+  .attendance-legend {
+    gap: 6px 12px;
+    padding: 8px 12px;
+    font-size: 10px;
+  }
+
+  .legend-hint {
+    font-size: 10px;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .attendance-footer {
+    flex-direction: column;
+    gap: 4px;
+    font-size: 11px;
+  }
+
+  .edit-cell {
+    min-width: 70px;
+  }
+
+  .edit-cell select,
+  .edit-cell input {
+    font-size: 9px;
+    padding: 2px 4px;
+  }
+
+  .edit-actions button {
+    font-size: 8px;
+    padding: 2px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .attendance-table {
+    font-size: 9px;
+    min-width: 320px;
+  }
+
+  .attendance-cell {
+    min-width: 28px;
+    height: 28px;
+    font-size: 7px;
+  }
+
+  .cell-status {
+    font-size: 6px;
+  }
+
+  .student-name-header,
+  .student-name-cell {
+    min-width: 60px;
+    padding: 2px 6px !important;
+    font-size: 9px;
+  }
+
+  .date-day {
+    font-size: 10px;
+  }
+
+  .date-month {
+    font-size: 7px;
+  }
+
+  .attendance-controls {
+    justify-content: center;
+  }
+
+  .month-selector label {
+    font-size: 12px;
+  }
+
+  .month-selector select {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+
+  .attendance-legend {
+    gap: 4px 8px;
+    padding: 6px 10px;
+    font-size: 9px;
+  }
+
+  .legend-color {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Add to AttendanceChart.css */
+
+/* ============================================================
+   HOLIDAY & WEEKEND STYLES
+   ============================================================ */
+
+/* Holiday/Weekend header styling */
+.date-header.holiday-header {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+.date-header.holiday-header .date-day {
+  color: #ffffff;
+}
+
+.date-header.holiday-header .date-month {
+  color: #aaaaaa;
+}
+
+.date-header.holiday-header .date-day-name {
+  color: #ffffff;
+}
+
+.date-holiday-label {
+  font-size: 7px;
+  color: #ff6b6b;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1px 4px;
+  border-radius: 3px;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+/* Day name above date */
+.date-day-name {
+  font-size: 9px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.date-header.today .date-day-name {
+  color: #2563eb;
+}
+
+/* Weekend cell - black */
+.attendance-cell.weekend-cell {
+  background: #1a1a1a !important;
+  cursor: default;
+  pointer-events: none;
+}
+
+.attendance-cell.weekend-cell .cell-status {
+  color: #666;
+  font-size: 8px;
+}
+
+/* Holiday cell - black */
+.attendance-cell.holiday-cell {
+  background: #1a1a1a !important;
+  cursor: default;
+  pointer-events: none;
+}
+
+.attendance-cell.holiday-cell .cell-status {
+  color: #666;
+  font-size: 8px;
+}
+
+/* Responsive adjustments for holiday labels */
+@media (max-width: 768px) {
+  .date-holiday-label {
+    font-size: 6px;
+    padding: 1px 3px;
+  }
+  
+  .date-day-name {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .date-holiday-label {
+    font-size: 5px;
+    padding: 0px 2px;
+  }
+  
+  .date-day-name {
+    font-size: 7px;
+  }
+}
+
+/* Add to AttendanceChart.css */
+
+/* ============================================================
+   FUTURE DATE CELLS
+   ============================================================ */
+
+.attendance-cell.future-cell {
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb;
+  cursor: default !important;
+  pointer-events: none;
+  color: #9ca3af !important;
+}
+
+.attendance-cell.future-cell .cell-status {
+  color: #9ca3af !important;
+  font-size: 14px;
+}
+
+.cell-future-label {
+  font-size: 7px;
+  color: #9ca3af;
+  opacity: 0.7;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* Non-editable cells (past dates that are locked) */
+.attendance-cell.non-editable {
+  cursor: default !important;
+  pointer-events: none;
+}
+
+/* Override for non-editable cells that are not future */
+.attendance-cell.non-editable:not(.future-cell) {
+  opacity: 0.7;
+}
+
+/* ============================================================
+   RESPONSIVE - Future cells
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .cell-future-label {
+    font-size: 6px;
+  }
+  
+  .attendance-cell.future-cell .cell-status {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cell-future-label {
+    font-size: 5px;
+  }
+  
+  .attendance-cell.future-cell .cell-status {
+    font-size: 10px;
+  }
+}

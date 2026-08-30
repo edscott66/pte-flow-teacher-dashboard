@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 import "./Sidebar.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaClipboardList } from "react-icons/fa";
 
 export default function Sidebar({ sidebarOpen, onToggle }) {
   const { roleData } = useAuth();
@@ -64,6 +65,11 @@ export default function Sidebar({ sidebarOpen, onToggle }) {
                 <NavLink to="/broadcast" className={({ isActive }) => isActive ? "active" : ""}>
                   <span className="sidebar-icon" style={{ color: '#ec4899', fontSize: '22px' }}>📢</span>
                   <span>Broadcast</span>
+                </NavLink>
+
+                <NavLink to="/attendance" className={({ isActive }) => isActive ? "active" : ""}>
+                  <FaClipboardList className="sidebar-icon" />
+                  <span>Attendance</span>
                 </NavLink>
               </>
             )}

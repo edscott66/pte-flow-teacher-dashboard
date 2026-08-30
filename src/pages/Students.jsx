@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 import { useAuth } from "../AuthContext";
@@ -7,6 +7,7 @@ import DashboardCard from "../components/DashboardCard";
 import StudentsTable from "../components/StudentsTable";
 import AddStudentForm from "../components/Teacher/AddStudentForm";
 import QRCode from "react-qr-code";
+import AttendanceChart from "../components/AttendanceChart";
 import "./Students.css";
 
 import {
@@ -109,12 +110,12 @@ export default function Students() {
 
   // ===== QR CODE FUNCTIONS =====
   const getRegistrationUrl = () => {
-    const baseUrl = "http://192.168.0.150:5173";
-    const params = new URLSearchParams();
-    if (teacherClass) params.set("class", teacherClass);
-    if (roleData?.name) params.set("consultant", roleData.name);
-    return `${baseUrl}/register?${params.toString()}`;
-  };
+  const baseUrl = window.location.origin;
+  const params = new URLSearchParams();
+  if (teacherClass) params.set("class", teacherClass);
+  if (roleData?.name) params.set("consultant", roleData.name);
+  return `${baseUrl}/register?${params.toString()}`;
+};
 
   const downloadQRCode = () => {
     const svg = qrRef.current?.querySelector("svg");
@@ -225,6 +226,27 @@ export default function Students() {
         )}
       </div>
 
+      {/* ===== ADD STUDENT FORM - Safety Feature ===== */}
+      {showAddForm && (
+        <div className="add-student-section">
+          <div className="add-student-header">
+            <div className="add-student-title">
+              <FaUserPlus className="add-student-icon" />
+              <h3>Manual Add Student</h3>
+            </div>
+            <button className="close-form-btn" onClick={toggleAddForm}>
+              <FaTimes />
+            </button>
+          </div>
+          <p className="add-student-hint">
+            ⚠️ Use this form only if students are having trouble with the QR code.
+            <br />
+            <span className="hint-sub">The QR code registration is the recommended method.</span>
+          </p>
+          <AddStudentForm onStudentAdded={handleStudentAdded} />
+        </div>
+      )}
+
       {/* ===== QR CODE SECTION ===== */}
       <div className="qr-code-section">
         <div className="qr-code-card">
@@ -235,7 +257,7 @@ export default function Students() {
           <div className="qr-code-content">
             <div className="qr-code-display" ref={qrRef}>
               <QRCode
-                value={getRegistrationUrl()}
+                value={getRegistrationUrl() + '&t=' + Date.now()}
                 size={180}
                 level="H"
                 includemargin={true}
@@ -269,33 +291,21 @@ export default function Students() {
         </div>
       </div>
 
-      {/* ===== MANUAL ADD STUDENT FORM - Only ONE form ===== */}
-      {showAddForm && (
-        <div className="add-student-section">
-          <div className="add-student-header">
-            <div className="add-student-title">
-              <FaUserPlus className="add-student-icon" />
-              <h3>Manual Add Student</h3>
-            </div>
-            <button className="close-form-btn" onClick={toggleAddForm}>
-              <FaTimes />
-            </button>
-          </div>
-          <p className="add-student-hint">
-            ⚠️ Use this form only if students are having trouble with the QR code.
-            <br />
-            <span className="hint-sub">The QR code registration is the recommended method.</span>
-          </p>
-          <AddStudentForm onStudentAdded={handleStudentAdded} />
-        </div>
-      )}
-
-      {/* Students Table */}
+      {/* ===== STUDENTS TABLE ===== */}
       <StudentsTable
         students={students}
         refreshStudents={loadStudents}
         onView={(id) => navigate(`/students/${id}`)}
       />
+
+      {/* ===== ATTENDANCE CHART ===== */}
+      <div className="attendance-section">
+        <div className="attendance-section-header">
+          <h3>📋 Attendance Dashboard</h3>
+          <p>Track student attendance based on network connection</p>
+        </div>
+        <AttendanceChart students={students} />
+      </div>
 
     </div>
   );

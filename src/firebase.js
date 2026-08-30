@@ -9,9 +9,10 @@ const firebaseConfig = {
   apiKey: "AIzaSyDX2QcapnWu0iq_9dUi78o4IPXdw7lzG1M",
   authDomain: "bba-web-e1884.firebaseapp.com",
   projectId: "bba-web-e1884",
-  storageBucket: "bba-web-e1884.appspot.com",
-  messagingSenderId: "1234567890",
-  appId: "1:1234567890:web:abcdef123456"
+  storageBucket: "bba-web-e1884.firebasestorage.app",
+  messagingSenderId: "716224766880",
+  appId: "1:716224766880:web:ba7ff4725f007af197fac5",
+  measurementId: "G-LJQMF9VX0Y"
 };
 
 const app = initializeApp(firebaseConfig);
