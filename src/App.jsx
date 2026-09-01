@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route, useNavigate, useLocation, Navigate } from "react-router-dom";  // ← Added Navigate
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 
 import Sidebar from "./components/Sidebar";
@@ -18,10 +18,48 @@ import AttendanceDashboard from "./pages/AttendanceDashboard";
 
 import Login from "./pages/Login";
 import "./styles/global.css";
+import "./masterTeacher/masterTeacher.css";
 
 import Analytics from "./pages/Analytics";
 import Broadcast from "./pages/Broadcast";
 import Reports from "./pages/Reports";
+
+import MasterTeacherLayout from "./masterTeacher/MasterTeacherLayout";
+import { FeedbackProvider } from "./masterTeacher/contexts/FeedbackContext";
+
+function ProtectedRoutes({ sidebarOpen }) {
+  return (
+    <div className={`app-content ${sidebarOpen ? "shifted" : "collapsed"}`}>
+      <Routes>
+        {/* Existing Teacher Dashboard routes */}
+        <Route path="/" element={<Overview />} />
+        <Route path="/classroom" element={<Classroom />} />
+        <Route path="/students" element={<Students />} />
+        <Route path="/students/:id" element={<StudentDetail />} />
+        <Route path="/activation-codes" element={<ActivationCodes />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/admin-tools" element={<AdminTools />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/analytics" element={<Analytics />} />
+        <Route path="/broadcast" element={<Broadcast />} />
+        <Route path="/reports" element={<Reports />} />
+        <Route path="/attendance" element={<AttendanceDashboard />} />
+
+        {/* PTE Master Teacher Suite */}
+        <Route
+          path="/master-teacher/*"
+          element={<MasterTeacherLayout />}
+        />
+
+        {/* Unknown protected routes */}
+        <Route
+          path="*"
+          element={<Navigate to="/" replace />}
+        />
+      </Routes>
+    </div>
+  );
+}
 
 export default function App() {
   const { user, loading } = useAuth();
@@ -29,50 +67,51 @@ export default function App() {
   const navigate = useNavigate();
 
   const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
+    setSidebarOpen((prev) => !prev);
   };
 
   if (loading) {
     return <div className="app-loading">Loading...</div>;
   }
 
-      // ⭐ FORCE /register to render without any authentication checks
-    if (window.location.pathname === '/register') {
-      return <StudentRegistration />;
-    }
+  if (window.location.pathname === "/register") {
+    return <StudentRegistration />;
+  }
 
-  // ✅ Public routes (accessible without login)
   if (!user) {
     return (
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<StudentRegistration />} />
-        <Route path="*" element={<Navigate to="/login" />} />
+        <Route
+          path="*"
+          element={<Navigate to="/login" replace />}
+        />
       </Routes>
     );
   }
 
-  // ✅ Protected routes (require login)
   return (
     <div className="app-container">
-      <Sidebar sidebarOpen={sidebarOpen} onToggle={toggleSidebar} />
-      <Header />
-      <div className={`app-content ${sidebarOpen ? "shifted" : "collapsed"}`}>
-        <Routes>
-          <Route path="/" element={<Overview />} />
-          <Route path="/classroom" element={<Classroom />} />
-          <Route path="/students" element={<Students />} />
-          <Route path="/students/:id" element={<StudentDetail />} />
-          <Route path="/activation-codes" element={<ActivationCodes />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/admin-tools" element={<AdminTools />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/broadcast" element={<Broadcast />} />
-          <Route path="/reports" element={<Reports />} />
-          <Route path="/attendance" element={<AttendanceDashboard />} />
-        </Routes>
-      </div>
+      <Sidebar
+        sidebarOpen={sidebarOpen}
+        onToggle={toggleSidebar}
+      />
+
+      <Header
+        onAddStudent={() => {
+          navigate("/students", {
+            state: { showAddForm: true },
+          });
+        }}
+      />
+
+      {/* Keep one FeedbackProvider mounted around the protected routes.
+          This preserves Master Teacher evaluation results when navigating
+          between Calibration, Comparison, Lessons, Tips, etc. */}
+      <FeedbackProvider>
+        <ProtectedRoutes sidebarOpen={sidebarOpen} />
+      </FeedbackProvider>
     </div>
   );
 }
