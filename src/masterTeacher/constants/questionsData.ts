@@ -25,7 +25,11 @@ export const QUESTIONS_DATA = [
       { id: "pronunciation_stress", label: "Incorrect Word/Sentence Stress", keyword: "Word Stress" },
       { id: "content_omission", label: "Omission / Skipping Words", keyword: "Content Omission" },
       { id: "intonation_robotic", label: "Monotone / Robotic Rhythm", keyword: "Intonation" },
-      { id: "fluency_false_start", label: "Self-Correction / False Start", keyword: "False Start" }
+      { id: "fluency_false_start", label: "Self-Correction / False Start", keyword: "False Start" },
+      { id: "pronunciation_unclear", label: "Mispronunciation / Unclear Sounds", keyword: "Pronunciation" },
+      { id: "fluency_phrasing", label: "Poor Phrasing / Word Grouping", keyword: "Phrasing" },
+      { id: "fluency_rate", label: "Speech Rate Too Fast / Too Slow", keyword: "Oral Fluency" },
+      { id: "pronunciation_intelligibility", label: "Reduced Intelligibility / Difficult to Understand", keyword: "Intelligibility" }
     ],
     expertAdvice: `Read Aloud evaluates Enabling Skills: Oral Fluency, Pronunciation, and Content accuracy. A critical marking trap for teachers is over-penalizing accent. PTE algorithm assesses intelligibility, stress patterns, and rhythm rather than native accent. Teachers often misgrade by rewarding slow, over-articulated speech. In reality, unnatural slow pace breaks phrasing and lowers Fluency scores. Instructors must evaluate whether the candidate maintains continuous speech without false starts or self-corrections. A single 3-second pause will terminate the microphone recording automatically! Always check if punctuation marks (commas, full stops) were used for natural breath pauses rather than random stops mid-clause.`,
     exampleResponse: {

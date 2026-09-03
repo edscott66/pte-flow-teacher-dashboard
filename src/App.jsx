@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 
 import Sidebar from "./components/Sidebar";
@@ -27,40 +27,6 @@ import Reports from "./pages/Reports";
 import MasterTeacherLayout from "./masterTeacher/MasterTeacherLayout";
 import { FeedbackProvider } from "./masterTeacher/contexts/FeedbackContext";
 
-function ProtectedRoutes({ sidebarOpen }) {
-  return (
-    <div className={`app-content ${sidebarOpen ? "shifted" : "collapsed"}`}>
-      <Routes>
-        {/* Existing Teacher Dashboard routes */}
-        <Route path="/" element={<Overview />} />
-        <Route path="/classroom" element={<Classroom />} />
-        <Route path="/students" element={<Students />} />
-        <Route path="/students/:id" element={<StudentDetail />} />
-        <Route path="/activation-codes" element={<ActivationCodes />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/admin-tools" element={<AdminTools />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/analytics" element={<Analytics />} />
-        <Route path="/broadcast" element={<Broadcast />} />
-        <Route path="/reports" element={<Reports />} />
-        <Route path="/attendance" element={<AttendanceDashboard />} />
-
-        {/* PTE Master Teacher Suite */}
-        <Route
-          path="/master-teacher/*"
-          element={<MasterTeacherLayout />}
-        />
-
-        {/* Unknown protected routes */}
-        <Route
-          path="*"
-          element={<Navigate to="/" replace />}
-        />
-      </Routes>
-    </div>
-  );
-}
-
 export default function App() {
   const { user, loading } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -83,35 +49,84 @@ export default function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<StudentRegistration />} />
-        <Route
-          path="*"
-          element={<Navigate to="/login" replace />}
-        />
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     );
   }
 
   return (
-    <div className="app-container">
-      <Sidebar
-        sidebarOpen={sidebarOpen}
-        onToggle={toggleSidebar}
-      />
+    <FeedbackProvider>
+      <div className="app-container">
+        <Sidebar
+          sidebarOpen={sidebarOpen}
+          onToggle={toggleSidebar}
+        />
 
-      <Header
-        onAddStudent={() => {
-          navigate("/students", {
-            state: { showAddForm: true },
-          });
-        }}
-      />
+        <Header />
 
-      {/* Keep one FeedbackProvider mounted around the protected routes.
-          This preserves Master Teacher evaluation results when navigating
-          between Calibration, Comparison, Lessons, Tips, etc. */}
-      <FeedbackProvider>
-        <ProtectedRoutes sidebarOpen={sidebarOpen} />
-      </FeedbackProvider>
-    </div>
+        <div
+          className={`app-content ${
+            sidebarOpen ? "shifted" : "collapsed"
+          }`}
+        >
+          <Routes>
+            {/* ============================================================
+                EXISTING TEACHER DASHBOARD ROUTES
+                ============================================================ */}
+            <Route path="/" element={<Overview />} />
+
+            <Route path="/classroom" element={<Classroom />} />
+
+            <Route path="/students" element={<Students />} />
+
+            <Route
+              path="/students/:id"
+              element={<StudentDetail />}
+            />
+
+            <Route
+              path="/activation-codes"
+              element={<ActivationCodes />}
+            />
+
+            <Route path="/settings" element={<Settings />} />
+
+            <Route path="/admin-tools" element={<AdminTools />} />
+
+            <Route path="/profile" element={<Profile />} />
+
+            <Route path="/analytics" element={<Analytics />} />
+
+            <Route path="/broadcast" element={<Broadcast />} />
+
+            <Route path="/reports" element={<Reports />} />
+
+            <Route
+              path="/attendance"
+              element={<AttendanceDashboard />}
+            />
+
+            {/* ============================================================
+                PTE MASTER TEACHER SUITE
+
+                MasterTeacherLayout handles all of the internal
+                Master Teacher routes:
+
+                /master-teacher
+                /master-teacher/marking
+                /master-teacher/comparison
+                /master-teacher/students-evaluator
+                /master-teacher/lessons
+                /master-teacher/translator
+                /master-teacher/tips
+                ============================================================ */}
+            <Route
+              path="/master-teacher/*"
+              element={<MasterTeacherLayout />}
+            />
+          </Routes>
+        </div>
+      </div>
+    </FeedbackProvider>
   );
 }
