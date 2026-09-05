@@ -131,6 +131,7 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
 
     const targetExpertScore = activeResponseMode === "good" ? currentExercise.goodScore : currentExercise.poorScore;
     const expertText = `${targetExpertScore.overall || 'Score N/A'}. ${targetExpertScore.breakdownText || ''} Expert Advice: ${currentExercise.expertAdvice || ''}`;
+    const perfectCalibrationResponse = (currentExercise as typeof currentExercise & { perfectCalibrationResponse?: string }).perfectCalibrationResponse;
 
     const checklistItems: ErrorChecklistItem[] = currentExercise.errorChecklist || [];
     const activeChecklist = checklistItems.filter(item => checkedErrorIds.includes(item.id));
@@ -150,6 +151,7 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
       expertFeedbackText: targetExpertScore.breakdownText,
       expertAdvice: currentExercise.expertAdvice,
       expertOverallScore: targetExpertScore.overall,
+      perfectCalibrationResponse,
       checkedErrorIds,
       isLiveAi: false,
       timestamp: new Date().toISOString()

@@ -297,6 +297,782 @@ export const ASQ_QUESTIONS = [
   { question: "What evolutionary phenomenon leads independent lineages to evolve identical structures?", answer: "Convergent evolution" }
 ];
 
+
+// -----------------------------------------------------------------------------
+// READ ALOUD CALIBRATION LAB — AUTHORED EXERCISES 1–10
+// These exercises are specifically designed for teacher calibration.
+// The first ten cases are fully authored and aligned to COMMON_PTE_TOPICS.
+// Exercises 11–100 continue to use the existing generator until authored.
+// -----------------------------------------------------------------------------
+
+export const READ_ALOUD_CALIBRATION_EXERCISES = [
+  {
+    exerciseIndex: 1,
+    totalExercises: 100,
+    difficulty: "Beginner",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Hesitation & Fillers",
+    learningObjective:
+      "Identify repeated hesitation fillers and distinguish them from normal pauses.",
+    promptText:
+      "I usually wake up early, have breakfast, and walk to work in the morning.",
+    promptAudio:
+      "I usually wake up early, have breakfast, and walk to work in the morning.",
+    studentTranscript:
+      "I usually wake up, um, early, have breakfast, uh, and walk to work, er, in the morning.",
+    studentResponse: {
+      audioDuration: "8.2 seconds",
+      wordCount: 17,
+      characteristics:
+        "The student is understandable but inserts three noticeable hesitation fillers during a simple morning routine sentence."
+    },
+    diagnosticErrors: ["Hesitation", "Filler words"],
+    expertEvidence: [
+      "\"um\" occurs after \"wake up\"",
+      "\"uh\" occurs before \"and walk\"",
+      "\"er\" occurs before \"in the morning\"",
+      "The student otherwise maintains the correct sentence and keeps moving forward."
+    ],
+    expertDiagnosis:
+      "The main fluency problem is repeated use of hesitation fillers. The student can produce the sentence, but the fillers interrupt an otherwise continuous description of a familiar routine.",
+    perfectCalibrationResponse:
+      "The student\u2019s main oral fluency issue is repeated hesitation and filler-word use. \u201cUm,\u201d \u201cuh,\u201d and \u201cer\u201d interrupt an otherwise understandable delivery at several points. The student maintains the sentence content and continues forward, so the diagnosis should focus on filler-driven hesitation rather than pronunciation or content.",
+    coachingAdvice:
+      "Teach the student to replace filler sounds with brief silent pauses. Practise short, familiar sentences while maintaining forward movement instead of filling thinking time with \"um\", \"uh\" or \"er\".",
+    cefrLevel: "A1",
+    topicTitle: "Daily Morning Routines",
+    good: {
+      transcript:
+        "I usually wake up early, have breakfast, and walk to work in the morning.",
+      audioDuration: "6.4 seconds",
+      wordCount: 17,
+      characteristics:
+        "Natural continuous delivery with appropriate phrasing and no unnecessary fillers."
+    },
+    poor: {
+      transcript:
+        "I usually wake up, um, early, have breakfast, uh, and walk to work, er, in the morning.",
+      audioDuration: "8.2 seconds",
+      wordCount: 17,
+      characteristics:
+        "Repeated hesitation fillers interrupt otherwise understandable delivery."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Clear, continuous and appropriately paced delivery."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 2,
+      pronunciation: 5,
+      overall: "65 / 90",
+      breakdownText:
+        "Repeated hesitation fillers interrupt an otherwise understandable delivery."
+    },
+    errorChecklist: [
+      { id: "hesitation", label: "Hesitation", keyword: "Hesitation" },
+      { id: "filler-words", label: "Filler words", keyword: "Filler words" }
+    ],
+    expertAdvice:
+      "Focus on reducing hesitation fillers. Encourage brief silent pauses instead of filling thinking time with \"um\", \"uh\" or \"er\"."
+  },
+
+  {
+    exerciseIndex: 2,
+    totalExercises: 100,
+    difficulty: "Beginner",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Unnatural Pauses",
+    learningObjective:
+      "Identify pauses that break grammatical or meaningful phrase boundaries.",
+    promptText:
+      "My sister lives nearby, and we often meet at the weekend for coffee.",
+    promptAudio:
+      "My sister lives nearby, and we often meet at the weekend for coffee.",
+    studentTranscript:
+      "My sister lives / nearby, and we / often meet / at the weekend / for coffee.",
+    studentResponse: {
+      audioDuration: "9.4 seconds",
+      wordCount: 13,
+      characteristics:
+        "The student pauses repeatedly inside short grammatical and meaningful units."
+    },
+    diagnosticErrors: ["Unnatural pauses", "Fragmented phrasing"],
+    expertEvidence: [
+      "Pause after \"lives\" breaks \"lives nearby\"",
+      "Pause after \"we\" breaks \"we often meet\"",
+      "Pause after \"meet\" separates it from the time phrase",
+      "The final phrase is unnecessarily isolated",
+      "The student is not repeating or restarting words"
+    ],
+    expertDiagnosis:
+      "The main problem is unnatural pausing. The student knows the words and does not show significant hesitation, but the pauses divide the family-related sentence into awkward fragments.",
+    perfectCalibrationResponse:
+      "The student\u2019s main oral fluency issue is unnatural pausing. Pauses occur inside connected phrases such as \u201clives nearby\u201d and \u201cwe often meet,\u201d which breaks the sentence into awkward fragments. The student is not mainly struggling with repetition or restarting; the key issue is poor placement of pauses.",
+    coachingAdvice:
+      "Teach the student to read in sense groups. For example: \"My sister lives nearby / and we often meet at the weekend / for coffee.\" Practise keeping closely connected words together.",
+    cefrLevel: "A1",
+    topicTitle: "Family & Friends",
+    good: {
+      transcript:
+        "My sister lives nearby, and we often meet at the weekend for coffee.",
+      audioDuration: "6.4 seconds",
+      wordCount: 13,
+      characteristics:
+        "Natural pauses occur at sensible phrase boundaries."
+    },
+    poor: {
+      transcript:
+        "My sister lives / nearby, and we / often meet / at the weekend / for coffee.",
+      audioDuration: "9.4 seconds",
+      wordCount: 13,
+      characteristics:
+        "Frequent mid-phrase pauses make the sentence sound fragmented."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Natural phrase grouping and continuous delivery."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 2,
+      pronunciation: 5,
+      overall: "68 / 90",
+      breakdownText:
+        "Frequent pauses occur inside grammatical and meaningful phrase boundaries."
+    },
+    errorChecklist: [
+      { id: "unnatural-pauses", label: "Unnatural pauses", keyword: "Unnatural pauses" },
+      { id: "fragmented-phrasing", label: "Fragmented phrasing", keyword: "Fragmented phrasing" }
+    ],
+    expertAdvice:
+      "Teach the student to identify meaningful groups before reading. Avoid pausing between words that belong together."
+  },
+
+  {
+    exerciseIndex: 3,
+    totalExercises: 100,
+    difficulty: "Beginner",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Repetition & Restarting",
+    learningObjective:
+      "Recognise repeated words and restarts that interrupt otherwise continuous speech.",
+    promptText:
+      "My favorite meal is chicken with rice and fresh vegetables.",
+    promptAudio:
+      "My favorite meal is chicken with rice and fresh vegetables.",
+    studentTranscript:
+      "My favorite meal is chicken with rice—rice and fresh vegetables.",
+    studentResponse: {
+      audioDuration: "7.4 seconds",
+      wordCount: 11,
+      characteristics:
+        "The student repeats a key food word before continuing with the sentence."
+    },
+    diagnosticErrors: ["Repetition", "Restarting"],
+    expertEvidence: [
+      "The word \"rice\" is repeated",
+      "The repetition interrupts the food description",
+      "There is no major speech-rate problem",
+      "The student does not omit the final part of the sentence"
+    ],
+    expertDiagnosis:
+      "The main fluency problem is unnecessary repetition. The student starts the phrase successfully, repeats \"rice\", and then continues. The repetition interrupts an otherwise manageable description of a favorite meal.",
+    perfectCalibrationResponse:
+      "The student\u2019s main oral fluency issue is unnecessary repetition and restarting. The word \u201crice\u201d is repeated after the phrase has already been successfully produced, interrupting otherwise manageable connected speech. The teacher should recognise the repetition without over-penalising the student for content or pronunciation.",
+    coachingAdvice:
+      "Teach the student to continue after a minor slip instead of repeating the word or phrase. Practise short food descriptions while focusing on forward movement.",
+    cefrLevel: "A1",
+    topicTitle: "Favorite Foods & Meals",
+    good: {
+      transcript:
+        "My favorite meal is chicken with rice and fresh vegetables.",
+      audioDuration: "5.2 seconds",
+      wordCount: 11,
+      characteristics:
+        "Continuous delivery without unnecessary repetition."
+    },
+    poor: {
+      transcript:
+        "My favorite meal is chicken with rice—rice and fresh vegetables.",
+      audioDuration: "7.4 seconds",
+      wordCount: 11,
+      characteristics:
+        "The repeated word interrupts connected speech."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Continuous delivery without unnecessary repetition."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 2,
+      pronunciation: 5,
+      overall: "66 / 90",
+      breakdownText:
+        "Repeated words interrupt otherwise understandable connected speech."
+    },
+    errorChecklist: [
+      { id: "repetition", label: "Repetition", keyword: "Repetition" },
+      { id: "restarting", label: "Restarting", keyword: "Restarting" }
+    ],
+    expertAdvice:
+      "Encourage the student to keep moving forward after a small slip. Repeating a word to make the delivery perfect can create a larger fluency problem."
+  },
+
+  {
+    exerciseIndex: 4,
+    totalExercises: 100,
+    difficulty: "Beginner",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Phrasing & Word Grouping",
+    learningObjective:
+      "Identify poorly grouped delivery and teach meaningful phrase-level chunking.",
+    promptText:
+      "I like reading books and listening to music in my free time.",
+    promptAudio:
+      "I like reading books and listening to music in my free time.",
+    studentTranscript:
+      "I like / reading / books and / listening / to music / in my / free time.",
+    studentResponse: {
+      audioDuration: "8.9 seconds",
+      wordCount: 12,
+      characteristics:
+        "The student breaks the simple hobby sentence into small, unnatural word groups."
+    },
+    diagnosticErrors: ["Poor phrasing", "Word-by-word grouping"],
+    expertEvidence: [
+      "\"reading\" is separated from \"books\"",
+      "\"listening\" is separated from \"to music\"",
+      "\"in my\" is separated from \"free time\"",
+      "The student produces the words but does not group them into natural sense units"
+    ],
+    expertDiagnosis:
+      "The dominant problem is poor phrasing rather than hesitation. The student reads the hobby sentence in small word groups instead of connecting words that form meaningful phrases.",
+    perfectCalibrationResponse:
+      "The student\u2019s dominant oral fluency problem is poor phrasing and word grouping. Words that naturally belong together, such as \u201creading books,\u201d \u201clistening to music,\u201d and \u201cfree time,\u201d are split into small chunks. The issue is choppy phrase-level delivery rather than simple hesitation or excessive silence.",
+    coachingAdvice:
+      "Teach the student to group words according to meaning. A more natural pattern is: \"I like reading books / and listening to music / in my free time.\"",
+    cefrLevel: "A1",
+    topicTitle: "Hobbies & Free Time",
+    good: {
+      transcript:
+        "I like reading books and listening to music in my free time.",
+      audioDuration: "5.7 seconds",
+      wordCount: 12,
+      characteristics:
+        "Meaningful phrase groups create a natural rhythm."
+    },
+    poor: {
+      transcript:
+        "I like / reading / books and / listening / to music / in my / free time.",
+      audioDuration: "8.9 seconds",
+      wordCount: 12,
+      characteristics:
+        "Small word groups make the hobby sentence sound mechanical and fragmented."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Natural phrase-level grouping."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 2,
+      pronunciation: 5,
+      overall: "67 / 90",
+      breakdownText:
+        "Poor phrase grouping makes the sentence sound fragmented."
+    },
+    errorChecklist: [
+      { id: "poor-phrasing", label: "Poor phrasing", keyword: "Poor phrasing" },
+      { id: "word-by-word-grouping", label: "Word-by-word grouping", keyword: "Word-by-word grouping" }
+    ],
+    expertAdvice:
+      "Have the student underline meaningful phrases before speaking. The target is connected thought groups, not equal-length word groups."
+  },
+
+  {
+    exerciseIndex: 5,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Speech Rate — Too Slow",
+    learningObjective:
+      "Distinguish excessively slow delivery from hesitation, pronunciation problems or normal processing pauses.",
+    promptText:
+      "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden.",
+    promptAudio:
+      "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden.",
+    studentTranscript:
+      "My home... is... small but comfortable... with a kitchen... two bedrooms... and a quiet garden.",
+    studentResponse: {
+      audioDuration: "14.6 seconds",
+      wordCount: 15,
+      characteristics:
+        "The words are mostly clear, but long gaps make this simple home description excessively slow."
+    },
+    diagnosticErrors: ["Speech rate too slow", "Excessive pausing"],
+    expertEvidence: [
+      "Long gaps occur throughout the sentence",
+      "There are no significant filler words",
+      "There is no major repetition or restarting",
+      "The student produces the home-related vocabulary clearly",
+      "The overall rate is much slower than a controlled natural reading"
+    ],
+    expertDiagnosis:
+      "The dominant problem is an excessively slow speech rate. The student can produce the vocabulary accurately, but the long gaps prevent the home description from sounding fluent.",
+    perfectCalibrationResponse:
+      "The student\u2019s main oral fluency problem is an excessively slow speech rate. The words are generally clear and accurate, but long gaps throughout the sentence make the delivery much slower than a controlled natural reading. The teacher should distinguish the overall rate problem from filler-based hesitation.",
+    coachingAdvice:
+      "Use short timed readings and gradually reduce the gaps between phrases. The goal is continuous, comfortable speech rather than rushing or pronouncing every word in isolation.",
+    cefrLevel: "A1",
+    topicTitle: "My Home & Neighborhood",
+    good: {
+      transcript:
+        "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden.",
+      audioDuration: "6.7 seconds",
+      wordCount: 15,
+      characteristics:
+        "Controlled, continuous delivery with clear articulation."
+    },
+    poor: {
+      transcript:
+        "My home... is... small but comfortable... with a kitchen... two bedrooms... and a quiet garden.",
+      audioDuration: "14.6 seconds",
+      wordCount: 15,
+      characteristics:
+        "Excessively slow delivery caused by long gaps throughout the sentence."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Appropriate controlled speaking rate."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 2,
+      pronunciation: 5,
+      overall: "69 / 90",
+      breakdownText:
+        "Excessively slow rate and frequent long pauses reduce natural fluency."
+    },
+    errorChecklist: [
+      { id: "speech-rate-too-slow", label: "Speech rate too slow", keyword: "Speech rate too slow" },
+      { id: "excessive-pausing", label: "Excessive pausing", keyword: "Excessive pausing" }
+    ],
+    expertAdvice:
+      "Do not confuse every pause with hesitation. In this case the main problem is the overall slow rate. Use timed repeated reading to build a more continuous rhythm."
+  },
+
+  {
+    exerciseIndex: 6,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Speech Rate — Too Fast",
+    learningObjective:
+      "Recognise when excessive speed reduces clarity, phrase boundaries and intelligibility.",
+    promptText:
+      "In rainy weather, I usually carry an umbrella and wear a light jacket.",
+    promptAudio:
+      "In rainy weather, I usually carry an umbrella and wear a light jacket.",
+    studentTranscript:
+      "In rainy weather, I usually carry an umbrella and wear a light jacket.",
+    studentResponse: {
+      audioDuration: "3.1 seconds",
+      wordCount: 13,
+      characteristics:
+        "The student rushes through the weather sentence, causing words to run together."
+    },
+    diagnosticErrors: ["Speech rate too fast", "Reduced word boundaries"],
+    expertEvidence: [
+      "The complete sentence is delivered unusually quickly",
+      "Several word boundaries are difficult to distinguish",
+      "The student gives little space to natural phrase boundaries",
+      "The issue is speed rather than missing content"
+    ],
+    expertDiagnosis:
+      "The dominant fluency problem is excessive speech rate. The student produces the weather information, but the speed reduces clarity and makes the sentence difficult to process comfortably.",
+    perfectCalibrationResponse:
+      "The student\u2019s main oral fluency problem is an excessively fast speech rate. The complete sentence is produced, but the rushed delivery reduces clear word boundaries and leaves too little space for natural phrase grouping. The appropriate feedback is to slow the delivery enough to preserve clarity, not simply to tell the student to speak more slowly without explaining why.",
+    coachingAdvice:
+      "Train the student to slow down enough to preserve clear word boundaries. Practise the sentence in meaningful groups such as \"In rainy weather / I usually carry an umbrella / and wear a light jacket.\"",
+    cefrLevel: "A1",
+    topicTitle: "Weather & Seasons",
+    good: {
+      transcript:
+        "In rainy weather, I usually carry an umbrella and wear a light jacket.",
+      audioDuration: "5.6 seconds",
+      wordCount: 13,
+      characteristics:
+        "Clear controlled speed with natural phrase boundaries."
+    },
+    poor: {
+      transcript:
+        "In rainy weather, I usually carry an umbrella and wear a light jacket.",
+      audioDuration: "3.1 seconds",
+      wordCount: 13,
+      characteristics:
+        "Rushed delivery reduces word separation and natural phrasing."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Clear and controlled speaking rate."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 2,
+      pronunciation: 4,
+      overall: "64 / 90",
+      breakdownText:
+        "Excessive speed reduces intelligibility and phrase control."
+    },
+    errorChecklist: [
+      { id: "speech-rate-too-fast", label: "Speech rate too fast", keyword: "Speech rate too fast" },
+      { id: "reduced-word-boundaries", label: "Reduced word boundaries", keyword: "Reduced word boundaries" }
+    ],
+    expertAdvice:
+      "The target is controlled, intelligible speed. Do not reward maximum speed if the weather-related words run together."
+  },
+
+  {
+    exerciseIndex: 7,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "False Starts & Self-Correction",
+    learningObjective:
+      "Identify unnecessary self-correction and distinguish it from a genuine content repair.",
+    promptText:
+      "I went to the supermarket yesterday to buy milk, bread, and some fresh fruit.",
+    promptAudio:
+      "I went to the supermarket yesterday to buy milk, bread, and some fresh fruit.",
+    studentTranscript:
+      "I went to the supermarket yesterday to buy milk, bread—milk, bread, and some fresh fruit.",
+    studentResponse: {
+      audioDuration: "8.1 seconds",
+      wordCount: 16,
+      characteristics:
+        "The student successfully begins the shopping list, then unnecessarily restarts the same phrase."
+    },
+    diagnosticErrors: ["False start", "Self-correction"],
+    expertEvidence: [
+      "The student initially produces \"milk, bread\" correctly",
+      "The same phrase is then repeated",
+      "The second attempt does not add or repair missing information",
+      "The unnecessary restart interrupts forward movement"
+    ],
+    expertDiagnosis:
+      "The main problem is unnecessary self-correction. The student had already produced the shopping items successfully but restarted the phrase, creating a false start and reducing fluency.",
+    perfectCalibrationResponse:
+      "The student\u2019s main oral fluency problem is repeated false starts and self-correction. The response shows the speaker beginning phrases, changing them, and restarting instead of maintaining forward movement. The teacher should identify the correction pattern as the fluency issue rather than treating every individual slip as a separate error.",
+    coachingAdvice:
+      "Teach the student to accept a minor imperfection and continue forward. In Read Aloud, unnecessary correction can damage fluency more than the original small slip.",
+    cefrLevel: "A1",
+    topicTitle: "Shopping & Groceries",
+    good: {
+      transcript:
+        "I went to the supermarket yesterday to buy milk, bread, and some fresh fruit.",
+      audioDuration: "6.3 seconds",
+      wordCount: 16,
+      characteristics:
+        "Continuous shopping-related delivery without unnecessary restarting."
+    },
+    poor: {
+      transcript:
+        "I went to the supermarket yesterday to buy milk, bread—milk, bread, and some fresh fruit.",
+      audioDuration: "8.1 seconds",
+      wordCount: 16,
+      characteristics:
+        "Unnecessary restart interrupts an otherwise successful shopping list."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Continuous delivery with appropriate forward movement."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 2,
+      pronunciation: 5,
+      overall: "67 / 90",
+      breakdownText:
+        "Unnecessary self-correction creates a false start and interrupts fluency."
+    },
+    errorChecklist: [
+      { id: "false-start", label: "False start", keyword: "False start" },
+      { id: "self-correction", label: "Self-correction", keyword: "Self-correction" }
+    ],
+    expertAdvice:
+      "Help the student accept minor imperfections. Excessive self-monitoring can create a larger fluency problem than the original slip."
+  },
+
+  {
+    exerciseIndex: 8,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Mixed Fluency Problems",
+    learningObjective:
+      "Recognise several fluency symptoms while identifying the most disruptive problem.",
+    promptText:
+      "My dog is friendly, enjoys long walks, and often plays with other dogs in the park.",
+    promptAudio:
+      "My dog is friendly, enjoys long walks, and often plays with other dogs in the park.",
+    studentTranscript:
+      "My dog... is friendly, um, enjoys long walks—long walks, and often... plays with other dogs in the park.",
+    studentResponse: {
+      audioDuration: "10.8 seconds",
+      wordCount: 19,
+      characteristics:
+        "The pet description contains hesitation, a filler, repetition and an unnecessary pause."
+    },
+    diagnosticErrors: [
+      "Hesitation",
+      "Filler words",
+      "Repetition",
+      "Unnatural pauses"
+    ],
+    expertEvidence: [
+      "Long hesitation after \"dog\"",
+      "Filler \"um\" before \"enjoys\"",
+      "Repetition of \"long walks\"",
+      "Unnecessary pause before \"plays\"",
+      "The student still delivers the full pet-related content"
+    ],
+    expertDiagnosis:
+      "This is a mixed fluency profile. Hesitation is the most disruptive feature, but filler use, repetition and unnatural pausing also contribute to the breakdown in smooth delivery.",
+    perfectCalibrationResponse:
+      "The student has a mixed fluency profile, with hesitation as the most disruptive feature. There is a noticeable hesitation after \u201cdog,\u201d the filler \u201cum,\u201d repetition of \u201clong walks,\u201d and an unnecessary pause before \u201cplays.\u201d The teacher should recognise the multiple symptoms but prioritise hesitation in the diagnosis rather than treating every symptom as equally severe.",
+    coachingAdvice:
+      "Start with the hesitation pattern and practise the sentence in meaningful groups. Then reduce filler use and repetition while maintaining forward movement.",
+    cefrLevel: "A1",
+    topicTitle: "Pets & Animals",
+    good: {
+      transcript:
+        "My dog is friendly, enjoys long walks, and often plays with other dogs in the park.",
+      audioDuration: "6.6 seconds",
+      wordCount: 19,
+      characteristics:
+        "Smooth pet-related delivery with natural phrase grouping."
+    },
+    poor: {
+      transcript:
+        "My dog... is friendly, um, enjoys long walks—long walks, and often... plays with other dogs in the park.",
+      audioDuration: "10.8 seconds",
+      wordCount: 19,
+      characteristics:
+        "Several fluency disruptions occur within the same animal-related sentence."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Smooth and controlled connected speech."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 1,
+      pronunciation: 5,
+      overall: "61 / 90",
+      breakdownText:
+        "Multiple fluency disruptions substantially reduce smoothness."
+    },
+    errorChecklist: [
+      { id: "hesitation", label: "Hesitation", keyword: "Hesitation" },
+      { id: "filler-words", label: "Filler words", keyword: "Filler words" },
+      { id: "repetition", label: "Repetition", keyword: "Repetition" },
+      { id: "unnatural-pauses", label: "Unnatural pauses", keyword: "Unnatural pauses" }
+    ],
+    expertAdvice:
+      "Do not treat all symptoms as equally important. Begin with the hesitation pattern, then address filler use, repetition and phrase-level pausing."
+  },
+
+  {
+    exerciseIndex: 9,
+    totalExercises: 100,
+    difficulty: "Advanced",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Subtle Fluency Disruptions",
+    learningObjective:
+      "Identify minor rhythm problems without over-diagnosing an otherwise strong response.",
+    promptText:
+      "My favorite school subject is science because I enjoy learning how plants and animals grow.",
+    promptAudio:
+      "My favorite school subject is science because I enjoy learning how plants and animals grow.",
+    studentTranscript:
+      "My favorite school subject is science / because I enjoy learning how plants and animals grow.",
+    studentResponse: {
+      audioDuration: "7.3 seconds",
+      wordCount: 15,
+      characteristics:
+        "Generally strong delivery with one slightly overlong pause that mildly interrupts the rhythm."
+    },
+    diagnosticErrors: ["Subtle phrasing disruption", "Slightly segmented rhythm"],
+    expertEvidence: [
+      "The pause after \"science\" is slightly longer than necessary",
+      "The two main thought groups are otherwise well controlled",
+      "There are no obvious fillers",
+      "There are no repetitions or false starts",
+      "Overall fluency remains strong"
+    ],
+    expertDiagnosis:
+      "The student demonstrates generally strong fluency with a minor rhythm issue. This is a refinement case, not a major fluency failure.",
+    perfectCalibrationResponse:
+      "The student demonstrates generally strong oral fluency with only a minor rhythm issue. The pause after \u201cscience\u201d is slightly longer than necessary, creating a subtle phrasing disruption, but the two main thought groups are otherwise well controlled. This should be treated as a refinement point, not a major fluency failure.",
+    coachingAdvice:
+      "At an advanced level, avoid treating every pause as a serious error. Focus on slightly smoother continuity between the two ideas while recognising that the overall delivery is already strong.",
+    cefrLevel: "A1",
+    topicTitle: "School Subjects",
+    good: {
+      transcript:
+        "My favorite school subject is science because I enjoy learning how plants and animals grow.",
+      audioDuration: "6.7 seconds",
+      wordCount: 15,
+      characteristics:
+        "Natural advanced-level rhythm and connected delivery."
+    },
+    poor: {
+      transcript:
+        "My favorite school subject is science / because I enjoy learning how plants and animals grow.",
+      audioDuration: "7.3 seconds",
+      wordCount: 15,
+      characteristics:
+        "Mostly strong delivery with a subtle rhythm interruption."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Natural connected speech with appropriate rhythm."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 4,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "Minor rhythm and continuity issue, but overall fluency remains strong."
+    },
+    errorChecklist: [
+      { id: "subtle-phrasing-disruption", label: "Subtle phrasing disruption", keyword: "Subtle phrasing disruption" },
+      { id: "slightly-segmented-rhythm", label: "Slightly segmented rhythm", keyword: "Slightly segmented rhythm" }
+    ],
+    expertAdvice:
+      "Do not over-diagnose this response. The student is already broadly fluent; feedback should focus on refinement rather than major correction."
+  },
+
+  {
+    exerciseIndex: 10,
+    totalExercises: 100,
+    difficulty: "Advanced",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Near-Natural Delivery & Diagnostic Restraint",
+    learningObjective:
+      "Recognise when a response is sufficiently fluent and avoid inventing errors without clear evidence.",
+    promptText:
+      "City buses provide an affordable way for people to travel to work, school, and local shops.",
+    promptAudio:
+      "City buses provide an affordable way for people to travel to work, school, and local shops.",
+    studentTranscript:
+      "City buses provide an affordable way for people to travel to work, school, and local shops.",
+    studentResponse: {
+      audioDuration: "6.8 seconds",
+      wordCount: 16,
+      characteristics:
+        "Natural continuous delivery with appropriate rate, phrasing and pauses."
+    },
+    diagnosticErrors: [],
+    expertEvidence: [
+      "The public-transport sentence is delivered continuously",
+      "Phrasing follows meaningful grammatical units",
+      "Speech rate is controlled and natural",
+      "There are no significant fillers, repetitions or restarts",
+      "Minor timing variation would not be sufficient evidence of a fluency problem"
+    ],
+    expertDiagnosis:
+      "The student demonstrates strong oral fluency. There is no significant fluency problem requiring correction. This exercise teaches diagnostic restraint: a teacher should not invent a problem simply because the task is labelled as a calibration exercise.",
+    perfectCalibrationResponse:
+      "The student demonstrates strong, natural oral fluency. The response is continuous, appropriately paced, and grouped into meaningful grammatical units, with no significant fillers, repetitions, restarts, or unnatural pauses. No major fluency error should be diagnosed without clear evidence; this exercise tests the teacher\u2019s ability to show appropriate diagnostic restraint.",
+    coachingAdvice:
+      "Do not invent errors where there is insufficient evidence. Recognise that this response is already sufficiently fluent and, if another problem exists, focus feedback on that area instead.",
+    cefrLevel: "A1",
+    topicTitle: "City Buses & Public Transport",
+    good: {
+      transcript:
+        "City buses provide an affordable way for people to travel to work, school, and local shops.",
+      audioDuration: "6.8 seconds",
+      wordCount: 16,
+      characteristics:
+        "Natural continuous delivery with appropriate phrasing and controlled speed."
+    },
+    poor: {
+      transcript:
+        "City buses provide an affordable way for people to travel to work, school, and local shops.",
+      audioDuration: "6.8 seconds",
+      wordCount: 16,
+      characteristics:
+        "Intentionally near-natural response; there is no significant fluency error to diagnose."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Natural, controlled and continuous delivery."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "89 / 90",
+      breakdownText:
+        "No significant fluency problem is present; teachers should avoid over-diagnosis."
+    },
+    errorChecklist: [],
+    expertAdvice:
+      "The key calibration skill here is restraint. Do not select a fluency error unless the response provides clear evidence for it."
+  }
+];
+
+// -----------------------------------------------------------------------------
+// End of Read Aloud Calibration Lab authored bank.
+// Exercises 11–100 continue to use the existing generator until authored
+// calibration cases are added.
+// -----------------------------------------------------------------------------
+
+
 // Weak response generators
 export function generateWeakReadAloud(text: string, index: number = 1) {
   if (!text) return {
@@ -665,6 +1441,24 @@ export function generateWeakASQ(questionText: string, correctAnswer: string, ind
 // Main Master Exercise Generator (1 to 100 questions per question type)
 export function getExercise(questionObj: any, index: number) {
   const safeIndex = Math.max(1, Math.min(100, index));
+
+  // Use the authored Calibration Lab cases for Read Aloud exercises 1–10.
+  // All other exercises continue through the existing generator unchanged.
+  if (questionObj?.id === "read-aloud") {
+    const calibrationExercise = READ_ALOUD_CALIBRATION_EXERCISES.find(
+      (exercise) => exercise.exerciseIndex === safeIndex
+    );
+
+    if (calibrationExercise) {
+      // Keep the existing return contract intact: the UI expects cefrLevel
+      // to be the full CEFR descriptor object, not only a level string.
+      return {
+        ...calibrationExercise,
+        cefrLevel: getCefrLevel(safeIndex)
+      };
+    }
+  }
+
   const cefr = getCefrLevel(safeIndex);
   const topicTitle = COMMON_PTE_TOPICS[safeIndex - 1] || `Topic #${safeIndex}`;
   const lowerTopic = topicTitle.toLowerCase();

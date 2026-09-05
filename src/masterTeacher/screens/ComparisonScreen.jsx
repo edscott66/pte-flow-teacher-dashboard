@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useFeedback } from "../contexts/FeedbackContext";
 import ScoreMeter from "../components/ScoreMeter";
 import FeedbackCard from "../components/FeedbackCard";
+import CalibrationPerfectResponseCard from "../components/CalibrationPerfectResponseCard";
 
 export default function ComparisonScreen({ onNavigate }) {
   const {
@@ -139,6 +140,11 @@ export default function ComparisonScreen({ onNavigate }) {
           <FeedbackCard result={result} />
         </section>
 
+        {/* Gold-standard authored benchmark */}
+        <section className="master-teacher-report-card master-teacher-report-card-wide">
+          <CalibrationPerfectResponseCard />
+        </section>
+
         <section className="master-teacher-report-card master-teacher-report-card-wide">
           <div className="master-teacher-card-header">
             <div>
@@ -147,7 +153,12 @@ export default function ComparisonScreen({ onNavigate }) {
             </div>
             <button
               type="button"
-              className="master-teacher-link-button"
+              className="master-teacher-link-button px-4 py-2.5 rounded-xl text-xs font-extrabold shadow-sm border transition-all"
+              style={{
+                backgroundColor: showFullAdvice ? "#ecfdf5" : "#059669",
+                color: showFullAdvice ? "#047857" : "#ffffff",
+                borderColor: showFullAdvice ? "#a7f3d0" : "#059669",
+              }}
               onClick={() => setShowFullAdvice((prev) => !prev)}
             >
               {showFullAdvice ? "Hide Guidance" : "Show Guidance"}

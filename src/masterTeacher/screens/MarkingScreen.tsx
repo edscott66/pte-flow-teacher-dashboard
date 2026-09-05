@@ -4,7 +4,6 @@ import { COMMON_PTE_TOPICS } from "../constants/exerciseBank";
 import "./calibrationBench.css";
 import {
   Target,
-  CheckSquare,
   Sparkles,
   RefreshCw,
   Volume2,
@@ -17,7 +16,7 @@ import {
   BookOpen,
   ChevronLeft,
   ChevronRight,
-  Square
+  Square,
 } from "lucide-react";
 
 export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string) => void }) {
@@ -34,8 +33,6 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
     setActiveResponseMode,
     teacherFeedbackText,
     setTeacherFeedbackText,
-    checkedErrorIds,
-    toggleErrorCheckbox,
     runComparison,
     clearFeedback,
     selectQuestion,
@@ -47,6 +44,15 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
   const [isPlayingAudio, setIsPlayingAudio] = useState<boolean>(false);
   const [currentPlayingId, setCurrentPlayingId] = useState<string | null>(null);
   const [showResetConfirmation, setShowResetConfirmation] = useState(false);
+  const [assessmentWarning, setAssessmentWarning] = useState<{
+    title: string;
+    message: string;
+    tip?: string;
+  } | null>(null);
+
+  const diagnosticChecklist = Array.isArray(currentExercise?.errorChecklist)
+    ? currentExercise.errorChecklist
+    : currentQuestion.errorChecklist || [];
 
   // Clean up speech synthesis when component unmounts
   useEffect(() => {
@@ -69,9 +75,16 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
 
     window.speechSynthesis.cancel();
 
+    // Keep diagnostic notation visible on screen, but remove it from the
+    // spoken audio. Calibration samples may use "/" to show phrase
+    // boundaries; the browser would otherwise pronounce these as "slash".
     const textToSpeak = (text || "")
       .replace(/^\[|\]$/g, "")
       .replace(/[\[\]]/g, " ")
+      .replace(/\s*\/\s*/g, " ")
+      .replace(/\*\*/g, "")
+      .replace(/_{1,2}/g, "")
+      .replace(/\s+/g, " ")
       .trim();
 
     if (!textToSpeak) return;
@@ -155,8 +168,28 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
   });
 
   const handleSubmitFeedback = async () => {
-    if (!teacherFeedbackText.trim()) {
-      alert("Please enter your assessment feedback or check error checklist items first!");
+    const feedback = teacherFeedbackText.trim();
+    const wordCount = feedback ? feedback.split(/\s+/).filter(Boolean).length : 0;
+
+    // Calibration must include genuine teacher-written reasoning. Checklist
+    // selections are diagnosis data only and are deliberately not copied into
+    // the feedback field. Keep this gate strict enough to prevent a prompt-only
+    // submission from receiving a high calibration score.
+    if (!feedback) {
+      setAssessmentWarning({
+        title: "Please write your assessment",
+        message: "Checklist selections alone are not enough for calibration. Your written assessment must explain what you heard and why it matters.",
+        tip: "Don't just list the error names. Describe the evidence you heard and use the relevant PTE terminology."
+      });
+      return;
+    }
+
+    if (feedback.length < 60 || wordCount < 10) {
+      setAssessmentWarning({
+        title: "Please provide a fuller assessment",
+        message: "Write at least 10 words and 60 characters explaining the evidence you heard and why it matters.",
+        tip: "A strong calibration response identifies the PTE term, gives specific evidence from the response, and explains the impact on performance."
+      });
       return;
     }
 
@@ -167,7 +200,11 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
     if (comparisonResult) {
       onNavigate("comparison");
     } else {
-      alert("The evaluation could not be completed. Please try again.");
+      setAssessmentWarning({
+        title: "Evaluation could not be completed",
+        message: "The AI evaluation was not completed successfully. Please check your connection and try again.",
+        tip: "Your written assessment has not been lost."
+      });
     }
   };
 
@@ -215,7 +252,8 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
   const currentSample = activeResponseMode === "good" ? currentExercise.good : currentExercise.poor;
 
   return (
-    <div className="calibration-bench p-4 space-y-4 pb-24">
+    <>
+      <div className="calibration-bench p-4 space-y-4 pb-24">
       {/* Header Bar */}
       <div className="calibration-header flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
         <div>
@@ -279,7 +317,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
                 2️⃣ Check Observed Errors
               </span>
               <p className="text-slate-300">
-                Tick boxes in the <b>Error Tracker Checklist</b>. Checking a box automatically inserts technical PTE rubric notes into your feedback area.
+                Listen to the student response and identify the meaningful fluency problems you can support with evidence. Select the applicable items in the <b>Error Tracker Checklist</b>, then write your own assessment explaining what you heard and why it matters. <b>Checklist selections do not count as written evidence.</b> If no meaningful error is present, leave the checklist unselected and explain why.
               </p>
             </div>
 
@@ -288,7 +326,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
                 3️⃣ Write Personal Feedback
               </span>
               <p className="text-slate-300">
-                In <b>Your Assessment Feedback</b>, add your own notes, score rationale, or personal coaching points alongside the auto-inserted checklist items.
+                In <b>Your Assessment Feedback</b>, write your own evidence-based assessment. State the relevant PTE term(s), describe the evidence you heard, explain the impact on performance, and give appropriate advice where useful. The AI will assess the quality of your written rationale independently of the diagnostic prompts.
               </p>
             </div>
 
@@ -400,6 +438,11 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
               {currentExercise?.cefrLevel && (
                 <span className={`px-2 py-0.5 rounded text-[10px] font-extrabold shadow-xs shrink-0 ${currentExercise.cefrLevel.badgeColor}`}>
                   {currentExercise.cefrLevel.name}
+                </span>
+              )}
+              {(currentExercise as typeof currentExercise & { difficulty?: string })?.difficulty && (
+                <span className="px-2 py-0.5 rounded text-[10px] font-extrabold shadow-xs shrink-0 bg-emerald-100 text-emerald-700 border border-emerald-200">
+                  Calibration: {(currentExercise as typeof currentExercise & { difficulty?: string }).difficulty}
                 </span>
               )}
             </div>
@@ -605,45 +648,118 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
         </div>
       </div>
 
-      {/* Error Tracker Checkbox List */}
-      <div className="calibration-error-tracker p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-2.5">
-        <div className="flex items-center justify-between">
+      {/* Diagnostic Focus visual styling.
+          The project CSS applies !important to .calibration-error-tracker,
+          so this scoped rule intentionally uses !important to make the
+          Diagnostic Focus panel styling reliable. */}
+      <style>{`
+        .calibration-bench .calibration-error-tracker.diagnostic-focus-panel {
+          background: linear-gradient(145deg, #eef2ff 0%, #f5f7ff 52%, #fff7ed 100%) !important;
+          border: 1px solid #cbddec !important;
+          border-radius: 20px !important;
+          box-shadow:
+            0 8px 22px rgba(79, 70, 229, 0.08),
+            0 2px 8px rgba(15, 23, 42, 0.05) !important;
+        }
+
+        .dark .calibration-bench .calibration-error-tracker.diagnostic-focus-panel {
+          background: linear-gradient(145deg, rgba(49, 46, 129, 0.34) 0%, rgba(15, 23, 42, 0.96) 52%, rgba(120, 53, 15, 0.22) 100%) !important;
+          border-color: #334155 !important;
+        }
+        .calibration-bench .diagnostic-focus-panel .diagnostic-focus-card {
+          border-radius: 16px !important;
+        }
+      `}</style>
+
+      {/* Diagnostic Focus Prompts */}
+      <div
+        className="diagnostic-focus-outer-frame"
+        style={{
+          background: "#ffffff",
+          border: "1px solid #ffffff",
+          borderRadius: "20px",
+          padding: "18px",
+          boxShadow: "0 8px 22px rgba(79, 70, 229, 0.08), 0 2px 8px rgba(15, 23, 42, 0.05)"
+        }}
+      >
+        <div className="calibration-error-tracker diagnostic-focus-panel p-4 rounded-xl space-y-3">
+        <div className="flex items-start justify-between gap-3">
           <div>
             <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800 dark:text-slate-200">
-              <CheckSquare className="w-4 h-4 text-indigo-500" /> Error Tracker Checklist
+              <Target className="w-4 h-4 text-indigo-500" /> Diagnostic Focus — What to Listen For
             </div>
             <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-              Tick observed candidate errors below to automatically insert technical PTE rubric keywords into your assessment feedback notes.
+              Use these diagnostic prompts as clues while listening. They are not checkboxes and they do not add anything to your assessment. Only discuss a feature when you can support it with evidence from the student response.
             </p>
           </div>
-          <span className="text-[10px] text-indigo-600 dark:text-indigo-400 font-extrabold bg-indigo-50 dark:bg-indigo-950 px-2 py-1 rounded shrink-0">
-            Auto-inserts Notes
+          <span className="text-[10px] text-amber-700 dark:text-amber-300 font-extrabold bg-amber-50 dark:bg-amber-950/40 px-2 py-1 rounded shrink-0 border border-amber-200 dark:border-amber-800">
+            Listening Prompts
           </span>
         </div>
 
-        <div className="calibration-error-grid grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
-          {currentQuestion.errorChecklist?.map((item: any) => {
-            const isChecked = checkedErrorIds.includes(item.id);
-            return (
-              <label
+        {diagnosticChecklist.length === 0 ? (
+          <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 text-xs text-emerald-800 dark:text-emerald-200">
+            <div className="font-bold">Diagnostic restraint</div>
+            <p className="mt-1 leading-relaxed">
+              No major fluency error is expected in this exercise. Listen carefully and do not invent an error. Your assessment should explain why the response does not require a major fluency diagnosis.
+            </p>
+          </div>
+        ) : (
+          <div className="calibration-error-grid grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+            {diagnosticChecklist.map((item: any) => (
+              <div
                 key={item.id}
-                onClick={() => toggleErrorCheckbox(item.id, item.keyword)}
-                className={`p-2.5 rounded-xl border text-xs font-medium flex items-center gap-2 cursor-pointer transition-all ${
-                  isChecked
-                    ? "bg-indigo-50 dark:bg-indigo-950/60 border-indigo-300 dark:border-indigo-700 text-indigo-900 dark:text-indigo-200"
-                    : "bg-slate-50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100"
-                }`}
+                className="diagnostic-focus-card p-3 rounded-2xl border border-indigo-100 dark:border-indigo-900/60 text-slate-800 dark:text-slate-200 shadow-sm" style={{ background: "linear-gradient(135deg, #eef2ff 0%, #ffffff 52%, #fff7ed 100%)" }}
               >
-                <input
-                  type="checkbox"
-                  checked={isChecked}
-                  onChange={() => {}} // Handled by parent label click
-                  className="rounded text-indigo-600 focus:ring-indigo-500 w-3.5 h-3.5"
-                />
-                <span className="text-[11px] leading-tight">{item.label}</span>
-              </label>
-            );
-          })}
+                <div className="flex items-start gap-2">
+                  <div
+                    style={{
+                      width: "34px",
+                      height: "34px",
+                      borderRadius: "10px",
+                      background: "linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%)",
+                      color: "#4f46e5",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                      border: "1px solid #c7d2fe",
+                      boxShadow: "0 2px 6px rgba(79, 70, 229, 0.10)"
+                    }}
+                  >
+                    <Target style={{ width: "16px", height: "16px" }} />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2">
+                      <div className="text-[12px] font-extrabold leading-tight text-slate-800 dark:text-slate-100">
+                        {item.label}
+                      </div>
+                      <span
+                        style={{
+                          fontSize: "9px",
+                          fontWeight: 800,
+                          letterSpacing: "0.04em",
+                          textTransform: "uppercase",
+                          padding: "3px 7px",
+                          borderRadius: "999px",
+                          background: "#fef3c7",
+                          color: "#92400e",
+                          border: "1px solid #fde68a",
+                          whiteSpace: "nowrap"
+                        }}
+                      >
+                        Listen
+                      </span>
+                    </div>
+                    <div className="mt-1 text-[10px] leading-relaxed text-slate-500 dark:text-slate-400">
+                      Listen for clear evidence of this feature before mentioning it in your assessment.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
         </div>
       </div>
 
@@ -655,7 +771,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
               <Edit3 className="w-4 h-4 text-emerald-500" /> Your Assessment Feedback & Rationale
             </div>
             <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-              Review auto-inserted checklist points and write your personal feedback, score justification, or student-facing recommendations.
+              Write your own assessment and evidence. The diagnostic prompts are only listening clues and are not inserted into this field.
             </p>
           </div>
           <span className="text-[10px] text-slate-400 shrink-0">
@@ -667,7 +783,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
           rows={5}
           value={teacherFeedbackText}
           onChange={(e) => setTeacherFeedbackText(e.target.value)}
-          placeholder="Type your score rationale and personal feedback here (e.g., 'Oral fluency penalized due to hesitations on thought groups, content missed key trend, work on stress and rhythm...')"
+          placeholder="Write your own assessment. Include the relevant PTE term, the evidence you heard, its impact, and appropriate advice (e.g., 'The student shows poor phrasing and word-by-word grouping because natural phrases are split into short chunks...')"
           className="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:ring-2 focus:ring-indigo-500 focus:outline-hidden leading-relaxed resize-none font-sans"
         />
       </div>
@@ -694,6 +810,189 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
         </>
       )}
     </button>
-    </div>
+      </div>
+
+      {assessmentWarning && (
+        <div
+          role="presentation"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) setAssessmentWarning(null);
+          }}
+          style={{
+            position: "fixed",
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0,
+            zIndex: 99999,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "20px",
+            backgroundColor: "rgba(15, 23, 42, 0.68)",
+            backdropFilter: "blur(6px)",
+            WebkitBackdropFilter: "blur(6px)"
+          }}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="assessment-warning-title"
+            style={{
+              position: "relative",
+              boxSizing: "border-box",
+              width: "100%",
+              maxWidth: "540px",
+              backgroundColor: "#ffffff",
+              border: "1px solid #e2e8f0",
+              borderRadius: "24px",
+              boxShadow: "0 24px 70px rgba(15, 23, 42, 0.30)",
+              overflow: "hidden"
+            }}
+          >
+            <div style={{ position: "relative", padding: "28px", textAlign: "center" }}>
+              <button
+                type="button"
+                onClick={() => setAssessmentWarning(null)}
+                aria-label="Close warning"
+                style={{
+                  position: "absolute",
+                  top: "16px",
+                  right: "16px",
+                  width: "36px",
+                  height: "36px",
+                  padding: 0,
+                  border: "none",
+                  borderRadius: "50%",
+                  backgroundColor: "#f1f5f9",
+                  color: "#64748b",
+                  fontSize: "24px",
+                  lineHeight: "36px",
+                  cursor: "pointer"
+                }}
+              >
+                ×
+              </button>
+
+              <div
+                style={{
+                  width: "68px",
+                  height: "68px",
+                  margin: "0 auto 18px",
+                  borderRadius: "50%",
+                  backgroundColor: "#ffe4e6",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 0 0 9px #fff1f2"
+                }}
+              >
+                <AlertTriangle style={{ width: "34px", height: "34px", color: "#f43f5e" }} strokeWidth={2.5} />
+              </div>
+
+              <h2
+                id="assessment-warning-title"
+                style={{
+                  margin: 0,
+                  padding: "0 34px",
+                  color: "#0f172a",
+                  fontSize: "24px",
+                  lineHeight: "1.2",
+                  fontWeight: 900
+                }}
+              >
+                {assessmentWarning.title}
+              </h2>
+
+              <p
+                style={{
+                  margin: "12px 0 0",
+                  padding: "0 8px",
+                  color: "#475569",
+                  fontSize: "15px",
+                  lineHeight: "1.65"
+                }}
+              >
+                {assessmentWarning.message}
+              </p>
+
+              {assessmentWarning.tip && (
+                <div
+                  style={{
+                    marginTop: "20px",
+                    padding: "16px",
+                    textAlign: "left",
+                    borderRadius: "17px",
+                    background: "linear-gradient(135deg, #fff1f2 0%, #fffbeb 100%)",
+                    border: "1px solid #ffe4e6"
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                    <div
+                      style={{
+                        flex: "0 0 auto",
+                        width: "38px",
+                        height: "38px",
+                        borderRadius: "12px",
+                        backgroundColor: "#ffffff",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        boxShadow: "0 2px 8px rgba(15, 23, 42, 0.08)"
+                      }}
+                    >
+                      <HelpCircle style={{ width: "20px", height: "20px", color: "#f43f5e" }} />
+                    </div>
+                    <div>
+                      <div
+                        style={{
+                          color: "#e11d48",
+                          fontSize: "12px",
+                          fontWeight: 900,
+                          textTransform: "uppercase",
+                          letterSpacing: "0.08em"
+                        }}
+                      >
+                        Helpful tip
+                      </div>
+                      <p
+                        style={{
+                          margin: "4px 0 0",
+                          color: "#475569",
+                          fontSize: "13px",
+                          lineHeight: "1.6"
+                        }}
+                      >
+                        {assessmentWarning.tip}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <button
+                type="button"
+                onClick={() => setAssessmentWarning(null)}
+                style={{
+                  width: "100%",
+                  marginTop: "20px",
+                  padding: "14px 18px",
+                  border: "none",
+                  borderRadius: "16px",
+                  background: "linear-gradient(90deg, #4f46e5 0%, #4338ca 100%)",
+                  color: "#ffffff",
+                  fontSize: "14px",
+                  fontWeight: 900,
+                  cursor: "pointer",
+                  boxShadow: "0 10px 24px rgba(79, 70, 229, 0.22)"
+                }}
+              >
+                Got it <span style={{ marginLeft: "6px", fontSize: "16px" }}>→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
