@@ -21,6 +21,14 @@ interface ErrorChecklistItem {
 
 type ComparisonResult = Record<string, any>;
 
+interface CalibrationProgress {
+  completed: number;
+  averageScore: number;
+  bestScore: number;
+  lowestScore: number;
+  currentTier: string;
+}
+
 interface FeedbackContextValue {
   QUESTIONS_DATA: typeof QUESTIONS_DATA;
   selectedQuestionId: string;
@@ -49,6 +57,8 @@ interface FeedbackContextValue {
   clearFeedback: () => void;
   selectQuestion: (questionId: string) => void;
   submissionHistory: ComparisonResult[];
+  calibrationHistory: ComparisonResult[];
+  calibrationProgress: CalibrationProgress;
 }
 
 const FeedbackContext = createContext<FeedbackContextValue | null>(null);
@@ -62,6 +72,7 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
   const [lastComparisonResult, setLastComparisonResult] = useState<ComparisonResult | null>(null);
   const [isEvaluatingAi, setIsEvaluatingAi] = useState(false);
   const [submissionHistory, setSubmissionHistory] = useState<ComparisonResult[]>([]);
+  const [calibrationHistory, setCalibrationHistory] = useState<ComparisonResult[]>([]);
   const [sourceScreen, setSourceScreen] = useState<"marking" | "students">("marking");
   const [studentAudioUrl, setStudentAudioUrl] = useState<string | null>(null);
   const [studentTranscriptText, setStudentTranscriptText] = useState<string>("");
@@ -105,6 +116,7 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
     setCheckedErrorIds((prev: string[]) => {
       const exists = prev.includes(errorId);
       const updated = exists ? prev.filter(id => id !== errorId) : [...prev, errorId];
+
       if (!exists && keyword) {
         setTeacherFeedbackText((currentText: string) => {
           const trimmed = currentText.trim();
@@ -114,30 +126,55 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
       } else if (exists && keyword) {
         setTeacherFeedbackText((currentText: string) => {
           const targetStr = `- Identified: ${keyword}`;
+
           if (currentText.includes(targetStr)) {
             return currentText.replace(targetStr, "").replace(/\n\n+/g, "\n").trim();
           }
+
           return currentText;
         });
       }
+
       return updated;
     });
+  };
+
+  // Record a completed Calibration Lab assessment separately from live student analysis.
+  const recordCalibrationResult = (result: ComparisonResult) => {
+    setCalibrationHistory((prev: ComparisonResult[]) => [result, ...prev]);
   };
 
   // Run the Combined Offline Rubric Benchmark + Live AI Evaluation
   const runComparison = async (): Promise<ComparisonResult | null> => {
     if (!currentQuestion || !currentExercise) return null;
+
     setSourceScreen("marking");
 
-    const targetExpertScore = activeResponseMode === "good" ? currentExercise.goodScore : currentExercise.poorScore;
-    const expertText = `${targetExpertScore.overall || 'Score N/A'}. ${targetExpertScore.breakdownText || ''} Expert Advice: ${currentExercise.expertAdvice || ''}`;
-    const perfectCalibrationResponse = (currentExercise as typeof currentExercise & { perfectCalibrationResponse?: string }).perfectCalibrationResponse;
+    const targetExpertScore =
+      activeResponseMode === "good"
+        ? currentExercise.goodScore
+        : currentExercise.poorScore;
 
-    const checklistItems: ErrorChecklistItem[] = currentExercise.errorChecklist || [];
-    const activeChecklist = checklistItems.filter(item => checkedErrorIds.includes(item.id));
+    const expertText = `${targetExpertScore.overall || 'Score N/A'}. ${targetExpertScore.breakdownText || ''} Expert Advice: ${currentExercise.expertAdvice || ''}`;
+
+    const perfectCalibrationResponse =
+      (currentExercise as typeof currentExercise & {
+        perfectCalibrationResponse?: string;
+      }).perfectCalibrationResponse;
+
+    const checklistItems: ErrorChecklistItem[] =
+      currentExercise.errorChecklist || [];
+
+    const activeChecklist = checklistItems.filter(item =>
+      checkedErrorIds.includes(item.id)
+    );
 
     // 1. Initial Instant Offline Rule-Based Comparison
-    const offlineResult = compareTeacherFeedback(teacherFeedbackText, expertText, activeChecklist);
+    const offlineResult = compareTeacherFeedback(
+      teacherFeedbackText,
+      expertText,
+      activeChecklist
+    );
 
     const initialPayload = {
       ...offlineResult,
@@ -162,8 +199,17 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
 
     // 2. Trigger Live Server-Side Gemini AI Evaluation
     try {
-      const currentSample: any = activeResponseMode === "good" ? currentExercise.good : currentExercise.poor;
-      const studentResponseText = currentSample?.transcript || currentSample?.text || (currentSample?.answers ? currentSample.answers.join(", ") : "");
+      const currentSample: any =
+        activeResponseMode === "good"
+          ? currentExercise.good
+          : currentExercise.poor;
+
+      const studentResponseText =
+        currentSample?.transcript ||
+        currentSample?.text ||
+        (currentSample?.answers
+          ? currentSample.answers.join(", ")
+          : "");
 
       const response = await fetch("/api/evaluate-feedback", {
         method: "POST",
@@ -186,51 +232,89 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
 
       if (response.ok) {
         const aiData = await response.json();
+
         if (aiData.isLiveAi) {
           const mergedPayload = {
             ...initialPayload,
-            matchPercentage: aiData.matchPercentage ?? initialPayload.matchPercentage,
+            matchPercentage:
+              aiData.matchPercentage ?? initialPayload.matchPercentage,
             tier: aiData.tier || initialPayload.tier,
             badgeColor: aiData.badgeColor || initialPayload.badgeColor,
-            feedbackSummary: aiData.feedbackSummary || initialPayload.feedbackSummary,
-            matchedKeywords: aiData.matchedKeywords || initialPayload.matchedKeywords,
-            missingKeywords: aiData.missingKeywords || initialPayload.missingKeywords,
+            feedbackSummary:
+              aiData.feedbackSummary || initialPayload.feedbackSummary,
+            matchedKeywords:
+              aiData.matchedKeywords || initialPayload.matchedKeywords,
+            missingKeywords:
+              aiData.missingKeywords || initialPayload.missingKeywords,
             coachingAdviceForTeacher: aiData.coachingAdviceForTeacher,
             studentFacingScript: aiData.studentFacingScript,
             isLiveAi: true
           };
 
           setLastComparisonResult(mergedPayload);
-          setSubmissionHistory((prev: ComparisonResult[]) => [mergedPayload, ...prev.slice(0, 19)]);
+
+          setSubmissionHistory((prev: ComparisonResult[]) => [
+            mergedPayload,
+            ...prev.slice(0, 19)
+          ]);
+
+          recordCalibrationResult(mergedPayload);
+
           setIsEvaluatingAi(false);
           return mergedPayload;
         }
       }
     } catch (err) {
-      console.warn("Live AI Evaluation fallback to offline benchmark:", err);
+      console.warn(
+        "Live AI Evaluation fallback to offline benchmark:",
+        err
+      );
     }
 
-    setSubmissionHistory((prev: ComparisonResult[]) => [initialPayload, ...prev.slice(0, 19)]);
+    setSubmissionHistory((prev: ComparisonResult[]) => [
+      initialPayload,
+      ...prev.slice(0, 19)
+    ]);
+
+    recordCalibrationResult(initialPayload);
+
     setIsEvaluatingAi(false);
+
     return initialPayload;
   };
 
   // Run Student Live Recording Analysis Comparison
-  const runStudentRecordingComparison = async (customTranscript?: string): Promise<ComparisonResult | null> => {
+  const runStudentRecordingComparison = async (
+    customTranscript?: string
+  ): Promise<ComparisonResult | null> => {
     if (!currentQuestion) return null;
+
     setSourceScreen("students");
 
-    const activeStudentText = customTranscript || studentTranscriptText || "Live recorded student response audio.";
+    const activeStudentText =
+      customTranscript ||
+      studentTranscriptText ||
+      "Live recorded student response audio.";
+
     const targetExpertScore = currentExercise?.goodScore || {
       overall: "PTE 65-79 Expected Benchmark",
       breakdownText: `Expected ${currentQuestion.section} standard for ${currentQuestion.title}.`
     };
+
     const expertText = `${targetExpertScore.overall || 'Score N/A'}. ${targetExpertScore.breakdownText || ''} Expert Advice: ${currentExercise?.expertAdvice || ''}`;
 
-    const checklistItems: ErrorChecklistItem[] = currentQuestion.errorChecklist || [];
-    const activeChecklist = checklistItems.filter(item => checkedErrorIds.includes(item.id));
+    const checklistItems: ErrorChecklistItem[] =
+      currentQuestion.errorChecklist || [];
 
-    const offlineResult = compareTeacherFeedback(teacherFeedbackText, expertText, activeChecklist);
+    const activeChecklist = checklistItems.filter(item =>
+      checkedErrorIds.includes(item.id)
+    );
+
+    const offlineResult = compareTeacherFeedback(
+      teacherFeedbackText,
+      expertText,
+      activeChecklist
+    );
 
     const initialPayload = {
       ...offlineResult,
@@ -245,7 +329,9 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
       studentAudioUrl,
       teacherInput: teacherFeedbackText,
       expertFeedbackText: targetExpertScore.breakdownText,
-      expertAdvice: currentExercise?.expertAdvice || "Guide the candidate on oral fluency, content coverage, and accuracy.",
+      expertAdvice:
+        currentExercise?.expertAdvice ||
+        "Guide the candidate on oral fluency, content coverage, and accuracy.",
       expertOverallScore: targetExpertScore.overall,
       checkedErrorIds,
       isLiveAi: false,
@@ -271,38 +357,58 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
           checkedErrorIds,
           errorChecklist: activeChecklist,
           expertFeedbackObj: targetExpertScore,
-          expertAdvice: currentExercise?.expertAdvice || "Check fluency and pronunciation."
+          expertAdvice:
+            currentExercise?.expertAdvice ||
+            "Check fluency and pronunciation."
         })
       });
 
       if (response.ok) {
         const aiData = await response.json();
+
         if (aiData.isLiveAi) {
           const mergedPayload = {
             ...initialPayload,
-            matchPercentage: aiData.matchPercentage ?? initialPayload.matchPercentage,
+            matchPercentage:
+              aiData.matchPercentage ?? initialPayload.matchPercentage,
             tier: aiData.tier || initialPayload.tier,
             badgeColor: aiData.badgeColor || initialPayload.badgeColor,
-            feedbackSummary: aiData.feedbackSummary || initialPayload.feedbackSummary,
-            matchedKeywords: aiData.matchedKeywords || initialPayload.matchedKeywords,
-            missingKeywords: aiData.missingKeywords || initialPayload.missingKeywords,
+            feedbackSummary:
+              aiData.feedbackSummary || initialPayload.feedbackSummary,
+            matchedKeywords:
+              aiData.matchedKeywords || initialPayload.matchedKeywords,
+            missingKeywords:
+              aiData.missingKeywords || initialPayload.missingKeywords,
             coachingAdviceForTeacher: aiData.coachingAdviceForTeacher,
             studentFacingScript: aiData.studentFacingScript,
             isLiveAi: true
           };
 
           setLastComparisonResult(mergedPayload);
-          setSubmissionHistory((prev: ComparisonResult[]) => [mergedPayload, ...prev.slice(0, 19)]);
+
+          setSubmissionHistory((prev: ComparisonResult[]) => [
+            mergedPayload,
+            ...prev.slice(0, 19)
+          ]);
+
           setIsEvaluatingAi(false);
           return mergedPayload;
         }
       }
     } catch (err) {
-      console.warn("Live AI Evaluation fallback to offline benchmark:", err);
+      console.warn(
+        "Live AI Evaluation fallback to offline benchmark:",
+        err
+      );
     }
 
-    setSubmissionHistory((prev: ComparisonResult[]) => [initialPayload, ...prev.slice(0, 19)]);
+    setSubmissionHistory((prev: ComparisonResult[]) => [
+      initialPayload,
+      ...prev.slice(0, 19)
+    ]);
+
     setIsEvaluatingAi(false);
+
     return initialPayload;
   };
 
@@ -315,35 +421,60 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
     setStudentTranscriptText("");
   };
 
+  const calibrationScores = calibrationHistory
+    .map(result => Number(result.matchPercentage))
+    .filter(score => Number.isFinite(score));
+
+  const calibrationProgress: CalibrationProgress = {
+    completed: calibrationHistory.length,
+    averageScore: calibrationScores.length
+      ? Math.round(
+          calibrationScores.reduce(
+            (total, score) => total + score,
+            0
+          ) / calibrationScores.length
+        )
+      : 0,
+    bestScore: calibrationScores.length
+      ? Math.max(...calibrationScores)
+      : 0,
+    lowestScore: calibrationScores.length
+      ? Math.min(...calibrationScores)
+      : 0,
+    currentTier: calibrationHistory[0]?.tier || "Not started"
+  };
+
   const contextValue: FeedbackContextValue = {
-        QUESTIONS_DATA,
-        selectedQuestionId,
-        currentQuestion,
-        exerciseIndex,
-        setExerciseIndex,
-        nextExercise,
-        prevExercise,
-        currentExercise,
-        activeResponseMode,
-        setActiveResponseMode,
-        teacherFeedbackText,
-        setTeacherFeedbackText,
-        checkedErrorIds,
-        toggleErrorCheckbox,
-        lastComparisonResult,
-        isEvaluatingAi,
-        runComparison,
-        runStudentRecordingComparison,
-        sourceScreen,
-        setSourceScreen,
-        studentAudioUrl,
-        setStudentAudioUrl,
-        studentTranscriptText,
-        setStudentTranscriptText,
-        clearFeedback,
-        selectQuestion,
-        submissionHistory
-      };
+    QUESTIONS_DATA,
+    selectedQuestionId,
+    currentQuestion,
+    exerciseIndex,
+    setExerciseIndex,
+    nextExercise,
+    prevExercise,
+    currentExercise,
+    activeResponseMode,
+    setActiveResponseMode,
+    teacherFeedbackText,
+    setTeacherFeedbackText,
+    checkedErrorIds,
+    toggleErrorCheckbox,
+    lastComparisonResult,
+    isEvaluatingAi,
+    runComparison,
+    runStudentRecordingComparison,
+    sourceScreen,
+    setSourceScreen,
+    studentAudioUrl,
+    setStudentAudioUrl,
+    studentTranscriptText,
+    setStudentTranscriptText,
+    clearFeedback,
+    selectQuestion,
+    submissionHistory,
+    calibrationHistory,
+    calibrationProgress
+  };
 
   return (
     <FeedbackContext.Provider value={contextValue}>

@@ -5,10 +5,19 @@ export default function MasterTeacherHome({ onNavigate }) {
     {
       id: "marking",
       title: "Teacher Calibration Bench",
-      icon: "🎯",
+      icon: "👨‍🏫",
       description:
         "Practise PTE marking against the existing exercise bank, scoring criteria, error checklist, and benchmark samples.",
       action: "Open Calibration Bench",
+      ready: true,
+    },
+    {
+      id: "progress",
+      title: "Calibration Progress",
+      icon: "📈",
+      description:
+        "Review your calibration performance, average match, best and lowest results, and recent assessment history.",
+      action: "View Calibration Progress",
       ready: true,
     },
     {
@@ -62,7 +71,7 @@ export default function MasterTeacherHome({ onNavigate }) {
         </div>
 
         <div className="master-teacher-hero-badge">
-          <span className="master-teacher-hero-icon">🎓</span>
+          <span className="master-teacher-hero-icon">👑</span>
           <div>
             <strong>Teacher Workspace</strong>
             <span>Desktop tools &amp; resources</span>
@@ -98,7 +107,9 @@ export default function MasterTeacherHome({ onNavigate }) {
             <button
               key={card.id}
               type="button"
-              className={`master-teacher-card ${!card.ready ? "master-teacher-card-disabled" : ""}`}
+              className={`master-teacher-card ${
+                !card.ready ? "master-teacher-card-disabled" : ""
+              }`}
               onClick={() => card.ready && onNavigate(card.id)}
               disabled={!card.ready}
             >
@@ -111,7 +122,9 @@ export default function MasterTeacherHome({ onNavigate }) {
 
               <div className="master-teacher-card-action">
                 <span>{card.action}</span>
-                <span aria-hidden="true">{card.ready ? "→" : "•"}</span>
+                <span aria-hidden="true">
+                  {card.ready ? "→" : "•"}
+                </span>
               </div>
             </button>
           ))}
@@ -121,7 +134,7 @@ export default function MasterTeacherHome({ onNavigate }) {
       <section className="master-teacher-section master-teacher-section-secondary">
         <div className="master-teacher-info-grid">
           <div className="master-teacher-info-card">
-            <span className="master-teacher-info-icon">👨‍🎓</span>
+            <span className="master-teacher-info-icon">👨‍🏫</span>
             <div>
               <h4>Student records stay in the existing Dashboard</h4>
               <p>
@@ -132,7 +145,7 @@ export default function MasterTeacherHome({ onNavigate }) {
           </div>
 
           <div className="master-teacher-info-card">
-            <span className="master-teacher-info-icon">🧠</span>
+            <span className="master-teacher-info-icon">🧪</span>
             <div>
               <h4>Existing Teacher resources are reused</h4>
               <p>

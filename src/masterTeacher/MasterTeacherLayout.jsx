@@ -4,11 +4,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import MasterTeacherHome from "./MasterTeacherHome";
 import MarkingScreen from "./screens/MarkingScreen";
 import ComparisonScreen from "./screens/ComparisonScreen";
+import CalibrationProgressScreen from "./screens/CalibrationProgressScreen";
 
 function ComingSoon({ title, onNavigate }) {
   return (
     <div className="master-teacher-empty-state">
-      <div className="master-teacher-empty-icon">🚧</div>
+      <div className="master-teacher-empty-icon">🚀</div>
 
       <h2>{title}</h2>
 
@@ -39,6 +40,7 @@ export default function MasterTeacherLayout() {
    * /master-teacher
    * /master-teacher/marking
    * /master-teacher/comparison
+   * /master-teacher/progress
    * /master-teacher/students-evaluator
    */
   const subPath = location.pathname
@@ -49,13 +51,15 @@ export default function MasterTeacherLayout() {
    * Central navigation for the Master Teacher workspace.
    *
    * Keeping these routes here means the Home page, top navigation,
-   * Calibration Bench and Evaluation Report all use the same routing.
+   * Calibration Bench, Evaluation Report and Progress screen all use
+   * the same routing.
    */
   const navigateWithinSuite = (tab) => {
     const destinations = {
       home: "/master-teacher",
       marking: "/master-teacher/marking",
       comparison: "/master-teacher/comparison",
+      progress: "/master-teacher/progress",
       students_evaluator: "/master-teacher/students-evaluator",
       lessons: "/master-teacher/lessons",
       translator: "/master-teacher/translator",
@@ -72,6 +76,7 @@ export default function MasterTeacherLayout() {
     home: "Master Teacher Home",
     marking: "Calibration Bench",
     comparison: "Evaluation Report",
+    progress: "Calibration Progress",
     "students-evaluator": "Live Evaluation",
     lessons: "Lesson Plans",
     translator: "Band & Score Translator",
@@ -88,7 +93,7 @@ export default function MasterTeacherLayout() {
       <div className="master-teacher-workspace-topbar">
         <div>
           <span className="master-teacher-workspace-title">
-            🎓 PTE Master Teacher
+            👑 PTE Master Teacher
           </span>
 
           <span className="master-teacher-workspace-current">
@@ -117,6 +122,13 @@ export default function MasterTeacherLayout() {
           >
             Reports
           </button>
+
+          <button
+            type="button"
+            onClick={() => navigateWithinSuite("progress")}
+          >
+            Progress
+          </button>
         </div>
       </div>
 
@@ -137,6 +149,11 @@ export default function MasterTeacherLayout() {
         {/* Evaluation Report / AI Comparison */}
         {activeKey === "comparison" && (
           <ComparisonScreen onNavigate={navigateWithinSuite} />
+        )}
+
+        {/* Calibration Progress */}
+        {activeKey === "progress" && (
+          <CalibrationProgressScreen onNavigate={navigateWithinSuite} />
         )}
 
         {/* Live Evaluation */}
