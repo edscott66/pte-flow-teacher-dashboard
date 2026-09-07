@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useFeedback } from "../contexts/FeedbackContext";
 import { COMMON_PTE_TOPICS } from "../constants/exerciseBank";
 import "./calibrationBench.css";
@@ -49,6 +49,8 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
     message: string;
     tip?: string;
   } | null>(null);
+  const pauseTimeoutRef = useRef<number | null>(null);
+  const playbackTokenRef = useRef(0);
 
   const diagnosticChecklist = Array.isArray(currentExercise?.errorChecklist)
     ? currentExercise.errorChecklist
@@ -57,6 +59,11 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
   // Clean up speech synthesis when component unmounts
   useEffect(() => {
     return () => {
+      playbackTokenRef.current += 1;
+      if (pauseTimeoutRef.current !== null) {
+        window.clearTimeout(pauseTimeoutRef.current);
+        pauseTimeoutRef.current = null;
+      }
       if ("speechSynthesis" in window) {
         window.speechSynthesis.cancel();
       }
@@ -67,48 +74,104 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
     if (!("speechSynthesis" in window)) return;
 
     if (isPlayingAudio && currentPlayingId === id) {
+      playbackTokenRef.current += 1;
+      if (pauseTimeoutRef.current !== null) {
+        window.clearTimeout(pauseTimeoutRef.current);
+        pauseTimeoutRef.current = null;
+      }
       window.speechSynthesis.cancel();
       setIsPlayingAudio(false);
       setCurrentPlayingId(null);
       return;
     }
 
+    playbackTokenRef.current += 1;
+    const playbackToken = playbackTokenRef.current;
+
+    if (pauseTimeoutRef.current !== null) {
+      window.clearTimeout(pauseTimeoutRef.current);
+      pauseTimeoutRef.current = null;
+    }
     window.speechSynthesis.cancel();
 
-    // Keep diagnostic notation visible on screen, but remove it from the
-    // spoken audio. Calibration samples may use "/" to show phrase
-    // boundaries; the browser would otherwise pronounce these as "slash".
-    const textToSpeak = (text || "")
+    // Calibration notation is kept visible on screen, but certain symbols
+    // also control how the sample is spoken. A slash marks an intentional
+    // unnatural pause. The browser's SpeechSynthesis engine does not provide
+    // reliable timing for this notation, so calibration samples containing
+    // slashes are spoken as separate segments with a real silent gap between
+    // them.
+    const cleanedText = (text || "")
       .replace(/^\[|\]$/g, "")
-      .replace(/[\[\]]/g, " ")
-      .replace(/\s*\/\s*/g, " ")
+      .replace(/\[|\]/g, " ")
       .replace(/\*\*/g, "")
       .replace(/_{1,2}/g, "")
       .replace(/\s+/g, " ")
       .trim();
 
-    if (!textToSpeak) return;
+    if (!cleanedText) return;
 
-    const utterance = new SpeechSynthesisUtterance(textToSpeak);
-    utterance.rate = 0.95;
-    utterance.pitch = 1.0;
-
-    utterance.onend = () => {
-      setIsPlayingAudio(false);
-      setCurrentPlayingId(null);
-    };
-
-    utterance.onerror = () => {
-      setIsPlayingAudio(false);
-      setCurrentPlayingId(null);
-    };
+    const segments = cleanedText
+      .split(/\s*\/\s*/)
+      .map((segment) => segment.trim())
+      .filter(Boolean);
 
     setIsPlayingAudio(true);
     setCurrentPlayingId(id);
-    window.speechSynthesis.speak(utterance);
+
+    const finishPlayback = () => {
+      if (playbackTokenRef.current !== playbackToken) return;
+      if (pauseTimeoutRef.current !== null) {
+        window.clearTimeout(pauseTimeoutRef.current);
+        pauseTimeoutRef.current = null;
+      }
+      setIsPlayingAudio(false);
+      setCurrentPlayingId(null);
+    };
+
+    const speakSegment = (segmentIndex: number) => {
+      if (playbackTokenRef.current !== playbackToken) return;
+
+      if (segmentIndex >= segments.length) {
+        finishPlayback();
+        return;
+      }
+
+      const utterance = new SpeechSynthesisUtterance(segments[segmentIndex]);
+      utterance.rate = 0.95;
+      utterance.pitch = 1.0;
+
+      utterance.onend = () => {
+        if (playbackTokenRef.current !== playbackToken) return;
+
+        // Only calibration samples that contain '/' need a deliberately
+        // extended silence. Normal prompt/sample playback remains unchanged.
+        if (segments.length > 1 && segmentIndex < segments.length - 1) {
+          pauseTimeoutRef.current = window.setTimeout(() => {
+            pauseTimeoutRef.current = null;
+            speakSegment(segmentIndex + 1);
+          }, 100);
+        } else {
+          finishPlayback();
+        }
+      };
+
+      utterance.onerror = () => {
+        if (playbackTokenRef.current !== playbackToken) return;
+        finishPlayback();
+      };
+
+      window.speechSynthesis.speak(utterance);
+    };
+
+    speakSegment(0);
   };
 
   const handleStopAudio = () => {
+    playbackTokenRef.current += 1;
+    if (pauseTimeoutRef.current !== null) {
+      window.clearTimeout(pauseTimeoutRef.current);
+      pauseTimeoutRef.current = null;
+    }
     if ("speechSynthesis" in window) {
       window.speechSynthesis.cancel();
     }
@@ -250,6 +313,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
   };
 
   const currentSample = activeResponseMode === "good" ? currentExercise.good : currentExercise.poor;
+  const isReadAloudCalibration = currentQuestion.title === "Read Aloud";
 
   return (
     <>
@@ -317,7 +381,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
                 2️⃣ Check Observed Errors
               </span>
               <p className="text-slate-300">
-                Listen to the student response and identify the meaningful fluency problems you can support with evidence. Use the <b>Diagnostic Focus</b> prompts as listening clues only, then write your own assessment explaining what you heard and why it matters. If no meaningful error is present, explain why in your assessment.
+                Listen to the student response and identify the meaningful fluency problems you can support with evidence. Select the applicable items in the <b>Error Tracker Checklist</b>, then write your own assessment explaining what you heard and why it matters. <b>Checklist selections do not count as written evidence.</b> If no meaningful error is present, leave the checklist unselected and explain why.
               </p>
             </div>
 
@@ -586,7 +650,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
                 <span className="text-indigo-300 font-semibold">{exerciseIndex}/100</span>
               </div>
             </div>
-            {currentQuestion.id !== "read-aloud" && (
+            {!isReadAloudCalibration && (
               <p className="leading-relaxed font-sans font-medium text-slate-200">{currentExercise.promptText}</p>
             )}
 
@@ -632,7 +696,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
             </div>
           </div>
 
-          {currentQuestion.id !== "read-aloud" && (
+          {!isReadAloudCalibration && (
             <>
               <p className="leading-relaxed font-sans font-medium text-slate-200">
                 "{currentSample.transcript || currentSample.text || (currentSample.answers ? currentSample.answers.join(", ") : "") || currentSample.sequence || "Sample response..."}"
@@ -684,7 +748,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
           background: "#ffffff",
           border: "1px solid #ffffff",
           borderRadius: "20px",
-          padding: "10px",
+          padding: "18px",
           boxShadow: "0 8px 22px rgba(79, 70, 229, 0.08), 0 2px 8px rgba(15, 23, 42, 0.05)"
         }}
       >
