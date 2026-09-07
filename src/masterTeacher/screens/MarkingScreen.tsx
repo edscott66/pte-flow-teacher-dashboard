@@ -317,7 +317,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
                 2️⃣ Check Observed Errors
               </span>
               <p className="text-slate-300">
-                Listen to the student response and identify the meaningful fluency problems you can support with evidence. Select the applicable items in the <b>Error Tracker Checklist</b>, then write your own assessment explaining what you heard and why it matters. <b>Checklist selections do not count as written evidence.</b> If no meaningful error is present, leave the checklist unselected and explain why.
+                Listen to the student response and identify the meaningful fluency problems you can support with evidence. Use the <b>Diagnostic Focus</b> prompts as listening clues only, then write your own assessment explaining what you heard and why it matters. If no meaningful error is present, explain why in your assessment.
               </p>
             </div>
 
@@ -586,7 +586,9 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
                 <span className="text-indigo-300 font-semibold">{exerciseIndex}/100</span>
               </div>
             </div>
-            <p className="leading-relaxed font-sans font-medium text-slate-200">{currentExercise.promptText}</p>
+            {currentQuestion.id !== "read-aloud" && (
+              <p className="leading-relaxed font-sans font-medium text-slate-200">{currentExercise.promptText}</p>
+            )}
 
             {currentQuestion.id === "summarize-group-discussion" && (
               <p className="text-[10px] leading-relaxed text-indigo-300 border-t border-slate-800 pt-1.5">
@@ -630,21 +632,25 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
             </div>
           </div>
 
-          <p className="leading-relaxed font-sans font-medium text-slate-200">
-            "{currentSample.transcript || currentSample.text || (currentSample.answers ? currentSample.answers.join(", ") : "") || currentSample.sequence || "Sample response..."}"
-          </p>
+          {currentQuestion.id !== "read-aloud" && (
+            <>
+              <p className="leading-relaxed font-sans font-medium text-slate-200">
+                "{currentSample.transcript || currentSample.text || (currentSample.answers ? currentSample.answers.join(", ") : "") || currentSample.sequence || "Sample response..."}"
+              </p>
 
-          <div className="flex items-center justify-between text-[11px] pt-1.5 border-t border-slate-800 text-slate-400 flex-wrap gap-2">
-            {currentSample.audioDuration && (
-              <span className="font-semibold text-slate-400">Duration: {currentSample.audioDuration}</span>
-            )}
-            {currentSample.wordCount && (
-              <span className="font-semibold text-slate-400">Word Count: {currentSample.wordCount} words</span>
-            )}
-            <span className="italic text-[10px] text-slate-300">
-              Analysis: {currentSample.characteristics}
-            </span>
-          </div>
+              <div className="flex items-center justify-between text-[11px] pt-1.5 border-t border-slate-800 text-slate-400 flex-wrap gap-2">
+                {currentSample.audioDuration && (
+                  <span className="font-semibold text-slate-400">Duration: {currentSample.audioDuration}</span>
+                )}
+                {currentSample.wordCount && (
+                  <span className="font-semibold text-slate-400">Word Count: {currentSample.wordCount} words</span>
+                )}
+                <span className="italic text-[10px] text-slate-300">
+                  Analysis: {currentSample.characteristics}
+                </span>
+              </div>
+            </>
+          )}
         </div>
       </div>
 
@@ -678,7 +684,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
           background: "#ffffff",
           border: "1px solid #ffffff",
           borderRadius: "20px",
-          padding: "18px",
+          padding: "10px",
           boxShadow: "0 8px 22px rgba(79, 70, 229, 0.08), 0 2px 8px rgba(15, 23, 42, 0.05)"
         }}
       >

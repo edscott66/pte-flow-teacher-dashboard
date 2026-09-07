@@ -315,45 +315,46 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     learningObjective:
       "Identify repeated hesitation fillers and distinguish them from normal pauses.",
     promptText:
-      "I usually wake up early, have breakfast, and walk to work in the morning.",
+      "I usually wake up early in the morning. I get out of bed, wash my face, and make a simple breakfast. Then I check my bag and leave home for work. I like to start my day quietly, but sometimes I need a little more time before I am ready to go. After work, I come home and have dinner with my family.",
     promptAudio:
-      "I usually wake up early, have breakfast, and walk to work in the morning.",
+      "I usually wake up early in the morning. I get out of bed, wash my face, and make a simple breakfast. Then I check my bag and leave home for work. I like to start my day quietly, but sometimes I need a little more time before I am ready to go. After work, I come home and have dinner with my family.",
     studentTranscript:
-      "I usually wake up, um, early, have breakfast, uh, and walk to work, er, in the morning.",
+      "I usually wake up, um, early in the morning. I get out of bed, uh, wash my face, and make a simple breakfast. Then I check my bag, er, and leave home for work. I like to start my day quietly, but, um, sometimes I need a little more time before I am ready to go. After work, I come home and have dinner with my family.",
     studentResponse: {
-      audioDuration: "8.2 seconds",
-      wordCount: 17,
+      audioDuration: "34.5 seconds",
+      wordCount: 63,
       characteristics:
-        "The student is understandable but inserts three noticeable hesitation fillers during a simple morning routine sentence."
+        "The student remains understandable but inserts four noticeable hesitation fillers during a longer, familiar routine passage."
     },
     diagnosticErrors: ["Hesitation", "Filler words"],
     expertEvidence: [
       "\"um\" occurs after \"wake up\"",
-      "\"uh\" occurs before \"and walk\"",
-      "\"er\" occurs before \"in the morning\"",
-      "The student otherwise maintains the correct sentence and keeps moving forward."
+      "\"uh\" occurs after \"bed\"",
+      "\"er\" occurs before \"and leave home\"",
+      "\"um\" occurs before \"sometimes\"",
+      "The student maintains the full content and continues forward after each filler."
     ],
     expertDiagnosis:
-      "The main fluency problem is repeated use of hesitation fillers. The student can produce the sentence, but the fillers interrupt an otherwise continuous description of a familiar routine.",
+      "The main fluency problem is repeated use of hesitation fillers. The student can produce a longer familiar passage, but filler sounds interrupt otherwise continuous delivery at several points.",
     perfectCalibrationResponse:
-      "The student\u2019s main oral fluency issue is repeated hesitation and filler-word use. \u201cUm,\u201d \u201cuh,\u201d and \u201cer\u201d interrupt an otherwise understandable delivery at several points. The student maintains the sentence content and continues forward, so the diagnosis should focus on filler-driven hesitation rather than pronunciation or content.",
+      "The student's main oral fluency issue is repeated hesitation and filler-word use. \"Um,\" \"uh,\" and \"er\" interrupt an otherwise understandable delivery at several points across the passage. The student maintains the content and continues forward, so the diagnosis should focus on filler-driven hesitation rather than pronunciation or content.",
     coachingAdvice:
-      "Teach the student to replace filler sounds with brief silent pauses. Practise short, familiar sentences while maintaining forward movement instead of filling thinking time with \"um\", \"uh\" or \"er\".",
+      "Teach the student to replace filler sounds with brief silent pauses. Practise longer familiar passages while maintaining forward movement instead of filling thinking time with \"um,\" \"uh\" or \"er\".",
     cefrLevel: "A1",
     topicTitle: "Daily Morning Routines",
     good: {
       transcript:
-        "I usually wake up early, have breakfast, and walk to work in the morning.",
-      audioDuration: "6.4 seconds",
-      wordCount: 17,
+        "I usually wake up early in the morning. I get out of bed, wash my face, and make a simple breakfast. Then I check my bag and leave home for work. I like to start my day quietly, but sometimes I need a little more time before I am ready to go. After work, I come home and have dinner with my family.",
+      audioDuration: "31.5 seconds",
+      wordCount: 67,
       characteristics:
         "Natural continuous delivery with appropriate phrasing and no unnecessary fillers."
     },
     poor: {
       transcript:
-        "I usually wake up, um, early, have breakfast, uh, and walk to work, er, in the morning.",
-      audioDuration: "8.2 seconds",
-      wordCount: 17,
+        "I usually wake up, um, early in the morning. I get out of bed, uh, wash my face, and make a simple breakfast. Then I check my bag, er, and leave home for work. I like to start my day quietly, but, um, sometimes I need a little more time before I am ready to go. After work, I come home and have dinner with my family.",
+      audioDuration: "34.5 seconds",
+      wordCount: 67,
       characteristics:
         "Repeated hesitation fillers interrupt otherwise understandable delivery."
     },
@@ -378,7 +379,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       { id: "filler-words", label: "Filler words", keyword: "Filler words" }
     ],
     expertAdvice:
-      "Focus on reducing hesitation fillers. Encourage brief silent pauses instead of filling thinking time with \"um\", \"uh\" or \"er\"."
+      "Focus on reducing hesitation fillers. Encourage brief silent pauses instead of filling thinking time with \"um,\" \"uh\" or \"er\"."
   },
 
   {
@@ -390,48 +391,48 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     learningObjective:
       "Identify pauses that break grammatical or meaningful phrase boundaries.",
     promptText:
-      "My sister lives nearby, and we often meet at the weekend for coffee.",
+      "My sister lives nearby, and we often meet at the weekend for coffee. Sometimes we sit in a small cafe and talk about our family. We also like to walk around the town together. It is nice to see her because we are both busy during the week. On Sunday, we usually meet in the afternoon before we go home.",
     promptAudio:
-      "My sister lives nearby, and we often meet at the weekend for coffee.",
+      "My sister lives nearby, and we often meet at the weekend for coffee. Sometimes we sit in a small cafe and talk about our family. We also like to walk around the town together. It is nice to see her because we are both busy during the week. On Sunday, we usually meet in the afternoon before we go home.",
     studentTranscript:
-      "My sister lives / nearby, and we / often meet / at the weekend / for coffee.",
+      "My sister lives / nearby, and we / often meet at the weekend / for coffee. Sometimes we sit / in a small cafe / and talk about our family. We also like to walk / around the town together. It is nice to see her / because we are both busy / during the week. On Sunday, we usually meet / in the afternoon / before we go home.",
     studentResponse: {
-      audioDuration: "9.4 seconds",
-      wordCount: 13,
+      audioDuration: "38.5 seconds",
+      wordCount: 60,
       characteristics:
-        "The student pauses repeatedly inside short grammatical and meaningful units."
+        "The student pauses repeatedly inside grammatical and meaningful units throughout an otherwise complete family description."
     },
     diagnosticErrors: ["Unnatural pauses", "Fragmented phrasing"],
     expertEvidence: [
       "Pause after \"lives\" breaks \"lives nearby\"",
       "Pause after \"we\" breaks \"we often meet\"",
-      "Pause after \"meet\" separates it from the time phrase",
-      "The final phrase is unnecessarily isolated",
+      "Pause after \"sit\" separates it from \"in a small cafe\"",
+      "Pause after \"walk\" separates it from the following location phrase",
       "The student is not repeating or restarting words"
     ],
     expertDiagnosis:
-      "The main problem is unnatural pausing. The student knows the words and does not show significant hesitation, but the pauses divide the family-related sentence into awkward fragments.",
+      "The main problem is unnatural pausing. The student knows the words and does not show significant hesitation, but the pauses divide connected phrases into awkward fragments.",
     perfectCalibrationResponse:
-      "The student\u2019s main oral fluency issue is unnatural pausing. Pauses occur inside connected phrases such as \u201clives nearby\u201d and \u201cwe often meet,\u201d which breaks the sentence into awkward fragments. The student is not mainly struggling with repetition or restarting; the key issue is poor placement of pauses.",
+      "The student's main oral fluency issue is unnatural pausing. Pauses occur inside connected phrases such as \"lives nearby,\" \"we often meet,\" and \"sit in a small cafe,\" which breaks the passage into awkward fragments. The student is not mainly struggling with repetition or restarting; the key issue is poor placement of pauses.",
     coachingAdvice:
-      "Teach the student to read in sense groups. For example: \"My sister lives nearby / and we often meet at the weekend / for coffee.\" Practise keeping closely connected words together.",
+      "Teach the student to read in sense groups. Practise keeping closely connected words together and moving to the next pause only after a complete thought group.",
     cefrLevel: "A1",
     topicTitle: "Family & Friends",
     good: {
       transcript:
-        "My sister lives nearby, and we often meet at the weekend for coffee.",
-      audioDuration: "6.4 seconds",
-      wordCount: 13,
+        "My sister lives nearby, and we often meet at the weekend for coffee. Sometimes we sit in a small cafe and talk about our family. We also like to walk around the town together. It is nice to see her because we are both busy during the week. On Sunday, we usually meet in the afternoon before we go home.",
+      audioDuration: "31.5 seconds",
+      wordCount: 60,
       characteristics:
-        "Natural pauses occur at sensible phrase boundaries."
+        "Natural pauses occur at sensible phrase and sentence boundaries."
     },
     poor: {
       transcript:
-        "My sister lives / nearby, and we / often meet / at the weekend / for coffee.",
-      audioDuration: "9.4 seconds",
-      wordCount: 13,
+        "My sister lives / nearby, and we / often meet at the weekend / for coffee. Sometimes we sit / in a small cafe / and talk about our family. We also like to walk / around the town together. It is nice to see her / because we are both busy / during the week. On Sunday, we usually meet / in the afternoon / before we go home.",
+      audioDuration: "38.5 seconds",
+      wordCount: 60,
       characteristics:
-        "Frequent mid-phrase pauses make the sentence sound fragmented."
+        "Frequent mid-phrase pauses make the passage sound fragmented."
     },
     goodScore: {
       content: 5,
@@ -466,47 +467,47 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     learningObjective:
       "Recognise repeated words and restarts that interrupt otherwise continuous speech.",
     promptText:
-      "My favorite meal is chicken with rice and fresh vegetables.",
+      "My favorite meal is chicken with rice and fresh vegetables. I usually eat it with my family at home. My mother cooks the chicken, and I help with the vegetables. We sit together at the table, talk about our day, and enjoy the meal slowly. Sometimes we have fruit after dinner, and then I help clean the kitchen.",
     promptAudio:
-      "My favorite meal is chicken with rice and fresh vegetables.",
+      "My favorite meal is chicken with rice and fresh vegetables. I usually eat it with my family at home. My mother cooks the chicken, and I help with the vegetables. We sit together at the table, talk about our day, and enjoy the meal slowly. Sometimes we have fruit after dinner, and then I help clean the kitchen.",
     studentTranscript:
-      "My favorite meal is chicken with rice—rice and fresh vegetables.",
+      "My favorite meal is chicken with rice—rice and fresh vegetables. I usually eat it with my family at home. My mother cooks the chicken, and I help with the vegetables. We sit together at the table, talk about our day, and enjoy the meal slowly. Sometimes we have fruit after dinner, and then I... I help clean the kitchen.",
     studentResponse: {
-      audioDuration: "7.4 seconds",
-      wordCount: 11,
+      audioDuration: "34.0 seconds",
+      wordCount: 60,
       characteristics:
-        "The student repeats a key food word before continuing with the sentence."
+        "The student repeats \"rice\" after successfully producing it and later restarts \"I help\" after a hesitation."
     },
     diagnosticErrors: ["Repetition", "Restarting"],
     expertEvidence: [
-      "The word \"rice\" is repeated",
-      "The repetition interrupts the food description",
-      "There is no major speech-rate problem",
-      "The student does not omit the final part of the sentence"
+      "The word \"rice\" is repeated after it has already been produced",
+      "The repeated word interrupts the food description",
+      "The student later repeats \"I\" before \"help clean the kitchen\"",
+      "The second attempts do not repair missing content"
     ],
     expertDiagnosis:
-      "The main fluency problem is unnecessary repetition. The student starts the phrase successfully, repeats \"rice\", and then continues. The repetition interrupts an otherwise manageable description of a favorite meal.",
+      "The main fluency problem is unnecessary repetition and restarting. The student successfully begins the relevant phrases, then repeats or restarts instead of continuing forward.",
     perfectCalibrationResponse:
-      "The student\u2019s main oral fluency issue is unnecessary repetition and restarting. The word \u201crice\u201d is repeated after the phrase has already been successfully produced, interrupting otherwise manageable connected speech. The teacher should recognise the repetition without over-penalising the student for content or pronunciation.",
+      "The student's main oral fluency issue is unnecessary repetition and restarting. The word \"rice\" is repeated after the phrase has already been produced, and the speaker later restarts \"I help clean the kitchen\" after a hesitation. These repairs interrupt otherwise connected speech; the teacher should identify the fluency pattern without over-penalising content or pronunciation.",
     coachingAdvice:
-      "Teach the student to continue after a minor slip instead of repeating the word or phrase. Practise short food descriptions while focusing on forward movement.",
+      "Teach the student to continue after a minor slip instead of repeating a successful word or restarting a phrase. Practise longer familiar descriptions while focusing on forward movement.",
     cefrLevel: "A1",
     topicTitle: "Favorite Foods & Meals",
     good: {
       transcript:
-        "My favorite meal is chicken with rice and fresh vegetables.",
-      audioDuration: "5.2 seconds",
-      wordCount: 11,
+        "My favorite meal is chicken with rice and fresh vegetables. I usually eat it with my family at home. My mother cooks the chicken, and I help with the vegetables. We sit together at the table, talk about our day, and enjoy the meal slowly. Sometimes we have fruit after dinner, and then I help clean the kitchen.",
+      audioDuration: "31.5 seconds",
+      wordCount: 58,
       characteristics:
-        "Continuous delivery without unnecessary repetition."
+        "Continuous delivery without unnecessary repetition or restarting."
     },
     poor: {
       transcript:
-        "My favorite meal is chicken with rice—rice and fresh vegetables.",
-      audioDuration: "7.4 seconds",
-      wordCount: 11,
+        "My favorite meal is chicken with rice—rice and fresh vegetables. I usually eat it with my family at home. My mother cooks the chicken, and I help with the vegetables. We sit together at the table, talk about our day, and enjoy the meal slowly. Sometimes we have fruit after dinner, and then I... I help clean the kitchen.",
+      audioDuration: "34.0 seconds",
+      wordCount: 60,
       characteristics:
-        "The repeated word interrupts connected speech."
+        "Repeated words and a short restart interrupt otherwise understandable connected speech."
     },
     goodScore: {
       content: 5,
@@ -522,14 +523,14 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       pronunciation: 5,
       overall: "66 / 90",
       breakdownText:
-        "Repeated words interrupt otherwise understandable connected speech."
+        "Repeated words and restarting interrupt otherwise understandable connected speech."
     },
     errorChecklist: [
       { id: "repetition", label: "Repetition", keyword: "Repetition" },
       { id: "restarting", label: "Restarting", keyword: "Restarting" }
     ],
     expertAdvice:
-      "Encourage the student to keep moving forward after a small slip. Repeating a word to make the delivery perfect can create a larger fluency problem."
+      "Encourage the student to keep moving forward after a small slip. Repeating a word or restarting a phrase can create a larger fluency problem."
   },
 
   {
@@ -541,47 +542,48 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     learningObjective:
       "Identify poorly grouped delivery and teach meaningful phrase-level chunking.",
     promptText:
-      "I like reading books and listening to music in my free time.",
+      "I like reading books and listening to music in my free time. I usually read in the evening when my work is finished. Sometimes I listen to music while I clean my room. On weekends, I also visit the library and choose a new book to read. Reading helps me relax, and music makes simple housework more enjoyable.",
     promptAudio:
-      "I like reading books and listening to music in my free time.",
+      "I like reading books and listening to music in my free time. I usually read in the evening when my work is finished. Sometimes I listen to music while I clean my room. On weekends, I also visit the library and choose a new book to read. Reading helps me relax, and music makes simple housework more enjoyable.",
     studentTranscript:
-      "I like / reading / books and / listening / to music / in my / free time.",
+      "I like / reading books / and listening / to music / in my free time. I usually read / in the evening / when my work / is finished. Sometimes I listen / to music / while I clean / my room. On weekends, I also visit / the library / and choose a new book / to read. Reading helps me relax / and music makes / simple housework more enjoyable.",
     studentResponse: {
-      audioDuration: "8.9 seconds",
-      wordCount: 12,
+      audioDuration: "38.0 seconds",
+      wordCount: 58,
       characteristics:
-        "The student breaks the simple hobby sentence into small, unnatural word groups."
+        "The student uses small, mechanical word groups even when words form natural phrases, creating choppy delivery without major hesitation."
     },
     diagnosticErrors: ["Poor phrasing", "Word-by-word grouping"],
     expertEvidence: [
-      "\"reading\" is separated from \"books\"",
       "\"listening\" is separated from \"to music\"",
-      "\"in my\" is separated from \"free time\"",
-      "The student produces the words but does not group them into natural sense units"
+      "\"in my\" is kept apart from the larger \"free time\" phrase",
+      "\"when my work is finished\" is broken into several small groups",
+      "\"visit the library\" and \"choose a new book\" are unnecessarily fragmented",
+      "The student produces the words without repeated fillers or restarts"
     ],
     expertDiagnosis:
-      "The dominant problem is poor phrasing rather than hesitation. The student reads the hobby sentence in small word groups instead of connecting words that form meaningful phrases.",
+      "The dominant problem is poor phrasing rather than hesitation or excessive silence. The student reads in small mechanical groups instead of connecting words that form meaningful phrases.",
     perfectCalibrationResponse:
-      "The student\u2019s dominant oral fluency problem is poor phrasing and word grouping. Words that naturally belong together, such as \u201creading books,\u201d \u201clistening to music,\u201d and \u201cfree time,\u201d are split into small chunks. The issue is choppy phrase-level delivery rather than simple hesitation or excessive silence.",
+      "The student's dominant oral fluency problem is poor phrasing and word grouping. Natural units such as \"listening to music,\" \"free time,\" \"when my work is finished,\" and \"visit the library\" are broken into small chunks. The issue is choppy phrase-level delivery rather than simple hesitation or excessive silence.",
     coachingAdvice:
-      "Teach the student to group words according to meaning. A more natural pattern is: \"I like reading books / and listening to music / in my free time.\"",
+      "Teach the student to group words according to meaning. Mark complete sense groups before speaking, then practise connecting the words inside each group.",
     cefrLevel: "A1",
     topicTitle: "Hobbies & Free Time",
     good: {
       transcript:
-        "I like reading books and listening to music in my free time.",
-      audioDuration: "5.7 seconds",
-      wordCount: 12,
+        "I like reading books and listening to music in my free time. I usually read in the evening when my work is finished. Sometimes I listen to music while I clean my room. On weekends, I also visit the library and choose a new book to read. Reading helps me relax, and music makes simple housework more enjoyable.",
+      audioDuration: "31.5 seconds",
+      wordCount: 58,
       characteristics:
         "Meaningful phrase groups create a natural rhythm."
     },
     poor: {
       transcript:
-        "I like / reading / books and / listening / to music / in my / free time.",
-      audioDuration: "8.9 seconds",
-      wordCount: 12,
+        "I like / reading books / and listening / to music / in my free time. I usually read / in the evening / when my work / is finished. Sometimes I listen / to music / while I clean / my room. On weekends, I also visit / the library / and choose a new book / to read. Reading helps me relax / and music makes / simple housework more enjoyable.",
+      audioDuration: "38.0 seconds",
+      wordCount: 58,
       characteristics:
-        "Small word groups make the hobby sentence sound mechanical and fragmented."
+        "Small mechanical groups make the passage sound choppy and fragmented."
     },
     goodScore: {
       content: 5,
@@ -597,7 +599,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       pronunciation: 5,
       overall: "67 / 90",
       breakdownText:
-        "Poor phrase grouping makes the sentence sound fragmented."
+        "Poor phrase grouping makes the passage sound fragmented."
     },
     errorChecklist: [
       { id: "poor-phrasing", label: "Poor phrasing", keyword: "Poor phrasing" },
@@ -616,48 +618,48 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     learningObjective:
       "Distinguish excessively slow delivery from hesitation, pronunciation problems or normal processing pauses.",
     promptText:
-      "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden.",
+      "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden. I like the living room because it has a large window. My bedroom is next to the bathroom, and my family often eats together in the kitchen. There is also a small table outside where we sit on warm days. Our home is simple, but it feels calm and friendly.",
     promptAudio:
-      "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden.",
+      "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden. I like the living room because it has a large window. My bedroom is next to the bathroom, and my family often eats together in the kitchen. There is also a small table outside where we sit on warm days. Our home is simple, but it feels calm and friendly.",
     studentTranscript:
-      "My home... is... small but comfortable... with a kitchen... two bedrooms... and a quiet garden.",
+      "My home... is... small but comfortable... with a kitchen... two bedrooms... and a quiet garden. I like the living room... because it has a large window. My bedroom... is next to the bathroom... and my family often eats together... in the kitchen. There is also a small table outside... where we sit on warm days. Our home is simple... but it feels calm and friendly.",
     studentResponse: {
-      audioDuration: "14.6 seconds",
-      wordCount: 15,
+      audioDuration: "48.0 seconds",
+      wordCount: 65,
       characteristics:
-        "The words are mostly clear, but long gaps make this simple home description excessively slow."
+        "The words are clear and complete, but long gaps occur throughout the passage, making the overall rate excessively slow."
     },
     diagnosticErrors: ["Speech rate too slow", "Excessive pausing"],
     expertEvidence: [
-      "Long gaps occur throughout the sentence",
+      "Long gaps occur repeatedly throughout the passage",
       "There are no significant filler words",
       "There is no major repetition or restarting",
       "The student produces the home-related vocabulary clearly",
-      "The overall rate is much slower than a controlled natural reading"
+      "The overall rate is substantially slower than the controlled natural version"
     ],
     expertDiagnosis:
-      "The dominant problem is an excessively slow speech rate. The student can produce the vocabulary accurately, but the long gaps prevent the home description from sounding fluent.",
+      "The dominant problem is an excessively slow speech rate. The student can produce the vocabulary accurately, but repeated long gaps prevent the description from sounding fluent.",
     perfectCalibrationResponse:
-      "The student\u2019s main oral fluency problem is an excessively slow speech rate. The words are generally clear and accurate, but long gaps throughout the sentence make the delivery much slower than a controlled natural reading. The teacher should distinguish the overall rate problem from filler-based hesitation.",
+      "The student's main oral fluency problem is an excessively slow speech rate. The words are generally clear and accurate, but repeated long gaps make the delivery substantially slower than a controlled natural reading. The teacher should distinguish the overall rate problem from filler-based hesitation or word-retrieval difficulty.",
     coachingAdvice:
       "Use short timed readings and gradually reduce the gaps between phrases. The goal is continuous, comfortable speech rather than rushing or pronouncing every word in isolation.",
     cefrLevel: "A1",
     topicTitle: "My Home & Neighborhood",
     good: {
       transcript:
-        "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden.",
-      audioDuration: "6.7 seconds",
-      wordCount: 15,
+        "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden. I like the living room because it has a large window. My bedroom is next to the bathroom, and my family often eats together in the kitchen. There is also a small table outside where we sit on warm days. Our home is simple, but it feels calm and friendly.",
+      audioDuration: "32.5 seconds",
+      wordCount: 65,
       characteristics:
-        "Controlled, continuous delivery with clear articulation."
+        "Controlled, continuous delivery with clear articulation and comfortable pacing."
     },
     poor: {
       transcript:
-        "My home... is... small but comfortable... with a kitchen... two bedrooms... and a quiet garden.",
-      audioDuration: "14.6 seconds",
-      wordCount: 15,
+        "My home... is... small but comfortable... with a kitchen... two bedrooms... and a quiet garden. I like the living room... because it has a large window. My bedroom... is next to the bathroom... and my family often eats together... in the kitchen. There is also a small table outside... where we sit on warm days. Our home is simple... but it feels calm and friendly.",
+      audioDuration: "48.0 seconds",
+      wordCount: 65,
       characteristics:
-        "Excessively slow delivery caused by long gaps throughout the sentence."
+        "Excessively slow delivery caused by repeated long gaps throughout the passage."
     },
     goodScore: {
       content: 5,
@@ -692,47 +694,48 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     learningObjective:
       "Recognise when excessive speed reduces clarity, phrase boundaries and intelligibility.",
     promptText:
-      "In rainy weather, I usually carry an umbrella and wear a light jacket.",
+      "In rainy weather, I usually carry an umbrella and wear a light jacket. I also check the weather before I leave home. When the rain is heavy, I walk more carefully and take a bus if I need to travel far. I do not mind rainy days because I enjoy the cool air and the sound of rain. Sometimes I stay home and read a book.",
     promptAudio:
-      "In rainy weather, I usually carry an umbrella and wear a light jacket.",
+      "In rainy weather, I usually carry an umbrella and wear a light jacket. I also check the weather before I leave home. When the rain is heavy, I walk more carefully and take a bus if I need to travel far. I do not mind rainy days because I enjoy the cool air and the sound of rain. Sometimes I stay home and read a book.",
     studentTranscript:
-      "In rainy weather, I usually carry an umbrella and wear a light jacket.",
+      "In rainy weather, I usually carry an umbrella and wear a light jacket. I also check the weather before I leave home. When the rain is heavy, I walk more carefully and take a bus if I need to travel far. I do not mind rainy days because I enjoy the cool air and the sound of rain. Sometimes I stay home and read a book.",
     studentResponse: {
-      audioDuration: "3.1 seconds",
-      wordCount: 13,
+      audioDuration: "21.0 seconds",
+      wordCount: 66,
       characteristics:
-        "The student rushes through the weather sentence, causing words to run together."
+        "The complete weather passage is delivered at a rushed rate, with reduced separation between several words and little space for natural phrase boundaries."
     },
     diagnosticErrors: ["Speech rate too fast", "Reduced word boundaries"],
     expertEvidence: [
-      "The complete sentence is delivered unusually quickly",
-      "Several word boundaries are difficult to distinguish",
+      "The complete passage is delivered substantially faster than the controlled target",
+      "Several word boundaries are difficult to distinguish comfortably",
       "The student gives little space to natural phrase boundaries",
-      "The issue is speed rather than missing content"
+      "The full content is present",
+      "The dominant issue is speed rather than missing content or repeated hesitation"
     ],
     expertDiagnosis:
-      "The dominant fluency problem is excessive speech rate. The student produces the weather information, but the speed reduces clarity and makes the sentence difficult to process comfortably.",
+      "The dominant fluency problem is excessive speech rate. The student produces the complete weather information, but the rushed delivery reduces clarity and makes the passage harder to process comfortably.",
     perfectCalibrationResponse:
-      "The student\u2019s main oral fluency problem is an excessively fast speech rate. The complete sentence is produced, but the rushed delivery reduces clear word boundaries and leaves too little space for natural phrase grouping. The appropriate feedback is to slow the delivery enough to preserve clarity, not simply to tell the student to speak more slowly without explaining why.",
+      "The student's main oral fluency problem is an excessively fast speech rate. The complete passage is produced, but the rushed delivery reduces clear word boundaries and leaves too little space for natural phrase grouping. The teacher should explain that the goal is controlled intelligibility, not maximum speed.",
     coachingAdvice:
-      "Train the student to slow down enough to preserve clear word boundaries. Practise the sentence in meaningful groups such as \"In rainy weather / I usually carry an umbrella / and wear a light jacket.\"",
+      "Train the student to slow down enough to preserve clear word boundaries. Practise the passage in meaningful groups and aim for a steady, comfortable pace rather than maximum speed.",
     cefrLevel: "A1",
     topicTitle: "Weather & Seasons",
     good: {
       transcript:
-        "In rainy weather, I usually carry an umbrella and wear a light jacket.",
-      audioDuration: "5.6 seconds",
-      wordCount: 13,
+        "In rainy weather, I usually carry an umbrella and wear a light jacket. I also check the weather before I leave home. When the rain is heavy, I walk more carefully and take a bus if I need to travel far. I do not mind rainy days because I enjoy the cool air and the sound of rain. Sometimes I stay home and read a book.",
+      audioDuration: "32.0 seconds",
+      wordCount: 66,
       characteristics:
         "Clear controlled speed with natural phrase boundaries."
     },
     poor: {
       transcript:
-        "In rainy weather, I usually carry an umbrella and wear a light jacket.",
-      audioDuration: "3.1 seconds",
-      wordCount: 13,
+        "In rainy weather, I usually carry an umbrella and wear a light jacket. I also check the weather before I leave home. When the rain is heavy, I walk more carefully and take a bus if I need to travel far. I do not mind rainy days because I enjoy the cool air and the sound of rain. Sometimes I stay home and read a book.",
+      audioDuration: "21.0 seconds",
+      wordCount: 66,
       characteristics:
-        "Rushed delivery reduces word separation and natural phrasing."
+        "Rushed delivery reduces comfortable word separation and natural phrasing."
     },
     goodScore: {
       content: 5,
@@ -767,47 +770,47 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     learningObjective:
       "Identify unnecessary self-correction and distinguish it from a genuine content repair.",
     promptText:
-      "I went to the supermarket yesterday to buy milk, bread, and some fresh fruit.",
+      "I went to the supermarket yesterday to buy milk, bread, and some fresh fruit. I also wanted to buy eggs, but I forgot to take my shopping list. I walked through the store, checked the prices, and put the food in my basket. Then I paid at the front and carried everything home. After that, I put the food away and made a cup of tea.",
     promptAudio:
-      "I went to the supermarket yesterday to buy milk, bread, and some fresh fruit.",
+      "I went to the supermarket yesterday to buy milk, bread, and some fresh fruit. I also wanted to buy eggs, but I forgot to take my shopping list. I walked through the store, checked the prices, and put the food in my basket. Then I paid at the front and carried everything home. After that, I put the food away and made a cup of tea.",
     studentTranscript:
-      "I went to the supermarket yesterday to buy milk, bread—milk, bread, and some fresh fruit.",
+      "I went to the supermarket yesterday to buy milk, bread, and some fresh—fresh fruit. I also wanted to buy eggs, but I forgot to take my shopping list. I walked through the store, checked the prices, and put the food in my basket. Then I paid at the front and carried everything home. After that, I put the food away and made a cup of tea.",
     studentResponse: {
-      audioDuration: "8.1 seconds",
-      wordCount: 16,
+      audioDuration: "34.5 seconds",
+      wordCount: 67,
       characteristics:
-        "The student successfully begins the shopping list, then unnecessarily restarts the same phrase."
+        "The student begins the final item as \"fresh\" and immediately restarts it as \"fresh fruit,\" even though the first attempt was understandable."
     },
     diagnosticErrors: ["False start", "Self-correction"],
     expertEvidence: [
-      "The student initially produces \"milk, bread\" correctly",
-      "The same phrase is then repeated",
-      "The second attempt does not add or repair missing information",
-      "The unnecessary restart interrupts forward movement"
+      "The student initially produces \"fresh\" successfully",
+      "The word \"fresh\" is unnecessarily restarted",
+      "The second attempt does not repair missing or incorrect information",
+      "The restart interrupts forward movement in an otherwise controlled passage"
     ],
     expertDiagnosis:
-      "The main problem is unnecessary self-correction. The student had already produced the shopping items successfully but restarted the phrase, creating a false start and reducing fluency.",
+      "The main problem is unnecessary self-correction. The student has already produced an acceptable word, then restarts the phrase, creating a false start and reducing fluency.",
     perfectCalibrationResponse:
-      "The student\u2019s main oral fluency problem is repeated false starts and self-correction. The response shows the speaker beginning phrases, changing them, and restarting instead of maintaining forward movement. The teacher should identify the correction pattern as the fluency issue rather than treating every individual slip as a separate error.",
+      "The student's main oral fluency problem is unnecessary false starting and self-correction. The speaker begins the phrase with \"fresh\" successfully, then restarts it as \"fresh fruit\" even though no meaningful repair was needed. The teacher should identify the correction pattern as the fluency issue rather than treating the two productions as separate errors.",
     coachingAdvice:
       "Teach the student to accept a minor imperfection and continue forward. In Read Aloud, unnecessary correction can damage fluency more than the original small slip.",
     cefrLevel: "A1",
     topicTitle: "Shopping & Groceries",
     good: {
       transcript:
-        "I went to the supermarket yesterday to buy milk, bread, and some fresh fruit.",
-      audioDuration: "6.3 seconds",
-      wordCount: 16,
+        "I went to the supermarket yesterday to buy milk, bread, and some fresh fruit. I also wanted to buy eggs, but I forgot to take my shopping list. I walked through the store, checked the prices, and put the food in my basket. Then I paid at the front and carried everything home. After that, I put the food away and made a cup of tea.",
+      audioDuration: "32.5 seconds",
+      wordCount: 66,
       characteristics:
         "Continuous shopping-related delivery without unnecessary restarting."
     },
     poor: {
       transcript:
-        "I went to the supermarket yesterday to buy milk, bread—milk, bread, and some fresh fruit.",
-      audioDuration: "8.1 seconds",
-      wordCount: 16,
+        "I went to the supermarket yesterday to buy milk, bread, and some fresh—fresh fruit. I also wanted to buy eggs, but I forgot to take my shopping list. I walked through the store, checked the prices, and put the food in my basket. Then I paid at the front and carried everything home. After that, I put the food away and made a cup of tea.",
+      audioDuration: "34.5 seconds",
+      wordCount: 67,
       characteristics:
-        "Unnecessary restart interrupts an otherwise successful shopping list."
+        "Unnecessary self-correction interrupts an otherwise successful shopping description."
     },
     goodScore: {
       content: 5,
@@ -842,16 +845,16 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     learningObjective:
       "Recognise several fluency symptoms while identifying the most disruptive problem.",
     promptText:
-      "My dog is friendly, enjoys long walks, and often plays with other dogs in the park.",
+      "My dog is friendly and enjoys long walks in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
     promptAudio:
-      "My dog is friendly, enjoys long walks, and often plays with other dogs in the park.",
+      "My dog is friendly and enjoys long walks in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
     studentTranscript:
-      "My dog... is friendly, um, enjoys long walks—long walks, and often... plays with other dogs in the park.",
+      "My dog... is friendly, um, enjoys long walks—long walks, in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops... to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
     studentResponse: {
-      audioDuration: "10.8 seconds",
-      wordCount: 19,
+      audioDuration: "38.5 seconds",
+      wordCount: 68,
       characteristics:
-        "The pet description contains hesitation, a filler, repetition and an unnecessary pause."
+        "The pet description contains hesitation, a filler, repetition and an unnecessary pause, with hesitation remaining the most disruptive feature."
     },
     diagnosticErrors: [
       "Hesitation",
@@ -863,32 +866,32 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "Long hesitation after \"dog\"",
       "Filler \"um\" before \"enjoys\"",
       "Repetition of \"long walks\"",
-      "Unnecessary pause before \"plays\"",
+      "Unnecessary pause before \"to smell the trees\"",
       "The student still delivers the full pet-related content"
     ],
     expertDiagnosis:
-      "This is a mixed fluency profile. Hesitation is the most disruptive feature, but filler use, repetition and unnatural pausing also contribute to the breakdown in smooth delivery.",
+      "This is a mixed fluency profile. Hesitation is the most disruptive feature, while filler use, repetition and unnatural pausing also contribute to the breakdown in smooth delivery.",
     perfectCalibrationResponse:
-      "The student has a mixed fluency profile, with hesitation as the most disruptive feature. There is a noticeable hesitation after \u201cdog,\u201d the filler \u201cum,\u201d repetition of \u201clong walks,\u201d and an unnecessary pause before \u201cplays.\u201d The teacher should recognise the multiple symptoms but prioritise hesitation in the diagnosis rather than treating every symptom as equally severe.",
+      "The student has a mixed fluency profile, with hesitation as the most disruptive feature. There is a noticeable hesitation after \"dog,\" the filler \"um,\" repetition of \"long walks,\" and an unnecessary pause before \"to smell the trees.\" The teacher should recognise the multiple symptoms but prioritise hesitation rather than treating every symptom as equally severe.",
     coachingAdvice:
-      "Start with the hesitation pattern and practise the sentence in meaningful groups. Then reduce filler use and repetition while maintaining forward movement.",
+      "Start with the hesitation pattern and practise the passage in meaningful groups. Then reduce filler use and repetition while maintaining forward movement.",
     cefrLevel: "A1",
     topicTitle: "Pets & Animals",
     good: {
       transcript:
-        "My dog is friendly, enjoys long walks, and often plays with other dogs in the park.",
-      audioDuration: "6.6 seconds",
-      wordCount: 19,
+        "My dog is friendly and enjoys long walks in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
+      audioDuration: "33.0 seconds",
+      wordCount: 66,
       characteristics:
         "Smooth pet-related delivery with natural phrase grouping."
     },
     poor: {
       transcript:
-        "My dog... is friendly, um, enjoys long walks—long walks, and often... plays with other dogs in the park.",
-      audioDuration: "10.8 seconds",
-      wordCount: 19,
+        "My dog... is friendly, um, enjoys long walks—long walks, in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops... to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
+      audioDuration: "38.5 seconds",
+      wordCount: 68,
       characteristics:
-        "Several fluency disruptions occur within the same animal-related sentence."
+        "Several fluency disruptions occur within the same animal-related passage."
     },
     goodScore: {
       content: 5,
@@ -925,21 +928,21 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     learningObjective:
       "Identify minor rhythm problems without over-diagnosing an otherwise strong response.",
     promptText:
-      "My favorite school subject is science because I enjoy learning how plants and animals grow.",
+      "My favorite school subject is science because I enjoy learning how plants and animals grow. In class, we read short texts, look at pictures, and sometimes do simple experiments. I like science because it helps me understand things around me. My teacher also gives us small questions to discuss with our classmates. We often share our ideas before the lesson ends.",
     promptAudio:
-      "My favorite school subject is science because I enjoy learning how plants and animals grow.",
+      "My favorite school subject is science because I enjoy learning how plants and animals grow. In class, we read short texts, look at pictures, and sometimes do simple experiments. I like science because it helps me understand things around me. My teacher also gives us small questions to discuss with our classmates. We often share our ideas before the lesson ends.",
     studentTranscript:
-      "My favorite school subject is science / because I enjoy learning how plants and animals grow.",
+      "My favorite school subject is science / because I enjoy learning how plants and animals grow. In class, we read short texts, look at pictures, and sometimes do simple experiments. I like science because it helps me understand things around me. My teacher also gives us small questions to discuss with our classmates. We often share our ideas before the lesson ends.",
     studentResponse: {
-      audioDuration: "7.3 seconds",
-      wordCount: 15,
+      audioDuration: "33.0 seconds",
+      wordCount: 61,
       characteristics:
-        "Generally strong delivery with one slightly overlong pause that mildly interrupts the rhythm."
+        "Generally strong delivery with one slightly overlong pause after \"science\" that mildly interrupts the rhythm."
     },
     diagnosticErrors: ["Subtle phrasing disruption", "Slightly segmented rhythm"],
     expertEvidence: [
       "The pause after \"science\" is slightly longer than necessary",
-      "The two main thought groups are otherwise well controlled",
+      "The remaining thought groups are well controlled",
       "There are no obvious fillers",
       "There are no repetitions or false starts",
       "Overall fluency remains strong"
@@ -947,26 +950,26 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     expertDiagnosis:
       "The student demonstrates generally strong fluency with a minor rhythm issue. This is a refinement case, not a major fluency failure.",
     perfectCalibrationResponse:
-      "The student demonstrates generally strong oral fluency with only a minor rhythm issue. The pause after \u201cscience\u201d is slightly longer than necessary, creating a subtle phrasing disruption, but the two main thought groups are otherwise well controlled. This should be treated as a refinement point, not a major fluency failure.",
+      "The student demonstrates generally strong oral fluency with only a minor rhythm issue. The pause after \"science\" is slightly longer than necessary, creating a subtle phrasing disruption, but the remaining thought groups are well controlled. This should be treated as a refinement point, not a major fluency failure.",
     coachingAdvice:
-      "At an advanced level, avoid treating every pause as a serious error. Focus on slightly smoother continuity between the two ideas while recognising that the overall delivery is already strong.",
+      "At an advanced calibration level, avoid treating every pause as a serious error. Focus on slightly smoother continuity while recognising that the overall delivery is already strong.",
     cefrLevel: "A1",
     topicTitle: "School Subjects",
     good: {
       transcript:
-        "My favorite school subject is science because I enjoy learning how plants and animals grow.",
-      audioDuration: "6.7 seconds",
-      wordCount: 15,
+        "My favorite school subject is science because I enjoy learning how plants and animals grow. In class, we read short texts, look at pictures, and sometimes do simple experiments. I like science because it helps me understand things around me. My teacher also gives us small questions to discuss with our classmates. We often share our ideas before the lesson ends.",
+      audioDuration: "31.0 seconds",
+      wordCount: 61,
       characteristics:
-        "Natural advanced-level rhythm and connected delivery."
+        "Natural connected delivery with appropriate rhythm and phrase boundaries."
     },
     poor: {
       transcript:
-        "My favorite school subject is science / because I enjoy learning how plants and animals grow.",
-      audioDuration: "7.3 seconds",
-      wordCount: 15,
+        "My favorite school subject is science / because I enjoy learning how plants and animals grow. In class, we read short texts, look at pictures, and sometimes do simple experiments. I like science because it helps me understand things around me. My teacher also gives us small questions to discuss with our classmates. We often share our ideas before the lesson ends.",
+      audioDuration: "33.0 seconds",
+      wordCount: 61,
       characteristics:
-        "Mostly strong delivery with a subtle rhythm interruption."
+        "Mostly strong delivery with one subtle rhythm interruption."
     },
     goodScore: {
       content: 5,
@@ -1001,20 +1004,20 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     learningObjective:
       "Recognise when a response is sufficiently fluent and avoid inventing errors without clear evidence.",
     promptText:
-      "City buses provide an affordable way for people to travel to work, school, and local shops.",
+      "City buses provide an affordable way for people to travel to work, school, and local shops. Many people use buses because they are easy to find in busy areas. I often take the bus when I need to go into the city. It is useful, especially when the roads are busy and parking is difficult. I also like using the bus because I can read or look out of the window.",
     promptAudio:
-      "City buses provide an affordable way for people to travel to work, school, and local shops.",
+      "City buses provide an affordable way for people to travel to work, school, and local shops. Many people use buses because they are easy to find in busy areas. I often take the bus when I need to go into the city. It is useful, especially when the roads are busy and parking is difficult. I also like using the bus because I can read or look out of the window.",
     studentTranscript:
-      "City buses provide an affordable way for people to travel to work, school, and local shops.",
+      "City buses provide an affordable way for people to travel to work, school, and local shops. Many people use buses because they are easy to find in busy areas. I often take the bus when I need to go into the city. It is useful, especially when the roads are busy and parking is difficult. I also like using the bus because I can read or look out of the window.",
     studentResponse: {
-      audioDuration: "6.8 seconds",
-      wordCount: 16,
+      audioDuration: "34.0 seconds",
+      wordCount: 71,
       characteristics:
-        "Natural continuous delivery with appropriate rate, phrasing and pauses."
+        "Natural continuous delivery with appropriate rate, phrasing and pauses. No significant fluency error is intentionally present."
     },
     diagnosticErrors: [],
     expertEvidence: [
-      "The public-transport sentence is delivered continuously",
+      "The public-transport passage is delivered continuously",
       "Phrasing follows meaningful grammatical units",
       "Speech rate is controlled and natural",
       "There are no significant fillers, repetitions or restarts",
@@ -1023,24 +1026,24 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     expertDiagnosis:
       "The student demonstrates strong oral fluency. There is no significant fluency problem requiring correction. This exercise teaches diagnostic restraint: a teacher should not invent a problem simply because the task is labelled as a calibration exercise.",
     perfectCalibrationResponse:
-      "The student demonstrates strong, natural oral fluency. The response is continuous, appropriately paced, and grouped into meaningful grammatical units, with no significant fillers, repetitions, restarts, or unnatural pauses. No major fluency error should be diagnosed without clear evidence; this exercise tests the teacher\u2019s ability to show appropriate diagnostic restraint.",
+      "The student demonstrates strong, natural oral fluency. The response is continuous, appropriately paced, and grouped into meaningful grammatical units, with no significant fillers, repetitions, restarts, or unnatural pauses. No major fluency error should be diagnosed without clear evidence; this exercise tests the teacher's ability to show appropriate diagnostic restraint.",
     coachingAdvice:
-      "Do not invent errors where there is insufficient evidence. Recognise that this response is already sufficiently fluent and, if another problem exists, focus feedback on that area instead.",
+      "Do not invent errors where there is insufficient evidence. Recognise that this response is already sufficiently fluent and avoid forcing a fluency diagnosis simply because the exercise is part of calibration.",
     cefrLevel: "A1",
     topicTitle: "City Buses & Public Transport",
     good: {
       transcript:
-        "City buses provide an affordable way for people to travel to work, school, and local shops.",
-      audioDuration: "6.8 seconds",
-      wordCount: 16,
+        "City buses provide an affordable way for people to travel to work, school, and local shops. Many people use buses because they are easy to find in busy areas. I often take the bus when I need to go into the city. It is useful, especially when the roads are busy and parking is difficult. I also like using the bus because I can read or look out of the window.",
+      audioDuration: "33.5 seconds",
+      wordCount: 71,
       characteristics:
         "Natural continuous delivery with appropriate phrasing and controlled speed."
     },
     poor: {
       transcript:
-        "City buses provide an affordable way for people to travel to work, school, and local shops.",
-      audioDuration: "6.8 seconds",
-      wordCount: 16,
+        "City buses provide an affordable way for people to travel to work, school, and local shops. Many people use buses because they are easy to find in busy areas. I often take the bus when I need to go into the city. It is useful, especially when the roads are busy and parking is difficult. I also like using the bus because I can read or look out of the window.",
+      audioDuration: "34.0 seconds",
+      wordCount: 71,
       characteristics:
         "Intentionally near-natural response; there is no significant fluency error to diagnose."
     },
