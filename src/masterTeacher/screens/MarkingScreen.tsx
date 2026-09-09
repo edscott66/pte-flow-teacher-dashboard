@@ -166,7 +166,7 @@ export default function MarkingScreen({
         if (!part) return;
 
         if (/^\.\.\.\s*\.\.\.$/.test(part)) {
-          addSegment(pendingText, 125);
+          addSegment(pendingText, 1200);
           pendingText = "";
         } else if (/^\.\.\.$/.test(part)) {
           addSegment(pendingText, 100);

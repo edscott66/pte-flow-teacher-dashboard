@@ -1081,7 +1081,577 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     errorChecklist: [],
     expertAdvice:
       "The key calibration skill here is restraint. Do not select a fluency error unless the response provides clear evidence for it."
-  }
+  },
+
+  {
+    exerciseIndex: 11,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Insufficient Pausing & Run-On Delivery",
+
+    learningObjective:
+      "Recognise when insufficient sentence-boundary pausing makes otherwise clear speech sound rushed or run together.",
+
+    promptText:
+      "I usually start work at eight o'clock in the morning. I check my emails and make a short list of tasks for the day. Then I speak with my team about our plans. After lunch, I finish my main tasks and answer any questions from customers. Before I leave, I check my work and prepare for the next morning.",
+
+    promptAudio:
+      "I usually start work at eight o'clock in the morning. I check my emails and make a short list of tasks for the day. Then I speak with my team about our plans. After lunch, I finish my main tasks and answer any questions from customers. Before I leave, I check my work and prepare for the next morning.",
+
+    studentTranscript:
+      "I usually start work at eight o'clock in the morning I check my emails and make a short list of tasks for the day then I speak with my team about our plans after lunch I finish my main tasks and answer any questions from customers before I leave I check my work and prepare for the next morning.",
+
+    studentResponse: {
+      audioDuration: "32.0 seconds",
+      wordCount: 65,
+      characteristics:
+        "The student maintains a generally controlled overall rate and clear words, but uses too little separation between sentence ideas, creating a run-on delivery."
+    },
+
+    diagnosticErrors: [
+      "Insufficient pausing",
+      "Run-on delivery"
+    ],
+
+    expertEvidence: [
+      "Sentence boundaries receive little or no audible pause",
+      "Several complete ideas run directly into the next sentence",
+      "The overall speed is not the primary problem",
+      "The student does not rely on fillers, repetition or restarting",
+      "The reduced separation makes the response harder to process comfortably"
+    ],
+
+    expertDiagnosis:
+      "The main oral fluency problem is insufficient pausing between complete sentence ideas. The student is not necessarily speaking too fast, but the lack of natural sentence-boundary pauses creates a run-on delivery and reduces the clarity of the overall rhythm.",
+
+    perfectCalibrationResponse:
+      "The student's main oral fluency issue is insufficient pausing between sentence-level ideas. The words are generally clear and the overall rate is controlled, but several complete sentences run directly into the next with little separation. This creates a run-on delivery. The teacher should distinguish this from an excessively fast speech rate because the main problem is missing natural pauses, not sustained speed.",
+
+    coachingAdvice:
+      "Practise adding brief, purposeful pauses at complete sentence boundaries without slowing the words themselves. The goal is clearer separation of ideas while maintaining a comfortable overall speaking rate.",
+
+    cefrLevel: "A1",
+    topicTitle: "Workplace Daily Tasks",
+
+    good: {
+      transcript:
+        "I usually start work at eight o'clock in the morning. I check my emails and make a short list of tasks for the day. Then I speak with my team about our plans. After lunch, I finish my main tasks and answer any questions from customers. Before I leave, I check my work and prepare for the next morning.",
+
+      audioDuration: "32.0 seconds",
+      wordCount: 65,
+
+      characteristics:
+        "Natural sentence-boundary pauses with clear continuous workplace-related delivery."
+    },
+
+    poor: {
+      transcript:
+        "I usually start work at eight o'clock in the morning I check my emails and make a short list of tasks for the day then I speak with my team about our plans after lunch I finish my main tasks and answer any questions from customers before I leave I check my work and prepare for the next morning.",
+
+      audioDuration: "31.0 seconds",
+      wordCount: 65,
+
+      characteristics:
+        "Controlled overall rate but insufficient sentence-boundary pauses create a run-on rhythm."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Clear continuous delivery with natural sentence-level pauses."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 2,
+      pronunciation: 5,
+      overall: "69 / 90",
+      breakdownText:
+        "Insufficient sentence-boundary pauses create run-on delivery and reduce natural fluency."
+    },
+
+    errorChecklist: [
+      {
+        id: "insufficient-pausing",
+        label: "Insufficient pausing",
+        keyword: "Insufficient pausing"
+      },
+      {
+        id: "run-on-delivery",
+        label: "Run-on delivery",
+        keyword: "Run-on delivery"
+      }
+    ],
+
+    expertAdvice:
+      "Do not label this response as simply too fast. The key issue is the lack of natural pauses between complete sentence ideas. Encourage brief sentence-boundary pauses while keeping the overall speaking rate comfortable."
+  },
+
+ {
+  exerciseIndex: 12,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Oral Fluency",
+  diagnosticArea: "Excessive Sentence-Boundary Pausing",
+  learningObjective:
+    "Recognise when overly long pauses between complete sentences interrupt otherwise clear and appropriately paced delivery.",
+  promptText:
+    "My family usually celebrates birthdays at home. We make a simple cake and prepare some food for everyone. In the afternoon, our relatives arrive and we sit together at the table. We sing a birthday song and give the birthday person a small present. After dinner, we talk and take some photos together.",
+  promptAudio:
+    "My family usually celebrates birthdays at home. We make a simple cake and prepare some food for everyone. In the afternoon, our relatives arrive and we sit together at the table. We sing a birthday song and give the birthday person a small present. After dinner, we talk and take some photos together.",
+  studentTranscript:
+    "My family usually celebrates birthdays at home. ... ... We make a simple cake and prepare some food for everyone. ... ... In the afternoon, our relatives arrive and we sit together at the table. ... ... We sing a birthday song and give the birthday person a small present. ... ... After dinner, we talk and take some photos together.",
+  studentResponse: {
+    audioDuration: "35.5 seconds",
+    wordCount: 53,
+    characteristics:
+      "The student speaks clearly at a generally appropriate overall rate, but uses noticeably long pauses after several complete sentences, creating a segmented delivery."
+  },
+  diagnosticErrors: [
+    "Excessive pausing",
+    "Segmented delivery"
+  ],
+  expertEvidence: [
+    "Noticeably long pauses occur after several complete sentences",
+    "The pauses occur mainly at sentence boundaries rather than inside grammatical phrases",
+    "The words themselves are produced clearly",
+    "The overall speaking rate is not excessively slow",
+    "There are no significant fillers, repetitions or false starts",
+    "The repeated long pauses interrupt the continuity of the response"
+  ],
+  expertDiagnosis:
+    "The main oral fluency problem is excessive sentence-boundary pausing. The student produces the words clearly and maintains a generally appropriate speaking rate, but repeated long pauses between complete sentences make the response sound segmented and less continuous.",
+  perfectCalibrationResponse:
+    "The student's main oral fluency issue is excessive pausing at sentence boundaries. The words are generally clear and the overall speaking rate is appropriate, but several sentences are followed by noticeably long pauses before the next idea begins. This creates a segmented delivery. The teacher should distinguish this from an excessively slow speech rate because the main problem is the repeated long pauses rather than the speed of the words themselves.",
+  coachingAdvice:
+    "Practise reducing the length of pauses between complete sentences while keeping natural sentence boundaries. The student should maintain a smooth connection between ideas rather than stopping for too long after each sentence.",
+  cefrLevel: "A1",
+  topicTitle: "Birthday Celebrations",
+  good: {
+    transcript:
+      "My family usually celebrates birthdays at home. We make a simple cake and prepare some food for everyone. In the afternoon, our relatives arrive and we sit together at the table. We sing a birthday song and give the birthday person a small present. After dinner, we talk and take some photos together.",
+    audioDuration: "30.5 seconds",
+    wordCount: 53,
+    characteristics:
+      "Clear, continuous birthday-related delivery with natural sentence-boundary pauses."
+  },
+  poor: {
+    transcript:
+      "My family usually celebrates birthdays at home. ... ... We make a simple cake and prepare some food for everyone. ... ... In the afternoon, our relatives arrive and we sit together at the table. ... ... We sing a birthday song and give the birthday person a small present. ... ... After dinner, we talk and take some photos together.",
+    audioDuration: "35.5 seconds",
+    wordCount: 53,
+    characteristics:
+      "Clear and appropriately paced words, but repeated long sentence-boundary pauses make the response sound segmented."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Clear continuous delivery with natural sentence-boundary pauses."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 2,
+    pronunciation: 5,
+    overall: "69 / 90",
+    breakdownText:
+      "Repeated long pauses between sentences interrupt continuity and create segmented delivery."
+  },
+  errorChecklist: [
+    {
+      id: "excessive-pausing",
+      label: "Excessive pausing",
+      keyword: "Excessive pausing"
+    },
+    {
+      id: "segmented-delivery",
+      label: "Segmented delivery",
+      keyword: "Segmented delivery"
+    }
+  ],
+  expertAdvice:
+    "Do not label this response as simply too slow. The words are produced at a generally appropriate rate. The key problem is the repeated length of the pauses between sentences, which breaks the continuity of the response."
+},
+
+ {
+    exerciseIndex: 13,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Word Substitution & Content Accuracy",
+    learningObjective:
+      "Identify specific words that have been replaced or misread and recognise that word substitutions in Read Aloud affect Content accuracy rather than automatically indicating a pronunciation or fluency problem.",
+    promptText:
+      "Many people enjoy sports at the weekend. I usually play football with my friends on Saturday morning. In the afternoon, I sometimes watch basketball on television. On Sunday, my family goes to the park, where we walk, play games, and enjoy the fresh air.",
+    promptAudio:
+      "Many people enjoy sports at the weekend. I usually play football with my friends on Saturday morning. In the afternoon, I sometimes watch basketball on television. On Sunday, my family goes to the park, where we walk, play games, and enjoy the fresh air.",
+    studentTranscript:
+      "Many people enjoy sports at the weekend. I usually play football with my friends on Sunday morning. In the afternoon, I sometimes watch baseball on television. On Sunday, my family goes to the park, where we walk, play games, and enjoy the fresh air.",
+    studentResponse: {
+      audioDuration: "23.5 seconds",
+      wordCount: 51,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but two individual words are replaced with different words, reducing Content accuracy."
+    },
+    diagnosticErrors: [
+      "Word substitution",
+      "Content accuracy"
+    ],
+    expertEvidence: [
+      "\"Saturday\" is replaced with \"Sunday\"",
+      "\"basketball\" is replaced with \"baseball\"",
+      "The substitutions are individual word-level changes rather than hesitations or restarts",
+      "Overall speech rate remains appropriate",
+      "The response is generally continuous without significant fillers or unnatural pauses",
+      "The incorrect words are clearly spoken, so the main calibration issue is not automatically a pronunciation problem",
+      "The word replacements reduce the accuracy of the student's Read Aloud response"
+    ],
+    expertDiagnosis:
+      "The main problem is Content accuracy. The student reads most of the passage clearly and at an appropriate rate, but replaces two words from the printed text: \"Saturday\" becomes \"Sunday\" and \"basketball\" becomes \"baseball\". These are word substitutions that negatively affect Content in PTE Read Aloud. The teacher should not automatically diagnose the response as a pronunciation or fluency problem simply because the wrong words are clearly spoken.",
+    perfectCalibrationResponse:
+      "The student's main problem is Content accuracy. The response is generally clear, continuous and appropriately paced, with no significant hesitation or pausing problem. However, two words from the printed passage are replaced: \"Saturday\" is read as \"Sunday\" and \"basketball\" is read as \"baseball\". These word substitutions affect the Content score in PTE Read Aloud. The teacher should distinguish this from a pronunciation or fluency problem because the substituted words are produced clearly and the overall delivery remains fluent.",
+    coachingAdvice:
+      "Teach the student to check the exact printed words carefully while reading rather than substituting familiar or related words. When assessing the response, identify the specific replacement and recognise it as a Content accuracy problem unless there is separate evidence of a pronunciation or fluency issue.",
+    cefrLevel: "A1",
+    topicTitle: "Weekend Sports",
+    good: {
+      transcript:
+        "Many people enjoy sports at the weekend. I usually play football with my friends on Saturday morning. In the afternoon, I sometimes watch basketball on television. On Sunday, my family goes to the park, where we walk, play games, and enjoy the fresh air.",
+      audioDuration: "22.5 seconds",
+      wordCount: 51,
+      characteristics:
+        "Clear and accurate reading with appropriate pace and continuous delivery."
+    },
+    poor: {
+      transcript:
+        "Many people enjoy sports at the weekend. I usually play football with my friends on Sunday morning. In the afternoon, I sometimes watch baseball on television. On Sunday, my family goes to the park, where we walk, play games, and enjoy the fresh air.",
+      audioDuration: "23.5 seconds",
+      wordCount: 51,
+      characteristics:
+        "Generally fluent delivery with two clear word substitutions that reduce Content accuracy."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Clear, accurate and appropriately paced reading."
+    },
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "Generally fluent and clearly spoken, but two word substitutions reduce Content accuracy."
+    },
+    errorChecklist: [
+      {
+        id: "word-substitution",
+        label: "Word substitution",
+        keyword: "Word substitution"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      }
+    ],
+    expertAdvice:
+      "Do not diagnose this simply as poor pronunciation or poor fluency. The student maintains an appropriate rate and continuous delivery, and the substituted words are clearly spoken. The key issue is that two words from the printed passage have been replaced, which affects Content in PTE Read Aloud."
+  },
+
+   {
+    exerciseIndex: 14,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Word Omission & Insertion",
+    learningObjective:
+      "Identify words that have been omitted or inserted in a Read Aloud response and recognise that these changes affect Content accuracy even when pronunciation and oral fluency remain strong.",
+    promptText:
+      "People wear different clothes for different activities. I usually wear a T-shirt and shorts when I play sports. At school, I wear comfortable trousers and a simple shirt. In cold weather, I put on a jacket and warm shoes. My favourite clothes are simple because they are easy to wear.",
+    promptAudio:
+      "People wear different clothes for different activities. I usually wear a T-shirt and shorts when I play sports. At school, I wear comfortable trousers and a simple shirt. In cold weather, I put on a jacket and warm shoes. My favourite clothes are simple because they are easy to wear.",
+    studentTranscript:
+      "People wear different clothes for different activities. I wear a T-shirt and shorts when I play sports. At school, I wear comfortable trousers and a simple new shirt. In cold weather, I put on a jacket and warm shoes. My favourite clothes are simple because they are easy to wear.",
+    studentResponse: {
+      audioDuration: "23.5 seconds",
+      wordCount: 50,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but one word is omitted and one additional word is inserted, reducing Content accuracy."
+    },
+    diagnosticErrors: [
+      "Word omission",
+      "Word insertion",
+      "Content accuracy"
+    ],
+    expertEvidence: [
+      "\"usually\" is omitted before \"wear\"",
+      "\"new\" is inserted before \"shirt\"",
+      "The omission and insertion occur at individual word level rather than through hesitation or restarting",
+      "Overall speech rate remains appropriate",
+      "The response is generally continuous without significant fillers or unnatural pauses",
+      "The substituted wording is clearly spoken, so the main calibration issue is Content rather than pronunciation",
+      "The omission and insertion reduce the accuracy of the student's Read Aloud response"
+    ],
+    expertDiagnosis:
+      "The main problem is Content accuracy. The student reads most of the passage clearly and at an appropriate rate, but makes two word-level Content errors: \"usually\" is omitted and \"new\" is inserted before \"shirt\". These changes affect the accuracy of the Read Aloud response. The teacher should not diagnose the response as a fluency or pronunciation problem because the delivery remains clear, continuous and appropriately paced.",
+    perfectCalibrationResponse:
+      "The student's main problem is Content accuracy. The response is generally clear, continuous and appropriately paced, with no significant hesitation or pausing problem. However, two Content errors occur: the word \"usually\" is omitted, and the word \"new\" is inserted before \"shirt\". These word omissions and insertions affect the Content score in PTE Read Aloud. The teacher should distinguish these errors from pronunciation or oral fluency problems because the words are clearly spoken and the overall delivery remains fluent.",
+    coachingAdvice:
+      "Teach the student to follow the printed text exactly and avoid skipping small words or adding extra words. During Read Aloud practice, compare the spoken response with the original text to identify omissions and insertions while continuing to maintain natural fluency.",
+    cefrLevel: "A1",
+    topicTitle: "Clothes & Everyday Fashion",
+    good: {
+      transcript:
+        "People wear different clothes for different activities. I usually wear a T-shirt and shorts when I play sports. At school, I wear comfortable trousers and a simple shirt. In cold weather, I put on a jacket and warm shoes. My favourite clothes are simple because they are easy to wear.",
+      audioDuration: "22.5 seconds",
+      wordCount: 50,
+      characteristics:
+        "Clear and accurate reading with appropriate pace and continuous delivery."
+    },
+    poor: {
+      transcript:
+        "People wear different clothes for different activities. I wear a T-shirt and shorts when I play sports. At school, I wear comfortable trousers and a simple new shirt. In cold weather, I put on a jacket and warm shoes. My favourite clothes are simple because they are easy to wear.",
+      audioDuration: "23.5 seconds",
+      wordCount: 50,
+      characteristics:
+        "Generally fluent and clearly spoken, but one word is omitted and one additional word is inserted, reducing Content accuracy."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Clear, accurate and appropriately paced reading."
+    },
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "Generally fluent and clearly spoken, but one omission and one insertion reduce Content accuracy."
+    },
+    errorChecklist: [
+      {
+        id: "word-omission",
+        label: "Word omission",
+        keyword: "Word omission"
+      },
+      {
+        id: "word-insertion",
+        label: "Word insertion",
+        keyword: "Word insertion"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      }
+    ],
+    expertAdvice:
+      "Do not diagnose this simply as poor pronunciation or poor fluency. The student maintains an appropriate rate and continuous delivery, and the words are clearly spoken. The key issue is that one word from the printed passage has been omitted and an additional word has been inserted, both of which affect Content in PTE Read Aloud."
+  },
+
+  {
+    exerciseIndex: 15,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "TH Sound Pronunciation",
+    learningObjective:
+      "Identify a clear pronunciation problem involving the English /th/ sound and distinguish a specific speech-sound error from problems with oral fluency or speech rate.",
+    promptText:
+      "There are three main colors on the school poster. The first color is red, the second is blue, and the third is yellow. I like these colors because they are bright and easy to see. Three students helped us make the poster.",
+    promptAudio:
+      "There are three main colors on the school poster. The first color is red, the second is blue, and the third is yellow. I like these colors because they are bright and easy to see. Three students helped us make the poster.",
+    studentTranscript:
+      "There are tree main colors on the school poster. The first color is red, the second is blue, and the third is yellow. I like these colors because they are bright and easy to see. Tree students helped us make the poster.",
+    studentResponse: {
+      audioDuration: "23.5 seconds",
+      wordCount: 50,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the /th/ sound in 'three' is repeatedly produced as a /t/ sound, creating a noticeable pronunciation problem."
+    },
+    diagnosticErrors: [
+      "TH sound pronunciation",
+      "Consonant substitution",
+      "Pronunciation accuracy"
+    ],
+    expertEvidence: [
+      "\"three\" is repeatedly pronounced with a /t/ sound, producing \"tree\"",
+      "The /th/ pronunciation problem occurs more than once in the response",
+      "The rest of the response is generally clear and understandable",
+      "Overall speech rate remains appropriate",
+      "The response is continuous without significant fillers, hesitations or unnatural pauses",
+      "The pronunciation issue is concentrated on a specific consonant sound rather than the student's overall fluency",
+      "The repeated /th/ sound error is the main pronunciation feature requiring attention"
+    ],
+    expertDiagnosis:
+      "The main problem is pronunciation accuracy, specifically the production of the /th/ sound. The student repeatedly produces the /th/ sound in \"three\" as a /t/ sound, resulting in \"tree.\" The response remains generally clear, continuous and appropriately paced, so this should not be diagnosed as a speech-rate or oral-fluency problem. The teacher should focus on the specific consonant sound and provide pronunciation-focused feedback.",
+    perfectCalibrationResponse:
+      "The student's main issue is pronunciation, specifically the /th/ sound in the word \"three.\" The sound is repeatedly produced more like a /t/, so \"three\" sounds like \"tree.\" The response is otherwise clear, continuous and appropriately paced, with no significant hesitation or pausing problem. The teacher should therefore focus on the specific consonant pronunciation rather than diagnosing poor fluency or an inappropriate speaking rate.",
+    coachingAdvice:
+      "Practise the /th/ sound by placing the tongue lightly between the teeth and allowing air to pass through before moving into the rest of the word. Practise words such as \"three,\" \"think,\" \"Thursday\" and \"thirty\" slowly at first, then use them in short sentences while maintaining natural fluency.",
+    cefrLevel: "A1",
+    topicTitle: "Colors & Numbers",
+    good: {
+      transcript:
+        "There are three main colors on the school poster. The first color is red, the second is blue, and the third is yellow. I like these colors because they are bright and easy to see. Three students helped us make the poster.",
+      audioDuration: "22.5 seconds",
+      wordCount: 50,
+      characteristics:
+        "Clear pronunciation of the /th/ sound with appropriate pace and continuous delivery."
+    },
+    poor: {
+      transcript:
+        "There are tree main colors on the school poster. The first color is red, the second is blue, and the third is yellow. I like these colors because they are bright and easy to see. Tree students helped us make the poster.",
+      audioDuration: "23.5 seconds",
+      wordCount: 50,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the /th/ sound in 'three' is repeatedly produced as a /t/ sound."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Clear pronunciation with appropriate pace and continuous delivery."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "Generally fluent and clear, but repeated /th/ sound errors reduce pronunciation accuracy."
+    },
+    errorChecklist: [
+      {
+        id: "th-sound-pronunciation",
+        label: "TH sound pronunciation",
+        keyword: "TH sound pronunciation"
+      },
+      {
+        id: "consonant-substitution",
+        label: "Consonant substitution",
+        keyword: "Consonant substitution"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+    expertAdvice:
+      "Do not diagnose this simply as poor fluency or speaking too fast. The student's overall rate and continuity are appropriate. Focus on the repeated /th/ sound problem in words such as \"three\" and provide specific pronunciation coaching."
+  },
+  
+  {
+    exerciseIndex: 16,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Vowel-Like Consonant Pronunciation",
+    learningObjective:
+      "Identify a specific consonant pronunciation problem involving the /v/ sound and distinguish it from problems with oral fluency, speech rate or Content accuracy.",
+    promptText:
+      "Every week, I visit my grandparents on Friday afternoon. We usually have tea together and talk about our plans for the weekend. On Saturday, I help them with some jobs around the house. I enjoy visiting them because we always have a good time.",
+    promptAudio:
+      "Every week, I visit my grandparents on Friday afternoon. We usually have tea together and talk about our plans for the weekend. On Saturday, I help them with some jobs around the house. I enjoy visiting them because we always have a good time.",
+    studentTranscript:
+      "Every week, I wisit my grandparents on Friday afternoon. We usually have tea together and talk about our plans for the weekend. On Saturday, I help them with some jobs around the house. I enjoy wisiting them because we always have a good time.",
+    studentResponse: {
+      audioDuration: "23.5 seconds",
+      wordCount: 52,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the /v/ sound in 'visit' is repeatedly produced more like a /w/ sound."
+    },
+    diagnosticErrors: [
+      "V sound pronunciation",
+      "Consonant substitution",
+      "Pronunciation accuracy"
+    ],
+    expertEvidence: [
+      "\"visit\" is repeatedly pronounced more like \"wisit\"",
+      "The /v/ sound is replaced by a /w/-like sound in more than one occurrence",
+      "The pronunciation problem occurs at a specific consonant sound rather than across the whole response",
+      "Overall speech rate remains appropriate",
+      "The response is continuous without significant fillers, hesitations or unnatural pauses",
+      "The student's Content remains substantially intact",
+      "The main issue requiring attention is the production of the /v/ sound"
+    ],
+    expertDiagnosis:
+      "The main problem is pronunciation accuracy, specifically the production of the /v/ sound. The student repeatedly produces the initial /v/ sound in \"visit\" more like a /w/ sound. The response remains generally clear, continuous and appropriately paced, so this should not be diagnosed as an oral-fluency or speech-rate problem. The teacher should focus on the specific consonant sound and provide targeted pronunciation coaching.",
+    perfectCalibrationResponse:
+      "The student's main issue is pronunciation, specifically the /v/ sound in the word \"visit.\" The sound is repeatedly produced more like a /w/ sound, making \"visit\" sound like \"wisit.\" The response is otherwise clear, continuous and appropriately paced, with no significant hesitation or pausing problem. The teacher should therefore focus on the specific consonant pronunciation rather than diagnosing poor fluency or an inappropriate speaking rate.",
+    coachingAdvice:
+      "Practise the /v/ sound by placing the upper teeth lightly against the lower lip and allowing the air to pass through while the vocal cords vibrate. Contrast /v/ and /w/ in words such as \"visit,\" \"very,\" \"van\" and \"west,\" then practise the words in short sentences while maintaining natural fluency.",
+    cefrLevel: "A1",
+    topicTitle: "Time & Days of the Week",
+    good: {
+      transcript:
+        "Every week, I visit my grandparents on Friday afternoon. We usually have tea together and talk about our plans for the weekend. On Saturday, I help them with some jobs around the house. I enjoy visiting them because we always have a good time.",
+      audioDuration: "22.5 seconds",
+      wordCount: 52,
+      characteristics:
+        "Clear pronunciation of the /v/ sound with appropriate pace and continuous delivery."
+    },
+    poor: {
+      transcript:
+        "Every week, I wisit my grandparents on Friday afternoon. We usually have tea together and talk about our plans for the weekend. On Saturday, I help them with some jobs around the house. I enjoy wisiting them because we always have a good time.",
+      audioDuration: "23.5 seconds",
+      wordCount: 52,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the /v/ sound in 'visit' is repeatedly produced more like a /w/ sound."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Clear pronunciation with appropriate pace and continuous delivery."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "Generally fluent and clear, but repeated /v/ sound errors reduce pronunciation accuracy."
+    },
+    errorChecklist: [
+      {
+        id: "v-sound-pronunciation",
+        label: "V sound pronunciation",
+        keyword: "V sound pronunciation"
+      },
+      {
+        id: "consonant-substitution",
+        label: "Consonant substitution",
+        keyword: "Consonant substitution"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+    expertAdvice:
+      "Do not diagnose this simply as poor fluency or speaking too fast. The student's overall rate and continuity are appropriate. Focus on the repeated /v/ sound problem in words such as \"visit\" and provide specific pronunciation coaching."
+  },
 ];
 
 // -----------------------------------------------------------------------------
