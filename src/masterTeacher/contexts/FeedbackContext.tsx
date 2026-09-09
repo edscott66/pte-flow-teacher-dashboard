@@ -8,7 +8,7 @@ import {
 } from "react";
 import { QUESTIONS_DATA } from "../constants/questionsData";
 import { compareTeacherFeedback } from "../utils/compareText";
-import { getExercise } from "../constants/exerciseBank";
+import { getExercise, getRandomCalibrationExercise} from "../constants/exerciseBank";
 
 type Question = (typeof QUESTIONS_DATA)[number];
 type Exercise = ReturnType<typeof getExercise>;
@@ -37,6 +37,7 @@ interface FeedbackContextValue {
   setExerciseIndex: (index: number) => void;
   nextExercise: () => void;
   prevExercise: () => void;
+  randomCalibrationExercise: () => void;
   currentExercise: Exercise;
   activeResponseMode: "poor" | "good";
   setActiveResponseMode: Dispatch<SetStateAction<"poor" | "good">>;
@@ -110,6 +111,16 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
   const prevExercise = () => {
     setExerciseIndex(exerciseIndex - 1);
   };
+
+  const randomCalibrationExercise = () => {
+  const randomExercise = getRandomCalibrationExercise();
+
+  if (!randomExercise) {
+    return;
+  }
+
+  setExerciseIndex(randomExercise.exerciseIndex);
+};
 
   // Toggle Error Tracker Checkbox
   const toggleErrorCheckbox = (errorId: string, keyword?: string) => {
@@ -452,6 +463,7 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
     setExerciseIndex,
     nextExercise,
     prevExercise,
+    randomCalibrationExercise,
     currentExercise,
     activeResponseMode,
     setActiveResponseMode,

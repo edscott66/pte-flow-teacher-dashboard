@@ -40,6 +40,8 @@
   --cb-shadow-lg: 0 14px 34px rgba(16, 24, 40, 0.10);
   --cb-radius: 16px;
 
+  container-type: inline-size;
+
   width: 100%;
   max-width: 1480px;
   margin: 0 auto;
@@ -1001,7 +1003,7 @@
 }
 
 /* ============================================================
-   EXERCISE HEADER — KEEP TOPIC + NAVIGATION TOGETHER
+   EXERCISE HEADER — RESPONSIVE TOPIC + NAVIGATION
    ============================================================ */
 
 .calibration-bench .calibration-exercise-header > div:first-child {
@@ -1009,7 +1011,7 @@
   align-items: center !important;
   justify-content: space-between !important;
   gap: 10px !important;
-  flex-wrap: nowrap !important;
+  min-width: 0 !important;
 }
 
 .calibration-bench .calibration-exercise-header
@@ -1017,16 +1019,30 @@
 > div:first-child {
   display: flex !important;
   align-items: center !important;
-  gap: 0 !important;
+  gap: 8px !important;
   min-width: 0 !important;
+  flex: 1 1 auto !important;
 }
 
-/* PTE Exam Topic → A1 Beginner spacing */
+/* PTE Exam Topic → A1 Beginner → Calibration level */
 .calibration-bench .calibration-exercise-header
 > div:first-child
 > div:first-child
-> span + span {
-  margin-left: 8px !important;
+> span {
+  flex: 0 0 auto !important;
+}
+
+/* Keep the calibration level readable without colliding with navigation */
+@media (max-width: 1100px) {
+  .calibration-bench .calibration-exercise-header
+  > div:first-child
+  > div:first-child
+  > span:last-child {
+    flex-basis: 100% !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    margin-left: 0 !important;
+  }
 }
 
 /* Navigation controls */
@@ -1040,6 +1056,46 @@
   padding-top: 0 !important;
   border-top: 0 !important;
   margin-left: auto !important;
+  flex: 0 0 auto !important;
+}
+
+/* ============================================================
+   MEDIUM / NARROW WIDTH — STACK NAVIGATION BELOW TOPIC
+   ============================================================ */
+
+@media (max-width: 1100px) {
+
+  .calibration-bench .calibration-exercise-header > div:first-child {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  .calibration-bench .calibration-exercise-header
+  > div:first-child
+  > div:first-child {
+    width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .calibration-bench .calibration-exercise-header
+  > div:first-child
+  > div:last-child {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .calibration-bench .calibration-exercise-header select {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
 }
 
 /* ============================================================
@@ -1483,4 +1539,196 @@ span {
 
   border-color: #f7f8fb !important;
   color: #5f7188 !important;
+}
+
+/* ============================================================
+   MARKING SIMULATOR HEADER — CLEAN RESPONSIVE LAYOUT
+   ============================================================ */
+
+/*
+   Desktop:
+   Marking Simulator | Evaluate Student Response | Instructions Reset
+
+   As the actual Calibration Bench becomes narrower:
+   Marking Simulator | Instructions Reset
+                     | Evaluate Student Response
+
+   Only on a genuinely narrow bench do we stack all three elements.
+*/
+
+/* Make the header container available to container queries. */
+.calibration-bench {
+  container-type: inline-size;
+  container-name: calibration-bench;
+}
+
+/* ------------------------------------------------------------
+   NORMAL DESKTOP HEADER
+   ------------------------------------------------------------ */
+
+.calibration-bench .calibration-header,
+.calibration-bench > div:first-child {
+  display: grid !important;
+  grid-template-columns: minmax(190px, 1fr) auto minmax(230px, 1fr) !important;
+  grid-template-rows: auto !important;
+  align-items: center !important;
+  column-gap: 24px !important;
+  row-gap: 0 !important;
+}
+
+.calibration-bench .calibration-kicker {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  justify-self: start !important;
+  align-self: center !important;
+  width: auto !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+.calibration-bench .calibration-main-title,
+.calibration-bench > div:first-child h1 {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  justify-self: center !important;
+  align-self: center !important;
+  width: auto !important;
+  margin: 0 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+.calibration-bench .calibration-header-actions,
+.calibration-bench > div:first-child > div:last-child {
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+  justify-self: end !important;
+  align-self: center !important;
+  width: auto !important;
+  min-width: max-content !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  flex-wrap: nowrap !important;
+  gap: 10px !important;
+}
+
+.calibration-bench .calibration-header-actions button {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-width: max-content !important;
+  white-space: nowrap !important;
+}
+
+/* ------------------------------------------------------------
+   EARLY WRAP
+   Move the buttons to the top-right before they can collide
+   with the title.
+
+   This is based on the actual Calibration Bench width, so it
+   also responds correctly when the sidebar reduces the usable
+   content area.
+   ------------------------------------------------------------ */
+
+@container calibration-bench (max-width: 1050px) {
+
+  .calibration-bench .calibration-header,
+  .calibration-bench > div:first-child {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    grid-template-rows: auto auto !important;
+    align-items: center !important;
+    column-gap: 18px !important;
+    row-gap: 10px !important;
+    min-height: 108px !important;
+  }
+
+  .calibration-bench .calibration-kicker {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    align-self: center !important;
+    width: auto !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .calibration-bench .calibration-header-actions,
+  .calibration-bench > div:first-child > div:last-child {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    width: auto !important;
+    min-width: max-content !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+  }
+
+  .calibration-bench .calibration-main-title,
+  .calibration-bench > div:first-child h1 {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    justify-self: center !important;
+    align-self: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    text-align: center !important;
+    white-space: normal !important;
+  }
+}
+
+/* ------------------------------------------------------------
+   GENUINELY NARROW BENCH
+   At this point the two buttons can no longer comfortably share
+   the top row with the kicker, so the complete header stacks.
+   ------------------------------------------------------------ */
+
+@container calibration-bench (max-width: 560px) {
+
+  .calibration-bench .calibration-header,
+  .calibration-bench > div:first-child {
+    display: block !important;
+    min-height: 0 !important;
+    padding: 16px !important;
+  }
+
+  .calibration-bench .calibration-kicker {
+    display: flex !important;
+    width: auto !important;
+    margin: 0 !important;
+    white-space: normal !important;
+  }
+
+  .calibration-bench .calibration-main-title,
+  .calibration-bench > div:first-child h1 {
+    display: block !important;
+    width: 100% !important;
+    margin: 12px 0 0 !important;
+    text-align: left !important;
+    white-space: normal !important;
+  }
+
+  .calibration-bench .calibration-header-actions,
+  .calibration-bench > div:first-child > div:last-child {
+    display: flex !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 16px 0 0 !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+  .calibration-bench .calibration-header-actions button {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: max-content !important;
+  }
 }

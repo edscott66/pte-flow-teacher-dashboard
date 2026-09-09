@@ -622,27 +622,27 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     promptAudio:
       "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden. I like the living room because it has a large window. My bedroom is next to the bathroom, and my family often eats together in the kitchen. There is also a small table outside where we sit on warm days. Our home is simple, but it feels calm and friendly.",
     studentTranscript:
-      "My home... is... small but comfortable... with a kitchen... two bedrooms... and a quiet garden. I like the living room... because it has a large window. My bedroom... is next to the bathroom... and my family often eats together... in the kitchen. There is also a small table outside... where we sit on warm days. Our home is simple... but it feels calm and friendly.",
+      "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden. I like the living room because it has a large window. My bedroom is next to the bathroom, and my family often eats together in the kitchen. There is also a small table outside where we sit on warm days. Our home is simple, but it feels calm and friendly.",
     studentResponse: {
-      audioDuration: "48.0 seconds",
+      audioDuration: "45.0 seconds",
       wordCount: 65,
       characteristics:
-        "The words are clear and complete, but long gaps occur throughout the passage, making the overall rate excessively slow."
+        "The student articulates the words clearly but at a deliberately slow overall rate, with only normal sentence pauses and no filler-based hesitation."
     },
-    diagnosticErrors: ["Speech rate too slow", "Excessive pausing"],
+    diagnosticErrors: ["Speech rate too slow"],
     expertEvidence: [
-      "Long gaps occur repeatedly throughout the passage",
-      "There are no significant filler words",
-      "There is no major repetition or restarting",
-      "The student produces the home-related vocabulary clearly",
-      "The overall rate is substantially slower than the controlled natural version"
+      "The full passage is delivered noticeably more slowly than the controlled natural version",
+      "The words are articulated clearly and completely throughout",
+      "Pauses are mostly limited to normal sentence boundaries and are secondary to the slow rate",
+      "There are no significant filler words, repetition or restarting",
+      "The primary issue is sustained slow delivery rather than isolated hesitation"
     ],
     expertDiagnosis:
-      "The dominant problem is an excessively slow speech rate. The student can produce the vocabulary accurately, but repeated long gaps prevent the description from sounding fluent.",
+      "The dominant problem is an excessively slow speech rate. The student produces the home-related vocabulary clearly, but the entire passage is delivered at a noticeably reduced pace. Any pauses are secondary and should not distract from the overall rate diagnosis.",
     perfectCalibrationResponse:
-      "The student's main oral fluency problem is an excessively slow speech rate. The words are generally clear and accurate, but repeated long gaps make the delivery substantially slower than a controlled natural reading. The teacher should distinguish the overall rate problem from filler-based hesitation or word-retrieval difficulty.",
+      "The student's main oral fluency problem is an excessively slow speech rate. The words are generally clear and accurate, but the entire passage is delivered noticeably more slowly than a controlled natural reading. Pauses are present but are not the main issue; the teacher should distinguish sustained slow rate from filler-based hesitation or word-retrieval difficulty.",
     coachingAdvice:
-      "Use short timed readings and gradually reduce the gaps between phrases. The goal is continuous, comfortable speech rather than rushing or pronouncing every word in isolation.",
+      "Use short timed repeated readings and gradually increase the speaking rate while keeping the words clear. The goal is continuous, comfortable speech rather than rushing or relying on long pauses between phrases.",
     cefrLevel: "A1",
     topicTitle: "My Home & Neighborhood",
     good: {
@@ -655,11 +655,12 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     },
     poor: {
       transcript:
-        "My home... is... small but comfortable... with a kitchen... two bedrooms... and a quiet garden. I like the living room... because it has a large window. My bedroom... is next to the bathroom... and my family often eats together... in the kitchen. There is also a small table outside... where we sit on warm days. Our home is simple... but it feels calm and friendly.",
-      audioDuration: "48.0 seconds",
+        "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden. I like the living room because it has a large window. My bedroom is next to the bathroom, and my family often eats together in the kitchen. There is also a small table outside where we sit on warm days. Our home is simple, but it feels calm and friendly.",
+      audioDuration: "45.0 seconds",
       wordCount: 65,
+      speechRate: 0.45,
       characteristics:
-        "Excessively slow delivery caused by repeated long gaps throughout the passage."
+        "The words are clear and complete, but the entire passage is spoken noticeably more slowly than the controlled version. Pauses remain short and secondary to the slow overall rate."
     },
     goodScore: {
       content: 5,
@@ -675,11 +676,10 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       pronunciation: 5,
       overall: "69 / 90",
       breakdownText:
-        "Excessively slow rate and frequent long pauses reduce natural fluency."
+        "Excessively slow overall rate reduces natural fluency; any pauses are secondary."
     },
     errorChecklist: [
-      { id: "speech-rate-too-slow", label: "Speech rate too slow", keyword: "Speech rate too slow" },
-      { id: "excessive-pausing", label: "Excessive pausing", keyword: "Excessive pausing" }
+      { id: "speech-rate-too-slow", label: "Speech rate too slow", keyword: "Speech rate too slow" }
     ],
     expertAdvice:
       "Do not confuse every pause with hesitation. In this case the main problem is the overall slow rate. Use timed repeated reading to build a more continuous rhythm."
@@ -731,9 +731,10 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     },
     poor: {
       transcript:
-        "In rainy weather, I usually carry an umbrella and wear a light jacket. I also check the weather before I leave home. When the rain is heavy, I walk more carefully and take a bus if I need to travel far. I do not mind rainy days because I enjoy the cool air and the sound of rain. Sometimes I stay home and read a book.",
+        "In rainy weather I usually carry an umbrella and wear a light jacket. I also check the weather before I leave home. When the rain is heavy I walk more carefully and take a bus if I need to travel far. I do not mind rainy days because I enjoy the cool air and the sound of rain. Sometimes I stay home and read a book.",
       audioDuration: "21.0 seconds",
       wordCount: 66,
+      speechRate: 1.50,
       characteristics:
         "Rushed delivery reduces comfortable word separation and natural phrasing."
     },
@@ -762,7 +763,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
   },
 
   {
-    exerciseIndex: 7,
+  exerciseIndex: 7,
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Oral Fluency",
@@ -774,7 +775,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     promptAudio:
       "I went to the supermarket yesterday to buy milk, bread, and some fresh fruit. I also wanted to buy eggs, but I forgot to take my shopping list. I walked through the store, checked the prices, and put the food in my basket. Then I paid at the front and carried everything home. After that, I put the food away and made a cup of tea.",
     studentTranscript:
-      "I went to the supermarket yesterday to buy milk, bread, and some fresh—fresh fruit. I also wanted to buy eggs, but I forgot to take my shopping list. I walked through the store, checked the prices, and put the food in my basket. Then I paid at the front and carried everything home. After that, I put the food away and made a cup of tea.",
+      "I went to the supermarket yesterday to buy milk, bread, and some fresh... fresh fruit. I also wanted to buy eggs, but I forgot to take my shopping list. I walked through the store, checked the prices, and put the food in, I mean, put the food in my basket. Then I paid at the front and carried everything home. After that, I put the food away and made a cup of tea.",
     studentResponse: {
       audioDuration: "34.5 seconds",
       wordCount: 67,
@@ -836,89 +837,103 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "Help the student accept minor imperfections. Excessive self-monitoring can create a larger fluency problem than the original slip."
   },
 
-  {
-    exerciseIndex: 8,
-    totalExercises: 100,
-    difficulty: "Intermediate",
-    trainingSkill: "Oral Fluency",
-    diagnosticArea: "Mixed Fluency Problems",
-    learningObjective:
-      "Recognise several fluency symptoms while identifying the most disruptive problem.",
-    promptText:
-      "My dog is friendly and enjoys long walks in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
-    promptAudio:
-      "My dog is friendly and enjoys long walks in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
-    studentTranscript:
-      "My dog... is friendly, um, enjoys long walks—long walks, in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops... to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
-    studentResponse: {
-      audioDuration: "38.5 seconds",
-      wordCount: 68,
-      characteristics:
-        "The pet description contains hesitation, a filler, repetition and an unnecessary pause, with hesitation remaining the most disruptive feature."
-    },
-    diagnosticErrors: [
-      "Hesitation",
-      "Filler words",
-      "Repetition",
-      "Unnatural pauses"
-    ],
-    expertEvidence: [
-      "Long hesitation after \"dog\"",
-      "Filler \"um\" before \"enjoys\"",
-      "Repetition of \"long walks\"",
-      "Unnecessary pause before \"to smell the trees\"",
-      "The student still delivers the full pet-related content"
-    ],
-    expertDiagnosis:
-      "This is a mixed fluency profile. Hesitation is the most disruptive feature, while filler use, repetition and unnatural pausing also contribute to the breakdown in smooth delivery.",
-    perfectCalibrationResponse:
-      "The student has a mixed fluency profile, with hesitation as the most disruptive feature. There is a noticeable hesitation after \"dog,\" the filler \"um,\" repetition of \"long walks,\" and an unnecessary pause before \"to smell the trees.\" The teacher should recognise the multiple symptoms but prioritise hesitation rather than treating every symptom as equally severe.",
-    coachingAdvice:
-      "Start with the hesitation pattern and practise the passage in meaningful groups. Then reduce filler use and repetition while maintaining forward movement.",
-    cefrLevel: "A1",
-    topicTitle: "Pets & Animals",
-    good: {
-      transcript:
-        "My dog is friendly and enjoys long walks in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
-      audioDuration: "33.0 seconds",
-      wordCount: 66,
-      characteristics:
-        "Smooth pet-related delivery with natural phrase grouping."
-    },
-    poor: {
-      transcript:
-        "My dog... is friendly, um, enjoys long walks—long walks, in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops... to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
-      audioDuration: "38.5 seconds",
-      wordCount: 68,
-      characteristics:
-        "Several fluency disruptions occur within the same animal-related passage."
-    },
-    goodScore: {
-      content: 5,
-      fluency: 5,
-      pronunciation: 5,
-      overall: "90 / 90",
-      breakdownText:
-        "Smooth and controlled connected speech."
-    },
-    poorScore: {
-      content: 5,
-      fluency: 1,
-      pronunciation: 5,
-      overall: "61 / 90",
-      breakdownText:
-        "Multiple fluency disruptions substantially reduce smoothness."
-    },
-    errorChecklist: [
-      { id: "hesitation", label: "Hesitation", keyword: "Hesitation" },
-      { id: "filler-words", label: "Filler words", keyword: "Filler words" },
-      { id: "repetition", label: "Repetition", keyword: "Repetition" },
-      { id: "unnatural-pauses", label: "Unnatural pauses", keyword: "Unnatural pauses" }
-    ],
-    expertAdvice:
-      "Do not treat all symptoms as equally important. Begin with the hesitation pattern, then address filler use, repetition and phrase-level pausing."
+ {
+  exerciseIndex: 8,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Oral Fluency",
+  diagnosticArea: "Mixed Fluency Problems",
+  learningObjective:
+    "Recognise several fluency symptoms while identifying the most disruptive problem.",
+  promptText:
+    "My dog is friendly and enjoys long walks in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
+  promptAudio:
+    "My dog is friendly and enjoys long walks in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
+  studentTranscript:
+    "My dog... is friendly, um, enjoys long walks—long walks, in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops... ...to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
+
+  studentResponse: {
+    audioDuration: "38.5 seconds",
+    wordCount: 68,
+    characteristics:
+      "The pet description contains hesitation, a filler, repetition and an unnecessary pause, with hesitation remaining the most disruptive feature."
   },
 
+  diagnosticErrors: [
+    "Hesitation",
+    "Filler words",
+    "Repetition",
+    "Unnatural pauses"
+  ],
+
+  expertEvidence: [
+    "Long hesitation after \"dog\"",
+    "Filler \"um\" before \"enjoys\"",
+    "Repetition of \"long walks\"",
+    "Unnecessary pause before \"to smell the trees\"",
+    "The student still delivers the full pet-related content"
+  ],
+
+  expertDiagnosis:
+    "This is a mixed fluency profile. Hesitation is the most disruptive feature, while filler use, repetition and unnatural pausing also contribute to the breakdown in smooth delivery.",
+  perfectCalibrationResponse:
+    "The student has a mixed fluency profile, with hesitation as the most disruptive feature. There is a noticeable hesitation after \"dog,\" the filler \"um,\" repetition of \"long walks,\" and an unnecessary pause before \"to smell the trees.\" The teacher should recognise the multiple symptoms but prioritise hesitation rather than treating every symptom as equally severe.",
+  coachingAdvice:
+    "Start with the hesitation pattern and practise the passage in meaningful groups. Then reduce filler use and repetition while maintaining forward movement.",
+  cefrLevel: "A1",
+  topicTitle: "Pets & Animals",
+
+  good: {
+    transcript:
+      "My dog is friendly and enjoys long walks in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
+    audioDuration: "33.0 seconds",
+    wordCount: 66,
+    characteristics:
+      "Smooth pet-related delivery with natural phrase grouping."
+  },
+
+  poor: {
+    transcript:
+      "My dog... is friendly, um, enjoys long walks—long walks, in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops... ...to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
+    audioDuration: "38.5 seconds",
+    wordCount: 68,
+    characteristics:
+      "Several fluency disruptions occur within the same animal-related passage."
+  },
+
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Smooth and controlled connected speech."
+  },
+
+  poorScore: {
+    content: 5,
+    fluency: 1,
+    pronunciation: 5,
+    overall: "61 / 90",
+    breakdownText:
+      "Multiple fluency disruptions substantially reduce smoothness."
+  },
+
+  errorChecklist: [
+    { id: "hesitation", label: "Hesitation", keyword: "Hesitation" },
+    { id: "filler-words", label: "Filler words", keyword: "Filler words" },
+    { id: "repetition", label: "Repetition", keyword: "Repetition" },
+    {
+      id: "unnatural-pauses",
+      label: "Unnatural pauses",
+      keyword: "Unnatural pauses"
+    }
+  ],
+
+  expertAdvice:
+    "Do not treat all symptoms as equally important. Begin with the hesitation pattern, then address filler use, repetition and phrase-level pausing."
+
+},
   {
     exerciseIndex: 9,
     totalExercises: 100,
@@ -1075,6 +1090,33 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 // calibration cases are added.
 // -----------------------------------------------------------------------------
 
+// -----------------------------------------------------------------------------
+// Calibration Lab Exercise Selection
+// -----------------------------------------------------------------------------
+//
+// Returns a random authored Calibration Lab exercise.
+//
+// For now this selects only from the completed authored bank (Exercises 1–10).
+// As Exercises 11–100 are authored, this function will automatically be
+// expanded to use the larger calibration pool.
+//
+// Existing getExercise() behaviour is intentionally unchanged.
+// -----------------------------------------------------------------------------
+
+export function getRandomCalibrationExercise() {
+  const availableExercises = READ_ALOUD_CALIBRATION_EXERCISES;
+
+  if (availableExercises.length === 0) {
+    return null;
+  }
+
+  const randomIndex = Math.floor(Math.random() * availableExercises.length);
+
+  return {
+    ...availableExercises[randomIndex],
+    cefrLevel: getCefrLevel(availableExercises[randomIndex].exerciseIndex)
+  };
+}
 
 // Weak response generators
 export function generateWeakReadAloud(text: string, index: number = 1) {

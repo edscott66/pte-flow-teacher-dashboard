@@ -19,7 +19,11 @@ import {
   Square,
 } from "lucide-react";
 
-export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string) => void }) {
+export default function MarkingScreen({
+  onNavigate,
+}: {
+  onNavigate: (tab: string) => void;
+}) {
   const {
     QUESTIONS_DATA,
     selectedQuestionId,
@@ -28,6 +32,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
     setExerciseIndex,
     nextExercise,
     prevExercise,
+    randomCalibrationExercise,
     currentExercise,
     activeResponseMode,
     setActiveResponseMode,
@@ -36,7 +41,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
     runComparison,
     clearFeedback,
     selectQuestion,
-    isEvaluatingAi
+    isEvaluatingAi,
   } = useFeedback();
 
   const [activeSectionFilter, setActiveSectionFilter] = useState("ALL");
@@ -49,6 +54,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
     message: string;
     tip?: string;
   } | null>(null);
+
   const pauseTimeoutRef = useRef<number | null>(null);
   const playbackTokenRef = useRef(0);
 
@@ -56,29 +62,41 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
     ? currentExercise.errorChecklist
     : currentQuestion.errorChecklist || [];
 
+  const calibrationDifficulty = (
+    currentExercise as { difficulty?: string } | null
+  )?.difficulty;
+
   // Clean up speech synthesis when component unmounts
   useEffect(() => {
     return () => {
       playbackTokenRef.current += 1;
+
       if (pauseTimeoutRef.current !== null) {
         window.clearTimeout(pauseTimeoutRef.current);
         pauseTimeoutRef.current = null;
       }
+
       if ("speechSynthesis" in window) {
         window.speechSynthesis.cancel();
       }
     };
   }, []);
 
-  const handlePlayAudio = (text: string, id: string) => {
+  const handlePlayAudio = (
+    text: string,
+    id: string,
+    speechRate = 0.95
+  ) => {
     if (!("speechSynthesis" in window)) return;
 
     if (isPlayingAudio && currentPlayingId === id) {
       playbackTokenRef.current += 1;
+
       if (pauseTimeoutRef.current !== null) {
         window.clearTimeout(pauseTimeoutRef.current);
         pauseTimeoutRef.current = null;
       }
+
       window.speechSynthesis.cancel();
       setIsPlayingAudio(false);
       setCurrentPlayingId(null);
@@ -92,38 +110,89 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
       window.clearTimeout(pauseTimeoutRef.current);
       pauseTimeoutRef.current = null;
     }
+
     window.speechSynthesis.cancel();
 
     // Calibration notation is kept visible on screen, but certain symbols
-    // also control how the sample is spoken. A slash marks an intentional
-    // unnatural pause. The browser's SpeechSynthesis engine does not provide
-    // reliable timing for this notation, so calibration samples containing
-    // slashes are spoken as separate segments with a real silent gap between
-    // them.
+    // also control how the sample is spoken.
+    //
+    // "/" marks an intentional unnatural pause.
+    // "..." marks a hesitation/pause within a spoken segment.
+    // "... ..." marks a longer deliberate pause.
+    //
+    // Slashes are handled as separate speech segments. Ellipses are converted
+    // into separate segments so the browser cannot decide the pause duration
+    // itself. This gives calibration samples more reliable pause timing.
+
     const cleanedText = (text || "")
       .replace(/^\[|\]$/g, "")
       .replace(/\[|\]/g, " ")
       .replace(/\*\*/g, "")
-      .replace(/_{1,2}/g, "")
+      .replace(/\_{1,2}/g, "")
       .replace(/\s+/g, " ")
       .trim();
 
     if (!cleanedText) return;
 
-    const segments = cleanedText
-      .split(/\s*\/\s*/)
-      .map((segment) => segment.trim())
-      .filter(Boolean);
+    const segments: { text: string; pauseAfter: number }[] = [];
+
+    const addSegment = (segment: string, pauseAfter: number) => {
+      const trimmed = segment.trim();
+
+      if (trimmed) {
+        segments.push({
+          text: trimmed,
+          pauseAfter,
+        });
+      }
+    };
+
+    // First split on "/" because the existing calibration behaviour uses
+    // slashes as intentional pause markers.
+    const slashParts = cleanedText.split(/\s*\/\s*/);
+
+    slashParts.forEach((slashPart, slashIndex) => {
+      // Within each slash segment, recognise ellipsis notation.
+      //
+      // "... ..." = longer pause
+      // "..."     = normal hesitation/pause
+      const ellipsisParts = slashPart.split(
+        /(\.\.\.\s*\.\.\.)|(\.\.\.)/
+      );
+
+      let pendingText = "";
+
+      ellipsisParts.forEach((part) => {
+        if (!part) return;
+
+        if (/^\.\.\.\s*\.\.\.$/.test(part)) {
+          addSegment(pendingText, 125);
+          pendingText = "";
+        } else if (/^\.\.\.$/.test(part)) {
+          addSegment(pendingText, 100);
+          pendingText = "";
+        } else {
+          pendingText += part;
+        }
+      });
+
+      addSegment(
+        pendingText,
+        slashIndex < slashParts.length - 1 ? 100 : 0
+      );
+    });
 
     setIsPlayingAudio(true);
     setCurrentPlayingId(id);
 
     const finishPlayback = () => {
       if (playbackTokenRef.current !== playbackToken) return;
+
       if (pauseTimeoutRef.current !== null) {
         window.clearTimeout(pauseTimeoutRef.current);
         pauseTimeoutRef.current = null;
       }
+
       setIsPlayingAudio(false);
       setCurrentPlayingId(null);
     };
@@ -136,22 +205,27 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
         return;
       }
 
-      const utterance = new SpeechSynthesisUtterance(segments[segmentIndex]);
-      utterance.rate = 0.95;
-      utterance.pitch = 1.0;
+      const currentSegment = segments[segmentIndex];
+
+      const utterance = new SpeechSynthesisUtterance(
+        currentSegment.text
+      );
+
+      utterance.rate = speechRate;
+      utterance.pitch = 0.95;
 
       utterance.onend = () => {
         if (playbackTokenRef.current !== playbackToken) return;
 
-        // Only calibration samples that contain '/' need a deliberately
-        // extended silence. Normal prompt/sample playback remains unchanged.
-        if (segments.length > 1 && segmentIndex < segments.length - 1) {
+        const pauseDuration = currentSegment.pauseAfter;
+
+        if (pauseDuration > 0) {
           pauseTimeoutRef.current = window.setTimeout(() => {
             pauseTimeoutRef.current = null;
             speakSegment(segmentIndex + 1);
-          }, 100);
+          }, pauseDuration);
         } else {
-          finishPlayback();
+          speakSegment(segmentIndex + 1);
         }
       };
 
@@ -168,13 +242,16 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
 
   const handleStopAudio = () => {
     playbackTokenRef.current += 1;
+
     if (pauseTimeoutRef.current !== null) {
       window.clearTimeout(pauseTimeoutRef.current);
       pauseTimeoutRef.current = null;
     }
+
     if ("speechSynthesis" in window) {
       window.speechSynthesis.cancel();
     }
+
     setIsPlayingAudio(false);
     setCurrentPlayingId(null);
   };
@@ -197,6 +274,11 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
   const handlePrevExercise = () => {
     handleStopAudio();
     prevExercise();
+  };
+
+  const handleRandomCalibrationExercise = () => {
+    handleStopAudio();
+    randomCalibrationExercise();
   };
 
   const handleSetActiveResponseMode = (mode: "good" | "poor") => {
@@ -225,24 +307,27 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
   }, [activeSectionFilter, selectedQuestionId, QUESTIONS_DATA]);
 
   // Filter questions based on section tab
-  const filteredQuestions = QUESTIONS_DATA.filter(q => {
+  const filteredQuestions = QUESTIONS_DATA.filter((q) => {
     if (activeSectionFilter === "ALL") return true;
     return q.section.toUpperCase() === activeSectionFilter;
   });
 
   const handleSubmitFeedback = async () => {
     const feedback = teacherFeedbackText.trim();
-    const wordCount = feedback ? feedback.split(/\s+/).filter(Boolean).length : 0;
+    const wordCount = feedback
+      ? feedback.split(/\s+/).filter(Boolean).length
+      : 0;
 
-    // Calibration must include genuine teacher-written reasoning. Checklist
-    // selections are diagnosis data only and are deliberately not copied into
-    // the feedback field. Keep this gate strict enough to prevent a prompt-only
-    // submission from receiving a high calibration score.
+    // Calibration must include genuine teacher-written reasoning.
+    // Checklist selections are diagnosis data only and are deliberately not
+    // copied into the feedback field.
     if (!feedback) {
       setAssessmentWarning({
         title: "Please write your assessment",
-        message: "Checklist selections alone are not enough for calibration. Your written assessment must explain what you heard and why it matters.",
-        tip: "Don't just list the error names. Describe the evidence you heard and use the relevant PTE terminology."
+        message:
+          "Checklist selections alone are not enough for calibration. Your written assessment must explain what you heard and why it matters.",
+        tip:
+          "Don't just list the error names. Describe the evidence you heard and use the relevant PTE terminology.",
       });
       return;
     }
@@ -250,8 +335,10 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
     if (feedback.length < 60 || wordCount < 10) {
       setAssessmentWarning({
         title: "Please provide a fuller assessment",
-        message: "Write at least 10 words and 60 characters explaining the evidence you heard and why it matters.",
-        tip: "A strong calibration response identifies the PTE term, gives specific evidence from the response, and explains the impact on performance."
+        message:
+          "Write at least 10 words and 60 characters explaining the evidence you heard and why it matters.",
+        tip:
+          "A strong calibration response identifies the PTE term, gives specific evidence from the response, and explains the impact on performance.",
       });
       return;
     }
@@ -265,8 +352,10 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
     } else {
       setAssessmentWarning({
         title: "Evaluation could not be completed",
-        message: "The AI evaluation was not completed successfully. Please check your connection and try again.",
-        tip: "Your written assessment has not been lost."
+        message:
+          "The AI evaluation was not completed successfully. Please check your connection and try again.",
+        tip:
+          "Your written assessment has not been lost.",
       });
     }
   };
@@ -312,29 +401,41 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
     ].join(" ");
   };
 
-  const currentSample = activeResponseMode === "good" ? currentExercise.good : currentExercise.poor;
-  const isReadAloudCalibration = currentQuestion.title === "Read Aloud";
+  const currentSample =
+    activeResponseMode === "good"
+      ? currentExercise.good
+      : currentExercise.poor;
+
+  const isReadAloudCalibration =
+    currentQuestion.title === "Read Aloud";
 
   return (
     <>
       <div className="calibration-bench p-4 space-y-4 pb-24">
-      {/* Header Bar */}
-      <div className="calibration-header flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-        <div>
-          <div className="calibration-kicker flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400">
-            <Target className="w-4 h-4" /> Marking Simulator
+
+        {/* Header Bar */}
+        <div className="calibration-header flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
+          <div>
+            <div className="calibration-kicker flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400">
+              <Target className="w-4 h-4" /> Marking Simulator
+            </div>
+
+            <h1 className="calibration-main-title text-lg font-black text-slate-900 dark:text-white">
+              Evaluate Student Response
+            </h1>
           </div>
-          <h1 className="calibration-main-title text-lg font-black text-slate-900 dark:text-white">Evaluate Student Response</h1>
-        </div>
-        <div className="calibration-header-actions flex items-center gap-1.5">
-          <button
-            onClick={() => setShowGuide(!showGuide)}
-            className="calibration-tool-button px-2.5 py-1 rounded-lg text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 flex items-center gap-1 border border-indigo-200 dark:border-indigo-800 cursor-pointer"
-          >
-            <HelpCircle className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" /> Instructions
-          </button>
-          <button
-            onClick={() => {
+
+          <div className="calibration-header-actions flex items-center gap-1.5">
+            <button
+              onClick={() => setShowGuide(!showGuide)}
+              className="calibration-tool-button px-2.5 py-1 rounded-lg text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 flex items-center gap-1 border border-indigo-200 dark:border-indigo-800 cursor-pointer"
+            >
+              <HelpCircle className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+              Instructions
+            </button>
+
+            <button
+              onClick={() => {
                 handleStopAudio();
                 clearFeedback();
                 setShowResetConfirmation(true);
@@ -343,550 +444,769 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
                   setShowResetConfirmation(false);
                 }, 1500);
               }}
-            className="calibration-tool-button calibration-reset-button px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 flex items-center gap-1 border border-slate-200 dark:border-slate-800 cursor-pointer"
-          >
-            <RefreshCw className="w-3 h-3" />
+              className="calibration-tool-button calibration-reset-button px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 flex items-center gap-1 border border-slate-200 dark:border-slate-800 cursor-pointer"
+            >
+              <RefreshCw className="w-3 h-3" />
               {showResetConfirmation ? "Reset Complete" : "Reset"}
-          </button>
-        </div>
-      </div>
-
-      {/* Teacher Instruction Guide Box */}
-      {showGuide && (
-        <div className="calibration-guide p-4 rounded-xl bg-gradient-to-br from-indigo-900 via-slate-900 to-indigo-950 text-white space-y-3 border border-indigo-800 shadow-sm relative overflow-hidden">
-          <div className="calibration-guide-header flex items-center justify-between border-b border-indigo-800/80 pb-2">
-            <div className="calibration-guide-title flex items-center gap-1.5 text-xs font-extrabold text-amber-300 uppercase tracking-wider">
-              <BookOpen className="w-4 h-4" /> How to Use This Marking Simulator
-            </div>
-            <button
-              onClick={() => setShowGuide(false)}
-              className="calibration-hide-guide-button text-xs flex items-center gap-0.5 cursor-pointer"
-            >
-              Hide Guide <ChevronUp className="w-3.5 h-3.5" />
             </button>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-[11.5px] leading-relaxed text-indigo-100">
-            <div className="calibration-guide-step p-2.5 rounded-lg bg-indigo-950/70 border border-indigo-800/60 space-y-1">
-              <span className="font-bold text-amber-300 flex items-center gap-1">
-                1️⃣ Select Task & Sample
-              </span>
-              <p className="text-slate-300">
-                Pick a PTE question type below and toggle between <b>Weak Sample</b> and <b>High Score Sample</b> responses. Use the audio controls to hear prompt and sample playback. Summarize Group Discussion also provides a clearly labelled multi-speaker TTS simulation because the current exercise bank does not contain a separate original group recording.
-              </p>
+        {/* Teacher Instruction Guide Box */}
+        {showGuide && (
+          <div className="calibration-guide p-4 rounded-xl bg-gradient-to-br from-indigo-900 via-slate-900 to-indigo-950 text-white space-y-3 border border-indigo-800 shadow-sm relative overflow-hidden">
+            <div className="calibration-guide-header flex items-center justify-between border-b border-indigo-800/80 pb-2">
+              <div className="calibration-guide-title flex items-center gap-1.5 text-xs font-extrabold text-amber-300 uppercase tracking-wider">
+                <BookOpen className="w-4 h-4" />
+                How to Use This Marking Simulator
+              </div>
+
+              <button
+                onClick={() => setShowGuide(false)}
+                className="calibration-hide-guide-button text-xs flex items-center gap-0.5 cursor-pointer"
+              >
+                Hide Guide
+                <ChevronUp className="w-3.5 h-3.5" />
+              </button>
             </div>
 
-            <div className="calibration-guide-step p-2.5 rounded-lg bg-indigo-950/70 border border-indigo-800/60 space-y-1">
-              <span className="font-bold text-amber-300 flex items-center gap-1">
-                2️⃣ Check Observed Errors
-              </span>
-              <p className="text-slate-300">
-                Listen to the student response and identify the meaningful fluency problems you can support with evidence. Select the applicable items in the <b>Error Tracker Checklist</b>, then write your own assessment explaining what you heard and why it matters. <b>Checklist selections do not count as written evidence.</b> If no meaningful error is present, leave the checklist unselected and explain why.
-              </p>
-            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-[11.5px] leading-relaxed text-indigo-100">
 
-            <div className="calibration-guide-step p-2.5 rounded-lg bg-indigo-950/70 border border-indigo-800/60 space-y-1">
-              <span className="font-bold text-amber-300 flex items-center gap-1">
-                3️⃣ Write Personal Feedback
-              </span>
-              <p className="text-slate-300">
-                In <b>Your Assessment Feedback</b>, write your own evidence-based assessment. State the relevant PTE term(s), describe the evidence you heard, explain the impact on performance, and give appropriate advice where useful. The AI will assess the quality of your written rationale independently of the diagnostic prompts.
-              </p>
-            </div>
+              <div className="calibration-guide-step p-2.5 rounded-lg bg-indigo-950/70 border border-indigo-800/60 space-y-1">
+                <span className="font-bold text-amber-300 flex items-center gap-1">
+                  1️⃣ Select Task & Sample
+                </span>
 
-            <div className="calibration-guide-step p-2.5 rounded-lg bg-indigo-950/70 border border-indigo-800/60 space-y-1">
-              <span className="font-bold text-amber-300 flex items-center gap-1">
-                4️⃣ Live AI Evaluation
-              </span>
-              <p className="text-slate-300">
-                Click <b>Compare Feedback with AI Expert</b> to get instant Gemini Principal Examiner scoring alignment %, feedback gap analysis, and student-facing scripts.
-              </p>
+                <p className="text-slate-300">
+                  Pick a PTE question type below and toggle between{" "}
+                  <b>Weak Sample</b> and <b>High Score Sample</b> responses.
+                  Use the audio controls to hear prompt and sample playback.
+                  Summarize Group Discussion also provides a clearly labelled
+                  multi-speaker TTS simulation because the current exercise
+                  bank does not contain a separate original group recording.
+                </p>
+              </div>
+
+              <div className="calibration-guide-step p-2.5 rounded-lg bg-indigo-950/70 border border-indigo-800/60 space-y-1">
+                <span className="font-bold text-amber-300 flex items-center gap-1">
+                  2️⃣ Check Observed Errors
+                </span>
+
+                <p className="text-slate-300">
+                  Listen to the student response and identify the meaningful
+                  fluency problems you can support with evidence. Select the
+                  applicable items in the <b>Error Tracker Checklist</b>, then
+                  write your own assessment explaining what you heard and why
+                  it matters. <b>Checklist selections do not count as written evidence.</b>{" "}
+                  If no meaningful error is present, leave the checklist
+                  unselected and explain why.
+                </p>
+              </div>
+
+              <div className="calibration-guide-step p-2.5 rounded-lg bg-indigo-950/70 border border-indigo-800/60 space-y-1">
+                <span className="font-bold text-amber-300 flex items-center gap-1">
+                  3️⃣ Write Personal Feedback
+                </span>
+
+                <p className="text-slate-300">
+                  In <b>Your Assessment Feedback</b>, write your own
+                  evidence-based assessment. State the relevant PTE term(s),
+                  describe the evidence you heard, explain the impact on
+                  performance, and give appropriate advice where useful. The
+                  AI will assess the quality of your written rationale
+                  independently of the diagnostic prompts.
+                </p>
+              </div>
+
+              <div className="calibration-guide-step p-2.5 rounded-lg bg-indigo-950/70 border border-indigo-800/60 space-y-1">
+                <span className="font-bold text-amber-300 flex items-center gap-1">
+                  4️⃣ Live AI Evaluation
+                </span>
+
+                <p className="text-slate-300">
+                  Click <b>Compare Feedback with AI Expert</b> to get instant
+                  Gemini Principal Examiner scoring alignment %, feedback gap
+                  analysis, and student-facing scripts.
+                </p>
+              </div>
+
             </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Section Filter Pills */}
-      <div className="calibration-filter-bar flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
-        {["ALL", "SPEAKING", "WRITING", "READING", "LISTENING"].map((sec) => (
-          <button
-            key={sec}
-            onClick={() => setActiveSectionFilter(sec)}
-            className={`px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap transition-all cursor-pointer ${
-              activeSectionFilter === sec
-                ? "bg-indigo-600 text-white shadow-xs"
-                : "bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-300"
-            }`}
+        {/* Section Filter Pills */}
+        <div className="calibration-filter-bar flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+          {["ALL", "SPEAKING", "WRITING", "READING", "LISTENING"].map(
+            (sec) => (
+              <button
+                key={sec}
+                onClick={() => setActiveSectionFilter(sec)}
+                className={`px-3 py-1 rounded-full text-[11px] font-bold whitespace-nowrap transition-all cursor-pointer ${
+                  activeSectionFilter === sec
+                    ? "bg-indigo-600 text-white shadow-xs"
+                    : "bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-300"
+                }`}
+              >
+                {sec}
+              </button>
+            )
+          )}
+        </div>
+
+        {/* Question Selector Dropdown / Scroll */}
+        <div className="calibration-question-selector space-y-1 w-full max-w-full overflow-hidden">
+          <label className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+            Select Question Type ({filteredQuestions.length})
+          </label>
+
+          <select
+            value={selectedQuestionId}
+            onChange={(e) => handleSelectQuestion(e.target.value)}
+            className="w-full max-w-full p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-xs font-bold text-slate-900 dark:text-slate-100 shadow-xs focus:ring-2 focus:ring-indigo-500 focus:outline-hidden truncate cursor-pointer"
           >
-            {sec}
-          </button>
-        ))}
-      </div>
-
-      {/* Question Selector Dropdown / Scroll */}
-      <div className="calibration-question-selector space-y-1 w-full max-w-full overflow-hidden">
-        <label className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-          Select Question Type ({filteredQuestions.length})
-        </label>
-        <select
-          value={selectedQuestionId}
-          onChange={(e) => handleSelectQuestion(e.target.value)}
-          className="w-full max-w-full p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-xs font-bold text-slate-900 dark:text-slate-100 shadow-xs focus:ring-2 focus:ring-indigo-500 focus:outline-hidden truncate cursor-pointer"
-        >
-          {filteredQuestions.map((q) => (
-            <option key={q.id} value={q.id} className="truncate">
-              [{q.section}] {q.title}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      {/* Selected Question Details Banner */}
-      <div className="calibration-task-details p-3.5 rounded-xl bg-slate-900 text-white space-y-2 border border-slate-800">
-        <div className="flex items-center justify-between">
-          <span className="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase bg-indigo-500 text-white">
-            {currentQuestion.section}
-          </span>
-          <span className="text-[11px] text-slate-400 flex items-center gap-1 font-medium">
-            <Clock className="w-3.5 h-3.5 text-indigo-400" /> {currentQuestion.timeLimit}
-          </span>
+            {filteredQuestions.map((q) => (
+              <option key={q.id} value={q.id} className="truncate">
+                [{q.section}] {q.title}
+              </option>
+            ))}
+          </select>
         </div>
 
-        <h2 className="text-sm font-black text-white">{currentQuestion.title}</h2>
-
-        <div className="flex flex-wrap gap-1.5 pt-1">
-          {currentQuestion.scoringCriteria.map((c, i) => (
-            <span key={i} className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-slate-800 text-slate-300 border border-slate-700">
-              {c.name}: {c.max} pts
+        {/* Selected Question Details Banner */}
+        <div className="calibration-task-details p-3.5 rounded-xl bg-slate-900 text-white space-y-2 border border-slate-800">
+          <div className="flex items-center justify-between">
+            <span className="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase bg-indigo-500 text-white">
+              {currentQuestion.section}
             </span>
-          ))}
-        </div>
-      </div>
 
-      {/* Sample Response & Exercise Bank Section */}
-      <div className="calibration-workspace p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
-        {/* Toggle between Good and Poor Response Header */}
-        <div className="calibration-sample-toggle flex items-center justify-end flex-wrap gap-2">
-          <div className="flex items-center bg-slate-100 dark:bg-slate-800 p-0.5 rounded-lg border border-slate-200 dark:border-slate-700">
-            <button
-              onClick={() => handleSetActiveResponseMode("poor")}
-              className={`calibration-sample-button calibration-weak-button px-2.5 py-1 rounded-md text-[10px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
-                activeResponseMode === "poor"
-                  ? "bg-rose-500 text-white shadow-xs"
-                  : "text-slate-500 hover:text-slate-800 dark:text-slate-400"
-              }`}
-            >
-              <AlertTriangle className="w-3 h-3" /> Weak Sample
-            </button>
-            <button
-              onClick={() => handleSetActiveResponseMode("good")}
-              className={`calibration-sample-button calibration-good-button px-2.5 py-1 rounded-md text-[10px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
-                activeResponseMode === "good"
-                  ? "bg-emerald-600 text-white shadow-xs"
-                  : "text-slate-500 hover:text-slate-800 dark:text-slate-400"
-              }`}
-            >
-              <ShieldCheck className="w-3 h-3" /> High Score Sample
-            </button>
+            <span className="text-[11px] text-slate-400 flex items-center gap-1 font-medium">
+              <Clock className="w-3.5 h-3.5 text-indigo-400" />
+              {currentQuestion.timeLimit}
+            </span>
           </div>
-        </div>
 
-        {/* Clean Topic Header & 1/100 CEFR Level Selector */}
-        <div className="calibration-exercise-header p-3 rounded-xl bg-indigo-50/80 dark:bg-indigo-950/60 border border-indigo-100 dark:border-indigo-900/60 space-y-2 max-w-full overflow-hidden">
-          {/* Top Row: Navigation Label, CEFR Badge & 1/100 Dropdown Selector */}
-          <div className="flex items-center justify-between gap-2 flex-wrap max-w-full overflow-hidden">
-            <div className="flex items-center gap-2 min-w-0">
-              <span className="text-[10px] font-extrabold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 shrink-0">
-                PTE Exam Topic
+          <h2 className="text-sm font-black text-white">
+            {currentQuestion.title}
+          </h2>
+
+          <div className="flex flex-wrap gap-1.5 pt-1">
+            {currentQuestion.scoringCriteria.map((c, i) => (
+              <span
+                key={i}
+                className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-slate-800 text-slate-300 border border-slate-700"
+              >
+                {c.name}: {c.max} pts
               </span>
-              {currentExercise?.cefrLevel && (
-                <span className={`px-2 py-0.5 rounded text-[10px] font-extrabold shadow-xs shrink-0 ${currentExercise.cefrLevel.badgeColor}`}>
-                  {currentExercise.cefrLevel.name}
-                </span>
-              )}
-              {(currentExercise as typeof currentExercise & { difficulty?: string })?.difficulty && (
-                <span className="px-2 py-0.5 rounded text-[10px] font-extrabold shadow-xs shrink-0 bg-emerald-100 text-emerald-700 border border-emerald-200">
-                  Calibration: {(currentExercise as typeof currentExercise & { difficulty?: string }).difficulty}
-                </span>
-              )}
-            </div>
-
-            {/* Prev / Next & 1/100 Dropdown */}
-            <div className="flex items-center gap-1.5 min-w-0 max-w-full ml-auto">
-              <button
-                disabled={exerciseIndex <= 1}
-                onClick={handlePrevExercise}
-                className="calibration-nav-button p-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shrink-0"
-                title="Previous Exercise"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-
-              <select
-                value={exerciseIndex}
-                onChange={(e) => handleSetExerciseIndex(Number(e.target.value))}
-                className="px-2 py-1 text-[11px] font-extrabold rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:outline-hidden cursor-pointer min-w-0 max-w-[140px] xs:max-w-[190px] sm:max-w-[250px] truncate"
-              >
-                <optgroup label="A1 Level (Beginner • Q 1 - 20)">
-                  {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
-                    <option key={num} value={num}>
-                      {num}/100 [A1] - {COMMON_PTE_TOPICS[num - 1]}
-                    </option>
-                  ))}
-                </optgroup>
-                <optgroup label="A2 Level (Elementary • Q 21 - 40)">
-                  {Array.from({ length: 20 }, (_, i) => i + 21).map((num) => (
-                    <option key={num} value={num}>
-                      {num}/100 [A2] - {COMMON_PTE_TOPICS[num - 1]}
-                    </option>
-                  ))}
-                </optgroup>
-                <optgroup label="B1 Level (Intermediate • Q 41 - 60)">
-                  {Array.from({ length: 20 }, (_, i) => i + 41).map((num) => (
-                    <option key={num} value={num}>
-                      {num}/100 [B1] - {COMMON_PTE_TOPICS[num - 1]}
-                    </option>
-                  ))}
-                </optgroup>
-                <optgroup label="B2 Level (Upper Int • Q 61 - 80)">
-                  {Array.from({ length: 20 }, (_, i) => i + 61).map((num) => (
-                    <option key={num} value={num}>
-                      {num}/100 [B2] - {COMMON_PTE_TOPICS[num - 1]}
-                    </option>
-                  ))}
-                </optgroup>
-                <optgroup label="C1 Level (Advanced • Q 81 - 90)">
-                  {Array.from({ length: 10 }, (_, i) => i + 81).map((num) => (
-                    <option key={num} value={num}>
-                      {num}/100 [C1] - {COMMON_PTE_TOPICS[num - 1]}
-                    </option>
-                  ))}
-                </optgroup>
-                <optgroup label="C2 Level (Mastery • Q 91 - 100)">
-                  {Array.from({ length: 10 }, (_, i) => i + 91).map((num) => (
-                    <option key={num} value={num}>
-                      {num}/100 [C2] - {COMMON_PTE_TOPICS[num - 1]}
-                    </option>
-                  ))}
-                </optgroup>
-              </select>
-
-              <button
-                disabled={exerciseIndex >= 100}
-                onClick={handleNextExercise}
-                className="calibration-nav-button p-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shrink-0"
-                title="Next Exercise"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-
-          {/* Full Topic Title placed on a separate line below the selector to prevent truncation */}
-          <div className="pt-1.5 border-t border-indigo-100/80 dark:border-indigo-900/50">
-            <h3 className="text-xs sm:text-sm font-black text-slate-900 dark:text-white leading-snug break-words">
-              {currentExercise.topicTitle}
-            </h3>
+            ))}
           </div>
         </div>
 
-        {/* Task Prompt Context Box */}
-        {currentExercise.promptText && (
-          <div className="calibration-prompt-card p-3 rounded-xl bg-slate-900 text-indigo-100 text-xs border border-slate-800 space-y-1.5">
-            <div className="flex items-center justify-between text-[10px] font-extrabold uppercase tracking-wider text-amber-400 flex-wrap gap-2">
-              <span>Task Prompt ({currentQuestion.title})</span>
-              <div className="flex items-center gap-2 flex-wrap justify-end">
+        {/* Sample Response & Exercise Bank Section */}
+        <div className="calibration-workspace p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
+
+          {/* Toggle between Good and Poor Response Header */}
+          <div className="calibration-sample-toggle flex items-center justify-end flex-wrap gap-2">
+            <div className="flex items-center bg-slate-100 dark:bg-slate-800 p-0.5 rounded-lg border border-slate-200 dark:border-slate-700">
+
+              <button
+                onClick={() => handleSetActiveResponseMode("poor")}
+                className={`calibration-sample-button calibration-weak-button px-2.5 py-1 rounded-md text-[10px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
+                  activeResponseMode === "poor"
+                    ? "bg-rose-500 text-white shadow-xs"
+                    : "text-slate-500 hover:text-slate-800 dark:text-slate-400"
+                }`}
+              >
+                <AlertTriangle className="w-3 h-3" />
+                Weak Sample
+              </button>
+
+              <button
+                onClick={() => handleSetActiveResponseMode("good")}
+                className={`calibration-sample-button calibration-good-button px-2.5 py-1 rounded-md text-[10px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
+                  activeResponseMode === "good"
+                    ? "bg-emerald-600 text-white shadow-xs"
+                    : "text-slate-500 hover:text-slate-800 dark:text-slate-400"
+                }`}
+              >
+                <ShieldCheck className="w-3 h-3" />
+                High Score Sample
+              </button>
+
+            </div>
+          </div>
+
+          {/* Clean Topic Header & 1/100 CEFR Level Selector */}
+          <div className="calibration-exercise-header p-3 rounded-xl bg-indigo-50/80 dark:bg-indigo-950/60 border border-indigo-100 dark:border-indigo-900/60 space-y-2 max-w-full overflow-hidden">
+
+            {/* Top Row: Navigation Label, CEFR Badge & 1/100 Dropdown Selector */}
+            <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_auto] items-center gap-2 max-w-full overflow-hidden">
+
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 shrink-0">
+                  PTE Exam Topic
+                </span>
+
+                {currentExercise?.cefrLevel && (
+                  <span
+                    className={`px-2 py-0.5 rounded text-[10px] font-extrabold shadow-xs shrink-0 ${currentExercise.cefrLevel.badgeColor}`}
+                  >
+                    {currentExercise.cefrLevel.name}
+                  </span>
+                )}
+              </div>
+
+               {/* Prev / Next / Random & 1/100 Dropdown */}
+              <div className="flex items-center gap-1.5 min-w-0 max-w-full ml-auto">
+
+                <button
+                  disabled={exerciseIndex <= 1}
+                  onClick={handlePrevExercise}
+                  className="calibration-nav-button p-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shrink-0"
+                  title="Previous Exercise"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+
+                <select
+                  value={exerciseIndex}
+                  onChange={(e) =>
+                    handleSetExerciseIndex(Number(e.target.value))
+                  }
+                  className="px-2 py-1 text-[11px] font-extrabold rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:outline-hidden cursor-pointer min-w-0 max-w-[140px] xs:max-w-[190px] sm:max-w-[250px] truncate"
+                >
+                  <optgroup label="A1 Level (Beginner • Q 1 - 20)">
+                    {Array.from({ length: 20 }, (_, i) => i + 1).map(
+                      (num) => (
+                        <option key={num} value={num}>
+                          {num}/100 [A1] - {COMMON_PTE_TOPICS[num - 1]}
+                        </option>
+                      )
+                    )}
+                  </optgroup>
+
+                  <optgroup label="A2 Level (Elementary • Q 21 - 40)">
+                    {Array.from({ length: 20 }, (_, i) => i + 21).map(
+                      (num) => (
+                        <option key={num} value={num}>
+                          {num}/100 [A2] - {COMMON_PTE_TOPICS[num - 1]}
+                        </option>
+                      )
+                    )}
+                  </optgroup>
+
+                  <optgroup label="B1 Level (Intermediate • Q 41 - 60)">
+                    {Array.from({ length: 20 }, (_, i) => i + 41).map(
+                      (num) => (
+                        <option key={num} value={num}>
+                          {num}/100 [B1] - {COMMON_PTE_TOPICS[num - 1]}
+                        </option>
+                      )
+                    )}
+                  </optgroup>
+
+                  <optgroup label="B2 Level (Upper Int • Q 61 - 80)">
+                    {Array.from({ length: 20 }, (_, i) => i + 61).map(
+                      (num) => (
+                        <option key={num} value={num}>
+                          {num}/100 [B2] - {COMMON_PTE_TOPICS[num - 1]}
+                        </option>
+                      )
+                    )}
+                  </optgroup>
+
+                  <optgroup label="C1 Level (Advanced • Q 81 - 90)">
+                    {Array.from({ length: 10 }, (_, i) => i + 81).map(
+                      (num) => (
+                        <option key={num} value={num}>
+                          {num}/100 [C1] - {COMMON_PTE_TOPICS[num - 1]}
+                        </option>
+                      )
+                    )}
+                  </optgroup>
+
+                  <optgroup label="C2 Level (Mastery • Q 91 - 100)">
+                    {Array.from({ length: 10 }, (_, i) => i + 91).map(
+                      (num) => (
+                        <option key={num} value={num}>
+                          {num}/100 [C2] - {COMMON_PTE_TOPICS[num - 1]}
+                        </option>
+                      )
+                    )}
+                  </optgroup>
+                </select>
+
+                <button
+                  disabled={exerciseIndex >= 100}
+                  onClick={handleNextExercise}
+                  className="calibration-nav-button p-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shrink-0"
+                  title="Next Exercise"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+
+                <button
+                  onClick={handleRandomCalibrationExercise}
+                  className="calibration-nav-button px-2 py-1 rounded-lg bg-indigo-600 text-white border border-indigo-500 hover:bg-indigo-500 transition-all cursor-pointer shrink-0 flex items-center gap-1"
+                  title="Choose a random authored Calibration Lab exercise"
+                >
+                  <RefreshCw className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline text-[10px] font-extrabold">
+                    Random
+                  </span>
+                </button>
+
+              </div>
+              </div>
+
+            {/* Topic Title + Calibration Difficulty */}
+            <div className="pt-1.5 border-t border-indigo-100/80 dark:border-indigo-900/50">
+              <h3 className="text-xs sm:text-sm font-black text-slate-900 dark:text-white leading-snug break-words">
+                {currentExercise.topicTitle}
+              </h3>
+
+              {calibrationDifficulty && (
+                <div className="mt-1.5">
+                  <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-extrabold shadow-xs bg-emerald-100 text-emerald-700 border border-emerald-200">
+                    Calibration: {calibrationDifficulty}
+                  </span>
+                </div>
+              )}
+            </div>
+
+          </div>
+
+          {/* Task Prompt Context Box */}
+          {currentExercise.promptText && (
+            <div className="calibration-prompt-card p-3 rounded-xl bg-slate-900 text-indigo-100 text-xs border border-slate-800 space-y-1.5">
+
+              <div className="flex items-center justify-between text-[10px] font-extrabold uppercase tracking-wider text-amber-400 flex-wrap gap-2">
+
+                <span>
+                  Task Prompt ({currentQuestion.title})
+                </span>
+
+                <div className="flex items-center gap-2 flex-wrap justify-end">
+
+                  <button
+                    onClick={() => {
+                      const textToPlay =
+                        currentExercise.promptAudio ||
+                        currentExercise.promptText;
+
+                      if (textToPlay) {
+                        handlePlayAudio(
+                          textToPlay,
+                          `prompt-${selectedQuestionId}-${exerciseIndex}`
+                        );
+                      }
+                    }}
+                    className={`calibration-audio-button px-2.5 py-1 rounded-lg text-[10px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
+                      isPlayingAudio &&
+                      currentPlayingId ===
+                        `prompt-${selectedQuestionId}-${exerciseIndex}`
+                        ? "bg-rose-600 text-white animate-pulse"
+                        : "bg-amber-500/20 text-amber-300 border border-amber-500/40 hover:bg-amber-500/30"
+                    }`}
+                  >
+                    {isPlayingAudio &&
+                    currentPlayingId ===
+                      `prompt-${selectedQuestionId}-${exerciseIndex}` ? (
+                      <>
+                        <Square className="w-3 h-3 fill-current" />
+                        Stop Prompt Audio
+                      </>
+                    ) : (
+                      <>
+                        <Volume2 className="w-3.5 h-3.5 text-amber-400" />
+                        Listen Task Prompt
+                      </>
+                    )}
+                  </button>
+
+                  {currentQuestion.id === "summarize-group-discussion" && (
+                    <button
+                      onClick={() => {
+                        handlePlayAudio(
+                          getGroupDiscussionSimulation(),
+                          `group-discussion-${selectedQuestionId}-${exerciseIndex}`
+                        );
+                      }}
+                      className={`calibration-audio-button calibration-discussion-button px-2.5 py-1 rounded-lg text-[10px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
+                        isPlayingAudio &&
+                        currentPlayingId ===
+                          `group-discussion-${selectedQuestionId}-${exerciseIndex}`
+                          ? "bg-rose-600 text-white animate-pulse"
+                          : "bg-indigo-600 text-white border border-indigo-500 hover:bg-indigo-500"
+                      }`}
+                      title="Synthetic classroom TTS simulation based on the current exercise benchmark text"
+                    >
+                      {isPlayingAudio &&
+                      currentPlayingId ===
+                        `group-discussion-${selectedQuestionId}-${exerciseIndex}` ? (
+                        <>
+                          <Square className="w-3 h-3 fill-current" />
+                          Stop Discussion
+                        </>
+                      ) : (
+                        <>
+                          <Volume2 className="w-3.5 h-3.5" />
+                          Listen Group Discussion (TTS)
+                        </>
+                      )}
+                    </button>
+                  )}
+
+                  <span className="text-indigo-300 font-semibold">
+                    {exerciseIndex}/100
+                  </span>
+
+                </div>
+              </div>
+
+              {!isReadAloudCalibration && (
+                <p className="leading-relaxed font-sans font-medium text-slate-200">
+                  {currentExercise.promptText}
+                </p>
+              )}
+
+              {currentQuestion.id === "summarize-group-discussion" && (
+                <p className="text-[10px] leading-relaxed text-indigo-300 border-t border-slate-800 pt-1.5">
+                  <b>Audio note:</b> the current exercise bank supplies the
+                  task description rather than a separate original
+                  multi-speaker recording. Use{" "}
+                  <b>Listen Group Discussion (TTS)</b> for a classroom
+                  listening simulation based on the selected benchmark text.
+                </p>
+              )}
+
+            </div>
+          )}
+
+          {/* Sample Response Box - Identical layout & styling to Task Prompt Box */}
+          <div className="calibration-response-card calibration-prompt-card p-3 rounded-xl bg-slate-900 text-indigo-100 text-xs border border-slate-800 space-y-1.5">
+
+            <div className="flex items-center justify-between text-[10px] font-extrabold uppercase tracking-wider text-indigo-400 flex-wrap gap-2">
+
+              <span>
+                Student Response (
+                {activeResponseMode === "good"
+                  ? "High Score Sample"
+                  : "Weak Sample"}
+                )
+              </span>
+
+              <div className="flex items-center gap-2">
+
                 <button
                   onClick={() => {
-                    const textToPlay = currentExercise.promptAudio || currentExercise.promptText;
-                    if (textToPlay) {
-                      handlePlayAudio(textToPlay, `prompt-${selectedQuestionId}-${exerciseIndex}`);
+                    const sampleText =
+                      currentSample.transcript ||
+                      currentSample.text ||
+                      (currentSample.answers
+                        ? currentSample.answers.join(", ")
+                        : "") ||
+                      currentSample.sequence;
+
+                    if (sampleText) {
+                      const sampleSpeechRate =
+                        typeof (
+                          currentSample as { speechRate?: unknown }
+                        )?.speechRate === "number"
+                          ? (
+                              currentSample as {
+                                speechRate: number;
+                              }
+                            ).speechRate
+                          : 0.95;
+
+                      handlePlayAudio(
+                        sampleText,
+                        `sample-${selectedQuestionId}-${exerciseIndex}-${activeResponseMode}`,
+                        sampleSpeechRate
+                      );
                     }
                   }}
-                  className={`calibration-audio-button px-2.5 py-1 rounded-lg text-[10px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
-                    isPlayingAudio && currentPlayingId === `prompt-${selectedQuestionId}-${exerciseIndex}`
+                  className={`calibration-audio-button calibration-response-audio-button px-2.5 py-1 rounded-lg text-[10px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
+                    isPlayingAudio &&
+                    currentPlayingId ===
+                      `sample-${selectedQuestionId}-${exerciseIndex}-${activeResponseMode}`
                       ? "bg-rose-600 text-white animate-pulse"
-                      : "bg-amber-500/20 text-amber-300 border border-amber-500/40 hover:bg-amber-500/30"
+                      : "bg-indigo-600 hover:bg-indigo-500 text-white border border-indigo-500/40"
                   }`}
+                  title="Listen to the selected benchmark response using browser TTS"
                 >
-                  {isPlayingAudio && currentPlayingId === `prompt-${selectedQuestionId}-${exerciseIndex}` ? (
+                  {isPlayingAudio &&
+                  currentPlayingId ===
+                    `sample-${selectedQuestionId}-${exerciseIndex}-${activeResponseMode}` ? (
                     <>
-                      <Square className="w-3 h-3 fill-current" /> Stop Prompt Audio
+                      <Square className="w-3 h-3 fill-current" />
+                      Stop Audio
                     </>
                   ) : (
                     <>
-                      <Volume2 className="w-3.5 h-3.5 text-amber-400" /> Listen Task Prompt
+                      <Volume2 className="w-3.5 h-3.5 text-white" />
+                      Listen to student response
                     </>
                   )}
                 </button>
 
-                {currentQuestion.id === "summarize-group-discussion" && (
-                  <button
-                    onClick={() => {
-                      handlePlayAudio(
-                        getGroupDiscussionSimulation(),
-                        `group-discussion-${selectedQuestionId}-${exerciseIndex}`
-                      );
-                    }}
-                    className={`calibration-audio-button calibration-discussion-button px-2.5 py-1 rounded-lg text-[10px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
-                      isPlayingAudio && currentPlayingId === `group-discussion-${selectedQuestionId}-${exerciseIndex}`
-                        ? "bg-rose-600 text-white animate-pulse"
-                        : "bg-indigo-600 text-white border border-indigo-500 hover:bg-indigo-500"
-                    }`}
-                    title="Synthetic classroom TTS simulation based on the current exercise benchmark text"
-                  >
-                    {isPlayingAudio && currentPlayingId === `group-discussion-${selectedQuestionId}-${exerciseIndex}` ? (
-                      <>
-                        <Square className="w-3 h-3 fill-current" /> Stop Discussion
-                      </>
-                    ) : (
-                      <>
-                        <Volume2 className="w-3.5 h-3.5" /> Listen Group Discussion (TTS)
-                      </>
-                    )}
-                  </button>
-                )}
-
-                <span className="text-indigo-300 font-semibold">{exerciseIndex}/100</span>
               </div>
             </div>
+
             {!isReadAloudCalibration && (
-              <p className="leading-relaxed font-sans font-medium text-slate-200">{currentExercise.promptText}</p>
+              <>
+                <p className="leading-relaxed font-sans font-medium text-slate-200">
+                  "
+                  {currentSample.transcript ||
+                    currentSample.text ||
+                    (currentSample.answers
+                      ? currentSample.answers.join(", ")
+                      : "") ||
+                    currentSample.sequence ||
+                    "Sample response..."}
+                  "
+                </p>
+
+                <div className="flex items-center justify-between text-[11px] pt-1.5 border-t border-slate-800 text-slate-400 flex-wrap gap-2">
+
+                  {currentSample.audioDuration && (
+                    <span className="font-semibold text-slate-400">
+                      Duration: {currentSample.audioDuration}
+                    </span>
+                  )}
+
+                  {currentSample.wordCount && (
+                    <span className="font-semibold text-slate-400">
+                      Word Count: {currentSample.wordCount} words
+                    </span>
+                  )}
+
+                  <span className="italic text-[10px] text-slate-300">
+                    Analysis: {currentSample.characteristics}
+                  </span>
+
+                </div>
+              </>
             )}
 
-            {currentQuestion.id === "summarize-group-discussion" && (
-              <p className="text-[10px] leading-relaxed text-indigo-300 border-t border-slate-800 pt-1.5">
-                <b>Audio note:</b> the current exercise bank supplies the task description rather than a separate original
-                multi-speaker recording. Use <b>Listen Group Discussion (TTS)</b> for a classroom listening simulation
-                based on the selected benchmark text.
-              </p>
-            )}
           </div>
-        )}
+        </div>
 
-        {/* Sample Response Box - Identical layout & styling to Task Prompt Box */}
-        <div className="calibration-response-card calibration-prompt-card p-3 rounded-xl bg-slate-900 text-indigo-100 text-xs border border-slate-800 space-y-1.5">
-          <div className="flex items-center justify-between text-[10px] font-extrabold uppercase tracking-wider text-indigo-400 flex-wrap gap-2">
-            <span>Student Response ({activeResponseMode === "good" ? "High Score Sample" : "Weak Sample"})</span>
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => {
-                  const sampleText = currentSample.transcript || currentSample.text || (currentSample.answers ? currentSample.answers.join(", ") : "") || currentSample.sequence;
-                  if (sampleText) {
-                    handlePlayAudio(sampleText, `sample-${selectedQuestionId}-${exerciseIndex}-${activeResponseMode}`);
-                  }
-                }}
-                className={`calibration-audio-button calibration-response-audio-button px-2.5 py-1 rounded-lg text-[10px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
-                  isPlayingAudio && currentPlayingId === `sample-${selectedQuestionId}-${exerciseIndex}-${activeResponseMode}`
-                    ? "bg-rose-600 text-white animate-pulse"
-                    : "bg-indigo-600 hover:bg-indigo-500 text-white border border-indigo-500/40"
-                }`}
-                title="Listen to the selected benchmark response using browser TTS"
-              >
-                {isPlayingAudio && currentPlayingId === `sample-${selectedQuestionId}-${exerciseIndex}-${activeResponseMode}` ? (
-                  <>
-                    <Square className="w-3 h-3 fill-current" /> Stop Audio
-                  </>
-                ) : (
-                  <>
-                    <Volume2 className="w-3.5 h-3.5 text-white" /> Listen to student response
-                  </>
-                )}
-              </button>
-            </div>
-          </div>
+        {/* Diagnostic Focus visual styling.
+            The project CSS applies !important to .calibration-error-tracker,
+            so this scoped rule intentionally uses !important to make the
+            Diagnostic Focus panel styling reliable. */}
+        <style>{`
+          .calibration-bench .calibration-error-tracker.diagnostic-focus-panel {
+            background: linear-gradient(145deg, #eef2ff 0%, #f5f7ff 52%, #fff7ed 100%) !important;
+            border: 1px solid #cbddec !important;
+            border-radius: 20px !important;
+            box-shadow:
+              0 8px 22px rgba(79, 70, 229, 0.08),
+              0 2px 8px rgba(15, 23, 42, 0.05) !important;
+          }
 
-          {!isReadAloudCalibration && (
-            <>
-              <p className="leading-relaxed font-sans font-medium text-slate-200">
-                "{currentSample.transcript || currentSample.text || (currentSample.answers ? currentSample.answers.join(", ") : "") || currentSample.sequence || "Sample response..."}"
-              </p>
+          .dark .calibration-bench .calibration-error-tracker.diagnostic-focus-panel {
+            background: linear-gradient(145deg, rgba(49, 46, 129, 0.34) 0%, rgba(15, 23, 42, 0.96) 52%, rgba(120, 53, 15, 0.22) 100%) !important;
+            border-color: #334155 !important;
+          }
 
-              <div className="flex items-center justify-between text-[11px] pt-1.5 border-t border-slate-800 text-slate-400 flex-wrap gap-2">
-                {currentSample.audioDuration && (
-                  <span className="font-semibold text-slate-400">Duration: {currentSample.audioDuration}</span>
-                )}
-                {currentSample.wordCount && (
-                  <span className="font-semibold text-slate-400">Word Count: {currentSample.wordCount} words</span>
-                )}
-                <span className="italic text-[10px] text-slate-300">
-                  Analysis: {currentSample.characteristics}
-                </span>
+          .calibration-bench .diagnostic-focus-panel .diagnostic-focus-card {
+            border-radius: 16px !important;
+          }
+        `}</style>
+
+        {/* Diagnostic Focus Prompts */}
+        <div
+          className="diagnostic-focus-outer-frame"
+          style={{
+            background: "#ffffff",
+            border: "1px solid #ffffff",
+            borderRadius: "20px",
+            padding: "18px",
+            boxShadow:
+              "0 8px 22px rgba(79, 70, 229, 0.08), 0 2px 8px rgba(15, 23, 42, 0.05)",
+          }}
+        >
+          <div className="calibration-error-tracker diagnostic-focus-panel p-4 rounded-xl space-y-3">
+
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800 dark:text-slate-200">
+                  <Target className="w-4 h-4 text-indigo-500" />
+                  Diagnostic Focus — What to Listen For
+                </div>
+
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                  Use these diagnostic prompts as clues while listening. They
+                  are not checkboxes and they do not add anything to your
+                  assessment. Only discuss a feature when you can support it
+                  with evidence from the student response.
+                </p>
               </div>
-            </>
-          )}
-        </div>
-      </div>
 
-      {/* Diagnostic Focus visual styling.
-          The project CSS applies !important to .calibration-error-tracker,
-          so this scoped rule intentionally uses !important to make the
-          Diagnostic Focus panel styling reliable. */}
-      <style>{`
-        .calibration-bench .calibration-error-tracker.diagnostic-focus-panel {
-          background: linear-gradient(145deg, #eef2ff 0%, #f5f7ff 52%, #fff7ed 100%) !important;
-          border: 1px solid #cbddec !important;
-          border-radius: 20px !important;
-          box-shadow:
-            0 8px 22px rgba(79, 70, 229, 0.08),
-            0 2px 8px rgba(15, 23, 42, 0.05) !important;
-        }
-
-        .dark .calibration-bench .calibration-error-tracker.diagnostic-focus-panel {
-          background: linear-gradient(145deg, rgba(49, 46, 129, 0.34) 0%, rgba(15, 23, 42, 0.96) 52%, rgba(120, 53, 15, 0.22) 100%) !important;
-          border-color: #334155 !important;
-        }
-        .calibration-bench .diagnostic-focus-panel .diagnostic-focus-card {
-          border-radius: 16px !important;
-        }
-      `}</style>
-
-      {/* Diagnostic Focus Prompts */}
-      <div
-        className="diagnostic-focus-outer-frame"
-        style={{
-          background: "#ffffff",
-          border: "1px solid #ffffff",
-          borderRadius: "20px",
-          padding: "18px",
-          boxShadow: "0 8px 22px rgba(79, 70, 229, 0.08), 0 2px 8px rgba(15, 23, 42, 0.05)"
-        }}
-      >
-        <div className="calibration-error-tracker diagnostic-focus-panel p-4 rounded-xl space-y-3">
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800 dark:text-slate-200">
-              <Target className="w-4 h-4 text-indigo-500" /> Diagnostic Focus — What to Listen For
+              <span className="text-[10px] text-amber-700 dark:text-amber-300 font-extrabold bg-amber-50 dark:bg-amber-950/40 px-2 py-1 rounded shrink-0 border border-amber-200 dark:border-amber-800">
+                Listening Prompts
+              </span>
             </div>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-              Use these diagnostic prompts as clues while listening. They are not checkboxes and they do not add anything to your assessment. Only discuss a feature when you can support it with evidence from the student response.
-            </p>
-          </div>
-          <span className="text-[10px] text-amber-700 dark:text-amber-300 font-extrabold bg-amber-50 dark:bg-amber-950/40 px-2 py-1 rounded shrink-0 border border-amber-200 dark:border-amber-800">
-            Listening Prompts
-          </span>
-        </div>
 
-        {diagnosticChecklist.length === 0 ? (
-          <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 text-xs text-emerald-800 dark:text-emerald-200">
-            <div className="font-bold">Diagnostic restraint</div>
-            <p className="mt-1 leading-relaxed">
-              No major fluency error is expected in this exercise. Listen carefully and do not invent an error. Your assessment should explain why the response does not require a major fluency diagnosis.
-            </p>
-          </div>
-        ) : (
-          <div className="calibration-error-grid grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
-            {diagnosticChecklist.map((item: any) => (
-              <div
-                key={item.id}
-                className="diagnostic-focus-card p-3 rounded-2xl border border-indigo-100 dark:border-indigo-900/60 text-slate-800 dark:text-slate-200 shadow-sm" style={{ background: "linear-gradient(135deg, #eef2ff 0%, #ffffff 52%, #fff7ed 100%)" }}
-              >
-                <div className="flex items-start gap-2">
+            {diagnosticChecklist.length === 0 ? (
+              <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 text-xs text-emerald-800 dark:text-emerald-200">
+                <div className="font-bold">
+                  Diagnostic restraint
+                </div>
+
+                <p className="mt-1 leading-relaxed">
+                  No major fluency error is expected in this exercise. Listen
+                  carefully and do not invent an error. Your assessment should
+                  explain why the response does not require a major fluency
+                  diagnosis.
+                </p>
+              </div>
+            ) : (
+              <div className="calibration-error-grid grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                {diagnosticChecklist.map((item: any) => (
                   <div
+                    key={item.id}
+                    className="diagnostic-focus-card p-3 rounded-2xl border border-indigo-100 dark:border-indigo-900/60 text-slate-800 dark:text-slate-200 shadow-sm"
                     style={{
-                      width: "34px",
-                      height: "34px",
-                      borderRadius: "10px",
-                      background: "linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%)",
-                      color: "#4f46e5",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                      border: "1px solid #c7d2fe",
-                      boxShadow: "0 2px 6px rgba(79, 70, 229, 0.10)"
+                      background:
+                        "linear-gradient(135deg, #eef2ff 0%, #ffffff 52%, #fff7ed 100%)",
                     }}
                   >
-                    <Target style={{ width: "16px", height: "16px" }} />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-2">
-                      <div className="text-[12px] font-extrabold leading-tight text-slate-800 dark:text-slate-100">
-                        {item.label}
-                      </div>
-                      <span
+                    <div className="flex items-start gap-2">
+
+                      <div
                         style={{
-                          fontSize: "9px",
-                          fontWeight: 800,
-                          letterSpacing: "0.04em",
-                          textTransform: "uppercase",
-                          padding: "3px 7px",
-                          borderRadius: "999px",
-                          background: "#fef3c7",
-                          color: "#92400e",
-                          border: "1px solid #fde68a",
-                          whiteSpace: "nowrap"
+                          width: "34px",
+                          height: "34px",
+                          borderRadius: "10px",
+                          background:
+                            "linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%)",
+                          color: "#4f46e5",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                          border: "1px solid #c7d2fe",
+                          boxShadow:
+                            "0 2px 6px rgba(79, 70, 229, 0.10)",
                         }}
                       >
-                        Listen
-                      </span>
-                    </div>
-                    <div className="mt-1 text-[10px] leading-relaxed text-slate-500 dark:text-slate-400">
-                      Listen for clear evidence of this feature before mentioning it in your assessment.
+                        <Target
+                          style={{
+                            width: "16px",
+                            height: "16px",
+                          }}
+                        />
+                      </div>
+
+                      <div className="min-w-0">
+
+                        <div className="flex items-center gap-2">
+                          <div className="text-[12px] font-extrabold leading-tight text-slate-800 dark:text-slate-100">
+                            {item.label}
+                          </div>
+
+                          <span
+                            style={{
+                              fontSize: "9px",
+                              fontWeight: 800,
+                              letterSpacing: "0.04em",
+                              textTransform: "uppercase",
+                              padding: "3px 7px",
+                              borderRadius: "999px",
+                              background: "#fef3c7",
+                              color: "#92400e",
+                              border: "1px solid #fde68a",
+                              whiteSpace: "nowrap",
+                            }}
+                          >
+                            Listen
+                          </span>
+                        </div>
+
+                        <div className="mt-1 text-[10px] leading-relaxed text-slate-500 dark:text-slate-400">
+                          Listen for clear evidence of this feature before
+                          mentioning it in your assessment.
+                        </div>
+
+                      </div>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
-        )}
-        </div>
-      </div>
+            )}
 
-      {/* Teacher Feedback Text Input Area */}
-      <div className="calibration-feedback-card p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-2">
-        <div className="flex items-center justify-between">
-          <div>
-            <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800 dark:text-slate-200">
-              <Edit3 className="w-4 h-4 text-emerald-500" /> Your Assessment Feedback & Rationale
+          </div>
+        </div>
+
+        {/* Teacher Feedback Text Input Area */}
+        <div className="calibration-feedback-card p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-2">
+
+          <div className="flex items-center justify-between">
+            <div>
+
+              <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800 dark:text-slate-200">
+                <Edit3 className="w-4 h-4 text-emerald-500" />
+                Your Assessment Feedback & Rationale
+              </div>
+
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                Write your own assessment and evidence. The diagnostic prompts
+                are only listening clues and are not inserted into this field.
+              </p>
+
             </div>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-              Write your own assessment and evidence. The diagnostic prompts are only listening clues and are not inserted into this field.
-            </p>
+
+            <span className="text-[10px] text-slate-400 shrink-0">
+              {teacherFeedbackText.length} chars
+            </span>
           </div>
-          <span className="text-[10px] text-slate-400 shrink-0">
-            {teacherFeedbackText.length} chars
-          </span>
+
+          <textarea
+            rows={5}
+            value={teacherFeedbackText}
+            onChange={(e) => setTeacherFeedbackText(e.target.value)}
+            placeholder="Write your own assessment. Include the relevant PTE term, the evidence you heard, its impact, and appropriate advice (e.g., 'The student shows poor phrasing and word-by-word grouping because natural phrases are split into short chunks...')"
+            className="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:ring-2 focus:ring-indigo-500 focus:outline-hidden leading-relaxed resize-none font-sans"
+          />
+
         </div>
 
-        <textarea
-          rows={5}
-          value={teacherFeedbackText}
-          onChange={(e) => setTeacherFeedbackText(e.target.value)}
-          placeholder="Write your own assessment. Include the relevant PTE term, the evidence you heard, its impact, and appropriate advice (e.g., 'The student shows poor phrasing and word-by-word grouping because natural phrases are split into short chunks...')"
-          className="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:ring-2 focus:ring-indigo-500 focus:outline-hidden leading-relaxed resize-none font-sans"
-        />
+        {/* Submit AI Comparison Action Button */}
+        <button
+          onClick={handleSubmitFeedback}
+          disabled={isEvaluatingAi}
+          className={`w-fit mx-auto py-3.5 rounded-xl text-white text-xs font-extrabold flex items-center justify-center gap-2 shadow-md transition-all ${
+            isEvaluatingAi
+              ? "bg-indigo-500 cursor-wait opacity-90"
+              : "bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 active:scale-98 cursor-pointer"
+          }`}
+        >
+          {isEvaluatingAi ? (
+            <>
+              <RefreshCw className="w-4 h-4 animate-spin" />
+              Preparing AI Analysis...
+            </>
+          ) : (
+            <>
+              <Sparkles className="w-4 h-4 text-amber-300" />
+              Compare Feedback with AI Expert
+            </>
+          )}
+        </button>
+
       </div>
 
-      {/* Submit AI Comparison Action Button */}
-      <button
-  onClick={handleSubmitFeedback}
-  disabled={isEvaluatingAi}
-  className={`w-fit mx-auto py-3.5 rounded-xl text-white text-xs font-extrabold flex items-center justify-center gap-2 shadow-md transition-all ${
-    isEvaluatingAi
-      ? "bg-indigo-500 cursor-wait opacity-90"
-      : "bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 active:scale-98 cursor-pointer"
-  }`}
->
-      {isEvaluatingAi ? (
-        <>
-          <RefreshCw className="w-4 h-4 animate-spin" />
-          Preparing AI Analysis...
-        </>
-      ) : (
-        <>
-          <Sparkles className="w-4 h-4 text-amber-300" />
-          Compare Feedback with AI Expert
-        </>
-      )}
-    </button>
-      </div>
-
+      {/* Assessment Warning Modal */}
       {assessmentWarning && (
         <div
           role="presentation"
           onMouseDown={(event) => {
-            if (event.target === event.currentTarget) setAssessmentWarning(null);
+            if (event.target === event.currentTarget) {
+              setAssessmentWarning(null);
+            }
           }}
           style={{
             position: "fixed",
@@ -901,7 +1221,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
             padding: "20px",
             backgroundColor: "rgba(15, 23, 42, 0.68)",
             backdropFilter: "blur(6px)",
-            WebkitBackdropFilter: "blur(6px)"
+            WebkitBackdropFilter: "blur(6px)",
           }}
         >
           <div
@@ -916,11 +1236,18 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
               backgroundColor: "#ffffff",
               border: "1px solid #e2e8f0",
               borderRadius: "24px",
-              boxShadow: "0 24px 70px rgba(15, 23, 42, 0.30)",
-              overflow: "hidden"
+              boxShadow:
+                "0 24px 70px rgba(15, 23, 42, 0.30)",
+              overflow: "hidden",
             }}
           >
-            <div style={{ position: "relative", padding: "28px", textAlign: "center" }}>
+            <div
+              style={{
+                position: "relative",
+                padding: "28px",
+                textAlign: "center",
+              }}
+            >
               <button
                 type="button"
                 onClick={() => setAssessmentWarning(null)}
@@ -938,7 +1265,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
                   color: "#64748b",
                   fontSize: "24px",
                   lineHeight: "36px",
-                  cursor: "pointer"
+                  cursor: "pointer",
                 }}
               >
                 ×
@@ -954,10 +1281,17 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  boxShadow: "0 0 0 9px #fff1f2"
+                  boxShadow: "0 0 0 9px #fff1f2",
                 }}
               >
-                <AlertTriangle style={{ width: "34px", height: "34px", color: "#f43f5e" }} strokeWidth={2.5} />
+                <AlertTriangle
+                  style={{
+                    width: "34px",
+                    height: "34px",
+                    color: "#f43f5e",
+                  }}
+                  strokeWidth={2.5}
+                />
               </div>
 
               <h2
@@ -968,7 +1302,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
                   color: "#0f172a",
                   fontSize: "24px",
                   lineHeight: "1.2",
-                  fontWeight: 900
+                  fontWeight: 900,
                 }}
               >
                 {assessmentWarning.title}
@@ -980,7 +1314,7 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
                   padding: "0 8px",
                   color: "#475569",
                   fontSize: "15px",
-                  lineHeight: "1.65"
+                  lineHeight: "1.65",
                 }}
               >
                 {assessmentWarning.message}
@@ -993,11 +1327,18 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
                     padding: "16px",
                     textAlign: "left",
                     borderRadius: "17px",
-                    background: "linear-gradient(135deg, #fff1f2 0%, #fffbeb 100%)",
-                    border: "1px solid #ffe4e6"
+                    background:
+                      "linear-gradient(135deg, #fff1f2 0%, #fffbeb 100%)",
+                    border: "1px solid #ffe4e6",
                   }}
                 >
-                  <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "12px",
+                    }}
+                  >
                     <div
                       style={{
                         flex: "0 0 auto",
@@ -1008,11 +1349,19 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        boxShadow: "0 2px 8px rgba(15, 23, 42, 0.08)"
+                        boxShadow:
+                          "0 2px 8px rgba(15, 23, 42, 0.08)",
                       }}
                     >
-                      <HelpCircle style={{ width: "20px", height: "20px", color: "#f43f5e" }} />
+                      <HelpCircle
+                        style={{
+                          width: "20px",
+                          height: "20px",
+                          color: "#f43f5e",
+                        }}
+                      />
                     </div>
+
                     <div>
                       <div
                         style={{
@@ -1020,17 +1369,18 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
                           fontSize: "12px",
                           fontWeight: 900,
                           textTransform: "uppercase",
-                          letterSpacing: "0.08em"
+                          letterSpacing: "0.08em",
                         }}
                       >
                         Helpful tip
                       </div>
+
                       <p
                         style={{
                           margin: "4px 0 0",
                           color: "#475569",
                           fontSize: "13px",
-                          lineHeight: "1.6"
+                          lineHeight: "1.6",
                         }}
                       >
                         {assessmentWarning.tip}
@@ -1049,20 +1399,32 @@ export default function MarkingScreen({ onNavigate }: { onNavigate: (tab: string
                   padding: "14px 18px",
                   border: "none",
                   borderRadius: "16px",
-                  background: "linear-gradient(90deg, #4f46e5 0%, #4338ca 100%)",
+                  background:
+                    "linear-gradient(90deg, #4f46e5 0%, #4338ca 100%)",
                   color: "#ffffff",
                   fontSize: "14px",
                   fontWeight: 900,
                   cursor: "pointer",
-                  boxShadow: "0 10px 24px rgba(79, 70, 229, 0.22)"
+                  boxShadow:
+                    "0 10px 24px rgba(79, 70, 229, 0.22)",
                 }}
               >
-                Got it <span style={{ marginLeft: "6px", fontSize: "16px" }}>→</span>
+                Got it
+                <span
+                  style={{
+                    marginLeft: "6px",
+                    fontSize: "16px",
+                  }}
+                >
+                  →
+                </span>
               </button>
+
             </div>
           </div>
         </div>
       )}
+
     </>
   );
 }
