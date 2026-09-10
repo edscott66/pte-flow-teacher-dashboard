@@ -87,7 +87,7 @@ export const COMMON_PTE_TOPICS = [
   "Clothes & Everyday Fashion",
   "Colors & Numbers",
   "Time & Days of the Week",
-  "Health & Feeling Sick",
+  "Food & Drinks",
   "City Parks & Playgrounds",
   "Listening to Music",
   "Smartphones & Laptops",
@@ -1651,6 +1651,456 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     ],
     expertAdvice:
       "Do not diagnose this simply as poor fluency or speaking too fast. The student's overall rate and continuity are appropriate. Focus on the repeated /v/ sound problem in words such as \"visit\" and provide specific pronunciation coaching."
+  },
+
+     {
+    exerciseIndex: 17,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "TH Sound Pronunciation",
+
+    learningObjective:
+      "Identify a specific /th/ sound pronunciation problem and distinguish it from problems with oral fluency, speech rate or Content accuracy.",
+
+    promptText:
+      "I think healthy food is important for everyone. I usually eat fruit and vegetables every day, and I drink plenty of water. At home, my family tries to cook simple meals with fresh ingredients. We also enjoy walking together because it helps us stay active and healthy.",
+
+    promptAudio:
+      "I think healthy food is important for everyone. I usually eat fruit and vegetables every day, and I drink plenty of water. At home, my family tries to cook simple meals with fresh ingredients. We also enjoy walking together because it helps us stay active and healthy.",
+
+    studentTranscript:
+      "I tink healthy food is important for everyone. I usually eat fruit and vegetables every day, and I drink plenty of water. At home, my family tries to cook simple meals with fresh ingredients. We also enjoy walking together because it helps us stay active and healthy.",
+
+    studentResponse: {
+      audioDuration: "22.5 seconds",
+      wordCount: 46,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the initial /th/ sound in 'think' is repeatedly produced more like a /t/ sound."
+    },
+
+    diagnosticErrors: [
+      "TH sound pronunciation",
+      "Consonant substitution",
+      "Pronunciation accuracy"
+    ],
+
+    expertEvidence: [
+      "\"think\" is pronounced more like \"tink\"",
+      "The initial /th/ sound is replaced by a /t/-like sound",
+      "The pronunciation problem occurs at a specific consonant sound rather than across the whole response",
+      "Overall speech rate remains appropriate",
+      "The response is continuous without significant fillers, hesitations or unnatural pauses",
+      "The student's Content remains substantially intact",
+      "The main issue requiring attention is the production of the /th/ sound"
+    ],
+
+    expertDiagnosis:
+      "The main problem is pronunciation, specifically the production of the /th/ sound. The student produces the initial /th/ sound in \"think\" more like a /t/ sound, making the word sound like \"tink.\" The response remains generally clear, continuous and appropriately paced, so this should not be diagnosed as an oral-fluency or speech-rate problem. The teacher should focus on the specific consonant sound and provide targeted pronunciation coaching.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is pronunciation, specifically the /th/ sound in the word \"think.\" The /th/ sound is produced more like a /t/ sound, making \"think\" sound like \"tink.\" The response is otherwise clear, continuous and appropriately paced, with no significant hesitation or pausing problem. The teacher should therefore focus on the specific consonant pronunciation rather than diagnosing poor fluency or an inappropriate speaking rate.",
+
+    coachingAdvice:
+      "Practise the /th/ sound by placing the tongue lightly between or just behind the upper and lower teeth and allowing air to pass through. Contrast /th/ and /t/ in words such as \"think\" and \"tink,\" then practise the target sound in short phrases and sentences while maintaining natural fluency.",
+
+    cefrLevel: "A1",
+    topicTitle: "Food & Drinks",
+
+    good: {
+      transcript:
+        "I think healthy food is important for everyone. I usually eat fruit and vegetables every day, and I drink plenty of water. At home, my family tries to cook simple meals with fresh ingredients. We also enjoy walking together because it helps us stay active and healthy.",
+      audioDuration: "21.5 seconds",
+      wordCount: 46,
+      characteristics:
+        "Clear pronunciation of the /th/ sound with appropriate pace and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "I tink healthy food is important for everyone. I usually eat fruit and vegetables every day, and I drink plenty of water. At home, my family tries to cook simple meals with fresh ingredients. We also enjoy walking together because it helps us stay active and healthy.",
+      audioDuration: "22.5 seconds",
+      wordCount: 46,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the /th/ sound in 'think' is produced more like a /t/ sound."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Clear pronunciation with appropriate pace and continuous delivery."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "Generally fluent and clear, but the specific /th/ sound error reduces pronunciation performance."
+    },
+
+    errorChecklist: [
+      {
+        id: "th-sound-pronunciation",
+        label: "TH sound pronunciation",
+        keyword: "TH sound pronunciation"
+      },
+      {
+        id: "consonant-substitution",
+        label: "Consonant substitution",
+        keyword: "Consonant substitution"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+
+    expertAdvice:
+      "Do not diagnose this simply as poor fluency or speaking too fast. The student's overall rate and continuity are appropriate. Focus on the specific /th/ sound problem in the word \"think\" and provide targeted pronunciation coaching."
+  },
+
+   {
+    exerciseIndex: 18,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Word Insertion & Content Accuracy",
+
+    learningObjective:
+      "Identify a specific inserted word in a Read Aloud response and distinguish a Content error from pronunciation or oral-fluency problems.",
+
+    promptText:
+      "I often visit the city park near my home after work. I walk along the paths, sit on a bench, and watch children play. At weekends, I sometimes meet my friends there and we talk while we enjoy the fresh air. The park is a simple place, but I like spending time there.",
+
+    promptAudio:
+      "I often visit the city park near my home after work. I walk along the paths, sit on a bench, and watch children play. At weekends, I sometimes meet my friends there and we talk while we enjoy the fresh air. The park is a simple place, but I like spending time there.",
+
+    studentTranscript:
+      "I often visit the city park near my home after work. I walk along the paths, sit on a bench, and watch children play. At weekends, I sometimes meet my friends there and we talk together while we enjoy the fresh air. The park is a simple place, but I like spending time there.",
+
+    studentResponse: {
+      audioDuration: "23.0 seconds",
+      wordCount: 54,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the student inserts the extra word 'together' after 'talk'."
+    },
+
+    diagnosticErrors: [
+      "Word insertion",
+      "Content accuracy",
+      "Extra word"
+    ],
+
+    expertEvidence: [
+      "The prompt says 'we talk while we enjoy the fresh air'",
+      "The student says 'we talk together while we enjoy the fresh air'",
+      "The word 'together' is inserted into the response even though it is not present in the prompt",
+      "The insertion occurs once and is clearly identifiable",
+      "Overall speech rate remains appropriate",
+      "The response is continuous without significant fillers, hesitations or unnatural pauses",
+      "The main score-impacting issue is the inserted word, not pronunciation or oral fluency"
+    ],
+
+    expertDiagnosis:
+      "The main problem is Content accuracy. The student inserts the word \"together\" after \"talk,\" although that word does not appear in the prompt. This is a specific word insertion and should be treated as a Content error. The response is otherwise clear, continuous and appropriately paced, so the teacher should not diagnose this as an oral-fluency or pronunciation problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they insert the extra word \"together\" after \"talk.\" The prompt says \"we talk while we enjoy the fresh air,\" but the student says \"we talk together while we enjoy the fresh air.\" The response is otherwise clear, continuous and appropriately paced, so the teacher should focus on the word insertion rather than diagnosing a pronunciation or fluency problem.",
+
+    coachingAdvice:
+      "When marking Read Aloud, compare the student's spoken words directly with the prompt and listen for additions as well as omissions and replacements. In this case, the extra word \"together\" is a Content error even though the resulting sentence remains grammatical and understandable. Avoid overlooking small insertions simply because they do not affect the meaning of the sentence.",
+
+    cefrLevel: "A1",
+    topicTitle: "City Parks & Playgrounds",
+
+    good: {
+      transcript:
+        "I often visit the city park near my home after work. I walk along the paths, sit on a bench, and watch children play. At weekends, I sometimes meet my friends there and we talk while we enjoy the fresh air. The park is a simple place, but I like spending time there.",
+      audioDuration: "22.5 seconds",
+      wordCount: 53,
+      characteristics:
+        "Clear and appropriately paced delivery with all prompt words reproduced without additions."
+    },
+
+    poor: {
+      transcript:
+        "I often visit the city park near my home after work. I walk along the paths, sit on a bench, and watch children play. At weekends, I sometimes meet my friends there and we talk together while we enjoy the fresh air. The park is a simple place, but I like spending time there.",
+      audioDuration: "23.0 seconds",
+      wordCount: 54,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the student inserts the extra word 'together' after 'talk'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Complete Content with clear pronunciation and appropriate continuous delivery."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "One inserted word creates a Content error; pronunciation and oral fluency remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "word-insertion",
+        label: "Word insertion",
+        keyword: "Word insertion"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "extra-word",
+        label: "Extra word",
+        keyword: "Extra word"
+      }
+    ],
+
+    expertAdvice:
+      "Do not overlook a small insertion simply because the resulting sentence remains grammatical or understandable. Compare the student's words directly with the prompt and identify the extra word as a Content error. Do not diagnose poor fluency or pronunciation when the delivery itself is clear and continuous."
+  },
+
+  {
+    exerciseIndex: 19,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Word Omission & Content Accuracy",
+
+    learningObjective:
+      "Identify a specific omitted word in a Read Aloud response and distinguish a Content error from pronunciation or oral-fluency problems.",
+
+    promptText:
+      "I enjoy listening to music when I have free time. I usually listen to songs on my phone while I walk in the park. At home, I sometimes play quiet music while I study or relax. Music helps me feel calm after a busy day.",
+
+    promptAudio:
+      "I enjoy listening to music when I have free time. I usually listen to songs on my phone while I walk in the park. At home, I sometimes play quiet music while I study or relax. Music helps me feel calm after a busy day.",
+
+    studentTranscript:
+      "I enjoy listening to music when I have free time. I usually listen to songs on my phone while I walk in the park. At home, I play quiet music while I study or relax. Music helps me feel calm after a busy day.",
+
+    studentResponse: {
+      audioDuration: "19.5 seconds",
+      wordCount: 44,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the student omits the word 'sometimes' before 'play'."
+    },
+
+    diagnosticErrors: [
+      "Word omission",
+      "Content accuracy",
+      "Missing word"
+    ],
+
+    expertEvidence: [
+      "The prompt says 'At home, I sometimes play quiet music while I study or relax'",
+      "The student says 'At home, I play quiet music while I study or relax'",
+      "The word 'sometimes' is omitted from the response",
+      "The omission occurs once and is clearly identifiable",
+      "The remaining words are reproduced in the correct sequence",
+      "Overall speech rate remains appropriate",
+      "The response is continuous without significant fillers, hesitations or unnatural pauses",
+      "The main score-impacting issue is the omitted word, not pronunciation or oral fluency"
+    ],
+
+    expertDiagnosis:
+      "The main problem is Content accuracy. The student omits the word \"sometimes\" from the sentence \"At home, I sometimes play quiet music while I study or relax.\" This is a specific word omission and should be treated as a Content error. The response is otherwise clear, continuous and appropriately paced, so the teacher should not diagnose this as an oral-fluency or pronunciation problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they omit the word \"sometimes.\" The prompt says \"At home, I sometimes play quiet music while I study or relax,\" but the student says \"At home, I play quiet music while I study or relax.\" The response is otherwise clear, continuous and appropriately paced, so the teacher should focus on the word omission rather than diagnosing a pronunciation or fluency problem.",
+
+    coachingAdvice:
+      "When marking Read Aloud, compare the student's spoken words directly with the prompt and listen for omissions as well as insertions and replacements. In this case, the missing word \"sometimes\" is a Content error even though the sentence remains grammatical and understandable. Encourage the student to maintain attention to every word in the prompt while keeping their natural speaking rate.",
+
+    cefrLevel: "A1",
+    topicTitle: "Listening to Music",
+
+    good: {
+      transcript:
+        "I enjoy listening to music when I have free time. I usually listen to songs on my phone while I walk in the park. At home, I sometimes play quiet music while I study or relax. Music helps me feel calm after a busy day.",
+      audioDuration: "20.0 seconds",
+      wordCount: 45,
+      characteristics:
+        "Clear and appropriately paced delivery with all prompt words reproduced in the correct sequence."
+    },
+
+    poor: {
+      transcript:
+        "I enjoy listening to music when I have free time. I usually listen to songs on my phone while I walk in the park. At home, I play quiet music while I study or relax. Music helps me feel calm after a busy day.",
+      audioDuration: "19.5 seconds",
+      wordCount: 44,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the student omits the word 'sometimes' before 'play'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Complete Content with clear pronunciation and appropriate continuous delivery."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "One omitted word creates a Content error; pronunciation and oral fluency remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "word-omission",
+        label: "Word omission",
+        keyword: "Word omission"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "missing-word",
+        label: "Missing word",
+        keyword: "Missing word"
+      }
+    ],
+
+    expertAdvice:
+      "Do not overlook a small omission simply because the resulting sentence remains grammatical or understandable. Compare the student's words directly with the prompt and identify the missing word as a Content error. Do not diagnose poor fluency or pronunciation when the delivery itself is clear and continuous."
+  },
+
+   {
+    exerciseIndex: 20,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Word Substitution & Content Accuracy",
+
+    learningObjective:
+      "Identify a specific substituted word in a Read Aloud response and distinguish a Content error from pronunciation or oral-fluency problems.",
+
+    promptText:
+      "I use my smartphone every day to call my family and check messages. At home, I often use my laptop to study and watch videos. I also take photos when I go out with my friends. These devices help me stay connected and organized.",
+
+    promptAudio:
+      "I use my smartphone every day to call my family and check messages. At home, I often use my laptop to study and watch videos. I also take photos when I go out with my friends. These devices help me stay connected and organized.",
+
+    studentTranscript:
+      "I use my smartphone every day to call my family and check messages. At home, I often use my tablet to study and watch videos. I also take photos when I go out with my friends. These devices help me stay connected and organized.",
+
+    studentResponse: {
+      audioDuration: "20.5 seconds",
+      wordCount: 45,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the student substitutes 'tablet' for the prompt word 'laptop'."
+    },
+
+    diagnosticErrors: [
+      "Word substitution",
+      "Content accuracy",
+      "Incorrect word"
+    ],
+
+    expertEvidence: [
+      "The prompt says 'I often use my laptop to study and watch videos'",
+      "The student says 'I often use my tablet to study and watch videos'",
+      "The word 'tablet' replaces the prompt word 'laptop'",
+      "The substitution occurs once and is clearly identifiable",
+      "The remaining words are reproduced in the correct sequence",
+      "Overall speech rate remains appropriate",
+      "The response is continuous without significant fillers, hesitations or unnatural pauses",
+      "The main score-impacting issue is the substituted word, not pronunciation or oral fluency"
+    ],
+
+    expertDiagnosis:
+      "The main problem is Content accuracy. The student substitutes the word \"tablet\" for the prompt word \"laptop\" in the sentence \"I often use my laptop to study and watch videos.\" This is a specific word substitution and should be treated as a Content error. The response is otherwise clear, continuous and appropriately paced, so the teacher should not diagnose this as an oral-fluency or pronunciation problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they substitute the word \"tablet\" for \"laptop.\" The prompt says \"I often use my laptop to study and watch videos,\" but the student says \"I often use my tablet to study and watch videos.\" The response is otherwise clear, continuous and appropriately paced, so the teacher should focus on the word substitution rather than diagnosing a pronunciation or fluency problem.",
+
+    coachingAdvice:
+      "When marking Read Aloud, compare the student's spoken words directly with the prompt and listen for replacements as well as omissions and insertions. In this case, replacing \"laptop\" with \"tablet\" is a Content error even though both words are meaningful and the sentence remains grammatical. Encourage the student to reproduce the exact words on screen rather than substituting a related word.",
+
+    cefrLevel: "A1",
+    topicTitle: "Smartphones & Laptops",
+
+    good: {
+      transcript:
+        "I use my smartphone every day to call my family and check messages. At home, I often use my laptop to study and watch videos. I also take photos when I go out with my friends. These devices help me stay connected and organized.",
+      audioDuration: "20.0 seconds",
+      wordCount: 45,
+      characteristics:
+        "Clear and appropriately paced delivery with all prompt words reproduced in the correct sequence."
+    },
+
+    poor: {
+      transcript:
+        "I use my smartphone every day to call my family and check messages. At home, I often use my tablet to study and watch videos. I also take photos when I go out with my friends. These devices help me stay connected and organized.",
+      audioDuration: "20.5 seconds",
+      wordCount: 45,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the student substitutes 'tablet' for the prompt word 'laptop'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Complete Content with clear pronunciation and appropriate continuous delivery."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "One word substitution creates a Content error; pronunciation and oral fluency remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "word-substitution",
+        label: "Word substitution",
+        keyword: "Word substitution"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "incorrect-word",
+        label: "Incorrect word",
+        keyword: "Incorrect word"
+      }
+    ],
+
+    expertAdvice:
+      "Do not overlook a word substitution simply because the replacement is related in meaning or produces a grammatical sentence. Compare the student's words directly with the prompt and identify the replacement as a Content error. Do not diagnose poor fluency or pronunciation when the delivery itself is clear and continuous."
   },
 ];
 
