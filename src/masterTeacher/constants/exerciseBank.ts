@@ -5219,6 +5219,957 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "Do not diagnose this as a Content, Pronunciation or general speech-rate problem. The defining issue is the audible use of 'uh' fillers. Coach the student to replace vocalized fillers with brief silent pauses."
 },
 
+{
+  exerciseIndex: 51,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Content Accuracy",
+  diagnosticArea: "Phrase Omission",
+  learningObjective:
+    "Identify an omitted phrase in a Read Aloud response and distinguish Content accuracy from Pronunciation and Oral Fluency problems.",
+  promptText:
+    "Managing a personal budget can help students control their spending. A simple budget should include regular expenses such as food, transport, and study materials. Students can also set aside a small amount of money for emergencies. Checking a budget each month helps people understand their spending habits and make better financial decisions.",
+  promptAudio:
+    "Managing a personal budget can help students control their spending. A simple budget should include regular expenses such as food, transport, and study materials. Students can also set aside a small amount of money for emergencies. Checking a budget each month helps people understand their spending habits and make better financial decisions.",
+  studentTranscript:
+    "Managing a personal budget can help students control their spending. A simple budget should include regular expenses such as food, transport, and study materials. Students can also set aside a small amount of money for emergencies. Checking a budget each month helps people understand their spending habits and make better financial decisions.",
+  studentResponse: {
+    audioDuration: "24.5 seconds",
+    wordCount: 61,
+    characteristics:
+      "Clear and appropriately paced delivery, but the phrase 'for emergencies' is omitted from the third sentence."
+  },
+  diagnosticErrors: [
+    "Phrase omission",
+    "Content accuracy",
+    "Missing phrase"
+  ],
+  expertEvidence: [
+    "The prompt says 'set aside a small amount of money for emergencies'",
+    "The student says 'set aside a small amount of money'",
+    "The phrase 'for emergencies' is missing",
+    "The omission occurs in the third sentence",
+    "The remaining content is reproduced accurately",
+    "Pronunciation is generally clear",
+    "Overall speaking rate is appropriate",
+    "The response is continuous without significant hesitation"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Content accuracy because they omit the phrase \"for emergencies\" from the third sentence. The prompt says \"set aside a small amount of money for emergencies,\" but the student stops after \"money.\" This omission affects the Read Aloud Content score, while Pronunciation and Oral Fluency remain strong.",
+  perfectCalibrationResponse:
+    "The student's main issue is Content accuracy because they omit the phrase \"for emergencies\" from the third sentence. The prompt says \"set aside a small amount of money for emergencies,\" but the student stops after \"money.\" This omission affects the Read Aloud Content score, while Pronunciation and Oral Fluency remain strong because the response is otherwise clear, continuous and appropriately paced.",
+  coachingAdvice:
+    "Focus on reproducing the complete reading text without leaving out short phrases. Practise reading the third sentence as one complete unit, including 'for emergencies.'",
+  cefrLevel: "B1",
+  topicTitle: "Student Budgeting & Finance",
+  good: {
+    transcript:
+      "Managing a personal budget can help students control their spending. A simple budget should include regular expenses such as food, transport, and study materials. Students can also set aside a small amount of money for emergencies. Checking a budget each month helps people understand their spending habits and make better financial decisions.",
+    audioDuration: "23.5 seconds",
+    wordCount: 64,
+    characteristics:
+      "Clear, continuous and appropriately paced delivery with exact word reproduction."
+  },
+  poor: {
+    transcript:
+      "Managing a personal budget can help students control their spending. A simple budget should include regular expenses such as food, transport, and study materials. Students can also set aside a small amount of money. Checking a budget each month helps people understand their spending habits and make better financial decisions.",
+    audioDuration: "24.5 seconds",
+    wordCount: 61,
+    characteristics:
+      "Clear and appropriately paced delivery with the phrase 'for emergencies' omitted."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Exact Content reproduction with clear and appropriately paced delivery."
+  },
+  poorScore: {
+    content: 4,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "87 / 90",
+    breakdownText:
+      "The omitted phrase reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+  },
+  errorChecklist: [
+    {
+      id: "phrase-omission",
+      label: "Phrase omission",
+      keyword: "Phrase omission"
+    },
+    {
+      id: "content-accuracy",
+      label: "Content accuracy",
+      keyword: "Content accuracy"
+    },
+    {
+      id: "missing-phrase",
+      label: "Missing phrase",
+      keyword: "Missing phrase"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this as a pronunciation or fluency problem. The defining issue is the missing phrase 'for emergencies,' which is a Content accuracy error."
+},
+
+{
+  exerciseIndex: 52,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Pronunciation",
+  diagnosticArea: "Final Consonant Deletion",
+  learningObjective:
+    "Identify a clearly audible final consonant deletion and distinguish a localized Pronunciation problem from broader Content and Oral Fluency problems.",
+  promptText:
+    "National parks protect many different kinds of wildlife and natural habitats. Visitors may see animals such as deer, birds, and wild monkeys. Rangers help protect these animals and teach visitors how to behave safely in the park. Protecting wildlife and plants also helps preserve important ecosystems for future generations.",
+  promptAudio:
+    "National parks protect many different kinds of wildlife and natural habitats. Visitors may see animals such as deer, birds, and wild monkeys. Rangers help protect these animals and teach visitors how to behave safely in the park. Protecting wildlife and plants also helps preserve important ecosystems for future generations.",
+  studentTranscript:
+    "National parks protect many different kinds of wildlife and natural habitats. Visitors may see animals such as deer, birds, and wild monkeys. Rangers help protect these animals and teach visitors how to behave safely in the park. Protecting wildlife and plant also helps preserve important ecosystems for future generations.",
+  studentResponse: {
+    audioDuration: "24.5 seconds",
+    wordCount: 64,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the final /s/ sound in 'plants' is deleted, making it sound like 'plant'."
+  },
+  diagnosticErrors: [
+    "Final consonant deletion",
+    "Final /s/ sound deletion",
+    "Pronunciation accuracy"
+  ],
+  expertEvidence: [
+    "The target word is 'plants'",
+    "The final /s/ sound is deleted",
+    "The word sounds like 'plant' rather than 'plants'",
+    "The pronunciation problem is localized to one word",
+    "The remaining words are generally clear",
+    "Overall speaking rate remains appropriate",
+    "There are no significant fillers or unnatural pauses",
+    "The response remains continuous and easy to follow"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Pronunciation accuracy because the final /s/ sound in the word \"plants\" is deleted, making the word sound like \"plant.\" This is a localized final consonant pronunciation problem. The rest of the response is generally clear, continuous and appropriately paced.",
+  perfectCalibrationResponse:
+    "The student's main issue is Pronunciation accuracy because the final /s/ sound in the word \"plants\" is deleted, making the word sound like \"plant.\" This is a localized final consonant pronunciation problem. The rest of the response is generally clear, continuous and appropriately paced. The teacher should focus on the missing final /s/ sound rather than diagnosing a broader Oral Fluency problem.",
+  coachingAdvice:
+    "Practise the final /s/ sound in 'plants' by holding the final consonant briefly before moving to the next word. Then practise 'plants' naturally within the complete sentence.",
+  cefrLevel: "B1",
+  topicTitle: "National Park Wildlife",
+  good: {
+    transcript:
+      "National parks protect many different kinds of wildlife and natural habitats. Visitors may see animals such as deer, birds, and wild monkeys. Rangers help protect these animals and teach visitors how to behave safely in the park. Protecting wildlife and plants also helps preserve important ecosystems for future generations.",
+    audioDuration: "24.0 seconds",
+    wordCount: 65,
+    characteristics:
+      "Clear pronunciation with accurate final consonant sounds and natural fluency."
+  },
+  poor: {
+    transcript:
+      "National parks protect many different kinds of wildlife and natural habitats. Visitors may see animals such as deer, birds, and wild monkeys. Rangers help protect these animals and teach visitors how to behave safely in the park. Protecting wildlife and plant also helps preserve important ecosystems for future generations.",
+    audioDuration: "24.5 seconds",
+    wordCount: 64,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but 'plants' is pronounced without its final /s/ sound."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Accurate final consonant pronunciation with natural fluency and Content."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 3,
+    overall: "84 / 90",
+    breakdownText:
+      "A localized final consonant deletion reduces Pronunciation accuracy."
+  },
+  errorChecklist: [
+    {
+      id: "final-consonant-deletion",
+      label: "Final consonant deletion",
+      keyword: "Final consonant deletion"
+    },
+    {
+      id: "final-s-sound-deletion",
+      label: "Final /s/ sound deletion",
+      keyword: "Final /s/ sound deletion"
+    },
+    {
+      id: "pronunciation-accuracy",
+      label: "Pronunciation accuracy",
+      keyword: "Pronunciation accuracy"
+    }
+  ],
+  expertAdvice:
+    "Focus specifically on the final /s/ sound in 'plants.' Do not diagnose this as a broader Oral Fluency problem."
+},
+
+{
+  exerciseIndex: 53,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Oral Fluency",
+  diagnosticArea: "False Start and Restart",
+  learningObjective:
+    "Identify an audible false start followed by a corrected phrase and distinguish it from a Content accuracy problem.",
+  promptText:
+    "Managing workplace stress is important for maintaining good health and productivity. Workers can reduce stress by taking short breaks during the day. Regular exercise and enough sleep can also help people feel more relaxed. Talking to colleagues or managers can be useful when work becomes difficult.",
+  promptAudio:
+    "Managing workplace stress is important for maintaining good health and productivity. Workers can reduce stress by taking short breaks during the day. Regular exercise and enough sleep can also help people feel more relaxed. Talking to colleagues or managers can be useful when work becomes difficult.",
+  studentTranscript:
+    "Managing workplace stress is important for maintaining good health and productivity. Workers can reduce stress by taking short breaks during the day. Regular exercise and enough sleep can also help people feel more relaxed. Talking to colleagues or managers can be useful when work becomes / when work becomes difficult.",
+  studentResponse: {
+    audioDuration: "24.5 seconds",
+    wordCount: 66,
+    characteristics:
+      "Generally clear delivery, but the speaker begins a phrase, abandons it, and restarts the phrase before continuing."
+  },
+  diagnosticErrors: [
+    "False start",
+    "Restart",
+    "Interrupted fluency"
+  ],
+  expertEvidence: [
+    "The student begins the final sentence with an incomplete phrase",
+    "The student abandons the initial wording",
+    "The phrase is then restarted and completed",
+    "The false start interrupts otherwise continuous delivery",
+    "Content is substantially accurate",
+    "Pronunciation is generally clear",
+    "Overall speaking rate remains appropriate"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Oral Fluency because they make a false start and restart during the final sentence. The abandoned phrase interrupts otherwise continuous delivery. Content remains substantially accurate and Pronunciation is generally clear.",
+  perfectCalibrationResponse:
+    "The student's main issue is Oral Fluency because they make a false start and restart during the final sentence. The student begins the phrase, abandons it, and then restarts before continuing. This interrupts otherwise continuous delivery, while Content remains substantially accurate and Pronunciation is generally clear.",
+  coachingAdvice:
+    "Practise beginning each phrase with confidence and avoiding abandoned starts. If a mistake occurs, recover smoothly without repeatedly restarting the phrase.",
+  cefrLevel: "B1",
+  topicTitle: "Managing Workplace Stress",
+  good: {
+    transcript:
+      "Managing workplace stress is important for maintaining good health and productivity. Workers can reduce stress by taking short breaks during the day. Regular exercise and enough sleep can also help people feel more relaxed. Talking to colleagues or managers can be useful when work becomes difficult.",
+    audioDuration: "23.5 seconds",
+    wordCount: 64,
+    characteristics:
+      "Smooth and continuous delivery without false starts or restarts."
+  },
+  poor: {
+    transcript:
+      "Managing workplace stress is important for maintaining good health and productivity. Workers can reduce stress by taking short breaks during the day. Regular exercise and enough sleep can also help people feel more relaxed. Talking to colleagues or managers can be useful when work becomes / when work becomes difficult.",
+    audioDuration: "24.5 seconds",
+    wordCount: 66,
+    characteristics:
+      "Delivery includes an audible false start and restart in the final sentence."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Smooth continuous delivery with accurate Content and clear Pronunciation."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 3,
+    pronunciation: 5,
+    overall: "84 / 90",
+    breakdownText:
+      "A false start and restart interrupt Oral Fluency."
+  },
+  errorChecklist: [
+    {
+      id: "false-start",
+      label: "False start",
+      keyword: "False start"
+    },
+    {
+      id: "restart",
+      label: "Restart",
+      keyword: "Restart"
+    },
+    {
+      id: "interrupted-fluency",
+      label: "Interrupted fluency",
+      keyword: "Interrupted fluency"
+    }
+  ],
+  expertAdvice:
+    "Focus on Oral Fluency rather than Content. The important diagnostic feature is the audible abandoned start followed by a restart."
+},
+
+{
+  exerciseIndex: 54,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Content Accuracy",
+  diagnosticArea: "Word Order Disruption",
+  learningObjective:
+    "Identify a word-order disruption in a Read Aloud response when the individual words are present but their sequence is inaccurate.",
+  promptText:
+    "Modern cities often contain tall skyscrapers that provide space for offices, homes, and hotels. These buildings can help cities use limited land more efficiently. Architects must consider safety, energy use, and the needs of people who work or live inside them. Good design can make tall buildings comfortable as well as attractive.",
+  promptAudio:
+    "Modern cities often contain tall skyscrapers that provide space for offices, homes, and hotels. These buildings can help cities use limited land more efficiently. Architects must consider safety, energy use, and the needs of people who work or live inside them. Good design can make tall buildings comfortable as well as attractive.",
+  studentTranscript:
+    "Modern cities often contain tall skyscrapers that provide space for offices, homes, and hotels. These buildings can help cities use limited land more efficiently. Architects must consider safety, energy use, and the needs of people who work or live inside them. Good design can make tall buildings comfortable as well as attractive.",
+  studentResponse: {
+    audioDuration: "25.0 seconds",
+    wordCount: 65,
+    characteristics:
+      "Clear and appropriately paced delivery, but the word sequence in the final phrase is disrupted."
+  },
+  diagnosticErrors: [
+    "Word order disruption",
+    "Content accuracy",
+    "Incorrect word sequence"
+  ],
+  expertEvidence: [
+    "The prompt says 'make tall buildings comfortable as well as attractive'",
+    "The student changes the order of words in the final phrase",
+    "The individual words remain identifiable",
+    "The altered sequence means the reading is not reproduced exactly",
+    "Pronunciation is generally clear",
+    "Overall speaking rate remains appropriate",
+    "The response is otherwise continuous"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Content accuracy because the word order in the final phrase is disrupted. The words are present, but they are not reproduced in the same sequence as the prompt. Pronunciation and Oral Fluency remain generally strong.",
+  perfectCalibrationResponse:
+    "The student's main issue is Content accuracy because the word order in the final phrase is disrupted. The words are present, but they are not reproduced in the same sequence as the prompt. This word-sequence error affects exact Content reproduction, while Pronunciation and Oral Fluency remain generally strong because the response is clear, continuous and appropriately paced.",
+  coachingAdvice:
+    "Practise reproducing phrases in their exact order rather than relying only on individual words. Pay particular attention to the final phrase and its word sequence.",
+  cefrLevel: "B1",
+  topicTitle: "Modern City Skyscrapers",
+  good: {
+    transcript:
+      "Modern cities often contain tall skyscrapers that provide space for offices, homes, and hotels. These buildings can help cities use limited land more efficiently. Architects must consider safety, energy use, and the needs of people who work or live inside them. Good design can make tall buildings comfortable as well as attractive.",
+    audioDuration: "24.0 seconds",
+    wordCount: 65,
+    characteristics:
+      "Exact word sequence with clear, continuous and appropriately paced delivery."
+  },
+  poor: {
+    transcript:
+      "Modern cities often contain tall skyscrapers that provide space for offices, homes, and hotels. These buildings can help cities use limited land more efficiently. Architects must consider safety, energy use, and the needs of people who work or live inside them. Good design can make tall buildings attractive as well as comfortable.",
+    audioDuration: "25.0 seconds",
+    wordCount: 65,
+    characteristics:
+      "Clear and appropriately paced delivery with the final adjective order reversed."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Exact word sequence with strong fluency and pronunciation."
+  },
+  poorScore: {
+    content: 4,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "87 / 90",
+    breakdownText:
+      "The disrupted word order reduces Content accuracy."
+  },
+  errorChecklist: [
+    {
+      id: "word-order-disruption",
+      label: "Word order disruption",
+      keyword: "Word order disruption"
+    },
+    {
+      id: "content-accuracy",
+      label: "Content accuracy",
+      keyword: "Content accuracy"
+    },
+    {
+      id: "incorrect-word-sequence",
+      label: "Incorrect word sequence",
+      keyword: "Incorrect word sequence"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this as a fluency or pronunciation problem. The defining error is the changed word sequence in the final phrase."
+},
+
+{
+  exerciseIndex: 55,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Pronunciation",
+  diagnosticArea: "Word Pronunciation Distortion",
+  learningObjective:
+    "Identify a clearly audible word-pronunciation distortion and distinguish it from Content and Oral Fluency problems.",
+  promptText:
+    "E-commerce has created new opportunities for small businesses. A company can use a website to show its products and reach customers in different locations. Online payments can make buying simple and convenient. Small businesses can also use customer reviews to understand what people like and improve their services.",
+  promptAudio:
+    "E-commerce has created new opportunities for small businesses. A company can use a website to show its products and reach customers in different locations. Online payments can make buying simple and convenient. Small businesses can also use customer reviews to understand what people like and improve their services.",
+  studentTranscript:
+    "E-commerce has created new opportunities for small businesses. A company can use a website to show its products and reach customers in different locations. Online payments can make buying simple and convenient. Small businesses can also use costumer reviews to understand what people like and improve their services.",
+  studentResponse: {
+    audioDuration: "24.5 seconds",
+    wordCount: 63,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the word 'customer' is distorted and sounds like 'costumer'."
+  },
+  diagnosticErrors: [
+    "Word pronunciation distortion",
+    "Consonant-vowel pronunciation",
+    "Pronunciation accuracy"
+  ],
+  expertEvidence: [
+    "The target word is 'customer'",
+    "The student produces 'customer' as 'costumer'",
+    "The resulting word is audibly different",
+    "The pronunciation problem is localized to the target word",
+    "The remaining response is generally clear",
+    "Overall speaking rate is appropriate",
+    "Content remains substantially intact"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Pronunciation accuracy because the word \"customer\" is pronounced as \"costumer.\" This is a localized word-pronunciation problem. The rest of the response is clear, continuous and appropriately paced.",
+  perfectCalibrationResponse:
+    "The student's main issue is Pronunciation accuracy because the word \"customer\" is pronounced as \"costumer.\" This is a localized word-pronunciation problem. The rest of the response is clear, continuous and appropriately paced, with the Content substantially intact. The teacher should focus on accurate pronunciation of the target word rather than diagnosing a fluency or Content problem.",
+  coachingAdvice:
+    "Practise the pronunciation of 'customer' slowly, then place it back into the full sentence while maintaining natural fluency.",
+  cefrLevel: "B1",
+  topicTitle: "E-Commerce & Small Business",
+  good: {
+    transcript:
+      "E-commerce has created new opportunities for small businesses. A company can use a website to show its products and reach customers in different locations. Online payments can make buying simple and convenient. Small businesses can also use customer reviews to understand what people like and improve their services.",
+    audioDuration: "23.5 seconds",
+    wordCount: 63,
+    characteristics:
+      "Clear pronunciation of the target word with natural fluency."
+  },
+  poor: {
+    transcript:
+      "E-commerce has created new opportunities for small businesses. A company can use a website to show its products and reach customers in different locations. Online payments can make buying simple and convenient. Small businesses can also use costumer reviews to understand what people like and improve their services.",
+    audioDuration: "24.5 seconds",
+    wordCount: 63,
+    characteristics:
+      "Generally clear delivery, but 'customer' is pronounced as the clearly different word 'costumer'."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Accurate word pronunciation with clear and continuous delivery."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 3,
+    overall: "84 / 90",
+    breakdownText:
+      "A localized word-pronunciation distortion reduces Pronunciation accuracy."
+  },
+  errorChecklist: [
+    {
+      id: "word-pronunciation-distortion",
+      label: "Word pronunciation distortion",
+      keyword: "Word pronunciation distortion"
+    },
+    {
+      id: "consonant-vowel-pronunciation",
+      label: "Consonant-vowel pronunciation",
+      keyword: "Consonant-vowel pronunciation"
+    },
+    {
+      id: "pronunciation-accuracy",
+      label: "Pronunciation accuracy",
+      keyword: "Pronunciation accuracy"
+    }
+  ],
+  expertAdvice:
+    "Focus on the pronunciation of 'customer.' Do not diagnose this as a Content or Oral Fluency problem."
+},
+
+{
+  exerciseIndex: 56,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Oral Fluency",
+  diagnosticArea: "Choppy Thought-Group Delivery",
+  learningObjective:
+    "Identify excessive interruptions between natural thought groups and distinguish choppy delivery from an overall slow speaking rate.",
+  promptText:
+    "Passenger flight has changed the way people travel around the world. Early commercial flights were slower and less comfortable than modern journeys. Improvements in aircraft design have made air travel faster, safer, and more reliable. Today, millions of passengers use airplanes for business, education, and holidays.",
+  promptAudio:
+    "Passenger flight has changed the way people travel around the world. Early commercial flights were slower and less comfortable than modern journeys. Improvements in aircraft design have made air travel faster, safer, and more reliable. Today, millions of passengers use airplanes for business, education, and holidays.",
+  studentTranscript:
+    "Passenger flight has changed / the way people travel around the world. Early commercial flights / were slower and less comfortable / than modern journeys. Improvements in aircraft design / have made air travel faster, safer, / and more reliable. Today, millions of passengers / use airplanes for business, education, / and holidays.",
+  studentResponse: {
+    audioDuration: "27.0 seconds",
+    wordCount: 63,
+    characteristics:
+      "The student uses frequent short pauses that break natural thought groups and make the delivery sound choppy."
+  },
+  diagnosticErrors: [
+    "Choppy thought-group delivery",
+    "Interrupted phrasing",
+    "Oral Fluency disruption"
+  ],
+  expertEvidence: [
+    "Pauses occur inside natural phrases",
+    "The first sentence is divided after 'changed'",
+    "The second sentence is broken into several short groups",
+    "The final sentence is also divided unnecessarily",
+    "The overall speech rate is not the primary problem",
+    "Content remains substantially accurate",
+    "Pronunciation is generally clear"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Oral Fluency because frequent pauses break natural thought groups and make the delivery sound choppy. The problem is not simply an overall slow speaking rate. Content remains substantially accurate and Pronunciation is generally clear.",
+  perfectCalibrationResponse:
+    "The student's main issue is Oral Fluency because frequent pauses break natural thought groups and make the delivery sound choppy. The student repeatedly pauses inside meaningful phrases rather than maintaining natural word groups. The problem is not simply an overall slow speaking rate. Content remains substantially accurate and Pronunciation is generally clear.",
+  coachingAdvice:
+    "Practise reading in natural thought groups rather than stopping after individual words or short phrases. Aim for connected speech while keeping the overall rate comfortable.",
+  cefrLevel: "B1",
+  topicTitle: "History of Passenger Flight",
+  good: {
+    transcript:
+      "Passenger flight has changed the way people travel around the world. Early commercial flights were slower and less comfortable than modern journeys. Improvements in aircraft design have made air travel faster, safer, and more reliable. Today, millions of passengers use airplanes for business, education, and holidays.",
+    audioDuration: "24.0 seconds",
+    wordCount: 63,
+    characteristics:
+      "Natural thought-group phrasing with smooth continuous delivery."
+  },
+  poor: {
+    transcript:
+      "Passenger flight has changed / the way people travel around the world. Early commercial flights / were slower and less comfortable / than modern journeys. Improvements in aircraft design / have made air travel faster, safer, / and more reliable. Today, millions of passengers / use airplanes for business, education, / and holidays.",
+    audioDuration: "27.0 seconds",
+    wordCount: 63,
+    characteristics:
+      "Frequent phrase-internal pauses create choppy and fragmented delivery."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Natural thought groups with smooth and controlled delivery."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 2,
+    pronunciation: 5,
+    overall: "82 / 90",
+    breakdownText:
+      "Frequent phrase-internal pauses significantly disrupt Oral Fluency."
+  },
+  errorChecklist: [
+    {
+      id: "choppy-thought-group-delivery",
+      label: "Choppy thought-group delivery",
+      keyword: "Choppy thought-group delivery"
+    },
+    {
+      id: "interrupted-phrasing",
+      label: "Interrupted phrasing",
+      keyword: "Interrupted phrasing"
+    },
+    {
+      id: "oral-fluency-disruption",
+      label: "Oral Fluency disruption",
+      keyword: "Oral Fluency disruption"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this simply as speaking too slowly. The defining issue is excessive interruption of natural thought groups."
+},
+
+{
+  exerciseIndex: 57,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Content Accuracy",
+  diagnosticArea: "Strong Word Substitution",
+  learningObjective:
+    "Identify a clearly audible word substitution with a strong semantic contrast and distinguish it from Pronunciation and Oral Fluency problems.",
+  promptText:
+    "Access to clean drinking water is important for healthy communities. In some areas, people must travel long distances to collect safe water. Governments and local organizations can build wells, pipes, and treatment systems to improve access. Reliable water supplies can reduce disease and make daily life easier for families.",
+  promptAudio:
+    "Access to clean drinking water is important for healthy communities. In some areas, people must travel long distances to collect safe water. Governments and local organizations can build wells, pipes, and treatment systems to improve access. Reliable water supplies can reduce disease and make daily life easier for families.",
+  studentTranscript:
+    "Access to clean drinking water is important for healthy communities. In some areas, people must travel long distances to collect safe water. Governments and local organizations can build wells, pipes, and treatment systems to improve access. Reliable water supplies can reduce disease and make daily life easier for families.",
+  studentResponse: {
+    audioDuration: "25.0 seconds",
+    wordCount: 65,
+    characteristics:
+      "Clear and appropriately paced delivery, but the student replaces 'disease' with the clearly different word 'pollution'."
+  },
+  diagnosticErrors: [
+    "Word substitution",
+    "Content accuracy",
+    "Incorrect word"
+  ],
+  expertEvidence: [
+    "The prompt says 'reduce disease'",
+    "The student says 'reduce pollution'",
+    "The substituted word is clearly different from the prompt",
+    "The error occurs in the final sentence",
+    "The rest of the response is substantially accurate",
+    "Pronunciation is generally clear",
+    "Overall speaking rate remains appropriate"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Content accuracy because they substitute the word \"pollution\" for \"disease\" in the final sentence. This changes the reading text and affects the Read Aloud Content score. Pronunciation and Oral Fluency remain generally strong.",
+  perfectCalibrationResponse:
+    "The student's main issue is Content accuracy because they substitute the word \"pollution\" for \"disease\" in the final sentence. The prompt says \"reduce disease,\" but the student says \"reduce pollution.\" This is a clear word substitution that affects the Read Aloud Content score, while Pronunciation and Oral Fluency remain generally strong.",
+  coachingAdvice:
+    "Focus on exact word reproduction. Practise the final sentence carefully so that the target word 'disease' is reproduced rather than replaced with a related idea.",
+  cefrLevel: "B1",
+  topicTitle: "Clean Drinking Water Access",
+  good: {
+    transcript:
+      "Access to clean drinking water is important for healthy communities. In some areas, people must travel long distances to collect safe water. Governments and local organizations can build wells, pipes, and treatment systems to improve access. Reliable water supplies can reduce disease and make daily life easier for families.",
+    audioDuration: "24.0 seconds",
+    wordCount: 65,
+    characteristics:
+      "Accurate Content with clear and appropriately paced delivery."
+  },
+  poor: {
+    transcript:
+      "Access to clean drinking water is important for healthy communities. In some areas, people must travel long distances to collect safe water. Governments and local organizations can build wells, pipes, and treatment systems to improve access. Reliable water supplies can reduce pollution and make daily life easier for families.",
+    audioDuration: "25.0 seconds",
+    wordCount: 65,
+    characteristics:
+      "Clear delivery with the word 'disease' replaced by 'pollution'."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Exact word reproduction with clear and continuous delivery."
+  },
+  poorScore: {
+    content: 4,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "87 / 90",
+    breakdownText:
+      "A clear word substitution reduces Content accuracy."
+  },
+  errorChecklist: [
+    {
+      id: "word-substitution",
+      label: "Word substitution",
+      keyword: "Word substitution"
+    },
+    {
+      id: "content-accuracy",
+      label: "Content accuracy",
+      keyword: "Content accuracy"
+    },
+    {
+      id: "incorrect-word",
+      label: "Incorrect word",
+      keyword: "Incorrect word"
+    }
+  ],
+  expertAdvice:
+    "Focus on exact reproduction of the reading text. Do not diagnose this as a pronunciation or fluency problem."
+},
+
+{
+  exerciseIndex: 58,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Pronunciation",
+  diagnosticArea: "Consonant Sound Deletion",
+  learningObjective:
+    "Identify a clearly audible missing consonant sound within a common word and distinguish it from Content and Oral Fluency problems.",
+  promptText:
+    "Language learning apps can help people practise new vocabulary every day. Many apps use short exercises, games, and reminders to support regular study. Repeating new words several times can help learners remember them more easily. Some applications also provide listening activities and pronunciation practice.",
+  promptAudio:
+    "Language learning apps can help people practise new vocabulary every day. Many apps use short exercises, games, and reminders to support regular study. Repeating new words several times can help learners remember them more easily. Some applications also provide listening activities and pronunciation practice.",
+  studentTranscript:
+    "Language learning apps can help people practise new vocabulary every day. Many apps use short exercises, games, and reminders to support regular study. Repeating new words several times can help learners remember them more easily. Some applications also provide listening activities and pronunciation practice.",
+  studentResponse: {
+    audioDuration: "25.0 seconds",
+    wordCount: 65,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the /l/ sound in 'learning' is omitted, making the word sound like 'earning'."
+  },
+  diagnosticErrors: [
+    "Consonant sound deletion",
+    "Missing consonant sound",
+    "Pronunciation accuracy"
+  ],
+  expertEvidence: [
+    "The target word is 'learning'",
+    "The initial /l/ sound is omitted",
+    "The result sounds like 'earning'",
+    "The pronunciation problem is localized to one word",
+    "The remaining response is generally clear",
+    "Overall speaking rate is appropriate",
+    "Content remains substantially intact"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Pronunciation accuracy because the initial /l/ sound in the word \"learning\" is omitted, making it sound like \"earning.\" This is a localized consonant sound deletion. Content and Oral Fluency remain generally strong.",
+  perfectCalibrationResponse:
+    "The student's main issue is Pronunciation accuracy because the initial /l/ sound in the word \"learning\" is omitted, making it sound like \"earning.\" This is a localized consonant sound deletion. Content and Oral Fluency remain generally strong because the rest of the response is clear, continuous and appropriately paced.",
+  coachingAdvice:
+    "Practise the initial /l/ sound in 'learning' clearly before the rest of the word. Then practise the complete word in the sentence while maintaining natural fluency.",
+  cefrLevel: "B1",
+  topicTitle: "Language Apps & Memory",
+  good: {
+    transcript:
+      "Language learning apps can help people practise new vocabulary every day. Many apps use short exercises, games, and reminders to support regular study. Repeating new words several times can help learners remember them more easily. Some applications also provide listening activities and pronunciation practice.",
+    audioDuration: "24.0 seconds",
+    wordCount: 65,
+    characteristics:
+      "Clear consonant pronunciation with natural fluency."
+  },
+  poor: {
+    transcript:
+      "Language earning apps can help people practise new vocabulary every day. Many apps use short exercises, games, and reminders to support regular study. Repeating new words several times can help learners remember them more easily. Some applications also provide listening activities and pronunciation practice.",
+    audioDuration: "25.0 seconds",
+    wordCount: 64,
+    characteristics:
+      "Generally clear delivery, but 'learning' is pronounced without the initial /l/ sound."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Accurate consonant pronunciation with clear and continuous delivery."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 3,
+    overall: "84 / 90",
+    breakdownText:
+      "A localized consonant deletion reduces Pronunciation accuracy."
+  },
+  errorChecklist: [
+    {
+      id: "consonant-sound-deletion",
+      label: "Consonant sound deletion",
+      keyword: "Consonant sound deletion"
+    },
+    {
+      id: "missing-consonant-sound",
+      label: "Missing consonant sound",
+      keyword: "Missing consonant sound"
+    },
+    {
+      id: "pronunciation-accuracy",
+      label: "Pronunciation accuracy",
+      keyword: "Pronunciation accuracy"
+    }
+  ],
+  expertAdvice:
+    "Focus specifically on the missing initial /l/ sound in 'learning.' Do not diagnose this as a Content or fluency problem."
+},
+
+{
+  exerciseIndex: 59,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Oral Fluency",
+  diagnosticArea: "Self-Correction",
+  learningObjective:
+    "Identify an audible self-correction during a Read Aloud response and distinguish it from a Content accuracy error.",
+  promptText:
+    "Artificial intelligence apps are becoming more common in everyday life. People use them to organise information, answer questions, create images, and complete simple tasks. Some applications can also help students practise languages or understand difficult subjects. Users should still check important information before relying on an AI system.",
+  promptAudio:
+    "Artificial intelligence apps are becoming more common in everyday life. People use them to organise information, answer questions, create images, and complete simple tasks. Some applications can also help students practise languages or understand difficult subjects. Users should still check important information before relying on an AI system.",
+  studentTranscript:
+    "Artificial intelligence apps are becoming more common in everyday life. People use them to organise information, answer questions, create images, and complete simple tasks. Some applications can also help students practise languages or understand difficult subjects. Users should still check important information before relying on an AI application / no, before relying on an AI system.",
+  studentResponse: {
+    audioDuration: "27.0 seconds",
+    wordCount: 69,
+    characteristics:
+      "The student begins a phrase incorrectly, audibly corrects it with 'no', and then continues with the intended wording."
+  },
+  diagnosticErrors: [
+    "Self-correction",
+    "False start",
+    "Interrupted fluency"
+  ],
+  expertEvidence: [
+    "The student begins the final sentence with an incorrect phrase",
+    "The student audibly says 'no' while correcting the phrase",
+    "The intended phrase is then produced",
+    "The correction interrupts otherwise continuous delivery",
+    "The final intended Content is substantially accurate",
+    "Pronunciation is generally clear",
+    "Overall speaking rate remains appropriate"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Oral Fluency because they make an audible self-correction during the final sentence. The student begins the phrase incorrectly, says \"no,\" and then continues with the intended wording. The correction interrupts the flow, while the final Content is substantially accurate and Pronunciation is generally clear.",
+  perfectCalibrationResponse:
+    "The student's main issue is Oral Fluency because they make an audible self-correction during the final sentence. The student begins the phrase incorrectly, says \"no,\" and then continues with the intended wording. This correction interrupts otherwise continuous delivery, while the final Content is substantially accurate and Pronunciation is generally clear.",
+  coachingAdvice:
+    "Practise maintaining the planned wording while reading. If a correction is necessary, recover smoothly and avoid verbal interruptions that break the flow.",
+  cefrLevel: "B1",
+  topicTitle: "Artificial Intelligence Apps",
+  good: {
+    transcript:
+      "Artificial intelligence apps are becoming more common in everyday life. People use them to organise information, answer questions, create images, and complete simple tasks. Some applications can also help students practise languages or understand difficult subjects. Users should still check important information before relying on an AI system.",
+    audioDuration: "25.0 seconds",
+    wordCount: 65,
+    characteristics:
+      "Smooth continuous delivery without false starts or self-correction."
+  },
+  poor: {
+    transcript:
+      "Artificial intelligence apps are becoming more common in everyday life. People use them to organise information, answer questions, create images, and complete simple tasks. Some applications can also help students practise languages or understand difficult subjects. Users should still check important information before relying on an AI application / no, before relying on an AI system.",
+    audioDuration: "27.0 seconds",
+    wordCount: 69,
+    characteristics:
+      "Audible self-correction interrupts the final sentence before the intended wording is completed."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Smooth continuous delivery with accurate Content."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 3,
+    pronunciation: 5,
+    overall: "84 / 90",
+    breakdownText:
+      "An audible self-correction interrupts Oral Fluency."
+  },
+  errorChecklist: [
+    {
+      id: "self-correction",
+      label: "Self-correction",
+      keyword: "Self-correction"
+    },
+    {
+      id: "false-start",
+      label: "False start",
+      keyword: "False start"
+    },
+    {
+      id: "interrupted-fluency",
+      label: "Interrupted fluency",
+      keyword: "Interrupted fluency"
+    }
+  ],
+  expertAdvice:
+    "Focus on Oral Fluency rather than Content. The defining feature is the audible self-correction and resulting interruption to continuous delivery."
+},
+
+{
+  exerciseIndex: 60,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Oral Fluency",
+  diagnosticArea: "Prolonged Hesitation",
+  learningObjective:
+    "Identify unusually long silent hesitation during a Read Aloud response and distinguish it from a general speech-rate problem.",
+  promptText:
+    "Public health campaigns provide information that can help people make healthier choices. Governments may use television, social media, posters, and community events to share important messages. Campaigns can encourage people to exercise, eat well, and protect themselves from illness. Clear information can help communities respond more effectively to health problems.",
+  promptAudio:
+    "Public health campaigns provide information that can help people make healthier choices. Governments may use television, social media, posters, and community events to share important messages. Campaigns can encourage people to exercise, eat well, and protect themselves from illness. Clear information can help communities respond more effectively to health problems.",
+  studentTranscript:
+    "Public health campaigns provide information that can help people make healthier choices. Governments may use television, social media, posters, and community events to share important messages. Campaigns can encourage people to exercise, eat well, and protect themselves from illness. ... ... Clear information can help communities respond more effectively to health problems.",
+  studentResponse: {
+    audioDuration: "28.0 seconds",
+    wordCount: 64,
+    characteristics:
+      "The student maintains an appropriate speaking rate but has an unusually long silent hesitation before completing the final sentence."
+  },
+  diagnosticErrors: [
+    "Prolonged hesitation",
+    "Extended silent pause",
+    "Oral Fluency disruption"
+  ],
+  expertEvidence: [
+    "The student has an unusually long silent hesitation before the final sentence",
+    "The hesitation interrupts otherwise continuous delivery",
+    "The speech rate before and after the hesitation is appropriate",
+    "The problem is not simply that the student speaks too slowly",
+    "Content remains substantially accurate",
+    "Pronunciation is generally clear"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Oral Fluency because there is an unusually long silent hesitation before the final sentence. The speaking rate before and after the hesitation is appropriate, so this should not be diagnosed simply as slow speech. Content remains substantially accurate and Pronunciation is generally clear.",
+  perfectCalibrationResponse:
+    "The student's main issue is Oral Fluency because there is an unusually long silent hesitation before the final sentence. The extended pause interrupts otherwise continuous delivery, while the speaking rate before and after the hesitation remains appropriate. This should not be diagnosed simply as slow speech. Content remains substantially accurate and Pronunciation is generally clear.",
+  coachingAdvice:
+    "Practise maintaining forward momentum through the passage. Replace long silent hesitations with a brief, controlled pause while keeping the overall speaking rate natural.",
+  cefrLevel: "B1",
+  topicTitle: "Public Health Campaigns",
+  good: {
+    transcript:
+      "Public health campaigns provide information that can help people make healthier choices. Governments may use television, social media, posters, and community events to share important messages. Campaigns can encourage people to exercise, eat well, and protect themselves from illness. Clear information can help communities respond more effectively to health problems.",
+    audioDuration: "24.5 seconds",
+    wordCount: 64,
+    characteristics:
+      "Smooth continuous delivery with natural brief pauses and appropriate speaking rate."
+  },
+  poor: {
+    transcript:
+      "Public health campaigns provide information that can help people make healthier choices. Governments may use television, social media, posters, and community events to share important messages. Campaigns can encourage people to exercise, eat well, and protect themselves from illness. ... ... Clear information can help communities respond more effectively to health problems.",
+    audioDuration: "28.0 seconds",
+    wordCount: 64,
+    characteristics:
+      "Appropriate speaking rate but an unusually long silent hesitation occurs before the final sentence."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Natural pauses with smooth and appropriately paced delivery."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 3,
+    pronunciation: 5,
+    overall: "84 / 90",
+    breakdownText:
+      "A prolonged silent hesitation interrupts Oral Fluency."
+  },
+  errorChecklist: [
+    {
+      id: "prolonged-hesitation",
+      label: "Prolonged hesitation",
+      keyword: "Prolonged hesitation"
+    },
+    {
+      id: "extended-silent-pause",
+      label: "Extended silent pause",
+      keyword: "Extended silent pause"
+    },
+    {
+      id: "oral-fluency-disruption",
+      label: "Oral Fluency disruption",
+      keyword: "Oral Fluency disruption"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this simply as slow speech. The defining problem is the unusually long hesitation that interrupts otherwise appropriately paced delivery."
+},
+
 ];
 
 // -----------------------------------------------------------------------------
