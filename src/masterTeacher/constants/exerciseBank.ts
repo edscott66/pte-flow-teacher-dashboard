@@ -2102,6 +2102,3123 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     expertAdvice:
       "Do not overlook a word substitution simply because the replacement is related in meaning or produces a grammatical sentence. Compare the student's words directly with the prompt and identify the replacement as a Content error. Do not diagnose poor fluency or pronunciation when the delivery itself is clear and continuous."
   },
+
+  // A2 Read Aloud
+
+  {
+    exerciseIndex: 21,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Final Consonant Pronunciation",
+
+    learningObjective:
+      "Identify a specific final consonant pronunciation problem in a Read Aloud response and distinguish it from Content or oral-fluency problems.",
+
+    promptText:
+      "When I travel by bus or train, I usually buy my ticket before I leave home. I check the departure time and make sure I arrive at the station early. If I need help, I ask a staff member which platform I should use. Planning ahead makes my journey easier.",
+
+    promptAudio:
+      "When I travel by bus or train, I usually buy my ticket before I leave home. I check the departure time and make sure I arrive at the station early. If I need help, I ask a staff member which platform I should use. Planning ahead makes my journey easier.",
+
+    studentTranscript:
+      "When I travel by bus or train, I usually buy my ticke before I leave home. I check the departure time and make sure I arrive at the station early. If I need help, I ask a staff member which platform I should use. Planning ahead makes my journey easier.",
+
+    studentResponse: {
+      audioDuration: "21.5 seconds",
+      wordCount: 52,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the final /t/ sound in 'ticket' is not clearly produced."
+    },
+
+    diagnosticErrors: [
+      "Final consonant pronunciation",
+      "T sound pronunciation",
+      "Pronunciation accuracy"
+    ],
+
+    expertEvidence: [
+      "The target word is 'ticket'",
+      "The student's final /t/ sound in 'ticket' is not clearly produced",
+      "The pronunciation issue occurs at the end of a specific word rather than throughout the response",
+      "The remaining words are delivered clearly",
+      "Overall speech rate remains appropriate",
+      "The response is continuous without significant fillers, hesitations or unnatural pauses",
+      "The Content remains substantially intact",
+      "The main issue requiring attention is the final consonant pronunciation"
+    ],
+
+    expertDiagnosis:
+      "The main problem is pronunciation accuracy, specifically the final /t/ sound in the word \"ticket.\" The student does not clearly produce the final consonant, making the ending of the word sound incomplete. The rest of the response is clear, continuous and appropriately paced, so this should not be diagnosed as an oral-fluency or speech-rate problem. The teacher should focus on the specific final consonant and provide targeted pronunciation coaching.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is pronunciation, specifically the final /t/ sound in the word \"ticket.\" The final consonant is not clearly produced, so the ending of the word sounds incomplete. The response is otherwise clear, continuous and appropriately paced, with the Content substantially intact. The teacher should therefore focus on the specific final consonant pronunciation rather than diagnosing poor fluency or a Content problem.",
+
+    coachingAdvice:
+      "Practise the final /t/ sound by bringing the tongue to the area behind the upper teeth and releasing the sound clearly at the end of the word. Contrast words such as \"ticket,\" \"seat,\" \"wait\" and \"right,\" then practise them in short sentences while maintaining a natural speaking rate.",
+
+    cefrLevel: "A2",
+    topicTitle: "Buying Bus & Train Tickets",
+
+    good: {
+      transcript:
+        "When I travel by bus or train, I usually buy my ticket before I leave home. I check the departure time and make sure I arrive at the station early. If I need help, I ask a staff member which platform I should use. Planning ahead makes my journey easier.",
+      audioDuration: "21.0 seconds",
+      wordCount: 52,
+      characteristics:
+        "Clear pronunciation of final consonants with appropriate pace and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "When I travel by bus or train, I usually buy my ticke before I leave home. I check the departure time and make sure I arrive at the station early. If I need help, I ask a staff member which platform I should use. Planning ahead makes my journey easier.",
+      audioDuration: "21.5 seconds",
+      wordCount: 52,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the final /t/ sound in 'ticket' is not clearly produced."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Clear pronunciation with appropriate pace and continuous delivery."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "A specific final consonant pronunciation problem reduces pronunciation accuracy while Content and Oral Fluency remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "final-consonant-pronunciation",
+        label: "Final consonant pronunciation",
+        keyword: "Final consonant pronunciation"
+      },
+      {
+        id: "t-sound-pronunciation",
+        label: "T sound pronunciation",
+        keyword: "T sound pronunciation"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+
+    expertAdvice:
+      "Do not diagnose this as poor fluency or speaking too fast. The student's overall rate and continuity are appropriate. Focus on the specific final /t/ sound in \"ticket\" and provide targeted pronunciation coaching while recognising that Content remains substantially intact."
+  },
+
+   {
+    exerciseIndex: 22,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Word Insertion & Content Accuracy",
+
+    learningObjective:
+      "Identify an extra word inserted into a Read Aloud response and distinguish the Content error from Pronunciation or Oral Fluency problems.",
+
+    promptText:
+      "When I eat at a restaurant, I usually look at the menu before I order. I often choose a simple meal with rice and vegetables. I also like to have a cold drink with my food. After dinner, I sometimes order a small dessert. Eating out is a nice way to spend time with friends.",
+
+    promptAudio:
+      "When I eat at a restaurant, I usually look at the menu before I order. I often choose a simple meal with rice and vegetables. I also like to have a cold drink with my food. After dinner, I sometimes order a small dessert. Eating out is a nice way to spend time with friends.",
+
+    studentTranscript:
+      "When I eat at a restaurant, I usually look at the menu before I order. I often choose a simple meal with rice and vegetables. I also like to have a cold drink with my food. After dinner, I sometimes order a small dessert. Eating out is a nice way to spend time with my friends.",
+
+    studentResponse: {
+      audioDuration: "24.0 seconds",
+      wordCount: 58,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the student inserts the extra word 'my' before 'friends' at the end of the response."
+    },
+
+    diagnosticErrors: [
+      "Word insertion",
+      "Content accuracy",
+      "Extra word"
+    ],
+
+    expertEvidence: [
+      "The prompt ends with 'spend time with friends'",
+      "The student says 'spend time with my friends'",
+      "The word 'my' is an extra word that does not appear in the reading text",
+      "The inserted word occurs at the end of the final sentence",
+      "The rest of the response follows the prompt accurately",
+      "Overall speech rate remains appropriate",
+      "The response is continuous without significant fillers, hesitations or unnatural pauses",
+      "Pronunciation remains generally clear",
+      "The main issue requiring attention is Content accuracy caused by the inserted word"
+    ],
+
+    expertDiagnosis:
+      "The main problem is Content accuracy because the student inserts the extra word \"my\" before \"friends\" in the final sentence. The prompt says \"spend time with friends,\" but the student says \"spend time with my friends.\" Although the added word makes the sentence grammatically natural, it is not present in the reading text and therefore represents a Content error in Read Aloud. The response is otherwise clear, continuous and appropriately paced, so this should not be diagnosed as a Pronunciation or Oral Fluency problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they inserted the extra word \"my\" before \"friends\" in the final sentence. The prompt says \"Eating out is a nice way to spend time with friends,\" but the student says \"Eating out is a nice way to spend time with my friends.\" The inserted word changes the response from the exact reading text and therefore affects the Read Aloud Content score. Pronunciation and Oral Fluency remain strong because the response is otherwise clear, continuous and appropriately paced.",
+
+    coachingAdvice:
+      "Train the student to reproduce the reading text exactly rather than adding words that make the sentence sound more natural. Practise reading the final phrase \"spend time with friends\" several times while keeping the original wording unchanged.",
+
+    cefrLevel: "A2",
+    topicTitle: "Ordering Food in Restaurants",
+
+    good: {
+      transcript:
+        "When I eat at a restaurant, I usually look at the menu before I order. I often choose a simple meal with rice and vegetables. I also like to have a cold drink with my food. After dinner, I sometimes order a small dessert. Eating out is a nice way to spend time with friends.",
+      audioDuration: "23.5 seconds",
+      wordCount: 57,
+      characteristics:
+        "Accurate reading with clear pronunciation, natural fluency and no inserted words."
+    },
+
+    poor: {
+      transcript:
+        "When I eat at a restaurant, I usually look at the menu before I order. I often choose a simple meal with rice and vegetables. I also like to have a cold drink with my food. After dinner, I sometimes order a small dessert. Eating out is a nice way to spend time with my friends.",
+      audioDuration: "24.0 seconds",
+      wordCount: 58,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the student inserts the extra word 'my' before 'friends'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate reading with clear pronunciation and natural continuous delivery."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "One inserted word reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "word-insertion",
+        label: "Word insertion",
+        keyword: "Word insertion"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "extra-word",
+        label: "Extra word",
+        keyword: "Extra word"
+      }
+    ],
+
+    expertAdvice:
+      "Do not overlook an inserted word simply because it makes the sentence sound natural or grammatically correct. In Read Aloud, the student should reproduce the reading text accurately. Focus on the extra word \"my\" as a Content error while recognising that Pronunciation and Oral Fluency remain strong."
+  },
+
+  {
+    exerciseIndex: 23,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Word Sequence Disruption",
+
+    learningObjective:
+      "Identify a disruption in the order of words in a Read Aloud response and distinguish the Content problem from Pronunciation or Oral Fluency problems.",
+
+    promptText:
+      "When I prepare for a job interview, I usually read about the company first. I think about my experience and prepare answers to common questions. I also choose clean and comfortable clothes for the interview. Before I leave home, I check the time and make sure I know the way to the office.",
+
+    promptAudio:
+      "When I prepare for a job interview, I usually read about the company first. I think about my experience and prepare answers to common questions. I also choose clean and comfortable clothes for the interview. Before I leave home, I check the time and make sure I know the way to the office.",
+
+    studentTranscript:
+      "When I prepare for a job interview, I usually read about the company first. I think about my experience and prepare answers to common questions. I also choose clean and comfortable clothes for the interview. Before I leave home, I check the time and make sure I know the office to the way.",
+
+    studentResponse: {
+      audioDuration: "25.5 seconds",
+      wordCount: 60,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the final phrase contains a disruption in word sequence: 'the office to the way' instead of 'the way to the office'."
+    },
+
+    diagnosticErrors: [
+      "Word sequence disruption",
+      "Content accuracy",
+      "Incorrect word order"
+    ],
+
+    expertEvidence: [
+      "The prompt says 'make sure I know the way to the office'",
+      "The student says 'make sure I know the office to the way'",
+      "The words 'the office' and 'to the way' occur in the wrong sequence",
+      "The sequence error occurs in the final phrase of the response",
+      "The rest of the response follows the reading text accurately",
+      "The individual words are generally clearly pronounced",
+      "Overall speech rate remains appropriate",
+      "The response is continuous without significant fillers, hesitations or unnatural pauses",
+      "The main issue requiring attention is Content accuracy caused by incorrect word sequence"
+    ],
+
+    expertDiagnosis:
+      "The main problem is Content accuracy because the student disrupts the word sequence in the final phrase. The prompt says \"make sure I know the way to the office,\" but the student says \"make sure I know the office to the way.\" The individual words are present, but they are delivered in the wrong order, so the response does not accurately reproduce the reading text. The student's pronunciation and Oral Fluency are otherwise generally strong, so this should not be diagnosed primarily as a pronunciation or fluency problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because the word sequence in the final phrase is incorrect. The prompt says \"make sure I know the way to the office,\" but the student says \"make sure I know the office to the way.\" The words are present but their order has been disrupted, so the response does not accurately reproduce the reading text. Pronunciation and Oral Fluency remain generally strong because the student speaks clearly, continuously and at an appropriate pace.",
+
+    coachingAdvice:
+      "Train the student to follow the exact word sequence of the reading text rather than relying only on individual words. Practise the phrase \"know the way to the office\" as one complete unit, then place it back into the full sentence while maintaining natural fluency.",
+
+    cefrLevel: "A2",
+    topicTitle: "Preparing for Job Interviews",
+
+    good: {
+      transcript:
+        "When I prepare for a job interview, I usually read about the company first. I think about my experience and prepare answers to common questions. I also choose clean and comfortable clothes for the interview. Before I leave home, I check the time and make sure I know the way to the office.",
+      audioDuration: "25.0 seconds",
+      wordCount: 60,
+      characteristics:
+        "Accurate reading with correct word sequence, clear pronunciation and natural continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "When I prepare for a job interview, I usually read about the company first. I think about my experience and prepare answers to common questions. I also choose clean and comfortable clothes for the interview. Before I leave home, I check the time and make sure I know the office to the way.",
+      audioDuration: "25.5 seconds",
+      wordCount: 60,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the final phrase contains an incorrect word sequence."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate word sequence with clear pronunciation and natural continuous delivery."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "A word-sequence disruption reduces Content accuracy while Pronunciation and Oral Fluency remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "word-sequence-disruption",
+        label: "Word sequence disruption",
+        keyword: "Word sequence disruption"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "incorrect-word-order",
+        label: "Incorrect word order",
+        keyword: "Incorrect word order"
+      }
+    ],
+
+    expertAdvice:
+      "Do not diagnose this primarily as a fluency or pronunciation problem. The student produces the words clearly and at an appropriate pace, but the order of the words in the final phrase is incorrect. Focus on exact reproduction of the reading text and accurate word sequence."
+  },
+
+    {
+    exerciseIndex: 24,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Excessive Hesitation",
+
+    learningObjective:
+      "Identify repeated hesitation and filler use in a Read Aloud response and distinguish the fluency problem from Content or Pronunciation errors.",
+
+    promptText:
+      "Many people go to the gym to improve their health and fitness. I usually exercise three times a week and spend about an hour at the gym. I often use the machines for my arms and legs, and I also walk on the treadmill. Regular exercise helps me feel stronger and more active.",
+
+    promptAudio:
+      "Many people go to the gym to improve their health and fitness. I usually exercise three times a week and spend about an hour at the gym. I often use the machines for my arms and legs, and I also walk on the treadmill. Regular exercise helps me feel stronger and more active.",
+
+    studentTranscript:
+      "Many people go to the gym, um, to improve their health and fitness. I usually exercise three times a week, um, and spend about an hour at the gym. I often use the machines for my arms and legs, um, and I also walk on the treadmill. Regular exercise helps me feel stronger and more active.",
+
+    studentResponse: {
+      audioDuration: "27.5 seconds",
+      wordCount: 60,
+      characteristics:
+        "The response is understandable and mostly accurate, but repeated 'um' fillers interrupt otherwise continuous delivery."
+    },
+
+    diagnosticErrors: [
+      "Excessive hesitation",
+      "Filler words",
+      "Interrupted fluency"
+    ],
+
+    expertEvidence: [
+      "The student inserts 'um' after 'gym'",
+      "The student inserts another 'um' after 'week'",
+      "A third 'um' occurs before 'and I also walk on the treadmill'",
+      "The fillers interrupt otherwise connected speech",
+      "The student does not need to add these words to reproduce the reading text",
+      "The response remains substantially accurate in Content",
+      "Pronunciation is generally clear",
+      "The main issue requiring attention is Oral Fluency",
+      "The problem is repeated hesitation rather than overall speech rate"
+    ],
+
+    expertDiagnosis:
+      "The main problem is Oral Fluency because the student repeatedly inserts the filler word \"um\" during the response. These hesitations interrupt otherwise continuous delivery and make the reading less smooth and natural. The Content remains substantially accurate and Pronunciation is generally clear, so this should not be diagnosed primarily as a Content or pronunciation problem. The teacher should focus on reducing filler-based hesitation and maintaining continuous speech.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Oral Fluency because they repeatedly use the filler \"um\" during the reading. The student inserts \"um\" after \"gym,\" after \"week,\" and before \"and I also walk on the treadmill,\" interrupting otherwise continuous delivery. The Content remains substantially accurate and Pronunciation is generally clear. The teacher should therefore focus on reducing hesitation fillers and maintaining smoother continuous speech rather than diagnosing a Content, Pronunciation or speech-rate problem.",
+
+    coachingAdvice:
+      "Encourage the student to replace filler words such as \"um\" with brief silent pauses when needed. Practise reading the passage continuously, especially around the points where the fillers occur, while maintaining a natural speaking rate.",
+
+    cefrLevel: "A2",
+    topicTitle: "Gyms & Physical Fitness",
+
+    good: {
+      transcript:
+        "Many people go to the gym to improve their health and fitness. I usually exercise three times a week and spend about an hour at the gym. I often use the machines for my arms and legs, and I also walk on the treadmill. Regular exercise helps me feel stronger and more active.",
+      audioDuration: "24.0 seconds",
+      wordCount: 57,
+      characteristics:
+        "Clear, continuous and appropriately paced delivery without unnecessary hesitation fillers."
+    },
+
+    poor: {
+      transcript:
+        "Many people go to the gym, um, to improve their health and fitness. I usually exercise three times a week, um, and spend about an hour at the gym. I often use the machines for my arms and legs, um, and I also walk on the treadmill. Regular exercise helps me feel stronger and more active.",
+      audioDuration: "27.5 seconds",
+      wordCount: 60,
+      characteristics:
+        "Repeated 'um' fillers interrupt otherwise continuous delivery and reduce Oral Fluency."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Clear, continuous and appropriately paced delivery."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 3,
+      pronunciation: 5,
+      overall: "78 / 90",
+      breakdownText:
+        "Repeated hesitation fillers interrupt otherwise clear delivery and reduce Oral Fluency."
+    },
+
+    errorChecklist: [
+      {
+        id: "excessive-hesitation",
+        label: "Excessive hesitation",
+        keyword: "Excessive hesitation"
+      },
+      {
+        id: "filler-words",
+        label: "Filler words",
+        keyword: "Filler words"
+      },
+      {
+        id: "interrupted-fluency",
+        label: "Interrupted fluency",
+        keyword: "Interrupted fluency"
+      }
+    ],
+
+    expertAdvice:
+      "Do not diagnose this simply as slow speech or a Content problem. The student's main issue is repeated filler-based hesitation. Focus on the unnecessary 'um' insertions and encourage brief silent pauses while preserving the student's otherwise clear pronunciation and appropriate speaking rate."
+  },
+
+    {
+    exerciseIndex: 25,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Repetition & Restarting",
+
+    learningObjective:
+      "Identify repeated words and restarting in a Read Aloud response and distinguish the fluency problem from Content accuracy, Pronunciation or overall speech-rate problems.",
+
+    promptText:
+      "I enjoy taking short trips at the weekend when I have free time. I usually travel by train because it is comfortable and easy. Sometimes I visit a nearby city with my friends and spend the day walking around. We often take photos, try local food and return home in the evening.",
+
+    promptAudio:
+      "I enjoy taking short trips at the weekend when I have free time. I usually travel by train because it is comfortable and easy. Sometimes I visit a nearby city with my friends and spend the day walking around. We often take photos, try local food and return home in the evening.",
+
+    studentTranscript:
+      "I enjoy taking short trips at the weekend when I have free time. I usually usually travel by train because it is comfortable and easy. Sometimes I visit a nearby city with my friends and spend the day walking around. We often take photos, try local food and return return home in the evening.",
+
+    studentResponse: {
+      audioDuration: "25.5 seconds",
+      wordCount: 60,
+      characteristics:
+        "The response is generally clear and appropriately paced, but the student repeats two words unnecessarily during the reading."
+    },
+
+    diagnosticErrors: [
+      "Repetition",
+      "Repeated words",
+      "Fluency disruption"
+    ],
+
+    expertEvidence: [
+      "The student repeats 'usually' in the second sentence",
+      "The student repeats 'return' in the final sentence",
+      "The repeated words are unnecessary additions to the reading text",
+      "The repetitions interrupt otherwise continuous delivery",
+      "The overall speaking rate remains appropriate",
+      "Pronunciation is generally clear",
+      "The response remains understandable",
+      "The main issue requiring attention is Oral Fluency",
+      "The problem should not be diagnosed primarily as slow or fast speech"
+    ],
+
+    expertDiagnosis:
+      "The main problem is Oral Fluency because the student unnecessarily repeats words during the reading. The word \"usually\" is repeated in the second sentence, and \"return\" is repeated in the final sentence. These repetitions interrupt otherwise continuous delivery. The student's overall speaking rate remains appropriate and Pronunciation is generally clear, so this should not be diagnosed primarily as a speech-rate or pronunciation problem. The teacher should focus on avoiding unnecessary repetition and maintaining continuous delivery.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Oral Fluency because they unnecessarily repeat words during the reading. They repeat \"usually\" in the second sentence and \"return\" in the final sentence, creating brief disruptions in otherwise continuous delivery. The overall speaking rate remains appropriate and Pronunciation is generally clear. The teacher should therefore focus on reducing unnecessary repetitions and maintaining smooth, continuous speech rather than diagnosing a broader speech-rate or pronunciation problem.",
+
+    coachingAdvice:
+      "Encourage the student to continue forward after making a small reading mistake instead of repeating the word. Practise the two target sentences several times, aiming to read each phrase once with a steady, continuous rhythm.",
+
+    cefrLevel: "A2",
+    topicTitle: "Weekend Travel Trips",
+
+    good: {
+      transcript:
+        "I enjoy taking short trips at the weekend when I have free time. I usually travel by train because it is comfortable and easy. Sometimes I visit a nearby city with my friends and spend the day walking around. We often take photos, try local food and return home in the evening.",
+      audioDuration: "24.0 seconds",
+      wordCount: 58,
+      characteristics:
+        "Clear, continuous and appropriately paced delivery without unnecessary repetition."
+    },
+
+    poor: {
+      transcript:
+        "I enjoy taking short trips at the weekend when I have free time. I usually usually travel by train because it is comfortable and easy. Sometimes I visit a nearby city with my friends and spend the day walking around. We often take photos, try local food and return return home in the evening.",
+      audioDuration: "25.5 seconds",
+      wordCount: 60,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but two unnecessary word repetitions interrupt fluency."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Clear, continuous and appropriately paced delivery."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 3,
+      pronunciation: 5,
+      overall: "78 / 90",
+      breakdownText:
+        "Unnecessary word repetitions interrupt otherwise clear and appropriately paced delivery."
+    },
+
+    errorChecklist: [
+      {
+        id: "repetition",
+        label: "Repetition",
+        keyword: "Repetition"
+      },
+      {
+        id: "repeated-words",
+        label: "Repeated words",
+        keyword: "Repeated words"
+      },
+      {
+        id: "fluency-disruption",
+        label: "Fluency disruption",
+        keyword: "Fluency disruption"
+      }
+    ],
+
+    expertAdvice:
+      "Do not diagnose this simply as a speech-rate problem. The student's rate is appropriate and Pronunciation is generally clear. Focus on the unnecessary repetitions of \"usually\" and \"return\" and coach the student to continue smoothly without repeating words."
+  },
+
+   {
+    exerciseIndex: 26,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Word Omission",
+
+    learningObjective:
+      "Identify a specific omitted word in a Read Aloud response and distinguish a Content error from oral-fluency or pronunciation problems.",
+
+    promptText:
+      "People can use the public library to borrow books and study quietly. I usually visit the library after school because it is close to my home. There are many useful books about history, science, and travel. The library also has computers that students can use for homework.",
+
+    promptAudio:
+      "People can use the public library to borrow books and study quietly. I usually visit the library after school because it is close to my home. There are many useful books about history, science, and travel. The library also has computers that students can use for homework.",
+
+    studentTranscript:
+      "People can use the public library to borrow books and study quietly. I visit the library after school because it is close to my home. There are many useful books about history, science, and travel. The library also has computers that students can use for homework.",
+
+    studentResponse: {
+      audioDuration: "19.5 seconds",
+      wordCount: 46,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the word 'usually' is omitted from the second sentence."
+    },
+
+    diagnosticErrors: [
+      "Word omission",
+      "Content accuracy",
+      "Missing word"
+    ],
+
+    expertEvidence: [
+      "The prompt contains the word 'usually' in the second sentence",
+      "The student omits 'usually' before 'visit the library'",
+      "The omission is a specific Content error rather than a fluency problem",
+      "The remaining response is delivered clearly",
+      "Overall speaking rate remains appropriate",
+      "There are no significant fillers, repetitions or unnatural pauses",
+      "Pronunciation remains generally clear",
+      "The main issue requiring attention is the omitted word"
+    ],
+
+    expertDiagnosis:
+      "The main problem is Content accuracy because the student omits the word 'usually' from the second sentence. This is a specific Read Aloud Content error. The response is otherwise clear, continuous and appropriately paced, so the teacher should not diagnose a broader oral-fluency or pronunciation problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they omit the word 'usually' from the second sentence. The prompt says 'I usually visit the library,' but the student says 'I visit the library.' This is a specific word omission that affects the Read Aloud Content score. Oral Fluency and Pronunciation remain strong because the response is clear, continuous and appropriately paced.",
+
+    coachingAdvice:
+      "When assessing Read Aloud, compare the student's words carefully with the prompt. Encourage the student to maintain all words in the reading text while continuing to speak naturally and clearly.",
+
+    cefrLevel: "A2",
+    topicTitle: "Public Libraries & Reading",
+
+    good: {
+      transcript:
+        "People can use the public library to borrow books and study quietly. I usually visit the library after school because it is close to my home. There are many useful books about history, science, and travel. The library also has computers that students can use for homework.",
+      audioDuration: "19.0 seconds",
+      wordCount: 47,
+      characteristics:
+        "Clear and complete delivery with all words included and appropriate pacing."
+    },
+
+    poor: {
+      transcript:
+        "People can use the public library to borrow books and study quietly. I visit the library after school because it is close to my home. There are many useful books about history, science, and travel. The library also has computers that students can use for homework.",
+      audioDuration: "19.5 seconds",
+      wordCount: 46,
+      characteristics:
+        "Generally clear and appropriately paced, but the word 'usually' is omitted."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Complete Content with clear, continuous and appropriately paced delivery."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "One omitted word reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "word-omission",
+        label: "Word omission",
+        keyword: "Word omission"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "missing-word",
+        label: "Missing word",
+        keyword: "Missing word"
+      }
+    ],
+
+    expertAdvice:
+      "Do not diagnose this as poor fluency simply because the response is shorter. Compare the transcript with the prompt and identify the specific omitted word. The main issue is Content accuracy."
+  },
+
+  {
+    exerciseIndex: 27,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Word Insertion",
+
+    learningObjective:
+      "Identify an extra inserted word in a Read Aloud response and distinguish a Content error from oral-fluency or pronunciation problems.",
+
+    promptText:
+      "Online shopping is convenient when people are busy. I often choose an item on a website, check the price, and place my order. The store sends a confirmation email after I pay. A few days later, the delivery arrives at my home.",
+
+    promptAudio:
+      "Online shopping is convenient when people are busy. I often choose an item on a website, check the price, and place my order. The store sends a confirmation email after I pay. A few days later, the delivery arrives at my home.",
+
+    studentTranscript:
+      "Online shopping is convenient when people are busy. I often choose an item on a website, check the price, and place my order. The store sends a confirmation email quickly after I pay. A few days later, the delivery arrives at my home.",
+
+    studentResponse: {
+      audioDuration: "18.5 seconds",
+      wordCount: 43,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the student inserts the extra word 'quickly'."
+    },
+
+    diagnosticErrors: [
+      "Word insertion",
+      "Content accuracy",
+      "Extra word"
+    ],
+
+    expertEvidence: [
+      "The prompt says 'The store sends a confirmation email after I pay'",
+      "The student inserts the word 'quickly' before 'after I pay'",
+      "The inserted word is not present in the reading text",
+      "The response remains continuous and appropriately paced",
+      "There are no significant hesitation or repetition problems",
+      "Pronunciation remains generally clear",
+      "The main issue requiring attention is the inserted word"
+    ],
+
+    expertDiagnosis:
+      "The main problem is Content accuracy because the student inserts the word 'quickly' into the third sentence. The prompt does not contain this word. This is a specific Content error, while the student's Oral Fluency and Pronunciation remain generally strong.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they insert the extra word 'quickly' into the third sentence. The prompt says 'The store sends a confirmation email after I pay,' but the student says 'The store sends a confirmation email quickly after I pay.' This is a word insertion that affects the Read Aloud Content score. The response otherwise remains clear, continuous and appropriately paced.",
+
+    coachingAdvice:
+      "Teach the student to follow the reading text exactly. In Read Aloud, avoid adding words even when the added word makes the sentence sound natural or logical.",
+
+    cefrLevel: "A2",
+    topicTitle: "Online Shopping & Delivery",
+
+    good: {
+      transcript:
+        "Online shopping is convenient when people are busy. I often choose an item on a website, check the price, and place my order. The store sends a confirmation email after I pay. A few days later, the delivery arrives at my home.",
+      audioDuration: "18.0 seconds",
+      wordCount: 42,
+      characteristics:
+        "Complete Content with clear and appropriately paced delivery."
+    },
+
+    poor: {
+      transcript:
+        "Online shopping is convenient when people are busy. I often choose an item on a website, check the price, and place my order. The store sends a confirmation email quickly after I pay. A few days later, the delivery arrives at my home.",
+      audioDuration: "18.5 seconds",
+      wordCount: 43,
+      characteristics:
+        "Generally clear and appropriately paced, but one extra word is inserted."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Complete Content with clear, continuous and appropriately paced delivery."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "One inserted word reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "word-insertion",
+        label: "Word insertion",
+        keyword: "Word insertion"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "extra-word",
+        label: "Extra word",
+        keyword: "Extra word"
+      }
+    ],
+
+    expertAdvice:
+      "Do not treat the added word as a fluency problem. Compare the student's response with the prompt and identify the specific insertion. The main issue is Content accuracy."
+  },
+
+  {
+    exerciseIndex: 28,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Excessive Sentence-Boundary Pausing",
+
+    learningObjective:
+      "Identify excessive pauses between complete sentences and distinguish segmented delivery from slow speaking rate or pronunciation problems.",
+
+    promptText:
+      "Many families try to recycle household waste at home. We separate paper, plastic, glass, and food waste into different containers. Recycling helps reduce the amount of rubbish sent to landfill. It is a simple habit that everyone can practise every day.",
+
+    promptAudio:
+      "Many families try to recycle household waste at home. We separate paper, plastic, glass, and food waste into different containers. Recycling helps reduce the amount of rubbish sent to landfill. It is a simple habit that everyone can practise every day.",
+
+    studentTranscript:
+      "Many families try to recycle household waste at home. ... ... We separate paper, plastic, glass, and food waste into different containers. ... ... Recycling helps reduce the amount of rubbish sent to landfill. ... ... It is a simple habit that everyone can practise every day.",
+
+    studentResponse: {
+      audioDuration: "24.5 seconds",
+      wordCount: 41,
+      characteristics:
+        "The student inserts unusually long pauses after complete sentences, creating a segmented delivery."
+    },
+
+    diagnosticErrors: [
+      "Excessive pausing",
+      "Segmented delivery",
+      "Sentence-boundary pauses"
+    ],
+
+    expertEvidence: [
+      "Long pauses occur after several complete sentences",
+      "The pauses are substantially longer than natural sentence-boundary pauses",
+      "The student separates each sentence into isolated units",
+      "The words themselves are delivered clearly",
+      "The overall rate between pauses is appropriate",
+      "There are no significant fillers or repetitions",
+      "Pronunciation remains generally clear",
+      "The main issue is excessive sentence-boundary pausing"
+    ],
+
+    expertDiagnosis:
+      "The main problem is Oral Fluency because the student uses excessively long pauses after several complete sentences. These pauses make the response sound segmented even though the individual words are clear. This should not be diagnosed simply as slow speech because the problem is the excessive duration and frequency of the sentence-boundary pauses.",
+
+    perfectCalibrationResponse:
+      "The student's main oral-fluency issue is excessive sentence-boundary pausing. They insert unusually long pauses after several complete sentences, which makes the response sound segmented. The words are otherwise clear and the speaking rate between pauses is appropriate. The teacher should therefore focus on reducing excessive pauses rather than diagnosing a general speech-rate or pronunciation problem.",
+
+    coachingAdvice:
+      "Teach the student to use brief, natural pauses at sentence boundaries rather than stopping for several seconds after every sentence. Practise connecting two or three sentences while maintaining a smooth overall rhythm.",
+
+    cefrLevel: "A2",
+    topicTitle: "Recycling Household Trash",
+
+    good: {
+      transcript:
+        "Many families try to recycle household waste at home. We separate paper, plastic, glass, and food waste into different containers. Recycling helps reduce the amount of rubbish sent to landfill. It is a simple habit that everyone can practise every day.",
+      audioDuration: "20.5 seconds",
+      wordCount: 41,
+      characteristics:
+        "Natural sentence-boundary pauses with smooth continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Many families try to recycle household waste at home. ... ... We separate paper, plastic, glass, and food waste into different containers. ... ... Recycling helps reduce the amount of rubbish sent to landfill. ... ... It is a simple habit that everyone can practise every day.",
+      audioDuration: "24.5 seconds",
+      wordCount: 41,
+      characteristics:
+        "Excessively long pauses after sentences create a segmented delivery."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Natural pauses support clear, continuous and appropriately paced delivery."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 2,
+      pronunciation: 5,
+      overall: "69 / 90",
+      breakdownText:
+        "Excessive sentence-boundary pauses interrupt otherwise clear delivery."
+    },
+
+    errorChecklist: [
+      {
+        id: "excessive-pausing",
+        label: "Excessive pausing",
+        keyword: "Excessive pausing"
+      },
+      {
+        id: "segmented-delivery",
+        label: "Segmented delivery",
+        keyword: "Segmented delivery"
+      },
+      {
+        id: "sentence-boundary-pauses",
+        label: "Sentence-boundary pauses",
+        keyword: "Sentence-boundary pauses"
+      }
+    ],
+
+    expertAdvice:
+      "Do not diagnose this simply as slow speech. Focus on the unusually long pauses between sentences and the resulting segmented delivery."
+  },
+
+  {
+    exerciseIndex: 29,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Word Repetition",
+
+    learningObjective:
+      "Identify unnecessary word repetitions in a Read Aloud response and distinguish localized repetition from broader speech-rate or pronunciation problems.",
+
+    promptText:
+      "Cultural festivals bring people together and help them learn about local traditions. Families often prepare special food, wear traditional clothes, and enjoy music during these events. Some festivals include dancing and games, while others have parades in the streets. These celebrations are an important part of community life.",
+
+    promptAudio:
+      "Cultural festivals bring people together and help them learn about local traditions. Families often prepare special food, wear traditional clothes, and enjoy music during these events. Some festivals include dancing and games, while others have parades in the streets. These celebrations are an important part of community life.",
+
+    studentTranscript:
+      "Cultural festivals bring people together and help them learn about local traditions. Families often often prepare special food, wear traditional traditional clothes, and enjoy music during these events. Some festivals include dancing and games, while others have parades in the streets. These celebrations are an important part of community life.",
+
+    studentResponse: {
+      audioDuration: "20.5 seconds",
+      wordCount: 50,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but several words are unnecessarily repeated."
+    },
+
+    diagnosticErrors: [
+      "Word repetition",
+      "Repeated words",
+      "Oral fluency disruption"
+    ],
+
+    expertEvidence: [
+      "The word 'often' is repeated unnecessarily",
+      "The word 'traditional' is repeated unnecessarily",
+      "The repetitions occur within otherwise continuous sentences",
+      "The student's overall speaking rate remains appropriate",
+      "Pronunciation is generally clear",
+      "The response does not show a broad hesitation pattern",
+      "The main issue is localized word repetition",
+      "The repetitions create brief disruptions to Oral Fluency"
+    ],
+
+    expertDiagnosis:
+      "The main problem is Oral Fluency because the student unnecessarily repeats words during the reading. They repeat 'often' and 'traditional', creating brief disruptions in otherwise continuous delivery. The overall speaking rate remains appropriate and Pronunciation is generally clear, so the teacher should focus on reducing unnecessary repetitions rather than diagnosing a broader speech-rate or pronunciation problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Oral Fluency because they unnecessarily repeat words during the reading. They repeat 'often' and 'traditional', creating brief disruptions in otherwise continuous delivery. The overall speaking rate remains appropriate and Pronunciation is generally clear. The teacher should therefore focus on reducing unnecessary repetitions and maintaining smooth, continuous speech.",
+
+    coachingAdvice:
+      "Encourage the student to keep moving forward after saying a word correctly rather than repeating it. Practise reading short passages with attention to continuous delivery and controlled self-monitoring.",
+
+    cefrLevel: "A2",
+    topicTitle: "Cultural Festivals",
+
+    good: {
+      transcript:
+        "Cultural festivals bring people together and help them learn about local traditions. Families often prepare special food, wear traditional clothes, and enjoy music during these events. Some festivals include dancing and games, while others have parades in the streets. These celebrations are an important part of community life.",
+      audioDuration: "19.5 seconds",
+      wordCount: 48,
+      characteristics:
+        "Smooth, continuous delivery without unnecessary word repetition."
+    },
+
+    poor: {
+      transcript:
+        "Cultural festivals bring people together and help them learn about local traditions. Families often often prepare special food, wear traditional traditional clothes, and enjoy music during these events. Some festivals include dancing and games, while others have parades in the streets. These celebrations are an important part of community life.",
+      audioDuration: "20.5 seconds",
+      wordCount: 50,
+      characteristics:
+        "Generally clear and appropriately paced, but unnecessary word repetitions interrupt fluency."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Smooth and continuous delivery with clear pronunciation."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 2,
+      pronunciation: 5,
+      overall: "78 / 90",
+      breakdownText:
+        "Unnecessary word repetitions interrupt otherwise clear and appropriately paced delivery."
+    },
+
+    errorChecklist: [
+      {
+        id: "word-repetition",
+        label: "Word repetition",
+        keyword: "Word repetition"
+      },
+      {
+        id: "repeated-words",
+        label: "Repeated words",
+        keyword: "Repeated words"
+      },
+      {
+        id: "oral-fluency-disruption",
+        label: "Oral fluency disruption",
+        keyword: "Oral fluency disruption"
+      }
+    ],
+
+    expertAdvice:
+      "Do not diagnose this as poor speaking rate. The overall rate is appropriate. Focus on the specific unnecessary repetitions and their effect on Oral Fluency."
+  },
+
+  {
+    exerciseIndex: 30,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Word Substitution",
+
+    learningObjective:
+      "Identify a specific substituted word in a Read Aloud response and distinguish a Content error from oral-fluency or pronunciation problems.",
+
+    promptText:
+      "Visiting a museum can be an interesting way to learn about history and art. I like looking at old paintings, photographs, and objects from different periods. Many museums also offer short tours for visitors. After the visit, I usually talk with my family about the things we learned.",
+
+    promptAudio:
+      "Visiting a museum can be an interesting way to learn about history and art. I like looking at old paintings, photographs, and objects from different periods. Many museums also offer short tours for visitors. After the visit, I usually talk with my family about the things we learned.",
+
+    studentTranscript:
+      "Visiting a museum can be an interesting way to learn about history and art. I like looking at old posters, photographs, and objects from different periods. Many museums also offer short tours for visitors. After the visit, I usually talk with my family about the things we learned.",
+
+    studentResponse: {
+      audioDuration: "20.0 seconds",
+      wordCount: 48,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the student substitutes 'posters' for 'paintings'."
+    },
+
+    diagnosticErrors: [
+      "Word substitution",
+      "Content accuracy",
+      "Incorrect word"
+    ],
+
+    expertEvidence: [
+      "The prompt says 'old paintings'",
+      "The student says 'old posters' instead",
+      "The substituted word changes the original reading text",
+      "The response remains clear and continuous",
+      "Overall speaking rate remains appropriate",
+      "There are no significant hesitation or repetition problems",
+      "Pronunciation of the substituted word is clear",
+      "The main issue requiring attention is Content accuracy"
+    ],
+
+    expertDiagnosis:
+      "The main problem is Content accuracy because the student substitutes the word 'posters' for 'paintings.' This is a specific word substitution in the reading text. The response remains clear, continuous and appropriately paced, so the teacher should not diagnose a broader Oral Fluency or Pronunciation problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they substitute the word 'posters' for 'paintings.' The prompt says 'I like looking at old paintings,' but the student says 'I like looking at old posters.' This word substitution affects the Read Aloud Content score. Oral Fluency and Pronunciation remain strong because the response is clear, continuous and appropriately paced.",
+
+    coachingAdvice:
+      "When assessing Read Aloud, listen for exact word production rather than judging only whether the sentence makes sense. Encourage the student to follow the original text accurately without replacing words with related vocabulary.",
+
+    cefrLevel: "A2",
+    topicTitle: "Visiting Museums & Art",
+
+    good: {
+      transcript:
+        "Visiting a museum can be an interesting way to learn about history and art. I like looking at old paintings, photographs, and objects from different periods. Many museums also offer short tours for visitors. After the visit, I usually talk with my family about the things we learned.",
+      audioDuration: "19.5 seconds",
+      wordCount: 48,
+      characteristics:
+        "Complete Content with clear pronunciation and natural continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Visiting a museum can be an interesting way to learn about history and art. I like looking at old posters, photographs, and objects from different periods. Many museums also offer short tours for visitors. After the visit, I usually talk with my family about the things we learned.",
+      audioDuration: "20.0 seconds",
+      wordCount: 48,
+      characteristics:
+        "Generally clear and appropriately paced, but one word is substituted."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Complete Content with clear, continuous and appropriately paced delivery."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "One substituted word reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "word-substitution",
+        label: "Word substitution",
+        keyword: "Word substitution"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "incorrect-word",
+        label: "Incorrect word",
+        keyword: "Incorrect word"
+      }
+    ],
+
+    expertAdvice:
+      "Do not diagnose this as a pronunciation problem simply because the student says a different word clearly. The main issue is that the student substituted 'posters' for 'paintings', which is a Content accuracy error."
+  },
+
+   {
+    exerciseIndex: 31,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Word Substitution & Content Accuracy",
+
+    learningObjective:
+      "Identify a specific word substitution in a Read Aloud response and distinguish Content accuracy errors from pronunciation or oral-fluency problems.",
+
+    promptText:
+      "Elementary science projects help students understand simple ideas through practical activities. In class, students may observe plants, measure water, or build small models. Teachers usually explain each step before the activity begins. Working carefully helps students record their results and learn from the experiment.",
+
+    promptAudio:
+      "Elementary science projects help students understand simple ideas through practical activities. In class, students may observe plants, measure water, or build small models. Teachers usually explain each step before the activity begins. Working carefully helps students record their results and learn from the experiment.",
+
+    studentTranscript:
+      "Elementary science projects help students understand simple ideas through practical activities. In class, students may observe plants, measure water, or build small models. Teachers usually explain each step before the activity begins. Working carefully helps students record their results and learn from the exercise.",
+
+    studentResponse: {
+      audioDuration: "24.0 seconds",
+      wordCount: 53,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the student substitutes 'exercise' for 'experiment' near the end of the response."
+    },
+
+    diagnosticErrors: [
+      "Word substitution",
+      "Content accuracy",
+      "Incorrect word reproduction"
+    ],
+
+    expertEvidence: [
+      "The target word near the end of the response is 'experiment'",
+      "The student says 'exercise' instead of 'experiment'",
+      "The substituted word changes the exact wording of the reading text",
+      "The error is a Content accuracy issue rather than a pronunciation problem",
+      "Overall speech rate remains appropriate",
+      "The response is continuous without significant fillers or unnatural pauses",
+      "Pronunciation is generally clear",
+      "The main issue requiring attention is accurate reproduction of the target word"
+    ],
+
+    expertDiagnosis:
+      "The main problem is Content accuracy because the student substitutes the word \"exercise\" for \"experiment\" near the end of the response. The prompt says \"learn from the experiment,\" but the student says \"learn from the exercise.\" This is a specific word substitution that affects the Read Aloud Content score. The response is otherwise clear, continuous and appropriately paced, so this should not be diagnosed as a pronunciation or oral-fluency problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they substitute the word \"exercise\" for \"experiment\" near the end of the response. The prompt says \"learn from the experiment,\" but the student says \"learn from the exercise.\" This specific word substitution affects the Read Aloud Content score. Oral Fluency and Pronunciation remain strong because the response is clear, continuous and appropriately paced.",
+
+    coachingAdvice:
+      "Focus on reproducing every word exactly as it appears in the reading text. Practise the contrast between \"experiment\" and \"exercise,\" then reread the final sentence while maintaining the same natural speaking rate.",
+
+    cefrLevel: "A2",
+    topicTitle: "Elementary Science Projects",
+
+    good: {
+      transcript:
+        "Elementary science projects help students understand simple ideas through practical activities. In class, students may observe plants, measure water, or build small models. Teachers usually explain each step before the activity begins. Working carefully helps students record their results and learn from the experiment.",
+      audioDuration: "23.5 seconds",
+      wordCount: 53,
+      characteristics:
+        "Clear and appropriately paced delivery with accurate reproduction of the reading text."
+    },
+
+    poor: {
+      transcript:
+        "Elementary science projects help students understand simple ideas through practical activities. In class, students may observe plants, measure water, or build small models. Teachers usually explain each step before the activity begins. Working carefully helps students record their results and learn from the exercise.",
+      audioDuration: "24.0 seconds",
+      wordCount: 53,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but 'experiment' is substituted with 'exercise' near the end."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with clear pronunciation and appropriate fluency."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "A specific word substitution reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "word-substitution",
+        label: "Word substitution",
+        keyword: "Word substitution"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "incorrect-word-reproduction",
+        label: "Incorrect word reproduction",
+        keyword: "Incorrect word reproduction"
+      }
+    ],
+
+    expertAdvice:
+      "Do not diagnose this as a pronunciation or fluency problem. The student's delivery is clear and appropriately paced. Focus on the exact substitution of \"exercise\" for \"experiment\" and explain that accurate reproduction of the reading text is required for full Content marks."
+  },
+
+  {
+  exerciseIndex: 32,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Oral Fluency",
+  diagnosticArea: "False Start & Self-Correction",
+  learningObjective:
+    "Identify an audible false start and self-correction in a Read Aloud response and distinguish it from Content, Pronunciation, and overall speech-rate problems.",
+  promptText:
+    "Sending workplace emails is an important part of many jobs. Employees should write clear messages and include the main information in a simple way. A useful email often has a short subject line and a polite greeting. Before sending a message, workers should check the details and make sure the correct person will receive it.",
+  promptAudio:
+    "Sending workplace emails is an important part of many jobs. Employees should write clear messages and include the main information in a simple way. A useful email often has a short subject line and a polite greeting. Before sending a message, workers should check the details and make sure the correct person will receive it.",
+  studentTranscript:
+    "Sending workplace emails is an important part of many jobs. Employees should write clear messages and include the main information in a simple way. A useful email often has a short subject line and a polite greeting / sorry, a professional greeting. Before sending a message, workers should check the details and make sure the correct person will receive it.",
+  studentResponse: {
+    audioDuration: "23.5 seconds",
+    wordCount: 61,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the speaker makes an audible false start and immediately self-corrects with 'sorry' before continuing."
+  },
+  diagnosticErrors: [
+    "False start",
+    "Self-correction",
+    "Interrupted fluency"
+  ],
+  expertEvidence: [
+    "The student begins with 'a polite greeting'",
+    "The student interrupts the phrase with 'sorry'",
+    "The student then changes the wording to 'a professional greeting'",
+    "The self-correction creates a noticeable interruption in otherwise continuous delivery",
+    "The issue is localized to one phrase rather than the entire response",
+    "Overall speaking rate remains appropriate",
+    "Pronunciation is generally clear",
+    "The main issue requiring attention is the false start and self-correction"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Oral Fluency because they make an audible false start and self-correction in the phrase \"a polite greeting, sorry, a professional greeting.\" The speaker begins one wording, interrupts it with \"sorry,\" and then restarts the phrase with different wording. This creates a noticeable disruption in otherwise continuous delivery. The overall speaking rate and pronunciation are generally clear, so the teacher should focus on reducing false starts and self-corrections rather than diagnosing a general speech-rate or pronunciation problem.",
+  perfectCalibrationResponse:
+    "The student's main issue is Oral Fluency because they make an audible false start and self-correction in the phrase \"a polite greeting, sorry, a professional greeting.\" The speaker begins one wording, interrupts it with \"sorry,\" and then restarts the phrase with different wording. This creates a noticeable disruption in otherwise continuous delivery. The overall speaking rate and Pronunciation are generally clear, so the teacher should focus on reducing false starts and self-corrections rather than diagnosing a general speech-rate or pronunciation problem.",
+  coachingAdvice:
+    "Plan the phrase before speaking and avoid changing wording mid-sentence. If a mistake occurs, continue smoothly rather than repeatedly restarting or correcting the phrase. Practise short Read Aloud passages while maintaining continuous delivery and allowing only necessary brief pauses.",
+  cefrLevel: "A2",
+  topicTitle: "Sending Workplace Emails",
+  good: {
+    transcript:
+      "Sending workplace emails is an important part of many jobs. Employees should write clear messages and include the main information in a simple way. A useful email often has a short subject line and a polite greeting. Before sending a message, workers should check the details and make sure the correct person will receive it.",
+    audioDuration: "22.5 seconds",
+    wordCount: 56,
+    characteristics:
+      "Clear, continuous and appropriately paced delivery without false starts or unnecessary self-corrections."
+  },
+  poor: {
+    transcript:
+      "Sending workplace emails is an important part of many jobs. Employees should write clear messages and include the main information in a simple way. A useful email often has a short subject line and a polite greeting / sorry, a professional greeting. Before sending a message, workers should check the details and make sure the correct person will receive it.",
+    audioDuration: "23.5 seconds",
+    wordCount: 61,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the speaker makes an audible false start and immediately self-corrects with 'sorry' before continuing."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Clear and continuous delivery without false starts or unnecessary self-corrections."
+  },
+  poorScore: {
+    content: 4,
+    fluency: 3,
+    pronunciation: 5,
+    overall: "78 / 90",
+    breakdownText:
+      "An audible false start and self-correction disrupt Oral Fluency, with additional wording affecting Content accuracy."
+  },
+  errorChecklist: [
+    {
+      id: "false-start",
+      label: "False start",
+      keyword: "False start"
+    },
+    {
+      id: "self-correction",
+      label: "Self-correction",
+      keyword: "Self-correction"
+    },
+    {
+      id: "interrupted-fluency",
+      label: "Interrupted fluency",
+      keyword: "Interrupted fluency"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this primarily as a slow speaking rate or pronunciation problem. The key issue is the audible false start and self-correction in 'a polite greeting, sorry, a professional greeting.' Focus on continuous delivery and avoiding unnecessary mid-sentence restarts while recognising that the overall pace and pronunciation remain clear."
+},
+
+  {
+    exerciseIndex: 33,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Consonant Cluster Simplification",
+
+    learningObjective:
+      "Identify a specific consonant-cluster pronunciation problem and distinguish it from Content and Oral Fluency issues.",
+
+    promptText:
+      "Driving lessons help new drivers learn how to control a car safely. Students practise starting, stopping, changing direction, and following traffic signs. A good instructor explains the rules and gives clear advice during each lesson. Drivers should stay alert, follow the speed limit, and watch carefully for other vehicles.",
+
+    promptAudio:
+      "Driving lessons help new drivers learn how to control a car safely. Students practise starting, stopping, changing direction, and following traffic signs. A good instructor explains the rules and gives clear advice during each lesson. Drivers should stay alert, follow the speed limit, and watch carefully for other vehicles.",
+
+    studentTranscript:
+      "Driving lessons help new drivers learn how to control a car safely. Students practise starting, stopping, changing direction, and following traffic signs. A good instructor explains the rules and gives clear advice during each lesson. Drivers should stay alert, follow the speed limit, and watch carefully for other veehicles.",
+
+    studentResponse: {
+      audioDuration: "25.0 seconds",
+      wordCount: 59,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the consonant cluster in 'vehicles' is simplified and the word is produced unclearly as 'veehicles.'"
+    },
+
+    diagnosticErrors: [
+      "Consonant cluster pronunciation",
+      "Pronunciation accuracy",
+      "Specific word pronunciation"
+    ],
+
+    expertEvidence: [
+      "The target word is 'vehicles'",
+      "The consonant sequence in the target word is not produced clearly",
+      "The pronunciation issue is localized to one specific word",
+      "The rest of the response remains generally intelligible",
+      "Overall speaking rate remains appropriate",
+      "The response is continuous without significant hesitation",
+      "Content remains substantially intact",
+      "The main issue requiring attention is pronunciation accuracy in the target word"
+    ],
+
+    expertDiagnosis:
+      "The main issue is Pronunciation accuracy, specifically the production of the consonant sequence in the word \"vehicles.\" The target word is produced unclearly as \"veehicles,\" creating a localized pronunciation problem. The response remains generally clear, continuous and appropriately paced, so this should not be diagnosed as an Oral Fluency or Content problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Pronunciation, specifically the consonant sequence in the word \"vehicles.\" The target word is produced unclearly, creating a localized pronunciation problem. The rest of the response is generally clear, continuous and appropriately paced, with the Content substantially intact. The teacher should therefore focus on the specific word pronunciation rather than diagnosing poor fluency or speech rate.",
+
+    coachingAdvice:
+      "Practise the word \"vehicles\" slowly, paying attention to the consonant sequence, then repeat it in short phrases such as \"other vehicles\" and \"many vehicles.\" Gradually increase the speed while keeping the consonants clear.",
+
+    cefrLevel: "A2",
+    topicTitle: "Driving Lessons & Safety",
+
+    good: {
+      transcript:
+        "Driving lessons help new drivers learn how to control a car safely. Students practise starting, stopping, changing direction, and following traffic signs. A good instructor explains the rules and gives clear advice during each lesson. Drivers should stay alert, follow the speed limit, and watch carefully for other vehicles.",
+      audioDuration: "24.5 seconds",
+      wordCount: 59,
+      characteristics:
+        "Clear pronunciation with appropriate pace and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Driving lessons help new drivers learn how to control a car safely. Students practise starting, stopping, changing direction, and following traffic signs. A good instructor explains the rules and gives clear advice during each lesson. Drivers should stay alert, follow the speed limit, and watch carefully for other veehicles.",
+      audioDuration: "25.0 seconds",
+      wordCount: 59,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the consonant sequence in 'vehicles' is produced unclearly."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Clear pronunciation, accurate Content and appropriate fluency."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized consonant pronunciation problem reduces Pronunciation while Content and Oral Fluency remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "consonant-cluster-pronunciation",
+        label: "Consonant cluster pronunciation",
+        keyword: "Consonant cluster pronunciation"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      },
+      {
+        id: "specific-word-pronunciation",
+        label: "Specific word pronunciation",
+        keyword: "Specific word pronunciation"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the localized pronunciation difficulty in \"vehicles.\" Do not diagnose the response as generally unclear, too fast, or poorly fluent because the overall delivery remains appropriate."
+  },
+
+  {
+    exerciseIndex: 34,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Word Insertion & Exact Reproduction",
+
+    learningObjective:
+      "Identify an unnecessary inserted word in a Read Aloud response and distinguish the Content error from otherwise strong fluency and pronunciation.",
+
+    promptText:
+      "Cooking simple recipes can be a useful skill for students and families. Before cooking, people should read the recipe carefully and prepare all the ingredients. It is important to follow the instructions in the correct order. After the meal is ready, everyone can sit together and enjoy the food.",
+
+    promptAudio:
+      "Cooking simple recipes can be a useful skill for students and families. Before cooking, people should read the recipe carefully and prepare all the ingredients. It is important to follow the instructions in the correct order. After the meal is ready, everyone can sit together and enjoy the food.",
+
+    studentTranscript:
+      "Cooking simple recipes can be a useful skill for students and families. Before cooking, people should read the recipe carefully and prepare all the ingredients. It is important to follow the instructions in the correct order. After the meal is ready, everyone can sit together and enjoy the delicious food.",
+
+    studentResponse: {
+      audioDuration: "24.0 seconds",
+      wordCount: 57,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the student inserts the extra word 'delicious' before 'food' in the final sentence."
+    },
+
+    diagnosticErrors: [
+      "Word insertion",
+      "Content accuracy",
+      "Extra word"
+    ],
+
+    expertEvidence: [
+      "The prompt says 'enjoy the food'",
+      "The student says 'enjoy the delicious food'",
+      "The word 'delicious' is not present in the reading text",
+      "The additional word is a Content accuracy error",
+      "The response remains continuous and appropriately paced",
+      "Pronunciation remains generally clear",
+      "The main issue requiring attention is exact reproduction of the reading text"
+    ],
+
+    expertDiagnosis:
+      "The main issue is Content accuracy because the student inserts the extra word \"delicious\" before \"food\" in the final sentence. The prompt says \"enjoy the food,\" but the student says \"enjoy the delicious food.\" This unnecessary insertion affects the Read Aloud Content score. Oral Fluency and Pronunciation remain strong because the response is clear, continuous and appropriately paced.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they insert the extra word \"delicious\" before \"food\" in the final sentence. The prompt says \"enjoy the food,\" but the student says \"enjoy the delicious food.\" This is a specific word insertion that affects the Read Aloud Content score. Oral Fluency and Pronunciation remain strong because the response is clear, continuous and appropriately paced.",
+
+    coachingAdvice:
+      "Practise reading the text exactly as written without adding descriptive words from memory. Focus especially on reproducing short phrases word for word while maintaining natural fluency.",
+
+    cefrLevel: "A2",
+    topicTitle: "Cooking Kitchen Recipes",
+
+    good: {
+      transcript:
+        "Cooking simple recipes can be a useful skill for students and families. Before cooking, people should read the recipe carefully and prepare all the ingredients. It is important to follow the instructions in the correct order. After the meal is ready, everyone can sit together and enjoy the food.",
+      audioDuration: "23.5 seconds",
+      wordCount: 56,
+      characteristics:
+        "Clear and continuous delivery with exact reproduction of the reading text."
+    },
+
+    poor: {
+      transcript:
+        "Cooking simple recipes can be a useful skill for students and families. Before cooking, people should read the recipe carefully and prepare all the ingredients. It is important to follow the instructions in the correct order. After the meal is ready, everyone can sit together and enjoy the delicious food.",
+      audioDuration: "24.0 seconds",
+      wordCount: 57,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but an extra word is inserted before 'food.'"
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with clear pronunciation and natural fluency."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "A single word insertion reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "word-insertion",
+        label: "Word insertion",
+        keyword: "Word insertion"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "extra-word",
+        label: "Extra word",
+        keyword: "Extra word"
+      }
+    ],
+
+    expertAdvice:
+      "Do not diagnose the added adjective as a vocabulary or pronunciation issue. The important problem is that the student added a word that was not present in the reading text, reducing Content accuracy."
+  },
+
+  {
+    exerciseIndex: 35,
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Choppy Phrasing",
+
+    learningObjective:
+      "Identify choppy phrasing caused by frequent short pauses within meaningful phrases and distinguish it from overall slow speech or Content errors.",
+
+    promptText:
+      "Taking photos and videos is an easy way to remember special moments. People often use their phones to capture pictures when they travel or spend time with friends. Good lighting can make a photo clearer and more attractive. Before sharing a picture online, people should check that it shows what they want others to see.",
+
+    promptAudio:
+      "Taking photos and videos is an easy way to remember special moments. People often use their phones to capture pictures when they travel or spend time with friends. Good lighting can make a photo clearer and more attractive. Before sharing a picture online, people should check that it shows what they want others to see.",
+
+    studentTranscript:
+      "Taking photos / and videos is an easy way / to remember special moments. People often use their phones / to capture pictures when they travel / or spend time with friends. Good lighting can make a photo / clearer and more attractive. Before sharing a picture online / people should check that it shows what they want / others to see.",
+
+    studentResponse: {
+      audioDuration: "27.0 seconds",
+      wordCount: 61,
+      characteristics:
+        "The response contains frequent short pauses inside meaningful phrases, creating a choppy and fragmented delivery despite an otherwise appropriate overall speaking rate."
+    },
+
+    diagnosticErrors: [
+      "Choppy phrasing",
+      "Frequent phrase-internal pauses",
+      "Fragmented delivery"
+    ],
+
+    expertEvidence: [
+      "Short pauses occur inside meaningful phrases rather than only at sentence boundaries",
+      "The pauses interrupt natural word grouping",
+      "The response sounds fragmented even though the overall speaking rate is not unusually slow",
+      "Content remains substantially intact",
+      "Pronunciation is generally clear",
+      "The main issue is Oral Fluency and natural phrasing",
+      "The problem should not be diagnosed simply as slow speech"
+    ],
+
+    expertDiagnosis:
+      "The main issue is Oral Fluency because the student uses frequent short pauses inside meaningful phrases, creating choppy and fragmented delivery. The overall speaking rate is not unusually slow, and the words remain substantially accurate and clear. The teacher should focus on grouping words into natural phrases and reducing unnecessary phrase-internal pauses rather than diagnosing a general speech-rate or Content problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Oral Fluency because frequent short pauses occur inside meaningful phrases, making the delivery sound choppy and fragmented. The overall speaking rate is not unusually slow, and Content and Pronunciation remain generally strong. The teacher should focus on natural word grouping and reducing unnecessary phrase-internal pauses rather than diagnosing a general slow-rate problem.",
+
+    coachingAdvice:
+      "Practise reading in natural word groups rather than stopping after individual words or short phrases. Mark meaningful chunks in the text and practise connecting each group smoothly while keeping brief pauses only where they help the listener.",
+
+    cefrLevel: "A2",
+    topicTitle: "Taking Photos & Video",
+
+    good: {
+      transcript:
+        "Taking photos and videos is an easy way to remember special moments. People often use their phones to capture pictures when they travel or spend time with friends. Good lighting can make a photo clearer and more attractive. Before sharing a picture online, people should check that it shows what they want others to see.",
+      audioDuration: "24.5 seconds",
+      wordCount: 61,
+      characteristics:
+        "Natural phrasing with appropriate pauses at meaningful boundaries and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Taking photos / and videos is an easy way / to remember special moments. People often use their phones / to capture pictures when they travel / or spend time with friends. Good lighting can make a photo / clearer and more attractive. Before sharing a picture online / people should check that it shows what they want / others to see.",
+      audioDuration: "27.0 seconds",
+      wordCount: 61,
+      characteristics:
+        "Frequent phrase-internal pauses create choppy, fragmented delivery despite an otherwise appropriate overall rate."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Natural phrasing with clear pronunciation and appropriate fluency."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 3,
+      pronunciation: 5,
+      overall: "86 / 90",
+      breakdownText:
+        "Frequent phrase-internal pauses reduce Oral Fluency while Content and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "choppy-phrasing",
+        label: "Choppy phrasing",
+        keyword: "Choppy phrasing"
+      },
+      {
+        id: "phrase-internal-pauses",
+        label: "Phrase-internal pauses",
+        keyword: "Phrase-internal pauses"
+      },
+      {
+        id: "fragmented-delivery",
+        label: "Fragmented delivery",
+        keyword: "Fragmented delivery"
+      }
+    ],
+
+    expertAdvice:
+      "Do not diagnose this simply as speaking too slowly. The key problem is the placement and frequency of pauses within meaningful phrases. Focus on natural word grouping and connected delivery."
+  },
+
+  {
+  exerciseIndex: 36,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Content Accuracy",
+  diagnosticArea: "Word Omission",
+  learningObjective:
+    "Identify a specific omitted word in a Read Aloud response and distinguish the Content problem from Oral Fluency and Pronunciation.",
+  promptText:
+    "When a home appliance stops working, I first check the instructions before asking for help. Sometimes a small problem can be fixed at home without calling a technician. I usually unplug the appliance and check the power connection carefully. If the problem continues, I contact a repair service to make sure the appliance is safe to use.",
+  promptAudio:
+    "When a home appliance stops working, I first check the instructions before asking for help. Sometimes a small problem can be fixed at home without calling a technician. I usually unplug the appliance and check the power connection carefully. If the problem continues, I contact a repair service to make sure the appliance is safe to use.",
+  studentTranscript:
+    "When a home appliance stops working, I first check the instructions before asking for help. Sometimes a small problem can be fixed at home without calling a technician. I usually unplug the appliance and check the power connection carefully. If the problem continues, I contact a repair service to make sure the appliance is safe to use.",
+  studentResponse: {
+    audioDuration: "22.5 seconds",
+    wordCount: 58,
+    characteristics:
+      "Clear and appropriately paced delivery with one specific word omitted from the reading text."
+  },
+  diagnosticErrors: [
+    "Word omission",
+    "Content accuracy",
+    "Missing word"
+  ],
+  expertEvidence: [
+    "The prompt contains the word 'carefully' after 'check the power connection'",
+    "The student omits the word 'carefully'",
+    "The rest of the reading text is reproduced accurately",
+    "Overall speaking rate remains appropriate",
+    "Pronunciation is generally clear",
+    "The main issue requiring attention is the omitted word"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Content accuracy because they omit the word \"carefully\" from the third sentence. The prompt says \"I usually unplug the appliance and check the power connection carefully,\" but the student stops after \"connection.\" This specific word omission affects the Read Aloud Content score. Oral Fluency and Pronunciation remain strong because the response is clear, continuous and appropriately paced.",
+  perfectCalibrationResponse:
+    "The student's main issue is Content accuracy because they omit the word \"carefully\" from the third sentence. The prompt says \"I usually unplug the appliance and check the power connection carefully,\" but the student stops after \"connection.\" This specific word omission affects the Read Aloud Content score. Oral Fluency and Pronunciation remain strong because the response is clear, continuous and appropriately paced.",
+  coachingAdvice:
+    "Focus on reading every word in the text without skipping small details. Practise scanning each sentence for the final word or phrase before speaking, while maintaining a natural speaking rate.",
+  cefrLevel: "A2",
+  topicTitle: "Fixing Home Appliances",
+  good: {
+    transcript:
+      "When a home appliance stops working, I first check the instructions before asking for help. Sometimes a small problem can be fixed at home without calling a technician. I usually unplug the appliance and check the power connection carefully. If the problem continues, I contact a repair service to make sure the appliance is safe to use.",
+    audioDuration: "22.5 seconds",
+    wordCount: 59,
+    characteristics:
+      "Clear, continuous and appropriately paced delivery with all words reproduced accurately."
+  },
+  poor: {
+    transcript:
+      "When a home appliance stops working, I first check the instructions before asking for help. Sometimes a small problem can be fixed at home without calling a technician. I usually unplug the appliance and check the power connection. If the problem continues, I contact a repair service to make sure the appliance is safe to use.",
+    audioDuration: "22.0 seconds",
+    wordCount: 58,
+    characteristics:
+      "Clear and appropriately paced delivery with the word 'carefully' omitted from the third sentence."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "All words are reproduced accurately with clear and continuous delivery."
+  },
+  poorScore: {
+    content: 4,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "87 / 90",
+    breakdownText:
+      "A specific word omission reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+  },
+  errorChecklist: [
+    {
+      id: "word-omission",
+      label: "Word omission",
+      keyword: "Word omission"
+    },
+    {
+      id: "content-accuracy",
+      label: "Content accuracy",
+      keyword: "Content accuracy"
+    },
+    {
+      id: "missing-word",
+      label: "Missing word",
+      keyword: "Missing word"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this as a fluency or pronunciation problem. The student's delivery is clear and appropriately paced. Focus on the specific omitted word 'carefully' and reinforce complete word-for-word reproduction of the reading text."
+},
+
+{
+  exerciseIndex: 37,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Pronunciation",
+  diagnosticArea: "Initial Consonant Pronunciation",
+  learningObjective:
+    "Identify a specific initial consonant pronunciation problem in a Read Aloud response and distinguish it from Content and Oral Fluency problems.",
+  promptText:
+    "Visiting a wildlife zoo can be an interesting experience for children and adults. People can learn about different animals and see how they live in protected areas. Many zoos provide information about conservation and explain why some species need extra care. Visitors should follow the rules and avoid disturbing the animals during their visit.",
+  promptAudio:
+    "Visiting a wildlife zoo can be an interesting experience for children and adults. People can learn about different animals and see how they live in protected areas. Many zoos provide information about conservation and explain why some species need extra care. Visitors should follow the rules and avoid disturbing the animals during their visit.",
+  studentTranscript:
+    "Visiting a wildlife zoo can be an interesting experience for children and adults. People can learn about different animals and see how they live in protected areas. Many zoos provide information about conservation and explain why some species need extra care. Bisitors should follow the rules and avoid disturbing the animals during their visit.",
+  studentResponse: {
+    audioDuration: "25.0 seconds",
+    wordCount: 61,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the initial /v/ sound in 'Visitors' is replaced by a /b/-like sound."
+  },
+  diagnosticErrors: [
+    "Initial consonant pronunciation",
+    "V sound pronunciation",
+    "Pronunciation accuracy"
+  ],
+  expertEvidence: [
+    "The target word is 'Visitors'",
+    "The initial /v/ sound is produced unclearly as a /b/-like sound",
+    "The pronunciation problem occurs at the beginning of one specific word",
+    "The remaining words are delivered clearly",
+    "Overall speech rate remains appropriate",
+    "The Content remains substantially intact",
+    "The main issue requiring attention is the initial consonant pronunciation"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Pronunciation accuracy, specifically the initial /v/ sound in the word \"Visitors.\" The sound is produced more like a /b/, creating a localized pronunciation problem. The rest of the response is clear and appropriately paced, with the Content substantially intact. The teacher should therefore focus on the specific initial consonant rather than diagnosing poor fluency or speech rate.",
+  perfectCalibrationResponse:
+    "The student's main issue is Pronunciation accuracy, specifically the initial /v/ sound in the word \"Visitors.\" The sound is produced more like a /b/, creating a localized pronunciation problem. The rest of the response is clear and appropriately paced, with the Content substantially intact. The teacher should therefore focus on the specific initial consonant rather than diagnosing poor fluency or speech rate.",
+  coachingAdvice:
+    "Practise the /v/ sound by placing the upper teeth lightly against the lower lip and allowing the voice to continue through the sound. Contrast 'vest' and 'best,' then practise 'Visitors' in short sentences while maintaining a natural speaking rate.",
+  cefrLevel: "A2",
+  topicTitle: "Visiting Wildlife Zoos",
+  good: {
+    transcript:
+      "Visiting a wildlife zoo can be an interesting experience for children and adults. People can learn about different animals and see how they live in protected areas. Many zoos provide information about conservation and explain why some species need extra care. Visitors should follow the rules and avoid disturbing the animals during their visit.",
+    audioDuration: "25.0 seconds",
+    wordCount: 61,
+    characteristics:
+      "Clear pronunciation of the initial consonants with appropriate pace and continuous delivery."
+  },
+  poor: {
+    transcript:
+      "Visiting a wildlife zoo can be an interesting experience for children and adults. People can learn about different animals and see how they live in protected areas. Many zoos provide information about conservation and explain why some species need extra care. Bisitors should follow the rules and avoid disturbing the animals during their visit.",
+    audioDuration: "25.0 seconds",
+    wordCount: 61,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the initial /v/ sound in 'Visitors' is replaced by a /b/-like sound."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Clear pronunciation with appropriate pace and continuous delivery."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 3,
+    overall: "84 / 90",
+    breakdownText:
+      "A specific initial consonant pronunciation problem reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
+  },
+  errorChecklist: [
+    {
+      id: "initial-consonant",
+      label: "Initial consonant pronunciation",
+      keyword: "Initial consonant pronunciation"
+    },
+    {
+      id: "v-sound-pronunciation",
+      label: "V sound pronunciation",
+      keyword: "V sound pronunciation"
+    },
+    {
+      id: "pronunciation-accuracy",
+      label: "Pronunciation accuracy",
+      keyword: "Pronunciation accuracy"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this as poor fluency or speaking too fast. The student's overall rate and continuity are appropriate. Focus on the initial /v/ sound in 'Visitors' and provide targeted pronunciation coaching."
+},
+
+{
+  exerciseIndex: 38,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Oral Fluency",
+  diagnosticArea: "Excessive Phrase-Internal Pausing",
+  learningObjective:
+    "Identify excessive pauses inside meaningful phrases in a Read Aloud response and distinguish them from sentence-boundary pausing, overall speech rate, and pronunciation problems.",
+  promptText:
+    "School field trips give students a chance to learn outside the classroom. Teachers may take their classes to museums, science centers, parks, or historical places. Before the trip, students should listen carefully to the instructions and stay with their group. A well-planned field trip can make learning more interesting and memorable.",
+  promptAudio:
+    "School field trips give students a chance to learn outside the classroom. Teachers may take their classes to museums, science centers, parks, or historical places. Before the trip, students should listen carefully to the instructions and stay with their group. A well-planned field trip can make learning more interesting and memorable.",
+  studentTranscript:
+    "School field trips give students a chance / to learn outside the classroom. Teachers may take their classes / to museums, science centers, parks, / or historical places. Before the trip, students should listen carefully / to the instructions and stay with their group. A well-planned field trip / can make learning more interesting and memorable.",
+  studentResponse: {
+    audioDuration: "27.0 seconds",
+    wordCount: 57,
+    characteristics:
+      "The response is generally clear and appropriately paced between pauses, but frequent pauses occur inside meaningful phrases, making the delivery sound fragmented."
+  },
+  diagnosticErrors: [
+    "Excessive phrase-internal pausing",
+    "Fragmented delivery",
+    "Interrupted fluency"
+  ],
+  expertEvidence: [
+    "The student pauses inside meaningful phrases such as 'a chance / to learn'",
+    "The student pauses inside 'their classes / to museums'",
+    "The student pauses inside 'parks, / or historical places'",
+    "The student pauses inside 'listen carefully / to the instructions'",
+    "The student pauses inside 'field trip / can make'",
+    "These pauses interrupt natural word grouping",
+    "The overall speaking rate between pauses remains appropriate",
+    "Pronunciation is generally clear",
+    "The main issue requiring attention is excessive phrase-internal pausing"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Oral Fluency because frequent pauses occur inside meaningful phrases, interrupting natural word grouping and making the delivery sound fragmented. The overall speaking rate between pauses remains appropriate, so this should not be diagnosed as simply speaking too slowly. Pronunciation is also generally clear. The teacher should focus on reducing unnecessary phrase-internal pauses and maintaining natural thought groups.",
+  perfectCalibrationResponse:
+    "The student's main issue is Oral Fluency because frequent pauses occur inside meaningful phrases, interrupting natural word grouping and making the delivery sound fragmented. The overall speaking rate between pauses remains appropriate, so this should not be diagnosed as simply speaking too slowly. Pronunciation is also generally clear. The teacher should focus on reducing unnecessary phrase-internal pauses and maintaining natural thought groups.",
+  coachingAdvice:
+    "Practise reading in natural thought groups rather than stopping between closely connected words. For example, say 'a chance to learn' as one smooth phrase and 'their classes to museums' without an unnecessary break. Aim for connected speech while keeping a comfortable overall rate.",
+  cefrLevel: "A2",
+  topicTitle: "School Field Trips",
+  good: {
+    transcript:
+      "School field trips give students a chance to learn outside the classroom. Teachers may take their classes to museums, science centers, parks, or historical places. Before the trip, students should listen carefully to the instructions and stay with their group. A well-planned field trip can make learning more interesting and memorable.",
+    audioDuration: "24.5 seconds",
+    wordCount: 57,
+    characteristics:
+      "Clear, continuous and appropriately paced delivery with natural word grouping."
+  },
+  poor: {
+    transcript:
+      "School field trips give students a chance / to learn outside the classroom. Teachers may take their classes / to museums, science centers, parks, / or historical places. Before the trip, students should listen carefully / to the instructions and stay with their group. A well-planned field trip / can make learning more interesting and memorable.",
+    audioDuration: "27.0 seconds",
+    wordCount: 57,
+    characteristics:
+      "The response is generally clear and appropriately paced between pauses, but frequent pauses occur inside meaningful phrases, making the delivery sound fragmented."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Natural word grouping with clear and continuous delivery."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 3,
+    pronunciation: 5,
+    overall: "84 / 90",
+    breakdownText:
+      "Frequent phrase-internal pauses disrupt Oral Fluency while Content and Pronunciation remain strong."
+  },
+  errorChecklist: [
+    {
+      id: "excessive-phrase-internal-pausing",
+      label: "Excessive phrase-internal pausing",
+      keyword: "Excessive phrase-internal pausing"
+    },
+    {
+      id: "fragmented-delivery",
+      label: "Fragmented delivery",
+      keyword: "Fragmented delivery"
+    },
+    {
+      id: "interrupted-fluency",
+      label: "Interrupted fluency",
+      keyword: "Interrupted fluency"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this as simply speaking too slowly. The defining problem is the frequent pauses inside meaningful phrases. Focus on natural word grouping and connected speech while maintaining the same comfortable overall rate."
+},
+
+{
+  exerciseIndex: 39,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Content Accuracy",
+  diagnosticArea: "Word Substitution",
+  learningObjective:
+    "Identify a specific substituted word in a Read Aloud response and distinguish the Content problem from Oral Fluency and Pronunciation.",
+  promptText:
+    "Many people enjoy watching TV shows and movies in their free time. Some people prefer comedies because they are funny and relaxing. Others enjoy action films because they like exciting stories and special effects. Watching a good movie can also be a pleasant way to spend an evening with friends or family.",
+  promptAudio:
+    "Many people enjoy watching TV shows and movies in their free time. Some people prefer comedies because they are funny and relaxing. Others enjoy action films because they like exciting stories and special effects. Watching a good movie can also be a pleasant way to spend an evening with friends or family.",
+  studentTranscript:
+    "Many people enjoy watching TV shows and movies in their free time. Some people prefer comedies because they are funny and relaxing. Others enjoy action films because they like exciting stories and special effects. Watching a good movie can also be a pleasant way to spend an evening with friends or friends.",
+  studentResponse: {
+    audioDuration: "24.5 seconds",
+    wordCount: 57,
+    characteristics:
+      "Clear and appropriately paced delivery with one specific word substituted near the end of the response."
+  },
+  diagnosticErrors: [
+    "Word substitution",
+    "Content accuracy",
+    "Incorrect word reproduction"
+  ],
+  expertEvidence: [
+    "The prompt ends with 'friends or family'",
+    "The student says 'friends or friends'",
+    "The second occurrence of 'friends' substitutes for the target word 'family'",
+    "The rest of the reading text is reproduced accurately",
+    "Overall speaking rate remains appropriate",
+    "Pronunciation is generally clear",
+    "The main issue requiring attention is the substituted word"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Content accuracy because they substitute the word \"friends\" for \"family\" near the end of the response. The prompt says \"friends or family,\" but the student says \"friends or friends.\" This specific word substitution affects the Read Aloud Content score. Oral Fluency and Pronunciation remain strong because the response is clear, continuous and appropriately paced.",
+  perfectCalibrationResponse:
+    "The student's main issue is Content accuracy because they substitute the word \"friends\" for \"family\" near the end of the response. The prompt says \"friends or family,\" but the student says \"friends or friends.\" This specific word substitution affects the Read Aloud Content score. Oral Fluency and Pronunciation remain strong because the response is clear, continuous and appropriately paced.",
+  coachingAdvice:
+    "Focus on reproducing the exact words in the reading text rather than relying on familiar phrases. Practise the final sentence slowly enough to notice each word, then return to a natural speaking rate.",
+  cefrLevel: "A2",
+  topicTitle: "TV Shows & Cinema Movies",
+  good: {
+    transcript:
+      "Many people enjoy watching TV shows and movies in their free time. Some people prefer comedies because they are funny and relaxing. Others enjoy action films because they like exciting stories and special effects. Watching a good movie can also be a pleasant way to spend an evening with friends or family.",
+    audioDuration: "24.5 seconds",
+    wordCount: 57,
+    characteristics:
+      "Clear, continuous and appropriately paced delivery with accurate word reproduction."
+  },
+  poor: {
+    transcript:
+      "Many people enjoy watching TV shows and movies in their free time. Some people prefer comedies because they are funny and relaxing. Others enjoy action films because they like exciting stories and special effects. Watching a good movie can also be a pleasant way to spend an evening with friends or friends.",
+    audioDuration: "24.5 seconds",
+    wordCount: 57,
+    characteristics:
+      "Clear and appropriately paced delivery with the word 'friends' substituted for 'family' near the end."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Accurate word reproduction with clear and continuous delivery."
+  },
+  poorScore: {
+    content: 4,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "87 / 90",
+    breakdownText:
+      "A specific word substitution reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+  },
+  errorChecklist: [
+    {
+      id: "word-substitution",
+      label: "Word substitution",
+      keyword: "Word substitution"
+    },
+    {
+      id: "content-accuracy",
+      label: "Content accuracy",
+      keyword: "Content accuracy"
+    },
+    {
+      id: "incorrect-word",
+      label: "Incorrect word reproduction",
+      keyword: "Incorrect word reproduction"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this as a pronunciation or fluency problem. The student's delivery is clear and appropriately paced. Focus on the specific substitution of 'friends' for 'family' and reinforce accurate reproduction of the reading text."
+},
+
+{
+  exerciseIndex: 40,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Oral Fluency",
+  diagnosticArea: "Word Repetition",
+  learningObjective:
+    "Identify an unnecessary repeated content word in a Read Aloud response and distinguish repetition from hesitation, speech-rate, pronunciation, and Content problems.",
+  promptText:
+    "Community gardens give people a chance to grow plants in shared spaces. Neighbors can work together to prepare the soil, plant vegetables, and take care of the garden. These projects can provide fresh food and create friendly connections between local residents. Gardening together can also make empty areas more useful and attractive.",
+  promptAudio:
+    "Community gardens give people a chance to grow plants in shared spaces. Neighbors can work together to prepare the soil, plant vegetables, and take care of the garden. These projects can provide fresh food and create friendly connections between local residents. Gardening together can also make empty areas more useful and attractive.",
+  studentTranscript:
+    "Community gardens give people a chance to grow plants in shared spaces. Neighbors can work together to prepare the soil, plant vegetables, and take care of the garden. These projects can provide fresh fresh food and create friendly connections between local residents. Gardening together can also make empty areas more useful and attractive.",
+  studentResponse: {
+    audioDuration: "25.5 seconds",
+    wordCount: 60,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the word 'fresh' is unnecessarily repeated before 'food', creating a brief fluency disruption."
+  },
+  diagnosticErrors: [
+    "Word repetition",
+    "Unnecessary repetition",
+    "Interrupted fluency"
+  ],
+  expertEvidence: [
+    "The prompt says 'provide fresh food'",
+    "The student says 'provide fresh fresh food'",
+    "The word 'fresh' is repeated unnecessarily",
+    "The repeated word creates a brief interruption in otherwise continuous delivery",
+    "The overall speaking rate remains appropriate",
+    "Pronunciation is generally clear",
+    "The main issue requiring attention is unnecessary word repetition"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Oral Fluency because they unnecessarily repeat the word \"fresh\" in the phrase \"provide fresh fresh food.\" The repeated word creates a brief disruption in otherwise continuous delivery. The overall speaking rate remains appropriate and Pronunciation is generally clear. The teacher should therefore focus on reducing unnecessary repetitions rather than diagnosing a general speech-rate or pronunciation problem.",
+  perfectCalibrationResponse:
+    "The student's main issue is Oral Fluency because they unnecessarily repeat the word \"fresh\" in the phrase \"provide fresh fresh food.\" The repeated word creates a brief disruption in otherwise continuous delivery. The overall speaking rate remains appropriate and Pronunciation is generally clear. The teacher should therefore focus on reducing unnecessary repetitions rather than diagnosing a general speech-rate or pronunciation problem.",
+  coachingAdvice:
+    "Practise reading in short phrases and focus on moving smoothly from one word to the next without repeating words. If a repetition occurs, continue naturally rather than restarting the phrase.",
+  cefrLevel: "A2",
+  topicTitle: "Community Urban Gardening",
+  good: {
+    transcript:
+      "Community gardens give people a chance to grow plants in shared spaces. Neighbors can work together to prepare the soil, plant vegetables, and take care of the garden. These projects can provide fresh food and create friendly connections between local residents. Gardening together can also make empty areas more useful and attractive.",
+    audioDuration: "24.5 seconds",
+    wordCount: 59,
+    characteristics:
+      "Clear, continuous and appropriately paced delivery without unnecessary word repetitions."
+  },
+  poor: {
+    transcript:
+      "Community gardens give people a chance to grow plants in shared spaces. Neighbors can work together to prepare the soil, plant vegetables, and take care of the garden. These projects can provide fresh fresh food and create friendly connections between local residents. Gardening together can also make empty areas more useful and attractive.",
+    audioDuration: "25.5 seconds",
+    wordCount: 60,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the word 'fresh' is unnecessarily repeated before 'food', creating a brief fluency disruption."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Clear and continuous delivery without unnecessary repetitions."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 3,
+    pronunciation: 5,
+    overall: "84 / 90",
+    breakdownText:
+      "An unnecessary word repetition creates a brief Oral Fluency disruption while Content and Pronunciation remain strong."
+  },
+  errorChecklist: [
+    {
+      id: "word-repetition",
+      label: "Word repetition",
+      keyword: "Word repetition"
+    },
+    {
+      id: "unnecessary-repetition",
+      label: "Unnecessary repetition",
+      keyword: "Unnecessary repetition"
+    },
+    {
+      id: "interrupted-fluency",
+      label: "Interrupted fluency",
+      keyword: "Interrupted fluency"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this as poor speech rate or pronunciation. The overall delivery is clear and appropriately paced. Focus specifically on the unnecessary repetition of 'fresh' and maintaining smooth continuous delivery."
+},
+
+{
+  exerciseIndex: 41,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Content Accuracy",
+  diagnosticArea: "Word Sequence Disruption",
+  learningObjective:
+    "Identify a word-order disruption in a Read Aloud response and distinguish Content accuracy from Oral Fluency and Pronunciation problems.",
+  promptText:
+    "Remote work has become common in many modern workplaces. Employees can often complete their tasks from home while communicating with colleagues through online tools. Hybrid jobs allow workers to spend some days at home and other days in the office. Good communication and careful planning are important when people work in different locations.",
+  promptAudio:
+    "Remote work has become common in many modern workplaces. Employees can often complete their tasks from home while communicating with colleagues through online tools. Hybrid jobs allow workers to spend some days at home and other days in the office. Good communication and careful planning are important when people work in different locations.",
+  studentTranscript:
+    "Remote work has become common in many modern workplaces. Employees can often complete their tasks from home while communicating with colleagues through online tools. Hybrid jobs allow workers to spend some days at home and other days in the office. Good communication and careful planning are important when people work in different locations.",
+  studentResponse: {
+    audioDuration: "25.5 seconds",
+    wordCount: 64,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the final phrase contains a word-order disruption."
+  },
+  diagnosticErrors: [
+    "Word sequence disruption",
+    "Content accuracy",
+    "Incorrect word order"
+  ],
+  expertEvidence: [
+    "The prompt says 'work in different locations'",
+    "The student says 'work in locations different'",
+    "The words are present but their order has been disrupted",
+    "The error occurs in the final phrase",
+    "The rest of the response is reproduced accurately",
+    "Overall speaking rate remains appropriate",
+    "Pronunciation is generally clear",
+    "The main issue requiring attention is Content accuracy"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Content accuracy because the word sequence in the final phrase is incorrect. The prompt says \"work in different locations,\" but the student says \"work in locations different.\" The words are present but their order has been disrupted, so the response does not accurately reproduce the reading text. Oral Fluency and Pronunciation remain generally strong because the student speaks clearly, continuously and at an appropriate pace.",
+  perfectCalibrationResponse:
+    "The student's main issue is Content accuracy because the word sequence in the final phrase is incorrect. The prompt says \"work in different locations,\" but the student says \"work in locations different.\" The words are present but their order has been disrupted, so the response does not accurately reproduce the reading text. Oral Fluency and Pronunciation remain generally strong because the student speaks clearly, continuously and at an appropriate pace.",
+  coachingAdvice:
+    "Focus on reproducing the exact sequence of words in each phrase. Practise the final phrase as one unit — 'work in different locations' — while keeping the overall delivery natural and continuous.",
+  cefrLevel: "B1",
+  topicTitle: "Remote Work & Hybrid Jobs",
+  good: {
+    transcript:
+      "Remote work has become common in many modern workplaces. Employees can often complete their tasks from home while communicating with colleagues through online tools. Hybrid jobs allow workers to spend some days at home and other days in the office. Good communication and careful planning are important when people work in different locations.",
+    audioDuration: "25.0 seconds",
+    wordCount: 64,
+    characteristics:
+      "Clear, continuous and appropriately paced delivery with accurate word sequence."
+  },
+  poor: {
+    transcript:
+      "Remote work has become common in many modern workplaces. Employees can often complete their tasks from home while communicating with colleagues through online tools. Hybrid jobs allow workers to spend some days at home and other days in the office. Good communication and careful planning are important when people work in locations different.",
+    audioDuration: "25.5 seconds",
+    wordCount: 64,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the final phrase contains a word-order disruption."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Accurate word sequence with clear and continuous delivery."
+  },
+  poorScore: {
+    content: 4,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "87 / 90",
+    breakdownText:
+      "A specific word-sequence disruption reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+  },
+  errorChecklist: [
+    {
+      id: "word-sequence-disruption",
+      label: "Word sequence disruption",
+      keyword: "Word sequence disruption"
+    },
+    {
+      id: "content-accuracy",
+      label: "Content accuracy",
+      keyword: "Content accuracy"
+    },
+    {
+      id: "incorrect-word-order",
+      label: "Incorrect word order",
+      keyword: "Incorrect word order"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this primarily as a fluency or pronunciation problem. The student's delivery remains clear and appropriately paced. Focus on the incorrect sequence 'work in locations different' compared with the target 'work in different locations.'"
+},
+
+{
+  exerciseIndex: 42,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Oral Fluency",
+  diagnosticArea: "Filler Words",
+  learningObjective:
+    "Identify repeated filler words in a Read Aloud response and distinguish them from Content, Pronunciation, and overall speech-rate problems.",
+  promptText:
+    "Social media plays an important role in the lives of many young people. Students use online platforms to communicate with friends, share photos, and discover new ideas. However, spending too much time online can reduce the time available for study, exercise, and face-to-face communication. Young people should try to maintain a healthy balance between online and offline activities.",
+  promptAudio:
+    "Social media plays an important role in the lives of many young people. Students use online platforms to communicate with friends, share photos, and discover new ideas. However, spending too much time online can reduce the time available for study, exercise, and face-to-face communication. Young people should try to maintain a healthy balance between online and offline activities.",
+  studentTranscript:
+    "Social media plays an important role in the lives of many young people. Students use online platforms to communicate with friends, um, share photos, and discover new ideas. However, spending too much time online can reduce the time available for study, exercise, um, and face-to-face communication. Young people should try to maintain a healthy balance between online and offline activities.",
+  studentResponse: {
+    audioDuration: "29.0 seconds",
+    wordCount: 64,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the speaker inserts audible 'um' filler words during the reading."
+  },
+  diagnosticErrors: [
+    "Filler words",
+    "Hesitation",
+    "Interrupted fluency"
+  ],
+  expertEvidence: [
+    "The student inserts 'um' after 'friends'",
+    "The student inserts another 'um' before 'and face-to-face communication'",
+    "The filler words interrupt otherwise continuous delivery",
+    "The overall speaking rate remains appropriate",
+    "Content remains substantially intact",
+    "Pronunciation is generally clear",
+    "The main issue requiring attention is the use of filler words"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Oral Fluency because they repeatedly use the filler \"um\" during the reading. The student inserts \"um\" after \"friends\" and again before \"and face-to-face communication,\" interrupting otherwise continuous delivery. Content remains substantially accurate and Pronunciation is generally clear. The teacher should therefore focus on reducing vocalized fillers and maintaining smooth, continuous speech rather than diagnosing a Content, Pronunciation or speech-rate problem.",
+  perfectCalibrationResponse:
+    "The student's main issue is Oral Fluency because they repeatedly use the filler \"um\" during the reading. The student inserts \"um\" after \"friends\" and again before \"and face-to-face communication,\" interrupting otherwise continuous delivery. Content remains substantially accurate and Pronunciation is generally clear. The teacher should therefore focus on reducing vocalized fillers and maintaining smooth, continuous speech rather than diagnosing a Content, Pronunciation or speech-rate problem.",
+  coachingAdvice:
+    "Practise replacing vocalized fillers such as 'um' with brief silent pauses. Read short sections repeatedly while keeping the delivery smooth and continuous without inserting filler words.",
+  cefrLevel: "B1",
+  topicTitle: "Social Media & Youth Culture",
+  good: {
+    transcript:
+      "Social media plays an important role in the lives of many young people. Students use online platforms to communicate with friends, share photos, and discover new ideas. However, spending too much time online can reduce the time available for study, exercise, and face-to-face communication. Young people should try to maintain a healthy balance between online and offline activities.",
+    audioDuration: "27.0 seconds",
+    wordCount: 62,
+    characteristics:
+      "Clear, continuous and appropriately paced delivery without vocalized fillers."
+  },
+  poor: {
+    transcript:
+      "Social media plays an important role in the lives of many young people. Students use online platforms to communicate with friends, um, share photos, and discover new ideas. However, spending too much time online can reduce the time available for study, exercise, um, and face-to-face communication. Young people should try to maintain a healthy balance between online and offline activities.",
+    audioDuration: "29.0 seconds",
+    wordCount: 64,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the speaker inserts audible 'um' filler words during the reading."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Smooth continuous delivery without vocalized fillers."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 3,
+    pronunciation: 5,
+    overall: "84 / 90",
+    breakdownText:
+      "Repeated filler words disrupt Oral Fluency while Content and Pronunciation remain strong."
+  },
+  errorChecklist: [
+    {
+      id: "filler-words",
+      label: "Filler words",
+      keyword: "Filler words"
+    },
+    {
+      id: "hesitation",
+      label: "Hesitation",
+      keyword: "Hesitation"
+    },
+    {
+      id: "interrupted-fluency",
+      label: "Interrupted fluency",
+      keyword: "Interrupted fluency"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this as a Content, Pronunciation or general speech-rate problem. The key issue is the audible use of 'um' as a filler. Focus on replacing vocalized fillers with brief silent pauses while maintaining natural continuous speech."
+},
+
+{
+  exerciseIndex: 43,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Content Accuracy",
+  diagnosticArea: "Word Insertion",
+  learningObjective:
+    "Identify an inserted word in a Read Aloud response and distinguish Content accuracy from Oral Fluency and Pronunciation problems.",
+  promptText:
+    "Solar power can help households reduce their use of electricity from traditional sources. Many families install solar panels on their roofs to generate energy during the day. The electricity can be used to operate lights, appliances, and other equipment in the home. Over time, solar power may help reduce energy costs and support cleaner energy production.",
+  promptAudio:
+    "Solar power can help households reduce their use of electricity from traditional sources. Many families install solar panels on their roofs to generate energy during the day. The electricity can be used to operate lights, appliances, and other equipment in the home. Over time, solar power may help reduce energy costs and support cleaner energy production.",
+  studentTranscript:
+    "Solar power can help households reduce their use of electricity from traditional sources. Many families install solar panels on their roofs to generate energy during the day. The electricity can be used to operate lights, appliances, and other equipment in the home. Over time, solar power may help reduce energy costs and support cleaner energy production.",
+  studentResponse: {
+    audioDuration: "27.0 seconds",
+    wordCount: 63,
+    characteristics:
+      "Clear and appropriately paced delivery with one additional word inserted into the final sentence."
+  },
+  diagnosticErrors: [
+    "Word insertion",
+    "Content accuracy",
+    "Extra word"
+  ],
+  expertEvidence: [
+    "The prompt says 'reduce energy costs'",
+    "The student says 'reduce energy costs significantly'",
+    "The word 'significantly' is an extra word not present in the prompt",
+    "The insertion occurs in the final sentence",
+    "The rest of the reading text is reproduced accurately",
+    "Overall speaking rate remains appropriate",
+    "Pronunciation is generally clear",
+    "The main issue requiring attention is Content accuracy"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Content accuracy because they insert the extra word \"significantly\" into the final sentence. The prompt says \"reduce energy costs,\" but the student says \"reduce energy costs significantly.\" This specific word insertion affects the Read Aloud Content score. Oral Fluency and Pronunciation remain strong because the response is clear, continuous and appropriately paced.",
+  perfectCalibrationResponse:
+    "The student's main issue is Content accuracy because they insert the extra word \"significantly\" into the final sentence. The prompt says \"reduce energy costs,\" but the student says \"reduce energy costs significantly.\" This specific word insertion affects the Read Aloud Content score. Oral Fluency and Pronunciation remain strong because the response is clear, continuous and appropriately paced.",
+  coachingAdvice:
+    "Focus on reproducing only the words that appear in the reading text. Practise the final sentence carefully and avoid adding words that seem natural but are not actually written on the screen.",
+  cefrLevel: "B1",
+  topicTitle: "Home Solar Power Savings",
+  good: {
+    transcript:
+      "Solar power can help households reduce their use of electricity from traditional sources. Many families install solar panels on their roofs to generate energy during the day. The electricity can be used to operate lights, appliances, and other equipment in the home. Over time, solar power may help reduce energy costs and support cleaner energy production.",
+    audioDuration: "26.5 seconds",
+    wordCount: 62,
+    characteristics:
+      "Clear, continuous and appropriately paced delivery with exact word reproduction."
+  },
+  poor: {
+    transcript:
+      "Solar power can help households reduce their use of electricity from traditional sources. Many families install solar panels on their roofs to generate energy during the day. The electricity can be used to operate lights, appliances, and other equipment in the home. Over time, solar power may help reduce energy costs significantly and support cleaner energy production.",
+    audioDuration: "27.0 seconds",
+    wordCount: 63,
+    characteristics:
+      "Clear and appropriately paced delivery with the extra word 'significantly' inserted into the final sentence."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Exact word reproduction with clear and continuous delivery."
+  },
+  poorScore: {
+    content: 4,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "87 / 90",
+    breakdownText:
+      "A specific word insertion reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+  },
+  errorChecklist: [
+    {
+      id: "word-insertion",
+      label: "Word insertion",
+      keyword: "Word insertion"
+    },
+    {
+      id: "content-accuracy",
+      label: "Content accuracy",
+      keyword: "Content accuracy"
+    },
+    {
+      id: "extra-word",
+      label: "Extra word",
+      keyword: "Extra word"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this as a pronunciation or fluency problem. The student's delivery is clear and appropriately paced. Focus specifically on the inserted word 'significantly' and reinforce exact reproduction of the reading text."
+},
+
+{
+  exerciseIndex: 44,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Oral Fluency",
+  diagnosticArea: "Phrase-Internal Pausing",
+  learningObjective:
+    "Identify frequent pauses inside meaningful phrases in a Read Aloud response and distinguish them from sentence-boundary pauses and overall slow speech.",
+  promptText:
+    "Living in a university dormitory can help students become more independent. Students usually share common areas such as kitchens, study rooms, and laundry facilities. They can meet people from different backgrounds and learn how to manage their daily responsibilities. Living with other students can also make university life more social and enjoyable.",
+  promptAudio:
+    "Living in a university dormitory can help students become more independent. Students usually share common areas such as kitchens, study rooms, and laundry facilities. They can meet people from different backgrounds and learn how to manage their daily responsibilities. Living with other students can also make university life more social and enjoyable.",
+  studentTranscript:
+    "Living in a university dormitory can help students / become more independent. Students usually share common areas / such as kitchens, study rooms, and laundry facilities. They can meet people from different backgrounds / and learn how to manage their daily responsibilities. Living with other students / can also make university life more social and enjoyable.",
+  studentResponse: {
+    audioDuration: "29.0 seconds",
+    wordCount: 62,
+    characteristics:
+      "Clear pronunciation and acceptable overall pace, but frequent pauses occur inside meaningful phrases and interrupt natural word grouping."
+  },
+  diagnosticErrors: [
+    "Phrase-internal pausing",
+    "Fragmented delivery",
+    "Interrupted fluency"
+  ],
+  expertEvidence: [
+    "The student pauses between 'students' and 'become more independent'",
+    "The student pauses between 'common areas' and 'such as kitchens'",
+    "The student pauses between 'backgrounds' and 'and learn'",
+    "The student pauses between 'other students' and 'can also make'",
+    "The pauses interrupt natural phrase grouping",
+    "The overall speaking rate between pauses remains appropriate",
+    "Pronunciation is generally clear",
+    "The main issue requiring attention is phrase-internal pausing"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Oral Fluency because frequent pauses occur inside meaningful phrases, interrupting natural word grouping and making the delivery sound fragmented. The overall speaking rate between pauses remains appropriate, so this should not be diagnosed simply as speaking too slowly. Pronunciation is generally clear. The teacher should focus on connected speech and maintaining natural thought groups.",
+  perfectCalibrationResponse:
+    "The student's main issue is Oral Fluency because frequent pauses occur inside meaningful phrases, interrupting natural word grouping and making the delivery sound fragmented. The overall speaking rate between pauses remains appropriate, so this should not be diagnosed simply as speaking too slowly. Pronunciation is generally clear. The teacher should focus on connected speech and maintaining natural thought groups.",
+  coachingAdvice:
+    "Practise keeping closely connected words together in natural thought groups. For example, say 'students become more independent' and 'common areas such as kitchens' without stopping inside the phrase.",
+  cefrLevel: "B1",
+  topicTitle: "University Dormitory Life",
+  good: {
+    transcript:
+      "Living in a university dormitory can help students become more independent. Students usually share common areas such as kitchens, study rooms, and laundry facilities. They can meet people from different backgrounds and learn how to manage their daily responsibilities. Living with other students can also make university life more social and enjoyable.",
+    audioDuration: "26.5 seconds",
+    wordCount: 62,
+    characteristics:
+      "Clear, connected and appropriately paced delivery with natural phrase grouping."
+  },
+  poor: {
+    transcript:
+      "Living in a university dormitory can help students / become more independent. Students usually share common areas / such as kitchens, study rooms, and laundry facilities. They can meet people from different backgrounds / and learn how to manage their daily responsibilities. Living with other students / can also make university life more social and enjoyable.",
+    audioDuration: "29.0 seconds",
+    wordCount: 62,
+    characteristics:
+      "Clear pronunciation and acceptable overall pace, but frequent pauses occur inside meaningful phrases and interrupt natural word grouping."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Natural phrase grouping with clear and continuous delivery."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 3,
+    pronunciation: 5,
+    overall: "84 / 90",
+    breakdownText:
+      "Frequent phrase-internal pauses disrupt Oral Fluency while Content and Pronunciation remain strong."
+  },
+  errorChecklist: [
+    {
+      id: "phrase-internal-pausing",
+      label: "Phrase-internal pausing",
+      keyword: "Phrase-internal pausing"
+    },
+    {
+      id: "fragmented-delivery",
+      label: "Fragmented delivery",
+      keyword: "Fragmented delivery"
+    },
+    {
+      id: "interrupted-fluency",
+      label: "Interrupted fluency",
+      keyword: "Interrupted fluency"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this simply as slow speaking. The defining issue is the placement of pauses inside meaningful phrases. Focus on connected speech, natural word grouping and maintaining an appropriate overall rate."
+},
+
+{
+  exerciseIndex: 45,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Pronunciation",
+  diagnosticArea: "TH Sound Pronunciation",
+  learningObjective:
+    "Identify a specific TH sound pronunciation problem in a Read Aloud response and distinguish it from Content and Oral Fluency problems.",
+  promptText:
+    "Modern public libraries are changing to meet the needs of their communities. Many libraries now provide computers, digital resources, quiet study areas, and spaces for group activities. They may also offer workshops that help people develop useful technology skills. These changes allow libraries to remain valuable places for learning, information, and community connection.",
+  promptAudio:
+    "Modern public libraries are changing to meet the needs of their communities. Many libraries now provide computers, digital resources, quiet study areas, and spaces for group activities. They may also offer workshops that help people develop useful technology skills. These changes allow libraries to remain valuable places for learning, information, and community connection.",
+  studentTranscript:
+    "Modern public libraries are changing to meet the needs of their communities. Many libraries now provide computers, digital resources, quiet study areas, and spaces for group activities. They may also offer workshops that help people develop useful technology skills. These changes allow libraries to remain valuable places for learning, information, and community connection.",
+  studentResponse: {
+    audioDuration: "28.5 seconds",
+    wordCount: 65,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the initial TH sound in 'These' is replaced by a /t/-like sound."
+  },
+  diagnosticErrors: [
+    "TH sound pronunciation",
+    "Initial consonant pronunciation",
+    "Pronunciation accuracy"
+  ],
+  expertEvidence: [
+    "The target word is 'These'",
+    "The initial voiced TH sound is produced more like a /t/-like sound",
+    "The pronunciation issue occurs at the beginning of one specific word",
+    "The remaining words are delivered clearly",
+    "Overall speaking rate remains appropriate",
+    "Content remains substantially intact",
+    "The main issue requiring attention is the specific TH sound"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Pronunciation accuracy, specifically the initial TH sound in the word \"These.\" The target sound is produced more like a /t/-like sound, creating a localized pronunciation problem. The rest of the response is clear and appropriately paced, with the Content substantially intact. The teacher should therefore focus on the specific TH sound rather than diagnosing poor fluency or speech rate.",
+  perfectCalibrationResponse:
+    "The student's main issue is Pronunciation accuracy, specifically the initial TH sound in the word \"These.\" The target sound is produced more like a /t/-like sound, creating a localized pronunciation problem. The rest of the response is clear and appropriately paced, with the Content substantially intact. The teacher should therefore focus on the specific TH sound rather than diagnosing poor fluency or speech rate.",
+  coachingAdvice:
+    "Practise the voiced TH sound by placing the tongue lightly between or just behind the teeth and allowing the voice to continue through the sound. Contrast 'these' with 'tease,' then practise 'These changes' in short sentences.",
+  cefrLevel: "B1",
+  topicTitle: "Public Library Modernization",
+  good: {
+    transcript:
+      "Modern public libraries are changing to meet the needs of their communities. Many libraries now provide computers, digital resources, quiet study areas, and spaces for group activities. They may also offer workshops that help people develop useful technology skills. These changes allow libraries to remain valuable places for learning, information, and community connection.",
+    audioDuration: "28.0 seconds",
+    wordCount: 65,
+    characteristics:
+      "Clear pronunciation with accurate TH sounds, appropriate pace and continuous delivery."
+  },
+  poor: {
+    transcript:
+      "Modern public libraries are changing to meet the needs of their communities. Many libraries now provide computers, digital resources, quiet study areas, and spaces for group activities. They may also offer workshops that help people develop useful technology skills. Teese changes allow libraries to remain valuable places for learning, information, and community connection.",
+    audioDuration: "28.5 seconds",
+    wordCount: 65,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the initial TH sound in 'These' is replaced by a /t/-like sound."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Clear pronunciation with accurate TH sounds and continuous delivery."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 3,
+    overall: "84 / 90",
+    breakdownText:
+      "A localized TH sound pronunciation problem reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
+  },
+  errorChecklist: [
+    {
+      id: "th-sound-pronunciation",
+      label: "TH sound pronunciation",
+      keyword: "TH sound pronunciation"
+    },
+    {
+      id: "initial-consonant-pronunciation",
+      label: "Initial consonant pronunciation",
+      keyword: "Initial consonant pronunciation"
+    },
+    {
+      id: "pronunciation-accuracy",
+      label: "Pronunciation accuracy",
+      keyword: "Pronunciation accuracy"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this as poor fluency or speaking too fast. The student's overall rate and continuity are appropriate. Focus specifically on the initial TH sound in 'These' and provide targeted pronunciation coaching."
+},
+
+{
+  exerciseIndex: 46,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Pronunciation",
+  diagnosticArea: "Initial Consonant Pronunciation",
+  learningObjective:
+    "Identify a clearly audible consonant pronunciation problem in a common word and distinguish it from Content and Oral Fluency problems.",
+  promptText:
+    "A healthy diet provides the body with the nutrients it needs to stay strong and active. People should include a variety of fruits, vegetables, grains, and protein in their meals. Drinking enough water is also important for maintaining good health. A balanced diet can improve energy levels and help people develop healthy habits for the future.",
+  promptAudio:
+    "A healthy diet provides the body with the nutrients it needs to stay strong and active. People should include a variety of fruits, vegetables, grains, and protein in their meals. Drinking enough water is also important for maintaining good health. A balanced diet can improve energy levels and help people develop healthy habits for the future.",
+  studentTranscript:
+    "A healthy diet provides the body with the nutrients it needs to stay strong and active. People should include a variety of fruits, vegetables, grains, and protein in their meals. Drinking enough water is also important for maintaining good health. A balanced diet can improve energy levels and help people develop healthy habits for the future.",
+  studentResponse: {
+    audioDuration: "25.0 seconds",
+    wordCount: 62,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the initial consonant sound in the word 'strong' is changed, making the word sound like 'throng'."
+  },
+  diagnosticErrors: [
+    "Initial consonant pronunciation",
+    "Consonant sound substitution",
+    "Pronunciation accuracy"
+  ],
+  expertEvidence: [
+    "The target word is 'strong'",
+    "The student changes the initial consonant sound in 'strong'",
+    "The result sounds like 'throng' rather than 'strong'",
+    "The pronunciation problem is localized to one specific word",
+    "The remaining words are generally clear",
+    "Overall speaking rate remains appropriate",
+    "The response is continuous without significant fillers or unnatural pauses",
+    "Content remains substantially intact",
+    "The main issue requiring attention is Pronunciation accuracy"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Pronunciation accuracy because the initial consonant sound in the word \"strong\" is changed, making the word sound like \"throng.\" This is a localized pronunciation problem. The rest of the response is clear, continuous and appropriately paced, with the Content substantially intact.",
+  perfectCalibrationResponse:
+    "The student's main issue is Pronunciation accuracy because the initial consonant sound in the word \"strong\" is changed, making the word sound like \"throng.\" This is a localized pronunciation problem. The rest of the response is clear, continuous and appropriately paced, with the Content substantially intact. The teacher should focus on the specific consonant sound rather than diagnosing a Content or Oral Fluency problem.",
+  coachingAdvice:
+    "Practise the initial consonant cluster in 'strong' and contrast it with 'throng.' Then practise 'strong' in the full sentence while maintaining a natural speaking rate.",
+  cefrLevel: "B1",
+  topicTitle: "Healthy Diets & Nutrition",
+  good: {
+    transcript:
+      "A healthy diet provides the body with the nutrients it needs to stay strong and active. People should include a variety of fruits, vegetables, grains, and protein in their meals. Drinking enough water is also important for maintaining good health. A balanced diet can improve energy levels and help people develop healthy habits for the future.",
+    audioDuration: "24.0 seconds",
+    wordCount: 62,
+    characteristics:
+      "Clear pronunciation with natural fluency and accurate Content."
+  },
+  poor: {
+    transcript:
+      "A healthy diet provides the body with the nutrients it needs to stay throng and active. People should include a variety of fruits, vegetables, grains, and protein in their meals. Drinking enough water is also important for maintaining good health. A balanced diet can improve energy levels and help people develop healthy habits for the future.",
+    audioDuration: "25.0 seconds",
+    wordCount: 62,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the word 'strong' is pronounced as the clearly different word 'throng'."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Clear pronunciation with natural fluency and accurate Content."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 3,
+    overall: "84 / 90",
+    breakdownText:
+      "A clear localized consonant pronunciation problem reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
+  },
+  errorChecklist: [
+    {
+      id: "initial-consonant-pronunciation",
+      label: "Initial consonant pronunciation",
+      keyword: "Initial consonant pronunciation"
+    },
+    {
+      id: "consonant-sound-substitution",
+      label: "Consonant sound substitution",
+      keyword: "Consonant sound substitution"
+    },
+    {
+      id: "pronunciation-accuracy",
+      label: "Pronunciation accuracy",
+      keyword: "Pronunciation accuracy"
+    }
+  ],
+  expertAdvice:
+    "Focus specifically on the initial consonant sound in 'strong.' Do not diagnose this as a Content or fluency problem because the rest of the response is clear and appropriately paced."
+},
+
+  {
+  exerciseIndex: 47,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Content Accuracy",
+  diagnosticArea: "Word Insertion",
+  learningObjective:
+    "Identify a clearly audible extra word in a Read Aloud response and distinguish Content accuracy from Oral Fluency and Pronunciation problems.",
+  promptText:
+    "Online classes have become an important part of modern education. Students can attend lessons from home and communicate with teachers through digital platforms. Many courses also provide recorded lectures that students can watch later. This flexibility helps learners manage their study time more effectively.",
+  promptAudio:
+    "Online classes have become an important part of modern education. Students can attend lessons from home and communicate with teachers through digital platforms. Many courses also provide recorded lectures that students can watch later. This flexibility helps learners manage their study time more effectively.",
+  studentTranscript:
+    "Online classes have become an important part of modern education. Students can attend lessons from home and communicate with teachers through digital platforms. Many courses also provide recorded lectures that students can watch later. This flexibility helps learners manage their study time more effectively.",
+  studentResponse: {
+    audioDuration: "23.5 seconds",
+    wordCount: 62,
+    characteristics:
+      "Clear and appropriately paced delivery with one extra word inserted into the final sentence."
+  },
+  diagnosticErrors: [
+    "Word insertion",
+    "Content accuracy",
+    "Extra word"
+  ],
+  expertEvidence: [
+    "The prompt says 'manage their study time more effectively'",
+    "The student says 'manage their study time very effectively'",
+    "The word 'very' is inserted even though it is not present in the prompt",
+    "The insertion occurs in the final sentence",
+    "The remaining text is reproduced accurately",
+    "Overall speaking rate remains appropriate",
+    "Pronunciation is generally clear",
+    "The response remains continuous without significant hesitation",
+    "The main issue requiring attention is Content accuracy"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Content accuracy because they insert the extra word \"very\" into the final sentence. The prompt says \"manage their study time more effectively,\" but the student says \"manage their study time very effectively.\" This specific word insertion affects the Read Aloud Content score. Oral Fluency and Pronunciation remain strong.",
+  perfectCalibrationResponse:
+    "The student's main issue is Content accuracy because they insert the extra word \"very\" into the final sentence. The prompt says \"manage their study time more effectively,\" but the student says \"manage their study time very effectively.\" This specific word insertion affects the Read Aloud Content score. Oral Fluency and Pronunciation remain strong because the response is clear, continuous and appropriately paced.",
+  coachingAdvice:
+    "Focus on reproducing only the words shown in the reading text. Avoid adding natural-sounding words such as 'very' when they are not present in the prompt.",
+  cefrLevel: "B1",
+  topicTitle: "E-Learning & Virtual Classes",
+  good: {
+    transcript:
+      "Online classes have become an important part of modern education. Students can attend lessons from home and communicate with teachers through digital platforms. Many courses also provide recorded lectures that students can watch later. This flexibility helps learners manage their study time more effectively.",
+    audioDuration: "22.5 seconds",
+    wordCount: 61,
+    characteristics:
+      "Clear, continuous and appropriately paced delivery with exact word reproduction."
+  },
+  poor: {
+    transcript:
+      "Online classes have become an important part of modern education. Students can attend lessons from home and communicate with teachers through digital platforms. Many courses also provide recorded lectures that students can watch later. This flexibility helps learners manage their study time very effectively.",
+    audioDuration: "23.5 seconds",
+    wordCount: 62,
+    characteristics:
+      "Clear and appropriately paced delivery with the extra word 'very' inserted into the final sentence."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Exact word reproduction with clear and continuous delivery."
+  },
+  poorScore: {
+    content: 4,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "87 / 90",
+    breakdownText:
+      "A specific word insertion reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+  },
+  errorChecklist: [
+    {
+      id: "word-insertion",
+      label: "Word insertion",
+      keyword: "Word insertion"
+    },
+    {
+      id: "content-accuracy",
+      label: "Content accuracy",
+      keyword: "Content accuracy"
+    },
+    {
+      id: "extra-word",
+      label: "Extra word",
+      keyword: "Extra word"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this as a pronunciation or fluency problem. The delivery is clear and appropriately paced. Focus specifically on the inserted word 'very' and exact reproduction of the reading text."
+},
+
+  {
+  exerciseIndex: 48,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Oral Fluency",
+  diagnosticArea: "Run-On Delivery",
+  learningObjective:
+    "Identify insufficient sentence-boundary pausing and run-on delivery in a Read Aloud response and distinguish it from overall speech rate.",
+  promptText:
+    "Cities are building more bicycle lanes to make travel safer and reduce traffic. Dedicated lanes can encourage people to cycle instead of driving short distances. However, successful bike networks require careful planning and connections between different parts of the city. Good design can make cycling more convenient for both workers and families.",
+  promptAudio:
+    "Cities are building more bicycle lanes to make travel safer and reduce traffic. Dedicated lanes can encourage people to cycle instead of driving short distances. However, successful bike networks require careful planning and connections between different parts of the city. Good design can make cycling more convenient for both workers and families.",
+  studentTranscript:
+    "Cities are building more bicycle lanes to make travel safer and reduce traffic Dedicated lanes can encourage people to cycle instead of driving short distances However successful bike networks require careful planning and connections between different parts of the city Good design can make cycling more convenient for both workers and families.",
+  studentResponse: {
+    audioDuration: "22.5 seconds",
+    wordCount: 65,
+    characteristics:
+      "The student reads at an appropriate overall rate but continues directly across sentence boundaries without natural pauses, creating run-on delivery."
+  },
+  diagnosticErrors: [
+    "Run-on delivery",
+    "Insufficient sentence-boundary pausing",
+    "Oral Fluency disruption"
+  ],
+  expertEvidence: [
+    "The student moves directly from one sentence into the next",
+    "There is little or no audible pause after 'traffic'",
+    "There is little or no audible pause after 'distances'",
+    "There is little or no audible pause after 'city'",
+    "The overall speaking rate is not excessively fast",
+    "The words remain substantially accurate",
+    "Pronunciation is generally clear",
+    "The main issue requiring attention is insufficient sentence-boundary pausing"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Oral Fluency because they use insufficient pauses at sentence boundaries, causing the response to sound like continuous run-on speech. The overall speaking rate is not excessively fast, so this should not be diagnosed simply as speaking too quickly. Content remains substantially accurate and Pronunciation is generally clear.",
+  perfectCalibrationResponse:
+    "The student's main issue is Oral Fluency because they use insufficient pauses at sentence boundaries, causing the response to sound like continuous run-on speech. There is little or no natural break between several complete sentences. The overall speaking rate is not excessively fast, so this should not be diagnosed simply as speaking too quickly. Content remains substantially accurate and Pronunciation is generally clear.",
+  coachingAdvice:
+    "Practise taking a short natural pause after each complete sentence. The goal is not to slow the overall speech rate, but to separate complete ideas clearly while maintaining smooth delivery.",
+  cefrLevel: "B1",
+  topicTitle: "Urban Bike Lanes & Congestion",
+  good: {
+    transcript:
+      "Cities are building more bicycle lanes to make travel safer and reduce traffic. Dedicated lanes can encourage people to cycle instead of driving short distances. However, successful bike networks require careful planning and connections between different parts of the city. Good design can make cycling more convenient for both workers and families.",
+    audioDuration: "24.5 seconds",
+    wordCount: 65,
+    characteristics:
+      "Natural sentence-boundary pauses with clear, continuous and appropriately paced delivery."
+  },
+  poor: {
+    transcript:
+      "Cities are building more bicycle lanes to make travel safer and reduce traffic Dedicated lanes can encourage people to cycle instead of driving short distances However successful bike networks require careful planning and connections between different parts of the city Good design can make cycling more convenient for both workers and families.",
+    audioDuration: "22.5 seconds",
+    wordCount: 65,
+    characteristics:
+      "Appropriate overall rate but little or no pausing between complete sentences, creating run-on delivery."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Natural sentence-boundary pauses with continuous and controlled delivery."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 2,
+    pronunciation: 5,
+    overall: "82 / 90",
+    breakdownText:
+      "Insufficient sentence-boundary pausing creates run-on delivery and significantly reduces Oral Fluency."
+  },
+  errorChecklist: [
+    {
+      id: "run-on-delivery",
+      label: "Run-on delivery",
+      keyword: "Run-on delivery"
+    },
+    {
+      id: "insufficient-sentence-pausing",
+      label: "Insufficient sentence-boundary pausing",
+      keyword: "Insufficient sentence-boundary pausing"
+    },
+    {
+      id: "oral-fluency-disruption",
+      label: "Oral Fluency disruption",
+      keyword: "Oral Fluency disruption"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this simply as speaking too fast. The overall rate is acceptable. The defining problem is insufficient pausing at sentence boundaries, which creates run-on delivery."
+},
+
+{
+  exerciseIndex: 49,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Pronunciation",
+  diagnosticArea: "Word Pronunciation Distortion",
+  learningObjective:
+    "Identify a clearly localized word-pronunciation distortion and distinguish it from Content and Oral Fluency problems.",
+  promptText:
+    "Reducing plastic waste requires changes in both personal habits and public policy. Many communities encourage residents to reuse containers and avoid unnecessary packaging. Local businesses can also offer alternatives to single-use plastic products. These small changes can reduce pollution and protect the environment over time.",
+  promptAudio:
+    "Reducing plastic waste requires changes in both personal habits and public policy. Many communities encourage residents to reuse containers and avoid unnecessary packaging. Local businesses can also offer alternatives to single-use plastic products. These small changes can reduce pollution and protect the environment over time.",
+  studentTranscript:
+    "Reducing plastic waste requires changes in both personal habits and public policy. Many communities encourage residents to reuse containers and avoid unnecessary packaging. Local businesses can also offer alternatives to single-use plastic products. These small changes can reduce pollution and protect the envaironment over time.",
+  studentResponse: {
+    audioDuration: "24.0 seconds",
+    wordCount: 63,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the word 'environment' is audibly distorted as 'envaironment'."
+  },
+  diagnosticErrors: [
+    "Word pronunciation distortion",
+    "Vowel sequence pronunciation",
+    "Pronunciation accuracy"
+  ],
+  expertEvidence: [
+    "The target word is 'environment'",
+    "The student produces an altered vowel sequence, sounding like 'envaironment'",
+    "The pronunciation issue is localized to one specific word",
+    "The remaining words are generally clear",
+    "Overall speaking rate remains appropriate",
+    "There are no significant fillers or unnatural pauses",
+    "Content remains substantially intact",
+    "The main issue requiring attention is pronunciation of the target word"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Pronunciation accuracy because the word \"environment\" is distorted and sounds like \"envaironment.\" This is a localized word-pronunciation problem rather than a general fluency or Content problem. The rest of the response is clear and appropriately paced.",
+  perfectCalibrationResponse:
+    "The student's main issue is Pronunciation accuracy because the word \"environment\" is distorted and sounds like \"envaironment.\" This is a localized word-pronunciation problem rather than a general fluency or Content problem. The rest of the response is clear and appropriately paced, with the Content substantially intact. The teacher should focus on accurate pronunciation of the target word.",
+  coachingAdvice:
+    "Break the word 'environment' into manageable sound groups and practise the correct vowel sequence slowly before returning to a natural speaking rate. Then practise the word in the full sentence.",
+  cefrLevel: "B1",
+  topicTitle: "Reducing Plastic Waste",
+  good: {
+    transcript:
+      "Reducing plastic waste requires changes in both personal habits and public policy. Many communities encourage residents to reuse containers and avoid unnecessary packaging. Local businesses can also offer alternatives to single-use plastic products. These small changes can reduce pollution and protect the environment over time.",
+    audioDuration: "23.0 seconds",
+    wordCount: 63,
+    characteristics:
+      "Clear pronunciation of the target word with natural pace and continuous delivery."
+  },
+  poor: {
+    transcript:
+      "Reducing plastic waste requires changes in both personal habits and public policy. Many communities encourage residents to reuse containers and avoid unnecessary packaging. Local businesses can also offer alternatives to single-use plastic products. These small changes can reduce pollution and protect the envaironment over time.",
+    audioDuration: "24.0 seconds",
+    wordCount: 63,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but 'environment' is audibly distorted as 'envaironment'."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Accurate target-word pronunciation with clear and continuous delivery."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 3,
+    overall: "84 / 90",
+    breakdownText:
+      "A localized word-pronunciation distortion reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
+  },
+  errorChecklist: [
+    {
+      id: "word-pronunciation-distortion",
+      label: "Word pronunciation distortion",
+      keyword: "Word pronunciation distortion"
+    },
+    {
+      id: "vowel-sequence-pronunciation",
+      label: "Vowel sequence pronunciation",
+      keyword: "Vowel sequence pronunciation"
+    },
+    {
+      id: "pronunciation-accuracy",
+      label: "Pronunciation accuracy",
+      keyword: "Pronunciation accuracy"
+    }
+  ],
+  expertAdvice:
+    "Focus specifically on the pronunciation of 'environment.' Do not diagnose this as a fluency or Content problem because the rest of the response is clear and appropriately paced."
+},
+
+{
+  exerciseIndex: 50,
+  totalExercises: 100,
+  difficulty: "Intermediate",
+  trainingSkill: "Oral Fluency",
+  diagnosticArea: "Hesitation with Fillers",
+  learningObjective:
+    "Identify repeated audible filler sounds during a Read Aloud response and distinguish them from Content, Pronunciation, and speech-rate problems.",
+  promptText:
+    "Tourism can bring important benefits to local communities. Visitors often spend money at small restaurants, hotels, shops, and cultural attractions. Local tourism can also create jobs and encourage communities to protect interesting places. However, careful planning is needed so that tourism remains sustainable for residents and visitors.",
+  promptAudio:
+    "Tourism can bring important benefits to local communities. Visitors often spend money at small restaurants, hotels, shops, and cultural attractions. Local tourism can also create jobs and encourage communities to protect interesting places. However, careful planning is needed so that tourism remains sustainable for residents and visitors.",
+  studentTranscript:
+    "Tourism can bring important benefits to local communities. Visitors often spend money at small restaurants, hotels, uh, shops, and cultural attractions. Local tourism can also create jobs and, uh, encourage communities to protect interesting places. However, careful planning is needed so that tourism remains sustainable for residents and visitors.",
+  studentResponse: {
+    audioDuration: "26.5 seconds",
+    wordCount: 66,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the speaker uses two audible 'uh' filler sounds during the reading."
+  },
+  diagnosticErrors: [
+    "Hesitation with fillers",
+    "Filler words",
+    "Interrupted fluency"
+  ],
+  expertEvidence: [
+    "The student inserts an audible 'uh' after 'hotels'",
+    "The student inserts another audible 'uh' before 'encourage'",
+    "The fillers interrupt otherwise continuous delivery",
+    "The overall speaking rate remains appropriate",
+    "Content remains substantially intact",
+    "Pronunciation is generally clear",
+    "The main issue requiring attention is Oral Fluency"
+  ],
+  expertDiagnosis:
+    "The student's main issue is Oral Fluency because they use audible filler sounds during the reading. The student inserts \"uh\" after \"hotels\" and again before \"encourage,\" interrupting otherwise continuous delivery. Content remains substantially accurate and Pronunciation is generally clear. The teacher should focus on reducing vocalized fillers rather than diagnosing a Content, Pronunciation or speech-rate problem.",
+  perfectCalibrationResponse:
+    "The student's main issue is Oral Fluency because they use audible filler sounds during the reading. The student inserts \"uh\" after \"hotels\" and again before \"encourage,\" interrupting otherwise continuous delivery. Content remains substantially accurate and Pronunciation is generally clear. The teacher should focus on reducing vocalized fillers rather than diagnosing a Content, Pronunciation or speech-rate problem.",
+  coachingAdvice:
+    "Practise replacing vocalized fillers such as 'uh' with brief silent pauses. Read the passage in short thought groups while maintaining smooth, continuous delivery.",
+  cefrLevel: "B1",
+  topicTitle: "Tourism in Local Communities",
+  good: {
+    transcript:
+      "Tourism can bring important benefits to local communities. Visitors often spend money at small restaurants, hotels, shops, and cultural attractions. Local tourism can also create jobs and encourage communities to protect interesting places. However, careful planning is needed so that tourism remains sustainable for residents and visitors.",
+    audioDuration: "24.0 seconds",
+    wordCount: 64,
+    characteristics:
+      "Clear, continuous and appropriately paced delivery without vocalized fillers."
+  },
+  poor: {
+    transcript:
+      "Tourism can bring important benefits to local communities. Visitors often spend money at small restaurants, hotels, uh, shops, and cultural attractions. Local tourism can also create jobs and, uh, encourage communities to protect interesting places. However, careful planning is needed so that tourism remains sustainable for residents and visitors.",
+    audioDuration: "26.5 seconds",
+    wordCount: 66,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the speaker uses two audible 'uh' fillers."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Smooth continuous delivery without vocalized fillers."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 3,
+    pronunciation: 5,
+    overall: "84 / 90",
+    breakdownText:
+      "Audible filler sounds interrupt Oral Fluency while Content and Pronunciation remain strong."
+  },
+  errorChecklist: [
+    {
+      id: "hesitation-fillers",
+      label: "Hesitation with fillers",
+      keyword: "Hesitation with fillers"
+    },
+    {
+      id: "filler-words",
+      label: "Filler words",
+      keyword: "Filler words"
+    },
+    {
+      id: "interrupted-fluency",
+      label: "Interrupted fluency",
+      keyword: "Interrupted fluency"
+    }
+  ],
+  expertAdvice:
+    "Do not diagnose this as a Content, Pronunciation or general speech-rate problem. The defining issue is the audible use of 'uh' fillers. Coach the student to replace vocalized fillers with brief silent pauses."
+},
+
 ];
 
 // -----------------------------------------------------------------------------
