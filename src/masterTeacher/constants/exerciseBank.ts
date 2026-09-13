@@ -6170,6 +6170,4341 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "Do not diagnose this simply as slow speech. The defining problem is the unusually long hesitation that interrupts otherwise appropriately paced delivery."
 },
 
+// B2 Level
+  {
+    exerciseIndex: 61,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Multisyllabic Word Pronunciation",
+    learningObjective:
+      "Identify a localized pronunciation distortion in a multisyllabic B2-level word and distinguish it from Content and Oral Fluency problems.",
+
+    promptText:
+      "Effective market research helps companies understand consumer behaviour before they make important strategic decisions. By analysing customer preferences, competitors, and changing demand, businesses can identify opportunities and reduce unnecessary risks. A well-designed research process also provides useful evidence for developing products, improving services, and strengthening long-term strategy.",
+
+    promptAudio:
+      "Effective market research helps companies understand consumer behaviour before they make important strategic decisions. By analysing customer preferences, competitors, and changing demand, businesses can identify opportunities and reduce unnecessary risks. A well-designed research process also provides useful evidence for developing products, improving services, and strengthening long-term strategy.",
+
+    studentTranscript:
+      "Effective market research helps companies understand consumer behaviour before they make important strategic decisions. By analysing customer preferences, competative businesses, and changing demand, businesses can identify opportunities and reduce unnecessary risks. A well-designed research process also provides useful evidence for developing products, improving services, and strengthening long-term strategy.",
+
+    studentResponse: {
+      audioDuration: "29.0 seconds",
+      wordCount: 61,
+      characteristics:
+        "The student delivers the passage continuously with generally clear pronunciation and appropriate pace, but the multisyllabic word 'competitive' is distorted as 'competative'. The localized vowel change is audible while the surrounding delivery remains stable."
+    },
+
+    diagnosticErrors: [
+      "Word pronunciation distortion",
+      "Multisyllabic word pronunciation",
+      "Pronunciation accuracy"
+    ],
+
+    expertEvidence: [
+      "The target word 'competitive' is produced as 'competative'.",
+      "The distortion occurs within a multisyllabic word and changes its internal vowel sound.",
+      "The target word remains reasonably identifiable despite the pronunciation distortion.",
+      "The remainder of the passage is delivered continuously and at an appropriate speaking rate.",
+      "The student maintains the intended meaning and surrounding content of the passage.",
+      "There is no significant hesitation, false start, restart, or other major Oral Fluency disruption."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Pronunciation accuracy, specifically a localized pronunciation distortion in the multisyllabic word 'competitive', which is produced as 'competative'. The response remains generally understandable, continuous, and appropriately paced, while the surrounding Content is substantially accurate. The teacher should therefore diagnose the specific word-pronunciation problem rather than treating the response as a Content or Oral Fluency problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Pronunciation, specifically the pronunciation of the multisyllabic word 'competitive'. The student produces it as 'competative', creating a localized vowel distortion within the word. The rest of the response is generally clear, continuous, and appropriately paced, with the intended Content substantially intact. The teacher should focus on the specific word-pronunciation problem rather than diagnosing poor fluency or Content accuracy.",
+
+    coachingAdvice:
+      "Practise the word 'competitive' slowly, separating its syllables and focusing on the correct vowel in the second syllable. Then practise short phrases such as 'competitive markets', 'highly competitive', and 'competitive businesses'. Gradually increase the speaking rate while maintaining the correct vowel sounds.",
+
+    cefrLevel: "B2",
+    topicTitle: "Market Research & Strategy",
+
+    good: {
+      transcript:
+        "Effective market research helps companies understand consumer behaviour before they make important strategic decisions. By analysing customer preferences, competitors, and changing demand, businesses can identify opportunities and reduce unnecessary risks. A well-designed research process also provides useful evidence for developing products, improving services, and strengthening long-term strategy.",
+      audioDuration: "28.0 seconds",
+      wordCount: 60,
+      characteristics:
+        "Clear pronunciation of multisyllabic vocabulary, appropriate pace, accurate Content, and smooth continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Effective market research helps companies understand consumer behaviour before they make important strategic decisions. By analysing customer preferences, competative businesses, and changing demand, businesses can identify opportunities and reduce unnecessary risks. A well-designed research process also provides useful evidence for developing products, improving services, and strengthening long-term strategy.",
+      audioDuration: "29.0 seconds",
+      wordCount: 61,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the multisyllabic word 'competitive' is distorted as 'competative', producing a localized vowel pronunciation problem."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content, smooth Oral Fluency, and clear pronunciation of the B2-level multisyllabic vocabulary."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized pronunciation distortion in 'competitive' reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "multisyllabic-word-pronunciation",
+        label: "Multisyllabic word pronunciation",
+        keyword: "Multisyllabic word pronunciation"
+      },
+      {
+        id: "word-pronunciation-distortion",
+        label: "Word pronunciation distortion",
+        keyword: "Word pronunciation distortion"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the localized pronunciation distortion in 'competitive'. The student produces 'competitive' as 'competative', creating a specific vowel-level pronunciation problem. Do not diagnose the response as generally unclear, poorly fluent, or inaccurate in Content because the surrounding delivery remains continuous and the intended meaning is substantially preserved."
+  },
+
+  {
+    exerciseIndex: 62,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Key Word Omission",
+    learningObjective:
+      "Identify a single omitted content word in a B2 Read Aloud response and distinguish the Content error from otherwise strong Oral Fluency and Pronunciation.",
+
+    promptText:
+      "Climate change mitigation requires governments and businesses to reduce greenhouse gas emissions while maintaining economic stability. Effective policies may combine renewable energy investment, improved public transport, energy-efficient buildings, and incentives for lower-carbon technologies. However, successful mitigation also depends on long-term planning, reliable monitoring, and cooperation between governments, industries, and local communities.",
+
+    promptAudio:
+      "Climate change mitigation requires governments and businesses to reduce greenhouse gas emissions while maintaining economic stability. Effective policies may combine renewable energy investment, improved public transport, energy-efficient buildings, and incentives for lower-carbon technologies. However, successful mitigation also depends on long-term planning, reliable monitoring, and cooperation between governments, industries, and local communities.",
+
+    studentTranscript:
+      "Climate change mitigation requires governments and businesses to reduce greenhouse gas emissions while maintaining economic stability. Effective policies may combine renewable energy investment, improved public transport, energy-efficient buildings, and incentives for lower-carbon technologies. However, successful mitigation also depends on planning, reliable monitoring, and cooperation between governments, industries, and local communities.",
+
+    studentResponse: {
+      audioDuration: "27.5 seconds",
+      wordCount: 50,
+      characteristics:
+        "The student delivers the passage clearly and continuously but omits the word 'long-term' before 'planning'. The remainder of the passage is reproduced accurately with appropriate pace and clear pronunciation."
+    },
+
+    diagnosticErrors: [
+      "Word omission",
+      "Content accuracy",
+      "Missing content word"
+    ],
+
+    expertEvidence: [
+      "The prompt says 'successful mitigation also depends on long-term planning'.",
+      "The student says 'successful mitigation also depends on planning'.",
+      "The words 'long-term' are omitted from the final sentence.",
+      "The omission occurs within an otherwise accurately reproduced sentence.",
+      "The remainder of the passage is reproduced accurately.",
+      "Overall speaking rate remains appropriate.",
+      "Pronunciation is generally clear.",
+      "The response remains continuous without significant hesitation or restart.",
+      "The main issue requiring attention is Content accuracy."
+    ],
+
+    expertDiagnosis:
+      "The student's main issue is Content accuracy because the phrase 'long-term' is omitted before 'planning' in the final sentence. The prompt says 'successful mitigation also depends on long-term planning', while the student says 'successful mitigation also depends on planning'. This is a localized omission within an otherwise accurate response. Oral Fluency and Pronunciation remain strong because the student speaks continuously, at an appropriate rate, with generally clear pronunciation.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they omit the words 'long-term' before 'planning' in the final sentence. The prompt says 'long-term planning', but the student says only 'planning'. The rest of the passage is reproduced accurately, with continuous delivery, appropriate speaking rate, and generally clear pronunciation. The teacher should therefore focus on the specific Content omission rather than diagnosing an Oral Fluency or Pronunciation problem.",
+
+    coachingAdvice:
+      "Practise reading the phrase 'long-term planning' as a single meaningful unit. First repeat the phrase slowly, then practise it in the complete sentence: 'successful mitigation also depends on long-term planning'. Finally, reread the full passage while maintaining accurate reproduction of every key word.",
+
+    cefrLevel: "B2",
+    topicTitle: "Climate Change Mitigation",
+
+    good: {
+      transcript:
+        "Climate change mitigation requires governments and businesses to reduce greenhouse gas emissions while maintaining economic stability. Effective policies may combine renewable energy investment, improved public transport, energy-efficient buildings, and incentives for lower-carbon technologies. However, successful mitigation also depends on long-term planning, reliable monitoring, and cooperation between governments, industries, and local communities.",
+      audioDuration: "28.0 seconds",
+      wordCount: 51,
+      characteristics:
+        "Accurate reproduction with clear pronunciation, natural pacing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Climate change mitigation requires governments and businesses to reduce greenhouse gas emissions while maintaining economic stability. Effective policies may combine renewable energy investment, improved public transport, energy-efficient buildings, and incentives for lower-carbon technologies. However, successful mitigation also depends on planning, reliable monitoring, and cooperation between governments, industries, and local communities.",
+      audioDuration: "27.5 seconds",
+      wordCount: 50,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the key phrase 'long-term' is omitted before 'planning' in the final sentence."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content reproduction with clear Pronunciation and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 3,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized omission of the key phrase 'long-term' reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "word-omission",
+        label: "Word omission",
+        keyword: "Word omission"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "missing-content-word",
+        label: "Missing content word",
+        keyword: "Missing content word"
+      }
+    ],
+
+    expertAdvice:
+      "Focus specifically on the omitted phrase 'long-term'. Do not diagnose this as an Oral Fluency or Pronunciation problem because the student's delivery remains continuous, appropriately paced, and generally clear."
+  },
+
+  {
+    exerciseIndex: 63,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Initial Consonant Sound Substitution",
+    learningObjective:
+      "Identify a localized initial consonant pronunciation error in a B2-level word and distinguish it from otherwise strong Content and Oral Fluency.",
+
+    promptText:
+      "AI medical diagnostics are becoming increasingly useful in modern healthcare. Machine-learning systems can examine medical images and patient data to identify patterns that may be difficult to detect quickly. When used responsibly, these tools can support clinical teams, improve early detection, and help hospitals allocate resources more efficiently. However, human oversight remains essential when diagnostic decisions could affect patient care.",
+
+    promptAudio:
+      "AI medical diagnostics are becoming increasingly useful in modern healthcare. Machine-learning systems can examine medical images and patient data to identify patterns that may be difficult to detect quickly. When used responsibly, these tools can support clinical teams, improve early detection, and help hospitals allocate resources more efficiently. However, human oversight remains essential when diagnostic decisions could affect patient care.",
+
+    studentTranscript:
+      "AI medical diagnostics are becoming increasingly useful in modern healthcare. Machine-learning systems can examine medical images and patient data to identify patterns that may be difficult to detect quickly. When used responsibly, these tools can support crinical teams, improve early detection, and help hospitals allocate resources more efficiently. However, human oversight remains essential when diagnostic decisions could affect patient care.",
+
+    studentResponse: {
+      audioDuration: "30.0 seconds",
+      wordCount: 60,
+      characteristics:
+        "The student maintains clear, continuous delivery but replaces the initial /kl/ sound in 'clinical' with a /kr/-like sound, producing 'crinical'. The surrounding vocabulary and delivery remain appropriate."
+    },
+
+    diagnosticErrors: [
+      "Initial consonant pronunciation",
+      "Consonant sound substitution",
+      "Pronunciation accuracy"
+    ],
+
+    expertEvidence: [
+      "The target word is 'clinical'.",
+      "The student produces 'clinical' as 'crinical'.",
+      "The initial /l/ element in the /kl/ consonant sequence is replaced by an /r/-like sound.",
+      "The pronunciation problem is localized to one specific word.",
+      "The target word remains reasonably identifiable in context.",
+      "The rest of the response is delivered clearly and continuously.",
+      "Overall speaking rate remains appropriate.",
+      "The Content remains substantially intact.",
+      "The main issue requiring attention is the specific initial consonant pronunciation."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Pronunciation accuracy, specifically the initial consonant sequence in the word 'clinical'. The student produces 'clinical' more like 'crinical', replacing the /l/ element with an /r/-like sound. The target word remains identifiable and the rest of the response is clear, continuous, and appropriately paced. This should therefore be diagnosed as a localized pronunciation problem rather than a Content or Oral Fluency problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Pronunciation, specifically the initial consonant sequence in the word 'clinical'. The student produces it as 'crinical', creating a localized consonant sound substitution. The word remains identifiable, while the rest of the response is clear, continuous, and appropriately paced. Content is substantially intact. The teacher should therefore focus on the specific initial consonant pronunciation rather than diagnosing poor fluency or Content accuracy.",
+
+    coachingAdvice:
+      "Practise the /kl/ sequence in 'clinical' slowly, making the /k/ and /l/ sounds distinct before joining them together. Contrast 'clinical' with the incorrect 'crinical', then practise phrases such as 'clinical teams' and 'clinical decisions'. Gradually increase the speaking rate while keeping the /kl/ sequence clear.",
+
+    cefrLevel: "B2",
+    topicTitle: "AI Medical Diagnostics",
+
+    good: {
+      transcript:
+        "AI medical diagnostics are becoming increasingly useful in modern healthcare. Machine-learning systems can examine medical images and patient data to identify patterns that may be difficult to detect quickly. When used responsibly, these tools can support clinical teams, improve early detection, and help hospitals allocate resources more efficiently. However, human oversight remains essential when diagnostic decisions could affect patient care.",
+      audioDuration: "29.0 seconds",
+      wordCount: 60,
+      characteristics:
+        "Clear pronunciation of the initial consonant sequence in 'clinical', with appropriate pace and smooth continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "AI medical diagnostics are becoming increasingly useful in modern healthcare. Machine-learning systems can examine medical images and patient data to identify patterns that may be difficult to detect quickly. When used responsibly, these tools can support crinical teams, improve early detection, and help hospitals allocate resources more efficiently. However, human oversight remains essential when diagnostic decisions could affect patient care.",
+      audioDuration: "30.0 seconds",
+      wordCount: 60,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the initial consonant sequence in 'clinical' is distorted, with the /l/ element replaced by an /r/-like sound."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content, smooth Oral Fluency, and clear pronunciation of the initial consonant sequence."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized initial consonant substitution in 'clinical' reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "initial-consonant-pronunciation",
+        label: "Initial consonant pronunciation",
+        keyword: "Initial consonant pronunciation"
+      },
+      {
+        id: "consonant-sound-substitution",
+        label: "Consonant sound substitution",
+        keyword: "Consonant sound substitution"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+
+    expertAdvice:
+      "Focus specifically on the initial consonant sequence in 'clinical'. Do not diagnose this as poor fluency, inappropriate speaking rate, or a Content problem because the remainder of the response is clear, continuous, and substantially accurate."
+  },
+
+ {
+    exerciseIndex: 64,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Phrase-Internal Pausing",
+    learningObjective:
+      "Identify an inappropriate pause inside a meaningful thought group in a B2 Read Aloud response and distinguish it from natural sentence-boundary pauses and overall speech-rate problems.",
+
+    promptText:
+      "Higher education mobility allows students and researchers to study or work across national borders. International programmes can broaden academic experience, develop intercultural skills, and create opportunities for collaboration. However, mobility can also involve financial pressures, differences in academic systems, and difficulties with accommodation. Universities therefore need effective support systems to ensure that international participants can benefit fully from their experience.",
+
+    promptAudio:
+      "Higher education mobility allows students and researchers to study or work across national borders. International programmes can broaden academic experience, develop intercultural skills, and create opportunities for collaboration. However, mobility can also involve financial pressures, differences in academic systems, and difficulties with accommodation. Universities therefore need effective support systems to ensure that international participants can benefit fully from their experience.",
+
+    studentTranscript:
+      "Higher education mobility allows students and researchers to study / or work across national borders. International programmes can broaden academic experience, develop intercultural skills, and create opportunities for collaboration. However, mobility can also involve financial pressures, differences in academic systems, and difficulties with accommodation. Universities therefore need effective support systems to ensure that international participants can benefit fully from their experience.",
+
+    studentResponse: {
+      audioDuration: "28.5 seconds",
+      wordCount: 60,
+      characteristics:
+        "The student maintains an appropriate overall speaking rate but inserts a brief pause inside the meaningful thought group 'study or work', slightly interrupting natural phrase continuity."
+    },
+
+    diagnosticErrors: [
+      "Phrase-internal pausing",
+      "Interrupted fluency",
+      "Unnatural pausing"
+    ],
+
+    expertEvidence: [
+      "A pause occurs inside the phrase 'study or work across national borders'.",
+      "The pause separates 'study' from the closely connected phrase 'or work'.",
+      "The pause occurs within a meaningful grammatical and semantic unit rather than at a natural sentence boundary.",
+      "The overall speaking rate remains appropriate.",
+      "The student does not show a major hesitation, false start, or restart.",
+      "Pronunciation remains generally clear.",
+      "The Content remains substantially accurate.",
+      "The defining issue is interruption of natural thought-group continuity."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Oral Fluency, specifically an inappropriate pause inside a meaningful thought group. The student pauses between 'study' and 'or work', interrupting the natural rhythm of the phrase even though the overall speaking rate remains appropriate. Content is substantially accurate and Pronunciation is generally clear, so this should not be diagnosed as slow speech or a pronunciation problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Oral Fluency because a brief pause occurs inside a meaningful thought group rather than at a natural sentence boundary. The student pauses within 'study or work', interrupting the natural rhythm of the phrase. The overall speaking rate remains appropriate, Content is substantially accurate, and Pronunciation is generally clear. The teacher should therefore focus on phrase grouping and continuous delivery rather than diagnosing slow speech or pronunciation problems.",
+
+    coachingAdvice:
+      "Practise reading 'study or work' as one connected thought group without pausing between the words. Mark natural pause points at sentence or major clause boundaries, then reread the passage while maintaining forward momentum through closely connected phrases.",
+
+    cefrLevel: "B2",
+    topicTitle: "Higher Education Mobility",
+
+    good: {
+      transcript:
+        "Higher education mobility allows students and researchers to study or work across national borders. International programmes can broaden academic experience, develop intercultural skills, and create opportunities for collaboration. However, mobility can also involve financial pressures, differences in academic systems, and difficulties with accommodation. Universities therefore need effective support systems to ensure that international participants can benefit fully from their experience.",
+      audioDuration: "27.5 seconds",
+      wordCount: 60,
+      characteristics:
+        "Smooth delivery with natural pauses at appropriate sentence and thought-group boundaries."
+    },
+
+    poor: {
+      transcript:
+        "Higher education mobility allows students and researchers to study / or work across national borders. International programmes can broaden academic experience, develop intercultural skills, and create opportunities for collaboration. However, mobility can also involve financial pressures, differences in academic systems, and difficulties with accommodation. Universities therefore need effective support systems to ensure that international participants can benefit fully from their experience.",
+      audioDuration: "28.5 seconds",
+      wordCount: 60,
+      characteristics:
+        "Appropriate overall speaking rate, but a brief pause occurs inside the meaningful phrase 'study or work', disrupting natural phrase-level continuity."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Smooth Oral Fluency with natural thought-grouping, accurate Content, and clear Pronunciation."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 3,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "A pause inside the meaningful phrase 'study or work' interrupts Oral Fluency while Content and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "phrase-internal-pausing",
+        label: "Phrase-internal pausing",
+        keyword: "Phrase-internal pausing"
+      },
+      {
+        id: "interrupted-fluency",
+        label: "Interrupted fluency",
+        keyword: "Interrupted fluency"
+      },
+      {
+        id: "unnatural-pausing",
+        label: "Unnatural pausing",
+        keyword: "Unnatural pausing"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on Oral Fluency and natural thought-group delivery. The defining problem is the brief pause inside 'study or work', not an overall slow speaking rate. Do not diagnose the student as having a pronunciation or Content problem because the remainder of the response is clear and substantially accurate."
+  },
+
+  {
+    exerciseIndex: 65,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Strong Word Substitution",
+    learningObjective:
+      "Identify a semantically significant word substitution in a B2 Read Aloud response and distinguish the Content error from otherwise strong Oral Fluency and Pronunciation.",
+
+    promptText:
+      "Smart grids use digital technologies to manage electricity generation, distribution, and consumption more efficiently. Advanced monitoring systems can balance demand, integrate renewable energy, and respond rapidly to changes in the network. Battery storage is particularly important because it can help maintain supply when solar or wind generation fluctuates. As smart grids expand, cybersecurity and reliable infrastructure will also become increasingly important.",
+
+    promptAudio:
+      "Smart grids use digital technologies to manage electricity generation, distribution, and consumption more efficiently. Advanced monitoring systems can balance demand, integrate renewable energy, and respond rapidly to changes in the network. Battery storage is particularly important because it can help maintain supply when solar or wind generation fluctuates. As smart grids expand, cybersecurity and reliable infrastructure will also become increasingly important.",
+
+    studentTranscript:
+      "Smart grids use digital technologies to manage electricity generation, distribution, and consumption more efficiently. Advanced monitoring systems can balance demand, integrate renewable energy, and respond rapidly to changes in the network. Battery shortage is particularly important because it can help maintain supply when solar or wind generation fluctuates. As smart grids expand, cybersecurity and reliable infrastructure will also become increasingly important.",
+
+    studentResponse: {
+      audioDuration: "28.5 seconds",
+      wordCount: 61,
+      characteristics:
+        "The student delivers the passage clearly and continuously but substitutes the strong content word 'storage' with 'shortage'. The surrounding delivery remains appropriately paced with generally clear pronunciation."
+    },
+
+    diagnosticErrors: [
+      "Strong word substitution",
+      "Content accuracy",
+      "Incorrect word reproduction"
+    ],
+
+    expertEvidence: [
+      "The prompt says 'Battery storage is particularly important'.",
+      "The student says 'Battery shortage is particularly important'.",
+      "The target word 'storage' is replaced by the different word 'shortage'.",
+      "The substitution changes the meaning of the sentence.",
+      "The remainder of the passage is reproduced accurately.",
+      "Overall speaking rate remains appropriate.",
+      "Pronunciation is generally clear.",
+      "The response remains continuous without significant hesitation or restart.",
+      "The main issue requiring attention is Content accuracy."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Content accuracy because the student substitutes the word 'shortage' for the target word 'storage' in the sentence 'Battery storage is particularly important'. This is a strong-word substitution that changes the meaning of the sentence. The remainder of the response is accurately reproduced, with appropriate Oral Fluency and generally clear Pronunciation. The teacher should therefore diagnose a Content error rather than a pronunciation or fluency problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they substitute 'shortage' for the target word 'storage'. The prompt says 'Battery storage is particularly important', but the student says 'Battery shortage is particularly important', changing the meaning of the sentence. The rest of the passage is reproduced accurately and the delivery remains continuous, appropriately paced, and generally clear. The teacher should therefore focus on the specific word substitution rather than diagnosing Pronunciation or Oral Fluency problems.",
+
+    coachingAdvice:
+      "Practise distinguishing the words 'storage' and 'shortage' carefully, then repeat the target phrase 'battery storage' several times. Use the phrase in the full sentence before rereading the complete passage, focusing on exact reproduction of the target word.",
+
+    cefrLevel: "B2",
+    topicTitle: "Smart Grids & Electric Power",
+
+    good: {
+      transcript:
+        "Smart grids use digital technologies to manage electricity generation, distribution, and consumption more efficiently. Advanced monitoring systems can balance demand, integrate renewable energy, and respond rapidly to changes in the network. Battery storage is particularly important because it can help maintain supply when solar or wind generation fluctuates. As smart grids expand, cybersecurity and reliable infrastructure will also become increasingly important.",
+      audioDuration: "28.0 seconds",
+      wordCount: 61,
+      characteristics:
+        "Accurate Content reproduction with clear pronunciation, appropriate pace, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Smart grids use digital technologies to manage electricity generation, distribution, and consumption more efficiently. Advanced monitoring systems can balance demand, integrate renewable energy, and respond rapidly to changes in the network. Battery shortage is particularly important because it can help maintain supply when solar or wind generation fluctuates. As smart grids expand, cybersecurity and reliable infrastructure will also become increasingly important.",
+      audioDuration: "28.5 seconds",
+      wordCount: 61,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the target word 'storage' is replaced by the semantically different word 'shortage'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content reproduction with smooth Oral Fluency and clear Pronunciation."
+    },
+
+    poorScore: {
+      content: 3,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "A strong-word substitution of 'shortage' for 'storage' reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "strong-word-substitution",
+        label: "Strong word substitution",
+        keyword: "Strong word substitution"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "incorrect-word-reproduction",
+        label: "Incorrect word reproduction",
+        keyword: "Incorrect word reproduction"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the Content error caused by substituting 'shortage' for the target word 'storage'. Do not diagnose this as a general pronunciation or fluency problem because the student's overall delivery remains clear, continuous, and appropriately paced."
+  },
+
+  {
+    exerciseIndex: 66,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Clause Omission",
+    learningObjective:
+      "Identify the omission of a complete content-bearing sentence in a B2 Read Aloud response and distinguish it from a localized word omission, while recognizing that Oral Fluency and Pronunciation remain strong.",
+
+    promptText:
+      "Biodiversity conservation aims to protect the variety of plants, animals, and ecosystems found across the planet. Protected areas can preserve habitats that are threatened by development, pollution, and climate change. Conservation programmes may also restore damaged ecosystems and support species recovery. However, protecting biodiversity requires long-term cooperation between governments, scientists, local communities, and environmental organisations. Effective conservation therefore depends on both scientific evidence and practical community action.",
+
+    promptAudio:
+      "Biodiversity conservation aims to protect the variety of plants, animals, and ecosystems found across the planet. Protected areas can preserve habitats that are threatened by development, pollution, and climate change. Conservation programmes may also restore damaged ecosystems and support species recovery. However, protecting biodiversity requires long-term cooperation between governments, scientists, local communities, and environmental organisations. Effective conservation therefore depends on both scientific evidence and practical community action.",
+
+    studentTranscript:
+      "Biodiversity conservation aims to protect the variety of plants, animals, and ecosystems found across the planet. Protected areas can preserve habitats that are threatened by development, pollution, and climate change. Conservation programmes may also restore damaged ecosystems and support species recovery. Effective conservation therefore depends on both scientific evidence and practical community action.",
+
+    studentResponse: {
+      audioDuration: "25.5 seconds",
+      wordCount: 50,
+      characteristics:
+        "The student delivers the reproduced material clearly and continuously but omits the complete sentence 'However, protecting biodiversity requires long-term cooperation between governments, scientists, local communities, and environmental organisations.' The remaining material is reproduced accurately."
+    },
+
+    diagnosticErrors: [
+      "Clause omission",
+      "Content accuracy",
+      "Missing sentence"
+    ],
+
+    expertEvidence: [
+      "The prompt contains the complete sentence beginning 'However, protecting biodiversity requires long-term cooperation'.",
+      "The student omits that entire sentence.",
+      "The omitted material contains multiple content-bearing words and a complete idea.",
+      "The material before and after the omitted sentence is reproduced accurately.",
+      "The response remains continuous and appropriately paced.",
+      "Pronunciation of the reproduced material is generally clear.",
+      "The main issue is the missing clause-level content rather than Oral Fluency or Pronunciation."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Content accuracy because the student omits the complete sentence 'However, protecting biodiversity requires long-term cooperation between governments, scientists, local communities, and environmental organisations.' This is a clause-level omission containing an entire content-bearing idea. The remaining material is reproduced clearly and continuously, with generally clear pronunciation. The teacher should therefore focus on the missing content rather than diagnosing an Oral Fluency or Pronunciation problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they omit the complete sentence beginning 'However, protecting biodiversity requires long-term cooperation'. This removes an entire content-bearing idea from the passage. The remaining sentences are reproduced accurately, with continuous delivery, appropriate pacing, and generally clear pronunciation. The teacher should therefore identify the missing sentence as the primary Content problem rather than diagnosing Oral Fluency or Pronunciation.",
+
+    coachingAdvice:
+      "Practise the complete sentence about long-term cooperation as one meaningful unit. Then reread the entire passage from beginning to end, checking that every sentence is included before finishing the response.",
+
+    cefrLevel: "B2",
+    topicTitle: "Biodiversity Conservation",
+
+    good: {
+      transcript:
+        "Biodiversity conservation aims to protect the variety of plants, animals, and ecosystems found across the planet. Protected areas can preserve habitats that are threatened by development, pollution, and climate change. Conservation programmes may also restore damaged ecosystems and support species recovery. However, protecting biodiversity requires long-term cooperation between governments, scientists, local communities, and environmental organisations. Effective conservation therefore depends on both scientific evidence and practical community action.",
+      audioDuration: "29.0 seconds",
+      wordCount: 65,
+      characteristics:
+        "Complete and accurate reproduction with clear pronunciation, appropriate pacing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Biodiversity conservation aims to protect the variety of plants, animals, and ecosystems found across the planet. Protected areas can preserve habitats that are threatened by development, pollution, and climate change. Conservation programmes may also restore damaged ecosystems and support species recovery. Effective conservation therefore depends on both scientific evidence and practical community action.",
+      audioDuration: "25.5 seconds",
+      wordCount: 50,
+      characteristics:
+        "Clear and continuous delivery, but the complete sentence about long-term cooperation is omitted."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Complete Content reproduction with clear Pronunciation and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 3,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "A complete content-bearing sentence is omitted while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "clause-omission",
+        label: "Clause omission",
+        keyword: "Clause omission"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "missing-sentence",
+        label: "Missing sentence",
+        keyword: "Missing sentence"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the complete sentence that is missing from the student's response. Do not reduce the diagnosis to a single-word omission, and do not diagnose Oral Fluency or Pronunciation problems because the spoken material remains clear and continuous."
+  },
+
+ {
+    exerciseIndex: 67,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Vowel Sound Substitution",
+    learningObjective:
+      "Identify a localized vowel-quality substitution in a B2 Read Aloud response and distinguish it from Oral Fluency, Content, and general pronunciation problems.",
+
+    promptText:
+      "Cognitive psychology examines how people process information, form memories, and make decisions. Sleep is closely connected with these processes because adequate rest can support attention, learning, and memory consolidation. Researchers have found that sleep quality can influence how effectively people perform demanding mental tasks. Understanding these relationships may help individuals develop healthier study routines, seek appropriate advice, and improve their ability to retain new information.",
+
+    promptAudio:
+      "Cognitive psychology examines how people process information, form memories, and make decisions. Sleep is closely connected with these processes because adequate rest can support attention, learning, and memory consolidation. Researchers have found that sleep quality can influence how effectively people perform demanding mental tasks. Understanding these relationships may help individuals develop healthier study routines, seek appropriate advice, and improve their ability to retain new information.",
+
+    studentTranscript:
+      "Cognitive psychology examines how people process information, form memories, and make decisions. Sleep is closely connected with these processes because adequate rest can support attention, learning, and memory consolidation. Researchers have found that sleep quality can influence how effectively people perform demanding mental tasks. Understanding these relationships may help individuals develop healthier study routines, seek appropriate advoce, and improve their ability to retain new information.",
+
+    studentResponse: {
+      audioDuration: "30.0 seconds",
+      wordCount: 65,
+      characteristics:
+        "The student maintains clear and continuous delivery but changes the vowel quality in the word 'advice', producing a sound closer to 'advoce'. The surrounding words remain appropriately paced and understandable."
+    },
+
+    diagnosticErrors: [
+      "Vowel sound substitution",
+      "Vowel quality",
+      "Pronunciation accuracy"
+    ],
+
+    expertEvidence: [
+      "The target word is 'advice'.",
+      "The student produces a vowel quality that sounds closer to 'advoce'.",
+      "The difference is localized to the vowel sound within one specific word.",
+      "The student does not repeat the word or restart the phrase.",
+      "The overall speaking rate remains appropriate.",
+      "The response remains continuous.",
+      "The surrounding pronunciation is generally clear.",
+      "The main issue requiring attention is the localized vowel sound."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Pronunciation accuracy, specifically a localized vowel sound substitution in the word 'advice'. The student's production sounds closer to 'advoce', changing the vowel quality while the rest of the response remains clear and continuous. There is no significant hesitation, restart, or Content problem. The teacher should therefore focus on the vowel quality in the target word rather than diagnosing Oral Fluency or Content.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Pronunciation, specifically the vowel sound in the word 'advice'. The student produces the vowel with a quality closer to 'advoce', creating a localized vowel substitution. The remainder of the response is clear, continuous, and appropriately paced, with Content intact. The teacher should therefore focus on the specific vowel quality rather than diagnosing an Oral Fluency or Content problem.",
+
+    coachingAdvice:
+      "Practise the vowel in 'advice' slowly and compare the correct /aɪ/ sound with the student's 'advoce'-like production. Then practise 'appropriate advice' in short phrases before returning to the complete passage.",
+
+    cefrLevel: "B2",
+    topicTitle: "Cognitive Psychology & Sleep",
+
+    good: {
+      transcript:
+        "Cognitive psychology examines how people process information, form memories, and make decisions. Sleep is closely connected with these processes because adequate rest can support attention, learning, and memory consolidation. Researchers have found that sleep quality can influence how effectively people perform demanding mental tasks. Understanding these relationships may help individuals develop healthier study routines, seek appropriate advice, and improve their ability to retain new information.",
+      audioDuration: "29.5 seconds",
+      wordCount: 65,
+      characteristics:
+        "Clear vowel production in 'advice' with smooth pacing, continuous delivery, and accurate Content."
+    },
+
+    poor: {
+      transcript:
+        "Cognitive psychology examines how people process information, form memories, and make decisions. Sleep is closely connected with these processes because adequate rest can support attention, learning, and memory consolidation. Researchers have found that sleep quality can influence how effectively people perform demanding mental tasks. Understanding these relationships may help individuals develop healthier study routines, seek appropriate advoce, and improve their ability to retain new information.",
+      audioDuration: "30.0 seconds",
+      wordCount: 65,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the vowel in 'advice' is produced with a quality closer to 'advoce'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with clear vowel production in 'advice' and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized vowel-quality substitution in 'advice' reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "vowel-sound-substitution",
+        label: "Vowel sound substitution",
+        keyword: "Vowel sound substitution"
+      },
+      {
+        id: "vowel-quality",
+        label: "Vowel quality",
+        keyword: "Vowel quality"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+
+    expertAdvice:
+      "Focus specifically on the vowel quality in 'advice'. Do not diagnose this as an Oral Fluency or Content problem because the student's delivery remains continuous and the passage is accurately reproduced."
+  },
+
+  {
+    exerciseIndex: 68,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Consonant Cluster Reduction",
+    learningObjective:
+      "Identify a localized consonant-cluster reduction in a B2 Read Aloud response and distinguish it from Content substitution, syllable omission, and general Oral Fluency problems.",
+
+    promptText:
+      "Space exploration technology has advanced rapidly through improvements in robotics, communications, and scientific instrumentation. Modern spacecraft can collect detailed information from distant planets, moons, and asteroids. Robotic missions are particularly valuable because they can operate in environments that would be dangerous for human crews. Engineers must also design systems that can survive extreme temperatures, radiation, and long periods without direct maintenance.",
+
+    promptAudio:
+      "Space exploration technology has advanced rapidly through improvements in robotics, communications, and scientific instrumentation. Modern spacecraft can collect detailed information from distant planets, moons, and asteroids. Robotic missions are particularly valuable because they can operate in environments that would be dangerous for human crews. Engineers must also design systems that can survive extreme temperatures, radiation, and long periods without direct maintenance.",
+
+    studentTranscript:
+      "Space exploration technology has advanced rapidly through improvements in robotics, communications, and scientific instrumentation. Modern spacecraft can collect detailed information from distant planets, moons, and asteroids. Robotic missions are particularly valuable because they can operate in environments that would be dangerous for human crews. Engineers must also design systems that can survive ex-teem temperatures, radiation, and long periods without direct maintenance.",
+
+    studentResponse: {
+      audioDuration: "30.0 seconds",
+      wordCount: 64,
+      characteristics:
+        "The student delivers the passage clearly and continuously but reduces the /tr/ consonant cluster in the word 'extreme', producing it more like 'ex-teem'. The target word remains identifiable."
+    },
+
+    diagnosticErrors: [
+      "Consonant cluster reduction",
+      "Consonant sound reduction",
+      "Pronunciation accuracy"
+    ],
+
+    expertEvidence: [
+      "The target word is 'extreme'.",
+      "The student reduces the consonant cluster in 'extreme', weakening the /tr/ sequence.",
+      "The word remains identifiable despite the consonant-cluster reduction.",
+      "The pronunciation issue is localized to one word containing the /tr/ consonant cluster.",
+      "The response remains continuous without significant hesitation or restart.",
+      "Overall speaking rate remains appropriate.",
+      "Content remains intact.",
+      "The defining issue is consonant-cluster reduction rather than syllable omission or general Fluency."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Pronunciation accuracy, specifically reduction of the /tr/ consonant cluster in the word 'extreme'. The student produces it more like 'ex-teem', but the target word remains identifiable. The remainder of the response is clear, continuous, and appropriately paced, with Content intact. The teacher should therefore focus on the consonant cluster rather than diagnosing syllable omission or Oral Fluency problems.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Pronunciation, specifically reduction of the /tr/ consonant cluster in 'extreme'. The student produces it more like 'ex-teem', creating a localized consonant reduction while the target remains identifiable. The rest of the response is clear, continuous, and appropriately paced, and Content remains intact. The teacher should therefore focus on the consonant cluster rather than diagnosing syllable omission, Content, or Oral Fluency problems.",
+
+    coachingAdvice:
+      "Practise the /tr/ cluster in 'extreme' slowly, keeping both consonants audible. Contrast 'extreme' with the student's 'ex-teem'-like production, then practise 'extreme temperatures' before returning to the complete sentence.",
+
+    cefrLevel: "B2",
+    topicTitle: "Space Exploration Technology",
+
+    good: {
+      transcript:
+        "Space exploration technology has advanced rapidly through improvements in robotics, communications, and scientific instrumentation. Modern spacecraft can collect detailed information from distant planets, moons, and asteroids. Robotic missions are particularly valuable because they can operate in environments that would be dangerous for human crews. Engineers must also design systems that can survive extreme temperatures, radiation, and long periods without direct maintenance.",
+      audioDuration: "29.0 seconds",
+      wordCount: 64,
+      characteristics:
+        "Accurate /tr/ consonant-cluster production with smooth pacing, clear pronunciation, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Space exploration technology has advanced rapidly through improvements in robotics, communications, and scientific instrumentation. Modern spacecraft can collect detailed information from distant planets, moons, and asteroids. Robotic missions are particularly valuable because they can operate in environments that would be dangerous for human crews. Engineers must also design systems that can survive ex-teem temperatures, radiation, and long periods without direct maintenance.",
+      audioDuration: "30.0 seconds",
+      wordCount: 64,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the /tr/ consonant cluster in 'extreme' is reduced, making the word sound more like 'ex-teem'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with clear /tr/ cluster production, clear Pronunciation, and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized consonant-cluster reduction in 'extreme' reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "consonant-cluster-reduction",
+        label: "Consonant cluster reduction",
+        keyword: "Consonant cluster reduction"
+      },
+      {
+        id: "consonant-sound-reduction",
+        label: "Consonant sound reduction",
+        keyword: "Consonant sound reduction"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the /tr/ consonant cluster in 'extreme'. Do not diagnose syllable omission or general Fluency problems because the target word remains identifiable and the response is otherwise continuous and appropriately paced."
+  },
+
+  {
+    exerciseIndex: 69,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Final Consonant Voicing Substitution",
+    learningObjective:
+      "Identify a localized final consonant voicing substitution in a B2 Read Aloud response and distinguish it from a general pronunciation or Content problem.",
+
+    promptText:
+      "Global economic inflation can affect household budgets, business costs, and government policy. When prices rise across many sectors, consumers may need to reduce spending or change their purchasing habits. Central banks often respond by adjusting interest rates in an effort to control inflationary pressure. However, economic conditions can vary between countries, so policymakers must consider local employment, investment, consumer confidence, and provide clear advice to the public.",
+
+    promptAudio:
+      "Global economic inflation can affect household budgets, business costs, and government policy. When prices rise across many sectors, consumers may need to reduce spending or change their purchasing habits. Central banks often respond by adjusting interest rates in an effort to control inflationary pressure. However, economic conditions can vary between countries, so policymakers must consider local employment, investment, consumer confidence, and provide clear advice to the public.",
+
+    studentTranscript:
+      "Global economic inflation can affect household budgets, business costs, and government policy. When prices rise across many sectors, consumers may need to reduce spending or change their purchasing habits. Central banks often respond by adjusting interest rates in an effort to control inflationary pressure. However, economic conditions can vary between countries, so policymakers must consider local employment, investment, consumer confidence, and provide clear advise to the public.",
+
+    studentResponse: {
+      audioDuration: "31.0 seconds",
+      wordCount: 67,
+      characteristics:
+        "The student maintains clear and continuous delivery but replaces 'advice' with the clearly different word 'advise' in the final phrase. The surrounding passage remains appropriately paced."
+    },
+
+    diagnosticErrors: [
+      "Final consonant voicing",
+      "Consonant sound substitution",
+      "Pronunciation accuracy"
+    ],
+
+    expertEvidence: [
+      "The target word is 'advice'.",
+      "The student produces the word with a voiced final consonant, sounding like 'advise'.",
+      "The distinction is localized to the final consonant sound.",
+      "The target word remains identifiable from the surrounding phrase.",
+      "The remainder of the passage is delivered clearly.",
+      "The response remains continuous without significant hesitation or restart.",
+      "Overall speaking rate remains appropriate.",
+      "The main issue is the final consonant voicing distinction."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Pronunciation accuracy, specifically final consonant voicing in the word 'advice'. The student produces the final consonant with a /z/-like quality, making the word sound like 'advise'. The target remains identifiable in context, and the rest of the passage is clear, continuous, and appropriately paced. The teacher should therefore focus on the localized final consonant distinction rather than diagnosing a broader Fluency problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Pronunciation, specifically the final consonant in the word 'advice'. The student voices the final consonant with a /z/-like sound, making the word sound like 'advise'. This is a localized consonant voicing substitution, while the remainder of the response is clear, continuous, and appropriately paced. The teacher should therefore focus on the final consonant distinction rather than diagnosing a general Fluency problem.",
+
+    coachingAdvice:
+      "Practise contrasting 'advice' and 'advise' carefully, paying particular attention to the final /s/ sound in 'advice'. Repeat 'clear advice' several times, then practise the complete sentence while keeping the final consonant unvoiced.",
+
+    cefrLevel: "B2",
+    topicTitle: "Global Economic Inflation",
+
+    good: {
+      transcript:
+        "Global economic inflation can affect household budgets, business costs, and government policy. When prices rise across many sectors, consumers may need to reduce spending or change their purchasing habits. Central banks often respond by adjusting interest rates in an effort to control inflationary pressure. However, economic conditions can vary between countries, so policymakers must consider local employment, investment, consumer confidence, and provide clear advice to the public.",
+      audioDuration: "30.5 seconds",
+      wordCount: 67,
+      characteristics:
+        "Clear pronunciation with smooth pacing and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Global economic inflation can affect household budgets, business costs, and government policy. When prices rise across many sectors, consumers may need to reduce spending or change their purchasing habits. Central banks often respond by adjusting interest rates in an effort to control inflationary pressure. However, economic conditions can vary between countries, so policymakers must consider local employment, investment, consumer confidence, and provide clear advise to the public.",
+      audioDuration: "31.0 seconds",
+      wordCount: 67,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but 'advice' is replaced by 'advise', creating a final consonant voicing distinction."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content, smooth Oral Fluency, and clear final consonant production."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized final consonant voicing substitution reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "final-consonant-voicing",
+        label: "Final consonant voicing",
+        keyword: "Final consonant voicing"
+      },
+      {
+        id: "consonant-sound-substitution",
+        label: "Consonant sound substitution",
+        keyword: "Consonant sound substitution"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+
+    expertAdvice:
+      "Focus specifically on the final consonant voicing in 'advice'. Do not diagnose poor Fluency because the student's delivery remains continuous and appropriately paced."
+  },
+
+  {
+    exerciseIndex: 70,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Clause Insertion",
+    learningObjective:
+      "Identify the insertion of a complete additional sentence in a B2 Read Aloud response and distinguish it from single-word insertion while recognizing otherwise strong Oral Fluency and Pronunciation.",
+
+    promptText:
+      "Archaeology uses scientific methods to investigate human societies and their material remains. Radiocarbon dating is particularly useful because it can help researchers estimate the age of organic materials found at archaeological sites. Samples such as charcoal, bone, and seeds may provide evidence about when people occupied particular locations. Researchers must interpret these results carefully because contamination, environmental conditions, and sampling methods can affect the accuracy of a date.",
+
+    promptAudio:
+      "Archaeology uses scientific methods to investigate human societies and their material remains. Radiocarbon dating is particularly useful because it can help researchers estimate the age of organic materials found at archaeological sites. Samples such as charcoal, bone, and seeds may provide evidence about when people occupied particular locations. Researchers must interpret these results carefully because contamination, environmental conditions, and sampling methods can affect the accuracy of a date.",
+
+    studentTranscript:
+      "Archaeology uses scientific methods to investigate human societies and their material remains. Radiocarbon dating is particularly useful because it can help researchers estimate the age of organic materials found at archaeological sites. Samples such as charcoal, bone, and seeds may provide evidence about when people occupied particular locations. Archaeologists often combine several forms of evidence when studying ancient sites. Researchers must interpret these results carefully because contamination, environmental conditions, and sampling methods can affect the accuracy of a date.",
+
+    studentResponse: {
+      audioDuration: "31.5 seconds",
+      wordCount: 69,
+      characteristics:
+        "The student delivers the passage clearly and continuously but inserts the complete additional sentence 'Archaeologists often combine several forms of evidence when studying ancient sites.' The original passage otherwise remains accurately reproduced."
+    },
+
+    diagnosticErrors: [
+      "Clause insertion",
+      "Content accuracy",
+      "Additional sentence"
+    ],
+
+    expertEvidence: [
+      "The prompt does not contain the sentence 'Archaeologists often combine several forms of evidence when studying ancient sites.'",
+      "The student inserts that complete sentence before the final sentence.",
+      "The inserted material is not part of the reading text.",
+      "The remainder of the passage is reproduced accurately.",
+      "The response remains continuous and appropriately paced.",
+      "Pronunciation is generally clear.",
+      "The main issue is the addition of content that is not present in the prompt."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Content accuracy because the student inserts the complete sentence 'Archaeologists often combine several forms of evidence when studying ancient sites.', which does not appear in the reading text. This is a clause-level insertion rather than a single extra word. The rest of the passage is accurately reproduced, with continuous delivery, appropriate pacing, and generally clear pronunciation. The teacher should therefore focus on the additional sentence rather than diagnosing Oral Fluency or Pronunciation.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they insert the complete sentence 'Archaeologists often combine several forms of evidence when studying ancient sites.', which is not present in the prompt. This is a clause-level content insertion rather than a single-word error. The remainder of the passage is reproduced accurately, and the delivery remains continuous, appropriately paced, and generally clear. The teacher should therefore identify the inserted sentence as the specific Content problem rather than diagnosing Fluency or Pronunciation.",
+
+    coachingAdvice:
+      "Practise reproducing the passage exactly as written without adding related ideas of your own. Focus especially on moving directly from 'particular locations' to 'Researchers must interpret these results carefully' while maintaining continuous delivery.",
+
+    cefrLevel: "B2",
+    topicTitle: "Archaeology & Radiocarbon",
+
+    good: {
+      transcript:
+        "Archaeology uses scientific methods to investigate human societies and their material remains. Radiocarbon dating is particularly useful because it can help researchers estimate the age of organic materials found at archaeological sites. Samples such as charcoal, bone, and seeds may provide evidence about when people occupied particular locations. Researchers must interpret these results carefully because contamination, environmental conditions, and sampling methods can affect the accuracy of a date.",
+      audioDuration: "29.5 seconds",
+      wordCount: 63,
+      characteristics:
+        "Exact reproduction with clear pronunciation, natural pacing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Archaeology uses scientific methods to investigate human societies and their material remains. Radiocarbon dating is particularly useful because it can help researchers estimate the age of organic materials found at archaeological sites. Samples such as charcoal, bone, and seeds may provide evidence about when people occupied particular locations. Archaeologists often combine several forms of evidence when studying ancient sites. Researchers must interpret these results carefully because contamination, environmental conditions, and sampling methods can affect the accuracy of a date.",
+      audioDuration: "31.5 seconds",
+      wordCount: 69,
+      characteristics:
+        "Clear and appropriately paced delivery, but an additional sentence not present in the reading text is inserted before the final sentence."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Exact Content reproduction with smooth Oral Fluency and clear Pronunciation."
+    },
+
+    poorScore: {
+      content: 3,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "An additional clause-level sentence reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "clause-insertion",
+        label: "Clause insertion",
+        keyword: "Clause insertion"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "additional-sentence",
+        label: "Additional sentence",
+        keyword: "Additional sentence"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the complete sentence that has been added even though it does not appear in the prompt. Do not diagnose this as a Fluency or Pronunciation problem because the student's delivery remains clear, continuous, and appropriately paced."
+  },
+
+     {
+    exerciseIndex: 71,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Grammatical Word-Form Change",
+    learningObjective:
+      "Identify a localized grammatical word-form change in a B2 Read Aloud response and distinguish it from a pronunciation or oral-fluency problem.",
+
+    promptText:
+      "Agricultural biotechnology uses scientific techniques to improve crops, livestock, and food production. Researchers may develop plants with greater resistance to pests, diseases, or environmental stress. These technologies can also improve nutritional quality and increase the efficiency of agricultural production. However, biotechnology must be carefully evaluated because changes to living organisms may create environmental, economic, and ethical concerns. Responsible development therefore requires scientific evidence, effective regulation, and careful monitoring.",
+
+    promptAudio:
+      "Agricultural biotechnology uses scientific techniques to improve crops, livestock, and food production. Researchers may develop plants with greater resistance to pests, diseases, or environmental stress. These technologies can also improve nutritional quality and increase the efficiency of agricultural production. However, biotechnology must be carefully evaluated because changes to living organisms may create environmental, economic, and ethical concerns. Responsible development therefore requires scientific evidence, effective regulation, and careful monitoring.",
+
+    studentTranscript:
+      "Agricultural biotechnology uses scientific techniques to improve crops, livestock, and food production. Researchers may develop plants with greater resistance to pests, diseases, or environmental stress. These technologies can also improve nutritional quality and increase the efficiency of agricultural production. However, biotechnology must be carefully evaluated because changes to living organisms may create environmental, economic, and ethical concern. Responsible development therefore requires scientific evidence, effective regulation, and careful monitoring.",
+
+    studentResponse: {
+      audioDuration: "31.0 seconds",
+      wordCount: 72,
+      characteristics:
+        "The student delivers the passage clearly and continuously but changes the plural noun 'concerns' to the singular form 'concern'. The surrounding material remains accurately reproduced."
+    },
+
+    diagnosticErrors: [
+      "Grammatical word-form change",
+      "Content accuracy",
+      "Number agreement"
+    ],
+
+    expertEvidence: [
+      "The prompt uses the plural noun 'concerns'.",
+      "The student produces the singular form 'concern'.",
+      "The change is localized to one grammatical word form.",
+      "The surrounding words are reproduced accurately.",
+      "The altered word is clearly audible and identifiable.",
+      "The response remains continuous without significant hesitation or restarting.",
+      "Overall speaking rate remains appropriate.",
+      "The main issue is Content accuracy rather than Pronunciation or Oral Fluency."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Content accuracy because the student changes the plural noun 'concerns' to the singular form 'concern'. This is a localized grammatical word-form change in the reading text. The altered word is clearly spoken, while the rest of the response is accurate, continuous, and appropriately paced. The teacher should therefore identify the grammatical Content error rather than diagnosing Pronunciation or Oral Fluency.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they change the word 'concerns' to the singular form 'concern'. This is a localized grammatical word-form change that makes the spoken response less accurate than the reading text. The word itself is clearly pronounced, and the remainder of the response is continuous and appropriately paced. The teacher should therefore focus on the Content error rather than diagnosing Pronunciation or Oral Fluency.",
+
+    coachingAdvice:
+      "Practise reading the final two sentences while checking singular and plural forms carefully. Focus on reproducing 'environmental, economic, and ethical concerns' exactly as printed, then reread the complete passage without changing grammatical word forms.",
+
+    cefrLevel: "B2",
+    topicTitle: "Agricultural Biotechnology",
+
+    good: {
+      transcript:
+        "Agricultural biotechnology uses scientific techniques to improve crops, livestock, and food production. Researchers may develop plants with greater resistance to pests, diseases, or environmental stress. These technologies can also improve nutritional quality and increase the efficiency of agricultural production. However, biotechnology must be carefully evaluated because changes to living organisms may create environmental, economic, and ethical concerns. Responsible development therefore requires scientific evidence, effective regulation, and careful monitoring.",
+      audioDuration: "30.0 seconds",
+      wordCount: 72,
+      characteristics:
+        "Accurate grammatical word forms with clear pronunciation, continuous delivery, and appropriate pacing."
+    },
+
+    poor: {
+      transcript:
+        "Agricultural biotechnology uses scientific techniques to improve crops, livestock, and food production. Researchers may develop plants with greater resistance to pests, diseases, or environmental stress. These technologies can also improve nutritional quality and increase the efficiency of agricultural production. However, biotechnology must be carefully evaluated because changes to living organisms may create environmental, economic, and ethical concern. Responsible development therefore requires scientific evidence, effective regulation, and careful monitoring.",
+      audioDuration: "31.0 seconds",
+      wordCount: 72,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the plural noun 'concerns' is changed to the singular form 'concern'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with correct grammatical word forms, clear Pronunciation, and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "A localized grammatical word-form change reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "grammatical-word-form-change",
+        label: "Grammatical word-form change",
+        keyword: "Grammatical word-form change"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "number-agreement",
+        label: "Number agreement",
+        keyword: "Number agreement"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the change from 'concerns' to 'concern' as a Content accuracy error. Do not diagnose Pronunciation or Oral Fluency because the word is clearly spoken and the response remains continuous and appropriately paced."
+  },
+
+  {
+    exerciseIndex: 72,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Word Sequence Disruption",
+    learningObjective:
+      "Identify a localized disruption in word sequence within a complex B2 Read Aloud sentence and distinguish it from pronunciation and oral-fluency problems.",
+
+    promptText:
+      "Hydropower generates electricity by using the movement of water through turbines connected to generators. Large dams can provide a reliable source of renewable energy while also supporting water storage and flood management. However, hydropower projects can alter river ecosystems by changing natural water flows and affecting fish migration. Engineers and environmental scientists therefore need to balance energy production with the long-term health of river systems. Careful planning can reduce ecological damage while maintaining the benefits of renewable electricity.",
+
+    promptAudio:
+      "Hydropower generates electricity by using the movement of water through turbines connected to generators. Large dams can provide a reliable source of renewable energy while also supporting water storage and flood management. However, hydropower projects can alter river ecosystems by changing natural water flows and affecting fish migration. Engineers and environmental scientists therefore need to balance energy production with the long-term health of river systems. Careful planning can reduce ecological damage while maintaining the benefits of renewable electricity.",
+
+    studentTranscript:
+      "Hydropower generates electricity by using the movement of water through turbines connected to generators. Large dams can provide a reliable source of renewable energy while also supporting water storage and flood management. However, hydropower projects can alter river ecosystems by changing natural water flows and affecting fish migration. Engineers and environmental scientists therefore need to balance energy production with the health long-term of river systems. Careful planning can reduce ecological damage while maintaining the benefits of renewable electricity.",
+
+    studentResponse: {
+      audioDuration: "32.0 seconds",
+      wordCount: 71,
+      characteristics:
+        "The student maintains clear and continuous delivery but reverses the sequence of 'long-term health' to 'health long-term'. The remainder of the passage is reproduced accurately."
+    },
+
+    diagnosticErrors: [
+      "Word sequence disruption",
+      "Content accuracy",
+      "Word order"
+    ],
+
+    expertEvidence: [
+      "The prompt contains the sequence 'the long-term health of river systems'.",
+      "The student produces 'the health long-term of river systems'.",
+      "The same words are present but their sequence is disrupted.",
+      "The disruption occurs within one meaningful phrase.",
+      "The surrounding sentence is otherwise accurately reproduced.",
+      "The student does not hesitate or restart at the affected phrase.",
+      "The response remains continuous and appropriately paced.",
+      "The main issue is Content accuracy rather than Oral Fluency or Pronunciation."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Content accuracy because the student disrupts the word sequence in the phrase 'the long-term health of river systems', producing 'the health long-term of river systems'. The relevant words are present, but their order no longer matches the reading text. The response remains clear, continuous, and appropriately paced, so the teacher should diagnose the localized word-order disruption rather than a fluency or pronunciation problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because the phrase 'the long-term health of river systems' is reproduced with the word order disrupted as 'the health long-term of river systems'. The words are present, but their sequence differs from the reading text. The rest of the response is clear and continuous with appropriate pacing, so the teacher should focus on the localized Content error rather than diagnosing Oral Fluency or Pronunciation.",
+
+    coachingAdvice:
+      "Practise the phrase 'the long-term health of river systems' as one fixed word group. Encourage the student to maintain the printed sequence rather than reconstructing the phrase while speaking.",
+
+    cefrLevel: "B2",
+    topicTitle: "Hydropower & River Ecology",
+
+    good: {
+      transcript:
+        "Hydropower generates electricity by using the movement of water through turbines connected to generators. Large dams can provide a reliable source of renewable energy while also supporting water storage and flood management. However, hydropower projects can alter river ecosystems by changing natural water flows and affecting fish migration. Engineers and environmental scientists therefore need to balance energy production with the long-term health of river systems. Careful planning can reduce ecological damage while maintaining the benefits of renewable electricity.",
+      audioDuration: "31.0 seconds",
+      wordCount: 71,
+      characteristics:
+        "Accurate word sequence with clear pronunciation, smooth phrasing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Hydropower generates electricity by using the movement of water through turbines connected to generators. Large dams can provide a reliable source of renewable energy while also supporting water storage and flood management. However, hydropower projects can alter river ecosystems by changing natural water flows and affecting fish migration. Engineers and environmental scientists therefore need to balance energy production with the health long-term of river systems. Careful planning can reduce ecological damage while maintaining the benefits of renewable electricity.",
+      audioDuration: "32.0 seconds",
+      wordCount: 71,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the word sequence 'long-term health' is disrupted to 'health long-term'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate word sequence with smooth Oral Fluency and clear Pronunciation."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "A localized word-sequence disruption reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "word-sequence-disruption",
+        label: "Word sequence disruption",
+        keyword: "Word sequence disruption"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "word-order",
+        label: "Word order",
+        keyword: "Word order"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the disrupted sequence 'long-term health' rather than diagnosing a general fluency problem. The student clearly produces the words, but their order differs from the reading text."
+  },
+
+{
+    exerciseIndex: 73,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Vowel Sound Substitution",
+    learningObjective:
+      "Identify a localized vowel-quality substitution in a B2 Read Aloud response and distinguish it from a Content error or Oral Fluency problem.",
+
+    promptText:
+      "Neurobiology examines how the nervous system controls behaviour, movement, learning, and memory. Researchers study communication between neurons to understand how information is processed within the brain. Memory formation depends on complex interactions between neural networks and chemical signals. Sleep, attention, and repeated practice can influence these processes and affect how efficiently new information is stored. Understanding these mechanisms may contribute to better approaches to learning and neurological care.",
+
+    promptAudio:
+      "Neurobiology examines how the nervous system controls behaviour, movement, learning, and memory. Researchers study communication between neurons to understand how information is processed within the brain. Memory formation depends on complex interactions between neural networks and chemical signals. Sleep, attention, and repeated practice can influence these processes and affect how efficiently new information is stored. Understanding these mechanisms may contribute to better approaches to learning and neurological care.",
+
+    studentTranscript:
+      "Neurobiology examines how the nervous system controls behaviour, movement, learning, and memory. Researchers study communication between neurons to understand how information is processed within the brin. Memory formation depends on complex interactions between neural networks and chemical signals. Sleep, attention, and repeated practice can influence these processes and affect how efficiently new information is stored. Understanding these mechanisms may contribute to better approaches to learning and neurological care.",
+
+    studentResponse: {
+      audioDuration: "31.5 seconds",
+      wordCount: 76,
+      characteristics:
+        "The student reproduces the passage accurately and continuously but changes the vowel sound in the word 'brain', producing a pronunciation closer to 'brin'. The surrounding material remains clear and appropriately paced."
+    },
+
+    diagnosticErrors: [
+      "Vowel sound substitution",
+      "Vowel quality",
+      "Pronunciation accuracy"
+    ],
+
+    expertEvidence: [
+      "The target word is 'brain'.",
+      "The student produces the target word with a vowel quality closer to 'brin'.",
+      "The difference is localized to the vowel sound within one specific word.",
+      "The target word remains identifiable from the surrounding phrase.",
+      "The remainder of the passage is accurately reproduced.",
+      "The student does not repeat the word or restart the phrase.",
+      "The overall speaking rate remains appropriate.",
+      "The response remains continuous.",
+      "The main issue requiring attention is the localized vowel sound."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Pronunciation accuracy, specifically a localized vowel sound substitution in the word 'brain'. The student produces a vowel quality closer to 'brin', creating a clear vowel contrast while the remainder of the response remains accurate, continuous, and appropriately paced. The teacher should therefore focus on the vowel quality in the target word rather than diagnosing Content or Oral Fluency.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Pronunciation, specifically the vowel sound in the word 'brain'. The student produces the vowel with a quality closer to 'brin', creating a localized vowel substitution. The remainder of the response is clear, continuous, and appropriately paced, with Content intact. The teacher should therefore focus on the specific vowel quality rather than diagnosing an Oral Fluency or Content problem.",
+
+    coachingAdvice:
+      "Practise the vowel in 'brain' slowly and compare the correct vowel with the student's 'brin'-like production. Then practise 'within the brain' in short phrases before returning to the complete passage.",
+
+    cefrLevel: "B2",
+    topicTitle: "Neurobiology & Memory",
+
+    good: {
+      transcript:
+        "Neurobiology examines how the nervous system controls behaviour, movement, learning, and memory. Researchers study communication between neurons to understand how information is processed within the brain. Memory formation depends on complex interactions between neural networks and chemical signals. Sleep, attention, and repeated practice can influence these processes and affect how efficiently new information is stored. Understanding these mechanisms may contribute to better approaches to learning and neurological care.",
+      audioDuration: "30.5 seconds",
+      wordCount: 76,
+      characteristics:
+        "Clear vowel production in 'brain' with accurate Content, smooth pacing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Neurobiology examines how the nervous system controls behaviour, movement, learning, and memory. Researchers study communication between neurons to understand how information is processed within the brin. Memory formation depends on complex interactions between neural networks and chemical signals. Sleep, attention, and repeated practice can influence these processes and affect how efficiently new information is stored. Understanding these mechanisms may contribute to better approaches to learning and neurological care.",
+      audioDuration: "31.5 seconds",
+      wordCount: 76,
+      characteristics:
+        "Accurate and continuous delivery, but the vowel in 'brain' is produced with a quality closer to 'brin'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with clear vowel production in 'brain' and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized vowel-quality substitution in 'brain' reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "vowel-sound-substitution",
+        label: "Vowel sound substitution",
+        keyword: "Vowel sound substitution"
+      },
+      {
+        id: "vowel-quality",
+        label: "Vowel quality",
+        keyword: "Vowel quality"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+
+    expertAdvice:
+      "Focus specifically on the vowel quality in 'brain'. Do not diagnose Content or Oral Fluency because the passage is otherwise accurately reproduced and delivered continuously."
+  },
+
+  {
+    exerciseIndex: 74,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Target-Word Omission",
+    learningObjective:
+      "Identify the omission of a specific content-bearing word in a technical B2 Read Aloud passage and distinguish it from broader Content loss or fluency problems.",
+
+    promptText:
+      "Oceanic microplastics are tiny plastic particles that accumulate in marine environments and can be transported across large distances by currents. Scientists have detected these particles in surface waters, sediments, and even within marine organisms. Microplastics may enter food webs when animals consume contaminated material, creating potential risks for ecosystems and human health. Researchers are therefore investigating how plastic waste moves through the ocean and how its effects can be reduced.",
+
+    promptAudio:
+      "Oceanic microplastics are tiny plastic particles that accumulate in marine environments and can be transported across large distances by currents. Scientists have detected these particles in surface waters, sediments, and even within marine organisms. Microplastics may enter food webs when animals consume contaminated material, creating potential risks for ecosystems and human health. Researchers are therefore investigating how plastic waste moves through the ocean and how its effects can be reduced.",
+
+    studentTranscript:
+      "Oceanic microplastics are tiny plastic particles that accumulate in marine environments and can be transported across large distances by currents. Scientists have detected these particles in surface waters, sediments, and even within marine organisms. Microplastics may enter food webs when animals consume contaminated material, creating potential risks for ecosystems and health. Researchers are therefore investigating how plastic waste moves through the ocean and how its effects can be reduced.",
+
+    studentResponse: {
+      audioDuration: "31.0 seconds",
+      wordCount: 74,
+      characteristics:
+        "The student delivers the passage clearly and continuously but omits the content-bearing word 'human' from the phrase 'human health'. The remainder is reproduced accurately."
+    },
+
+    diagnosticErrors: [
+      "Target-word omission",
+      "Content accuracy",
+      "Missing content word"
+    ],
+
+    expertEvidence: [
+      "The prompt contains the phrase 'human health'.",
+      "The student says 'health' without the word 'human'.",
+      "The omitted word is content-bearing rather than a filler or hesitation.",
+      "The omission occurs in an otherwise accurately reproduced sentence.",
+      "The response remains continuous and appropriately paced.",
+      "Pronunciation of the reproduced material is generally clear.",
+      "There is no evidence of a significant fluency breakdown.",
+      "The primary issue is the localized Content omission."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Content accuracy because the student omits the content-bearing word 'human' from the phrase 'human health'. This is a localized word omission within an otherwise accurate response. The delivery remains continuous and appropriately paced, and pronunciation is generally clear. The teacher should therefore identify the missing content word rather than diagnosing Oral Fluency or Pronunciation.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they omit the word 'human' from the phrase 'human health'. This removes a specific content-bearing word from the reading text. The remainder of the passage is accurately reproduced, with clear pronunciation and continuous, appropriately paced delivery. The teacher should therefore focus on the localized word omission rather than diagnosing Fluency or Pronunciation.",
+
+    coachingAdvice:
+      "Practise the phrase 'potential risks for ecosystems and human health' as a complete unit. Encourage the student to track every content word in the printed passage while maintaining natural delivery.",
+
+    cefrLevel: "B2",
+    topicTitle: "Oceanic Microplastics",
+
+    good: {
+      transcript:
+        "Oceanic microplastics are tiny plastic particles that accumulate in marine environments and can be transported across large distances by currents. Scientists have detected these particles in surface waters, sediments, and even within marine organisms. Microplastics may enter food webs when animals consume contaminated material, creating potential risks for ecosystems and human health. Researchers are therefore investigating how plastic waste moves through the ocean and how its effects can be reduced.",
+      audioDuration: "30.0 seconds",
+      wordCount: 75,
+      characteristics:
+        "Complete Content reproduction with clear pronunciation, natural pacing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Oceanic microplastics are tiny plastic particles that accumulate in marine environments and can be transported across large distances by currents. Scientists have detected these particles in surface waters, sediments, and even within marine organisms. Microplastics may enter food webs when animals consume contaminated material, creating potential risks for ecosystems and health. Researchers are therefore investigating how plastic waste moves through the ocean and how its effects can be reduced.",
+      audioDuration: "31.0 seconds",
+      wordCount: 74,
+      characteristics:
+        "Clear and continuous delivery, but the content-bearing word 'human' is omitted from the phrase 'human health'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Complete Content reproduction with smooth Oral Fluency and clear Pronunciation."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "A localized content-word omission reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "target-word-omission",
+        label: "Target-word omission",
+        keyword: "Target-word omission"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "missing-content-word",
+        label: "Missing content word",
+        keyword: "Missing content word"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the omitted word 'human' in the phrase 'human health'. Do not diagnose poor Fluency or Pronunciation because the response remains continuous, appropriately paced, and generally clear."
+  },
+
+  {
+    exerciseIndex: 75,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Phrase-Internal Pausing",
+    learningObjective:
+      "Identify an inappropriate pause inside a meaningful grammatical phrase in a B2 Read Aloud response and distinguish it from appropriate sentence-boundary pausing.",
+
+    promptText:
+      "Endangered languages can provide valuable information about the history, culture, and identity of the communities that speak them. When a language has very few remaining speakers, researchers may document vocabulary, grammar, oral traditions, and patterns of everyday communication. Language revitalisation programmes can help younger generations learn these languages and use them in education and community life. Long-term success often depends on cooperation between speakers, teachers, researchers, and local organisations.",
+
+    promptAudio:
+      "Endangered languages can provide valuable information about the history, culture, and identity of the communities that speak them. When a language has very few remaining speakers, researchers may document vocabulary, grammar, oral traditions, and patterns of everyday communication. Language revitalisation programmes can help younger generations learn these languages and use them in education and community life. Long-term success often depends on cooperation between speakers, teachers, researchers, and local organisations.",
+
+    studentTranscript:
+      "Endangered languages can provide valuable information about the history, culture, and identity of the communities that speak them. When a language has very few remaining speakers, researchers may document vocabulary, grammar, oral traditions, and patterns of everyday communication. Language revitalisation programmes can help younger generations learn these languages and use them in education / and community life. Long-term success often depends on cooperation between speakers, teachers, researchers, and local organisations.",
+
+    studentResponse: {
+      audioDuration: "32.5 seconds",
+      wordCount: 75,
+      characteristics:
+        "The student reproduces the passage accurately but introduces a noticeable pause inside the meaningful phrase 'education and community life', disrupting the thought group while the surrounding delivery remains clear."
+    },
+
+    diagnosticErrors: [
+      "Phrase-internal pausing",
+      "Thought-group disruption",
+      "Oral Fluency"
+    ],
+
+    expertEvidence: [
+      "The student pauses between 'education' and 'and community life'.",
+      "The pause occurs inside a meaningful grammatical phrase rather than at a natural sentence boundary.",
+      "The words themselves are reproduced accurately.",
+      "Pronunciation remains generally clear.",
+      "The pause interrupts the natural grouping of the phrase.",
+      "The remainder of the response is continuous and appropriately paced.",
+      "There are no significant fillers, repetitions, or false starts.",
+      "The primary issue is Oral Fluency rather than Content or Pronunciation."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Oral Fluency, specifically an inappropriate phrase-internal pause between 'education' and 'and community life'. The Content is accurate and the words are clearly pronounced, but the pause disrupts a meaningful grammatical thought group. The remainder of the response is continuous and appropriately paced, so the teacher should focus on phrasing and thought-group continuity rather than diagnosing Content or Pronunciation.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Oral Fluency because they introduce an inappropriate pause inside the phrase 'education and community life'. The words are all present and clearly pronounced, so Content and Pronunciation remain strong. However, the pause breaks a meaningful grammatical unit and makes the delivery less natural. The teacher should therefore focus on maintaining the phrase as one connected thought group.",
+
+    coachingAdvice:
+      "Practise 'use them in education and community life' as one connected thought group. First read the phrase without a pause, then practise the full sentence while keeping natural pauses at grammatical boundaries rather than inside meaningful phrases.",
+
+    cefrLevel: "B2",
+    topicTitle: "Endangered Languages",
+
+    good: {
+      transcript:
+        "Endangered languages can provide valuable information about the history, culture, and identity of the communities that speak them. When a language has very few remaining speakers, researchers may document vocabulary, grammar, oral traditions, and patterns of everyday communication. Language revitalisation programmes can help younger generations learn these languages and use them in education and community life. Long-term success often depends on cooperation between speakers, teachers, researchers, and local organisations.",
+      audioDuration: "30.5 seconds",
+      wordCount: 75,
+      characteristics:
+        "Natural phrasing with meaningful thought groups, continuous delivery, clear pronunciation, and appropriate pacing."
+    },
+
+    poor: {
+      transcript:
+        "Endangered languages can provide valuable information about the history, culture, and identity of the communities that speak them. When a language has very few remaining speakers, researchers may document vocabulary, grammar, oral traditions, and patterns of everyday communication. Language revitalisation programmes can help younger generations learn these languages and use them in education / and community life. Long-term success often depends on cooperation between speakers, teachers, researchers, and local organisations.",
+      audioDuration: "32.5 seconds",
+      wordCount: 75,
+      characteristics:
+        "Accurate and generally clear delivery, but an inappropriate pause occurs inside the meaningful phrase 'education and community life'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Natural thought-group phrasing with accurate Content and clear Pronunciation."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 3,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "A phrase-internal pause disrupts a meaningful thought group while Content and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "phrase-internal-pausing",
+        label: "Phrase-internal pausing",
+        keyword: "Phrase-internal pausing"
+      },
+      {
+        id: "thought-group-disruption",
+        label: "Thought-group disruption",
+        keyword: "Thought-group disruption"
+      },
+      {
+        id: "oral-fluency",
+        label: "Oral Fluency",
+        keyword: "Oral Fluency"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the pause inside 'education and community life'. Do not diagnose Content or Pronunciation because all words are reproduced accurately and clearly. The primary issue is the disruption of a meaningful fluency thought group."
+  },
+
+  {
+    exerciseIndex: 76,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Semantic Word Substitution",
+    learningObjective:
+      "Identify a localized semantic word substitution in a sophisticated B2 Read Aloud response and distinguish it from Pronunciation and Oral Fluency problems.",
+
+    promptText:
+      "Architectural acoustics examines how sound behaves within buildings and how spaces can be designed to support clear communication. Concert halls, lecture theatres, and recording studios require careful control of reverberation, reflection, and sound absorption. Designers may use specialised wall panels, ceiling structures, and seating materials to influence the acoustic environment. Effective design must balance technical performance with the practical needs of people who use the space. Careful acoustic planning can therefore improve both comfort and communication.",
+
+    promptAudio:
+      "Architectural acoustics examines how sound behaves within buildings and how spaces can be designed to support clear communication. Concert halls, lecture theatres, and recording studios require careful control of reverberation, reflection, and sound absorption. Designers may use specialised wall panels, ceiling structures, and seating materials to influence the acoustic environment. Effective design must balance technical performance with the practical needs of people who use the space. Careful acoustic planning can therefore improve both comfort and communication.",
+
+    studentTranscript:
+      "Architectural acoustics examines how sound behaves within buildings and how spaces can be designed to support clear communication. Concert halls, lecture theatres, and recording studios require careful control of reverberation, reflection, and sound absorption. Designers may use specialised wall panels, ceiling structures, and seating materials to influence the acoustic environment. Effective design must balance technical performance with the practical needs of people who use the space. Careful acoustic planning can therefore improve both comfort and conversation.",
+
+    studentResponse: {
+      audioDuration: "32.0 seconds",
+      wordCount: 76,
+      characteristics:
+        "The student reproduces the passage clearly and continuously but substitutes the content word 'communication' with 'conversation' in the final sentence. The remainder of the passage is accurately reproduced."
+    },
+
+    diagnosticErrors: [
+      "Semantic word substitution",
+      "Content accuracy",
+      "Content word change"
+    ],
+
+    expertEvidence: [
+      "The prompt uses the word 'communication' in the final sentence.",
+      "The student produces 'conversation' instead.",
+      "The substituted word is clearly audible and semantically related but does not reproduce the exact reading text.",
+      "The substitution occurs at one localized word position.",
+      "The remainder of the passage is reproduced accurately.",
+      "The response remains continuous without hesitation or restarting.",
+      "Overall speaking rate remains appropriate.",
+      "Pronunciation of the substituted word is clear.",
+      "The primary issue is Content accuracy rather than Pronunciation or Oral Fluency."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Content accuracy because the student substitutes 'conversation' for the prompt's 'communication' in the final sentence. Although the two words are semantically related, the student's response does not reproduce the exact content of the reading text. The substitution is clearly spoken, while the remainder of the response is continuous and appropriately paced. The teacher should therefore identify the localized semantic word substitution rather than diagnosing Pronunciation or Oral Fluency.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they substitute the word 'conversation' for the prompt's 'communication' in the final sentence. The two words are related in meaning, but the student has changed the wording of the reading text. The substituted word is clearly pronounced, and the remainder of the response is continuous and appropriately paced. The teacher should therefore focus on the specific Content substitution rather than diagnosing Pronunciation or Oral Fluency.",
+
+    coachingAdvice:
+      "Practise the final sentence exactly as written, paying particular attention to the distinction between 'comfort' and 'communication'. During preparation, check the final content words carefully so that related vocabulary is not substituted for the original wording.",
+
+    cefrLevel: "B2",
+    topicTitle: "Architectural Acoustics",
+
+    good: {
+      transcript:
+        "Architectural acoustics examines how sound behaves within buildings and how spaces can be designed to support clear communication. Concert halls, lecture theatres, and recording studios require careful control of reverberation, reflection, and sound absorption. Designers may use specialised wall panels, ceiling structures, and seating materials to influence the acoustic environment. Effective design must balance technical performance with the practical needs of people who use the space. Careful acoustic planning can therefore improve both comfort and communication.",
+      audioDuration: "31.0 seconds",
+      wordCount: 76,
+      characteristics:
+        "Accurate Content with clear pronunciation, natural pacing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Architectural acoustics examines how sound behaves within buildings and how spaces can be designed to support clear communication. Concert halls, lecture theatres, and recording studios require careful control of reverberation, reflection, and sound absorption. Designers may use specialised wall panels, ceiling structures, and seating materials to influence the acoustic environment. Effective design must balance technical performance with the practical needs of people who use the space. Careful acoustic planning can therefore improve both comfort and conversation.",
+      audioDuration: "32.0 seconds",
+      wordCount: 76,
+      characteristics:
+        "Clear and continuous delivery, but 'communication' is replaced by the semantically related word 'conversation'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with clear Pronunciation and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "A localized semantic word substitution reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "semantic-word-substitution",
+        label: "Semantic word substitution",
+        keyword: "Semantic word substitution"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "content-word-change",
+        label: "Content word change",
+        keyword: "Content word change"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the substitution of 'conversation' for 'communication'. Do not treat a semantically related substitution as acceptable exact reproduction, and do not diagnose Pronunciation or Oral Fluency because the altered word is clearly spoken and delivery remains continuous."
+  },
+
+  {
+    exerciseIndex: 77,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Vowel Sound Substitution",
+    learningObjective:
+      "Identify a localized vowel-quality substitution in a B2 academic vocabulary item and distinguish it from Content and Oral Fluency problems.",
+
+    promptText:
+      "Consumer behavioral trends can change rapidly as people respond to economic conditions, technological developments, and social influences. Researchers analyse purchasing patterns to understand why consumers adopt certain products and abandon others. Online platforms have also increased the amount of behavioural data available to businesses, allowing companies to identify emerging preferences more quickly. However, interpreting these patterns requires careful attention to context because consumer decisions are not always predictable.",
+
+    promptAudio:
+      "Consumer behavioral trends can change rapidly as people respond to economic conditions, technological developments, and social influences. Researchers analyse purchasing patterns to understand why consumers adopt certain products and abandon others. Online platforms have also increased the amount of behavioural data available to businesses, allowing companies to identify emerging preferences more quickly. However, interpreting these patterns requires careful attention to context because consumer decisions are not always predictable.",
+
+    studentTranscript:
+      "Consumer behavioral trends can change rapidly as people respond to economic conditions, technological developments, and social influences. Researchers analyse purchasing patterns to understand why consumers adopt certain products and abandon others. Online platforms have also increased the amount of behavioural data available to businesses, allowing companies to identify emerging preferences more quickly. However, interpreting these patterns requires careful attention to context because consumer decisions are not always predictable.",
+
+    studentResponse: {
+      audioDuration: "32.5 seconds",
+      wordCount: 75,
+      characteristics:
+        "The student maintains accurate Content and continuous delivery but produces the vowel in 'predictable' with a quality closer to 'predicktable'. The surrounding material remains clear and appropriately paced."
+    },
+
+    diagnosticErrors: [
+      "Vowel sound substitution",
+      "Vowel quality",
+      "Pronunciation accuracy"
+    ],
+
+    expertEvidence: [
+      "The target word is 'predictable'.",
+      "The student produces a noticeably altered vowel quality in the target word.",
+      "The production is closer to 'predicktable' than the expected pronunciation.",
+      "The difference is localized to one lexical item.",
+      "The target word remains identifiable from the surrounding context.",
+      "Content is accurately reproduced.",
+      "The response remains continuous without significant hesitation or restart.",
+      "Overall speaking rate remains appropriate.",
+      "The defining issue is the localized vowel sound rather than Content or Oral Fluency."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Pronunciation accuracy, specifically a localized vowel-quality substitution in the word 'predictable'. The student's production is closer to 'predicktable', creating a noticeable vowel difference while the target word remains identifiable. Content is accurately reproduced and the response remains continuous and appropriately paced. The teacher should therefore focus on the specific vowel quality rather than diagnosing Content or Oral Fluency.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Pronunciation, specifically the vowel sound in 'predictable'. The student produces a vowel quality closer to 'predicktable', creating a localized vowel substitution while the target word remains identifiable. The remainder of the passage is accurately reproduced with clear, continuous, appropriately paced delivery. The teacher should therefore focus on the specific vowel quality rather than diagnosing Content or Oral Fluency.",
+
+    coachingAdvice:
+      "Practise the vowel sound in 'predictable' slowly, then repeat the word in the phrase 'consumer decisions are not always predictable'. Return to the full passage while maintaining the same natural speaking rate.",
+
+    cefrLevel: "B2",
+    topicTitle: "Consumer Behavioral Trends",
+
+    good: {
+      transcript:
+        "Consumer behavioral trends can change rapidly as people respond to economic conditions, technological developments, and social influences. Researchers analyse purchasing patterns to understand why consumers adopt certain products and abandon others. Online platforms have also increased the amount of behavioural data available to businesses, allowing companies to identify emerging preferences more quickly. However, interpreting these patterns requires careful attention to context because consumer decisions are not always predictable.",
+      audioDuration: "32.0 seconds",
+      wordCount: 75,
+      characteristics:
+        "Clear vowel production in 'predictable' with accurate Content, smooth pacing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Consumer behavioral trends can change rapidly as people respond to economic conditions, technological developments, and social influences. Researchers analyse purchasing patterns to understand why consumers adopt certain products and abandon others. Online platforms have also increased the amount of behavioural data available to businesses, allowing companies to identify emerging preferences more quickly. However, interpreting these patterns requires careful attention to context because consumer decisions are not always predicktable.",
+      audioDuration: "32.5 seconds",
+      wordCount: 75,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the vowel quality in 'predictable' is altered, producing a form closer to 'predicktable'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with clear vowel production and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized vowel-quality substitution reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "vowel-sound-substitution",
+        label: "Vowel sound substitution",
+        keyword: "Vowel sound substitution"
+      },
+      {
+        id: "vowel-quality",
+        label: "Vowel quality",
+        keyword: "Vowel quality"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+
+    expertAdvice:
+      "Focus specifically on the altered vowel in 'predictable'. Do not diagnose Content or Oral Fluency because the passage remains accurate and the delivery is continuous and appropriately paced."
+  },
+
+  {
+    exerciseIndex: 78,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Technical Word Substitution",
+    learningObjective:
+      "Identify a localized technical-word substitution in a B2 Read Aloud response and distinguish it from pronunciation or fluency problems.",
+
+    promptText:
+      "Plate tectonics explains how large sections of Earth's lithosphere move and interact over geological time. Evidence from seismic activity, magnetic patterns on the ocean floor, and the distribution of fossils supports the theory of moving plates. At convergent boundaries, one plate may move beneath another in a process known as subduction. These interactions can produce earthquakes, volcanic activity, and mountain formation. Scientists combine geological and seismic data to understand how these processes shape the planet.",
+
+    promptAudio:
+      "Plate tectonics explains how large sections of Earth's lithosphere move and interact over geological time. Evidence from seismic activity, magnetic patterns on the ocean floor, and the distribution of fossils supports the theory of moving plates. At convergent boundaries, one plate may move beneath another in a process known as subduction. These interactions can produce earthquakes, volcanic activity, and mountain formation. Scientists combine geological and seismic data to understand how these processes shape the planet.",
+
+    studentTranscript:
+      "Plate tectonics explains how large sections of Earth's lithosphere move and interact over geological time. Evidence from seismic activity, magnetic patterns on the ocean floor, and the distribution of fossils supports the theory of moving plates. At convergent boundaries, one plate may move beneath another in a process known as subduction. These interactions can produce earthquakes, volcanic activity, and mountain formation. Scientists combine geological and seismic evidence to understand how these processes shape the planet.",
+
+    studentResponse: {
+      audioDuration: "33.0 seconds",
+      wordCount: 75,
+      characteristics:
+        "The student delivers the passage clearly and continuously but substitutes 'data' with the semantically related word 'evidence' in the final sentence. The remainder is accurately reproduced."
+    },
+
+    diagnosticErrors: [
+      "Technical word substitution",
+      "Content accuracy",
+      "Semantic substitution"
+    ],
+
+    expertEvidence: [
+      "The prompt uses the phrase 'geological and seismic data'.",
+      "The student produces 'geological and seismic evidence'.",
+      "The substituted word is clearly audible and semantically related to the target.",
+      "The substitution occurs at one localized position.",
+      "The remainder of the passage is reproduced accurately.",
+      "The student does not hesitate or restart at the affected phrase.",
+      "Overall delivery remains continuous and appropriately paced.",
+      "Pronunciation is generally clear.",
+      "The primary issue is Content accuracy rather than Oral Fluency or Pronunciation."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Content accuracy because the student substitutes 'evidence' for the prompt's 'data' in the final sentence. Although the words are related semantically, the student's response does not exactly reproduce the reading text. The substitution is clearly spoken and the remainder of the passage is accurate, continuous, and appropriately paced. The teacher should therefore identify the technical-word substitution rather than diagnosing Pronunciation or Oral Fluency.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they substitute 'evidence' for the prompt's 'data' in the phrase 'geological and seismic data'. The substituted word is related in meaning but does not match the original reading text. The remainder of the response is clear, continuous, and appropriately paced. The teacher should therefore focus on the localized Content substitution rather than diagnosing Pronunciation or Oral Fluency.",
+
+    coachingAdvice:
+      "Practise the final phrase 'geological and seismic data' exactly as written. When preparing technical passages, focus on retaining the precise nouns rather than replacing them with related vocabulary.",
+
+    cefrLevel: "B2",
+    topicTitle: "Plate Tectonics & Seismic Data",
+
+    good: {
+      transcript:
+        "Plate tectonics explains how large sections of Earth's lithosphere move and interact over geological time. Evidence from seismic activity, magnetic patterns on the ocean floor, and the distribution of fossils supports the theory of moving plates. At convergent boundaries, one plate may move beneath another in a process known as subduction. These interactions can produce earthquakes, volcanic activity, and mountain formation. Scientists combine geological and seismic data to understand how these processes shape the planet.",
+      audioDuration: "32.0 seconds",
+      wordCount: 75,
+      characteristics:
+        "Accurate technical vocabulary with clear pronunciation, smooth pacing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Plate tectonics explains how large sections of Earth's lithosphere move and interact over geological time. Evidence from seismic activity, magnetic patterns on the ocean floor, and the distribution of fossils supports the theory of moving plates. At convergent boundaries, one plate may move beneath another in a process known as subduction. These interactions can produce earthquakes, volcanic activity, and mountain formation. Scientists combine geological and seismic evidence to understand how these processes shape the planet.",
+      audioDuration: "33.0 seconds",
+      wordCount: 75,
+      characteristics:
+        "Clear and continuous delivery, but the technical noun 'data' is replaced by the semantically related word 'evidence'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate technical Content with clear Pronunciation and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "A localized technical-word substitution reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "technical-word-substitution",
+        label: "Technical word substitution",
+        keyword: "Technical word substitution"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "semantic-substitution",
+        label: "Semantic substitution",
+        keyword: "Semantic substitution"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the substitution of 'evidence' for 'data'. Do not treat the semantic relationship as exact reproduction; the Content wording has changed. Do not diagnose Pronunciation or Oral Fluency because the substituted word is clearly spoken and delivery remains continuous."
+  },
+
+  {
+    exerciseIndex: 79,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Phrase-Internal Pausing",
+    learningObjective:
+      "Identify an inappropriate pause inside a complex B2 thought group and distinguish it from natural sentence-boundary pausing.",
+
+    promptText:
+      "Vaccine distribution logistics involves coordinating manufacturing, transportation, storage, and delivery across multiple locations. Some vaccines require strict temperature controls throughout the supply chain, making reliable refrigeration essential. Distribution planners must also account for population needs, transportation distances, staffing levels, and changing demand. Efficient systems depend on accurate forecasting and close coordination between health authorities, suppliers, and local clinics. Even small delays can affect the availability of vaccines in communities that need them.",
+
+    promptAudio:
+      "Vaccine distribution logistics involves coordinating manufacturing, transportation, storage, and delivery across multiple locations. Some vaccines require strict temperature controls throughout the supply chain, making reliable refrigeration essential. Distribution planners must also account for population needs, transportation distances, staffing levels, and changing demand. Efficient systems depend on accurate forecasting and close coordination between health authorities, suppliers, and local clinics. Even small delays can affect the availability of vaccines in communities that need them.",
+
+    studentTranscript:
+      "Vaccine distribution logistics involves coordinating manufacturing, transportation, storage, and delivery across multiple locations. Some vaccines require strict temperature controls throughout the supply chain, making reliable refrigeration essential. Distribution planners must also account for population needs, transportation distances, staffing levels, and changing demand. Efficient systems depend on accurate forecasting and close coordination between health authorities, suppliers, and local clinics. Even small delays can affect the availability / of vaccines in communities that need them.",
+
+    studentResponse: {
+      audioDuration: "34.0 seconds",
+      wordCount: 78,
+      characteristics:
+        "The student reproduces the passage accurately but inserts a short pause between 'availability' and 'of vaccines', interrupting the meaningful phrase 'availability of vaccines'. The remainder remains continuous."
+    },
+
+    diagnosticErrors: [
+      "Phrase-internal pausing",
+      "Thought-group disruption",
+      "Oral Fluency"
+    ],
+
+    expertEvidence: [
+      "The student pauses between 'availability' and 'of vaccines'.",
+      "The pause occurs inside the grammatical phrase 'availability of vaccines'.",
+      "The words surrounding the pause are reproduced accurately.",
+      "The pause is not at a natural sentence boundary.",
+      "The overall speaking rate remains appropriate.",
+      "The remainder of the response is continuous.",
+      "There are no significant fillers, repetitions, or false starts.",
+      "Pronunciation remains generally clear.",
+      "The primary issue is the interruption of a meaningful thought group."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Oral Fluency, specifically an inappropriate phrase-internal pause between 'availability' and 'of vaccines'. This interrupts the meaningful grammatical group 'availability of vaccines'. Content is accurately reproduced and pronunciation remains clear, while the overall speaking rate is appropriate. The teacher should therefore focus on the disrupted thought group rather than diagnosing generally slow speech, Content loss, or Pronunciation problems.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Oral Fluency because they introduce a pause inside the meaningful phrase 'availability of vaccines'. The words are all present and clearly pronounced, so Content and Pronunciation remain strong. The pause disrupts natural thought grouping even though the overall speaking rate remains appropriate. The teacher should therefore focus on phrase-internal pausing and thought-group continuity.",
+
+    coachingAdvice:
+      "Practise 'the availability of vaccines in communities' as one connected thought group. Avoid pausing between 'availability' and 'of vaccines', while continuing to use natural pauses at genuine grammatical boundaries.",
+
+    cefrLevel: "B2",
+    topicTitle: "Vaccine Distribution Logistics",
+
+    good: {
+      transcript:
+        "Vaccine distribution logistics involves coordinating manufacturing, transportation, storage, and delivery across multiple locations. Some vaccines require strict temperature controls throughout the supply chain, making reliable refrigeration essential. Distribution planners must also account for population needs, transportation distances, staffing levels, and changing demand. Efficient systems depend on accurate forecasting and close coordination between health authorities, suppliers, and local clinics. Even small delays can affect the availability of vaccines in communities that need them.",
+      audioDuration: "33.0 seconds",
+      wordCount: 78,
+      characteristics:
+        "Natural thought grouping with continuous delivery, clear pronunciation, and appropriate pacing."
+    },
+
+    poor: {
+      transcript:
+        "Vaccine distribution logistics involves coordinating manufacturing, transportation, storage, and delivery across multiple locations. Some vaccines require strict temperature controls throughout the supply chain, making reliable refrigeration essential. Distribution planners must also account for population needs, transportation distances, staffing levels, and changing demand. Efficient systems depend on accurate forecasting and close coordination between health authorities, suppliers, and local clinics. Even small delays can affect the availability / of vaccines in communities that need them.",
+      audioDuration: "34.0 seconds",
+      wordCount: 78,
+      characteristics:
+        "Accurate and generally fluent delivery, but a short inappropriate pause interrupts the phrase 'availability of vaccines'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Natural thought grouping with accurate Content and clear Pronunciation."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 3,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "A phrase-internal pause disrupts Oral Fluency while Content and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "phrase-internal-pausing",
+        label: "Phrase-internal pausing",
+        keyword: "Phrase-internal pausing"
+      },
+      {
+        id: "thought-group-disruption",
+        label: "Thought-group disruption",
+        keyword: "Thought-group disruption"
+      },
+      {
+        id: "oral-fluency",
+        label: "Oral Fluency",
+        keyword: "Oral Fluency"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the pause inside 'availability of vaccines'. Do not diagnose generally slow speech because the overall rate is appropriate. The defining issue is the interruption of a meaningful grammatical thought group."
+  },
+
+  {
+    exerciseIndex: 80,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Initial Consonant Cluster Reduction",
+    learningObjective:
+      "Identify a localized initial consonant-cluster reduction in an advanced B2 technical vocabulary item and distinguish it from Content and Oral Fluency problems.",
+
+    promptText:
+      "Quantum cryptography applies principles of quantum mechanics to secure the exchange of information. Unlike conventional encryption methods, some quantum communication systems can reveal attempts to intercept data because measurement can disturb the transmitted state. Researchers are investigating how these principles might improve the security of future communication networks. However, practical implementation remains challenging because specialised equipment and highly controlled conditions are often required. Continued research may eventually make quantum-based security more accessible.",
+
+    promptAudio:
+      "Quantum cryptography applies principles of quantum mechanics to secure the exchange of information. Unlike conventional encryption methods, some quantum communication systems can reveal attempts to intercept data because measurement can disturb the transmitted state. Researchers are investigating how these principles might improve the security of future communication networks. However, practical implementation remains challenging because specialised equipment and highly controlled conditions are often required. Continued research may eventually make quantum-based security more accessible.",
+
+    studentTranscript:
+      "Cantum cryptography applies principles of quantum mechanics to secure the exchange of information. Unlike conventional encryption methods, some quantum communication systems can reveal attempts to intercept data because measurement can disturb the transmitted state. Researchers are investigating how these principles might improve the security of future communication networks. However, practical implementation remains challenging because specialised equipment and highly controlled conditions are often required. Continued research may eventually make quantum-based security more accessible.",
+
+    studentResponse: {
+      audioDuration: "34.0 seconds",
+      wordCount: 80,
+      characteristics:
+        "The student reproduces the passage continuously but reduces the initial consonant cluster in the opening word 'Quantum', producing a form closer to 'Cantum'. The remainder of the response is clear and appropriately paced."
+    },
+
+    diagnosticErrors: [
+      "Initial consonant cluster reduction",
+      "Consonant sound substitution",
+      "Pronunciation accuracy"
+    ],
+
+    expertEvidence: [
+      "The target word is 'Quantum'.",
+      "The student produces a form closer to 'Cantum'.",
+      "The initial /kw/ consonant cluster is reduced, with the /w/ component absent from the student's production.",
+      "The pronunciation difference is localized to one technical word.",
+      "The target word remains identifiable from the surrounding sentence.",
+      "The remainder of the passage is accurately reproduced.",
+      "The student maintains continuous delivery.",
+      "Overall speaking rate remains appropriate.",
+      "The main issue is Pronunciation accuracy rather than Content or Oral Fluency."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Pronunciation accuracy, specifically reduction of the initial /kw/ consonant cluster in the word 'Quantum'. The student produces a form closer to 'Cantum', omitting the /w/ component while the target word remains identifiable. The remainder of the passage is accurately reproduced with continuous, appropriately paced delivery. The teacher should therefore focus on the localized consonant-cluster reduction rather than diagnosing Content or Oral Fluency.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Pronunciation, specifically reduction of the initial /kw/ consonant cluster in the word 'Quantum'. The student produces a form closer to 'Cantum', with the /w/ component missing from the initial cluster. Content remains intact and the remainder of the response is clear, continuous, and appropriately paced. The teacher should therefore focus on the localized consonant reduction rather than diagnosing Content or Oral Fluency.",
+
+    coachingAdvice:
+      "Practise the initial /kw/ cluster in 'Quantum' slowly, making both the /k/ and /w/ components audible. Repeat 'Quantum cryptography' several times, then return to the full passage while maintaining natural pacing.",
+
+    cefrLevel: "B2",
+    topicTitle: "Quantum Cryptography",
+
+    good: {
+      transcript:
+        "Quantum cryptography applies principles of quantum mechanics to secure the exchange of information. Unlike conventional encryption methods, some quantum communication systems can reveal attempts to intercept data because measurement can disturb the transmitted state. Researchers are investigating how these principles might improve the security of future communication networks. However, practical implementation remains challenging because specialised equipment and highly controlled conditions are often required. Continued research may eventually make quantum-based security more accessible.",
+      audioDuration: "33.0 seconds",
+      wordCount: 80,
+      characteristics:
+        "Accurate technical-word pronunciation with clear initial /kw/ production, smooth pacing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Cantum cryptography applies principles of quantum mechanics to secure the exchange of information. Unlike conventional encryption methods, some quantum communication systems can reveal attempts to intercept data because measurement can disturb the transmitted state. Researchers are investigating how these principles might improve the security of future communication networks. However, practical implementation remains challenging because specialised equipment and highly controlled conditions are often required. Continued research may eventually make quantum-based security more accessible.",
+      audioDuration: "34.0 seconds",
+      wordCount: 80,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the initial /kw/ consonant cluster in 'Quantum' is reduced, producing a form closer to 'Cantum'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with clear initial /kw/ cluster production and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized initial consonant-cluster reduction in 'Quantum' reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "initial-consonant-cluster-reduction",
+        label: "Initial consonant cluster reduction",
+        keyword: "Initial consonant cluster reduction"
+      },
+      {
+        id: "consonant-sound-substitution",
+        label: "Consonant sound substitution",
+        keyword: "Consonant sound substitution"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+
+    expertAdvice:
+      "Focus specifically on the initial /kw/ consonant cluster in 'Quantum'. Do not diagnose Content or Oral Fluency because the target word remains identifiable and the response is otherwise accurate, continuous, and appropriately paced."
+  },
+
+  {
+    exerciseIndex: 81,
+    totalExercises: 100,
+    difficulty: "Advanced",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Phrase Omission",
+    learningObjective:
+      "Identify a localized omission of a content-bearing phrase in a C1 Read Aloud response and distinguish it from broader Content loss, Pronunciation problems, or Oral Fluency disruption.",
+
+    promptText:
+      "Choice architecture examines how the design of a decision environment can influence behaviour without removing freedom of choice. Nudge theory proposes that relatively small changes in how options are presented can affect decisions while leaving the underlying alternatives available. Common examples include default settings, reminders, simplified information, and strategically organised choices. However, the effectiveness of a nudge depends heavily on context, because individuals may respond differently according to their goals, knowledge, and circumstances. Researchers therefore evaluate both behavioural outcomes and the ethical implications of influencing decisions.",
+
+    promptAudio:
+      "Choice architecture examines how the design of a decision environment can influence behaviour without removing freedom of choice. Nudge theory proposes that relatively small changes in how options are presented can affect decisions while leaving the underlying alternatives available. Common examples include default settings, reminders, simplified information, and strategically organised choices. However, the effectiveness of a nudge depends heavily on context, because individuals may respond differently according to their goals, knowledge, and circumstances. Researchers therefore evaluate both behavioural outcomes and the ethical implications of influencing decisions.",
+
+    studentTranscript:
+      "Choice architecture examines how the design of a decision environment can influence behaviour without removing freedom of choice. Nudge theory proposes that relatively small changes in how options are presented can affect decisions while leaving the underlying alternatives available. Common examples include default settings, reminders, simplified information, and strategically organised choices. However, the effectiveness of a nudge depends heavily on context, because individuals may respond differently according to their goals, knowledge, and circumstances. Researchers therefore evaluate both behavioural outcomes and the ethical implications of influencing decisions.",
+
+    studentResponse: {
+      audioDuration: "35.5 seconds",
+      wordCount: 95,
+      characteristics:
+        "The student reproduces the passage clearly and continuously but omits the phrase 'and the ethical implications' from the final sentence. The remaining material is accurately reproduced."
+    },
+
+    diagnosticErrors: [
+      "Phrase omission",
+      "Content accuracy",
+      "Missing content"
+    ],
+
+    expertEvidence: [
+      "The prompt ends with 'Researchers therefore evaluate both behavioural outcomes and the ethical implications of influencing decisions.'",
+      "The student omits the phrase 'and the ethical implications'.",
+      "The omission removes a distinct content-bearing idea from the final sentence.",
+      "The material before and after the omission is reproduced accurately.",
+      "The response remains continuous without a hesitation or restart at the omitted location.",
+      "Overall speaking rate remains appropriate.",
+      "Pronunciation is generally clear.",
+      "The primary issue is localized Content loss rather than a broader fluency or pronunciation problem."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Content accuracy, specifically omission of the content-bearing phrase 'and the ethical implications' from the final sentence. The student accurately reproduces the surrounding material and maintains continuous, appropriately paced delivery with generally clear pronunciation. The omission removes a distinct idea but does not indicate a broader Content failure. The teacher should therefore identify the localized phrase omission rather than diagnosing Oral Fluency or Pronunciation.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they omit the phrase 'and the ethical implications' from the final sentence. This removes a distinct content-bearing idea from the reading text, while the surrounding material is accurately reproduced. Delivery remains continuous and appropriately paced, with generally clear pronunciation. The teacher should therefore identify the localized phrase omission rather than diagnosing a broader Content, Fluency, or Pronunciation problem.",
+
+    coachingAdvice:
+      "Practise the final sentence in meaningful groups, especially 'behavioural outcomes and the ethical implications of influencing decisions'. During preparation, check that both sides of the coordinated phrase are retained before beginning the response.",
+
+    cefrLevel: "C1",
+    topicTitle: "Choice Architecture & Nudge Theory",
+
+    good: {
+      transcript:
+        "Choice architecture examines how the design of a decision environment can influence behaviour without removing freedom of choice. Nudge theory proposes that relatively small changes in how options are presented can affect decisions while leaving the underlying alternatives available. Common examples include default settings, reminders, simplified information, and strategically organised choices. However, the effectiveness of a nudge depends heavily on context, because individuals may respond differently according to their goals, knowledge, and circumstances. Researchers therefore evaluate both behavioural outcomes and the ethical implications of influencing decisions.",
+      audioDuration: "35.0 seconds",
+      wordCount: 95,
+      characteristics:
+        "Complete and accurate reproduction with clear pronunciation, natural pacing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Choice architecture examines how the design of a decision environment can influence behaviour without removing freedom of choice. Nudge theory proposes that relatively small changes in how options are presented can affect decisions while leaving the underlying alternatives available. Common examples include default settings, reminders, simplified information, and strategically organised choices. However, the effectiveness of a nudge depends heavily on context, because individuals may respond differently according to their goals, knowledge, and circumstances. Researchers therefore evaluate both behavioural outcomes of influencing decisions.",
+      audioDuration: "35.5 seconds",
+      wordCount: 91,
+      characteristics:
+        "Clear and continuous delivery, but the phrase 'and the ethical implications' is omitted from the final sentence."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Complete Content reproduction with clear Pronunciation and natural Oral Fluency."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "A localized content-bearing phrase is omitted while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "phrase-omission",
+        label: "Phrase omission",
+        keyword: "Phrase omission"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "missing-content",
+        label: "Missing content",
+        keyword: "Missing content"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the omitted phrase 'and the ethical implications'. Do not diagnose a general Content problem because most of the passage is accurately reproduced, and do not attribute the omission to Fluency or Pronunciation without supporting evidence."
+  },
+
+  {
+    exerciseIndex: 82,
+    totalExercises: 100,
+    difficulty: "Advanced",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Consonant Sound Deletion",
+    learningObjective:
+      "Identify a localized consonant deletion in a C1 technical vocabulary item and distinguish it from syllable omission, Content loss, and general intelligibility problems.",
+
+    promptText:
+      "Nanotechnology has attracted considerable interest in oncology because engineered particles may be designed to deliver therapeutic compounds more selectively to tumour tissue. Researchers are investigating whether nanoscale delivery systems can improve treatment efficiency while reducing exposure to healthy cells. Some approaches use surface modifications to encourage particles to accumulate in specific biological environments. However, translating these techniques from experimental studies into clinical practice requires extensive testing, regulatory oversight, and careful evaluation of long-term safety.",
+
+    promptAudio:
+      "Nanotechnology has attracted considerable interest in oncology because engineered particles may be designed to deliver therapeutic compounds more selectively to tumour tissue. Researchers are investigating whether nanoscale delivery systems can improve treatment efficiency while reducing exposure to healthy cells. Some approaches use surface modifications to encourage particles to accumulate in specific biological environments. However, translating these techniques from experimental studies into clinical practice requires extensive testing, regulatory oversight, and careful evaluation of long-term safety.",
+
+    studentTranscript:
+      "Nanotechnology has attracted considerable interest in oncology because engineered particles may be designed to deliver therapeutic compounds more selectively to tumour tissue. Researchers are investigating whether nanoscale delivery systems can improve treatment efficiency while reducing exposure to healthy cells. Some approaches use surface modifications to encourage particles to accumulate in specific biological environments. However, translating these techniques from experimental studies into linical practice requires extensive testing, regulatory oversight, and careful evaluation of long-term safety.",
+
+    studentResponse: {
+      audioDuration: "35.5 seconds",
+      wordCount: 91,
+      characteristics:
+        "The student maintains clear and continuous delivery but omits the initial /k/ consonant in 'clinical', producing a form closer to 'linical'. The target word remains identifiable in context."
+    },
+
+    diagnosticErrors: [
+      "Consonant sound deletion",
+      "Initial consonant deletion",
+      "Pronunciation accuracy"
+    ],
+
+    expertEvidence: [
+      "The target word is 'clinical'.",
+      "The student produces a form closer to 'linical'.",
+      "The initial /k/ consonant is absent from the student's production.",
+      "The remainder of the word and sentence remains identifiable.",
+      "The issue is localized to one technical vocabulary item.",
+      "Content is otherwise accurately reproduced.",
+      "The response remains continuous without hesitation or restart.",
+      "Overall speaking rate remains appropriate.",
+      "The defining issue is a localized consonant deletion rather than syllable omission or general intelligibility failure."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Pronunciation accuracy, specifically deletion of the initial /k/ consonant in the word 'clinical'. The student produces a form closer to 'linical', while the target word remains identifiable from context. The remainder of the passage is accurately reproduced with continuous and appropriately paced delivery. The teacher should therefore identify the localized consonant deletion rather than diagnosing syllable omission, Content loss, or general Fluency problems.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Pronunciation, specifically deletion of the initial /k/ consonant in 'clinical'. The student produces the word closer to 'linical', creating a localized consonant deletion while the target remains identifiable. Content remains intact and the response is clear, continuous, and appropriately paced. The teacher should therefore focus on the missing consonant rather than diagnosing syllable omission, Content, or Oral Fluency.",
+
+    coachingAdvice:
+      "Practise the initial /k/ in 'clinical' slowly, then repeat 'clinical practice' several times. Make sure the consonant is audible without adding an extra syllable, and then return to the complete passage at a natural rate.",
+
+    cefrLevel: "C1",
+    topicTitle: "Nanotechnology Oncology Delivery",
+
+    good: {
+      transcript:
+        "Nanotechnology has attracted considerable interest in oncology because engineered particles may be designed to deliver therapeutic compounds more selectively to tumour tissue. Researchers are investigating whether nanoscale delivery systems can improve treatment efficiency while reducing exposure to healthy cells. Some approaches use surface modifications to encourage particles to accumulate in specific biological environments. However, translating these techniques from experimental studies into clinical practice requires extensive testing, regulatory oversight, and careful evaluation of long-term safety.",
+      audioDuration: "35.0 seconds",
+      wordCount: 91,
+      characteristics:
+        "Accurate technical vocabulary with clear initial /k/ production, natural pacing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Nanotechnology has attracted considerable interest in oncology because engineered particles may be designed to deliver therapeutic compounds more selectively to tumour tissue. Researchers are investigating whether nanoscale delivery systems can improve treatment efficiency while reducing exposure to healthy cells. Some approaches use surface modifications to encourage particles to accumulate in specific biological environments. However, translating these techniques from experimental studies into linical practice requires extensive testing, regulatory oversight, and careful evaluation of long-term safety.",
+      audioDuration: "35.5 seconds",
+      wordCount: 91,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the initial /k/ consonant in 'clinical' is deleted, producing a form closer to 'linical'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with clear technical pronunciation and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized initial consonant deletion reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "consonant-sound-deletion",
+        label: "Consonant sound deletion",
+        keyword: "Consonant sound deletion"
+      },
+      {
+        id: "initial-consonant-deletion",
+        label: "Initial consonant deletion",
+        keyword: "Initial consonant deletion"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+
+    expertAdvice:
+      "Focus specifically on the missing initial /k/ in 'clinical'. Do not diagnose syllable omission or general intelligibility problems because the target remains identifiable and the rest of the response is clear and continuous."
+  },
+
+  {
+    exerciseIndex: 83,
+    totalExercises: 100,
+    difficulty: "Advanced",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Phrase-Internal Pausing",
+    learningObjective:
+      "Identify a subtle pause that disrupts an advanced grammatical thought group in a C1 Read Aloud response while distinguishing it from natural sentence-boundary pausing.",
+
+    promptText:
+      "Aquifer hydrogeology examines the movement, storage, and quality of groundwater within geological formations. Excessive extraction can lower water tables and gradually reduce the capacity of an aquifer to support ecosystems and human consumption. Monitoring groundwater levels is therefore essential for identifying long-term depletion before serious shortages occur. Scientists combine measurements from observation wells with geological models to estimate recharge rates and assess whether current extraction remains sustainable. Effective management requires coordination between researchers, regulators, agricultural users, and local communities.",
+
+    promptAudio:
+      "Aquifer hydrogeology examines the movement, storage, and quality of groundwater within geological formations. Excessive extraction can lower water tables and gradually reduce the capacity of an aquifer to support ecosystems and human consumption. Monitoring groundwater levels is therefore essential for identifying long-term depletion before serious shortages occur. Scientists combine measurements from observation wells with geological models to estimate recharge rates and assess whether current extraction remains sustainable. Effective management requires coordination between researchers, regulators, agricultural users, and local communities.",
+
+    studentTranscript:
+      "Aquifer hydrogeology examines the movement, storage, and quality of groundwater within geological formations. Excessive extraction can lower water tables and gradually reduce the capacity of an aquifer to support ecosystems and human consumption. Monitoring groundwater levels is therefore essential for identifying long-term depletion before serious shortages occur. Scientists combine measurements from observation wells with geological models to estimate recharge rates and assess whether current extraction remains sustainable. Effective management requires coordination between researchers, regulators, agricultural users, and / local communities.",
+
+    studentResponse: {
+      audioDuration: "37.0 seconds",
+      wordCount: 92,
+      characteristics:
+        "The student reproduces the passage accurately but inserts a short pause between 'and' and 'local communities', interrupting the final coordinated phrase. The remainder of the response is continuous."
+    },
+
+    diagnosticErrors: [
+      "Phrase-internal pausing",
+      "Thought-group disruption",
+      "Oral Fluency"
+    ],
+
+    expertEvidence: [
+      "The pause occurs between 'and' and 'local communities'.",
+      "The pause interrupts the coordinated phrase 'agricultural users, and local communities'.",
+      "The words on both sides of the pause are present and clearly pronounced.",
+      "The pause is not required by the grammatical structure.",
+      "The overall speaking rate remains appropriate.",
+      "The rest of the passage is delivered continuously.",
+      "There are no significant fillers, repetitions, or false starts.",
+      "Content remains intact.",
+      "The defining issue is disruption of a meaningful thought group rather than generally slow speech."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Oral Fluency, specifically an inappropriate phrase-internal pause between 'and' and 'local communities'. The pause interrupts the final coordinated thought group even though all Content is present and pronunciation remains clear. The overall speaking rate is appropriate and the remainder of the delivery is continuous. The teacher should therefore focus on thought-group continuity rather than diagnosing slow speech, Content loss, or Pronunciation problems.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Oral Fluency because they introduce a short pause inside the coordinated phrase 'and local communities'. All Content is present and clearly pronounced, and the overall speaking rate remains appropriate. The pause nevertheless disrupts the natural grouping of the final phrase. The teacher should therefore focus on phrase-internal pausing and thought-group continuity rather than Content or Pronunciation.",
+
+    coachingAdvice:
+      "Practise the final phrase 'agricultural users, and local communities' as one connected thought group. Maintain a natural flow through 'and local communities' while keeping appropriate pauses at genuine grammatical boundaries.",
+
+    cefrLevel: "C1",
+    topicTitle: "Aquifer Hydrogeology & Depletion",
+
+    good: {
+      transcript:
+        "Aquifer hydrogeology examines the movement, storage, and quality of groundwater within geological formations. Excessive extraction can lower water tables and gradually reduce the capacity of an aquifer to support ecosystems and human consumption. Monitoring groundwater levels is therefore essential for identifying long-term depletion before serious shortages occur. Scientists combine measurements from observation wells with geological models to estimate recharge rates and assess whether current extraction remains sustainable. Effective management requires coordination between researchers, regulators, agricultural users, and local communities.",
+      audioDuration: "36.5 seconds",
+      wordCount: 92,
+      characteristics:
+        "Natural thought grouping with continuous delivery, clear pronunciation, and appropriate pacing."
+    },
+
+    poor: {
+      transcript:
+        "Aquifer hydrogeology examines the movement, storage, and quality of groundwater within geological formations. Excessive extraction can lower water tables and gradually reduce the capacity of an aquifer to support ecosystems and human consumption. Monitoring groundwater levels is therefore essential for identifying long-term depletion before serious shortages occur. Scientists combine measurements from observation wells with geological models to estimate recharge rates and assess whether current extraction remains sustainable. Effective management requires coordination between researchers, regulators, agricultural users, and / local communities.",
+      audioDuration: "37.0 seconds",
+      wordCount: 92,
+      characteristics:
+        "Accurate and generally fluent delivery, but a short pause interrupts the coordinated phrase 'and local communities'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Natural thought grouping with accurate Content and clear Pronunciation."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 3,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized phrase-internal pause disrupts Oral Fluency while Content and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "phrase-internal-pausing",
+        label: "Phrase-internal pausing",
+        keyword: "Phrase-internal pausing"
+      },
+      {
+        id: "thought-group-disruption",
+        label: "Thought-group disruption",
+        keyword: "Thought-group disruption"
+      },
+      {
+        id: "oral-fluency",
+        label: "Oral Fluency",
+        keyword: "Oral Fluency"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the pause inside 'and local communities'. Do not diagnose generally slow speech because the overall rate remains appropriate. The defining issue is the interruption of a meaningful grammatical thought group."
+  },
+
+  {
+    exerciseIndex: 84,
+    totalExercises: 100,
+    difficulty: "Advanced",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Advanced Word-Sequence Disruption",
+    learningObjective:
+      "Identify a subtle technical word-sequence disruption in a C1 Read Aloud response and distinguish it from omission, insertion, Pronunciation, or Oral Fluency problems.",
+
+    promptText:
+      "Volcanic eruptions can inject sulphur compounds and other particles into the stratosphere, where they may influence atmospheric chemistry and temporarily alter global climate patterns. Large eruptions can produce extensive aerosol layers that reflect incoming solar radiation and contribute to short-term surface cooling. The magnitude and duration of this effect depend on the amount of material released, its chemical composition, and atmospheric circulation. Researchers use satellite observations, climate models, and historical records to estimate the consequences of major volcanic events. These studies also help scientists distinguish volcanic influences from other causes of climate variability.",
+
+    promptAudio:
+      "Volcanic eruptions can inject sulphur compounds and other particles into the stratosphere, where they may influence atmospheric chemistry and temporarily alter global climate patterns. Large eruptions can produce extensive aerosol layers that reflect incoming solar radiation and contribute to short-term surface cooling. The magnitude and duration of this effect depend on the amount of material released, its chemical composition, and atmospheric circulation. Researchers use satellite observations, climate models, and historical records to estimate the consequences of major volcanic events. These studies also help scientists distinguish volcanic influences from other causes of climate variability.",
+
+    studentTranscript:
+      "Volcanic eruptions can inject sulphur compounds and other particles into the stratosphere, where they may influence atmospheric chemistry and temporarily alter global climate patterns. Large eruptions can produce extensive aerosol layers that reflect incoming solar radiation and contribute to short-term surface cooling. The magnitude and duration of this effect depend on the amount of material released, its chemical composition, and atmospheric circulation. Researchers use satellite observations, climate models, and historical records to estimate the consequences of major volcanic events. These studies also help scientists distinguish volcanic influences from other causes of climate variability.",
+
+    studentResponse: {
+      audioDuration: "38.0 seconds",
+      wordCount: 96,
+      characteristics:
+        "The student reproduces the passage clearly and continuously but changes the order of two adjacent technical concepts in the final sentence, producing 'other causes from volcanic influences of climate variability' instead of the original sequence."
+    },
+
+    diagnosticErrors: [
+      "Advanced word-sequence disruption",
+      "Content accuracy",
+      "Word order"
+    ],
+
+    expertEvidence: [
+      "The prompt says 'distinguish volcanic influences from other causes of climate variability'.",
+      "The student changes the sequence to 'distinguish other causes from volcanic influences of climate variability'.",
+      "The relevant words remain present but their grammatical relationship and sequence have been altered.",
+      "The error occurs within a sophisticated final clause rather than through simple word omission.",
+      "The response remains continuous without hesitation or restart.",
+      "Overall speaking rate remains appropriate.",
+      "Pronunciation is generally clear.",
+      "The primary issue is the altered word sequence rather than a pronunciation or fluency problem."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Content accuracy, specifically an advanced word-sequence disruption in the final clause. The prompt says 'distinguish volcanic influences from other causes of climate variability', whereas the student reverses the sequence to 'distinguish other causes from volcanic influences of climate variability'. Although the key words are present, the altered sequence changes the grammatical and semantic relationship expressed by the original passage. The response remains clear, continuous, and appropriately paced, so the teacher should focus on Content rather than Pronunciation or Oral Fluency.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they alter the sequence of the final clause. The prompt says 'distinguish volcanic influences from other causes of climate variability', but the student reverses the sequence to 'distinguish other causes from volcanic influences of climate variability'. The words are largely present, but their order and grammatical relationship have changed. Delivery remains clear and continuous, so the teacher should identify the advanced word-sequence error rather than diagnosing Pronunciation or Oral Fluency.",
+
+    coachingAdvice:
+      "Practise the final clause as a fixed grammatical structure: 'distinguish volcanic influences from other causes of climate variability'. Focus on retaining the correct relationship between 'volcanic influences' and 'other causes' rather than relying only on individual keywords.",
+
+    cefrLevel: "C1",
+    topicTitle: "Volcanic Stratospheric Cooling",
+
+    good: {
+      transcript:
+        "Volcanic eruptions can inject sulphur compounds and other particles into the stratosphere, where they may influence atmospheric chemistry and temporarily alter global climate patterns. Large eruptions can produce extensive aerosol layers that reflect incoming solar radiation and contribute to short-term surface cooling. The magnitude and duration of this effect depend on the amount of material released, its chemical composition, and atmospheric circulation. Researchers use satellite observations, climate models, and historical records to estimate the consequences of major volcanic events. These studies also help scientists distinguish volcanic influences from other causes of climate variability.",
+      audioDuration: "37.5 seconds",
+      wordCount: 96,
+      characteristics:
+        "Accurate reproduction of the technical passage with clear pronunciation, natural pacing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Volcanic eruptions can inject sulphur compounds and other particles into the stratosphere, where they may influence atmospheric chemistry and temporarily alter global climate patterns. Large eruptions can produce extensive aerosol layers that reflect incoming solar radiation and contribute to short-term surface cooling. The magnitude and duration of this effect depend on the amount of material released, its chemical composition, and atmospheric circulation. Researchers use satellite observations, climate models, and historical records to estimate the consequences of major volcanic events. These studies also help scientists distinguish other causes from volcanic influences of climate variability.",
+      audioDuration: "38.0 seconds",
+      wordCount: 96,
+      characteristics:
+        "Clear and continuous delivery, but the final technical clause has an altered word sequence that changes the original grammatical relationship."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate technical Content with clear Pronunciation and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "An advanced word-sequence disruption affects Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "advanced-word-sequence-disruption",
+        label: "Advanced word-sequence disruption",
+        keyword: "Advanced word-sequence disruption"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "word-order",
+        label: "Word order",
+        keyword: "Word order"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the altered sequence in the final clause. Do not diagnose an omission or substitution merely because the grammatical relationship has changed; the key issue is the sequence and resulting meaning. Pronunciation and Oral Fluency remain strong."
+  },
+
+  {
+    exerciseIndex: 85,
+    totalExercises: 100,
+    difficulty: "Advanced",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Subtle Self-Repair",
+    learningObjective:
+      "Identify an audible self-repair in a C1 Read Aloud response and distinguish it from a simple repetition, natural phrasing, or Content substitution.",
+
+    promptText:
+      "Ocean acidification occurs when increased concentrations of atmospheric carbon dioxide are absorbed by seawater, altering its chemical balance. One important consequence is a reduction in the availability of carbonate ions, which many marine organisms require to construct shells and skeletons. Calcifying species such as corals, oysters, and some plankton may therefore become more vulnerable as ocean chemistry changes. The effects are not uniform across all ecosystems, because temperature, nutrient availability, and local environmental conditions can modify the response. Long-term monitoring is essential for determining how marine communities adapt to these changing conditions.",
+
+    promptAudio:
+      "Ocean acidification occurs when increased concentrations of atmospheric carbon dioxide are absorbed by seawater, altering its chemical balance. One important consequence is a reduction in the availability of carbonate ions, which many marine organisms require to construct shells and skeletons. Calcifying species such as corals, oysters, and some plankton may therefore become more vulnerable as ocean chemistry changes. The effects are not uniform across all ecosystems, because temperature, nutrient availability, and local environmental conditions can modify the response. Long-term monitoring is essential for determining how marine communities adapt to these changing conditions.",
+
+    studentTranscript:
+      "Ocean acidification occurs when increased concentrations of atmospheric carbon dioxide are absorbed by seawater, altering its chemical balance. One important consequence is a reduction in the availability of carbonate ions, which many marine organisms require to construct shells and skeletons. Calcifying species such as corals, oysters, and some plankton may therefore become more vulnerable as ocean chemistry changes. The effects are not uniform across all ecosystems, because temperature, nutrient availability, and local environmental conditions can modify the response. Long-term monitoring is essential for determining how marine communities / adapt, adapt to these changing conditions.",
+
+    studentResponse: {
+      audioDuration: "39.0 seconds",
+      wordCount: 104,
+      characteristics:
+        "The student maintains accurate Content but briefly begins the phrase 'adapt to these changing conditions', repeats 'adapt', and then completes the phrase correctly. The self-repair interrupts otherwise continuous delivery."
+    },
+
+    diagnosticErrors: [
+      "Self-repair",
+      "Repetition",
+      "Interrupted Oral Fluency"
+    ],
+
+    expertEvidence: [
+      "The student reaches the final phrase 'adapt to these changing conditions'.",
+      "The student briefly produces 'adapt' and then repeats 'adapt' before completing the phrase.",
+      "The repeated word functions as an audible self-repair rather than deliberate emphasis.",
+      "The final wording is ultimately correct.",
+      "Content is therefore preserved despite the repair.",
+      "The repair interrupts otherwise continuous delivery.",
+      "Overall speaking rate remains appropriate outside the repair.",
+      "Pronunciation remains generally clear.",
+      "The defining issue is the interruption caused by self-repair rather than Content loss."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Oral Fluency, specifically an audible self-repair in the final phrase. The student repeats 'adapt' while producing 'adapt to these changing conditions', briefly interrupting otherwise continuous delivery before completing the phrase correctly. Content is ultimately preserved and pronunciation remains clear. The teacher should therefore identify the self-repair as the primary fluency issue rather than diagnosing a Content error or general pronunciation problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Oral Fluency because they briefly repeat 'adapt' while producing the phrase 'adapt to these changing conditions'. This audible self-repair interrupts otherwise continuous delivery, even though the final wording is correct and Content remains intact. Pronunciation and overall speaking rate are otherwise strong. The teacher should therefore focus on the self-repair and its effect on fluency rather than diagnosing Content loss.",
+
+    coachingAdvice:
+      "Practise the final phrase 'adapt to these changing conditions' as one complete unit. Aim to maintain forward momentum rather than restarting when a word feels uncertain. If a minor slip occurs, continue naturally instead of repeating the word.",
+
+    cefrLevel: "C1",
+    topicTitle: "Ocean Acidification & Calcification",
+
+    good: {
+      transcript:
+        "Ocean acidification occurs when increased concentrations of atmospheric carbon dioxide are absorbed by seawater, altering its chemical balance. One important consequence is a reduction in the availability of carbonate ions, which many marine organisms require to construct shells and skeletons. Calcifying species such as corals, oysters, and some plankton may therefore become more vulnerable as ocean chemistry changes. The effects are not uniform across all ecosystems, because temperature, nutrient availability, and local environmental conditions can modify the response. Long-term monitoring is essential for determining how marine communities adapt to these changing conditions.",
+      audioDuration: "38.5 seconds",
+      wordCount: 103,
+      characteristics:
+        "Smooth and continuous C1 delivery with accurate Content, natural phrasing, and clear pronunciation."
+    },
+
+    poor: {
+      transcript:
+        "Ocean acidification occurs when increased concentrations of atmospheric carbon dioxide are absorbed by seawater, altering its chemical balance. One important consequence is a reduction in the availability of carbonate ions, which many marine organisms require to construct shells and skeletons. Calcifying species such as corals, oysters, and some plankton may therefore become more vulnerable as ocean chemistry changes. The effects are not uniform across all ecosystems, because temperature, nutrient availability, and local environmental conditions can modify the response. Long-term monitoring is essential for determining how marine communities / adapt, adapt to these changing conditions.",
+      audioDuration: "39.0 seconds",
+      wordCount: 104,
+      characteristics:
+        "Generally fluent and clearly pronounced delivery, but an audible repetition of 'adapt' creates a brief self-repair in the final thought group."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with natural phrasing, clear Pronunciation, and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 3,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized self-repair interrupts Oral Fluency while Content and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "subtle-self-repair",
+        label: "Subtle self-repair",
+        keyword: "Subtle self-repair"
+      },
+      {
+        id: "repetition",
+        label: "Repetition",
+        keyword: "Repetition"
+      },
+      {
+        id: "interrupted-oral-fluency",
+        label: "Interrupted Oral Fluency",
+        keyword: "Interrupted Oral Fluency"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the repeated 'adapt' as evidence of an audible self-repair. Do not diagnose Content loss because the student ultimately produces the correct phrase. The primary issue is the interruption to continuous delivery."
+  },
+
+    {
+    exerciseIndex: 86,
+    totalExercises: 100,
+    difficulty: "Advanced",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Semantic Word Substitution",
+    learningObjective:
+      "Identify a localized semantic word substitution in a C1 Read Aloud response and distinguish it from Pronunciation and Oral Fluency problems.",
+
+    promptText:
+      "CRISPR-based genomic editing has transformed research into the mechanisms underlying inherited diseases. By allowing scientists to modify specific sequences of DNA, the technology may eventually support treatments for conditions that were previously difficult to address. However, the ability to alter genetic material also raises complex ethical questions concerning consent, equity, and the boundaries of medical intervention. Researchers and policymakers must therefore consider not only the scientific potential of genomic editing but also its broader social consequences.",
+
+    promptAudio:
+      "CRISPR-based genomic editing has transformed research into the mechanisms underlying inherited diseases. By allowing scientists to modify specific sequences of DNA, the technology may eventually support treatments for conditions that were previously difficult to address. However, the ability to alter genetic material also raises complex ethical questions concerning consent, equity, and the boundaries of medical intervention. Researchers and policymakers must therefore consider not only the scientific potential of genomic editing but also its broader social consequences.",
+
+    studentTranscript:
+      "CRISPR-based genomic editing has transformed research into the mechanisms underlying inherited diseases. By allowing scientists to modify specific sequences of DNA, the technology may eventually support treatments for conditions that were previously difficult to address. However, the ability to alter genetic material also raises complex ethical questions concerning consent, fairness, and the boundaries of medical intervention. Researchers and policymakers must therefore consider not only the scientific potential of genomic editing but also its broader social consequences.",
+
+    studentResponse: {
+      audioDuration: "34.5 seconds",
+      wordCount: 76,
+      characteristics:
+        "The student reproduces the passage clearly and continuously but substitutes 'fairness' for the prompt's 'equity' in the third sentence. The remainder of the response is accurately reproduced."
+    },
+
+    diagnosticErrors: [
+      "Semantic word substitution",
+      "Content accuracy",
+      "Localized content error"
+    ],
+
+    expertEvidence: [
+      "The prompt uses the word 'equity' in the third sentence.",
+      "The student says 'fairness' instead of 'equity'.",
+      "The substituted word is related in meaning but does not reproduce the exact reading text.",
+      "The substitution occurs in the third sentence rather than throughout the response.",
+      "The remainder of the passage is reproduced accurately.",
+      "The response remains continuous and appropriately paced.",
+      "Pronunciation is generally clear.",
+      "The primary issue is the localized Content substitution rather than Pronunciation or Oral Fluency."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Content accuracy, specifically a localized semantic word substitution. The prompt uses 'equity', but the student says 'fairness' in the third sentence. Although the words are related in meaning, the student has changed the wording of the reading text. The remainder of the passage is accurately reproduced with clear pronunciation, continuous delivery, and appropriate pacing. The teacher should therefore focus on the specific Content substitution rather than diagnosing Pronunciation or Oral Fluency.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they substitute 'fairness' for the prompt's 'equity' in the third sentence. The words are related in meaning, but the student's response does not reproduce the exact wording of the reading text. The remainder of the passage is accurate, with clear pronunciation, continuous delivery, and appropriate pacing. The teacher should therefore identify the localized semantic substitution rather than diagnosing Pronunciation or Oral Fluency.",
+
+    coachingAdvice:
+      "Practise the phrase 'consent, equity, and the boundaries of medical intervention' exactly as written. Focus on reproducing the precise academic vocabulary rather than replacing unfamiliar words with related terms.",
+
+    cefrLevel: "C1",
+    topicTitle: "CRISPR Genomic Editing Ethics",
+
+    good: {
+      transcript:
+        "CRISPR-based genomic editing has transformed research into the mechanisms underlying inherited diseases. By allowing scientists to modify specific sequences of DNA, the technology may eventually support treatments for conditions that were previously difficult to address. However, the ability to alter genetic material also raises complex ethical questions concerning consent, equity, and the boundaries of medical intervention. Researchers and policymakers must therefore consider not only the scientific potential of genomic editing but also its broader social consequences.",
+      audioDuration: "34.0 seconds",
+      wordCount: 76,
+      characteristics:
+        "Accurate C1-level reproduction with clear pronunciation, natural pacing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "CRISPR-based genomic editing has transformed research into the mechanisms underlying inherited diseases. By allowing scientists to modify specific sequences of DNA, the technology may eventually support treatments for conditions that were previously difficult to address. However, the ability to alter genetic material also raises complex ethical questions concerning consent, fairness, and the boundaries of medical intervention. Researchers and policymakers must therefore consider not only the scientific potential of genomic editing but also its broader social consequences.",
+      audioDuration: "34.5 seconds",
+      wordCount: 76,
+      characteristics:
+        "Clear and continuous delivery, but 'fairness' replaces the prompt's 'equity' in the third sentence."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with clear Pronunciation and natural Oral Fluency."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "A localized semantic substitution affects Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "semantic-word-substitution",
+        label: "Semantic word substitution",
+        keyword: "Semantic word substitution"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "localized-content-error",
+        label: "Localized content error",
+        keyword: "Localized content error"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the substitution of 'fairness' for 'equity'. Do not treat a related synonym as exact reproduction, but also do not over-diagnose Pronunciation or Oral Fluency because the remainder of the response is clear and continuous."
+  },
+
+  {
+    exerciseIndex: 87,
+    totalExercises: 100,
+    difficulty: "Advanced",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Vowel Sound Substitution",
+    learningObjective:
+      "Identify a localized vowel-quality substitution in a C1 academic vocabulary item and distinguish it from Content and Oral Fluency problems.",
+
+    promptText:
+      "The epistemology of machine learning examines how computational systems generate, justify, and update claims derived from data. A central concern is whether predictive accuracy should be treated as sufficient evidence that a model represents the underlying phenomenon reliably. Researchers therefore investigate the assumptions embedded in training data, model architecture, and evaluation procedures. These questions become particularly important when automated systems are used to support decisions in medicine, finance, education, or public administration.",
+
+    promptAudio:
+      "The epistemology of machine learning examines how computational systems generate, justify, and update claims derived from data. A central concern is whether predictive accuracy should be treated as sufficient evidence that a model represents the underlying phenomenon reliably. Researchers therefore investigate the assumptions embedded in training data, model architecture, and evaluation procedures. These questions become particularly important when automated systems are used to support decisions in medicine, finance, education, or public administration.",
+
+    studentTranscript:
+      "The epistemology of machine learning examines how computational systems generate, justify, and update claims derived from data. A central concern is whether predictive accuracy should be treated as sufficient evidence that a modal represents the underlying phenomenon reliably. Researchers therefore investigate the assumptions embedded in training data, model architecture, and evaluation procedures. These questions become particularly important when automated systems are used to support decisions in medicine, finance, education, or public administration.",
+
+    studentResponse: {
+      audioDuration: "36.5 seconds",
+      wordCount: 72,
+      characteristics:
+        "The student maintains continuous and appropriately paced delivery but changes the vowel quality in 'model', producing a form closer to 'modal'. The surrounding material remains clear."
+    },
+
+    diagnosticErrors: [
+      "Vowel sound substitution",
+      "Vowel quality",
+      "Pronunciation accuracy"
+    ],
+
+    expertEvidence: [
+      "The target word is 'model' in the second sentence.",
+      "The student produces a form closer to 'modal'.",
+      "The vowel quality differs from the target production.",
+      "The pronunciation issue is localized to one word.",
+      "The surrounding words remain understandable and accurately reproduced.",
+      "The response remains continuous without significant hesitation or restart.",
+      "Overall speaking rate remains appropriate.",
+      "Content remains intact apart from the localized pronunciation difference."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Pronunciation accuracy, specifically a localized vowel sound substitution in the word 'model'. The student's production sounds closer to 'modal', altering the vowel quality while the surrounding passage remains clear and accurate. The response is continuous and appropriately paced, with Content otherwise intact. The teacher should therefore focus on the specific vowel-quality difference rather than diagnosing Content or Oral Fluency.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Pronunciation, specifically the vowel sound in 'model'. The student produces the word with a vowel quality closer to 'modal', creating a localized vowel substitution. The remainder of the passage is accurately reproduced with continuous, appropriately paced delivery and clear pronunciation. The teacher should therefore focus on the specific vowel quality rather than diagnosing Content or Oral Fluency.",
+
+    coachingAdvice:
+      "Practise the vowel in 'model' slowly and contrast the correct production with the student's 'modal'-like form. Then practise 'a model represents' as a short phrase before returning to the complete passage.",
+
+    cefrLevel: "C1",
+    topicTitle: "Epistemology of Machine Learning",
+
+    good: {
+      transcript:
+        "The epistemology of machine learning examines how computational systems generate, justify, and update claims derived from data. A central concern is whether predictive accuracy should be treated as sufficient evidence that a model represents the underlying phenomenon reliably. Researchers therefore investigate the assumptions embedded in training data, model architecture, and evaluation procedures. These questions become particularly important when automated systems are used to support decisions in medicine, finance, education, or public administration.",
+      audioDuration: "36.0 seconds",
+      wordCount: 72,
+      characteristics:
+        "Clear vowel production in 'model' with natural pacing, continuous delivery, and accurate Content."
+    },
+
+    poor: {
+      transcript:
+        "The epistemology of machine learning examines how computational systems generate, justify, and update claims derived from data. A central concern is whether predictive accuracy should be treated as sufficient evidence that a modal represents the underlying phenomenon reliably. Researchers therefore investigate the assumptions embedded in training data, model architecture, and evaluation procedures. These questions become particularly important when automated systems are used to support decisions in medicine, finance, education, or public administration.",
+      audioDuration: "36.5 seconds",
+      wordCount: 72,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but 'model' is produced with a vowel quality closer to 'modal'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with clear vowel production and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized vowel-quality substitution reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "vowel-sound-substitution",
+        label: "Vowel sound substitution",
+        keyword: "Vowel sound substitution"
+      },
+      {
+        id: "vowel-quality",
+        label: "Vowel quality",
+        keyword: "Vowel quality"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+
+    expertAdvice:
+      "Focus specifically on the vowel quality in 'model'. Do not diagnose a Content or Fluency problem because the passage is otherwise accurately and continuously reproduced."
+  },
+
+  {
+    exerciseIndex: 88,
+    totalExercises: 100,
+    difficulty: "Advanced",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Phrase-Internal Pausing",
+    learningObjective:
+      "Identify a short phrase-internal pause in a C1 Read Aloud response and distinguish it from natural sentence-boundary pausing and overall slow speech.",
+
+    promptText:
+      "Central banks use sovereign debt policy as one component of broader macroeconomic management. When governments face persistent fiscal pressures, decisions about borrowing costs and debt maturity can influence financial stability. Monetary authorities must therefore assess how interest-rate changes interact with government financing conditions, inflation expectations, and investor confidence. Effective policy requires careful coordination while preserving the independence of institutions responsible for monetary decisions.",
+
+    promptAudio:
+      "Central banks use sovereign debt policy as one component of broader macroeconomic management. When governments face persistent fiscal pressures, decisions about borrowing costs and debt maturity can influence financial stability. Monetary authorities must therefore assess how interest-rate changes interact with government financing conditions, inflation expectations, and investor confidence. Effective policy requires careful coordination while preserving the independence of institutions responsible for monetary decisions.",
+
+    studentTranscript:
+      "Central banks use sovereign debt policy as one component of broader macroeconomic management. When governments face persistent fiscal pressures, decisions about borrowing costs and debt maturity can influence financial stability. Monetary authorities must therefore assess how interest-rate changes interact with government financing conditions, inflation expectations, and / investor confidence. Effective policy requires careful coordination while preserving the independence of institutions responsible for monetary decisions.",
+
+    studentResponse: {
+      audioDuration: "35.5 seconds",
+      wordCount: 63,
+      characteristics:
+        "The student reproduces the passage accurately but inserts a short pause between 'and' and 'investor confidence', interrupting the final coordinated phrase of the third sentence."
+    },
+
+    diagnosticErrors: [
+      "Phrase-internal pausing",
+      "Thought-group disruption",
+      "Oral Fluency"
+    ],
+
+    expertEvidence: [
+      "The pause occurs between 'and' and 'investor confidence' in the third sentence.",
+      "The pause interrupts the coordinated phrase 'and investor confidence'.",
+      "Both sides of the phrase are present and clearly pronounced.",
+      "The pause is not required by the grammatical structure.",
+      "The overall speaking rate remains appropriate.",
+      "The remainder of the response is continuous.",
+      "There are no significant fillers, repetitions, or false starts.",
+      "Content remains intact.",
+      "The primary issue is the interruption of a meaningful thought group rather than generally slow speech."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Oral Fluency, specifically an inappropriate phrase-internal pause between 'and' and 'investor confidence' in the third sentence. All Content is present and pronunciation remains clear. The overall speaking rate is appropriate and the rest of the response is continuous. The teacher should therefore focus on maintaining the coordinated thought group rather than diagnosing slow speech, Content loss, or Pronunciation problems.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Oral Fluency because they introduce a short pause inside the coordinated phrase 'and investor confidence'. All Content is present and clearly pronounced, and the overall speaking rate remains appropriate. The pause nevertheless disrupts natural thought grouping within the third sentence. The teacher should therefore focus on phrase-internal pausing and connected delivery rather than Content or Pronunciation.",
+
+    coachingAdvice:
+      "Practise 'inflation expectations, and investor confidence' as one connected thought group. Maintain forward movement through the conjunction 'and' instead of inserting a pause before the final noun phrase.",
+
+    cefrLevel: "C1",
+    topicTitle: "Central Bank Sovereign Debt Policy",
+
+    good: {
+      transcript:
+        "Central banks use sovereign debt policy as one component of broader macroeconomic management. When governments face persistent fiscal pressures, decisions about borrowing costs and debt maturity can influence financial stability. Monetary authorities must therefore assess how interest-rate changes interact with government financing conditions, inflation expectations, and investor confidence. Effective policy requires careful coordination while preserving the independence of institutions responsible for monetary decisions.",
+      audioDuration: "35.0 seconds",
+      wordCount: 63,
+      characteristics:
+        "Natural thought grouping with continuous delivery, clear pronunciation, and appropriate pacing."
+    },
+
+    poor: {
+      transcript:
+        "Central banks use sovereign debt policy as one component of broader macroeconomic management. When governments face persistent fiscal pressures, decisions about borrowing costs and debt maturity can influence financial stability. Monetary authorities must therefore assess how interest-rate changes interact with government financing conditions, inflation expectations, and / investor confidence. Effective policy requires careful coordination while preserving the independence of institutions responsible for monetary decisions.",
+      audioDuration: "35.5 seconds",
+      wordCount: 63,
+      characteristics:
+        "Accurate and generally fluent delivery, but a short pause interrupts the phrase 'and investor confidence' in the third sentence."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with natural thought grouping and clear Pronunciation."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 3,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized phrase-internal pause disrupts Oral Fluency while Content and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "phrase-internal-pausing",
+        label: "Phrase-internal pausing",
+        keyword: "Phrase-internal pausing"
+      },
+      {
+        id: "thought-group-disruption",
+        label: "Thought-group disruption",
+        keyword: "Thought-group disruption"
+      },
+      {
+        id: "oral-fluency",
+        label: "Oral Fluency",
+        keyword: "Oral Fluency"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the pause between 'and' and 'investor confidence'. Do not diagnose slow speech because the overall rate is appropriate. The defining problem is the interruption of a meaningful phrase."
+  },
+
+  {
+    exerciseIndex: 89,
+    totalExercises: 100,
+    difficulty: "Advanced",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Phrase Omission",
+    learningObjective:
+      "Identify a localized omission of a content-bearing phrase in a C1 Read Aloud response and distinguish it from broader Content loss or Fluency problems.",
+
+    promptText:
+      "Magnetospheric disturbances are often triggered when intense solar activity sends streams of charged particles toward Earth. These particles interact with the planet's magnetic field and can generate geomagnetic storms of varying intensity. Severe storms may interfere with satellite operations, navigation systems, radio communication, and electrical infrastructure. Scientists monitor solar conditions continuously in order to estimate the likelihood of major disturbances and reduce their potential impact on technological systems.",
+
+    promptAudio:
+      "Magnetospheric disturbances are often triggered when intense solar activity sends streams of charged particles toward Earth. These particles interact with the planet's magnetic field and can generate geomagnetic storms of varying intensity. Severe storms may interfere with satellite operations, navigation systems, radio communication, and electrical infrastructure. Scientists monitor solar conditions continuously in order to estimate the likelihood of major disturbances and reduce their potential impact on technological systems.",
+
+    studentTranscript:
+      "Magnetospheric disturbances are often triggered when intense solar activity sends streams of charged particles toward Earth. These particles interact with the planet's magnetic field and can generate geomagnetic storms of varying intensity. Severe storms may interfere with satellite operations, navigation systems, and electrical infrastructure. Scientists monitor solar conditions continuously in order to estimate the likelihood of major disturbances and reduce their potential impact on technological systems.",
+
+    studentResponse: {
+      audioDuration: "35.0 seconds",
+      wordCount: 66,
+      characteristics:
+        "The student maintains clear and continuous delivery but omits the phrase 'radio communication' from the third sentence. The surrounding content is accurately reproduced."
+    },
+
+    diagnosticErrors: [
+      "Phrase omission",
+      "Content accuracy",
+      "Missing content"
+    ],
+
+    expertEvidence: [
+      "The prompt includes 'satellite operations, navigation systems, radio communication, and electrical infrastructure'.",
+      "The student omits the phrase 'radio communication'.",
+      "The omitted phrase represents a distinct content-bearing item in the list.",
+      "The omission occurs in the third sentence.",
+      "The surrounding words are accurately reproduced.",
+      "The response remains continuous without an audible hesitation or restart.",
+      "Overall speaking rate remains appropriate.",
+      "Pronunciation is generally clear.",
+      "The primary issue is localized Content omission rather than Oral Fluency or Pronunciation."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Content accuracy, specifically omission of the phrase 'radio communication' from the third sentence. The student reproduces the surrounding list accurately but removes one content-bearing item. Delivery remains continuous and appropriately paced, with generally clear pronunciation. The teacher should therefore focus on the localized phrase omission rather than diagnosing a broader Fluency or Pronunciation problem.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they omit the phrase 'radio communication' from the third sentence. This removes a distinct content-bearing item from the reading text, while the surrounding material is accurately reproduced. The response remains clear, continuous, and appropriately paced, with generally clear pronunciation. The teacher should therefore identify the specific phrase omission rather than diagnosing Oral Fluency or Pronunciation.",
+
+    coachingAdvice:
+      "Practise the complete list 'satellite operations, navigation systems, radio communication, and electrical infrastructure'. During preparation, identify each item in a list so that no individual content-bearing phrase is skipped.",
+
+    cefrLevel: "C1",
+    topicTitle: "Magnetospheric Solar Storm Physics",
+
+    good: {
+      transcript:
+        "Magnetospheric disturbances are often triggered when intense solar activity sends streams of charged particles toward Earth. These particles interact with the planet's magnetic field and can generate geomagnetic storms of varying intensity. Severe storms may interfere with satellite operations, navigation systems, radio communication, and electrical infrastructure. Scientists monitor solar conditions continuously in order to estimate the likelihood of major disturbances and reduce their potential impact on technological systems.",
+      audioDuration: "34.5 seconds",
+      wordCount: 68,
+      characteristics:
+        "Complete and accurate reproduction with clear pronunciation, natural pacing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Magnetospheric disturbances are often triggered when intense solar activity sends streams of charged particles toward Earth. These particles interact with the planet's magnetic field and can generate geomagnetic storms of varying intensity. Severe storms may interfere with satellite operations, navigation systems, and electrical infrastructure. Scientists monitor solar conditions continuously in order to estimate the likelihood of major disturbances and reduce their potential impact on technological systems.",
+      audioDuration: "35.0 seconds",
+      wordCount: 66,
+      characteristics:
+        "Clear and continuous delivery, but the phrase 'radio communication' is omitted from the third sentence."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Complete Content reproduction with clear Pronunciation and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "A localized content-bearing phrase is omitted while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "phrase-omission",
+        label: "Phrase omission",
+        keyword: "Phrase omission"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "missing-content",
+        label: "Missing content",
+        keyword: "Missing content"
+      }
+    ],
+
+    expertAdvice:
+      "Focus specifically on the omitted phrase 'radio communication'. Do not diagnose broader Content loss because the rest of the passage is accurate, and do not attribute the omission to Fluency or Pronunciation without evidence."
+  },
+
+  {
+    exerciseIndex: 90,
+    totalExercises: 100,
+    difficulty: "Advanced",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Word Order Disruption",
+    learningObjective:
+      "Identify an advanced word-order disruption in a C1 Read Aloud response where the key words are present but their grammatical sequence has changed.",
+
+    promptText:
+      "Comparative evolutionary syntax investigates how grammatical structures emerge, change, and diverge across languages over time. Researchers compare patterns of word order, agreement, and clause formation to determine which features may reflect shared ancestry or independent development. Because languages can undergo substantial structural change, similarities between modern systems do not necessarily provide direct evidence of common origin. Linguists therefore combine historical records, cross-linguistic comparison, and theoretical modelling when reconstructing earlier stages of grammatical development.",
+
+    promptAudio:
+      "Comparative evolutionary syntax investigates how grammatical structures emerge, change, and diverge across languages over time. Researchers compare patterns of word order, agreement, and clause formation to determine which features may reflect shared ancestry or independent development. Because languages can undergo substantial structural change, similarities between modern systems do not necessarily provide direct evidence of common origin. Linguists therefore combine historical records, cross-linguistic comparison, and theoretical modelling when reconstructing earlier stages of grammatical development.",
+
+    studentTranscript:
+      "Comparative evolutionary syntax investigates how grammatical structures emerge, change, and diverge across languages over time. Researchers compare patterns of word order, agreement, and clause formation to determine which features may reflect shared ancestry or independent development. Because languages can undergo substantial structural change, similarities between modern systems do not necessarily provide direct evidence of common origin. Linguists therefore combine historical records, cross-linguistic comparison, and theoretical modelling when reconstructing grammatical development of earlier stages.",
+
+    studentResponse: {
+      audioDuration: "37.5 seconds",
+      wordCount: 73,
+      characteristics:
+        "The student reproduces the passage clearly and continuously but changes the final phrase from 'when reconstructing earlier stages of grammatical development' to 'when reconstructing grammatical development of earlier stages'."
+    },
+
+    diagnosticErrors: [
+      "Word order disruption",
+      "Content accuracy",
+      "Grammatical sequence change"
+    ],
+
+    expertEvidence: [
+      "The prompt says 'when reconstructing earlier stages of grammatical development'.",
+      "The student produces 'when reconstructing grammatical development of earlier stages'.",
+      "The key words remain present, but their grammatical sequence has changed.",
+      "The altered sequence occurs in the final phrase.",
+      "The student does not omit the major content words.",
+      "The response remains continuous and appropriately paced.",
+      "Pronunciation is generally clear.",
+      "The primary issue is the altered word sequence rather than Pronunciation or Oral Fluency."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Content accuracy, specifically a word-order disruption in the final phrase. The prompt says 'when reconstructing earlier stages of grammatical development', whereas the student says 'when reconstructing grammatical development of earlier stages'. Although the key words are present, their sequence and grammatical relationship differ from the original text. The response remains clear, continuous, and appropriately paced, so the teacher should focus on the Content error rather than diagnosing Pronunciation or Oral Fluency.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they alter the word order in the final phrase. The prompt says 'when reconstructing earlier stages of grammatical development', but the student produces 'when reconstructing grammatical development of earlier stages'. The key words are present, but their grammatical sequence has changed. Delivery remains clear and continuous, so the teacher should identify the word-order disruption rather than diagnosing Pronunciation or Oral Fluency.",
+
+    coachingAdvice:
+      "Practise the final phrase exactly as written: 'when reconstructing earlier stages of grammatical development'. Focus on retaining the relationship between 'earlier stages' and 'grammatical development' rather than reproducing only the individual keywords.",
+
+    cefrLevel: "C1",
+    topicTitle: "Comparative Evolutionary Syntax",
+
+    good: {
+      transcript:
+        "Comparative evolutionary syntax investigates how grammatical structures emerge, change, and diverge across languages over time. Researchers compare patterns of word order, agreement, and clause formation to determine which features may reflect shared ancestry or independent development. Because languages can undergo substantial structural change, similarities between modern systems do not necessarily provide direct evidence of common origin. Linguists therefore combine historical records, cross-linguistic comparison, and theoretical modelling when reconstructing earlier stages of grammatical development.",
+      audioDuration: "37.0 seconds",
+      wordCount: 73,
+      characteristics:
+        "Accurate reproduction with natural C1 phrasing, clear pronunciation, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Comparative evolutionary syntax investigates how grammatical structures emerge, change, and diverge across languages over time. Researchers compare patterns of word order, agreement, and clause formation to determine which features may reflect shared ancestry or independent development. Because languages can undergo substantial structural change, similarities between modern systems do not necessarily provide direct evidence of common origin. Linguists therefore combine historical records, cross-linguistic comparison, and theoretical modelling when reconstructing grammatical development of earlier stages.",
+      audioDuration: "37.5 seconds",
+      wordCount: 73,
+      characteristics:
+        "Clear and continuous delivery, but the final phrase has an altered word sequence."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with clear Pronunciation and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "An advanced word-order disruption affects Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "word-order-disruption",
+        label: "Word order disruption",
+        keyword: "Word order disruption"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "grammatical-sequence-change",
+        label: "Grammatical sequence change",
+        keyword: "Grammatical sequence change"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the altered sequence in the final phrase. The important distinction is that the words remain largely present but their grammatical relationship has changed. Do not diagnose Pronunciation or Oral Fluency because the delivery remains clear and continuous."
+  },
+
+   {
+    exerciseIndex: 91,
+    totalExercises: 100,
+    difficulty: "Mastery",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Semantic Word Substitution",
+    learningObjective:
+      "Identify a subtle semantic word substitution in a C2 Read Aloud response and distinguish an altered lexical choice from Pronunciation or Oral Fluency problems.",
+
+    promptText:
+      "Quantum chromodynamics provides the theoretical framework for describing the strong interaction between quarks and gluons. Within this framework, hadrons are composite particles whose internal structure reflects the dynamics of colour charge. Although quarks are never observed in isolation under ordinary conditions, high-energy collisions allow physicists to infer their behaviour from measurable patterns in particle production. Experimental results must therefore be interpreted alongside sophisticated calculations of confinement, asymptotic freedom, and the emergence of hadronic states.",
+
+    promptAudio:
+      "Quantum chromodynamics provides the theoretical framework for describing the strong interaction between quarks and gluons. Within this framework, hadrons are composite particles whose internal structure reflects the dynamics of colour charge. Although quarks are never observed in isolation under ordinary conditions, high-energy collisions allow physicists to infer their behaviour from measurable patterns in particle production. Experimental results must therefore be interpreted alongside sophisticated calculations of confinement, asymptotic freedom, and the emergence of hadronic states.",
+
+    studentTranscript:
+      "Quantum chromodynamics provides the theoretical framework for describing the strong interaction between quarks and gluons. Within this framework, hadrons are composite particles whose internal structure reflects the dynamics of colour charge. Although quarks are never observed in isolation under ordinary conditions, high-energy collisions allow physicists to infer their behaviour from measurable patterns in particle production. Experimental results must therefore be interpreted alongside sophisticated calculations of confinement, asymptotic freedom, and the formation of hadronic states.",
+
+    studentResponse: {
+      audioDuration: "34.5 seconds",
+      wordCount: 74,
+      characteristics:
+        "The student reproduces the passage clearly and continuously but substitutes 'formation' for the prompt's 'emergence' in the final sentence. The remainder of the response is accurately reproduced."
+    },
+
+    diagnosticErrors: [
+      "Semantic word substitution",
+      "Content accuracy",
+      "Localized content error"
+    ],
+
+    expertEvidence: [
+      "The prompt uses the word 'emergence' in the final sentence.",
+      "The student says 'formation' instead of 'emergence'.",
+      "The substituted word is related in meaning but is not the exact lexical item in the reading text.",
+      "The substitution occurs once in the final sentence.",
+      "The remainder of the passage is accurately reproduced.",
+      "The response remains continuous and appropriately paced.",
+      "Pronunciation is generally clear.",
+      "The primary issue is the localized Content substitution rather than Pronunciation or Oral Fluency."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Content accuracy, specifically a localized semantic word substitution. The prompt uses 'emergence', but the student says 'formation' in the final sentence. Although the concepts are related, the student has changed the lexical wording of the reading text. The remainder of the passage is accurately reproduced with clear pronunciation, continuous delivery, and appropriate pacing. The teacher should therefore focus on the specific Content substitution rather than diagnosing Pronunciation or Oral Fluency.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they substitute 'formation' for the prompt's 'emergence' in the final sentence. The words are related conceptually, but the student's response does not reproduce the exact lexical item from the reading text. The remainder of the passage is accurate, with clear pronunciation, continuous delivery, and appropriate pacing. The teacher should therefore identify the localized semantic substitution rather than diagnosing Pronunciation or Oral Fluency.",
+
+    coachingAdvice:
+      "Practise the final phrase 'confinement, asymptotic freedom, and the emergence of hadronic states'. Focus on retaining the precise academic vocabulary rather than replacing a technical term with a related word.",
+
+    cefrLevel: "C2",
+    topicTitle: "Quantum Chromodynamics & Hadrons",
+
+    good: {
+      transcript:
+        "Quantum chromodynamics provides the theoretical framework for describing the strong interaction between quarks and gluons. Within this framework, hadrons are composite particles whose internal structure reflects the dynamics of colour charge. Although quarks are never observed in isolation under ordinary conditions, high-energy collisions allow physicists to infer their behaviour from measurable patterns in particle production. Experimental results must therefore be interpreted alongside sophisticated calculations of confinement, asymptotic freedom, and the emergence of hadronic states.",
+      audioDuration: "34.0 seconds",
+      wordCount: 74,
+      characteristics:
+        "Accurate C2-level reproduction with precise academic vocabulary, clear pronunciation, natural pacing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Quantum chromodynamics provides the theoretical framework for describing the strong interaction between quarks and gluons. Within this framework, hadrons are composite particles whose internal structure reflects the dynamics of colour charge. Although quarks are never observed in isolation under ordinary conditions, high-energy collisions allow physicists to infer their behaviour from measurable patterns in particle production. Experimental results must therefore be interpreted alongside sophisticated calculations of confinement, asymptotic freedom, and the formation of hadronic states.",
+      audioDuration: "34.5 seconds",
+      wordCount: 74,
+      characteristics:
+        "Clear and continuous delivery, but 'formation' replaces the prompt's 'emergence' in the final sentence."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with precise lexical reproduction, clear Pronunciation, and natural Oral Fluency."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "A localized semantic substitution affects Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "semantic-word-substitution",
+        label: "Semantic word substitution",
+        keyword: "Semantic word substitution"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "localized-content-error",
+        label: "Localized content error",
+        keyword: "Localized content error"
+      }
+    ],
+
+    expertAdvice:
+      "Focus specifically on 'emergence' being replaced by 'formation'. The words are conceptually related, but the reading text requires the original lexical item. Do not over-diagnose Pronunciation or Oral Fluency because the remainder of the response is clear and continuous."
+  },
+
+  {
+    exerciseIndex: 92,
+    totalExercises: 100,
+    difficulty: "Mastery",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Final Consonant Deletion",
+    learningObjective:
+      "Identify a localized final-consonant deletion in a C2 academic passage and distinguish it from Content omission or broader Pronunciation impairment.",
+
+    promptText:
+      "Palaeoclimatological ice proxy analysis reconstructs aspects of past climate by examining chemical and physical signals preserved in ancient ice cores. Variations in stable isotopes can provide evidence about historical temperature patterns, while trapped atmospheric gases offer information about changes in greenhouse-gas concentrations. Researchers must account for dating uncertainties, diffusion within the ice, and potential contamination before comparing records from different locations. The resulting reconstructions can reveal climatic fluctuations that occurred long before systematic instrumental measurements became available.",
+
+    promptAudio:
+      "Palaeoclimatological ice proxy analysis reconstructs aspects of past climate by examining chemical and physical signals preserved in ancient ice cores. Variations in stable isotopes can provide evidence about historical temperature patterns, while trapped atmospheric gases offer information about changes in greenhouse-gas concentrations. Researchers must account for dating uncertainties, diffusion within the ice, and potential contamination before comparing records from different locations. The resulting reconstructions can reveal climatic fluctuations that occurred long before systematic instrumental measurements became available.",
+
+    studentTranscript:
+      "Palaeoclimatological ice proxy analysis reconstructs aspects of past climate by examining chemical and physical signal preserved in ancient ice cores. Variations in stable isotopes can provide evidence about historical temperature patterns, while trapped atmospheric gases offer information about changes in greenhouse-gas concentrations. Researchers must account for dating uncertainties, diffusion within the ice, and potential contamination before comparing records from different locations. The resulting reconstructions can reveal climatic fluctuations that occurred long before systematic instrumental measurements became available.",
+
+    studentResponse: {
+      audioDuration: "35.5 seconds",
+      wordCount: 77,
+      characteristics:
+        "The student maintains continuous and appropriately paced delivery but reduces the final consonant in 'signals', producing 'signal'. The surrounding material remains clear."
+    },
+
+    diagnosticErrors: [
+      "Final consonant deletion",
+      "Plural ending deletion",
+      "Pronunciation accuracy"
+    ],
+
+    expertEvidence: [
+      "The target word is 'signals' in the first sentence.",
+      "The student produces 'signal', deleting the final /z/ sound.",
+      "The deletion changes the plural form to the singular form.",
+      "The pronunciation issue is localized to one word.",
+      "The surrounding material remains accurately reproduced.",
+      "The response remains continuous without significant hesitation or restart.",
+      "Overall speaking rate remains appropriate.",
+      "The primary issue is Pronunciation accuracy rather than Content or Oral Fluency."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Pronunciation accuracy, specifically final consonant deletion in the word 'signals'. The student produces the singular form 'signal' by omitting the final /z/ required in the plural target. The surrounding passage is accurately reproduced with clear pronunciation, continuous delivery, and appropriate pacing. The teacher should therefore identify the localized final consonant deletion rather than diagnosing Content omission or Oral Fluency.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Pronunciation, specifically deletion of the final /z/ in 'signals'. The student produces 'signal', removing the plural ending from the target word. The remainder of the passage is accurately reproduced with clear, continuous, appropriately paced delivery. The teacher should therefore focus on the localized final-consonant deletion rather than diagnosing Content omission or Oral Fluency.",
+
+    coachingAdvice:
+      "Practise the phrase 'chemical and physical signals preserved in ancient ice cores' with a clearly audible final /z/ in 'signals'. Then repeat the phrase at natural speed while maintaining the plural ending.",
+
+    cefrLevel: "C2",
+    topicTitle: "Palaeoclimatological Ice Proxy Analysis",
+
+    good: {
+      transcript:
+        "Palaeoclimatological ice proxy analysis reconstructs aspects of past climate by examining chemical and physical signals preserved in ancient ice cores. Variations in stable isotopes can provide evidence about historical temperature patterns, while trapped atmospheric gases offer information about changes in greenhouse-gas concentrations. Researchers must account for dating uncertainties, diffusion within the ice, and potential contamination before comparing records from different locations. The resulting reconstructions can reveal climatic fluctuations that occurred long before systematic instrumental measurements became available.",
+      audioDuration: "35.0 seconds",
+      wordCount: 77,
+      characteristics:
+        "Accurate C2-level reproduction with clear pronunciation, precise plural endings, natural pacing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Palaeoclimatological ice proxy analysis reconstructs aspects of past climate by examining chemical and physical signal preserved in ancient ice cores. Variations in stable isotopes can provide evidence about historical temperature patterns, while trapped atmospheric gases offer information about changes in greenhouse-gas concentrations. Researchers must account for dating uncertainties, diffusion within the ice, and potential contamination before comparing records from different locations. The resulting reconstructions can reveal climatic fluctuations that occurred long before systematic instrumental measurements became available.",
+      audioDuration: "35.5 seconds",
+      wordCount: 77,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the final consonant of 'signals' is deleted, producing 'signal'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with clear plural production and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized final-consonant deletion affects Pronunciation accuracy while Content and Oral Fluency remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "final-consonant-deletion",
+        label: "Final consonant deletion",
+        keyword: "Final consonant deletion"
+      },
+      {
+        id: "plural-ending-deletion",
+        label: "Plural ending deletion",
+        keyword: "Plural ending deletion"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+
+    expertAdvice:
+      "Focus specifically on the missing final /z/ in 'signals'. This is a localized Pronunciation issue. Do not diagnose Content or Oral Fluency because the passage is otherwise accurately and continuously reproduced."
+  },
+
+  {
+    exerciseIndex: 93,
+    totalExercises: 100,
+    difficulty: "Mastery",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Phrase-Internal Pausing",
+    learningObjective:
+      "Identify a subtle phrase-internal pause in a C2 Read Aloud response and distinguish it from legitimate sentence-boundary pausing or generally slow delivery.",
+
+    promptText:
+      "Phenomenological philosophy examines conscious experience from the first-person perspective, asking how phenomena are structured before they are reduced to explanations from the natural sciences. Rather than treating perception as a passive reception of external information, phenomenologists analyse the ways in which attention, embodiment, memory, and anticipation shape what becomes meaningful to a subject. This approach does not necessarily reject scientific explanation; instead, it investigates dimensions of experience that may be obscured when subjective awareness is described solely in objective terms.",
+
+    promptAudio:
+      "Phenomenological philosophy examines conscious experience from the first-person perspective, asking how phenomena are structured before they are reduced to explanations from the natural sciences. Rather than treating perception as a passive reception of external information, phenomenologists analyse the ways in which attention, embodiment, memory, and anticipation shape what becomes meaningful to a subject. This approach does not necessarily reject scientific explanation; instead, it investigates dimensions of experience that may be obscured when subjective awareness is described solely in objective terms.",
+
+    studentTranscript:
+      "Phenomenological philosophy examines conscious experience from the first-person perspective, asking how phenomena are structured before they are reduced to explanations from the natural sciences. Rather than treating perception as a passive reception of external information, phenomenologists analyse the ways in which attention, embodiment, memory, / and anticipation shape what becomes meaningful to a subject. This approach does not necessarily reject scientific explanation; instead, it investigates dimensions of experience that may be obscured when subjective awareness is described solely in objective terms.",
+
+    studentResponse: {
+      audioDuration: "36.5 seconds",
+      wordCount: 80,
+      characteristics:
+        "The student reproduces the passage accurately but inserts a short pause between 'memory' and 'and anticipation', interrupting a closely connected list."
+    },
+
+    diagnosticErrors: [
+      "Phrase-internal pausing",
+      "Thought-group disruption",
+      "Oral Fluency"
+    ],
+
+    expertEvidence: [
+      "The pause occurs between 'memory' and 'and anticipation' in the second sentence.",
+      "The pause interrupts the coordinated list 'attention, embodiment, memory, and anticipation'.",
+      "All words in the list are present and clearly pronounced.",
+      "The pause is not required by the grammatical structure.",
+      "The overall speaking rate remains appropriate.",
+      "The remainder of the response is continuous.",
+      "There are no significant fillers, repetitions, or false starts.",
+      "Content remains intact.",
+      "The primary issue is disruption of a meaningful thought group rather than generally slow speech."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Oral Fluency, specifically an inappropriate phrase-internal pause between 'memory' and 'and anticipation'. The pause interrupts a closely connected coordinated list even though all Content is present and clearly pronounced. The overall speaking rate is appropriate and the remainder of the response is continuous. The teacher should therefore focus on phrase-internal pausing and thought-group disruption rather than slow speech, Content loss, or Pronunciation.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Oral Fluency because they introduce a short pause inside the coordinated list 'attention, embodiment, memory, and anticipation'. The pause occurs between 'memory' and 'and anticipation', where the ideas should remain connected. Content is fully preserved, pronunciation is clear, and the overall speaking rate is appropriate. The teacher should therefore focus on the localized thought-group disruption rather than diagnosing Content or Pronunciation.",
+
+    coachingAdvice:
+      "Practise 'attention, embodiment, memory, and anticipation' as one connected thought group. Maintain forward movement through 'memory and anticipation' rather than inserting a pause before the conjunction.",
+
+    cefrLevel: "C2",
+    topicTitle: "Phenomenological Mind Philosophy",
+
+    good: {
+      transcript:
+        "Phenomenological philosophy examines conscious experience from the first-person perspective, asking how phenomena are structured before they are reduced to explanations from the natural sciences. Rather than treating perception as a passive reception of external information, phenomenologists analyse the ways in which attention, embodiment, memory, and anticipation shape what becomes meaningful to a subject. This approach does not necessarily reject scientific explanation; instead, it investigates dimensions of experience that may be obscured when subjective awareness is described solely in objective terms.",
+      audioDuration: "36.0 seconds",
+      wordCount: 80,
+      characteristics:
+        "Natural C2-level thought grouping with continuous delivery, clear pronunciation, and appropriate pacing."
+    },
+
+    poor: {
+      transcript:
+        "Phenomenological philosophy examines conscious experience from the first-person perspective, asking how phenomena are structured before they are reduced to explanations from the natural sciences. Rather than treating perception as a passive reception of external information, phenomenologists analyse the ways in which attention, embodiment, memory, / and anticipation shape what becomes meaningful to a subject. This approach does not necessarily reject scientific explanation; instead, it investigates dimensions of experience that may be obscured when subjective awareness is described solely in objective terms.",
+      audioDuration: "36.5 seconds",
+      wordCount: 80,
+      characteristics:
+        "Accurate and generally fluent delivery, but a short pause interrupts the coordinated list before 'and anticipation'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with natural thought grouping and clear Pronunciation."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 3,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized phrase-internal pause disrupts Oral Fluency while Content and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "phrase-internal-pausing",
+        label: "Phrase-internal pausing",
+        keyword: "Phrase-internal pausing"
+      },
+      {
+        id: "thought-group-disruption",
+        label: "Thought-group disruption",
+        keyword: "Thought-group disruption"
+      },
+      {
+        id: "oral-fluency",
+        label: "Oral Fluency",
+        keyword: "Oral Fluency"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the pause between 'memory' and 'and anticipation'. The overall rate is appropriate; the defining issue is the interruption of a closely connected thought group."
+  },
+
+  {
+    exerciseIndex: 94,
+    totalExercises: 100,
+    difficulty: "Mastery",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Word Order Disruption",
+    learningObjective:
+      "Identify a subtle word-order disruption in a C2 Read Aloud response where the key concepts remain present but their grammatical sequence has changed.",
+
+    promptText:
+      "Epigenetic transgenerational inheritance refers to the possibility that environmental exposures may influence biological characteristics across generations without altering the underlying DNA sequence itself. Researchers investigate whether molecular changes in germ cells can persist after the original exposure has ended and subsequently affect descendants. Establishing such effects is methodologically difficult because genetic inheritance, maternal environment, and postnatal conditions can produce overlapping patterns. Consequently, experimental designs must separate inherited molecular signals from environmental transmission before strong causal conclusions can be justified.",
+
+    promptAudio:
+      "Epigenetic transgenerational inheritance refers to the possibility that environmental exposures may influence biological characteristics across generations without altering the underlying DNA sequence itself. Researchers investigate whether molecular changes in germ cells can persist after the original exposure has ended and subsequently affect descendants. Establishing such effects is methodologically difficult because genetic inheritance, maternal environment, and postnatal conditions can produce overlapping patterns. Consequently, experimental designs must separate inherited molecular signals from environmental transmission before strong causal conclusions can be justified.",
+
+    studentTranscript:
+      "Epigenetic transgenerational inheritance refers to the possibility that environmental exposures may influence biological characteristics across generations without altering the underlying DNA sequence itself. Researchers investigate whether molecular changes in germ cells can persist after the original exposure has ended and subsequently affect descendants. Establishing such effects is methodologically difficult because genetic inheritance, maternal environment, and postnatal conditions can produce overlapping patterns. Consequently, experimental designs must separate environmental transmission from inherited molecular signals before strong causal conclusions can be justified.",
+
+    studentResponse: {
+      audioDuration: "36.5 seconds",
+      wordCount: 79,
+      characteristics:
+        "The student reproduces the passage clearly and continuously but reverses the sequence of 'inherited molecular signals' and 'environmental transmission' in the final sentence."
+    },
+
+    diagnosticErrors: [
+      "Word order disruption",
+      "Content accuracy",
+      "Grammatical sequence change"
+    ],
+
+    expertEvidence: [
+      "The prompt says 'separate inherited molecular signals from environmental transmission'.",
+      "The student says 'separate environmental transmission from inherited molecular signals'.",
+      "The same key concepts are present, but their sequence has been reversed.",
+      "The change occurs in the final sentence.",
+      "The response remains continuous and appropriately paced.",
+      "Pronunciation is generally clear.",
+      "The alteration changes the wording of the reading text despite preserving the general concepts.",
+      "The primary issue is Content accuracy rather than Pronunciation or Oral Fluency."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Content accuracy, specifically a word-order disruption in the final sentence. The prompt says 'separate inherited molecular signals from environmental transmission', whereas the student reverses the sequence to 'separate environmental transmission from inherited molecular signals'. The key concepts remain present, but their grammatical order has changed. Delivery remains clear, continuous, and appropriately paced, so the teacher should identify the localized Content error rather than diagnosing Pronunciation or Oral Fluency.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they reverse the order of the two key phrases in the final sentence. The prompt says 'separate inherited molecular signals from environmental transmission', but the student says 'separate environmental transmission from inherited molecular signals'. The concepts are still present, but the sequence no longer matches the reading text. Delivery remains clear and continuous, so this should be diagnosed as a localized Content error rather than a Fluency or Pronunciation problem.",
+
+    coachingAdvice:
+      "Practise the exact sequence 'separate inherited molecular signals from environmental transmission'. Focus on preserving the order of the two contrasting concepts rather than relying only on remembering the individual keywords.",
+
+    cefrLevel: "C2",
+    topicTitle: "Epigenetic Transgenerational Inheritance",
+
+    good: {
+      transcript:
+        "Epigenetic transgenerational inheritance refers to the possibility that environmental exposures may influence biological characteristics across generations without altering the underlying DNA sequence itself. Researchers investigate whether molecular changes in germ cells can persist after the original exposure has ended and subsequently affect descendants. Establishing such effects is methodologically difficult because genetic inheritance, maternal environment, and postnatal conditions can produce overlapping patterns. Consequently, experimental designs must separate inherited molecular signals from environmental transmission before strong causal conclusions can be justified.",
+      audioDuration: "36.0 seconds",
+      wordCount: 79,
+      characteristics:
+        "Accurate C2-level reproduction with precise word sequencing, clear pronunciation, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Epigenetic transgenerational inheritance refers to the possibility that environmental exposures may influence biological characteristics across generations without altering the underlying DNA sequence itself. Researchers investigate whether molecular changes in germ cells can persist after the original exposure has ended and subsequently affect descendants. Establishing such effects is methodologically difficult because genetic inheritance, maternal environment, and postnatal conditions can produce overlapping patterns. Consequently, experimental designs must separate environmental transmission from inherited molecular signals before strong causal conclusions can be justified.",
+      audioDuration: "36.5 seconds",
+      wordCount: 79,
+      characteristics:
+        "Clear and continuous delivery, but the final sentence reverses the sequence of the two key phrases."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with precise word sequencing, clear Pronunciation, and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "A localized word-order disruption affects Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "word-order-disruption",
+        label: "Word order disruption",
+        keyword: "Word order disruption"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "grammatical-sequence-change",
+        label: "Grammatical sequence change",
+        keyword: "Grammatical sequence change"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on the reversed sequence in the final sentence. The important distinction is that the key concepts remain present but their order has changed. Do not diagnose Pronunciation or Oral Fluency because delivery remains clear and continuous."
+  },
+
+  {
+    exerciseIndex: 95,
+    totalExercises: 100,
+    difficulty: "Mastery",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Singular-Plural Word-Form Change",
+    learningObjective:
+      "Identify a subtle singular-plural word-form change in a C2 Read Aloud response and distinguish it from a Pronunciation or Oral Fluency problem.",
+
+    promptText:
+      "Algorithmic game theory studies strategic behaviour in computational systems where the choices of individual participants can influence collective outcomes. A central problem is to determine whether mechanisms that produce stable equilibria also generate outcomes that are efficient, fair, or resistant to manipulation. Researchers therefore analyse incentives alongside computational complexity, since a theoretically desirable equilibrium may be difficult to reach when participants have limited information or computational resources. The field connects economic reasoning with algorithm design to evaluate how strategic constraints shape complex systems.",
+
+    promptAudio:
+      "Algorithmic game theory studies strategic behaviour in computational systems where the choices of individual participants can influence collective outcomes. A central problem is to determine whether mechanisms that produce stable equilibria also generate outcomes that are efficient, fair, or resistant to manipulation. Researchers therefore analyse incentives alongside computational complexity, since a theoretically desirable equilibrium may be difficult to reach when participants have limited information or computational resources. The field connects economic reasoning with algorithm design to evaluate how strategic constraints shape complex systems.",
+
+    studentTranscript:
+      "Algorithmic game theory studies strategic behaviour in computational systems where the choices of individual participants can influence collective outcomes. A central problem is to determine whether mechanisms that produce stable equilibria also generate outcomes that are efficient, fair, or resistant to manipulations. Researchers therefore analyse incentives alongside computational complexity, since a theoretically desirable equilibrium may be difficult to reach when participants have limited information or computational resources. The field connects economic reasoning with algorithm design to evaluate how strategic constraints shape complex systems.",
+
+    studentResponse: {
+      audioDuration: "38.0 seconds",
+      wordCount: 83,
+      characteristics:
+        "The student reproduces the passage accurately and continuously except for changing the singular noun 'manipulation' to the plural 'manipulations' in the second sentence."
+    },
+
+    diagnosticErrors: [
+      "Singular-plural word-form change",
+      "Content accuracy",
+      "Localized grammatical form change"
+    ],
+
+    expertEvidence: [
+      "The prompt uses the singular noun 'manipulation'.",
+      "The student says 'manipulations' in the second sentence.",
+      "The added plural ending changes the grammatical form of the target word.",
+      "The change is localized to one word.",
+      "The remainder of the passage is accurately reproduced.",
+      "The response remains continuous and appropriately paced.",
+      "Pronunciation is otherwise clear.",
+      "The primary issue is Content accuracy rather than Oral Fluency or general Pronunciation."
+    ],
+
+    expertDiagnosis:
+      "The main issue is Content accuracy, specifically a localized singular-plural word-form change. The prompt uses 'resistant to manipulation', but the student says 'resistant to manipulations' in the second sentence. The added plural ending changes the wording of the reading text, even though the meaning remains closely related. The remainder of the response is accurately reproduced with clear pronunciation, continuous delivery, and appropriate pacing. The teacher should therefore focus on the specific Content word-form change rather than diagnosing Pronunciation or Oral Fluency.",
+
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they change the singular noun 'manipulation' to the plural 'manipulations' in the second sentence. The meaning remains similar, but the student's wording does not exactly reproduce the reading text. The rest of the passage is accurate, with clear pronunciation, continuous delivery, and appropriate pacing. The teacher should therefore identify the localized singular-plural Content change rather than diagnosing Pronunciation or Oral Fluency.",
+
+    coachingAdvice:
+      "Practise the exact phrase 'efficient, fair, or resistant to manipulation'. Focus on retaining the grammatical form of the noun as it appears in the reading text.",
+
+    cefrLevel: "C2",
+    topicTitle: "Algorithmic Game Theory & Equilibria",
+
+    good: {
+      transcript:
+        "Algorithmic game theory studies strategic behaviour in computational systems where the choices of individual participants can influence collective outcomes. A central problem is to determine whether mechanisms that produce stable equilibria also generate outcomes that are efficient, fair, or resistant to manipulation. Researchers therefore analyse incentives alongside computational complexity, since a theoretically desirable equilibrium may be difficult to reach when participants have limited information or computational resources. The field connects economic reasoning with algorithm design to evaluate how strategic constraints shape complex systems.",
+      audioDuration: "37.5 seconds",
+      wordCount: 83,
+      characteristics:
+        "Accurate C2-level reproduction with precise grammatical forms, clear pronunciation, natural pacing, and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Algorithmic game theory studies strategic behaviour in computational systems where the choices of individual participants can influence collective outcomes. A central problem is to determine whether mechanisms that produce stable equilibria also generate outcomes that are efficient, fair, or resistant to manipulations. Researchers therefore analyse incentives alongside computational complexity, since a theoretically desirable equilibrium may be difficult to reach when participants have limited information or computational resources. The field connects economic reasoning with algorithm design to evaluate how strategic constraints shape complex systems.",
+      audioDuration: "38.0 seconds",
+      wordCount: 83,
+      characteristics:
+        "Clear and continuous delivery, but 'manipulations' replaces the prompt's singular 'manipulation' in the second sentence."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with precise grammatical forms, clear Pronunciation, and smooth Oral Fluency."
+    },
+
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "A localized singular-plural word-form change affects Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+
+    errorChecklist: [
+      {
+        id: "singular-plural-word-form-change",
+        label: "Singular-plural word-form change",
+        keyword: "Singular-plural word-form change"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "localized-grammatical-form-change",
+        label: "Localized grammatical form change",
+        keyword: "Localized grammatical form change"
+      }
+    ],
+
+    expertAdvice:
+      "Focus specifically on 'manipulation' being changed to 'manipulations'. This is a localized Content word-form change. Do not over-diagnose Pronunciation or Oral Fluency because the response is otherwise clear and continuous."
+  },
+
+  {
+    exerciseIndex: 96,
+    totalExercises: 100,
+    difficulty: "Advanced",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Conceptual Role Substitution",
+    learningObjective:
+      "Identify a subtle conceptual role substitution in a highly technical Read Aloud response and distinguish it from a pronunciation or fluency problem.",
+    promptText:
+      "Biosemiotics examines how living systems use and interpret signs in processes that extend beyond human language. Researchers may study chemical signals, visual displays, and patterned behaviours as forms of communication between organisms and their environments. A major challenge is to distinguish a genuine signalling relationship from a correlation that has no communicative function. Careful experiments therefore consider whether a receiver changes its behaviour in response to a signal and whether that response provides a measurable advantage.",
+    promptAudio:
+      "Biosemiotics examines how living systems use and interpret signs in processes that extend beyond human language. Researchers may study chemical signals, visual displays, and patterned behaviours as forms of communication between organisms and their environments. A major challenge is to distinguish a genuine signalling relationship from a correlation that has no communicative function. Careful experiments therefore consider whether a receiver changes its behaviour in response to a signal and whether that response provides a measurable advantage.",
+    studentTranscript:
+      "Biosemiotics examines how living systems use and interpret signs in processes that extend beyond human language. Researchers may study chemical signals, visual displays, and patterned behaviours as forms of communication between organisms and their environments. A major challenge is to distinguish a genuine signalling relationship from a correlation that has no communicative function. Careful experiments therefore consider whether a sender changes its behaviour in response to a signal and whether that response provides a measurable advantage.",
+    studentResponse: {
+      audioDuration: "31.5 seconds",
+      wordCount: 76,
+      characteristics:
+        "The response is near-natural and fluent, but the student makes one localized conceptual role substitution in the final sentence."
+    },
+    diagnosticErrors: ["Conceptual role substitution"],
+    expertEvidence: [
+      "The prompt refers to whether a \"receiver\" changes its behaviour",
+      "The student says \"sender\" instead of \"receiver\"",
+      "The substitution changes the functional role being described in the signalling relationship",
+      "The remainder of the passage is accurately reproduced",
+      "Pronunciation is generally clear and delivery remains continuous and appropriately paced"
+    ],
+    expertDiagnosis:
+      "The primary issue is Content accuracy, specifically a localized conceptual role substitution. The student changes \"receiver\" to \"sender\" in the final sentence, reversing the role of the organism whose behavioural response is being measured. This is a meaningful conceptual deviation rather than a pronunciation problem. The remainder of the passage is accurate, with clear pronunciation, continuous delivery, and appropriate pacing.",
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they substitute \"sender\" for the prompt's \"receiver\" in the final sentence. This changes the conceptual role being evaluated in the signalling relationship: the prompt asks whether the receiver changes its behaviour in response to a signal. The rest of the passage is accurately reproduced, with clear pronunciation and continuous, appropriately paced delivery. The teacher should therefore identify the localized conceptual substitution rather than diagnosing Pronunciation or Oral Fluency.",
+    coachingAdvice:
+      "Focus on the exact conceptual roles expressed in technical passages. At C2 level, closely related terms can still produce a meaningful Content deviation when they reverse the function being described. Avoid over-diagnosing delivery when the speech itself remains clear and fluent.",
+    cefrLevel: "C2",
+    topicTitle: "Biosemiotic Non-Human Communication",
+    good: {
+      transcript:
+        "Biosemiotics examines how living systems use and interpret signs in processes that extend beyond human language. Researchers may study chemical signals, visual displays, and patterned behaviours as forms of communication between organisms and their environments. A major challenge is to distinguish a genuine signalling relationship from a correlation that has no communicative function. Careful experiments therefore consider whether a receiver changes its behaviour in response to a signal and whether that response provides a measurable advantage.",
+      audioDuration: "31.0 seconds",
+      wordCount: 76,
+      characteristics:
+        "Natural, controlled delivery with accurate Content and clear Pronunciation."
+    },
+    poor: {
+      transcript:
+        "Biosemiotics examines how living systems use and interpret signs in processes that extend beyond human language. Researchers may study chemical signals, visual displays, and patterned behaviours as forms of communication between organisms and their environments. A major challenge is to distinguish a genuine signalling relationship from a correlation that has no communicative function. Careful experiments therefore consider whether a sender changes its behaviour in response to a signal and whether that response provides a measurable advantage.",
+      audioDuration: "31.5 seconds",
+      wordCount: 76,
+      characteristics:
+        "Near-natural delivery with one localized conceptual substitution in the final sentence."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate technical Content with clear Pronunciation and controlled continuous delivery."
+    },
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "86 / 90",
+      breakdownText:
+        "A localized conceptual role substitution affects Content while delivery remains strong."
+    },
+    errorChecklist: [
+      {
+        id: "conceptual-role-substitution",
+        label: "Conceptual role substitution",
+        keyword: "Conceptual role substitution"
+      }
+    ],
+    expertAdvice:
+      "Focus on Content accuracy. The critical evidence is the change from \"receiver\" to \"sender,\" which alters the conceptual role described. Do not diagnose Pronunciation or Oral Fluency when delivery remains clear and continuous."
+  },
+
+  {
+    exerciseIndex: 97,
+    totalExercises: 100,
+    difficulty: "Advanced",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Subtle Phrase-Internal Pausing",
+    learningObjective:
+      "Recognise a subtle phrase-internal pause within a complex technical sentence and distinguish it from normal sentence-boundary pausing.",
+    promptText:
+      "Thermohaline circulation links changes in ocean temperature and salinity to large-scale movement of seawater through the global ocean. Freshwater input from melting ice can reduce surface-water density in high-latitude regions, potentially weakening the sinking that helps drive deep-ocean circulation. Scientists therefore examine interactions among atmospheric forcing, sea-ice processes, and ocean stratification when assessing the stability of the circulation system. Because these processes operate across different timescales, abrupt changes are difficult to predict with confidence.",
+    promptAudio:
+      "Thermohaline circulation links changes in ocean temperature and salinity to large-scale movement of seawater through the global ocean. Freshwater input from melting ice can reduce surface-water density in high-latitude regions, potentially weakening the sinking that helps drive deep-ocean circulation. Scientists therefore examine interactions among atmospheric forcing, sea-ice processes, and ocean stratification when assessing the stability of the circulation system. Because these processes operate across different timescales, abrupt changes are difficult to predict with confidence.",
+    studentTranscript:
+      "Thermohaline circulation links changes in ocean temperature and salinity to large-scale movement of seawater through the global ocean. Freshwater input from melting ice can reduce surface-water density in high-latitude regions, potentially weakening the sinking that helps drive deep-ocean circulation. Scientists therefore examine interactions among atmospheric forcing, sea-ice processes, and ocean stratification when assessing the stability of the circulation system. Because these processes operate across different / timescales, abrupt changes are difficult to predict with confidence.",
+    studentResponse: {
+      audioDuration: "32.5 seconds",
+      wordCount: 75,
+      characteristics:
+        "The response is otherwise fluent and controlled, but contains one subtle pause inside the closely connected phrase \"different timescales.\""
+    },
+    diagnosticErrors: [
+      "Phrase-internal pause",
+      "Thought-group disruption"
+    ],
+    expertEvidence: [
+      "A pause occurs between \"different\" and \"timescales\"",
+      "The two words form a closely connected phrase",
+      "The pause is localized rather than part of a general hesitation pattern",
+      "There are no significant fillers, repetitions, or restarts",
+      "Content is complete and Pronunciation remains generally clear"
+    ],
+    expertDiagnosis:
+      "The primary issue is Oral Fluency, specifically a subtle phrase-internal pause between \"different\" and \"timescales.\" The pause disrupts a closely connected noun phrase near the end of the passage. The response otherwise remains continuous and appropriately paced, with accurate Content and generally clear Pronunciation. The teacher should identify the localized thought-group disruption rather than diagnosing slow speech or Content error.",
+    perfectCalibrationResponse:
+      "The student's main issue is Oral Fluency because there is a subtle pause inside the phrase \"different timescales,\" separating two words that should remain connected. This creates a localized thought-group disruption near the end of the passage. The response otherwise maintains accurate Content, clear Pronunciation, and an appropriate overall speaking rate, with no significant fillers or restarts. The teacher should therefore focus on the phrase-internal pause rather than over-diagnosing a broader fluency problem.",
+    coachingAdvice:
+      "At C2 level, listen for small disruptions inside otherwise fluent speech. Encourage the student to preserve natural thought groups and avoid inserting pauses between closely connected words.",
+    cefrLevel: "C2",
+    topicTitle: "Thermohaline Circulation Collapse",
+    good: {
+      transcript:
+        "Thermohaline circulation links changes in ocean temperature and salinity to large-scale movement of seawater through the global ocean. Freshwater input from melting ice can reduce surface-water density in high-latitude regions, potentially weakening the sinking that helps drive deep-ocean circulation. Scientists therefore examine interactions among atmospheric forcing, sea-ice processes, and ocean stratification when assessing the stability of the circulation system. Because these processes operate across different timescales, abrupt changes are difficult to predict with confidence.",
+      audioDuration: "32.0 seconds",
+      wordCount: 74,
+      characteristics:
+        "Smooth continuous delivery with natural phrase grouping and controlled pacing."
+    },
+    poor: {
+      transcript:
+        "Thermohaline circulation links changes in ocean temperature and salinity to large-scale movement of seawater through the global ocean. Freshwater input from melting ice can reduce surface-water density in high-latitude regions, potentially weakening the sinking that helps drive deep-ocean circulation. Scientists therefore examine interactions among atmospheric forcing, sea-ice processes, and ocean stratification when assessing the stability of the circulation system. Because these processes operate across different / timescales, abrupt changes are difficult to predict with confidence.",
+      audioDuration: "32.5 seconds",
+      wordCount: 75,
+      characteristics:
+        "Mostly natural delivery with one subtle phrase-internal pause between \"different\" and \"timescales.\""
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Continuous, naturally grouped delivery with accurate Content and clear Pronunciation."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 4,
+      pronunciation: 5,
+      overall: "85 / 90",
+      breakdownText:
+        "A localized phrase-internal pause mildly disrupts an otherwise fluent thought group."
+    },
+    errorChecklist: [
+      {
+        id: "phrase-internal-pause",
+        label: "Phrase-internal pause",
+        keyword: "Phrase-internal pause"
+      },
+      {
+        id: "thought-group-disruption",
+        label: "Thought-group disruption",
+        keyword: "Thought-group disruption"
+      }
+    ],
+    expertAdvice:
+      "Focus on Oral Fluency rather than Content or Pronunciation. The important evidence is the pause inside the connected phrase \"different timescales.\" Do not over-diagnose the response as generally slow or hesitant."
+  },
+
+ {
+    exerciseIndex: 98,
+    totalExercises: 100,
+    difficulty: "Advanced",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Initial Consonant Deletion",
+    learningObjective:
+      "Identify a highly localized initial consonant deletion in a technically complex passage while maintaining diagnostic restraint regarding Content and Oral Fluency.",
+    promptText:
+      "Computational aerodynamic turbulence modelling seeks to represent irregular fluid motion around aircraft, turbines, and other engineered surfaces. Direct numerical simulation can resolve a wide range of turbulent scales, but its computational cost becomes prohibitive at high Reynolds numbers. Engineers therefore use approaches such as large-eddy simulation and Reynolds-averaged models to approximate unresolved motion. The reliability of these methods depends on how well their assumptions capture separation, energy transfer, and near-wall behaviour under the relevant flow conditions.",
+    promptAudio:
+      "Computational aerodynamic turbulence modelling seeks to represent irregular fluid motion around aircraft, turbines, and other engineered surfaces. Direct numerical simulation can resolve a wide range of turbulent scales, but its computational cost becomes prohibitive at high Reynolds numbers. Engineers therefore use approaches such as large-eddy simulation and Reynolds-averaged models to approximate unresolved motion. The reliability of these methods depends on how well their assumptions capture separation, energy transfer, and near-wall behaviour under the relevant flow conditions.",
+    studentTranscript:
+      "Computational aerodynamic turbulence modelling seeks to represent irregular fluid motion around aircraft, turbines, and other engineered surfaces. Direct numerical simulation can resolve a wide range of turbulent scales, but its computational cost becomes prohibitive at high Reynolds numbers. Engineers therefore use approaches such as large-eddy simulation and Reynolds-averaged models to approximate unresolved motion. The reliability of these methods depends on how well their assumptions capture separation, energy transfer, and near-wall behaviour under the levant flow conditions.",
+    studentResponse: {
+      audioDuration: "33.0 seconds",
+      wordCount: 75,
+      characteristics:
+        "The response is fluent and technically accurate overall, with one localized initial consonant deletion in the final sentence."
+    },
+    diagnosticErrors: ["Initial consonant deletion"],
+    expertEvidence: [
+      "The prompt uses the word \"relevant\" in the phrase \"the relevant flow conditions\"",
+      "The student produces \"levant,\" deleting the initial /r/ sound",
+      "The pronunciation deviation is localized to a single lexical item",
+      "The remainder of the technical passage is delivered clearly",
+      "There is no significant hesitation, repetition, or pacing problem"
+    ],
+    expertDiagnosis:
+      "The primary issue is Pronunciation, specifically localized initial consonant deletion. The student produces \"levant\" instead of \"relevant,\" omitting the initial /r/ sound. This is a localized phonological error rather than a Content deviation or broader Oral Fluency problem. The remainder of the passage is accurate, with continuous delivery and appropriate pacing.",
+    perfectCalibrationResponse:
+      "The student's main issue is Pronunciation, specifically deletion of the initial /r/ in \"relevant.\" The student produces \"levant,\" creating a localized consonant deletion in the final sentence. Content remains accurate and the response is otherwise continuous and appropriately paced. The teacher should therefore identify the localized initial-consonant error rather than diagnosing Content or Oral Fluency.",
+    coachingAdvice:
+      "Practise the initial /r/ sound in \"relevant\" and then place the word into increasingly complex phrases. At C2 level, identify the precise phonological feature while maintaining diagnostic restraint about otherwise accurate Content and fluent delivery.",
+    cefrLevel: "C2",
+    topicTitle: "Computational Aerodynamic Turbulence",
+    good: {
+      transcript:
+        "Computational aerodynamic turbulence modelling seeks to represent irregular fluid motion around aircraft, turbines, and other engineered surfaces. Direct numerical simulation can resolve a wide range of turbulent scales, but its computational cost becomes prohibitive at high Reynolds numbers. Engineers therefore use approaches such as large-eddy simulation and Reynolds-averaged models to approximate unresolved motion. The reliability of these methods depends on how well their assumptions capture separation, energy transfer, and near-wall behaviour under the relevant flow conditions.",
+      audioDuration: "32.5 seconds",
+      wordCount: 76,
+      characteristics:
+        "Clear pronunciation, controlled pacing, and continuous delivery across a technically demanding passage."
+    },
+    poor: {
+      transcript:
+        "Computational aerodynamic turbulence modelling seeks to represent irregular fluid motion around aircraft, turbines, and other engineered surfaces. Direct numerical simulation can resolve a wide range of turbulent scales, but its computational cost becomes prohibitive at high Reynolds numbers. Engineers therefore use approaches such as large-eddy simulation and Reynolds-averaged models to approximate unresolved motion. The reliability of these methods depends on how well their assumptions capture separation, energy transfer, and near-wall behaviour under the levant flow conditions.",
+      audioDuration: "33.0 seconds",
+      wordCount: 75,
+      characteristics:
+        "The passage is otherwise fluent and accurate, with one localized initial consonant deletion in \"relevant.\""
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate technical Content with clear Pronunciation and continuous controlled delivery."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "85 / 90",
+      breakdownText:
+        "A localized initial consonant deletion affects Pronunciation while Content and Fluency remain strong."
+    },
+    errorChecklist: [
+      {
+        id: "initial-consonant-deletion",
+        label: "Initial consonant deletion",
+        keyword: "Initial consonant deletion"
+      }
+    ],
+    expertAdvice:
+      "Focus on Pronunciation. Identify the localized deletion of the initial /r/ in \"relevant\" and avoid diagnosing Content or Oral Fluency when the rest of the response is accurate and continuous."
+  },
+
+  {
+    exerciseIndex: 99,
+    totalExercises: 100,
+    difficulty: "Advanced",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Complex Word-Order Disruption",
+    learningObjective:
+      "Identify a subtle but meaningful reversal of conceptual relationships in a complex academic sentence while distinguishing it from a pronunciation or fluency problem.",
+    promptText:
+      "Structural hermeneutics examines how the organization of a text or inscription contributes to its interpretation. In epigraphic research, scholars may compare repeated formulas, spatial arrangement, damaged passages, and changes in script to reconstruct how an inscription was produced and understood. Interpretation becomes especially difficult when material evidence and later textual conventions point in different directions. A careful analysis must therefore distinguish what is directly attested on the object from what is inferred through comparison with related sources.",
+    promptAudio:
+      "Structural hermeneutics examines how the organization of a text or inscription contributes to its interpretation. In epigraphic research, scholars may compare repeated formulas, spatial arrangement, damaged passages, and changes in script to reconstruct how an inscription was produced and understood. Interpretation becomes especially difficult when material evidence and later textual conventions point in different directions. A careful analysis must therefore distinguish what is directly attested on the object from what is inferred through comparison with related sources.",
+    studentTranscript:
+      "Structural hermeneutics examines how the organization of a text or inscription contributes to its interpretation. In epigraphic research, scholars may compare repeated formulas, spatial arrangement, damaged passages, and changes in script to reconstruct how an inscription was produced and understood. Interpretation becomes especially difficult when material evidence and later textual conventions point in different directions. A careful analysis must therefore distinguish what is inferred on the object from what is directly attested through comparison with related sources.",
+    studentResponse: {
+      audioDuration: "34.0 seconds",
+      wordCount: 77,
+      characteristics:
+        "The response is near-natural and clearly delivered, but the final sentence reverses the relationship between direct attestation and inference."
+    },
+    diagnosticErrors: ["Complex word-order disruption"],
+    expertEvidence: [
+      "The prompt distinguishes what is \"directly attested on the object\" from what is \"inferred through comparison\"",
+      "The student reverses these conceptual relationships in the final sentence",
+      "The altered sequence changes which evidence is directly attested and which is inferred",
+      "The remainder of the passage is accurately reproduced",
+      "Pronunciation is clear and delivery remains continuous and appropriately paced"
+    ],
+    expertDiagnosis:
+      "The primary issue is Content accuracy, specifically a complex word-order and conceptual relationship disruption in the final sentence. The student reverses the relationship between direct attestation on the object and inference through comparison. This is more than a superficial reordering because it changes the evidential distinction expressed by the sentence. Delivery remains clear, continuous, and appropriately paced, so Pronunciation and Oral Fluency are not the primary concerns.",
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because the final sentence reverses the evidential relationship between what is directly attested on the object and what is inferred through comparison with related sources. The prompt distinguishes direct material evidence from comparative inference, whereas the student's altered sequence assigns those functions differently. The rest of the passage is accurate, with clear Pronunciation and continuous, appropriately paced delivery. The teacher should therefore identify the complex Content disruption rather than treating it as a fluency or pronunciation problem.",
+    coachingAdvice:
+      "At C2 level, assess not only whether individual words are present but whether complex relationships between clauses and evidence types remain intact. Use the exact prompt-to-student contrast and avoid treating sophisticated reordering as harmless when it changes the underlying proposition.",
+    cefrLevel: "C2",
+    topicTitle: "Structural Hermeneutics & Epigraphy",
+    good: {
+      transcript:
+        "Structural hermeneutics examines how the organization of a text or inscription contributes to its interpretation. In epigraphic research, scholars may compare repeated formulas, spatial arrangement, damaged passages, and changes in script to reconstruct how an inscription was produced and understood. Interpretation becomes especially difficult when material evidence and later textual conventions point in different directions. A careful analysis must therefore distinguish what is directly attested on the object from what is inferred through comparison with related sources.",
+      audioDuration: "33.5 seconds",
+      wordCount: 77,
+      characteristics:
+        "Natural, clear delivery with accurate preservation of the complex evidential relationship in the final sentence."
+    },
+    poor: {
+      transcript:
+        "Structural hermeneutics examines how the organization of a text or inscription contributes to its interpretation. In epigraphic research, scholars may compare repeated formulas, spatial arrangement, damaged passages, and changes in script to reconstruct how an inscription was produced and understood. Interpretation becomes especially difficult when material evidence and later textual conventions point in different directions. A careful analysis must therefore distinguish what is inferred on the object from what is directly attested through comparison with related sources.",
+      audioDuration: "34.0 seconds",
+      wordCount: 77,
+      characteristics:
+        "Clear and fluent delivery, but the final sentence contains a localized reversal of the evidential relationship."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Complex Content is accurately reproduced with clear and controlled delivery."
+    },
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "86 / 90",
+      breakdownText:
+        "A localized reversal of evidential relationships affects Content while Fluency and Pronunciation remain strong."
+    },
+    errorChecklist: [
+      {
+        id: "complex-word-order-disruption",
+        label: "Complex word-order disruption",
+        keyword: "Complex word-order disruption"
+      },
+      {
+        id: "evidential-relationship-reversal",
+        label: "Evidential relationship reversal",
+        keyword: "Evidential relationship reversal"
+      }
+    ],
+    expertAdvice:
+      "Focus on Content accuracy. The important evidence is the reversal of direct attestation and comparative inference in the final sentence. Do not reduce the diagnosis to generic word order when the altered sequence changes the underlying evidential relationship."
+  },
+
+  {
+    exerciseIndex: 100,
+    totalExercises: 100,
+    difficulty: "Advanced",
+    trainingSkill: "Diagnostic Restraint",
+    diagnosticArea: "Near-Natural Delivery & No Significant Error",
+    learningObjective:
+      "Recognise a benchmark-quality C2 Read Aloud response when there is no significant score-impacting error and demonstrate appropriate diagnostic restraint.",
+    promptText:
+      "Entangled photon quantum cryptanalysis studies how quantum correlations can be exploited to test the security assumptions of cryptographic protocols. In an idealized entanglement-based experiment, measurements performed on separated photons can exhibit correlations that cannot be reproduced by simple classical models. Practical systems, however, are affected by detector inefficiency, channel loss, imperfect state preparation, and background noise. Reliable security analysis must therefore connect the observed correlations with a carefully specified threat model rather than treating entanglement itself as automatic proof of secrecy.",
+    promptAudio:
+      "Entangled photon quantum cryptanalysis studies how quantum correlations can be exploited to test the security assumptions of cryptographic protocols. In an idealized entanglement-based experiment, measurements performed on separated photons can exhibit correlations that cannot be reproduced by simple classical models. Practical systems, however, are affected by detector inefficiency, channel loss, imperfect state preparation, and background noise. Reliable security analysis must therefore connect the observed correlations with a carefully specified threat model rather than treating entanglement itself as automatic proof of secrecy.",
+    studentTranscript:
+      "Entangled photon quantum cryptanalysis studies how quantum correlations can be exploited to test the security assumptions of cryptographic protocols. In an idealized entanglement-based experiment, measurements performed on separated photons can exhibit correlations that cannot be reproduced by simple classical models. Practical systems, however, are affected by detector inefficiency, channel loss, imperfect state preparation, and background noise. Reliable security analysis must therefore connect the observed correlations with a carefully specified threat model rather than treating entanglement itself as automatic proof of secrecy.",
+    studentResponse: {
+      audioDuration: "35.0 seconds",
+      wordCount: 81,
+      characteristics:
+        "Near-natural benchmark-quality delivery with accurate Content, clear Pronunciation, natural phrasing, and no significant fluency disruption."
+    },
+    diagnosticErrors: [],
+    expertEvidence: [
+      "The complete passage is reproduced accurately",
+      "Technical terminology is delivered clearly enough to remain intelligible",
+      "Speech is continuous with natural phrase grouping",
+      "Speaking rate is controlled and appropriate",
+      "There are no significant fillers, repetitions, false starts, or unnatural pauses",
+      "No isolated deviation provides sufficient evidence for a score-impacting error"
+    ],
+    expertDiagnosis:
+      "The student demonstrates a benchmark-quality Read Aloud response with no significant error requiring correction. Content is accurately reproduced, Pronunciation is clear, and Oral Fluency is continuous with natural phrasing and appropriate pacing. Minor timing variation or the inherent difficulty of the technical vocabulary is not sufficient evidence for a diagnostic error. This exercise tests professional diagnostic restraint.",
+    perfectCalibrationResponse:
+      "The student demonstrates a strong, benchmark-quality Read Aloud response with no significant score-impacting error. The Content is accurately reproduced, Pronunciation is clear, and delivery is continuous, naturally phrased, and appropriately paced. There are no significant fillers, repetitions, restarts, or unnatural pauses that justify a fluency diagnosis. The teacher should therefore show diagnostic restraint and avoid inventing a Content, Pronunciation, or Oral Fluency problem without clear observable evidence.",
+    coachingAdvice:
+      "Do not force a diagnosis simply because the exercise is a C2 calibration case. Professional assessment requires sufficient observable evidence before identifying a score-impacting error. Recognise when Content, Pronunciation, and Oral Fluency are all sufficiently strong.",
+    cefrLevel: "C2",
+    topicTitle: "Entangled Photon Quantum Cryptanalysis",
+    good: {
+      transcript:
+        "Entangled photon quantum cryptanalysis studies how quantum correlations can be exploited to test the security assumptions of cryptographic protocols. In an idealized entanglement-based experiment, measurements performed on separated photons can exhibit correlations that cannot be reproduced by simple classical models. Practical systems, however, are affected by detector inefficiency, channel loss, imperfect state preparation, and background noise. Reliable security analysis must therefore connect the observed correlations with a carefully specified threat model rather than treating entanglement itself as automatic proof of secrecy.",
+      audioDuration: "34.5 seconds",
+      wordCount: 81,
+      characteristics:
+        "Benchmark-quality natural delivery with accurate Content, clear Pronunciation, and controlled Oral Fluency."
+    },
+    poor: {
+      transcript:
+        "Entangled photon quantum cryptanalysis studies how quantum correlations can be exploited to test the security assumptions of cryptographic protocols. In an idealized entanglement-based experiment, measurements performed on separated photons can exhibit correlations that cannot be reproduced by simple classical models. Practical systems, however, are affected by detector inefficiency, channel loss, imperfect state preparation, and background noise. Reliable security analysis must therefore connect the observed correlations with a carefully specified threat model rather than treating entanglement itself as automatic proof of secrecy.",
+      audioDuration: "35.0 seconds",
+      wordCount: 81,
+      characteristics:
+        "Near-natural response with no significant Content, Pronunciation, or Oral Fluency error; designed to test diagnostic restraint."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Benchmark-quality response with accurate Content, clear Pronunciation, and natural continuous delivery."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "89 / 90",
+      breakdownText:
+        "No significant score-impacting error is present; teachers should avoid over-diagnosis."
+    },
+    errorChecklist: [],
+    expertAdvice:
+      "The capstone skill is diagnostic restraint. Do not select a Content, Pronunciation, or Oral Fluency error without clear evidence. A technically difficult passage can still be read successfully."
+  },
+
 ];
 
 // -----------------------------------------------------------------------------
