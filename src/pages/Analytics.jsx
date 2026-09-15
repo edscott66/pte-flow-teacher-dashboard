@@ -76,6 +76,15 @@ export default function Analytics() {
 
   const recentAttempts = attempts.slice(0, 10);
 
+  const trendAttempts = [...attempts]
+    .filter(
+      (attempt) =>
+        typeof attempt.matchPercentage === "number" &&
+        Number.isFinite(attempt.matchPercentage)
+    )
+    .slice(0, 10)
+    .reverse();
+
   const cefrOrder = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
   const cefrPerformance = cefrOrder
@@ -206,6 +215,131 @@ export default function Analytics() {
                     <small>Lowest calibration score</small>
                   </div>
                 </div>
+              </section>
+
+              <section className="analytics-section-card analytics-trend-section">
+                <div className="analytics-section-header">
+                  <div>
+                    <h3>Calibration Performance Trend</h3>
+                    <p>
+                      See your most recent calibration scores over time.
+                    </p>
+                  </div>
+
+                  <span className="analytics-result-count">
+                    {trendAttempts.length} score
+                    {trendAttempts.length === 1 ? "" : "s"}
+                  </span>
+                </div>
+
+                {trendAttempts.length === 0 ? (
+                  <div className="analytics-empty-state">
+                    <div className="analytics-empty-icon">
+                      📈
+                    </div>
+                    <strong>
+                      Your performance trend will appear here
+                    </strong>
+                    <p>
+                      Complete Calibration Lab exercises to build a
+                      performance trend.
+                    </p>
+                  </div>
+                ) : (
+                  <div className="analytics-trend-chart">
+                    <div className="analytics-trend-scale">
+                      <span>100%</span>
+                      <span>75%</span>
+                      <span>50%</span>
+                      <span>25%</span>
+                      <span>0%</span>
+                    </div>
+
+                    <div className="analytics-trend-plot">
+                      <div className="analytics-trend-grid">
+                        <span />
+                        <span />
+                        <span />
+                        <span />
+                        <span />
+                      </div>
+
+                      <div className="analytics-trend-bars">
+                        {trendAttempts.map((attempt, index) => {
+                          const score = Math.min(
+                            Math.max(attempt.matchPercentage, 0),
+                            100
+                          );
+
+                          const scoreClass =
+                            score >= 85
+                              ? "master"
+                              : score >= 70
+                                ? "proficient"
+                                : score >= 50
+                                  ? "developing"
+                                  : "needs-calibration";
+
+                          return (
+                            <div
+                              className="analytics-trend-point"
+                              key={`${attempt.id}-${index}`}
+                              title={`Exercise ${attempt.exerciseIndex}: ${score}%`}
+                            >
+                              <div
+                                className={`analytics-trend-score analytics-trend-score-${scoreClass}`}
+                              >
+                                {score}%
+                              </div>
+
+                              <div className="analytics-trend-bar-track">
+                                <div
+                                  className={`analytics-trend-bar analytics-trend-bar-${scoreClass}`}
+                                  style={{ height: `${score}%` }}
+                                />
+                              </div>
+
+                              <span className="analytics-trend-label">
+                                {attempt.exerciseIndex}
+                              </span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <div className="analytics-trend-legend" aria-label="Calibration score ranges">
+                      <div className="analytics-trend-legend-item">
+                        <span className="analytics-trend-legend-dot analytics-trend-dot-master" />
+                        <div>
+                          <strong>85–100%</strong>
+                          <span>PTE Master</span>
+                        </div>
+                      </div>
+                      <div className="analytics-trend-legend-item">
+                        <span className="analytics-trend-legend-dot analytics-trend-dot-proficient" />
+                        <div>
+                          <strong>70–84%</strong>
+                          <span>Proficient</span>
+                        </div>
+                      </div>
+                      <div className="analytics-trend-legend-item">
+                        <span className="analytics-trend-legend-dot analytics-trend-dot-developing" />
+                        <div>
+                          <strong>50–69%</strong>
+                          <span>Developing</span>
+                        </div>
+                      </div>
+                      <div className="analytics-trend-legend-item">
+                        <span className="analytics-trend-legend-dot analytics-trend-dot-needs-calibration" />
+                        <div>
+                          <strong>0–49%</strong>
+                          <span>Needs Calibration</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </section>
 
               <section className="analytics-section-card analytics-cefr-section">

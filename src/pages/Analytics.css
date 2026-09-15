@@ -175,6 +175,236 @@
   font-size: 11px;
 }
 
+
+/* ---------------------------------------------------------
+   Performance Trend
+   --------------------------------------------------------- */
+
+.analytics-trend-section {
+  margin-bottom: 24px;
+}
+
+.analytics-trend-chart {
+  display: flex;
+  min-height: 270px;
+  padding: 24px 24px 18px;
+}
+
+.analytics-trend-scale {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 42px;
+  padding: 2px 8px 25px 0;
+  color: #9ca3af;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.analytics-trend-plot {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 228px;
+}
+
+.analytics-trend-grid {
+  position: absolute;
+  inset: 0 0 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.analytics-trend-grid span {
+  width: 100%;
+  height: 1px;
+  background: rgba(15, 23, 42, 0.07);
+}
+
+.analytics-trend-bars {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  gap: 8px;
+  padding: 0 4px;
+}
+
+.analytics-trend-point {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-width: 24px;
+  max-width: 72px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.analytics-trend-score {
+  min-height: 17px;
+  margin-bottom: 5px;
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.analytics-trend-score-master {
+  color: #059669;
+}
+
+.analytics-trend-score-proficient {
+  color: #4f46e5;
+}
+
+.analytics-trend-score-developing {
+  color: #d97706;
+}
+
+.analytics-trend-score-needs-calibration {
+  color: #e11d48;
+}
+
+.analytics-trend-bar-track {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: min(34px, 70%);
+  height: 180px;
+  overflow: hidden;
+  border-radius: 8px 8px 3px 3px;
+  background: #eff6ff;
+}
+
+.analytics-trend-bar {
+  width: 100%;
+  min-height: 2px;
+  border-radius: 8px 8px 3px 3px;
+  transition: height 0.4s ease;
+}
+
+.analytics-trend-bar-master {
+  background: #059669;
+}
+
+.analytics-trend-bar-proficient {
+  background: #4f46e5;
+}
+
+.analytics-trend-bar-developing {
+  background: #d97706;
+}
+
+.analytics-trend-bar-needs-calibration {
+  background: #e11d48;
+}
+
+.analytics-trend-label {
+  margin-top: 7px;
+  color: #6b7280;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.analytics-trend-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+  margin: 0 24px 20px 66px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.analytics-trend-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.analytics-trend-legend-dot {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.analytics-trend-dot-master {
+  background: #059669;
+}
+
+.analytics-trend-dot-proficient {
+  background: #4f46e5;
+}
+
+.analytics-trend-dot-developing {
+  background: #d97706;
+}
+
+.analytics-trend-dot-needs-calibration {
+  background: #e11d48;
+}
+
+.analytics-trend-legend-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.analytics-trend-legend-item strong {
+  color: #374151;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.analytics-trend-legend-item span:not(.analytics-trend-legend-dot) {
+  color: #6b7280;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+@media (max-width: 500px) {
+  .analytics-trend-chart {
+    min-height: 245px;
+    padding: 20px 15px 15px;
+  }
+
+  .analytics-trend-scale {
+    width: 36px;
+    padding-right: 6px;
+    font-size: 9px;
+  }
+
+  .analytics-trend-plot {
+    height: 210px;
+  }
+
+  .analytics-trend-bar-track {
+    width: min(28px, 70%);
+    height: 165px;
+  }
+
+  .analytics-trend-bars {
+    gap: 4px;
+    padding: 0 2px;
+  }
+
+  .analytics-trend-score {
+    font-size: 9px;
+  }
+
+  .analytics-trend-legend {
+    gap: 12px 16px;
+    margin: 0 15px 15px 51px;
+    padding: 10px 12px;
+  }
+}
+
 /* ---------------------------------------------------------
    CEFR Performance
    --------------------------------------------------------- */
