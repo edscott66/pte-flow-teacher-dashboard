@@ -222,7 +222,7 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
       topicTitle: String(
   result.topicTitle ?? currentExercise?.topicTitle ?? ""
 ),
-cefrLevel: String(currentExercise?.cefrLevel ?? ""),
+cefrLevel: String(currentExercise?.cefrLevel?.level ?? ""),
       responseMode: String(
         result.responseMode ?? activeResponseMode
       ),

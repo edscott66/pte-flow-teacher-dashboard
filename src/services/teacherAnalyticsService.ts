@@ -1,4 +1,4 @@
-// src/masterTeacher/services/teacherAnalyticsService.ts
+// src/services/teacherAnalyticsService.ts
 
 import {
   addDoc,
@@ -123,13 +123,85 @@ export async function saveCalibrationAttempt(
 }
 
 /**
- * Retrieve Calibration Lab attempts belonging only to
- * the currently authenticated Teacher Dashboard user.
+ * Convert a Calibration Lab exercise number into its
+ * established CEFR level.
  *
- * We deliberately query by teacherId only and sort the
- * results in memory. This avoids requiring a Firestore
- * composite index at this stage.
+ * This is used as a backwards-compatible fallback for
+ * older analytics records that were created before
+ * cefrLevel was stored correctly.
  */
+function getLegacyCefrLevel(
+  exerciseIndex: number
+): string {
+  if (exerciseIndex <= 20) {
+    return "A1";
+  }
+
+  if (exerciseIndex <= 40) {
+    return "A2";
+  }
+
+  if (exerciseIndex <= 60) {
+    return "B1";
+  }
+
+  if (exerciseIndex <= 80) {
+    return "B2";
+  }
+
+  if (exerciseIndex <= 90) {
+    return "C1";
+  }
+
+  return "C2";
+}
+
+/**
+ * Normalize the stored CEFR value.
+ *
+ * New records store the CEFR level as a string such as
+ * "A1".
+ *
+ * Some older records may have:
+ * - no cefrLevel
+ * - an object value
+ * - the string "[object Object]"
+ *
+ * In those cases we fall back to the established
+ * exercise-number CEFR mapping.
+ */
+function normalizeCefrLevel(
+  storedValue: unknown,
+  exerciseIndex: number
+): string {
+  let storedLevel = "";
+
+  if (typeof storedValue === "string") {
+    storedLevel = storedValue.trim();
+  } else if (
+    storedValue &&
+    typeof storedValue === "object" &&
+    "level" in storedValue
+  ) {
+    const level = (
+      storedValue as { level?: unknown }
+    ).level;
+
+    if (typeof level === "string") {
+      storedLevel = level.trim();
+    }
+  }
+
+  if (
+    storedLevel &&
+    storedLevel !== "[object Object]"
+  ) {
+    return storedLevel.toUpperCase();
+  }
+
+  return getLegacyCefrLevel(exerciseIndex);
+}
+
 export async function getTeacherCalibrationAttempts(): Promise<
   CalibrationAttemptRecord[]
 > {
@@ -153,23 +225,36 @@ export async function getTeacherCalibrationAttempts(): Promise<
 
   const snapshot = await getDocs(attemptsQuery);
 
-  const attempts: CalibrationAttemptRecord[] = snapshot.docs.map(
-    (attemptDoc) => {
+  const attempts: CalibrationAttemptRecord[] =
+    snapshot.docs.map((attemptDoc) => {
       const data = attemptDoc.data();
+
+      const exerciseIndex = Number(
+        data.exerciseIndex ?? 0
+      );
+
+      const cefrLevel = normalizeCefrLevel(
+        data.cefrLevel,
+        exerciseIndex
+      );
 
       return {
         id: attemptDoc.id,
         teacherId: String(data.teacherId ?? ""),
         questionId: String(data.questionId ?? ""),
-        questionTitle: String(data.questionTitle ?? ""),
+        questionTitle: String(
+          data.questionTitle ?? ""
+        ),
         section: String(data.section ?? ""),
-        exerciseIndex: Number(data.exerciseIndex ?? 0),
+        exerciseIndex,
         topicTitle: String(data.topicTitle ?? ""),
-        cefrLevel: data.cefrLevel
-          ? String(data.cefrLevel)
-          : undefined,
-        responseMode: String(data.responseMode ?? ""),
-        teacherInput: String(data.teacherInput ?? ""),
+        cefrLevel,
+        responseMode: String(
+          data.responseMode ?? ""
+        ),
+        teacherInput: String(
+          data.teacherInput ?? ""
+        ),
         matchPercentage:
           typeof data.matchPercentage === "number"
             ? data.matchPercentage
@@ -178,37 +263,47 @@ export async function getTeacherCalibrationAttempts(): Promise<
         feedbackSummary: data.feedbackSummary
           ? String(data.feedbackSummary)
           : undefined,
-        matchedKeywords: Array.isArray(data.matchedKeywords)
+        matchedKeywords: Array.isArray(
+          data.matchedKeywords
+        )
           ? data.matchedKeywords.map(String)
           : undefined,
-        missingKeywords: Array.isArray(data.missingKeywords)
+        missingKeywords: Array.isArray(
+          data.missingKeywords
+        )
           ? data.missingKeywords.map(String)
           : undefined,
         coachingAdviceForTeacher:
           data.coachingAdviceForTeacher
             ? String(data.coachingAdviceForTeacher)
             : undefined,
-        studentFacingScript: data.studentFacingScript
-          ? String(data.studentFacingScript)
-          : undefined,
-        checkedErrorIds: Array.isArray(data.checkedErrorIds)
+        studentFacingScript:
+          data.studentFacingScript
+            ? String(data.studentFacingScript)
+            : undefined,
+        checkedErrorIds: Array.isArray(
+          data.checkedErrorIds
+        )
           ? data.checkedErrorIds.map(String)
           : undefined,
-        expertOverallScore: data.expertOverallScore
-          ? String(data.expertOverallScore)
-          : undefined,
-        expertFeedbackText: data.expertFeedbackText
-          ? String(data.expertFeedbackText)
-          : undefined,
+        expertOverallScore:
+          data.expertOverallScore
+            ? String(data.expertOverallScore)
+            : undefined,
+        expertFeedbackText:
+          data.expertFeedbackText
+            ? String(data.expertFeedbackText)
+            : undefined,
         expertAdvice: data.expertAdvice
           ? String(data.expertAdvice)
           : undefined,
         isLiveAi: Boolean(data.isLiveAi),
-        timestamp: String(data.timestamp ?? ""),
+        timestamp: String(
+          data.timestamp ?? ""
+        ),
         createdAt: data.createdAt,
       };
-    }
-  );
+    });
 
   attempts.sort((a, b) => {
     const aTime =

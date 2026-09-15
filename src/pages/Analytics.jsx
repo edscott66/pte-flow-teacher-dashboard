@@ -76,6 +76,57 @@ export default function Analytics() {
 
   const recentAttempts = attempts.slice(0, 10);
 
+  const cefrOrder = ["A1", "A2", "B1", "B2", "C1", "C2"];
+
+  const cefrPerformance = cefrOrder
+    .map((level) => {
+      const levelAttempts = attempts.filter(
+        (attempt) =>
+          String(attempt.cefrLevel ?? "").toUpperCase() === level
+      );
+
+      const levelScores = levelAttempts
+        .map((attempt) => attempt.matchPercentage)
+        .filter(
+          (score) =>
+            typeof score === "number" &&
+            Number.isFinite(score)
+        );
+
+      if (levelAttempts.length === 0) {
+        return null;
+      }
+
+      const average =
+        levelScores.length > 0
+          ? Math.round(
+              levelScores.reduce(
+                (total, score) => total + score,
+                0
+              ) / levelScores.length
+            )
+          : 0;
+
+      const best =
+        levelScores.length > 0
+          ? Math.max(...levelScores)
+          : 0;
+
+      const lowest =
+        levelScores.length > 0
+          ? Math.min(...levelScores)
+          : 0;
+
+      return {
+        level,
+        attempts: levelAttempts.length,
+        average,
+        best,
+        lowest,
+      };
+    })
+    .filter(Boolean);
+
   return (
     <div className="page-content analytics-page">
       <div className="analytics-header">
@@ -155,6 +206,86 @@ export default function Analytics() {
                     <small>Lowest calibration score</small>
                   </div>
                 </div>
+              </section>
+
+              <section className="analytics-section-card analytics-cefr-section">
+                <div className="analytics-section-header">
+                  <div>
+                    <h3>Performance by CEFR Level</h3>
+                    <p>
+                      See how your calibration performance
+                      changes as exercise difficulty increases.
+                    </p>
+                  </div>
+
+                  <span className="analytics-result-count">
+                    {cefrPerformance.length} level
+                    {cefrPerformance.length === 1 ? "" : "s"}
+                  </span>
+                </div>
+
+                {cefrPerformance.length === 0 ? (
+                  <div className="analytics-empty-state">
+                    <div className="analytics-empty-icon">
+                      📊
+                    </div>
+                    <strong>
+                      CEFR performance will appear here
+                    </strong>
+                    <p>
+                      Complete Calibration Lab exercises with
+                      CEFR-labelled results to build your
+                      performance profile.
+                    </p>
+                  </div>
+                ) : (
+                  <div className="analytics-cefr-list">
+                    {cefrPerformance.map((item) => (
+                      <div
+                        className="analytics-cefr-row"
+                        key={item.level}
+                      >
+                        <div className="analytics-cefr-level">
+                          <span>{item.level}</span>
+                        </div>
+
+                        <div className="analytics-cefr-details">
+                          <div className="analytics-cefr-topline">
+                            <strong>
+                              {item.average}% average
+                            </strong>
+                            <span>
+                              {item.attempts} attempt
+                              {item.attempts === 1 ? "" : "s"}
+                            </span>
+                          </div>
+
+                          <div className="analytics-cefr-bar">
+                            <div
+                              className="analytics-cefr-bar-fill"
+                              style={{
+                                width: `${Math.min(
+                                  Math.max(item.average, 0),
+                                  100
+                                )}%`,
+                              }}
+                            />
+                          </div>
+
+                          <div className="analytics-cefr-stats">
+                            <span>
+                              Best: <strong>{item.best}%</strong>
+                            </span>
+                            <span>
+                              Lowest:{" "}
+                              <strong>{item.lowest}%</strong>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </section>
 
               <section className="analytics-section-card">
