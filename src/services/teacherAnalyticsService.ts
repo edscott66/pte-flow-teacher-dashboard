@@ -4,21 +4,14 @@ import {
   addDoc,
   collection,
   doc,
+  getDocs,
+  query,
   serverTimestamp,
   setDoc,
+  where,
 } from "firebase/firestore";
 
 import { teacherAuth, teacherDb } from "../teacherFirebase";
-
-/**
- * Teacher Dashboard Firebase Analytics Service
- *
- * IMPORTANT:
- * - This service uses the separate Teacher Dashboard Firebase project.
- * - It does NOT use the existing Student App Firebase database.
- * - Teacher identity comes from teacherAuth.
- * - All Firestore writes are scoped to the authenticated teacher UID.
- */
 
 export interface TeacherProfileData {
   displayName?: string;
@@ -35,6 +28,7 @@ export interface CalibrationAttemptData {
 
   exerciseIndex: number;
   topicTitle: string;
+  cefrLevel?: string;
 
   responseMode: string;
 
@@ -61,23 +55,16 @@ export interface CalibrationAttemptData {
   timestamp: string;
 }
 
-/**
- * Returns the currently authenticated Teacher Dashboard user.
- *
- * This deliberately uses teacherAuth rather than the existing Student App
- * authentication instance.
- */
+export interface CalibrationAttemptRecord
+  extends CalibrationAttemptData {
+  id: string;
+  createdAt?: unknown;
+}
+
 export function getCurrentTeacher() {
   return teacherAuth.currentUser;
 }
 
-/**
- * Create or update the authenticated teacher's profile.
- *
- * Document path:
- *
- * teachers/{teacherId}
- */
 export async function ensureTeacherProfile(
   profileData: TeacherProfileData = {}
 ): Promise<void> {
@@ -106,16 +93,6 @@ export async function ensureTeacherProfile(
   await setDoc(teacherRef, profile, { merge: true });
 }
 
-/**
- * Save one completed Calibration Lab assessment.
- *
- * Document path:
- *
- * calibrationAttempts/{attemptId}
- *
- * The teacherId is always taken from the authenticated Firebase user rather
- * than supplied by the UI. This is important for security and data integrity.
- */
 export async function saveCalibrationAttempt(
   attemptData: Omit<CalibrationAttemptData, "teacherId">
 ): Promise<string> {
@@ -127,22 +104,131 @@ export async function saveCalibrationAttempt(
     );
   }
 
-  // Make sure the teacher has a profile before recording performance data.
   await ensureTeacherProfile();
 
-  const attemptsRef = collection(teacherDb, "calibrationAttempts");
+  const attemptsRef = collection(
+    teacherDb,
+    "calibrationAttempts"
+  );
 
   const attempt = {
     ...attemptData,
-
-    // Never trust a teacherId supplied by the UI.
-    // Always use the authenticated Teacher Dashboard account.
     teacherId: teacher.uid,
-
     createdAt: serverTimestamp(),
   };
 
   const documentRef = await addDoc(attemptsRef, attempt);
 
   return documentRef.id;
+}
+
+/**
+ * Retrieve Calibration Lab attempts belonging only to
+ * the currently authenticated Teacher Dashboard user.
+ *
+ * We deliberately query by teacherId only and sort the
+ * results in memory. This avoids requiring a Firestore
+ * composite index at this stage.
+ */
+export async function getTeacherCalibrationAttempts(): Promise<
+  CalibrationAttemptRecord[]
+> {
+  const teacher = getCurrentTeacher();
+
+  if (!teacher) {
+    throw new Error(
+      "No Teacher Dashboard user is authenticated. Calibration attempts cannot be loaded."
+    );
+  }
+
+  const attemptsRef = collection(
+    teacherDb,
+    "calibrationAttempts"
+  );
+
+  const attemptsQuery = query(
+    attemptsRef,
+    where("teacherId", "==", teacher.uid)
+  );
+
+  const snapshot = await getDocs(attemptsQuery);
+
+  const attempts: CalibrationAttemptRecord[] = snapshot.docs.map(
+    (attemptDoc) => {
+      const data = attemptDoc.data();
+
+      return {
+        id: attemptDoc.id,
+        teacherId: String(data.teacherId ?? ""),
+        questionId: String(data.questionId ?? ""),
+        questionTitle: String(data.questionTitle ?? ""),
+        section: String(data.section ?? ""),
+        exerciseIndex: Number(data.exerciseIndex ?? 0),
+        topicTitle: String(data.topicTitle ?? ""),
+        cefrLevel: data.cefrLevel
+          ? String(data.cefrLevel)
+          : undefined,
+        responseMode: String(data.responseMode ?? ""),
+        teacherInput: String(data.teacherInput ?? ""),
+        matchPercentage:
+          typeof data.matchPercentage === "number"
+            ? data.matchPercentage
+            : null,
+        tier: String(data.tier ?? ""),
+        feedbackSummary: data.feedbackSummary
+          ? String(data.feedbackSummary)
+          : undefined,
+        matchedKeywords: Array.isArray(data.matchedKeywords)
+          ? data.matchedKeywords.map(String)
+          : undefined,
+        missingKeywords: Array.isArray(data.missingKeywords)
+          ? data.missingKeywords.map(String)
+          : undefined,
+        coachingAdviceForTeacher:
+          data.coachingAdviceForTeacher
+            ? String(data.coachingAdviceForTeacher)
+            : undefined,
+        studentFacingScript: data.studentFacingScript
+          ? String(data.studentFacingScript)
+          : undefined,
+        checkedErrorIds: Array.isArray(data.checkedErrorIds)
+          ? data.checkedErrorIds.map(String)
+          : undefined,
+        expertOverallScore: data.expertOverallScore
+          ? String(data.expertOverallScore)
+          : undefined,
+        expertFeedbackText: data.expertFeedbackText
+          ? String(data.expertFeedbackText)
+          : undefined,
+        expertAdvice: data.expertAdvice
+          ? String(data.expertAdvice)
+          : undefined,
+        isLiveAi: Boolean(data.isLiveAi),
+        timestamp: String(data.timestamp ?? ""),
+        createdAt: data.createdAt,
+      };
+    }
+  );
+
+  attempts.sort((a, b) => {
+    const aTime =
+      a.createdAt &&
+      typeof a.createdAt === "object" &&
+      "toMillis" in a.createdAt &&
+      typeof a.createdAt.toMillis === "function"
+        ? a.createdAt.toMillis()
+        : 0;
+
+    const bTime =
+      b.createdAt &&
+      typeof b.createdAt === "object" &&
+      "toMillis" in b.createdAt &&
+      typeof b.createdAt.toMillis === "function"
+        ? b.createdAt.toMillis()
+        : 0;
+
+    return bTime - aTime;
+  });
+
+  return attempts;
 }

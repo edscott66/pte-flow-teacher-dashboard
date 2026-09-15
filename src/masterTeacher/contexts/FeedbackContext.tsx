@@ -220,12 +220,14 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
       section: String(result.section ?? ""),
       exerciseIndex: Number(result.exerciseIndex ?? exerciseIndex),
       topicTitle: String(
-        result.topicTitle ?? currentExercise?.topicTitle ?? ""
-      ),
+  result.topicTitle ?? currentExercise?.topicTitle ?? ""
+),
+cefrLevel: String(currentExercise?.cefrLevel ?? ""),
       responseMode: String(
         result.responseMode ?? activeResponseMode
       ),
-      teacherInput: String(result.teacherInput ?? ""),
+
+   teacherInput: String(result.teacherInput ?? ""),
 
       matchPercentage:
         typeof result.matchPercentage === "number"
