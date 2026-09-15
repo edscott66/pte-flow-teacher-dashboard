@@ -1,71 +1,129 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth, db } from "./firebase";
-import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase";
+import { teacherAuth } from "./teacherFirebase";
 import { doc, getDoc } from "firebase/firestore";
+import { db } from "./firebase";
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
+  // Existing Teacher Dashboard / Student App Firebase user.
+  // This remains responsible for the existing dashboard functionality.
   const [user, setUser] = useState(null);
+
+  // New Teacher Dashboard Firebase user.
+  // This is the authenticated identity used for analytics.
+  const [teacherUser, setTeacherUser] = useState(null);
+
   const [roleData, setRoleData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      setUser(currentUser);
+    let active = true;
 
-      if (currentUser) {
-        const uid = currentUser.uid;
+    let legacyAuthReady = false;
+    let teacherAuthReady = false;
 
-        // Try teacher
-        let ref = doc(db, "teachers", uid);
-        let snap = await getDoc(ref);
-
-        if (snap.exists()) {
-          setRoleData({ role: "teacher", ...snap.data() });
-          setLoading(false);
-          return;
-        }
-
-        // Try consultant
-        ref = doc(db, "consultants", uid);
-        snap = await getDoc(ref);
-
-        if (snap.exists()) {
-          setRoleData({ role: "consultant", ...snap.data() });
-          setLoading(false);
-          return;
-        }
-
-        // Try admin
-        ref = doc(db, "admins", uid);
-        snap = await getDoc(ref);
-
-        if (snap.exists()) {
-          setRoleData({ role: "admin", ...snap.data() });
-          setLoading(false);
-          return;
-        }
-
-        // No role found
-        setRoleData(null);
-      } else {
-        setRoleData(null);
+    const finishInitialLoading = () => {
+      if (legacyAuthReady && teacherAuthReady && active) {
+        setLoading(false);
       }
+    };
 
-      setLoading(false);
-    });
+    // ============================================================
+    // EXISTING FIREBASE AUTHENTICATION
+    //
+    // This remains connected to the existing Student App / BBA-Web
+    // Firebase project and continues to provide roleData and the
+    // existing dashboard permissions.
+    // ============================================================
 
-    return () => unsubscribe();
+    const unsubscribeLegacyAuth = auth.onAuthStateChanged(
+      async (currentUser) => {
+        if (!active) return;
+
+        setUser(currentUser);
+
+        if (currentUser) {
+          try {
+            // Load existing role document.
+            const roleRef = doc(db, "roles", currentUser.uid);
+            const roleSnap = await getDoc(roleRef);
+            const roleInfo = roleSnap.exists() ? roleSnap.data() : {};
+
+            // Load existing teacher profile document.
+            const teacherRef = doc(db, "teachers", currentUser.uid);
+            const teacherSnap = await getDoc(teacherRef);
+            const teacherInfo = teacherSnap.exists()
+              ? teacherSnap.data()
+              : {};
+
+            if (!active) return;
+
+            // Preserve the existing dashboard role/profile behaviour.
+            setRoleData({
+              ...roleInfo,
+              ...teacherInfo,
+            });
+          } catch (error) {
+            console.error(
+              "Error loading existing teacher role/profile:",
+              error
+            );
+
+            if (active) {
+              setRoleData(null);
+            }
+          }
+        } else {
+          setRoleData(null);
+        }
+
+        legacyAuthReady = true;
+        finishInitialLoading();
+      }
+    );
+
+    // ============================================================
+    // NEW TEACHER DASHBOARD FIREBASE AUTHENTICATION
+    //
+    // This is deliberately separate from the existing Student App
+    // Firebase authentication.
+    //
+    // teacherUser is the identity used by the new analytics service.
+    // ============================================================
+
+    const unsubscribeTeacherAuth = teacherAuth.onAuthStateChanged(
+      (currentTeacher) => {
+        if (!active) return;
+
+        setTeacherUser(currentTeacher);
+
+        teacherAuthReady = true;
+        finishInitialLoading();
+      }
+    );
+
+    return () => {
+      active = false;
+
+      unsubscribeLegacyAuth();
+      unsubscribeTeacherAuth();
+    };
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, roleData, loading }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        teacherUser,
+        roleData,
+        loading,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
 }
 
-export function useAuth() {
-  return useContext(AuthContext);
-}
+export const useAuth = () => useContext(AuthContext);

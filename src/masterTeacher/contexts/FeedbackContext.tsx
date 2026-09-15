@@ -6,9 +6,18 @@ import {
   type ReactNode,
   type SetStateAction,
 } from "react";
+
 import { QUESTIONS_DATA } from "../constants/questionsData";
 import { compareTeacherFeedback } from "../utils/compareText";
-import { getExercise, getRandomCalibrationExercise} from "../constants/exerciseBank";
+import {
+  getExercise,
+  getRandomCalibrationExercise,
+} from "../constants/exerciseBank";
+
+import {
+  getCurrentTeacher,
+  saveCalibrationAttempt,
+} from "../../services/teacherAnalyticsService";
 
 type Question = (typeof QUESTIONS_DATA)[number];
 type Exercise = ReturnType<typeof getExercise>;
@@ -48,7 +57,9 @@ interface FeedbackContextValue {
   lastComparisonResult: ComparisonResult | null;
   isEvaluatingAi: boolean;
   runComparison: () => Promise<ComparisonResult | null>;
-  runStudentRecordingComparison: (customTranscript?: string) => Promise<ComparisonResult | null>;
+  runStudentRecordingComparison: (
+    customTranscript?: string
+  ) => Promise<ComparisonResult | null>;
   sourceScreen: "marking" | "students";
   setSourceScreen: Dispatch<SetStateAction<"marking" | "students">>;
   studentAudioUrl: string | null;
@@ -67,19 +78,30 @@ const FeedbackContext = createContext<FeedbackContextValue | null>(null);
 export function FeedbackProvider({ children }: { children: ReactNode }) {
   const [selectedQuestionId, setSelectedQuestionId] = useState("read-aloud");
   const [exerciseIndex, setExerciseIndexState] = useState(1); // 1 to 100
-  const [activeResponseMode, setActiveResponseMode] = useState<"poor" | "good">("poor"); // "poor" or "good"
+  const [activeResponseMode, setActiveResponseMode] =
+    useState<"poor" | "good">("poor"); // "poor" or "good"
   const [teacherFeedbackText, setTeacherFeedbackText] = useState("");
   const [checkedErrorIds, setCheckedErrorIds] = useState<string[]>([]);
-  const [lastComparisonResult, setLastComparisonResult] = useState<ComparisonResult | null>(null);
+  const [lastComparisonResult, setLastComparisonResult] =
+    useState<ComparisonResult | null>(null);
   const [isEvaluatingAi, setIsEvaluatingAi] = useState(false);
-  const [submissionHistory, setSubmissionHistory] = useState<ComparisonResult[]>([]);
-  const [calibrationHistory, setCalibrationHistory] = useState<ComparisonResult[]>([]);
-  const [sourceScreen, setSourceScreen] = useState<"marking" | "students">("marking");
+  const [submissionHistory, setSubmissionHistory] = useState<
+    ComparisonResult[]
+  >([]);
+  const [calibrationHistory, setCalibrationHistory] = useState<
+    ComparisonResult[]
+  >([]);
+  const [sourceScreen, setSourceScreen] = useState<"marking" | "students">(
+    "marking"
+  );
   const [studentAudioUrl, setStudentAudioUrl] = useState<string | null>(null);
-  const [studentTranscriptText, setStudentTranscriptText] = useState<string>("");
+  const [studentTranscriptText, setStudentTranscriptText] =
+    useState<string>("");
 
   // Get selected question object
-  const currentQuestion = QUESTIONS_DATA.find(q => q.id === selectedQuestionId) || QUESTIONS_DATA[0]!;
+  const currentQuestion =
+    QUESTIONS_DATA.find((q) => q.id === selectedQuestionId) ||
+    QUESTIONS_DATA[0]!;
 
   // Get active exercise object (1 of 100)
   const currentExercise = getExercise(currentQuestion, exerciseIndex);
@@ -113,33 +135,44 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
   };
 
   const randomCalibrationExercise = () => {
-  const randomExercise = getRandomCalibrationExercise();
+    const randomExercise = getRandomCalibrationExercise();
 
-  if (!randomExercise) {
-    return;
-  }
+    if (!randomExercise) {
+      return;
+    }
 
-  setExerciseIndex(randomExercise.exerciseIndex);
-};
+    setExerciseIndex(randomExercise.exerciseIndex);
+  };
 
   // Toggle Error Tracker Checkbox
   const toggleErrorCheckbox = (errorId: string, keyword?: string) => {
     setCheckedErrorIds((prev: string[]) => {
       const exists = prev.includes(errorId);
-      const updated = exists ? prev.filter(id => id !== errorId) : [...prev, errorId];
+      const updated = exists
+        ? prev.filter((id) => id !== errorId)
+        : [...prev, errorId];
 
       if (!exists && keyword) {
         setTeacherFeedbackText((currentText: string) => {
           const trimmed = currentText.trim();
-          if (trimmed.toLowerCase().includes(keyword.toLowerCase())) return currentText;
-          return trimmed ? `${trimmed}\n- Identified: ${keyword}` : `- Identified: ${keyword}`;
+
+          if (trimmed.toLowerCase().includes(keyword.toLowerCase())) {
+            return currentText;
+          }
+
+          return trimmed
+            ? `${trimmed}\n- Identified: ${keyword}`
+            : `- Identified: ${keyword}`;
         });
       } else if (exists && keyword) {
         setTeacherFeedbackText((currentText: string) => {
           const targetStr = `- Identified: ${keyword}`;
 
           if (currentText.includes(targetStr)) {
-            return currentText.replace(targetStr, "").replace(/\n\n+/g, "\n").trim();
+            return currentText
+              .replace(targetStr, "")
+              .replace(/\n\n+/g, "\n")
+              .trim();
           }
 
           return currentText;
@@ -150,9 +183,113 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
     });
   };
 
-  // Record a completed Calibration Lab assessment separately from live student analysis.
+  // Record a completed Calibration Lab assessment separately from live
+  // student analysis.
   const recordCalibrationResult = (result: ComparisonResult) => {
     setCalibrationHistory((prev: ComparisonResult[]) => [result, ...prev]);
+  };
+
+  /**
+   * Persist a completed Calibration Lab assessment to the separate
+   * Teacher Dashboard Firebase project.
+   *
+   * IMPORTANT:
+   * - This is deliberately non-blocking.
+   * - Firebase persistence must never prevent the Calibration Lab result
+   *   from being displayed.
+   * - If no Teacher Dashboard account is authenticated, the assessment
+   *   remains available through the existing in-memory history.
+   * - Student Recording Analysis is deliberately NOT persisted here yet.
+   * - Only completed Calibration Lab assessments are persisted.
+   */
+  const persistCalibrationAnalytics = (
+    result: ComparisonResult
+  ): void => {
+    const teacher = getCurrentTeacher();
+
+    if (!teacher) {
+      console.warn(
+        "Teacher Dashboard analytics not saved: no authenticated Teacher Dashboard user."
+      );
+      return;
+    }
+
+    void saveCalibrationAttempt({
+      questionId: String(result.questionId ?? ""),
+      questionTitle: String(result.questionTitle ?? ""),
+      section: String(result.section ?? ""),
+      exerciseIndex: Number(result.exerciseIndex ?? exerciseIndex),
+      topicTitle: String(
+        result.topicTitle ?? currentExercise?.topicTitle ?? ""
+      ),
+      responseMode: String(
+        result.responseMode ?? activeResponseMode
+      ),
+      teacherInput: String(result.teacherInput ?? ""),
+
+      matchPercentage:
+        typeof result.matchPercentage === "number"
+          ? result.matchPercentage
+          : Number.isFinite(Number(result.matchPercentage))
+            ? Number(result.matchPercentage)
+            : null,
+
+      tier: String(result.tier ?? "Not evaluated"),
+
+      feedbackSummary:
+        typeof result.feedbackSummary === "string"
+          ? result.feedbackSummary
+          : undefined,
+
+      matchedKeywords: Array.isArray(result.matchedKeywords)
+        ? result.matchedKeywords
+        : undefined,
+
+      missingKeywords: Array.isArray(result.missingKeywords)
+        ? result.missingKeywords
+        : undefined,
+
+      coachingAdviceForTeacher:
+        typeof result.coachingAdviceForTeacher === "string"
+          ? result.coachingAdviceForTeacher
+          : undefined,
+
+      studentFacingScript:
+        typeof result.studentFacingScript === "string"
+          ? result.studentFacingScript
+          : undefined,
+
+      checkedErrorIds: Array.isArray(result.checkedErrorIds)
+        ? result.checkedErrorIds
+        : undefined,
+
+      expertOverallScore:
+        typeof result.expertOverallScore === "string"
+          ? result.expertOverallScore
+          : undefined,
+
+      expertFeedbackText:
+        typeof result.expertFeedbackText === "string"
+          ? result.expertFeedbackText
+          : undefined,
+
+      expertAdvice:
+        typeof result.expertAdvice === "string"
+          ? result.expertAdvice
+          : undefined,
+
+      isLiveAi: result.isLiveAi === true,
+
+      timestamp:
+        typeof result.timestamp === "string"
+          ? result.timestamp
+          : new Date().toISOString(),
+    }).catch((error) => {
+      console.warn(
+        "Teacher Dashboard analytics persistence failed. Calibration result remains available locally.",
+        error
+      );
+    });
   };
 
   // Run the Combined Offline Rubric Benchmark + Live AI Evaluation
@@ -166,17 +303,21 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
         ? currentExercise.goodScore
         : currentExercise.poorScore;
 
-    const expertText = `${targetExpertScore.overall || 'Score N/A'}. ${targetExpertScore.breakdownText || ''} Expert Advice: ${currentExercise.expertAdvice || ''}`;
+    const expertText = `${targetExpertScore.overall || "Score N/A"}. ${
+      targetExpertScore.breakdownText || ""
+    } Expert Advice: ${currentExercise.expertAdvice || ""}`;
 
     const perfectCalibrationResponse =
-      (currentExercise as typeof currentExercise & {
-        perfectCalibrationResponse?: string;
-      }).perfectCalibrationResponse;
+      (
+        currentExercise as typeof currentExercise & {
+          perfectCalibrationResponse?: string;
+        }
+      ).perfectCalibrationResponse;
 
     const checklistItems: ErrorChecklistItem[] =
       currentExercise.errorChecklist || [];
 
-    const activeChecklist = checklistItems.filter(item =>
+    const activeChecklist = checklistItems.filter((item) =>
       checkedErrorIds.includes(item.id)
     );
 
@@ -202,7 +343,7 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
       perfectCalibrationResponse,
       checkedErrorIds,
       isLiveAi: false,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
 
     setLastComparisonResult(initialPayload);
@@ -237,8 +378,8 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
           checkedErrorIds,
           errorChecklist: activeChecklist,
           expertFeedbackObj: targetExpertScore,
-          expertAdvice: currentExercise.expertAdvice
-        })
+          expertAdvice: currentExercise.expertAdvice,
+        }),
       });
 
       if (response.ok) {
@@ -250,26 +391,32 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
             matchPercentage:
               aiData.matchPercentage ?? initialPayload.matchPercentage,
             tier: aiData.tier || initialPayload.tier,
-            badgeColor: aiData.badgeColor || initialPayload.badgeColor,
+            badgeColor:
+              aiData.badgeColor || initialPayload.badgeColor,
             feedbackSummary:
               aiData.feedbackSummary || initialPayload.feedbackSummary,
             matchedKeywords:
               aiData.matchedKeywords || initialPayload.matchedKeywords,
             missingKeywords:
               aiData.missingKeywords || initialPayload.missingKeywords,
-            coachingAdviceForTeacher: aiData.coachingAdviceForTeacher,
+            coachingAdviceForTeacher:
+              aiData.coachingAdviceForTeacher,
             studentFacingScript: aiData.studentFacingScript,
-            isLiveAi: true
+            isLiveAi: true,
           };
 
           setLastComparisonResult(mergedPayload);
 
           setSubmissionHistory((prev: ComparisonResult[]) => [
             mergedPayload,
-            ...prev.slice(0, 19)
+            ...prev.slice(0, 19),
           ]);
 
           recordCalibrationResult(mergedPayload);
+
+          // Persist analytics separately from the existing Calibration Lab
+          // state flow. Firebase failure must not affect the evaluation.
+          persistCalibrationAnalytics(mergedPayload);
 
           setIsEvaluatingAi(false);
           return mergedPayload;
@@ -284,10 +431,13 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
 
     setSubmissionHistory((prev: ComparisonResult[]) => [
       initialPayload,
-      ...prev.slice(0, 19)
+      ...prev.slice(0, 19),
     ]);
 
     recordCalibrationResult(initialPayload);
+
+    // Persist the completed offline fallback result as well.
+    persistCalibrationAnalytics(initialPayload);
 
     setIsEvaluatingAi(false);
 
@@ -309,15 +459,19 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
 
     const targetExpertScore = currentExercise?.goodScore || {
       overall: "PTE 65-79 Expected Benchmark",
-      breakdownText: `Expected ${currentQuestion.section} standard for ${currentQuestion.title}.`
+      breakdownText: `Expected ${currentQuestion.section} standard for ${currentQuestion.title}.`,
     };
 
-    const expertText = `${targetExpertScore.overall || 'Score N/A'}. ${targetExpertScore.breakdownText || ''} Expert Advice: ${currentExercise?.expertAdvice || ''}`;
+    const expertText = `${targetExpertScore.overall || "Score N/A"}. ${
+      targetExpertScore.breakdownText || ""
+    } Expert Advice: ${
+      currentExercise?.expertAdvice || ""
+    }`;
 
     const checklistItems: ErrorChecklistItem[] =
       currentQuestion.errorChecklist || [];
 
-    const activeChecklist = checklistItems.filter(item =>
+    const activeChecklist = checklistItems.filter((item) =>
       checkedErrorIds.includes(item.id)
     );
 
@@ -332,7 +486,8 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
       questionId: currentQuestion.id,
       questionTitle: currentQuestion.title,
       exerciseIndex: currentExercise?.exerciseIndex || 1,
-      topicTitle: currentExercise?.topicTitle || currentQuestion.title,
+      topicTitle:
+        currentExercise?.topicTitle || currentQuestion.title,
       section: currentQuestion.section,
       responseMode: "Student Recording Analysis",
       isStudentRecording: true,
@@ -346,7 +501,7 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
       expertOverallScore: targetExpertScore.overall,
       checkedErrorIds,
       isLiveAi: false,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
 
     setLastComparisonResult(initialPayload);
@@ -357,11 +512,14 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          questionTitle: `${currentQuestion.title} (${currentExercise?.topicTitle || 'Student Recording'})`,
+          questionTitle: `${currentQuestion.title} (${
+            currentExercise?.topicTitle || "Student Recording"
+          })`,
           section: currentQuestion.section,
           timeLimit: currentQuestion.timeLimit,
           scoringCriteria: currentQuestion.scoringCriteria,
-          promptText: currentExercise?.promptText || currentQuestion.title,
+          promptText:
+            currentExercise?.promptText || currentQuestion.title,
           studentResponseText: activeStudentText,
           responseMode: "My Student Recording Analysis",
           teacherInput: teacherFeedbackText,
@@ -370,8 +528,8 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
           expertFeedbackObj: targetExpertScore,
           expertAdvice:
             currentExercise?.expertAdvice ||
-            "Check fluency and pronunciation."
-        })
+            "Check fluency and pronunciation.",
+        }),
       });
 
       if (response.ok) {
@@ -383,23 +541,29 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
             matchPercentage:
               aiData.matchPercentage ?? initialPayload.matchPercentage,
             tier: aiData.tier || initialPayload.tier,
-            badgeColor: aiData.badgeColor || initialPayload.badgeColor,
+            badgeColor:
+              aiData.badgeColor || initialPayload.badgeColor,
             feedbackSummary:
-              aiData.feedbackSummary || initialPayload.feedbackSummary,
+              aiData.feedbackSummary ||
+              initialPayload.feedbackSummary,
             matchedKeywords:
-              aiData.matchedKeywords || initialPayload.matchedKeywords,
+              aiData.matchedKeywords ||
+              initialPayload.matchedKeywords,
             missingKeywords:
-              aiData.missingKeywords || initialPayload.missingKeywords,
-            coachingAdviceForTeacher: aiData.coachingAdviceForTeacher,
-            studentFacingScript: aiData.studentFacingScript,
-            isLiveAi: true
+              aiData.missingKeywords ||
+              initialPayload.missingKeywords,
+            coachingAdviceForTeacher:
+              aiData.coachingAdviceForTeacher,
+            studentFacingScript:
+              aiData.studentFacingScript,
+            isLiveAi: true,
           };
 
           setLastComparisonResult(mergedPayload);
 
           setSubmissionHistory((prev: ComparisonResult[]) => [
             mergedPayload,
-            ...prev.slice(0, 19)
+            ...prev.slice(0, 19),
           ]);
 
           setIsEvaluatingAi(false);
@@ -415,7 +579,7 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
 
     setSubmissionHistory((prev: ComparisonResult[]) => [
       initialPayload,
-      ...prev.slice(0, 19)
+      ...prev.slice(0, 19),
     ]);
 
     setIsEvaluatingAi(false);
@@ -433,8 +597,8 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
   };
 
   const calibrationScores = calibrationHistory
-    .map(result => Number(result.matchPercentage))
-    .filter(score => Number.isFinite(score));
+    .map((result) => Number(result.matchPercentage))
+    .filter((score) => Number.isFinite(score));
 
   const calibrationProgress: CalibrationProgress = {
     completed: calibrationHistory.length,
@@ -452,7 +616,7 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
     lowestScore: calibrationScores.length
       ? Math.min(...calibrationScores)
       : 0,
-    currentTier: calibrationHistory[0]?.tier || "Not started"
+    currentTier: calibrationHistory[0]?.tier || "Not started",
   };
 
   const contextValue: FeedbackContextValue = {
@@ -485,7 +649,7 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
     selectQuestion,
     submissionHistory,
     calibrationHistory,
-    calibrationProgress
+    calibrationProgress,
   };
 
   return (
