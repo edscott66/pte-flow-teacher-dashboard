@@ -12,6 +12,7 @@ export default function Analytics() {
   const [attempts, setAttempts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [selectedAttempt, setSelectedAttempt] = useState(null);
 
   useEffect(() => {
     let isMounted = true;
@@ -507,6 +508,14 @@ export default function Analytics() {
                                 "Calibration Result"}
                             </span>
                           </div>
+
+                          <button
+                            type="button"
+                            className="analytics-result-view-button"
+                            onClick={() => setSelectedAttempt(attempt)}
+                          >
+                            View Details
+                          </button>
                         </div>
                       );
                     })}
@@ -516,6 +525,182 @@ export default function Analytics() {
             </>
           )}
         </>
+      )}
+
+      {selectedAttempt && role === "teacher" && (
+        <div
+          className="analytics-detail-backdrop"
+          role="presentation"
+          onClick={() => setSelectedAttempt(null)}
+        >
+          <div
+            className="analytics-detail-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="analytics-detail-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="analytics-detail-header">
+              <div>
+                <span className="analytics-detail-eyebrow">
+                  Calibration Result
+                </span>
+                <h3 id="analytics-detail-title">
+                  Exercise {selectedAttempt.exerciseIndex}
+                </h3>
+                <p>
+                  {selectedAttempt.topicTitle ||
+                    "Calibration Exercise"}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                className="analytics-detail-close"
+                aria-label="Close calibration result details"
+                onClick={() => setSelectedAttempt(null)}
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="analytics-detail-summary">
+              <div>
+                <span>Score</span>
+                <strong>
+                  {typeof selectedAttempt.matchPercentage ===
+                  "number"
+                    ? selectedAttempt.matchPercentage
+                    : 0}%
+                </strong>
+              </div>
+              <div>
+                <span>Tier</span>
+                <strong>
+                  {selectedAttempt.tier ||
+                    "Calibration Result"}
+                </strong>
+              </div>
+              <div>
+                <span>CEFR</span>
+                <strong>
+                  {selectedAttempt.cefrLevel || "—"}
+                </strong>
+              </div>
+              <div>
+                <span>Section</span>
+                <strong>
+                  {selectedAttempt.section || "Speaking"}
+                </strong>
+              </div>
+            </div>
+
+            <div className="analytics-detail-content">
+              <div className="analytics-detail-section">
+                <h4>Teacher's Submitted Feedback</h4>
+                <div className="analytics-detail-text">
+                  {selectedAttempt.teacherInput ||
+                    "No teacher feedback was recorded."}
+                </div>
+              </div>
+
+              {selectedAttempt.feedbackSummary && (
+                <div className="analytics-detail-section">
+                  <h4>AI Feedback Summary</h4>
+                  <div className="analytics-detail-text">
+                    {selectedAttempt.feedbackSummary}
+                  </div>
+                </div>
+              )}
+
+              <div className="analytics-detail-columns">
+                <div className="analytics-detail-section">
+                  <h4>Matched Keywords</h4>
+                  {selectedAttempt.matchedKeywords?.length ? (
+                    <div className="analytics-detail-tags">
+                      {selectedAttempt.matchedKeywords.map((keyword) => (
+                        <span key={keyword}>{keyword}</span>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="analytics-detail-muted">
+                      No matched keywords recorded.
+                    </p>
+                  )}
+                </div>
+
+                <div className="analytics-detail-section">
+                  <h4>Missing Keywords</h4>
+                  {selectedAttempt.missingKeywords?.length ? (
+                    <div className="analytics-detail-tags analytics-detail-tags-missing">
+                      {selectedAttempt.missingKeywords.map((keyword) => (
+                        <span key={keyword}>{keyword}</span>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="analytics-detail-muted">
+                      No missing keywords recorded.
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {selectedAttempt.coachingAdviceForTeacher && (
+                <div className="analytics-detail-section analytics-detail-callout">
+                  <h4>Coaching Advice for Teacher</h4>
+                  <div className="analytics-detail-text">
+                    {selectedAttempt.coachingAdviceForTeacher}
+                  </div>
+                </div>
+              )}
+
+              {selectedAttempt.studentFacingScript && (
+                <div className="analytics-detail-section">
+                  <h4>Student-Facing Script</h4>
+                  <div className="analytics-detail-text">
+                    {selectedAttempt.studentFacingScript}
+                  </div>
+                </div>
+              )}
+
+              {(selectedAttempt.expertOverallScore ||
+                selectedAttempt.expertFeedbackText ||
+                selectedAttempt.expertAdvice) && (
+                <div className="analytics-detail-section analytics-detail-expert">
+                  <h4>Expert Evaluation</h4>
+                  {selectedAttempt.expertOverallScore && (
+                    <p>
+                      <strong>Overall score:</strong>{" "}
+                      {selectedAttempt.expertOverallScore}
+                    </p>
+                  )}
+                  {selectedAttempt.expertFeedbackText && (
+                    <div className="analytics-detail-text">
+                      {selectedAttempt.expertFeedbackText}
+                    </div>
+                  )}
+                  {selectedAttempt.expertAdvice && (
+                    <div className="analytics-detail-text">
+                      {selectedAttempt.expertAdvice}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              <div className="analytics-detail-footer">
+                <span>
+                  {selectedAttempt.questionTitle || "Read Aloud"}
+                </span>
+                <span>•</span>
+                <span>
+                  {selectedAttempt.timestamp
+                    ? new Date(selectedAttempt.timestamp).toLocaleString()
+                    : "Date not recorded"}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
 
       {role === "admin" && (
