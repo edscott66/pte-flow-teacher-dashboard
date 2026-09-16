@@ -2,6 +2,7 @@ import "./Analytics.css";
 import { useEffect, useState } from "react";
 import { useAuth } from "../AuthContext";
 import { getTeacherCalibrationAttempts } from "../services/teacherAnalyticsService";
+import { READ_ALOUD_CALIBRATION_EXERCISES } from "../masterTeacher/constants/exerciseBank";
 
 export default function Analytics() {
   const { roleData } = useAuth();
@@ -74,6 +75,14 @@ export default function Analytics() {
 
   const lowestMatch =
     scores.length > 0 ? Math.min(...scores) : 0;
+    const getScoreClass = (score) =>
+    score >= 85
+      ? "master"
+      : score >= 70
+        ? "proficient"
+        : score >= 50
+          ? "developing"
+          : "needs-calibration";
 
   const recentAttempts = attempts.slice(0, 10);
 
@@ -133,6 +142,81 @@ export default function Analytics() {
         average,
         best,
         lowest,
+      };
+    })
+    .filter(Boolean);
+
+  const diagnosticSkillOrder = [
+    "Content Accuracy",
+    "Oral Fluency",
+    "Pronunciation",
+  ];
+
+  const diagnosticPerformance = diagnosticSkillOrder
+    .map((skill) => {
+      const skillAttempts = attempts.filter((attempt) => {
+        const exercise = READ_ALOUD_CALIBRATION_EXERCISES.find(
+          (item) => item.exerciseIndex === attempt.exerciseIndex
+        );
+
+        return exercise?.trainingSkill === skill;
+      });
+
+      const skillScores = skillAttempts
+        .map((attempt) => attempt.matchPercentage)
+        .filter(
+          (score) =>
+            typeof score === "number" &&
+            Number.isFinite(score)
+        );
+
+      if (skillAttempts.length === 0) {
+        return null;
+      }
+
+      const average =
+        skillScores.length > 0
+          ? Math.round(
+              skillScores.reduce(
+                (total, score) => total + score,
+                0
+              ) / skillScores.length
+            )
+          : 0;
+
+      const best =
+        skillScores.length > 0
+          ? Math.max(...skillScores)
+          : 0;
+
+      const lowest =
+        skillScores.length > 0
+          ? Math.min(...skillScores)
+          : 0;
+
+      const diagnosticAreas = [
+        ...new Set(
+          skillAttempts
+            .map((attempt) => {
+              const exercise =
+                READ_ALOUD_CALIBRATION_EXERCISES.find(
+                  (item) =>
+                    item.exerciseIndex === attempt.exerciseIndex
+                );
+
+              return exercise?.diagnosticArea;
+            })
+            .filter(Boolean)
+        ),
+      ];
+
+      return {
+        skill,
+        attempts: skillAttempts.length,
+        average,
+        best,
+        lowest,
+        diagnosticAreas,
       };
     })
     .filter(Boolean);
@@ -397,7 +481,9 @@ export default function Analytics() {
 
                           <div className="analytics-cefr-bar">
                             <div
-                              className="analytics-cefr-bar-fill"
+                              className={`analytics-cefr-bar-fill analytics-cefr-bar-${getScoreClass(
+                                item.average
+                              )}`}
                               style={{
                                 width: `${Math.min(
                                   Math.max(item.average, 0),
@@ -415,6 +501,84 @@ export default function Analytics() {
                               Lowest:{" "}
                               <strong>{item.lowest}%</strong>
                             </span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </section>
+
+              <section className="analytics-section-card analytics-diagnostic-section">
+                <div className="analytics-section-header">
+                  <div>
+                    <h3>Diagnostic Performance</h3>
+                    <p>
+                      See how your calibration scores vary across the
+                      main diagnostic skill areas.
+                    </p>
+                  </div>
+
+                  <span className="analytics-result-count">
+                    {diagnosticPerformance.length} area
+                    {diagnosticPerformance.length === 1 ? "" : "s"}
+                  </span>
+                </div>
+
+                {diagnosticPerformance.length === 0 ? (
+                  <div className="analytics-empty-state">
+                    <div className="analytics-empty-icon">
+                      🧭
+                    </div>
+                    <strong>
+                      Diagnostic performance will appear here
+                    </strong>
+                    <p>
+                      Complete calibration exercises across different
+                      diagnostic skill areas to build this profile.
+                    </p>
+                  </div>
+                ) : (
+                  <div className="analytics-diagnostic-list">
+                    {diagnosticPerformance.map((item) => (
+                      <div
+                        className="analytics-diagnostic-row"
+                        key={item.skill}
+                      >
+                        <div className="analytics-diagnostic-skill">
+                          <strong>{item.skill}</strong>
+                          <span>
+                            {item.attempts} attempt
+                            {item.attempts === 1 ? "" : "s"}
+                          </span>
+                        </div>
+
+                        <div className="analytics-diagnostic-details">
+                          <div className="analytics-diagnostic-topline">
+                            <strong>{item.average}% average</strong>
+                            <span>
+                              Best {item.best}% • Lowest {item.lowest}%
+                            </span>
+                          </div>
+
+                          <div className="analytics-diagnostic-bar">
+                            <div
+                              className={`analytics-diagnostic-bar-fill analytics-diagnostic-bar-${getScoreClass(
+                                item.average
+                              )}`}
+                              style={{
+                                width: `${Math.min(
+                                  Math.max(item.average, 0),
+                                  100
+                                )}%`,
+                              }}
+                            />
+                          </div>
+
+                          <div className="analytics-diagnostic-areas">
+                            {item.diagnosticAreas.map((area) => (
+                              <span key={area}>{area}</span>
+                            ))}
                           </div>
                         </div>
                       </div>

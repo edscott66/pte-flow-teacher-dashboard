@@ -481,8 +481,23 @@
   height: 100%;
   min-width: 2px;
   border-radius: inherit;
-  background: #2563eb;
   transition: width 0.4s ease;
+}
+
+.analytics-cefr-bar-master {
+  background: #059669;
+}
+
+.analytics-cefr-bar-proficient {
+  background: #4f46e5;
+}
+
+.analytics-cefr-bar-developing {
+  background: #d97706;
+}
+
+.analytics-cefr-bar-needs-calibration {
+  background: #e11d48;
 }
 
 .analytics-cefr-stats {
@@ -517,6 +532,151 @@
 
   .analytics-cefr-stats {
     gap: 12px;
+  }
+}
+
+/* ---------------------------------------------------------
+   Diagnostic Performance
+   --------------------------------------------------------- */
+
+.analytics-diagnostic-section {
+  margin-bottom: 24px;
+}
+
+.analytics-diagnostic-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.analytics-diagnostic-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.analytics-diagnostic-row:last-child {
+  border-bottom: none;
+}
+
+.analytics-diagnostic-skill {
+  width: 170px;
+  flex-shrink: 0;
+}
+
+.analytics-diagnostic-skill strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--header-text-color, #111827);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.analytics-diagnostic-skill span {
+  color: #9ca3af;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.analytics-diagnostic-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.analytics-diagnostic-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.analytics-diagnostic-topline strong {
+  color: var(--header-text-color, #111827);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.analytics-diagnostic-topline span {
+  color: #6b7280;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.analytics-diagnostic-bar {
+  width: 100%;
+  height: 9px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e5e7eb;
+}
+
+.analytics-diagnostic-bar-fill {
+  height: 100%;
+  min-width: 2px;
+  border-radius: inherit;
+  transition: width 0.4s ease;
+}
+
+.analytics-diagnostic-bar-master {
+  background: #059669;
+}
+
+.analytics-diagnostic-bar-proficient {
+  background: #4f46e5;
+}
+
+.analytics-diagnostic-bar-developing {
+  background: #d97706;
+}
+
+.analytics-diagnostic-bar-needs-calibration {
+  background: #e11d48;
+}
+
+.analytics-diagnostic-areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.analytics-diagnostic-areas span {
+  padding: 4px 7px;
+  border: 1px solid #dbeafe;
+  border-radius: 6px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .analytics-diagnostic-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .analytics-diagnostic-skill {
+    width: auto;
+  }
+
+  .analytics-diagnostic-details {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .analytics-diagnostic-row {
+    padding: 15px;
+  }
+
+  .analytics-diagnostic-topline {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
   }
 }
 
