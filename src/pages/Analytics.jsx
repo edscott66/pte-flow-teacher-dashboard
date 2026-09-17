@@ -86,6 +86,8 @@ export default function Analytics() {
 
   const recentAttempts = attempts.slice(0, 10);
 
+const historyAttempts = attempts;
+
   const trendAttempts = [...attempts]
     .filter(
       (attempt) =>
@@ -866,6 +868,88 @@ export default function Analytics() {
           </div>
         </div>
       )}
+
+   <details className="analytics-section-card analytics-history-disclosure">
+  <summary className="analytics-section-header">
+    <div>
+      <h3>Calibration History</h3>
+      <p>
+        Your complete Calibration Lab attempt history.
+      </p>
+    </div>
+
+    <span className="analytics-history-toggle">
+      View History ▾
+    </span>
+  </summary>
+
+  {historyAttempts.length === 0 ? (
+    <div className="analytics-empty-state">
+      <div className="analytics-empty-icon">
+        🗂️
+      </div>
+      <strong>No Calibration History yet</strong>
+      <p>
+        Complete Calibration Lab exercises to build your
+        calibration history.
+      </p>
+    </div>
+  ) : (
+    <div className="analytics-results-list">
+      {historyAttempts.map((attempt) => {
+        const score =
+          typeof attempt.matchPercentage === "number"
+            ? attempt.matchPercentage
+            : 0;
+
+        const attemptDate = attempt.timestamp
+          ? new Date(attempt.timestamp).toLocaleString()
+          : "Date unavailable";
+
+        return (
+          <div
+            className="analytics-result-row"
+            key={attempt.id}
+          >
+            <div className="analytics-result-number">
+              <span>{attempt.exerciseIndex}</span>
+            </div>
+
+            <div className="analytics-result-main">
+              <div className="analytics-result-title">
+                <strong>
+                  Exercise {attempt.exerciseIndex}
+                </strong>
+
+                {attempt.cefrLevel && (
+                  <span className="analytics-cefr-badge">
+                    {attempt.cefrLevel}
+                  </span>
+                )}
+              </div>
+
+              <span className="analytics-result-topic">
+                {attempt.topicTitle || "Calibration Exercise"}
+              </span>
+
+              <span className="analytics-result-meta">
+                {attempt.questionTitle || "Read Aloud"} •{" "}
+                {attempt.section || "Speaking"} • {attemptDate}
+              </span>
+            </div>
+
+            <div className="analytics-result-score">
+              <strong>{score}%</strong>
+              <span>
+                {attempt.tier || "Calibration Result"}
+              </span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  )}
+</details>
 
       {role === "admin" && (
         <div className="analytics-role-card">

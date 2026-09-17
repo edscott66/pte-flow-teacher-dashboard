@@ -1,6 +1,7 @@
 import {
   createContext,
   useContext,
+  useEffect,
   useState,
   type Dispatch,
   type ReactNode,
@@ -16,6 +17,7 @@ import {
 
 import {
   getCurrentTeacher,
+  getTeacherCalibrationAttempts,
   saveCalibrationAttempt,
 } from "../../services/teacherAnalyticsService";
 
@@ -97,6 +99,41 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
   const [studentAudioUrl, setStudentAudioUrl] = useState<string | null>(null);
   const [studentTranscriptText, setStudentTranscriptText] =
     useState<string>("");
+
+   // Restore persisted Calibration Lab progress when the
+  // Teacher Dashboard account becomes available.
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadCalibrationProgress = async () => {
+      const teacher = getCurrentTeacher();
+
+      if (!teacher) {
+        return;
+      }
+
+      try {
+        const persistedAttempts = await getTeacherCalibrationAttempts();
+
+        if (isMounted) {
+          setCalibrationHistory(
+            persistedAttempts as ComparisonResult[]
+          );
+        }
+      } catch (error) {
+        console.warn(
+          "Unable to restore persisted Calibration Lab progress.",
+          error
+        );
+      }
+    };
+
+    loadCalibrationProgress();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   // Get selected question object
   const currentQuestion =

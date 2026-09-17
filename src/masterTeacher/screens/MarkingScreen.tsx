@@ -57,6 +57,7 @@ export default function MarkingScreen({
 
   const pauseTimeoutRef = useRef<number | null>(null);
   const playbackTokenRef = useRef(0);
+  const externalAudioRef = useRef<HTMLAudioElement | null>(null);
 
   const diagnosticChecklist = Array.isArray(currentExercise?.errorChecklist)
     ? currentExercise.errorChecklist
@@ -75,6 +76,9 @@ export default function MarkingScreen({
         window.clearTimeout(pauseTimeoutRef.current);
         pauseTimeoutRef.current = null;
       }
+
+      externalAudioRef.current?.pause();
+      externalAudioRef.current = null;
 
       if ("speechSynthesis" in window) {
         window.speechSynthesis.cancel();
@@ -240,6 +244,56 @@ export default function MarkingScreen({
     speakSegment(0);
   };
 
+  const handlePlayExternalAudio = (url: string, id: string) => {
+    if (isPlayingAudio && currentPlayingId === id) {
+      externalAudioRef.current?.pause();
+      if (externalAudioRef.current) {
+        externalAudioRef.current.currentTime = 0;
+      }
+      externalAudioRef.current = null;
+      setIsPlayingAudio(false);
+      setCurrentPlayingId(null);
+      return;
+    }
+
+    playbackTokenRef.current += 1;
+
+    if (pauseTimeoutRef.current !== null) {
+      window.clearTimeout(pauseTimeoutRef.current);
+      pauseTimeoutRef.current = null;
+    }
+
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
+
+    externalAudioRef.current?.pause();
+
+    const audio = new Audio(url);
+    externalAudioRef.current = audio;
+
+    setIsPlayingAudio(true);
+    setCurrentPlayingId(id);
+
+    audio.onended = () => {
+      if (externalAudioRef.current !== audio) return;
+
+      externalAudioRef.current = null;
+      setIsPlayingAudio(false);
+      setCurrentPlayingId(null);
+    };
+
+    audio.onerror = () => {
+      if (externalAudioRef.current !== audio) return;
+
+      externalAudioRef.current = null;
+      setIsPlayingAudio(false);
+      setCurrentPlayingId(null);
+    };
+
+    void audio.play();
+  };
+
   const handleStopAudio = () => {
     playbackTokenRef.current += 1;
 
@@ -247,6 +301,9 @@ export default function MarkingScreen({
       window.clearTimeout(pauseTimeoutRef.current);
       pauseTimeoutRef.current = null;
     }
+
+    externalAudioRef.current?.pause();
+    externalAudioRef.current = null;
 
     if ("speechSynthesis" in window) {
       window.speechSynthesis.cancel();
@@ -407,7 +464,21 @@ export default function MarkingScreen({
       : currentExercise.poor;
 
   const isReadAloudCalibration =
+    currentQuestion.id === "read-aloud" ||
     currentQuestion.title === "Read Aloud";
+
+  const calibrationExerciseMetadata = currentExercise as {
+    diagnosticArea?: string;
+    promptAudioUrl?: string;
+    cefrLevel?: { level?: string };
+  } | null;
+
+  const isRepeatSentenceCalibration =
+    currentQuestion.id === "repeat-sentence" &&
+    Boolean(calibrationExerciseMetadata?.diagnosticArea);
+
+  const isCalibrationExercise =
+    isReadAloudCalibration || isRepeatSentenceCalibration;
 
   return (
     <>
@@ -678,7 +749,9 @@ export default function MarkingScreen({
                     {Array.from({ length: 20 }, (_, i) => i + 1).map(
                       (num) => (
                         <option key={num} value={num}>
-                          {num}/100 [A1] - {COMMON_PTE_TOPICS[num - 1]}
+                          {isRepeatSentenceCalibration
+                            ? `${num}/100 [${calibrationExerciseMetadata?.cefrLevel?.level || "B2"}] - ${currentExercise.topicTitle}`
+                            : `${num}/100 [A1] - ${COMMON_PTE_TOPICS[num - 1]}`}
                         </option>
                       )
                     )}
@@ -789,6 +862,18 @@ export default function MarkingScreen({
 
                   <button
                     onClick={() => {
+                      const promptAudioUrl = (
+                        currentExercise as { promptAudioUrl?: string }
+                      ).promptAudioUrl;
+
+                      if (isRepeatSentenceCalibration && promptAudioUrl) {
+                        handlePlayExternalAudio(
+                          promptAudioUrl,
+                          `prompt-${selectedQuestionId}-${exerciseIndex}`
+                        );
+                        return;
+                      }
+
                       const textToPlay =
                         currentExercise.promptAudio ||
                         currentExercise.promptText;
@@ -863,7 +948,7 @@ export default function MarkingScreen({
                 </div>
               </div>
 
-              {!isReadAloudCalibration && (
+              {!isCalibrationExercise && (
                 <p className="leading-relaxed font-sans font-medium text-slate-200">
                   {currentExercise.promptText}
                 </p>
@@ -953,7 +1038,7 @@ export default function MarkingScreen({
               </div>
             </div>
 
-            {!isReadAloudCalibration && (
+            {!isCalibrationExercise && (
               <>
                 <p className="leading-relaxed font-sans font-medium text-slate-200">
                   "
@@ -987,6 +1072,14 @@ export default function MarkingScreen({
 
                 </div>
               </>
+            )}
+
+            {isCalibrationExercise && (
+              <div className="text-[11px] leading-relaxed text-indigo-300 pt-1.5 border-t border-slate-800">
+                Listen carefully to the student response. The response transcript
+                and analysis are hidden during Calibration Lab exercises so your
+                diagnosis must be based on what you actually hear.
+              </div>
             )}
 
           </div>
@@ -1168,7 +1261,11 @@ export default function MarkingScreen({
             rows={5}
             value={teacherFeedbackText}
             onChange={(e) => setTeacherFeedbackText(e.target.value)}
-            placeholder="Write your own assessment. Include the relevant PTE term, the evidence you heard, its impact, and appropriate advice (e.g., 'The student shows poor phrasing and word-by-word grouping because natural phrases are split into short chunks...')"
+            placeholder={
+              isRepeatSentenceCalibration
+                ? "Repeat Sentence calibration: 1) state the primary diagnosis, 2) identify the exact evidence you heard, 3) explain why it is the primary issue, and 4) write what you would say to the student."
+                : "Write your own assessment. Include the relevant PTE term, the evidence you heard, its impact, and appropriate advice (e.g., 'The student shows poor phrasing and word-by-word grouping because natural phrases are split into short chunks...')"
+            }
             className="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:ring-2 focus:ring-indigo-500 focus:outline-hidden leading-relaxed resize-none font-sans"
           />
 

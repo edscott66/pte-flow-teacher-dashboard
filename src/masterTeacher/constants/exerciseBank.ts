@@ -1,3 +1,5 @@
+import { REPEAT_SENTENCE_CALIBRATION_EXERCISES } from "./calibration/repeatSentenceCalibration";
+
 // Exercise Bank: 100 Common PTE Exam Topics & Practice Items per Question Type
 // Progressively structured across CEFR English Proficiency Levels:
 // - Questions 1 to 20: A1 Level (Beginner)
@@ -296,6 +298,7 @@ export const ASQ_QUESTIONS = [
   { question: "What dimensionless fluid dynamics ratio predicts laminar versus turbulent flow?", answer: "Reynolds number" },
   { question: "What evolutionary phenomenon leads independent lineages to evolve identical structures?", answer: "Convergent evolution" }
 ];
+
 
 
 // -----------------------------------------------------------------------------
@@ -10910,7 +10913,18 @@ export function generateWeakASQ(questionText: string, correctAnswer: string, ind
 export function getExercise(questionObj: any, index: number) {
   const safeIndex = Math.max(1, Math.min(100, index));
 
-  // Use the authored Calibration Lab cases for Read Aloud exercises 1–10.
+  // Use authored Repeat Sentence calibration cases before the generic generator.
+  if (questionObj?.id === "repeat-sentence") {
+    const calibrationExercise = REPEAT_SENTENCE_CALIBRATION_EXERCISES.find(
+      (exercise) => exercise.exerciseIndex === safeIndex
+    );
+
+    if (calibrationExercise) {
+      return calibrationExercise;
+    }
+  }
+
+  // Use the authored Calibration Lab cases for Read Aloud exercises 1–100.
   // All other exercises continue through the existing generator unchanged.
   if (questionObj?.id === "read-aloud") {
     const calibrationExercise = READ_ALOUD_CALIBRATION_EXERCISES.find(
