@@ -795,7 +795,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     },
     poor: {
       transcript:
-        "The results indicate that environmental factors play a significant... ... role in human behaviour.",
+        "The results indicate that environmental factors play a significant... role in human behaviour.",
       audioDuration: "Controlled calibration response",
       wordCount: 14,
       characteristics:
@@ -839,108 +839,121 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
   },
 
   {
-    exerciseIndex: 9,
-    totalExercises: 100,
-    difficulty: "Intermediate+",
-    trainingSkill: "Pronunciation",
-    diagnosticArea: "Pronunciation — Localised Word Distortion",
-    learningObjective:
-      "Distinguish a localised pronunciation distortion from a lexical substitution by considering whether the intended word remains recognisable and whether the rest of the response is accurate.",
-    sourceQuestionId: "49",
-    promptText:
-      "The speaker discussed several challenges facing the healthcare system in the coming decade.",
-    promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/49.mp3",
-    promptAudio:
-      "The speaker discussed several challenges facing the healthcare system in the coming decade.",
-    studentTranscript:
-      "The speaker discussed several challenges facing the health-care system in the coming decade.",
-    studentResponse: {
-      audioDuration: "Controlled calibration response",
-      wordCount: 12,
-      characteristics:
-        "The target phrase is reproduced with a localised pronunciation distortion in 'healthcare'. The intended word remains recognisable and the rest of the sentence is accurate and fluent.",
-    },
-    diagnosticErrors: [
-      "Localised pronunciation distortion",
-      "Word-level pronunciation accuracy",
-    ],
-    expertEvidence: [
-      "The intended lexical item is 'healthcare'",
-      "The distortion is localised to the pronunciation of that word",
-      "The intended meaning remains identifiable",
-      "The remainder of the sentence is accurately reproduced",
-      "Delivery remains continuous and appropriately paced",
-      "There is no evidence of a broader Content or Fluency problem",
-    ],
-    expertDiagnosis:
-      "The primary diagnosis is Pronunciation. The student's difficulty is localised to the pronunciation of 'healthcare', while the intended word remains identifiable and the rest of the sentence is accurate. The teacher should focus on the specific pronunciation rather than treating the response as a Content or Fluency failure.",
-    perfectCalibrationResponse:
-      "Primary diagnosis: Pronunciation. The issue is a localised pronunciation distortion in the word 'healthcare'. The intended word remains recognisable, the rest of the sentence is accurately reproduced, and delivery is fluent. The teacher should therefore focus on the word-level pronunciation rather than diagnosing Content or Oral Fluency.",
-    coachingAdvice:
-      "Practise 'healthcare' separately, focusing on the complete word and its natural stress pattern. Then place it back into 'the healthcare system' and repeat the full sentence at a natural rate.",
-    cefrLevel: {
-      level: "B2",
-      name: "B2 Upper Int",
-      badgeColor: "bg-indigo-600 text-white",
-      borderColor: "border-indigo-500",
-      textColor: "text-indigo-700 dark:text-indigo-300",
-      description:
-        "Complex academic themes, technical arguments, professional discourse.",
-    },
-    topicTitle: "Healthcare System Challenges",
-    good: {
-      transcript:
-        "The speaker discussed several challenges facing the healthcare system in the coming decade.",
-      audioDuration: "Controlled benchmark delivery",
-      wordCount: 12,
-      characteristics:
-        "Accurate reproduction with clear pronunciation and natural continuous delivery.",
-    },
-    poor: {
-      transcript:
-        "The speaker discussed several challenges facing the health-care system in the coming decade.",
-      audioDuration: "Controlled calibration response",
-      wordCount: 12,
-      characteristics:
-        "The intended word remains recognisable, but its pronunciation is locally distorted.",
-    },
-    goodScore: {
-      content: 5,
-      fluency: 5,
-      pronunciation: 5,
-      overall: "90 / 90",
-      breakdownText:
-        "Accurate Content with clear Pronunciation and natural Oral Fluency.",
-    },
-    poorScore: {
-      content: 5,
-      fluency: 5,
-      pronunciation: 3,
-      overall: "84 / 90",
-      breakdownText:
-        "A localised pronunciation distortion affects the target word while Content and Oral Fluency remain strong.",
-    },
-    errorChecklist: [
-      {
-        id: "localised-pronunciation",
-        label: "Localised pronunciation distortion",
-        keyword: "Localised pronunciation distortion",
-      },
-      {
-        id: "word-level-pronunciation",
-        label: "Word-level pronunciation accuracy",
-        keyword: "Word-level pronunciation accuracy",
-      },
-      {
-        id: "recognisable-target-word",
-        label: "Recognisable target word",
-        keyword: "Recognisable target word",
-      },
-    ],
-    expertAdvice:
-      "Focus specifically on the pronunciation of 'healthcare'. The intended word remains recognisable and the rest of the response is accurate. Do not diagnose a Content or Fluency problem without additional evidence.",
+  exerciseIndex: 9,
+  totalExercises: 100,
+  difficulty: "Advanced",
+  trainingSkill: "Content",
+  diagnosticArea: "Lexical Substitution",
+  learningObjective:
+    "Identify a meaningful lexical substitution in a Repeat Sentence response and distinguish it from a pronunciation error when the substituted word is clearly pronounced.",
+
+  promptText:
+    "The speaker discussed several challenges facing the healthcare system in the coming decade.",
+
+  promptAudio:
+    "The speaker discussed several challenges facing the healthcare system in the coming decade.",
+
+  studentTranscript:
+    "The speaker discussed several changes facing the healthcare system in the coming decade.",
+
+  studentResponse: {
+    audioDuration: "9.5 seconds",
+    wordCount: 12,
+    characteristics:
+      "The student reproduces the sentence fluently and clearly but substitutes 'changes' for the target word 'challenges'. The substituted word is clearly pronounced and changes the intended meaning."
   },
+
+  diagnosticErrors: [
+    "Lexical substitution",
+    "Content accuracy",
+    "Meaning-changing word substitution"
+  ],
+
+  expertEvidence: [
+    "The target word is 'challenges', but the student says 'changes'.",
+    "The substituted word 'changes' is a different lexical item, not a pronunciation variant of 'challenges'.",
+    "The substitution changes the meaning of the sentence.",
+    "The remainder of the sentence is reproduced accurately.",
+    "The student's delivery is fluent with no significant hesitation.",
+    "Pronunciation of the substituted word is clear."
+  ],
+
+  expertDiagnosis:
+    "Primary diagnosis: Content. The student substitutes 'changes' for 'challenges', creating a meaningful lexical substitution that alters the intended meaning. Pronunciation and Oral Fluency are not the main problems because the substituted word is clearly pronounced and the sentence is delivered continuously.",
+
+  perfectCalibrationResponse:
+    "Primary diagnosis: Content. The student says 'changes' instead of the target word 'challenges'. This is a meaningful lexical substitution because 'changes' is a different word and alters the intended meaning. The substituted word is clearly pronounced and the response remains fluent, so Pronunciation and Oral Fluency are not the main problems.",
+
+  coachingAdvice:
+    "When evaluating Repeat Sentence, distinguish a genuine lexical substitution from a pronunciation distortion. Here, 'changes' is a clearly pronounced different word from 'challenges', so the Content error should be prioritised.",
+
+  cefrLevel: {
+  level: "B2",
+  name: "Upper-Intermediate",
+  badgeColor: "bg-purple-100 text-purple-700 border border-purple-200",
+},
+
+  topicTitle: "Healthcare System Challenges",
+
+  sourceQuestionId: "49",
+
+  good: {
+    transcript:
+      "The speaker discussed several challenges facing the healthcare system in the coming decade.",
+    audioDuration: "8.8 seconds",
+    wordCount: 12,
+    characteristics:
+      "Accurate reproduction with clear Pronunciation and smooth Oral Fluency."
+  },
+
+  poor: {
+    transcript:
+      "The speaker discussed several changes facing the healthcare system in the coming decade.",
+    audioDuration: "9.5 seconds",
+    wordCount: 12,
+    characteristics:
+      "The student clearly substitutes 'changes' for 'challenges' while maintaining otherwise fluent delivery."
+  },
+
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Accurate Content with clear Pronunciation and smooth Oral Fluency."
+  },
+
+  poorScore: {
+    content: 3,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "78 / 90",
+    breakdownText:
+      "A meaningful lexical substitution changes 'challenges' to 'changes', reducing Content accuracy while Pronunciation and Oral Fluency remain clear."
+  },
+
+  errorChecklist: [
+    {
+      id: "lexical-substitution",
+      label: "Lexical substitution",
+      keyword: "Lexical substitution"
+    },
+    {
+      id: "meaning-changing-word",
+      label: "Meaning-changing word",
+      keyword: "Meaning-changing word"
+    },
+    {
+      id: "content-accuracy",
+      label: "Content accuracy",
+      keyword: "Content accuracy"
+    }
+  ],
+
+  expertAdvice:
+    "Prioritise Content because 'changes' replaces the target word 'challenges' and changes the intended meaning. Do not label this as a Pronunciation error when the substituted word is clearly pronounced. Oral Fluency remains strong."
+},
 
   {
     exerciseIndex: 10,
@@ -1045,4 +1058,1118 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     expertAdvice:
       "Do not treat 'with confidence' as disposable wording. It contributes meaningful information about the intended outcome. The main proposition remains intact, so keep the diagnosis proportionate: Content omission, not total Content failure.",
   },
+
+  {
+    exerciseIndex: 11,
+    totalExercises: 100,
+    difficulty: "Intermediate+",
+    trainingSkill: "Content",
+    diagnosticArea: "Content — Meaningful Word Omission",
+
+    learningObjective:
+      "Identify a meaningful omitted word in a Repeat Sentence response and distinguish a Content error from Pronunciation or Oral Fluency problems when the rest of the response is clear and continuous.",
+
+    sourceQuestionId: "51",
+
+    promptText:
+      "The library will close early during the holiday period.",
+
+    promptAudioUrl:
+      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/51.mp3",
+
+    promptAudio:
+      "The library will close early during the holiday period.",
+
+    studentTranscript:
+      "The library will close during the holiday period.",
+
+    studentResponse: {
+      audioDuration: "Controlled calibration response",
+      wordCount: 8,
+      characteristics:
+        "The student reproduces the sentence clearly and continuously but omits the meaningful word 'early'. Pronunciation remains clear and there is no significant fluency disruption."
+    },
+
+    diagnosticErrors: [
+      "Meaningful word omission",
+      "Content accuracy",
+      "Omission of key modifier"
+    ],
+
+    expertEvidence: [
+      "The target sentence contains the word 'early'",
+      "The student omits 'early'",
+      "The remaining sentence structure is accurately reproduced",
+      "The omission changes the specific meaning of when the library will close",
+      "Pronunciation remains clear",
+      "Delivery remains continuous and appropriately paced",
+      "The primary issue is Content rather than Pronunciation or Oral Fluency"
+    ],
+
+    expertDiagnosis:
+      "The primary diagnosis is Content. The student omits the word 'early', which removes an important detail from the target sentence. The remainder of the sentence is reproduced accurately with clear pronunciation and continuous delivery.",
+
+    perfectCalibrationResponse:
+      "Primary diagnosis: Content. The student omits 'early', which is a meaningful part of the target message. Pronunciation and Oral Fluency remain clear, so the teacher should focus on the missing word rather than diagnosing a delivery problem.",
+
+    coachingAdvice:
+      "Ask the student to notice and retain the modifier 'early'. Practise the phrase 'will close early' as one unit, then repeat the complete sentence.",
+
+    cefrLevel: {
+      level: "B2",
+      name: "B2 Upper Int",
+      badgeColor: "bg-indigo-600 text-white",
+      borderColor: "border-indigo-500",
+      textColor: "text-indigo-700 dark:text-indigo-300",
+      description:
+        "Complex academic themes, technical arguments, professional discourse."
+    },
+
+    topicTitle: "Library Holiday Hours",
+
+    good: {
+      transcript:
+        "The library will close early during the holiday period.",
+      audioDuration: "Controlled benchmark delivery",
+      wordCount: 9,
+      characteristics:
+        "Accurate reproduction with clear pronunciation and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "The library will close during the holiday period.",
+      audioDuration: "Controlled calibration response",
+      wordCount: 8,
+      characteristics:
+        "The meaningful modifier 'early' is omitted while the rest of the sentence remains accurate and fluent."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with clear Pronunciation and natural Oral Fluency."
+    },
+
+    poorScore: {
+      content: 3,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "78 / 90",
+      breakdownText:
+        "A meaningful word omission affects Content while Pronunciation and Oral Fluency remain clear."
+    },
+
+    errorChecklist: [
+      {
+        id: "meaningful-word-omission",
+        label: "Meaningful word omission",
+        keyword: "Meaningful word omission"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "key-modifier-omission",
+        label: "Key modifier omitted",
+        keyword: "Key modifier omitted"
+      }
+    ],
+
+    expertAdvice:
+      "Prioritise Content because the student omits the target word 'early'. Do not diagnose Pronunciation or Oral Fluency when the remaining response is clearly and continuously delivered."
+  },
+
+  {
+    exerciseIndex: 12,
+    totalExercises: 100,
+    difficulty: "Intermediate+",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Oral Fluency — Word Repetition",
+
+    learningObjective:
+      "Recognise an audible word repetition within an otherwise accurate Repeat Sentence response and distinguish a fluency disruption from a genuine Content omission or substitution.",
+
+    sourceQuestionId: "52",
+
+    promptText:
+      "Please submit your assignment before the end of the week.",
+
+    promptAudioUrl:
+      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/52.mp3",
+
+    promptAudio:
+      "Please submit your assignment before the end of the week.",
+
+    studentTranscript:
+      "Please submit your assignment before before the end of the week.",
+
+    studentResponse: {
+      audioDuration: "Controlled calibration response",
+      wordCount: 10,
+      characteristics:
+        "All target words are reproduced, but the word 'before' is repeated once, creating a brief fluency disruption. Pronunciation remains clear."
+    },
+
+    diagnosticErrors: [
+      "Word repetition",
+      "Interrupted fluency",
+      "Self-repetition"
+    ],
+
+    expertEvidence: [
+      "All target words from the sentence are present",
+      "The word 'before' is produced twice",
+      "The repeated word creates a brief disruption in continuous delivery",
+      "There is no meaningful target-word omission",
+      "Pronunciation remains clear",
+      "The primary issue is Oral Fluency rather than Content"
+    ],
+
+    expertDiagnosis:
+      "The primary diagnosis is Oral Fluency. The student reproduces all target words but repeats 'before' once, creating a brief self-repetition. The response should not be treated as a major Content failure because the target sentence remains substantially complete.",
+
+    perfectCalibrationResponse:
+      "Primary diagnosis: Oral Fluency. All target words are present, but the student repeats 'before', creating a brief self-repetition. Content is substantially intact and Pronunciation remains clear, so the teacher should focus on the fluency disruption rather than inventing a Content omission.",
+
+    coachingAdvice:
+      "Practise the phrase 'assignment before the end' at a steady pace. Encourage the student to continue forward after 'before' rather than repeating the word.",
+
+    cefrLevel: {
+      level: "B2",
+      name: "B2 Upper Int",
+      badgeColor: "bg-indigo-600 text-white",
+      borderColor: "border-indigo-500",
+      textColor: "text-indigo-700 dark:text-indigo-300",
+      description:
+        "Complex academic themes, technical arguments, professional discourse."
+    },
+
+    topicTitle: "Assignment Submission Deadline",
+
+    good: {
+      transcript:
+        "Please submit your assignment before the end of the week.",
+      audioDuration: "Controlled benchmark delivery",
+      wordCount: 9,
+      characteristics:
+        "Accurate reproduction with natural continuous delivery and clear pronunciation."
+    },
+
+    poor: {
+      transcript:
+        "Please submit your assignment before before the end of the week.",
+      audioDuration: "Controlled calibration response",
+      wordCount: 10,
+      characteristics:
+        "All target words are present, but 'before' is repeated once, creating a brief fluency disruption."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with clear Pronunciation and natural Oral Fluency."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 3,
+      pronunciation: 5,
+      overall: "82 / 90",
+      breakdownText:
+        "Content remains substantially complete, but a brief word repetition disrupts Oral Fluency."
+    },
+
+    errorChecklist: [
+      {
+        id: "word-repetition",
+        label: "Word repetition",
+        keyword: "Word repetition"
+      },
+      {
+        id: "fluency-disruption",
+        label: "Fluency disruption",
+        keyword: "Fluency disruption"
+      },
+      {
+        id: "self-repetition",
+        label: "Self-repetition",
+        keyword: "Self-repetition"
+      }
+    ],
+
+    expertAdvice:
+      "Prioritise Oral Fluency because all target words are present and the only clear disruption is the repeated word 'before'. Do not incorrectly convert the repetition into a Content omission."
+  },
+
+  {
+    exerciseIndex: 13,
+    totalExercises: 100,
+    difficulty: "Intermediate+",
+    trainingSkill: "Content",
+    diagnosticArea: "Content — Meaningful Phrase Omission",
+
+    learningObjective:
+      "Identify the omission of a meaningful phrase in a Repeat Sentence response and distinguish a partial-content problem from general Pronunciation or Oral Fluency weakness.",
+
+    sourceQuestionId: "53",
+
+    promptText:
+      "The lecture tomorrow will start ten minutes later than usual.",
+
+    promptAudioUrl:
+      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/53.mp3",
+
+    promptAudio:
+      "The lecture tomorrow will start ten minutes later than usual.",
+
+    studentTranscript:
+      "The lecture tomorrow will start later than usual.",
+
+    studentResponse: {
+      audioDuration: "Controlled calibration response",
+      wordCount: 8,
+      characteristics:
+        "The student reproduces the sentence clearly but omits the specific phrase 'ten minutes'. Pronunciation remains clear and delivery is continuous."
+    },
+
+    diagnosticErrors: [
+      "Meaningful phrase omission",
+      "Specific-detail omission",
+      "Content accuracy"
+    ],
+
+    expertEvidence: [
+      "The target contains the phrase 'ten minutes'",
+      "The student omits 'ten minutes'",
+      "The remaining sentence structure is accurately reproduced",
+      "The omission removes a specific quantitative detail",
+      "Pronunciation remains clear",
+      "Delivery remains continuous",
+      "The primary issue is Content"
+    ],
+
+    expertDiagnosis:
+      "The primary diagnosis is Content. The student omits the phrase 'ten minutes', removing a specific and meaningful detail from the target sentence. The rest of the response is clearly and continuously delivered.",
+
+    perfectCalibrationResponse:
+      "Primary diagnosis: Content. The student omits the specific phrase 'ten minutes'. The sentence remains understandable, but the quantitative detail is missing. Pronunciation and Oral Fluency remain strong, so the teacher should identify the specific Content loss.",
+
+    coachingAdvice:
+      "Practise retaining the complete time expression 'ten minutes later than usual'. Have the student repeat that chunk before returning to the full sentence.",
+
+    cefrLevel: {
+      level: "B2",
+      name: "B2 Upper Int",
+      badgeColor: "bg-indigo-600 text-white",
+      borderColor: "border-indigo-500",
+      textColor: "text-indigo-700 dark:text-indigo-300",
+      description:
+        "Complex academic themes, technical arguments, professional discourse."
+    },
+
+    topicTitle: "Lecture Schedule Change",
+
+    good: {
+      transcript:
+        "The lecture tomorrow will start ten minutes later than usual.",
+      audioDuration: "Controlled benchmark delivery",
+      wordCount: 10,
+      characteristics:
+        "Complete reproduction with accurate detail, clear pronunciation and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "The lecture tomorrow will start later than usual.",
+      audioDuration: "Controlled calibration response",
+      wordCount: 8,
+      characteristics:
+        "The specific phrase 'ten minutes' is omitted while the remainder of the sentence is reproduced accurately."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Complete Content with clear Pronunciation and natural Oral Fluency."
+    },
+
+    poorScore: {
+      content: 3,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "78 / 90",
+      breakdownText:
+        "Omission of the specific phrase 'ten minutes' reduces Content accuracy while Fluency and Pronunciation remain clear."
+    },
+
+    errorChecklist: [
+      {
+        id: "meaningful-phrase-omission",
+        label: "Meaningful phrase omission",
+        keyword: "Meaningful phrase omission"
+      },
+      {
+        id: "specific-detail-omission",
+        label: "Specific detail omitted",
+        keyword: "Specific detail omitted"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      }
+    ],
+
+    expertAdvice:
+      "Focus on Content because the student omits the specific phrase 'ten minutes'. Do not overlook a meaningful quantitative detail simply because the overall sentence remains understandable."
+  },
+
+  {
+    exerciseIndex: 14,
+    totalExercises: 100,
+    difficulty: "Intermediate+",
+    trainingSkill: "Content",
+    diagnosticArea: "Content — Meaning-Changing Modal Substitution",
+
+    learningObjective:
+      "Recognise when a substituted modal verb changes the strength of the original statement and distinguish a Content error from Pronunciation or Oral Fluency problems.",
+
+    sourceQuestionId: "54",
+
+    promptText:
+      "Students must wear their ID cards at all times on campus.",
+
+    promptAudioUrl:
+      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/54.mp3",
+
+    promptAudio:
+      "Students must wear their ID cards at all times on campus.",
+
+    studentTranscript:
+      "Students should wear their ID cards at all times on campus.",
+
+    studentResponse: {
+      audioDuration: "Controlled calibration response",
+      wordCount: 10,
+      characteristics:
+        "The student produces a fluent and clearly pronounced response but substitutes 'should' for the target word 'must', weakening the obligation expressed by the sentence."
+    },
+
+    diagnosticErrors: [
+      "Modal verb substitution",
+      "Meaning-changing substitution",
+      "Content accuracy"
+    ],
+
+    expertEvidence: [
+      "The target sentence uses the modal verb 'must'",
+      "The student says 'should'",
+      "'Should' and 'must' are different lexical items",
+      "The substitution changes the strength of the obligation",
+      "The remainder of the sentence is accurately reproduced",
+      "Pronunciation remains clear",
+      "Delivery remains continuous",
+      "The primary issue is Content"
+    ],
+
+    expertDiagnosis:
+      "The primary diagnosis is Content. The student substitutes 'should' for 'must'. Although the sentence remains understandable, the modal substitution changes the strength of the obligation expressed in the target sentence. Pronunciation and Oral Fluency remain strong.",
+
+    perfectCalibrationResponse:
+      "Primary diagnosis: Content. The student says 'should' instead of 'must'. These are different modal verbs and the substitution changes the strength of the obligation. The rest of the sentence is accurate and fluent, so Pronunciation and Oral Fluency are not the primary concerns.",
+
+    coachingAdvice:
+      "Contrast 'must' and 'should' with the student and practise the exact phrase 'students must wear'. Emphasise retaining the original modal because it carries important meaning.",
+
+    cefrLevel: {
+      level: "B2",
+      name: "B2 Upper Int",
+      badgeColor: "bg-indigo-600 text-white",
+      borderColor: "border-indigo-500",
+      textColor: "text-indigo-700 dark:text-indigo-300",
+      description:
+        "Complex academic themes, technical arguments, professional discourse."
+    },
+
+    topicTitle: "Campus Identification Requirements",
+
+    good: {
+      transcript:
+        "Students must wear their ID cards at all times on campus.",
+      audioDuration: "Controlled benchmark delivery",
+      wordCount: 10,
+      characteristics:
+        "Accurate reproduction with precise modal meaning, clear pronunciation and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "Students should wear their ID cards at all times on campus.",
+      audioDuration: "Controlled calibration response",
+      wordCount: 10,
+      characteristics:
+        "The modal verb 'must' is replaced by 'should', changing the strength of the requirement while the remainder remains accurate."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with clear Pronunciation and natural Oral Fluency."
+    },
+
+    poorScore: {
+      content: 3,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "78 / 90",
+      breakdownText:
+        "A meaning-changing modal substitution affects Content while Pronunciation and Oral Fluency remain clear."
+    },
+
+    errorChecklist: [
+      {
+        id: "modal-substitution",
+        label: "Modal verb substitution",
+        keyword: "Modal verb substitution"
+      },
+      {
+        id: "meaning-changing-substitution",
+        label: "Meaning-changing substitution",
+        keyword: "Meaning-changing substitution"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      }
+    ],
+
+    expertAdvice:
+      "Prioritise Content because 'should' replaces the target modal 'must' and changes the strength of the requirement. Do not diagnose Pronunciation or Oral Fluency when the substituted word is clearly pronounced and the delivery is continuous."
+  },
+
+  {
+    exerciseIndex: 15,
+    totalExercises: 100,
+    difficulty: "Intermediate+",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Oral Fluency — Filler Insertion",
+
+    learningObjective:
+      "Identify an inserted filler within an otherwise complete Repeat Sentence response and distinguish the resulting fluency disruption from a Content omission or Pronunciation problem.",
+
+    sourceQuestionId: "55",
+
+    promptText:
+      "The cafeteria offers vegetarian meals every day.",
+
+    promptAudioUrl:
+      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/55.mp3",
+
+    promptAudio:
+      "The cafeteria offers vegetarian meals every day.",
+
+    studentTranscript:
+      "The cafeteria offers vegetarian meals every, um, day.",
+
+    studentResponse: {
+      audioDuration: "Controlled calibration response",
+      wordCount: 8,
+      characteristics:
+        "All target words are reproduced accurately, but the inserted filler 'um' interrupts the natural phrase 'every day'. Pronunciation remains clear."
+    },
+
+    diagnosticErrors: [
+      "Filler insertion",
+      "Fluency disruption",
+      "Interrupted phrase grouping"
+    ],
+
+    expertEvidence: [
+      "All target words from the sentence are present",
+      "The filler 'um' is inserted between 'every' and 'day'",
+      "The filler interrupts a natural two-word phrase",
+      "There is no target-word omission or substitution",
+      "Pronunciation remains clear",
+      "The primary issue is Oral Fluency"
+    ],
+
+    expertDiagnosis:
+      "The primary diagnosis is Oral Fluency. The student reproduces all target words but inserts the filler 'um' inside the phrase 'every day'. This interrupts the natural delivery without creating a meaningful Content omission.",
+
+    perfectCalibrationResponse:
+      "Primary diagnosis: Oral Fluency. All target words are present, but the student inserts 'um' inside the phrase 'every day'. Content is complete and Pronunciation remains clear, so the teacher should focus on the filler and interrupted phrase grouping.",
+
+    coachingAdvice:
+      "Practise 'every day' as one connected phrase. Encourage the student to continue directly from 'every' to 'day' without inserting a filler.",
+
+    cefrLevel: {
+      level: "B2",
+      name: "B2 Upper Int",
+      badgeColor: "bg-indigo-600 text-white",
+      borderColor: "border-indigo-500",
+      textColor: "text-indigo-700 dark:text-indigo-300",
+      description:
+        "Complex academic themes, technical arguments, professional discourse."
+    },
+
+    topicTitle: "Cafeteria Vegetarian Meals",
+
+    good: {
+      transcript:
+        "The cafeteria offers vegetarian meals every day.",
+      audioDuration: "Controlled benchmark delivery",
+      wordCount: 7,
+      characteristics:
+        "Complete reproduction with natural phrase grouping, clear pronunciation and continuous delivery."
+    },
+
+    poor: {
+      transcript:
+        "The cafeteria offers vegetarian meals every, um, day.",
+      audioDuration: "Controlled calibration response",
+      wordCount: 8,
+      characteristics:
+        "All target words are present, but the filler 'um' interrupts the phrase 'every day'."
+    },
+
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Complete Content with clear Pronunciation and natural Oral Fluency."
+    },
+
+    poorScore: {
+      content: 5,
+      fluency: 3,
+      pronunciation: 5,
+      overall: "82 / 90",
+      breakdownText:
+        "Content remains complete, but an inserted filler interrupts Oral Fluency within the phrase 'every day'."
+    },
+
+    errorChecklist: [
+      {
+        id: "filler-insertion",
+        label: "Filler insertion",
+        keyword: "Filler insertion"
+      },
+      {
+        id: "fluency-disruption",
+        label: "Fluency disruption",
+        keyword: "Fluency disruption"
+      },
+      {
+        id: "interrupted-phrase",
+        label: "Interrupted phrase grouping",
+        keyword: "Interrupted phrase grouping"
+      }
+    ],
+
+    expertAdvice:
+      "Prioritise Oral Fluency because all target words are present and the only clear disruption is the inserted filler 'um' inside 'every day'. Do not diagnose Content when the target sentence itself remains complete."
+  },
+
+   {
+    exerciseIndex: 16,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Function-Word Insertion",
+    learningObjective:
+      "Identify an unnecessary function-word insertion in a Repeat Sentence response and distinguish the Content issue from Pronunciation and Oral Fluency.",
+    sourceQuestionId: "56",
+    promptText:
+      "Your timetable will be available online next Monday.",
+    promptAudioUrl:
+      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/56.mp3",
+    promptAudio:
+      "Your timetable will be available online next Monday.",
+    studentTranscript:
+      "Your timetable will be available online on next Monday.",
+    studentResponse: {
+      audioDuration: "8.5 seconds",
+      wordCount: 10,
+      characteristics:
+        "Clear and continuous delivery, but the student inserts the unnecessary preposition 'on' before 'next Monday'."
+    },
+    diagnosticErrors: [
+      "Function-word insertion",
+      "Content accuracy",
+      "Unnecessary preposition"
+    ],
+    expertEvidence: [
+      "The target says 'available online next Monday'",
+      "The student inserts 'on' before 'next Monday'",
+      "The inserted word is not present in the target sentence",
+      "The remainder of the sentence is accurately reproduced",
+      "Pronunciation remains clear",
+      "Delivery remains continuous and appropriately paced"
+    ],
+    expertDiagnosis:
+      "The primary issue is Content accuracy because the student inserts the unnecessary function word 'on' before 'next Monday'. The remainder of the sentence is accurate, with clear Pronunciation and continuous Oral Fluency. The teacher should identify the localized word insertion rather than diagnosing a delivery problem.",
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they insert the unnecessary word 'on' before 'next Monday'. The rest of the sentence is accurately reproduced with clear Pronunciation and smooth Oral Fluency. The teacher should focus on the added function word rather than diagnosing Pronunciation or Oral Fluency.",
+    coachingAdvice:
+      "Focus on reproducing the exact target wording. Pay particular attention to short function words and avoid adding unnecessary prepositions before time expressions.",
+    cefrLevel: "B2",
+    topicTitle: "Online Timetable Availability",
+    good: {
+      transcript:
+        "Your timetable will be available online next Monday.",
+      audioDuration: "7.5 seconds",
+      wordCount: 9,
+      characteristics:
+        "Accurate Content with clear Pronunciation and smooth, continuous delivery."
+    },
+    poor: {
+      transcript:
+        "Your timetable will be available online on next Monday.",
+      audioDuration: "8.5 seconds",
+      wordCount: 10,
+      characteristics:
+        "Clear and continuous delivery, but an unnecessary function word is inserted before the final time expression."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with clear Pronunciation and smooth Oral Fluency."
+    },
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "A localized function-word insertion affects Content accuracy while Pronunciation and Oral Fluency remain strong."
+    },
+    errorChecklist: [
+      {
+        id: "function-word-insertion",
+        label: "Function-word insertion",
+        keyword: "Function-word insertion"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "unnecessary-preposition",
+        label: "Unnecessary preposition",
+        keyword: "Unnecessary preposition"
+      }
+    ],
+    expertAdvice:
+      "Focus specifically on the inserted word 'on'. The target uses 'next Monday' without a preposition. Do not diagnose Pronunciation or Oral Fluency because the response remains clear and continuous."
+  },
+
+  {
+    exerciseIndex: 17,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Meaning-Changing Preposition Substitution",
+    learningObjective:
+      "Identify a meaning-changing preposition substitution in a Repeat Sentence response and distinguish it from a minor wording variation.",
+    sourceQuestionId: "57",
+    promptText:
+      "The teacher will explain the new topic after the break.",
+    promptAudioUrl:
+      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/57.mp3",
+    promptAudio:
+      "The teacher will explain the new topic after the break.",
+    studentTranscript:
+      "The teacher will explain the new topic before the break.",
+    studentResponse: {
+      audioDuration: "8.5 seconds",
+      wordCount: 10,
+      characteristics:
+        "Clear and continuous delivery, but the student changes the temporal relationship from 'after' to 'before'."
+    },
+    diagnosticErrors: [
+      "Meaning-changing substitution",
+      "Preposition substitution",
+      "Content accuracy"
+    ],
+    expertEvidence: [
+      "The target uses the time relationship 'after the break'",
+      "The student says 'before the break'",
+      "The substitution changes the timing of the teacher's action",
+      "All other target words are reproduced accurately",
+      "Pronunciation remains clear",
+      "Delivery remains continuous"
+    ],
+    expertDiagnosis:
+      "The primary issue is Content accuracy because 'before' replaces the target word 'after', reversing the intended time relationship. This is a meaning-changing substitution rather than a minor lexical variation. Pronunciation and Oral Fluency remain strong.",
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they say 'before' instead of 'after', which reverses when the teacher will explain the topic. The rest of the sentence is accurate and clearly delivered, so Pronunciation and Oral Fluency are not primary concerns.",
+    coachingAdvice:
+      "Pay close attention to relationship words such as 'before' and 'after'. These short words can carry important meaning and should be reproduced exactly.",
+    cefrLevel: "B2",
+    topicTitle: "Lecture Timing",
+    good: {
+      transcript:
+        "The teacher will explain the new topic after the break.",
+      audioDuration: "8.0 seconds",
+      wordCount: 10,
+      characteristics:
+        "Accurate Content with clear Pronunciation and smooth Oral Fluency."
+    },
+    poor: {
+      transcript:
+        "The teacher will explain the new topic before the break.",
+      audioDuration: "8.0 seconds",
+      wordCount: 10,
+      characteristics:
+        "Clear and continuous delivery, but the temporal relationship is reversed by replacing 'after' with 'before'."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with precise temporal wording, clear Pronunciation, and smooth Oral Fluency."
+    },
+    poorScore: {
+      content: 3,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "81 / 90",
+      breakdownText:
+        "A meaning-changing preposition substitution affects Content accuracy while Pronunciation and Oral Fluency remain strong."
+    },
+    errorChecklist: [
+      {
+        id: "meaning-changing-substitution",
+        label: "Meaning-changing substitution",
+        keyword: "Meaning-changing substitution"
+      },
+      {
+        id: "preposition-substitution",
+        label: "Preposition substitution",
+        keyword: "Preposition substitution"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      }
+    ],
+    expertAdvice:
+      "Prioritise Content because 'before' replaces 'after' and changes the temporal meaning of the sentence. Do not treat this as Pronunciation or Oral Fluency when the substituted word is clearly pronounced and delivery is continuous."
+  },
+
+  {
+    exerciseIndex: 18,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Phrase-Internal Pausing",
+    learningObjective:
+      "Identify a controlled but inappropriate pause inside a meaningful phrase while recognising that Content and Pronunciation remain intact.",
+    sourceQuestionId: "58",
+    promptText:
+      "Please check your email for important course updates.",
+    promptAudioUrl:
+      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/58.mp3",
+    promptAudio:
+      "Please check your email for important course updates.",
+    studentTranscript:
+      "Please check your email for important (...) course updates.",
+    studentResponse: {
+      audioDuration: "9.5 seconds",
+      wordCount: 9,
+      characteristics:
+        "All target words are present and clearly pronounced, but a noticeable silent pause interrupts the phrase 'important course updates'."
+    },
+    diagnosticErrors: [
+      "Phrase-internal pausing",
+      "Oral Fluency disruption",
+      "Interrupted thought group"
+    ],
+    expertEvidence: [
+      "All target words are reproduced",
+      "The pause occurs inside the meaningful phrase 'important course updates'",
+      "The pause interrupts otherwise continuous delivery",
+      "Pronunciation remains clear",
+      "There is no substantive Content omission or substitution"
+    ],
+    expertDiagnosis:
+      "The primary issue is Oral Fluency because the student inserts a noticeable pause inside the meaningful phrase 'important course updates'. Content is complete and Pronunciation remains clear. The teacher should identify the phrase-internal fluency disruption rather than diagnosing a Content problem.",
+    perfectCalibrationResponse:
+      "The student's main issue is Oral Fluency because there is a noticeable pause inside the phrase 'important course updates'. All target words are present and Pronunciation remains clear, so Content is complete. The teacher should focus on maintaining smoother phrase grouping.",
+    coachingAdvice:
+      "Practise maintaining forward momentum within meaningful phrases. Avoid inserting unnecessary pauses between closely connected words when the Content is already known.",
+    cefrLevel: "B2",
+    topicTitle: "Course Email Updates",
+    good: {
+      transcript:
+        "Please check your email for important course updates.",
+      audioDuration: "7.5 seconds",
+      wordCount: 9,
+      characteristics:
+        "Complete Content with clear Pronunciation and smooth phrase-level delivery."
+    },
+    poor: {
+      transcript:
+        "Please check your email for important (...) course updates.",
+      audioDuration: "9.5 seconds",
+      wordCount: 9,
+      characteristics:
+        "Complete and clearly pronounced response with a noticeable pause interrupting the phrase 'important course updates'."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Complete Content with clear Pronunciation and smooth phrase-level Oral Fluency."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 3,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "A phrase-internal pause disrupts Oral Fluency while Content and Pronunciation remain strong."
+    },
+    errorChecklist: [
+      {
+        id: "phrase-internal-pausing",
+        label: "Phrase-internal pausing",
+        keyword: "Phrase-internal pausing"
+      },
+      {
+        id: "oral-fluency-disruption",
+        label: "Oral Fluency disruption",
+        keyword: "Oral Fluency disruption"
+      },
+      {
+        id: "interrupted-thought-group",
+        label: "Interrupted thought group",
+        keyword: "Interrupted thought group"
+      }
+    ],
+    expertAdvice:
+      "Focus on the pause inside 'important course updates'. The defining problem is phrase-level Oral Fluency, not missing Content or unclear Pronunciation."
+  },
+
+  {
+    exerciseIndex: 19,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Adjective Precision",
+    learningObjective:
+      "Identify a localized adjective substitution that changes a key descriptive detail while distinguishing it from general lexical or pronunciation problems.",
+    sourceQuestionId: "59",
+    promptText:
+      "The meeting has been moved to a larger room.",
+    promptAudioUrl:
+      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/59.mp3",
+    promptAudio:
+      "The meeting has been moved to a larger room.",
+    studentTranscript:
+      "The meeting has been moved to a smaller room.",
+    studentResponse: {
+      audioDuration: "8.0 seconds",
+      wordCount: 9,
+      characteristics:
+        "Clear and continuous delivery, but the student substitutes 'smaller' for the target adjective 'larger'."
+    },
+    diagnosticErrors: [
+      "Meaning-changing adjective substitution",
+      "Content accuracy",
+      "Descriptive detail substitution"
+    ],
+    expertEvidence: [
+      "The target specifies a 'larger room'",
+      "The student says 'smaller room'",
+      "The adjective substitution reverses the intended size relationship",
+      "The remainder of the sentence is accurately reproduced",
+      "Pronunciation is clear",
+      "Delivery remains continuous and appropriately paced"
+    ],
+    expertDiagnosis:
+      "The primary issue is Content accuracy because 'smaller' replaces 'larger' and reverses the key descriptive detail about the room. The rest of the sentence is accurate, with clear Pronunciation and continuous Oral Fluency.",
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because 'smaller' replaces the target word 'larger', reversing the described size of the room. The remainder is accurately reproduced with clear Pronunciation and smooth Oral Fluency.",
+    coachingAdvice:
+      "Focus on retaining precise descriptive words. Adjectives such as 'larger' and 'smaller' can carry important meaning even when the surrounding sentence is reproduced accurately.",
+    cefrLevel: "B2",
+    topicTitle: "Meeting Room Change",
+    good: {
+      transcript:
+        "The meeting has been moved to a larger room.",
+      audioDuration: "7.5 seconds",
+      wordCount: 9,
+      characteristics:
+        "Accurate Content with clear Pronunciation and smooth Oral Fluency."
+    },
+    poor: {
+      transcript:
+        "The meeting has been moved to a smaller room.",
+      audioDuration: "7.5 seconds",
+      wordCount: 9,
+      characteristics:
+        "Clear and continuous delivery, but the key descriptive adjective is replaced with its opposite."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with precise descriptive wording, clear Pronunciation, and smooth Oral Fluency."
+    },
+    poorScore: {
+      content: 3,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "81 / 90",
+      breakdownText:
+        "A meaning-changing adjective substitution affects Content accuracy while Pronunciation and Oral Fluency remain strong."
+    },
+    errorChecklist: [
+      {
+        id: "meaning-changing-adjective",
+        label: "Meaning-changing adjective",
+        keyword: "Meaning-changing adjective"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "descriptive-detail-substitution",
+        label: "Descriptive detail substitution",
+        keyword: "Descriptive detail substitution"
+      }
+    ],
+    expertAdvice:
+      "Prioritise Content because 'smaller' replaces 'larger' and reverses the key descriptive information. Do not diagnose Pronunciation or Oral Fluency because the response is otherwise clear and continuous."
+  },
+
+  {
+    exerciseIndex: 20,
+    totalExercises: 100,
+    difficulty: "Upper Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Numerical Detail Substitution",
+    learningObjective:
+      "Identify a numerical detail substitution in a Repeat Sentence response and recognise the importance of exact quantitative information.",
+    sourceQuestionId: "60",
+    promptText:
+      "You can borrow up to five books from the library.",
+    promptAudioUrl:
+      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/60.mp3",
+    promptAudio:
+      "You can borrow up to five books from the library.",
+    studentTranscript:
+      "You can borrow up to four books from the library.",
+    studentResponse: {
+      audioDuration: "8.5 seconds",
+      wordCount: 10,
+      characteristics:
+        "Clear and continuous delivery, but the student changes the quantitative detail from 'five' to 'four'."
+    },
+    diagnosticErrors: [
+      "Numerical substitution",
+      "Quantitative detail error",
+      "Content accuracy"
+    ],
+    expertEvidence: [
+      "The target specifies the number 'five'",
+      "The student says 'four'",
+      "The numerical substitution changes the stated borrowing limit",
+      "All other target words are reproduced accurately",
+      "Pronunciation remains clear",
+      "Oral Fluency remains continuous"
+    ],
+    expertDiagnosis:
+      "The primary issue is Content accuracy because the student changes the quantitative detail from 'five' to 'four'. The altered number changes the stated borrowing limit. The remainder of the response is accurate, with clear Pronunciation and strong Oral Fluency.",
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they say 'four' instead of the target number 'five'. This changes the stated borrowing limit. The rest of the sentence is accurate, clearly pronounced, and continuously delivered.",
+    coachingAdvice:
+      "Pay close attention to numbers and other quantitative details in Repeat Sentence tasks. A single numerical substitution can change the factual content even when the rest of the sentence is accurate.",
+    cefrLevel: "B2",
+    topicTitle: "Library Borrowing Limit",
+    good: {
+      transcript:
+        "You can borrow up to five books from the library.",
+      audioDuration: "8.0 seconds",
+      wordCount: 10,
+      characteristics:
+        "Accurate quantitative Content with clear Pronunciation and smooth Oral Fluency."
+    },
+    poor: {
+      transcript:
+        "You can borrow up to four books from the library.",
+      audioDuration: "8.0 seconds",
+      wordCount: 10,
+      characteristics:
+        "Clear and continuous delivery, but the key numerical detail is changed from five to four."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate Content with precise quantitative detail, clear Pronunciation, and smooth Oral Fluency."
+    },
+    poorScore: {
+      content: 3,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "81 / 90",
+      breakdownText:
+        "A numerical substitution affects Content accuracy while Pronunciation and Oral Fluency remain strong."
+    },
+    errorChecklist: [
+      {
+        id: "numerical-substitution",
+        label: "Numerical substitution",
+        keyword: "Numerical substitution"
+      },
+      {
+        id: "quantitative-detail-error",
+        label: "Quantitative detail error",
+        keyword: "Quantitative detail error"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      }
+    ],
+    expertAdvice:
+      "Prioritise Content because 'four' replaces the target number 'five' and changes the stated borrowing limit. Do not diagnose Pronunciation or Oral Fluency when the response is clearly pronounced and continuously delivered."
+  },
+  
 ] as const;

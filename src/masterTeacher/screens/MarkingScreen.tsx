@@ -376,13 +376,13 @@ export default function MarkingScreen({
       : 0;
 
     // Calibration must include genuine teacher-written reasoning.
-    // Checklist selections are diagnosis data only and are deliberately not
-    // copied into the feedback field.
+    // Diagnostic Focus prompts are listening clues only and are deliberately
+    // not copied into the feedback field.
     if (!feedback) {
       setAssessmentWarning({
         title: "Please write your assessment",
         message:
-          "Checklist selections alone are not enough for calibration. Your written assessment must explain what you heard and why it matters.",
+          "Your assessment must explain what you heard and why it matters. The Diagnostic Focus is only a listening guide.",
         tip:
           "Don't just list the error names. Describe the evidence you heard and use the relevant PTE terminology.",
       });
@@ -564,13 +564,10 @@ export default function MarkingScreen({
                 </span>
 
                 <p className="text-slate-300">
-                  Listen to the student response and identify the meaningful
-                  fluency problems you can support with evidence. Select the
-                  applicable items in the <b>Error Tracker Checklist</b>, then
-                  write your own assessment explaining what you heard and why
-                  it matters. <b>Checklist selections do not count as written evidence.</b>{" "}
-                  If no meaningful error is present, leave the checklist
-                  unselected and explain why.
+                  Listen to the student response and decide what actually
+                  happened. Use the <b>Diagnostic Focus</b> as a listening guide,
+                  then write your own assessment explaining what you heard,
+                  why it matters, and what the student should improve.
                 </p>
               </div>
 
@@ -717,11 +714,9 @@ export default function MarkingScreen({
                   PTE Exam Topic
                 </span>
 
-                {currentExercise?.cefrLevel && (
-                  <span
-                    className={`px-2 py-0.5 rounded text-[10px] font-extrabold shadow-xs shrink-0 ${currentExercise.cefrLevel.badgeColor}`}
-                  >
-                    {currentExercise.cefrLevel.name}
+                {(currentExercise as typeof currentExercise & { difficulty?: string })?.difficulty && (
+                  <span className="px-2 py-0.5 rounded text-[10px] font-extrabold shadow-xs shrink-0 bg-emerald-100 text-emerald-700 border border-emerald-200">
+                    Calibration: {(currentExercise as typeof currentExercise & { difficulty?: string }).difficulty}
                   </span>
                 )}
               </div>

@@ -181,42 +181,15 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
     setExerciseIndex(randomExercise.exerciseIndex);
   };
 
-  // Toggle Error Tracker Checkbox
-  const toggleErrorCheckbox = (errorId: string, keyword?: string) => {
+  // Toggle Error Tracker Checkbox.
+  // Diagnostic selections are structured hypotheses only and must never
+  // auto-populate or edit the teacher's independently written assessment.
+  const toggleErrorCheckbox = (errorId: string, _keyword?: string) => {
     setCheckedErrorIds((prev: string[]) => {
       const exists = prev.includes(errorId);
-      const updated = exists
+      return exists
         ? prev.filter((id) => id !== errorId)
         : [...prev, errorId];
-
-      if (!exists && keyword) {
-        setTeacherFeedbackText((currentText: string) => {
-          const trimmed = currentText.trim();
-
-          if (trimmed.toLowerCase().includes(keyword.toLowerCase())) {
-            return currentText;
-          }
-
-          return trimmed
-            ? `${trimmed}\n- Identified: ${keyword}`
-            : `- Identified: ${keyword}`;
-        });
-      } else if (exists && keyword) {
-        setTeacherFeedbackText((currentText: string) => {
-          const targetStr = `- Identified: ${keyword}`;
-
-          if (currentText.includes(targetStr)) {
-            return currentText
-              .replace(targetStr, "")
-              .replace(/\n\n+/g, "\n")
-              .trim();
-          }
-
-          return currentText;
-        });
-      }
-
-      return updated;
     });
   };
 
@@ -259,7 +232,14 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
       topicTitle: String(
   result.topicTitle ?? currentExercise?.topicTitle ?? ""
 ),
-cefrLevel: String(currentExercise?.cefrLevel?.level ?? ""),
+cefrLevel:
+  typeof currentExercise?.cefrLevel === "object" &&
+  currentExercise?.cefrLevel !== null &&
+  "level" in currentExercise.cefrLevel
+    ? String(
+        (currentExercise.cefrLevel as { level?: unknown }).level ?? ""
+      )
+    : String(currentExercise?.cefrLevel ?? ""),
       responseMode: String(
         result.responseMode ?? activeResponseMode
       ),

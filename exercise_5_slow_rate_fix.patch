@@ -1,0 +1,109 @@
+--- a/src/masterTeacher/constants/exerciseBank.ts
++++ b/src/masterTeacher/constants/exerciseBank.ts
+@@ -315,27 +315,27 @@
+     promptAudio:
+       "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden. I like the living room because it has a large window. My bedroom is next to the bathroom, and my family often eats together in the kitchen. There is also a small table outside where we sit on warm days. Our home is simple, but it feels calm and friendly.",
+     studentTranscript:
+-      "My home... is... small but comfortable... with a kitchen... two bedrooms... and a quiet garden. I like the living room... because it has a large window. My bedroom... is next to the bathroom... and my family often eats together... in the kitchen. There is also a small table outside... where we sit on warm days. Our home is simple... but it feels calm and friendly.",
+-    studentResponse: {
+-      audioDuration: "48.0 seconds",
++      "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden. I like the living room because it has a large window. My bedroom is next to the bathroom, and my family often eats together in the kitchen. There is also a small table outside where we sit on warm days. Our home is simple, but it feels calm and friendly.",
++    studentResponse: {
++      audioDuration: "45.0 seconds",
+       wordCount: 65,
+       characteristics:
+-        "The words are clear and complete, but long gaps occur throughout the passage, making the overall rate excessively slow."
++        "The student articulates the words clearly but at a deliberately slow overall rate, with only normal sentence pauses and no filler-based hesitation."
+     },
+     diagnosticErrors: ["Speech rate too slow", "Excessive pausing"],
+     expertEvidence: [
+-      "Long gaps occur repeatedly throughout the passage",
+-      "There are no significant filler words",
+-      "There is no major repetition or restarting",
+-      "The student produces the home-related vocabulary clearly",
+-      "The overall rate is substantially slower than the controlled natural version"
+-    ],
+-    expertDiagnosis:
+-      "The dominant problem is an excessively slow speech rate. The student can produce the vocabulary accurately, but repeated long gaps prevent the description from sounding fluent.",
+-    perfectCalibrationResponse:
+-      "The student's main oral fluency problem is an excessively slow speech rate. The words are generally clear and accurate, but repeated long gaps make the delivery substantially slower than a controlled natural reading. The teacher should distinguish the overall rate problem from filler-based hesitation or word-retrieval difficulty.",
+-    coachingAdvice:
+-      "Use short timed readings and gradually reduce the gaps between phrases. The goal is continuous, comfortable speech rather than rushing or pronouncing every word in isolation.",
++      "The full passage is delivered noticeably more slowly than the controlled natural version",
++      "The words are articulated clearly and completely throughout",
++      "Pauses are mostly limited to normal sentence boundaries and are secondary to the slow rate",
++      "There are no significant filler words, repetition or restarting",
++      "The primary issue is sustained slow delivery rather than isolated hesitation"
++    ],
++    expertDiagnosis:
++      "The dominant problem is an excessively slow speech rate. The student produces the home-related vocabulary clearly, but the entire passage is delivered at a noticeably reduced pace. Any pauses are secondary and should not distract from the overall rate diagnosis.",
++    perfectCalibrationResponse:
++      "The student's main oral fluency problem is an excessively slow speech rate. The words are generally clear and accurate, but the entire passage is delivered noticeably more slowly than a controlled natural reading. Pauses are present but are not the main issue; the teacher should distinguish sustained slow rate from filler-based hesitation or word-retrieval difficulty.",
++    coachingAdvice:
++      "Use short timed repeated readings and gradually increase the speaking rate while keeping the words clear. The goal is continuous, comfortable speech rather than rushing or relying on long pauses between phrases.",
+     cefrLevel: "A1",
+     topicTitle: "My Home & Neighborhood",
+     good: {
+@@ -348,11 +348,12 @@
+     },
+     poor: {
+       transcript:
+-        "My home... is... small but comfortable... with a kitchen... two bedrooms... and a quiet garden. I like the living room... because it has a large window. My bedroom... is next to the bathroom... and my family often eats together... in the kitchen. There is also a small table outside... where we sit on warm days. Our home is simple... but it feels calm and friendly.",
+-      audioDuration: "48.0 seconds",
++        "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden. I like the living room because it has a large window. My bedroom is next to the bathroom, and my family often eats together in the kitchen. There is also a small table outside where we sit on warm days. Our home is simple, but it feels calm and friendly.",
++      audioDuration: "45.0 seconds",
+       wordCount: 65,
+-      characteristics:
+-        "Excessively slow delivery caused by repeated long gaps throughout the passage."
++      speechRate: 0.72,
++      characteristics:
++        "The words are clear and complete, but the entire passage is spoken noticeably more slowly than the controlled version. Pauses remain short and secondary to the slow overall rate."
+     },
+     goodScore: {
+       content: 5,
+@@ -368,7 +369,7 @@
+       pronunciation: 5,
+       overall: "69 / 90",
+       breakdownText:
+-        "Excessively slow rate and frequent long pauses reduce natural fluency."
++        "Excessively slow overall rate reduces natural fluency; any pauses are secondary."
+     },
+     errorChecklist: [
+       { id: "speech-rate-too-slow", label: "Speech rate too slow", keyword: "Speech rate too slow" },
+--- a/src/masterTeacher/screens/MarkingScreen.tsx
++++ b/src/masterTeacher/screens/MarkingScreen.tsx
+@@ -70,7 +70,7 @@
+     };
+   }, []);
+ 
+-  const handlePlayAudio = (text: string, id: string) => {
++  const handlePlayAudio = (text: string, id: string, speechRate = 0.95) => {
+     if (!("speechSynthesis" in window)) return;
+ 
+     if (isPlayingAudio && currentPlayingId === id) {
+@@ -137,7 +137,7 @@
+       }
+ 
+       const utterance = new SpeechSynthesisUtterance(segments[segmentIndex]);
+-      utterance.rate = 0.95;
++      utterance.rate = speechRate;
+       utterance.pitch = 1.0;
+ 
+       utterance.onend = () => {
+@@ -673,7 +673,15 @@
+                 onClick={() => {
+                   const sampleText = currentSample.transcript || currentSample.text || (currentSample.answers ? currentSample.answers.join(", ") : "") || currentSample.sequence;
+                   if (sampleText) {
+-                    handlePlayAudio(sampleText, `sample-${selectedQuestionId}-${exerciseIndex}-${activeResponseMode}`);
++                    const sampleSpeechRate =
++                      typeof (currentSample as { speechRate?: unknown })?.speechRate === "number"
++                        ? (currentSample as { speechRate: number }).speechRate
++                        : 0.95;
++                    handlePlayAudio(
++                      sampleText,
++                      `sample-${selectedQuestionId}-${exerciseIndex}-${activeResponseMode}`,
++                      sampleSpeechRate
++                    );
+                   }
+                 }}
+                 className={`calibration-audio-button calibration-response-audio-button px-2.5 py-1 rounded-lg text-[10px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
