@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useFeedback } from "../contexts/FeedbackContext";
-import { COMMON_PTE_TOPICS } from "../constants/exerciseBank";
+import { COMMON_PTE_TOPICS, getExercise } from "../constants/exerciseBank";
 import "./calibrationBench.css";
 import {
   Target,
@@ -376,13 +376,13 @@ export default function MarkingScreen({
       : 0;
 
     // Calibration must include genuine teacher-written reasoning.
-    // Diagnostic Focus prompts are listening clues only and are deliberately
-    // not copied into the feedback field.
+    // Checklist selections are diagnosis data only and are deliberately not
+    // copied into the feedback field.
     if (!feedback) {
       setAssessmentWarning({
         title: "Please write your assessment",
         message:
-          "Your assessment must explain what you heard and why it matters. The Diagnostic Focus is only a listening guide.",
+          "Checklist selections alone are not enough for calibration. Your written assessment must explain what you heard and why it matters.",
         tip:
           "Don't just list the error names. Describe the evidence you heard and use the relevant PTE terminology.",
       });
@@ -564,10 +564,13 @@ export default function MarkingScreen({
                 </span>
 
                 <p className="text-slate-300">
-                  Listen to the student response and decide what actually
-                  happened. Use the <b>Diagnostic Focus</b> as a listening guide,
-                  then write your own assessment explaining what you heard,
-                  why it matters, and what the student should improve.
+                  Listen to the student response and identify the meaningful
+                  fluency problems you can support with evidence. Select the
+                  applicable items in the <b>Error Tracker Checklist</b>, then
+                  write your own assessment explaining what you heard and why
+                  it matters. <b>Checklist selections do not count as written evidence.</b>{" "}
+                  If no meaningful error is present, leave the checklist
+                  unselected and explain why.
                 </p>
               </div>
 
@@ -745,7 +748,7 @@ export default function MarkingScreen({
                       (num) => (
                         <option key={num} value={num}>
                           {isRepeatSentenceCalibration
-                            ? `${num}/100 [${calibrationExerciseMetadata?.cefrLevel?.level || "B2"}] - ${currentExercise.topicTitle}`
+                            ? `${num}/100 [A1] - ${getExercise(currentQuestion, num).topicTitle}`
                             : `${num}/100 [A1] - ${COMMON_PTE_TOPICS[num - 1]}`}
                         </option>
                       )
@@ -756,7 +759,9 @@ export default function MarkingScreen({
                     {Array.from({ length: 20 }, (_, i) => i + 21).map(
                       (num) => (
                         <option key={num} value={num}>
-                          {num}/100 [A2] - {COMMON_PTE_TOPICS[num - 1]}
+                          {isRepeatSentenceCalibration
+                            ? `${num}/100 [A2] - ${getExercise(currentQuestion, num).topicTitle}`
+                            : `${num}/100 [A2] - ${COMMON_PTE_TOPICS[num - 1]}`}
                         </option>
                       )
                     )}
@@ -766,7 +771,9 @@ export default function MarkingScreen({
                     {Array.from({ length: 20 }, (_, i) => i + 41).map(
                       (num) => (
                         <option key={num} value={num}>
-                          {num}/100 [B1] - {COMMON_PTE_TOPICS[num - 1]}
+                          {isRepeatSentenceCalibration
+                            ? `${num}/100 [B1] - ${getExercise(currentQuestion, num).topicTitle}`
+                            : `${num}/100 [B1] - ${COMMON_PTE_TOPICS[num - 1]}`}
                         </option>
                       )
                     )}
@@ -776,7 +783,9 @@ export default function MarkingScreen({
                     {Array.from({ length: 20 }, (_, i) => i + 61).map(
                       (num) => (
                         <option key={num} value={num}>
-                          {num}/100 [B2] - {COMMON_PTE_TOPICS[num - 1]}
+                          {isRepeatSentenceCalibration
+                            ? `${num}/100 [B2] - ${getExercise(currentQuestion, num).topicTitle}`
+                            : `${num}/100 [B2] - ${COMMON_PTE_TOPICS[num - 1]}`}
                         </option>
                       )
                     )}
@@ -786,7 +795,9 @@ export default function MarkingScreen({
                     {Array.from({ length: 10 }, (_, i) => i + 81).map(
                       (num) => (
                         <option key={num} value={num}>
-                          {num}/100 [C1] - {COMMON_PTE_TOPICS[num - 1]}
+                          {isRepeatSentenceCalibration
+                            ? `${num}/100 [C1] - ${getExercise(currentQuestion, num).topicTitle}`
+                            : `${num}/100 [C1] - ${COMMON_PTE_TOPICS[num - 1]}`}
                         </option>
                       )
                     )}
@@ -796,7 +807,9 @@ export default function MarkingScreen({
                     {Array.from({ length: 10 }, (_, i) => i + 91).map(
                       (num) => (
                         <option key={num} value={num}>
-                          {num}/100 [C2] - {COMMON_PTE_TOPICS[num - 1]}
+                          {isRepeatSentenceCalibration
+                            ? `${num}/100 [C2] - ${getExercise(currentQuestion, num).topicTitle}`
+                            : `${num}/100 [C2] - ${COMMON_PTE_TOPICS[num - 1]}`}
                         </option>
                       )
                     )}

@@ -48,6 +48,7 @@ function evaluateFeedbackPlugin(apiKey) {
                 errorChecklist,
                 expertFeedbackObj,
                 expertAdvice,
+                perfectCalibrationResponse,
               } = JSON.parse(body || "{}");
 
               res.setHeader("Content-Type", "application/json");
@@ -96,6 +97,9 @@ Official Rubric Analysis: "${
                 expertFeedbackObj?.breakdownText || "N/A"
               }"
 Official Examiner Guidance: "${expertAdvice || "N/A"}"
+Canonical Full-Credit Calibration Response: "${
+                perfectCalibrationResponse || "N/A"
+              }"
 
 === TEACHER'S SUBMITTED ASSESSMENT ===
 Teacher Feedback Notes: "${teacherInput || "N/A"}"
@@ -162,6 +166,7 @@ HARD SCORING GUARDRAILS:
 - Do not reward information that appears only in Diagnostic Focus cards, checklist data, or other structured fields.
 - Treat semantically equivalent wording as valid when the meaning is clear. The teacher does not need to copy a prompt label word-for-word.
 - For an exercise with no expected major error, a high score requires the teacher to explain why the response is acceptable rather than simply saying there is no error.
+- The Canonical Full-Credit Calibration Response is the authored benchmark for this exercise. If the teacher's assessment fully reproduces the same diagnosis, evidence, reasoning, distinctions, and professional guidance using the same or semantically equivalent wording, treat it as full-credit calibration performance.
 
 === EVALUATION INSTRUCTIONS ===
 1. Evaluate the teacher's written assessment against the actual student response and the expert benchmark.
@@ -497,6 +502,30 @@ Return a valid JSON object matching the requested schema.`;
                   );
               }
 
+              const normalizeForCanonicalMatch = (value) =>
+                String(value || "")
+                  .toLowerCase()
+                  .replace(/[^a-z0-9]+/g, " ")
+                  .replace(/\s+/g, " ")
+                  .trim();
+
+              const normalizedTeacherText =
+                normalizeForCanonicalMatch(
+                  safeTeacherText
+                );
+
+              const normalizedPerfectCalibrationResponse =
+                normalizeForCanonicalMatch(
+                  perfectCalibrationResponse
+                );
+
+              const isExactCanonicalCalibrationResponse =
+                Boolean(
+                  normalizedPerfectCalibrationResponse
+                ) &&
+                normalizedTeacherText ===
+                  normalizedPerfectCalibrationResponse;
+
               const hasEvidenceLanguage =
                 /\b(because|since|when|said|says|heard|replaced|added|omitted|changed|pronounced|pause|paused|stumbled|repeated|mispronounced|missing|incorrect|instead of|rather than)\b/i.test(
                   safeTeacherText
@@ -515,6 +544,14 @@ Return a valid JSON object matching the requested schema.`;
                     guardedPercentage,
                     60
                   );
+              }
+
+              // The authored canonical calibration response is a deterministic
+              // full-credit benchmark. This preserves a reliable 100% result
+              // when the teacher copies the official calibration answer exactly
+              // (ignoring case, punctuation, and whitespace differences).
+              if (isExactCanonicalCalibrationResponse) {
+                guardedPercentage = 100;
               }
 
               // Keep the returned component scores consistent with the final

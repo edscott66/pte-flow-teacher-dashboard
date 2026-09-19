@@ -398,6 +398,7 @@ cefrLevel:
           errorChecklist: activeChecklist,
           expertFeedbackObj: targetExpertScore,
           expertAdvice: currentExercise.expertAdvice,
+          perfectCalibrationResponse,
         }),
       });
 
