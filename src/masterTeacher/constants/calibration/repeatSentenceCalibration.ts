@@ -18,41 +18,43 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     totalExercises: 100,
     difficulty: "Intermediate+",
     trainingSkill: "Oral Fluency",
-    diagnosticArea: "Oral Fluency — Phrase-Internal Pausing",
+    diagnosticArea: "Oral Fluency — Word Repetition",
     learningObjective:
-      "Distinguish accurate Content from a meaningful Fluency disruption, identify the exact location of the disruption, and give focused coaching.",
+      "Identify a brief word repetition in an otherwise accurate Repeat Sentence response and distinguish the fluency disruption from a genuine Content omission or substitution.",
     sourceQuestionId: "38",
     promptText:
       "The speaker highlighted the need for greater collaboration between industry and academia.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/38.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-001-prompt-achernar.mp3",
     promptAudio:
       "The speaker highlighted the need for greater collaboration between industry and academia.",
     studentTranscript:
-      "The speaker highlighted the need for greater collaboration between industry... ... and academia.",
+      "The speaker highlighted the need for greater greater collaboration between industry and academia.",
     studentResponse: {
       audioDuration: "Controlled calibration response",
-      wordCount: 11,
+      wordCount: 12,
       characteristics:
-        "All target words are reproduced accurately. One substantial pause interrupts the natural phrase 'between industry and academia'. Pronunciation remains clear.",
+        "All target words are reproduced, but the word 'greater' is repeated once, creating a brief fluency disruption. Pronunciation remains clear.",
     },
     diagnosticErrors: [
-      "Phrase-internal pause",
-      "Interrupted phrase grouping",
+      "Word repetition",
+      "Self-repetition",
+      "Fluency disruption",
     ],
     expertEvidence: [
-      "All target words are present",
-      "There is no Content omission or substitution",
-      "The pause occurs after 'industry' inside the phrase 'between industry and academia'",
+      "All target words from the sentence are present",
+      "The word 'greater' is produced twice",
+      "The repeated word creates a brief disruption in continuous delivery",
+      "There is no meaningful target-word omission or substitution",
       "Pronunciation remains clear",
-      "The evidence supports Oral Fluency as the primary diagnosis",
+      "The primary issue is Oral Fluency",
     ],
     expertDiagnosis:
-      "The primary diagnosis is Oral Fluency. The student reproduces the complete sentence accurately but introduces a substantial pause inside the phrase 'between industry and academia'. There is no evidence of a Content or Pronunciation problem.",
+      "The primary diagnosis is Oral Fluency. The student reproduces all target words but repeats 'greater' once, creating a brief self-repetition. Content remains substantially complete and Pronunciation remains clear.",
     perfectCalibrationResponse:
-      "Primary diagnosis: Oral Fluency. Content is complete because all target words are reproduced. The important evidence is the substantial phrase-internal pause after 'industry'. Pronunciation remains clear, so Content omission and Pronunciation should not be diagnosed from this response.",
+      "Primary diagnosis: Oral Fluency. All target words are present, but the student repeats 'greater', creating a brief self-repetition. Content is substantially intact and Pronunciation remains clear, so the teacher should focus on the fluency disruption rather than inventing a Content error.",
     coachingAdvice:
-      "Acknowledge the accurate reproduction first. Practise 'between industry and academia' as one connected thought group, then repeat the full sentence while keeping that phrase together.",
+      "Practise the phrase 'the need for greater collaboration' at a steady pace. Encourage the student to move forward after 'greater' without repeating the word.",
     cefrLevel: {
       level: "B2",
       name: "B2 Upper Int",
@@ -69,15 +71,15 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       audioDuration: "Controlled benchmark delivery",
       wordCount: 11,
       characteristics:
-        "Accurate reproduction with clear pronunciation, natural phrase grouping and continuous delivery.",
+        "Accurate reproduction with clear pronunciation and natural continuous delivery.",
     },
     poor: {
       transcript:
-        "The speaker highlighted the need for greater collaboration between industry... ... and academia.",
+        "The speaker highlighted the need for greater greater collaboration between industry and academia.",
       audioDuration: "Controlled calibration response",
-      wordCount: 11,
+      wordCount: 12,
       characteristics:
-        "All target words are reproduced accurately, but a substantial pause interrupts the phrase 'between industry and academia'.",
+        "All target words are present, but 'greater' is repeated once, creating a brief fluency disruption.",
     },
     goodScore: {
       content: 5,
@@ -93,24 +95,28 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       pronunciation: 5,
       overall: "82 / 90",
       breakdownText:
-        "Content is complete and pronunciation is clear. Oral Fluency is affected by a substantial pause inside the phrase 'between industry and academia'.",
+        "Content remains substantially complete, but a brief word repetition disrupts Oral Fluency.",
     },
     errorChecklist: [
       {
-        id: "phrase-internal-pause",
-        label: "Phrase-internal pause",
-        keyword: "Phrase-internal pause",
+        id: "word-repetition",
+        label: "Word repetition",
+        keyword: "Word repetition",
       },
       {
-        id: "interrupted-phrase-grouping",
-        label: "Interrupted phrase grouping",
-        keyword: "Interrupted phrase grouping",
+        id: "self-repetition",
+        label: "Self-repetition",
+        keyword: "Self-repetition",
+      },
+      {
+        id: "fluency-disruption",
+        label: "Fluency disruption",
+        keyword: "Fluency disruption",
       },
     ],
     expertAdvice:
-      "Recognise that all target words are present. Focus on the substantial pause inside 'between industry and academia'. Do not diagnose Content omission or Pronunciation without additional evidence.",
+      "Prioritise Oral Fluency because all target words are present and the only clear disruption is the repeated word 'greater'. Do not diagnose a Content omission or substitution.",
   },
-
   {
     exerciseIndex: 2,
     totalExercises: 100,
@@ -123,7 +129,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The study found a strong correlation between sleep quality and academic performance.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/25.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-002-prompt-orus.mp3",
     promptAudio:
       "The study found a strong correlation between sleep quality and academic performance.",
     studentTranscript:
@@ -226,7 +232,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Researchers have identified several variables that may influence the outcome of the study.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/32.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-003-prompt-leda.mp3",
     promptAudio:
       "Researchers have identified several variables that may influence the outcome of the study.",
     studentTranscript:
@@ -329,7 +335,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The research team conducted a series of experiments to test the reliability of the new method.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/41.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-004-prompt-puck.mp3",
     promptAudio:
       "The research team conducted a series of experiments to test the reliability of the new method.",
     studentTranscript:
@@ -425,43 +431,43 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     totalExercises: 100,
     difficulty: "Intermediate+",
     trainingSkill: "Content",
-    diagnosticArea: "Content + Oral Fluency — Diagnostic Prioritisation",
+    diagnosticArea: "Content — Lexical Substitution",
     learningObjective:
-      "Identify the primary problem when a response contains both a content omission and a fluency disruption, and avoid producing an unfocused list of every observable error.",
+      "Identify a meaning-changing lexical substitution in an otherwise fluent Repeat Sentence response and distinguish it from Pronunciation or Oral Fluency problems.",
     sourceQuestionId: "44",
     promptText:
       "The professor encouraged students to think critically about the ethical implications of their work.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/44.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-005-prompt-sulafat.mp3",
     promptAudio:
       "The professor encouraged students to think critically about the ethical implications of their work.",
     studentTranscript:
-      "The professor encouraged students to think... ... about the ethical implications of their work.",
+      "The professor encouraged students to think critically about the practical implications of their work.",
     studentResponse: {
       audioDuration: "Controlled calibration response",
       wordCount: 14,
       characteristics:
-        "The student omits the word 'critically' and also inserts a substantial pause after 'think'. Pronunciation is otherwise clear.",
+        "The student clearly substitutes 'practical' for the target word 'ethical'. The response is otherwise fluent and clearly pronounced.",
     },
     diagnosticErrors: [
-      "Meaningful content omission",
-      "Phrase-internal pause",
-      "Diagnostic prioritisation",
+      "Lexical substitution",
+      "Meaning-changing substitution",
+      "Content accuracy",
     ],
     expertEvidence: [
-      "The target word 'critically' is absent",
-      "The omission changes the intended instruction: students are encouraged to think, but the specific manner of thinking is lost",
-      "A substantial pause occurs after 'think'",
-      "The pause is audible but the sentence remains understandable",
-      "Pronunciation is otherwise clear",
-      "The teacher should prioritise the Content omission before the secondary Fluency issue because the missing word changes the instructional meaning",
+      "The target word is 'ethical'",
+      "The student says 'practical' instead",
+      "'Practical' is a different lexical item, not a pronunciation variation",
+      "The substitution changes the intended meaning of the implications being discussed",
+      "The remainder of the sentence is reproduced accurately",
+      "Delivery remains continuous and Pronunciation remains clear",
     ],
     expertDiagnosis:
-      "The primary diagnosis is Content, with a secondary Oral Fluency issue. The omission of 'critically' removes a meaningful part of the professor's instruction. The pause after 'think' is also observable, but it should not distract the teacher from the more important content loss.",
+      "The primary diagnosis is Content. The student substitutes 'practical' for 'ethical', producing a different adjective that changes the intended meaning. The response is otherwise fluent and clearly pronounced, so Pronunciation and Oral Fluency are not the main problems.",
     perfectCalibrationResponse:
-      "Primary diagnosis: Content, secondary Oral Fluency. The student omits 'critically', which changes the meaning of the instruction by removing the required manner of thinking. There is also a substantial pause after 'think', but the content omission should receive priority because it affects what the student actually reproduced. Pronunciation is not the issue.",
+      "Primary diagnosis: Content. The student says 'practical' instead of the target word 'ethical'. This is a lexical substitution because 'practical' is a different word with a different meaning. The rest of the sentence is accurate and fluent, so Pronunciation and Oral Fluency are not the primary issues.",
     coachingAdvice:
-      "Correct the missing word first by practising 'to think critically about the ethical implications'. Then work on delivering that complete phrase without the pause between 'think' and 'about'. Keep the feedback focused rather than presenting every issue as equally important.",
+      "Contrast 'ethical implications' with the student's substituted phrase and practise retaining the exact target adjective. Emphasise that a clearly pronounced different word is a Content problem, not a Pronunciation problem.",
     cefrLevel: {
       level: "B2",
       name: "B2 Upper Int",
@@ -476,17 +482,17 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       transcript:
         "The professor encouraged students to think critically about the ethical implications of their work.",
       audioDuration: "Controlled benchmark delivery",
-      wordCount: 15,
+      wordCount: 14,
       characteristics:
-        "Complete reproduction with accurate Content, clear Pronunciation and natural Oral Fluency.",
+        "Accurate academic vocabulary with clear Pronunciation and natural Oral Fluency.",
     },
     poor: {
       transcript:
-        "The professor encouraged students to think... ... about the ethical implications of their work.",
+        "The professor encouraged students to think critically about the practical implications of their work.",
       audioDuration: "Controlled calibration response",
       wordCount: 14,
       characteristics:
-        "The word 'critically' is omitted and a substantial pause occurs after 'think'. Pronunciation remains clear.",
+        "The student substitutes 'practical' for 'ethical' while maintaining otherwise clear and fluent delivery.",
     },
     goodScore: {
       content: 5,
@@ -494,37 +500,36 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       pronunciation: 5,
       overall: "90 / 90",
       breakdownText:
-        "Complete Content with clear Pronunciation and natural Oral Fluency.",
+        "Accurate Content with clear Pronunciation and natural Oral Fluency.",
     },
     poorScore: {
       content: 3,
-      fluency: 4,
+      fluency: 5,
       pronunciation: 5,
-      overall: "76 / 90",
+      overall: "78 / 90",
       breakdownText:
-        "Omission of 'critically' affects Content, while a secondary phrase-internal pause affects Oral Fluency. Pronunciation remains clear.",
+        "A meaning-changing lexical substitution affects Content while Fluency and Pronunciation remain clear.",
     },
     errorChecklist: [
       {
-        id: "meaningful-content-omission",
-        label: "Meaningful content omission",
-        keyword: "Meaningful content omission",
+        id: "lexical-substitution",
+        label: "Lexical substitution",
+        keyword: "Lexical substitution",
       },
       {
-        id: "phrase-internal-pause",
-        label: "Phrase-internal pause",
-        keyword: "Phrase-internal pause",
+        id: "meaning-changing-substitution",
+        label: "Meaning-changing substitution",
+        keyword: "Meaning-changing substitution",
       },
       {
-        id: "diagnostic-prioritisation",
-        label: "Diagnostic prioritisation",
-        keyword: "Diagnostic prioritisation",
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy",
       },
     ],
     expertAdvice:
-      "This case deliberately contains two observable problems. The teacher should prioritise the missing word 'critically' because it changes the instructional meaning. The pause is secondary. Avoid turning the feedback into an unfocused list of equal-weight errors.",
+      "Listen for the actual lexical item before diagnosing Pronunciation. 'Practical' is a different word from 'ethical', so the primary teaching issue is Content accuracy.",
   },
-
   {
     exerciseIndex: 6,
     totalExercises: 100,
@@ -537,7 +542,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The university is committed to creating an inclusive environment for all members of the community.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/46.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-006-prompt-iapetus.mp3",
     promptAudio:
       "The university is committed to creating an inclusive environment for all members of the community.",
     studentTranscript:
@@ -633,44 +638,44 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     exerciseIndex: 7,
     totalExercises: 100,
     difficulty: "Intermediate+",
-    trainingSkill: "Content + Oral Fluency",
-    diagnosticArea: "Content + Oral Fluency — Priority of Meaningful Omission",
+    trainingSkill: "Content",
+    diagnosticArea: "Content — Meaningful Word Omission",
     learningObjective:
-      "Prioritise a meaningful lexical omission when the response also contains a secondary hesitation, rather than treating every observable feature as equally important.",
+      "Identify a meaningful lexical omission in an otherwise clear Repeat Sentence response and explain why the missing word reduces the specificity of the message.",
     sourceQuestionId: "47",
     promptText:
       "The workshop will introduce practical strategies for managing time more effectively.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/47.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-007-prompt-achernar.mp3",
     promptAudio:
       "The workshop will introduce practical strategies for managing time more effectively.",
     studentTranscript:
-      "The workshop will introduce strategies... ... for managing time more effectively.",
+      "The workshop will introduce strategies for managing time more effectively.",
     studentResponse: {
       audioDuration: "Controlled calibration response",
       wordCount: 11,
       characteristics:
-        "The student omits the adjective 'practical' and also pauses briefly before 'for'. The rest of the sentence is clearly reproduced.",
+        "The student clearly omits the adjective 'practical'. The remainder of the sentence is reproduced continuously and clearly.",
     },
     diagnosticErrors: [
       "Meaningful content omission",
-      "Secondary hesitation",
-      "Diagnostic prioritisation",
+      "Loss of specificity",
+      "Content accuracy",
     ],
     expertEvidence: [
-      "The word 'practical' is omitted",
-      "The remaining noun phrase 'strategies for managing time' is reproduced",
-      "The omission reduces the specificity of what kind of strategies the workshop will introduce",
-      "A pause occurs after 'strategies'",
-      "The pause is secondary to the missing content word",
+      "The target word 'practical' is absent",
+      "The remaining sentence structure is accurately reproduced",
+      "The omission reduces the specificity of the strategies being introduced",
+      "Delivery is continuous",
       "Pronunciation remains clear",
+      "There is no primary Oral Fluency or Pronunciation problem",
     ],
     expertDiagnosis:
-      "The primary diagnosis is Content, with a secondary Oral Fluency issue. The omission of 'practical' reduces the specificity of the statement, while the pause after 'strategies' is a lesser delivery issue. The teacher should prioritise the meaningful content omission rather than treating both issues as equal.",
+      "The primary diagnosis is Content. The student omits 'practical', which reduces the specificity of the statement by removing the description of the strategies. The rest of the response is clearly and continuously delivered.",
     perfectCalibrationResponse:
-      "Primary diagnosis: Content, secondary Oral Fluency. The student omits 'practical', which reduces the specificity of the statement by removing the description of the strategies. There is also a brief pause after 'strategies', but this is secondary. Pronunciation remains clear.",
+      "Primary diagnosis: Content. The student omits 'practical', which reduces the specificity of the statement by removing the description of the strategies. The remaining sentence is reproduced accurately, while Pronunciation and Oral Fluency remain clear.",
     coachingAdvice:
-      "First practise retaining the phrase 'practical strategies'. Then practise connecting 'practical strategies for managing time' without the pause after 'strategies'. Keep the feedback focused on the main Content issue.",
+      "Practise retaining the phrase 'practical strategies' as one unit. Then repeat the complete sentence while keeping the descriptive word 'practical'.",
     cefrLevel: {
       level: "B2",
       name: "B2 Upper Int",
@@ -691,11 +696,11 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     },
     poor: {
       transcript:
-        "The workshop will introduce strategies... ... for managing time more effectively.",
+        "The workshop will introduce strategies for managing time more effectively.",
       audioDuration: "Controlled calibration response",
       wordCount: 11,
       characteristics:
-        "The adjective 'practical' is omitted and a secondary pause occurs after 'strategies'.",
+        "The adjective 'practical' is omitted while the remainder of the sentence remains clear and fluent.",
     },
     goodScore: {
       content: 5,
@@ -707,11 +712,11 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     },
     poorScore: {
       content: 3,
-      fluency: 4,
+      fluency: 5,
       pronunciation: 5,
-      overall: "76 / 90",
+      overall: "78 / 90",
       breakdownText:
-        "Omission of 'practical' reduces Content precision, while a secondary pause affects Oral Fluency. Pronunciation remains clear.",
+        "Omission of 'practical' reduces Content specificity while Fluency and Pronunciation remain clear.",
     },
     errorChecklist: [
       {
@@ -720,61 +725,61 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
         keyword: "Meaningful content omission",
       },
       {
-        id: "secondary-hesitation",
-        label: "Secondary hesitation",
-        keyword: "Secondary hesitation",
+        id: "loss-of-specificity",
+        label: "Loss of specificity",
+        keyword: "Loss of specificity",
       },
       {
-        id: "diagnostic-prioritisation",
-        label: "Diagnostic prioritisation",
-        keyword: "Diagnostic prioritisation",
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy",
       },
     ],
     expertAdvice:
-      "Prioritise the omitted word 'practical' because it carries meaning about the type of strategies being introduced. The pause is secondary. Do not allow a delivery feature to overshadow the more meaningful Content issue.",
+      "Prioritise Content because the student omits 'practical', which carries meaningful information about the type of strategies. Do not diagnose Oral Fluency or Pronunciation when the remaining response is clear and continuous.",
   },
-
   {
     exerciseIndex: 8,
     totalExercises: 100,
     difficulty: "Intermediate+",
-    trainingSkill: "Oral Fluency",
-    diagnosticArea: "Oral Fluency — Hesitation with Complete Content",
+    trainingSkill: "Content",
+    diagnosticArea: "Content — Meaningful Word Omission",
     learningObjective:
-      "Recognise a Fluency problem when Content is completely reproduced, and avoid inventing a Content or Pronunciation problem where none is supported.",
+      "Identify a meaningful omitted word in an otherwise accurate Repeat Sentence response and distinguish the Content issue from Fluency or Pronunciation problems.",
     sourceQuestionId: "48",
     promptText:
       "The results indicate that environmental factors play a significant role in human behaviour.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/48.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-008-prompt-orus.mp3",
     promptAudio:
       "The results indicate that environmental factors play a significant role in human behaviour.",
     studentTranscript:
-      "The results indicate that environmental factors play a significant... ... role in human behaviour.",
+      "The results indicate that environmental factors play a role in human behaviour.",
     studentResponse: {
       audioDuration: "Controlled calibration response",
-      wordCount: 13,
+      wordCount: 12,
       characteristics:
-        "All target words are reproduced accurately, but a substantial pause interrupts the phrase 'a significant role'. Pronunciation remains clear.",
+        "The student omits the meaningful word 'significant'. The remainder of the sentence is delivered clearly and continuously.",
     },
     diagnosticErrors: [
-      "Phrase-internal hesitation",
-      "Interrupted fluency",
+      "Meaningful content omission",
+      "Loss of descriptive information",
+      "Content accuracy",
     ],
     expertEvidence: [
-      "All target words are present",
-      "The complete phrase 'a significant role' is reproduced",
-      "A substantial pause occurs inside the phrase",
-      "The pause interrupts otherwise continuous delivery",
+      "The target word 'significant' is omitted",
+      "The main relationship between environmental factors and human behaviour remains",
+      "The omission removes useful information about the degree of the role",
+      "Delivery remains continuous",
       "Pronunciation remains clear",
-      "There is no evidence supporting a Content omission or substitution",
+      "The primary issue is Content",
     ],
     expertDiagnosis:
-      "The primary diagnosis is Oral Fluency. Content is complete and the target vocabulary is reproduced accurately. The defining problem is the substantial hesitation inside the phrase 'a significant role'. The teacher should not invent a Content problem simply because the delivery is interrupted.",
+      "The primary diagnosis is Content. The student omits 'significant', reducing the precision of the statement because the degree of the environmental factors' role is no longer specified. Fluency and Pronunciation remain clear.",
     perfectCalibrationResponse:
-      "Primary diagnosis: Oral Fluency. The student reproduces every target word, so Content is complete. The main problem is the substantial pause inside the phrase 'a significant role'. Pronunciation remains clear, so the teacher should focus on fluency and phrase grouping rather than Content accuracy.",
+      "Primary diagnosis: Content. The student omits 'significant', so the response no longer specifies that environmental factors play a significant role in human behaviour. The remaining sentence is clear and fluent, so Fluency and Pronunciation are not the primary issues.",
     coachingAdvice:
-      "Practise 'a significant role' as one connected chunk, then place it back into the full sentence. Aim for continuous delivery through the phrase rather than stopping between 'significant' and 'role'.",
+      "Practise retaining the phrase 'play a significant role' as one unit. Then repeat the full sentence while keeping the descriptive word 'significant'.",
     cefrLevel: {
       level: "B2",
       name: "B2 Upper Int",
@@ -791,15 +796,15 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       audioDuration: "Controlled benchmark delivery",
       wordCount: 14,
       characteristics:
-        "Complete reproduction with clear pronunciation and smooth phrase grouping.",
+        "Complete reproduction with clear pronunciation and smooth Oral Fluency.",
     },
     poor: {
       transcript:
-        "The results indicate that environmental factors play a significant... role in human behaviour.",
+        "The results indicate that environmental factors play a role in human behaviour.",
       audioDuration: "Controlled calibration response",
-      wordCount: 14,
+      wordCount: 12,
       characteristics:
-        "All target words are present, but a substantial hesitation interrupts the phrase 'a significant role'.",
+        "The meaningful word 'significant' is omitted while the remainder of the sentence remains clear and fluent.",
     },
     goodScore: {
       content: 5,
@@ -807,37 +812,36 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       pronunciation: 5,
       overall: "90 / 90",
       breakdownText:
-        "Complete Content with clear Pronunciation and smooth Oral Fluency.",
+        "Complete Content with clear Pronunciation and natural Oral Fluency.",
     },
     poorScore: {
-      content: 5,
-      fluency: 3,
+      content: 3,
+      fluency: 5,
       pronunciation: 5,
-      overall: "82 / 90",
+      overall: "78 / 90",
       breakdownText:
-        "Content remains complete and Pronunciation is clear, but a substantial phrase-internal hesitation reduces Oral Fluency.",
+        "Omission of 'significant' reduces Content precision while Fluency and Pronunciation remain clear.",
     },
     errorChecklist: [
       {
-        id: "phrase-internal-hesitation",
-        label: "Phrase-internal hesitation",
-        keyword: "Phrase-internal hesitation",
+        id: "meaningful-content-omission",
+        label: "Meaningful content omission",
+        keyword: "Meaningful content omission",
       },
       {
-        id: "interrupted-fluency",
-        label: "Interrupted fluency",
-        keyword: "Interrupted fluency",
+        id: "lost-descriptive-information",
+        label: "Loss of descriptive information",
+        keyword: "Loss of descriptive information",
       },
       {
-        id: "complete-content",
-        label: "Complete Content",
-        keyword: "Complete Content",
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy",
       },
     ],
     expertAdvice:
-      "The key diagnostic clue is that every target word is present. Focus on the hesitation inside 'a significant role'. Do not diagnose Content omission or Pronunciation when the evidence does not support either.",
+      "Prioritise Content because 'significant' carries meaningful information about the degree of the role. Do not diagnose Fluency or Pronunciation when the response is clearly and continuously delivered.",
   },
-
   {
   exerciseIndex: 9,
   totalExercises: 100,
@@ -849,6 +853,9 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
 
   promptText:
     "The speaker discussed several challenges facing the healthcare system in the coming decade.",
+
+  promptAudioUrl:
+    "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-009-prompt-leda.mp3",
 
   promptAudio:
     "The speaker discussed several challenges facing the healthcare system in the coming decade.",
@@ -967,7 +974,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The course aims to develop students’ ability to analyze complex information with confidence.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/50.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-010-prompt-puck.mp3",
     promptAudio:
       "The course aims to develop students’ ability to analyze complex information with confidence.",
     studentTranscript:
@@ -1075,7 +1082,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The library will close early during the holiday period.",
 
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/51.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-011-prompt-sulafat.mp3",
 
     promptAudio:
       "The library will close early during the holiday period.",
@@ -1201,7 +1208,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please submit your assignment before the end of the week.",
 
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/52.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-012-prompt-iapetus.mp3",
 
     promptAudio:
       "Please submit your assignment before the end of the week.",
@@ -1326,7 +1333,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The lecture tomorrow will start ten minutes later than usual.",
 
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/53.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-013-prompt-achernar.mp3",
 
     promptAudio:
       "The lecture tomorrow will start ten minutes later than usual.",
@@ -1452,7 +1459,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Students must wear their ID cards at all times on campus.",
 
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/54.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-014-prompt-orus.mp3",
 
     promptAudio:
       "Students must wear their ID cards at all times on campus.",
@@ -1579,7 +1586,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The cafeteria offers vegetarian meals every day.",
 
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/55.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-015-prompt-leda.mp3",
 
     promptAudio:
       "The cafeteria offers vegetarian meals every day.",
@@ -1700,7 +1707,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Your timetable will be available online next Monday.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/56.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-016-prompt-puck.mp3",
     promptAudio:
       "Your timetable will be available online next Monday.",
     studentTranscript:
@@ -1797,7 +1804,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The teacher will explain the new topic after the break.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/57.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-017-prompt-sulafat.mp3",
     promptAudio:
       "The teacher will explain the new topic after the break.",
     studentTranscript:
@@ -1886,60 +1893,61 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     exerciseIndex: 18,
     totalExercises: 100,
     difficulty: "Upper Intermediate",
-    trainingSkill: "Oral Fluency",
-    diagnosticArea: "Phrase-Internal Pausing",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Content — Meaningful Word Omission",
     learningObjective:
-      "Identify a controlled but inappropriate pause inside a meaningful phrase while recognising that Content and Pronunciation remain intact.",
+      "Identify a meaningful omitted word in an otherwise accurate Repeat Sentence response and distinguish the Content issue from Fluency or Pronunciation problems.",
     sourceQuestionId: "58",
     promptText:
       "Please check your email for important course updates.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/58.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-018-prompt-iapetus.mp3",
     promptAudio:
       "Please check your email for important course updates.",
     studentTranscript:
-      "Please check your email for important (...) course updates.",
+      "Please check your email for course updates.",
     studentResponse: {
-      audioDuration: "9.5 seconds",
-      wordCount: 9,
+      audioDuration: "Controlled calibration response",
+      wordCount: 8,
       characteristics:
-        "All target words are present and clearly pronounced, but a noticeable silent pause interrupts the phrase 'important course updates'."
+        "The student clearly omits the meaningful word 'important'. The remainder of the sentence is reproduced continuously and clearly.",
     },
     diagnosticErrors: [
-      "Phrase-internal pausing",
-      "Oral Fluency disruption",
-      "Interrupted thought group"
+      "Meaningful word omission",
+      "Loss of descriptive information",
+      "Content accuracy",
     ],
     expertEvidence: [
-      "All target words are reproduced",
-      "The pause occurs inside the meaningful phrase 'important course updates'",
-      "The pause interrupts otherwise continuous delivery",
+      "The target word 'important' is omitted",
+      "The main purpose of checking the email remains clear",
+      "The omission removes useful information about the course updates",
+      "The remaining sentence structure is accurately reproduced",
+      "Delivery remains continuous",
       "Pronunciation remains clear",
-      "There is no substantive Content omission or substitution"
     ],
     expertDiagnosis:
-      "The primary issue is Oral Fluency because the student inserts a noticeable pause inside the meaningful phrase 'important course updates'. Content is complete and Pronunciation remains clear. The teacher should identify the phrase-internal fluency disruption rather than diagnosing a Content problem.",
+      "The primary diagnosis is Content. The student omits 'important', reducing the specificity of the sentence because the response no longer describes the course updates as important. Fluency and Pronunciation remain clear.",
     perfectCalibrationResponse:
-      "The student's main issue is Oral Fluency because there is a noticeable pause inside the phrase 'important course updates'. All target words are present and Pronunciation remains clear, so Content is complete. The teacher should focus on maintaining smoother phrase grouping.",
+      "Primary diagnosis: Content. The student omits the meaningful word 'important', so the response no longer specifies that the course updates are important. The remaining sentence is clear and fluent, so Fluency and Pronunciation are not the primary issues.",
     coachingAdvice:
-      "Practise maintaining forward momentum within meaningful phrases. Avoid inserting unnecessary pauses between closely connected words when the Content is already known.",
+      "Practise retaining the phrase 'important course updates' as one unit. Emphasise that descriptive words can carry useful meaning even when the main proposition remains understandable.",
     cefrLevel: "B2",
     topicTitle: "Course Email Updates",
     good: {
       transcript:
         "Please check your email for important course updates.",
-      audioDuration: "7.5 seconds",
+      audioDuration: "Controlled benchmark delivery",
       wordCount: 9,
       characteristics:
-        "Complete Content with clear Pronunciation and smooth phrase-level delivery."
+        "Complete Content reproduction with clear Pronunciation and smooth Oral Fluency."
     },
     poor: {
       transcript:
-        "Please check your email for important (...) course updates.",
-      audioDuration: "9.5 seconds",
-      wordCount: 9,
+        "Please check your email for course updates.",
+      audioDuration: "Controlled calibration response",
+      wordCount: 8,
       characteristics:
-        "Complete and clearly pronounced response with a noticeable pause interrupting the phrase 'important course updates'."
+        "The meaningful word 'important' is omitted while the remainder of the sentence remains clear and fluent."
     },
     goodScore: {
       content: 5,
@@ -1947,37 +1955,36 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       pronunciation: 5,
       overall: "90 / 90",
       breakdownText:
-        "Complete Content with clear Pronunciation and smooth phrase-level Oral Fluency."
+        "Complete Content with clear Pronunciation and smooth Oral Fluency."
     },
     poorScore: {
-      content: 5,
-      fluency: 3,
+      content: 3,
+      fluency: 5,
       pronunciation: 5,
-      overall: "84 / 90",
+      overall: "78 / 90",
       breakdownText:
-        "A phrase-internal pause disrupts Oral Fluency while Content and Pronunciation remain strong."
+        "Omission of 'important' reduces Content specificity while Fluency and Pronunciation remain clear."
     },
     errorChecklist: [
       {
-        id: "phrase-internal-pausing",
-        label: "Phrase-internal pausing",
-        keyword: "Phrase-internal pausing"
+        id: "meaningful-word-omission",
+        label: "Meaningful word omission",
+        keyword: "Meaningful word omission"
       },
       {
-        id: "oral-fluency-disruption",
-        label: "Oral Fluency disruption",
-        keyword: "Oral Fluency disruption"
+        id: "lost-descriptive-information",
+        label: "Loss of descriptive information",
+        keyword: "Loss of descriptive information"
       },
       {
-        id: "interrupted-thought-group",
-        label: "Interrupted thought group",
-        keyword: "Interrupted thought group"
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
       }
     ],
     expertAdvice:
-      "Focus on the pause inside 'important course updates'. The defining problem is phrase-level Oral Fluency, not missing Content or unclear Pronunciation."
+      "Prioritise Content because 'important' carries meaningful descriptive information. Do not diagnose Fluency or Pronunciation when the remaining response is clearly and continuously delivered."
   },
-
   {
     exerciseIndex: 19,
     totalExercises: 100,
@@ -1990,7 +1997,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The meeting has been moved to a larger room.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/59.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-019-prompt-achernar.mp3",
     promptAudio:
       "The meeting has been moved to a larger room.",
     studentTranscript:
@@ -2087,7 +2094,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "You can borrow up to five books from the library.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/60.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-020-prompt-orus.mp3",
     promptAudio:
       "You can borrow up to five books from the library.",
     studentTranscript:
@@ -2184,7 +2191,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The bus to the city leaves every thirty minutes.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/61.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-021-prompt-leda.mp3",
     promptAudio:
       "The bus to the city leaves every thirty minutes.",
     studentTranscript:
@@ -2281,7 +2288,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Make sure you save your work before closing the computer.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/62.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-022-prompt-puck.mp3",
     promptAudio:
       "Make sure you save your work before closing the computer.",
     studentTranscript:
@@ -2371,60 +2378,60 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     totalExercises: 100,
     difficulty: "Elementary",
     trainingSkill: "Oral Fluency",
-    diagnosticArea: "Oral Fluency — Excessive Hesitation",
+    diagnosticArea: "Oral Fluency — Word Repetition",
     learningObjective:
-      "Identify a meaningful hesitation when Content is complete and distinguish a Fluency disruption from an imagined Content or Pronunciation problem.",
+      "Recognise an immediate word repetition in an otherwise accurate Repeat Sentence response and distinguish a Fluency disruption from a Content omission or substitution.",
     sourceQuestionId: "63",
     promptText:
       "The science lab requires safety goggles for all experiments.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/63.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-023-prompt-sulafat.mp3",
     promptAudio:
       "The science lab requires safety goggles for all experiments.",
     studentTranscript:
-      "The science lab requires safety goggles (...) for all experiments.",
+      "The science lab requires safety safety goggles for all experiments.",
     studentResponse: {
       audioDuration: "Controlled calibration response",
       wordCount: 10,
       characteristics:
-        "All target words are reproduced accurately, but a noticeable hesitation occurs between 'goggles' and 'for', interrupting an otherwise complete response.",
+        "All target words are present, but the word 'safety' is repeated once, creating a brief fluency disruption. Pronunciation remains clear.",
     },
     diagnosticErrors: [
-      "Excessive hesitation",
-      "Interrupted Oral Fluency",
-      "Unnatural pause",
+      "Word repetition",
+      "Self-repetition",
+      "Fluency disruption",
     ],
     expertEvidence: [
       "All target words are present",
-      "The hesitation occurs after 'goggles' before 'for all experiments'",
-      "The pause interrupts an otherwise connected phrase",
+      "The word 'safety' is produced twice",
+      "The repetition creates a brief disruption in continuous delivery",
+      "There is no meaningful target-word omission or substitution",
       "Pronunciation remains clear",
-      "There is no Content omission or substitution",
       "The primary issue is Oral Fluency",
     ],
     expertDiagnosis:
-      "The primary diagnosis is Oral Fluency. The student reproduces the complete sentence accurately, but inserts a noticeable hesitation after 'goggles'. Because Content is complete and Pronunciation remains clear, the teacher should focus on the interruption to continuous delivery.",
+      "The primary diagnosis is Oral Fluency. The student reproduces all target words but repeats 'safety' once, creating a brief self-repetition. Content remains substantially complete and Pronunciation is clear.",
     perfectCalibrationResponse:
-      "Primary diagnosis: Oral Fluency. All target words are present, but the student inserts a noticeable hesitation after 'goggles' before continuing with 'for all experiments'. Content is complete and Pronunciation is clear, so the main issue is the interruption to fluent delivery.",
+      "Primary diagnosis: Oral Fluency. All target words are present, but the student repeats 'safety' once, creating a brief self-repetition. Content remains substantially complete and Pronunciation is clear, so the teacher should focus on the fluency disruption.",
     coachingAdvice:
-      "Practise the chunk 'safety goggles for all experiments' as one connected thought group. Gradually increase the speed while keeping the phrase continuous and avoiding a pause after 'goggles'.",
+      "Practise the phrase 'safety goggles for all experiments' at a steady pace. Encourage the student to move forward after 'safety' without repeating the word.",
     cefrLevel: "A2",
-    topicTitle: "Preparing for Job Interviews",
+    topicTitle: "Science Lab Safety",
     good: {
       transcript:
         "The science lab requires safety goggles for all experiments.",
       audioDuration: "Controlled benchmark delivery",
       wordCount: 9,
       characteristics:
-        "Complete Content with clear Pronunciation and smooth continuous delivery.",
+        "Accurate reproduction with clear pronunciation and smooth continuous delivery.",
     },
     poor: {
       transcript:
-        "The science lab requires safety goggles (...) for all experiments.",
+        "The science lab requires safety safety goggles for all experiments.",
       audioDuration: "Controlled calibration response",
-      wordCount: 9,
+      wordCount: 10,
       characteristics:
-        "All target words are present, but a noticeable hesitation interrupts the phrase after 'goggles'.",
+        "All target words are present, but 'safety' is repeated once, creating a brief fluency disruption.",
     },
     goodScore: {
       content: 5,
@@ -2432,7 +2439,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       pronunciation: 5,
       overall: "90 / 90",
       breakdownText:
-        "Complete Content with clear Pronunciation and smooth Oral Fluency.",
+        "Accurate Content with clear Pronunciation and natural Oral Fluency.",
     },
     poorScore: {
       content: 5,
@@ -2440,29 +2447,28 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       pronunciation: 5,
       overall: "82 / 90",
       breakdownText:
-        "A noticeable hesitation interrupts Oral Fluency while Content and Pronunciation remain strong.",
+        "Content remains substantially complete, but word repetition disrupts Oral Fluency.",
     },
     errorChecklist: [
       {
-        id: "excessive-hesitation",
-        label: "Excessive hesitation",
-        keyword: "Excessive hesitation",
+        id: "word-repetition",
+        label: "Word repetition",
+        keyword: "Word repetition",
       },
       {
-        id: "interrupted-oral-fluency",
-        label: "Interrupted Oral Fluency",
-        keyword: "Interrupted Oral Fluency",
+        id: "self-repetition",
+        label: "Self-repetition",
+        keyword: "Self-repetition",
       },
       {
-        id: "unnatural-pause",
-        label: "Unnatural pause",
-        keyword: "Unnatural pause",
+        id: "fluency-disruption",
+        label: "Fluency disruption",
+        keyword: "Fluency disruption",
       },
     ],
     expertAdvice:
-      "Because all target words are present, focus on the hesitation after 'goggles'. Do not diagnose Content or Pronunciation without separate evidence."
+      "Prioritise Oral Fluency because all target words are present and the only clear disruption is the repeated word 'safety'. Do not convert the repetition into a Content omission.",
   },
-
   {
     exerciseIndex: 24,
     totalExercises: 100,
@@ -2475,7 +2481,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please speak clearly so everyone can understand you.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/64.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-024-prompt-iapetus.mp3",
     promptAudio:
       "Please speak clearly so everyone can understand you.",
     studentTranscript:
@@ -2572,7 +2578,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The museum offers free entry on the first Sunday of each month.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/65.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-025-prompt-achernar.mp3",
     promptAudio:
       "The museum offers free entry on the first Sunday of each month.",
     studentTranscript:
@@ -2669,7 +2675,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Your student card can also be used to pay for printing.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/66.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-026-prompt-orus.mp3",
     promptAudio:
       "Your student card can also be used to pay for printing.",
     studentTranscript:
@@ -2766,7 +2772,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The weather is expected to be warm and sunny this weekend.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/67.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-027-prompt-leda.mp3",
     promptAudio:
       "The weather is expected to be warm and sunny this weekend.",
     studentTranscript:
@@ -2855,44 +2861,44 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     exerciseIndex: 28,
     totalExercises: 100,
     difficulty: "Elementary",
-    trainingSkill: "Oral Fluency",
-    diagnosticArea: "Oral Fluency — Excessive Sentence-Boundary Pausing",
+    trainingSkill: "Content",
+    diagnosticArea: "Content — Lexical Substitution",
     learningObjective:
-      "Identify an unusually long pause at a natural sentence boundary while recognising that Content and Pronunciation remain accurate.",
+      "Identify a clearly pronounced lexical substitution in an otherwise fluent Repeat Sentence response and distinguish it from a Pronunciation problem.",
     sourceQuestionId: "68",
     promptText:
       "The library has extended its opening hours for exam season.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/68.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-028-prompt-puck.mp3",
     promptAudio:
       "The library has extended its opening hours for exam season.",
     studentTranscript:
-      "The library has extended its opening hours ... ... for exam season.",
+      "The library has increased its opening hours for exam season.",
     studentResponse: {
       audioDuration: "Controlled calibration response",
       wordCount: 10,
       characteristics:
-        "All target words are reproduced accurately. An unusually long silent pause occurs after 'hours', interrupting an otherwise clear and accurate response.",
+        "The student clearly substitutes 'increased' for 'extended'. The rest of the sentence is fluent and clearly pronounced.",
     },
     diagnosticErrors: [
-      "Excessive sentence-boundary pausing",
-      "Extended silent pause",
-      "Oral Fluency disruption",
+      "Lexical substitution",
+      "Meaning-changing substitution",
+      "Content accuracy",
     ],
     expertEvidence: [
-      "All target words are present",
-      "The pause occurs after 'hours'",
-      "The pause is substantially longer than a natural brief pause",
-      "Pronunciation remains clear",
-      "Content remains accurate",
-      "The primary issue is Oral Fluency",
+      "The target word is 'extended'",
+      "The student says 'increased' instead",
+      "'Increased' is a different lexical item, not a pronunciation variant",
+      "The substitution changes the exact wording and meaning emphasis of the response",
+      "The remainder of the sentence is reproduced accurately",
+      "Delivery remains fluent and pronunciation is clear",
     ],
     expertDiagnosis:
-      "The primary diagnosis is Oral Fluency. The student reproduces the target words accurately but inserts an unusually long silent pause after 'hours'. Content and Pronunciation remain strong, so the teacher should not misdiagnose the hesitation as a Content problem.",
+      "The primary diagnosis is Content. The student substitutes 'increased' for 'extended'. Because 'increased' is a different lexical item and is clearly pronounced, this is a lexical substitution rather than a Pronunciation or Oral Fluency problem.",
     perfectCalibrationResponse:
-      "Primary diagnosis: Oral Fluency. The student reproduces all target words accurately but has an unusually long silent pause after 'hours'. Content and Pronunciation remain clear, so the defining problem is excessive pausing rather than a Content or Pronunciation error.",
+      "Primary diagnosis: Content. The student says 'increased' instead of the target word 'extended'. This is a lexical substitution because the student produces a different word rather than a pronunciation variant. The rest of the response is fluent and clearly pronounced.",
     coachingAdvice:
-      "Practise maintaining forward momentum across the sentence. Use a brief natural pause when needed, but avoid an extended silence that breaks otherwise continuous delivery.",
+      "Contrast 'extended' and 'increased' and practise reproducing the exact target word. Then repeat the complete sentence while maintaining the same fluent delivery.",
     cefrLevel: "A2",
     topicTitle: "Library Opening Hours",
     good: {
@@ -2901,15 +2907,15 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       audioDuration: "Controlled benchmark delivery",
       wordCount: 10,
       characteristics:
-        "Accurate Content with natural phrasing, clear Pronunciation and smooth continuous delivery.",
+        "Accurate reproduction with clear Pronunciation and smooth Oral Fluency.",
     },
     poor: {
       transcript:
-        "The library has extended its opening hours ... ... for exam season.",
+        "The library has increased its opening hours for exam season.",
       audioDuration: "Controlled calibration response",
       wordCount: 10,
       characteristics:
-        "All target words are present, but an unusually long silent pause interrupts the sentence after 'hours'.",
+        "The student clearly substitutes 'increased' for 'extended' while maintaining otherwise fluent delivery.",
     },
     goodScore: {
       content: 5,
@@ -2917,37 +2923,36 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       pronunciation: 5,
       overall: "90 / 90",
       breakdownText:
-        "Accurate Content with clear Pronunciation and smooth, appropriately paced Oral Fluency.",
+        "Accurate Content with clear Pronunciation and natural Oral Fluency.",
     },
     poorScore: {
-      content: 5,
-      fluency: 3,
+      content: 3,
+      fluency: 5,
       pronunciation: 5,
-      overall: "82 / 90",
+      overall: "78 / 90",
       breakdownText:
-        "An extended silent pause disrupts Oral Fluency while Content and Pronunciation remain strong.",
+        "A lexical substitution affects Content while Pronunciation and Oral Fluency remain clear.",
     },
     errorChecklist: [
       {
-        id: "excessive-sentence-boundary-pausing",
-        label: "Excessive sentence-boundary pausing",
-        keyword: "Excessive sentence-boundary pausing",
+        id: "lexical-substitution",
+        label: "Lexical substitution",
+        keyword: "Lexical substitution",
       },
       {
-        id: "extended-silent-pause",
-        label: "Extended silent pause",
-        keyword: "Extended silent pause",
+        id: "meaning-changing-substitution",
+        label: "Meaning-changing substitution",
+        keyword: "Meaning-changing substitution",
       },
       {
-        id: "oral-fluency-disruption",
-        label: "Oral Fluency disruption",
-        keyword: "Oral Fluency disruption",
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy",
       },
     ],
     expertAdvice:
-      "Focus on the unusually long silence after 'hours'. Do not diagnose Content or Pronunciation when all target words are present and clearly pronounced."
+      "Listen for the actual lexical item before diagnosing Pronunciation. 'Increased' and 'extended' are different words. The primary teaching issue is Content accuracy, while Oral Fluency remains clear.",
   },
-
   {
     exerciseIndex: 29,
     totalExercises: 100,
@@ -2960,7 +2965,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please turn off your mobile phone during the presentation.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/69.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-029-prompt-sulafat.mp3",
     promptAudio:
       "Please turn off your mobile phone during the presentation.",
     studentTranscript:
@@ -3057,7 +3062,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The teacher will give feedback on your project next week.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/70.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-030-prompt-iapetus.mp3",
     promptAudio:
       "The teacher will give feedback on your project next week.",
     studentTranscript:
@@ -3154,7 +3159,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "You must register for the workshop before Friday.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/71.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-031-prompt-achernar.mp3",
     promptAudio:
       "You must register for the workshop before Friday.",
     studentTranscript:
@@ -3243,44 +3248,44 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     exerciseIndex: 32,
     totalExercises: 100,
     difficulty: "Elementary",
-    trainingSkill: "Oral Fluency",
-    diagnosticArea: "Oral Fluency — Phrase-Internal Pausing",
+    trainingSkill: "Content",
+    diagnosticArea: "Content — Meaningful Word Omission",
     learningObjective:
-      "Identify a substantial pause inside an otherwise accurate Repeat Sentence response and distinguish the Fluency disruption from Content or Pronunciation problems.",
+      "Identify a meaningful omitted word in an otherwise accurate Repeat Sentence response and distinguish the Content issue from Fluency or Pronunciation problems.",
     sourceQuestionId: "72",
     promptText:
       "The classroom has been rearranged to allow more space.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/72.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-032-prompt-orus.mp3",
     promptAudio:
       "The classroom has been rearranged to allow more space.",
     studentTranscript:
-      "The classroom has been rearranged to allow more... space.",
+      "The classroom has been rearranged to allow space.",
     studentResponse: {
       audioDuration: "Controlled calibration response",
-      wordCount: 9,
+      wordCount: 8,
       characteristics:
-        "All target words are reproduced accurately, but a substantial pause interrupts the phrase 'allow more space'. Pronunciation remains clear.",
+        "The student omits the meaningful word 'more'. The rest of the sentence is delivered clearly and continuously.",
     },
     diagnosticErrors: [
-      "Phrase-internal pause",
-      "Interrupted phrase grouping",
-      "Oral Fluency disruption",
+      "Meaningful word omission",
+      "Loss of descriptive information",
+      "Content accuracy",
     ],
     expertEvidence: [
-      "All target words are present",
-      "There is no Content omission or substitution",
-      "The long pause occurs inside the phrase 'allow more space'",
-      "The response resumes with the correct final word",
+      "The target contains the word 'more'",
+      "The student omits 'more'",
+      "The remaining sentence structure is reproduced accurately",
+      "The omission reduces the intended meaning by removing the comparison of available space",
+      "Delivery remains continuous",
       "Pronunciation remains clear",
-      "The defining issue is Oral Fluency",
     ],
     expertDiagnosis:
-      "The primary diagnosis is Oral Fluency. The student reproduces the complete sentence accurately but introduces a substantial pause inside the phrase 'allow more space'. Content and Pronunciation remain strong, so the teacher should focus on the delivery disruption.",
+      "The primary diagnosis is Content. The student omits 'more', reducing the meaning of the statement because the target specifies an increase in available space. Fluency and Pronunciation remain clear.",
     perfectCalibrationResponse:
-      "Primary diagnosis: Oral Fluency. All target words are reproduced accurately, but the student inserts a substantial pause inside 'allow more space'. Content is complete and Pronunciation remains clear, so the defining problem is phrase-internal pausing rather than Content or Pronunciation.",
+      "Primary diagnosis: Content. The student omits 'more', so the response no longer expresses the intended increase in available space. The remaining sentence is clear and fluent, so Fluency and Pronunciation are not the primary issues.",
     coachingAdvice:
-      "Practise 'allow more space' as one connected thought group. Then repeat the full sentence while maintaining forward momentum through the final phrase.",
+      "Practise the phrase 'to allow more space' as one unit. Encourage the student to retain the comparative word 'more' when reproducing the complete sentence.",
     cefrLevel: "A2",
     topicTitle: "Classroom Space Arrangement",
     good: {
@@ -3293,11 +3298,11 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     },
     poor: {
       transcript:
-        "The classroom has been rearranged to allow more... space.",
+        "The classroom has been rearranged to allow space.",
       audioDuration: "Controlled calibration response",
-      wordCount: 9,
+      wordCount: 8,
       characteristics:
-        "All target words are present, but an extended pause breaks the phrase 'allow more space'.",
+        "The meaningful word 'more' is omitted while the rest of the sentence remains clear and fluent.",
     },
     goodScore: {
       content: 5,
@@ -3308,32 +3313,32 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
         "Accurate Content with clear Pronunciation and smooth Oral Fluency.",
     },
     poorScore: {
-      content: 5,
-      fluency: 3,
+      content: 3,
+      fluency: 5,
       pronunciation: 5,
-      overall: "82 / 90",
+      overall: "78 / 90",
       breakdownText:
-        "Content and Pronunciation remain strong, but a substantial phrase-internal pause disrupts Oral Fluency.",
+        "Omission of 'more' reduces Content accuracy while Fluency and Pronunciation remain clear.",
     },
     errorChecklist: [
       {
-        id: "phrase-internal-pause",
-        label: "Phrase-internal pause",
-        keyword: "Phrase-internal pause",
+        id: "meaningful-word-omission",
+        label: "Meaningful word omission",
+        keyword: "Meaningful word omission",
       },
       {
-        id: "interrupted-phrase-grouping",
-        label: "Interrupted phrase grouping",
-        keyword: "Interrupted phrase grouping",
+        id: "lost-descriptive-information",
+        label: "Loss of descriptive information",
+        keyword: "Loss of descriptive information",
       },
       {
-        id: "oral-fluency-disruption",
-        label: "Oral Fluency disruption",
-        keyword: "Oral Fluency disruption",
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy",
       },
     ],
     expertAdvice:
-      "Prioritise Oral Fluency because all target words are present and clearly pronounced. The defining evidence is the substantial pause inside 'allow more space'.",
+      "Prioritise Content because 'more' carries meaningful comparative information. Do not diagnose Fluency or Pronunciation when the response is clearly and continuously delivered.",
   },
   {
     exerciseIndex: 33,
@@ -3347,7 +3352,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please keep your desk clean and tidy at all times.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/73.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-033-prompt-leda.mp3",
     promptAudio:
       "Please keep your desk clean and tidy at all times.",
     studentTranscript:
@@ -3444,7 +3449,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The school will host a cultural festival next month.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/74.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-034-prompt-puck.mp3",
     promptAudio:
       "The school will host a cultural festival next month.",
     studentTranscript:
@@ -3541,7 +3546,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The computer system will be updated overnight.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/75.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-035-prompt-sulafat.mp3",
     promptAudio:
       "The computer system will be updated overnight.",
     studentTranscript:
@@ -3638,7 +3643,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please follow the signs to the main entrance.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/76.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-036-prompt-iapetus.mp3",
     promptAudio:
       "Please follow the signs to the main entrance.",
     studentTranscript:
@@ -3735,7 +3740,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The teacher will check attendance at the beginning of class.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/77.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-037-prompt-achernar.mp3",
     promptAudio:
       "The teacher will check attendance at the beginning of class.",
     studentTranscript:
@@ -3832,7 +3837,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The library is a quiet area for study and reading.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/78.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-038-prompt-orus.mp3",
     promptAudio:
       "The library is a quiet area for study and reading.",
     studentTranscript:
@@ -3929,7 +3934,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "You can ask the receptionist for help if you need it.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/79.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-039-prompt-leda.mp3",
     promptAudio:
       "You can ask the receptionist for help if you need it.",
     studentTranscript:
@@ -4026,7 +4031,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The bus service may be delayed due to heavy traffic.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/80.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-040-prompt-puck.mp3",
     promptAudio:
       "The bus service may be delayed due to heavy traffic.",
     studentTranscript:
@@ -4123,7 +4128,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please return the equipment after you finish using it.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/81.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-041-prompt-sulafat.mp3",
     promptAudio:
       "Please return the equipment after you finish using it.",
     studentTranscript:
@@ -4219,7 +4224,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The school store sells notebooks, pens, and other supplies.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/82.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-042-prompt-iapetus.mp3",
     promptAudio:
       "The school store sells notebooks, pens, and other supplies.",
     studentTranscript:
@@ -4316,7 +4321,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The next class will focus on improving speaking skills.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/83.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-043-prompt-achernar.mp3",
     promptAudio:
       "The next class will focus on improving speaking skills.",
     studentTranscript:
@@ -4412,7 +4417,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please wait in line until it is your turn.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/84.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-044-prompt-orus.mp3",
     promptAudio:
       "Please wait in line until it is your turn.",
     studentTranscript:
@@ -4508,7 +4513,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The teacher will explain the homework at the end of class.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/85.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-045-prompt-leda.mp3",
     promptAudio:
       "The teacher will explain the homework at the end of class.",
     studentTranscript:
@@ -4605,7 +4610,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The library staff can help you find the books you need.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/86.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-046-prompt-puck.mp3",
     promptAudio:
       "The library staff can help you find the books you need.",
     studentTranscript:
@@ -4702,7 +4707,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The building will be closed for maintenance this weekend.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/87.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-047-prompt-sulafat.mp3",
     promptAudio:
       "The building will be closed for maintenance this weekend.",
     studentTranscript:
@@ -4799,7 +4804,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please check the notice board for important announcements.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/88.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-048-prompt-iapetus.mp3",
     promptAudio:
       "Please check the notice board for important announcements.",
     studentTranscript:
@@ -4896,7 +4901,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The school encourages students to join after-school clubs.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/89.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-049-prompt-achernar.mp3",
     promptAudio:
       "The school encourages students to join after-school clubs.",
     studentTranscript:
@@ -4993,7 +4998,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The exam results will be released next Wednesday.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/90.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-050-prompt-orus.mp3",
     promptAudio:
       "The exam results will be released next Wednesday.",
     studentTranscript:
@@ -5090,7 +5095,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please keep your voice down while others are studying.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/91.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-051-prompt-leda.mp3",
     promptAudio:
       "Please keep your voice down while others are studying.",
     studentTranscript:
@@ -5180,43 +5185,43 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Oral Fluency",
-    diagnosticArea: "Oral Fluency — Phrase-Internal Pausing",
+    diagnosticArea: "Oral Fluency — Word Repetition",
     learningObjective:
-      "Identify a noticeable pause inside a meaningful phrase while recognising that all target Content is present and Pronunciation remains clear.",
+      "Recognise an immediate word repetition in an otherwise accurate Repeat Sentence response and distinguish the Fluency disruption from a Content error.",
     sourceQuestionId: "92",
     promptText:
       "The teacher will hand out the worksheets shortly.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/92.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-052-prompt-puck.mp3",
     promptAudio:
       "The teacher will hand out the worksheets shortly.",
     studentTranscript:
-      "The teacher will hand out the (...) worksheets shortly.",
+      "The teacher will hand hand out the worksheets shortly.",
     studentResponse: {
       audioDuration: "Controlled calibration response",
-      wordCount: 9,
+      wordCount: 10,
       characteristics:
-        "All target words are reproduced accurately, but a noticeable silent pause interrupts the phrase 'the worksheets'. Pronunciation remains clear.",
+        "All target words are present, but the word 'hand' is repeated once, creating a brief fluency disruption. Pronunciation remains clear.",
     },
     diagnosticErrors: [
-      "Phrase-internal pausing",
-      "Oral Fluency disruption",
-      "Interrupted phrase grouping",
+      "Word repetition",
+      "Self-repetition",
+      "Fluency disruption",
     ],
     expertEvidence: [
       "All target words are present",
-      "The pause occurs between 'the' and 'worksheets'",
-      "The pause interrupts an otherwise connected phrase",
+      "The word 'hand' is produced twice",
+      "The repetition creates a brief interruption in continuous delivery",
+      "There is no meaningful target-word omission or substitution",
       "Pronunciation remains clear",
-      "There is no substantive Content omission or substitution",
-      "The defining issue is the interruption of continuous delivery",
+      "The primary issue is Oral Fluency",
     ],
     expertDiagnosis:
-      "The primary diagnosis is Oral Fluency. The student reproduces all target words accurately but inserts a noticeable pause inside the phrase 'the worksheets'. Content and Pronunciation remain strong, so the teacher should diagnose the fluency disruption rather than incorrectly treating the pause as a Content problem.",
+      "The primary diagnosis is Oral Fluency. The student reproduces all target words but repeats 'hand' once, creating a brief self-repetition. Content remains substantially complete and Pronunciation is clear.",
     perfectCalibrationResponse:
-      "Primary diagnosis: Oral Fluency. All target words are present and clearly pronounced, but the student inserts a noticeable pause inside the phrase 'the worksheets'. Content is complete, so the defining problem is phrase-internal pausing rather than Content or Pronunciation.",
+      "Primary diagnosis: Oral Fluency. All target words are present, but the student repeats 'hand' once, creating a brief self-repetition. Content remains substantially complete and Pronunciation is clear, so the teacher should focus on the fluency disruption.",
     coachingAdvice:
-      "Practise maintaining forward momentum through short connected phrases such as 'the worksheets'. Encourage the student to avoid unnecessary pauses between closely related words.",
+      "Practise the phrase 'hand out the worksheets' at a steady pace. Encourage the student to move forward after 'hand' without repeating the word.",
     cefrLevel: "B1",
     topicTitle: "Handing Out Worksheets",
     good: {
@@ -5225,15 +5230,15 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       audioDuration: "Controlled benchmark delivery",
       wordCount: 9,
       characteristics:
-        "Complete Content with clear Pronunciation and smooth phrase-level delivery.",
+        "Complete Content with clear Pronunciation and smooth Oral Fluency.",
     },
     poor: {
       transcript:
-        "The teacher will hand out the (...) worksheets shortly.",
+        "The teacher will hand hand out the worksheets shortly.",
       audioDuration: "Controlled calibration response",
-      wordCount: 9,
+      wordCount: 10,
       characteristics:
-        "All target words are present, but one controlled pause interrupts the phrase 'the worksheets'.",
+        "All target words are present, but 'hand' is repeated once, creating a brief fluency disruption.",
     },
     goodScore: {
       content: 5,
@@ -5241,7 +5246,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       pronunciation: 5,
       overall: "90 / 90",
       breakdownText:
-        "Complete Content with clear Pronunciation and smooth Oral Fluency.",
+        "Accurate Content with clear Pronunciation and natural Oral Fluency.",
     },
     poorScore: {
       content: 5,
@@ -5249,29 +5254,28 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       pronunciation: 5,
       overall: "82 / 90",
       breakdownText:
-        "Content remains complete and Pronunciation remains clear, but phrase-internal pausing disrupts Oral Fluency.",
+        "Content remains substantially complete, but word repetition disrupts Oral Fluency.",
     },
     errorChecklist: [
       {
-        id: "phrase-internal-pausing",
-        label: "Phrase-internal pausing",
-        keyword: "Phrase-internal pausing",
+        id: "word-repetition",
+        label: "Word repetition",
+        keyword: "Word repetition",
+      },
+      {
+        id: "self-repetition",
+        label: "Self-repetition",
+        keyword: "Self-repetition",
       },
       {
         id: "fluency-disruption",
-        label: "Oral Fluency disruption",
-        keyword: "Oral Fluency disruption",
-      },
-      {
-        id: "interrupted-phrase-grouping",
-        label: "Interrupted phrase grouping",
-        keyword: "Interrupted phrase grouping",
+        label: "Fluency disruption",
+        keyword: "Fluency disruption",
       },
     ],
     expertAdvice:
-      "Prioritise Oral Fluency because all target words are reproduced and clearly pronounced. The defining issue is the single pause inside 'the worksheets', not Content or Pronunciation.",
+      "Prioritise Oral Fluency because all target words are present and the only clear disruption is the repeated word 'hand'. Do not convert the repetition into a Content omission.",
   },
-
   {
     exerciseIndex: 53,
     totalExercises: 100,
@@ -5284,7 +5288,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The bus stop is located just outside the main gate.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/93.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-053-prompt-sulafat.mp3",
     promptAudio:
       "The bus stop is located just outside the main gate.",
     studentTranscript:
@@ -5381,7 +5385,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please bring your textbook to every class.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/94.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-054-prompt-iapetus.mp3",
     promptAudio:
       "Please bring your textbook to every class.",
     studentTranscript:
@@ -5478,7 +5482,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The school will organize a field trip in early June.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/95.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-055-prompt-achernar.mp3",
     promptAudio:
       "The school will organize a field trip in early June.",
     studentTranscript:
@@ -5575,7 +5579,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The computer lab is open until eight in the evening.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/96.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-056-prompt-orus.mp3",
     promptAudio:
       "The computer lab is open until eight in the evening.",
     studentTranscript:
@@ -5672,7 +5676,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please make sure your phone is on silent mode.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/97.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-057-prompt-leda.mp3",
     promptAudio:
       "Please make sure your phone is on silent mode.",
     studentTranscript:
@@ -5761,44 +5765,44 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     exerciseIndex: 58,
     totalExercises: 100,
     difficulty: "Intermediate",
-    trainingSkill: "Oral Fluency",
-    diagnosticArea: "Oral Fluency — Phrase-Internal Pausing",
+    trainingSkill: "Content",
+    diagnosticArea: "Content — Lexical Substitution",
     learningObjective:
-      "Identify a noticeable pause inside a meaningful phrase while recognising that all target Content is present and Pronunciation remains clear.",
+      "Identify a clearly pronounced lexical substitution in an otherwise fluent Repeat Sentence response and distinguish it from a Pronunciation problem.",
     sourceQuestionId: "98",
     promptText:
       "The teacher will review the answers with the class.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/98.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-058-prompt-puck.mp3",
     promptAudio:
       "The teacher will review the answers with the class.",
     studentTranscript:
-      "The teacher will review the answers ... with the class.",
+      "The teacher will review the questions with the class.",
     studentResponse: {
       audioDuration: "Controlled calibration response",
       wordCount: 10,
       characteristics:
-        "All target words are reproduced accurately, but a short controlled pause interrupts the phrase 'the answers with the class'. Pronunciation remains clear.",
+        "The student clearly substitutes 'questions' for 'answers'. The rest of the sentence is reproduced fluently and clearly.",
     },
     diagnosticErrors: [
-      "Phrase-internal pausing",
-      "Oral Fluency disruption",
-      "Interrupted phrase grouping",
+      "Lexical substitution",
+      "Meaning-changing substitution",
+      "Content accuracy",
     ],
     expertEvidence: [
-      "All target words are present",
-      "The pause occurs after 'answers'",
-      "The pause interrupts the connected phrase 'the answers with the class'",
-      "The pause is noticeable but controlled",
-      "Pronunciation remains clear",
-      "There is no substantive Content omission or substitution",
+      "The target word is 'answers'",
+      "The student says 'questions' instead",
+      "'Questions' is a different lexical item, not a pronunciation variant",
+      "The substitution changes the meaning of what the teacher will review",
+      "The remainder of the sentence is reproduced accurately",
+      "Delivery remains fluent and Pronunciation is clear",
     ],
     expertDiagnosis:
-      "The primary diagnosis is Oral Fluency. The student reproduces all target words but inserts a short pause inside the phrase 'the answers with the class'. Content and Pronunciation remain intact, so the teacher should identify the fluency disruption rather than treating the pause as a Content problem.",
+      "The primary diagnosis is Content. The student substitutes 'questions' for 'answers'. Because 'questions' is a different word and is clearly pronounced, this is a lexical substitution rather than a Pronunciation or Oral Fluency problem.",
     perfectCalibrationResponse:
-      "Primary diagnosis: Oral Fluency. All target words are present and clearly pronounced, but a short pause interrupts the phrase 'the answers with the class'. Content is complete, so the main issue is the Oral Fluency disruption.",
+      "Primary diagnosis: Content. The student says 'questions' instead of the target word 'answers'. This is a lexical substitution because the student produces a different word with a different meaning. The rest of the response is fluent and clearly pronounced.",
     coachingAdvice:
-      "Practise the phrase 'the answers with the class' as one connected thought group. Encourage the student to maintain forward momentum instead of inserting a pause after 'answers'.",
+      "Contrast 'answers' and 'questions' and practise reproducing the exact target word. Then repeat the full sentence while maintaining the same fluent delivery.",
     cefrLevel: "B1",
     topicTitle: "Teacher Reviewing Answers",
     good: {
@@ -5811,11 +5815,11 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     },
     poor: {
       transcript:
-        "The teacher will review the answers ... with the class.",
+        "The teacher will review the questions with the class.",
       audioDuration: "Controlled calibration response",
       wordCount: 10,
       characteristics:
-        "All target words are present, but one short pause interrupts the phrase 'the answers with the class'.",
+        "The student clearly substitutes 'questions' for 'answers' while maintaining otherwise fluent delivery.",
     },
     goodScore: {
       content: 5,
@@ -5823,37 +5827,36 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       pronunciation: 5,
       overall: "90 / 90",
       breakdownText:
-        "Complete Content with clear Pronunciation and smooth Oral Fluency.",
+        "Accurate Content with clear Pronunciation and natural Oral Fluency.",
     },
     poorScore: {
-      content: 5,
-      fluency: 4,
+      content: 3,
+      fluency: 5,
       pronunciation: 5,
-      overall: "86 / 90",
+      overall: "78 / 90",
       breakdownText:
-        "Content and Pronunciation remain strong, but a short phrase-internal pause causes a minor Oral Fluency disruption.",
+        "A meaning-changing lexical substitution affects Content while Pronunciation and Oral Fluency remain clear.",
     },
     errorChecklist: [
       {
-        id: "phrase-internal-pausing",
-        label: "Phrase-internal pausing",
-        keyword: "Phrase-internal pausing",
+        id: "lexical-substitution",
+        label: "Lexical substitution",
+        keyword: "Lexical substitution",
       },
       {
-        id: "fluency-disruption",
-        label: "Oral Fluency disruption",
-        keyword: "Oral Fluency disruption",
+        id: "meaning-changing-substitution",
+        label: "Meaning-changing substitution",
+        keyword: "Meaning-changing substitution",
       },
       {
-        id: "interrupted-phrase-grouping",
-        label: "Interrupted phrase grouping",
-        keyword: "Interrupted phrase grouping",
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy",
       },
     ],
     expertAdvice:
-      "Prioritise Oral Fluency because all target words are present and clearly pronounced. The defining issue is the short pause inside 'the answers with the class'.",
+      "Listen for the actual lexical item before diagnosing Pronunciation. 'Questions' and 'answers' are different words. The primary teaching issue is Content accuracy while Oral Fluency remains strong.",
   },
-
   {
     exerciseIndex: 59,
     totalExercises: 100,
@@ -5866,7 +5869,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The library offers free Wi-Fi for all students.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/99.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-059-prompt-sulafat.mp3",
     promptAudio:
       "The library offers free Wi-Fi for all students.",
     studentTranscript:
@@ -5963,7 +5966,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please hand in your homework at the front desk.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/100.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-060-prompt-iapetus.mp3",
     promptAudio:
       "Please hand in your homework at the front desk.",
     studentTranscript:
@@ -6053,43 +6056,45 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     exerciseIndex: 61,
     totalExercises: 100,
     difficulty: "Advanced",
-    trainingSkill: "Oral Fluency",
-    diagnosticArea: "Oral Fluency — Prolonged Phrase-Internal Pause",
+    trainingSkill: "Content",
+    diagnosticArea: "Content — Word-Order Disruption",
     learningObjective:
-      "Distinguish complete Content from a significant fluency disruption and identify the exact location of the prolonged pause rather than treating the response as a Content problem.",
+      "Recognise a word-order disruption in an otherwise complete Repeat Sentence response and distinguish the Content error from Fluency or Pronunciation problems.",
     sourceQuestionId: "101",
     promptText:
       "The class will begin as soon as everyone is seated.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/101.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-061-prompt-achernar.mp3",
     promptAudio:
       "The class will begin as soon as everyone is seated.",
     studentTranscript:
-      "The class will begin as soon as... ... everyone is seated.",
+      "The class will begin as everyone is seated as soon.",
     studentResponse: {
       audioDuration: "Controlled calibration response",
       wordCount: 10,
       characteristics:
-        "All target words are reproduced accurately, but a prolonged pause interrupts the phrase 'as soon as everyone is seated'. Pronunciation remains clear.",
+        "All target words are reproduced, but the final phrase is placed in the wrong sequence. Delivery remains continuous and pronunciation is clear.",
     },
     diagnosticErrors: [
-      "Prolonged phrase-internal pause",
-      "Interrupted fluency",
+      "Word-order disruption",
+      "Syntactic sequence error",
+      "Content accuracy",
     ],
     expertEvidence: [
-      "All target words are present",
-      "There is no meaningful Content omission or substitution",
-      "A prolonged pause occurs after 'as soon as'",
-      "The pause interrupts an otherwise continuous phrase",
+      "All major target words are present",
+      "The target sequence is 'as soon as everyone is seated'",
+      "The student produces 'as everyone is seated as soon'",
+      "The altered sequence disrupts the target sentence structure",
+      "Delivery remains continuous",
       "Pronunciation remains clear",
-      "The evidence supports Oral Fluency as the primary diagnosis",
+      "The primary issue is Content accuracy",
     ],
     expertDiagnosis:
-      "The primary diagnosis is Oral Fluency. The student reproduces the complete sentence, but a prolonged pause interrupts the phrase 'as soon as everyone is seated'. There is no evidence of a primary Content problem.",
+      "The primary diagnosis is Content. The student reproduces the relevant vocabulary but changes the required word order in the phrase 'as soon as everyone is seated'. Because Repeat Sentence requires accurate reproduction of the sequence, this is a meaningful Content error rather than a Fluency or Pronunciation problem.",
     perfectCalibrationResponse:
-      "Primary diagnosis: Oral Fluency. Content is complete because all target words are reproduced. The defining problem is the prolonged pause after 'as soon as', which disrupts the phrase 'as soon as everyone is seated'. Pronunciation remains clear.",
+      "Primary diagnosis: Content. The student retains the target words but changes their order from 'as soon as everyone is seated' to 'as everyone is seated as soon'. The disrupted sequence means the sentence has not been reproduced accurately. Fluency and Pronunciation remain clear.",
     coachingAdvice:
-      "Practise 'as soon as everyone is seated' as one connected thought group. Then repeat the full sentence while maintaining continuous delivery through that phrase.",
+      "Practise the chunk 'as soon as everyone is seated' as a fixed language unit. Then repeat the complete sentence while preserving the original word order.",
     cefrLevel: {
       level: "B2",
       name: "B2 Upper Int",
@@ -6106,15 +6111,15 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       audioDuration: "Controlled benchmark delivery",
       wordCount: 10,
       characteristics:
-        "Complete reproduction with clear pronunciation and smooth continuous delivery.",
+        "Complete reproduction with accurate word order, clear pronunciation and smooth continuous delivery.",
     },
     poor: {
       transcript:
-        "The class will begin as soon as... ... everyone is seated.",
+        "The class will begin as everyone is seated as soon.",
       audioDuration: "Controlled calibration response",
       wordCount: 10,
       characteristics:
-        "All target words are present, but a prolonged pause interrupts the phrase 'as soon as everyone is seated'.",
+        "All major target words are present, but the final phrase is reproduced in the wrong sequence.",
     },
     goodScore: {
       content: 5,
@@ -6122,37 +6127,36 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       pronunciation: 5,
       overall: "90 / 90",
       breakdownText:
-        "Complete Content with clear Pronunciation and natural Oral Fluency.",
+        "Accurate Content sequence with clear Pronunciation and natural Oral Fluency.",
     },
     poorScore: {
-      content: 5,
-      fluency: 3,
+      content: 3,
+      fluency: 5,
       pronunciation: 5,
-      overall: "82 / 90",
+      overall: "78 / 90",
       breakdownText:
-        "Content is complete and Pronunciation remains clear, but the prolonged phrase-internal pause reduces Oral Fluency.",
+        "The target vocabulary is present but word order is disrupted, affecting Content while Fluency and Pronunciation remain clear.",
     },
     errorChecklist: [
       {
-        id: "prolonged-phrase-pause",
-        label: "Prolonged phrase-internal pause",
-        keyword: "Prolonged phrase-internal pause",
+        id: "word-order-disruption",
+        label: "Word-order disruption",
+        keyword: "Word-order disruption",
       },
       {
-        id: "interrupted-fluency",
-        label: "Interrupted fluency",
-        keyword: "Interrupted fluency",
+        id: "syntactic-sequence-error",
+        label: "Syntactic sequence error",
+        keyword: "Syntactic sequence error",
       },
       {
-        id: "complete-content",
-        label: "Complete Content",
-        keyword: "Complete Content",
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy",
       },
     ],
     expertAdvice:
-      "Prioritise Oral Fluency because all target words are present. Focus specifically on the prolonged pause after 'as soon as'. Do not diagnose a Content omission when the sentence content is complete.",
+      "Prioritise Content because the target words are present but the sequence is wrong. Focus on the phrase 'as soon as everyone is seated' and do not diagnose Fluency or Pronunciation when the delivery itself is clear.",
   },
-
   {
     exerciseIndex: 62,
     totalExercises: 100,
@@ -6165,7 +6169,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The school cafeteria closes at three in the afternoon.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/102.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-062-prompt-orus.mp3",
     promptAudio:
       "The school cafeteria closes at three in the afternoon.",
     studentTranscript:
@@ -6270,7 +6274,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please check the schedule for any room changes.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/103.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-063-prompt-leda.mp3",
     promptAudio:
       "Please check the schedule for any room changes.",
     studentTranscript:
@@ -6375,7 +6379,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The teacher will give a short quiz at the end of the lesson.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/104.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-064-prompt-puck.mp3",
     promptAudio:
       "The teacher will give a short quiz at the end of the lesson.",
     studentTranscript:
@@ -6479,7 +6483,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The building has elevators on both sides of the hall.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/105.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-065-prompt-sulafat.mp3",
     promptAudio:
       "The building has elevators on both sides of the hall.",
     studentTranscript:
@@ -6584,7 +6588,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please keep your belongings with you at all times.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/106.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-066-prompt-iapetus.mp3",
     promptAudio:
       "Please keep your belongings with you at all times.",
     studentTranscript:
@@ -6689,7 +6693,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The library has a quiet study area on the second floor.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/107.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-067-prompt-achernar.mp3",
     promptAudio:
       "The library has a quiet study area on the second floor.",
     studentTranscript:
@@ -6794,7 +6798,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The school will provide materials for the workshop.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/108.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-068-prompt-orus.mp3",
     promptAudio:
       "The school will provide materials for the workshop.",
     studentTranscript:
@@ -6899,7 +6903,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please raise your hand if you have a question.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/109.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-069-prompt-leda.mp3",
     promptAudio:
       "Please raise your hand if you have a question.",
     studentTranscript:
@@ -7003,7 +7007,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The teacher will explain the project guidelines today.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/110.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-070-prompt-puck.mp3",
     promptAudio:
       "The teacher will explain the project guidelines today.",
     studentTranscript:
@@ -7108,7 +7112,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The bus arrives at the station every fifteen minutes.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/111.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-071-prompt-sulafat.mp3",
     promptAudio:
       "The bus arrives at the station every fifteen minutes.",
     studentTranscript:
@@ -7213,7 +7217,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The school encourages students to read every day.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/113.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-072-prompt-iapetus.mp3",
     promptAudio:
       "The school encourages students to read every day.",
     studentTranscript:
@@ -7317,7 +7321,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The teacher will show a short video during the lesson.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/114.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-073-prompt-achernar.mp3",
     promptAudio:
       "The teacher will show a short video during the lesson.",
     studentTranscript:
@@ -7422,7 +7426,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please keep the classroom clean and organized.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/115.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-074-prompt-orus.mp3",
     promptAudio:
       "Please keep the classroom clean and organized.",
     studentTranscript:
@@ -7527,7 +7531,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The library offers free workshops on research skills.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/116.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-075-prompt-leda.mp3",
     promptAudio:
       "The library offers free workshops on research skills.",
     studentTranscript:
@@ -7632,7 +7636,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The next lesson will focus on listening practice.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/117.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-076-prompt-puck.mp3",
     promptAudio:
       "The next lesson will focus on listening practice.",
     studentTranscript:
@@ -7730,43 +7734,43 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     totalExercises: 100,
     difficulty: "Advanced",
     trainingSkill: "Oral Fluency",
-    diagnosticArea: "Oral Fluency — Phrase-Internal Hesitation",
+    diagnosticArea: "Oral Fluency — Word Repetition",
     learningObjective:
-      "Identify a hesitation within an otherwise complete Repeat Sentence response and avoid incorrectly diagnosing a Content omission when all target words are present.",
+      "Identify a brief word repetition in an otherwise complete Repeat Sentence response and distinguish the Fluency disruption from Content loss.",
     sourceQuestionId: "118",
     promptText:
       "Please arrive five minutes early for your appointment.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/118.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-077-prompt-sulafat.mp3",
     promptAudio:
       "Please arrive five minutes early for your appointment.",
     studentTranscript:
-      "Please arrive five ... minutes early for your appointment.",
+      "Please arrive five minutes minutes early for your appointment.",
     studentResponse: {
       audioDuration: "Controlled calibration response",
-      wordCount: 8,
+      wordCount: 9,
       characteristics:
-        "All target words are reproduced, but a hesitation occurs inside the natural phrase 'five minutes'. Pronunciation remains clear.",
+        "All target words are reproduced, but the word 'minutes' is repeated once, creating a brief fluency disruption. Pronunciation remains clear.",
     },
     diagnosticErrors: [
-      "Phrase-internal hesitation",
+      "Word repetition",
+      "Self-repetition",
       "Fluency disruption",
-      "Interrupted phrase grouping",
     ],
     expertEvidence: [
-      "All target words are present",
-      "The hesitation occurs between 'five' and 'minutes'",
-      "The phrase 'five minutes' is interrupted",
-      "There is no meaningful Content omission",
+      "All target words from the sentence are present",
+      "The word 'minutes' is produced twice",
+      "The repeated word creates a brief disruption in continuous delivery",
+      "There is no meaningful Content omission or substitution",
       "Pronunciation remains clear",
       "The primary issue is Oral Fluency",
     ],
     expertDiagnosis:
-      "The primary diagnosis is Oral Fluency. All target words are present, but the student hesitates inside the phrase 'five minutes'. Content is complete and Pronunciation remains clear, so the teacher should focus on the interrupted delivery.",
+      "The primary diagnosis is Oral Fluency. The student reproduces all target words but repeats 'minutes' once, creating a brief self-repetition. Content remains substantially complete and Pronunciation remains clear.",
     perfectCalibrationResponse:
-      "Primary diagnosis: Oral Fluency. All target words are present, but the student hesitates inside the phrase 'five minutes'. Content is complete and Pronunciation remains clear, so the teacher should identify the hesitation as the primary problem.",
+      "Primary diagnosis: Oral Fluency. All target words are present, but the student repeats 'minutes', creating a brief self-repetition. Content is substantially intact and Pronunciation remains clear, so the teacher should focus on the fluency disruption.",
     coachingAdvice:
-      "Practise 'five minutes early' as one connected phrase. Encourage the student to maintain forward delivery without inserting a hesitation inside the time expression.",
+      "Practise 'five minutes early' as one connected phrase. Encourage the student to continue forward after 'minutes' without repeating the word.",
     cefrLevel: {
       level: "B2",
       name: "B2 Upper Int",
@@ -7787,11 +7791,11 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     },
     poor: {
       transcript:
-        "Please arrive five ... minutes early for your appointment.",
+        "Please arrive five minutes minutes early for your appointment.",
       audioDuration: "Controlled calibration response",
-      wordCount: 8,
+      wordCount: 9,
       characteristics:
-        "All target words are present, but a hesitation interrupts the natural phrase 'five minutes'.",
+        "All target words are present, but 'minutes' is repeated once, creating a brief fluency disruption.",
     },
     goodScore: {
       content: 5,
@@ -7807,29 +7811,28 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       pronunciation: 5,
       overall: "82 / 90",
       breakdownText:
-        "Content remains complete, but a phrase-internal hesitation disrupts Oral Fluency.",
+        "Content remains substantially complete, but a brief word repetition disrupts Oral Fluency.",
     },
     errorChecklist: [
       {
-        id: "phrase-internal-hesitation",
-        label: "Phrase-internal hesitation",
-        keyword: "Phrase-internal hesitation",
+        id: "word-repetition",
+        label: "Word repetition",
+        keyword: "Word repetition",
+      },
+      {
+        id: "self-repetition",
+        label: "Self-repetition",
+        keyword: "Self-repetition",
       },
       {
         id: "fluency-disruption",
         label: "Fluency disruption",
         keyword: "Fluency disruption",
       },
-      {
-        id: "interrupted-phrase-grouping",
-        label: "Interrupted phrase grouping",
-        keyword: "Interrupted phrase grouping",
-      },
     ],
     expertAdvice:
-      "Prioritise Oral Fluency because every target word is present. The hesitation occurs inside 'five minutes', so do not invent a Content omission or Pronunciation problem.",
+      "Prioritise Oral Fluency because all target words are present and the clear disruption is the repeated word 'minutes'. Do not diagnose a Content omission or substitution.",
   },
-
   {
     exerciseIndex: 78,
     totalExercises: 100,
@@ -7842,7 +7845,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The school will host a guest speaker next week.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/119.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-078-prompt-iapetus.mp3",
     promptAudio:
       "The school will host a guest speaker next week.",
     studentTranscript:
@@ -7947,7 +7950,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please check your work carefully before submitting it.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/120.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-079-prompt-achernar.mp3",
     promptAudio:
       "Please check your work carefully before submitting it.",
     studentTranscript:
@@ -8052,7 +8055,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The teacher will collect the forms at the end of class.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/121.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-080-prompt-orus.mp3",
     promptAudio:
       "The teacher will collect the forms at the end of class.",
     studentTranscript:
@@ -8157,7 +8160,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The cafeteria is offering new menu options this month.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/122.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-081-prompt-leda.mp3",
     promptAudio:
       "The cafeteria is offering new menu options this month.",
     studentTranscript:
@@ -8262,7 +8265,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please turn off the lights when you leave the room.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/123.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-082-prompt-puck.mp3",
     promptAudio:
       "Please turn off the lights when you leave the room.",
     studentTranscript:
@@ -8367,7 +8370,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The school will send an email with further instructions.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/124.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-083-prompt-sulafat.mp3",
     promptAudio:
       "The school will send an email with further instructions.",
     studentTranscript:
@@ -8472,7 +8475,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The library has computers available for student use.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/125.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-084-prompt-iapetus.mp3",
     promptAudio:
       "The library has computers available for student use.",
     studentTranscript:
@@ -8577,7 +8580,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please wait outside until the teacher arrives.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/126.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-085-prompt-achernar.mp3",
     promptAudio:
       "Please wait outside until the teacher arrives.",
     studentTranscript:
@@ -8682,7 +8685,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The class will continue after a short break.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/127.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-086-prompt-orus.mp3",
     promptAudio:
       "The class will continue after a short break.",
     studentTranscript:
@@ -8779,44 +8782,44 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     exerciseIndex: 87,
     totalExercises: 100,
     difficulty: "Advanced",
-    trainingSkill: "Oral Fluency",
-    diagnosticArea: "Oral Fluency — Phrase-Internal Hesitation",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Content — Function-Word Omission",
     learningObjective:
-      "Identify a hesitation within a complete Repeat Sentence response and distinguish a Fluency disruption from a Content problem.",
+      "Identify a small function-word omission in an otherwise accurate Repeat Sentence response and distinguish the Content issue from Fluency or Pronunciation problems.",
     sourceQuestionId: "128",
     promptText:
       "The school encourages students to participate in sports.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/128.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-087-prompt-leda.mp3",
     promptAudio:
       "The school encourages students to participate in sports.",
     studentTranscript:
-      "The school encourages students to ... participate in sports.",
+      "The school encourages students participate in sports.",
     studentResponse: {
       audioDuration: "Controlled calibration response",
-      wordCount: 9,
+      wordCount: 8,
       characteristics:
-        "All target words are present, but a hesitation interrupts the natural progression before 'participate in sports'.",
+        "The student omits the function word 'to' before 'participate'. The core meaning remains clear, and delivery is otherwise fluent and clearly pronounced.",
     },
     diagnosticErrors: [
-      "Phrase-internal hesitation",
-      "Fluency disruption",
-      "Interrupted delivery",
+      "Function-word omission",
+      "Content accuracy",
+      "Minor content deviation",
     ],
     expertEvidence: [
-      "All target words are present",
-      "The hesitation occurs before 'participate in sports'",
-      "There is no meaningful Content omission",
+      "The target sentence contains 'to participate'",
+      "The student omits the function word 'to'",
+      "The core meaning remains understandable",
+      "The remaining target vocabulary is reproduced accurately",
+      "Delivery remains continuous",
       "Pronunciation remains clear",
-      "The hesitation interrupts continuous delivery",
-      "The primary issue is Oral Fluency",
     ],
     expertDiagnosis:
-      "The primary diagnosis is Oral Fluency. All target words are present, but the hesitation interrupts continuous delivery before 'participate in sports'. Content is complete and Pronunciation remains clear.",
+      "The primary diagnosis is Content accuracy. The student omits the function word 'to' before 'participate'. The core meaning remains clear, so this is a relatively small Content deviation rather than a major semantic failure. Fluency and Pronunciation are not the problem.",
     perfectCalibrationResponse:
-      "Primary diagnosis: Oral Fluency. All target words are present, but the student hesitates before 'participate in sports', interrupting continuous delivery. Content is complete and Pronunciation remains clear.",
+      "Primary diagnosis: Content. The student omits the function word 'to' before 'participate'. The main meaning remains clear, but the target sentence has not been reproduced exactly. Fluency and Pronunciation remain clear, so the teacher should keep the Content diagnosis proportionate.",
     coachingAdvice:
-      "Practise 'encourages students to participate in sports' as one connected phrase. Encourage forward delivery without stopping before the final phrase.",
+      "Practise the phrase 'to participate in sports' as one unit. Focus on retaining short function words that connect the sentence grammatically.",
     cefrLevel: {
       level: "C1",
       name: "C1 Advanced",
@@ -8833,15 +8836,15 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       audioDuration: "Controlled benchmark delivery",
       wordCount: 9,
       characteristics:
-        "Complete Content with clear Pronunciation and natural continuous delivery.",
+        "Complete Content reproduction with clear Pronunciation and natural continuous delivery.",
     },
     poor: {
       transcript:
-        "The school encourages students to ... participate in sports.",
+        "The school encourages students participate in sports.",
       audioDuration: "Controlled calibration response",
-      wordCount: 9,
+      wordCount: 8,
       characteristics:
-        "All target words are present, but a hesitation interrupts continuous delivery.",
+        "The function word 'to' is omitted, but the remainder of the response remains clear and fluent.",
     },
     goodScore: {
       content: 5,
@@ -8852,34 +8855,33 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
         "Complete Content with clear Pronunciation and smooth Oral Fluency.",
     },
     poorScore: {
-      content: 5,
-      fluency: 3,
+      content: 4,
+      fluency: 5,
       pronunciation: 5,
-      overall: "82 / 90",
+      overall: "86 / 90",
       breakdownText:
-        "Content remains complete, but the hesitation disrupts Oral Fluency.",
+        "A small function-word omission affects Content accuracy while the main meaning, Fluency and Pronunciation remain clear.",
     },
     errorChecklist: [
       {
-        id: "phrase-internal-hesitation",
-        label: "Phrase-internal hesitation",
-        keyword: "Phrase-internal hesitation",
+        id: "function-word-omission",
+        label: "Function-word omission",
+        keyword: "Function-word omission",
       },
       {
-        id: "fluency-disruption",
-        label: "Fluency disruption",
-        keyword: "Fluency disruption",
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy",
       },
       {
-        id: "interrupted-delivery",
-        label: "Interrupted delivery",
-        keyword: "Interrupted delivery",
+        id: "minor-content-deviation",
+        label: "Minor content deviation",
+        keyword: "Minor content deviation",
       },
     ],
     expertAdvice:
-      "Prioritise Oral Fluency because all target words are present. The main issue is the hesitation interrupting continuous delivery, not Content or Pronunciation.",
+      "Identify the missing function word 'to', but keep the diagnosis proportionate because the core meaning remains clear. Do not diagnose Fluency or Pronunciation without evidence.",
   },
-
   {
     exerciseIndex: 88,
     totalExercises: 100,
@@ -8892,7 +8894,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please check the weather before planning outdoor activities.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/129.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-088-prompt-puck.mp3",
     promptAudio:
       "Please check the weather before planning outdoor activities.",
     studentTranscript:
@@ -8997,7 +8999,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The teacher will explain the grammar rules again.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/130.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-089-prompt-sulafat.mp3",
     promptAudio:
       "The teacher will explain the grammar rules again.",
     studentTranscript:
@@ -9102,7 +9104,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The library will host a reading event next Friday.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/131.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-090-prompt-iapetus.mp3",
     promptAudio:
       "The library will host a reading event next Friday.",
     studentTranscript:
@@ -9207,7 +9209,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please bring a notebook to take notes during the lecture.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/132.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-091-prompt-achernar.mp3",
     promptAudio:
       "Please bring a notebook to take notes during the lecture.",
     studentTranscript:
@@ -9312,7 +9314,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The school will provide transportation for the trip.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/133.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-092-prompt-orus.mp3",
     promptAudio:
       "The school will provide transportation for the trip.",
     studentTranscript:
@@ -9417,7 +9419,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please keep your phone away during the lesson.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/134.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-093-prompt-leda.mp3",
     promptAudio:
       "Please keep your phone away during the lesson.",
     studentTranscript:
@@ -9522,7 +9524,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The teacher will answer questions at the end of the class.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/135.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-094-prompt-puck.mp3",
     promptAudio:
       "The teacher will answer questions at the end of the class.",
     studentTranscript:
@@ -9619,44 +9621,44 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     exerciseIndex: 95,
     totalExercises: 100,
     difficulty: "Advanced",
-    trainingSkill: "Oral Fluency",
-    diagnosticArea: "Oral Fluency — Self-Correction",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Content — Lexical Substitution",
     learningObjective:
-      "Identify a brief self-correction in an otherwise complete Repeat Sentence response and distinguish the fluency disruption from Content loss.",
+      "Identify a clearly pronounced lexical substitution in a complete Repeat Sentence response and distinguish the Content problem from Fluency or Pronunciation issues.",
     sourceQuestionId: "136",
     promptText:
       "The library is offering free printing this week.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/136.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-095-prompt-sulafat.mp3",
     promptAudio:
       "The library is offering free printing this week.",
     studentTranscript:
-      "The library is offering free ... printing this week.",
+      "The library is offering free copying this week.",
     studentResponse: {
       audioDuration: "Controlled calibration response",
       wordCount: 8,
       characteristics:
-        "All target words are present, but the student briefly interrupts delivery before 'printing'.",
+        "The student clearly substitutes 'copying' for the target word 'printing'. The remainder of the sentence is fluent and clearly pronounced.",
     },
     diagnosticErrors: [
-      "Self-correction",
-      "Fluency disruption",
-      "Interrupted delivery",
+      "Lexical substitution",
+      "Meaning-changing substitution",
+      "Content accuracy",
     ],
     expertEvidence: [
-      "All target words are present",
-      "The student interrupts delivery before 'printing'",
-      "The target Content is complete",
-      "The interruption affects Oral Fluency",
-      "Pronunciation remains clear",
-      "There is no meaningful Content omission",
+      "The target word is 'printing'",
+      "The student says 'copying' instead",
+      "'Copying' is a different lexical item, not a pronunciation variation",
+      "The substitution changes the specific service described by the sentence",
+      "All other target words are reproduced accurately",
+      "Delivery remains continuous and Pronunciation remains clear",
     ],
     expertDiagnosis:
-      "The primary diagnosis is Oral Fluency. All target words are present, but the student briefly interrupts delivery before 'printing'. Content remains complete and Pronunciation is clear.",
+      "The primary diagnosis is Content. The student substitutes 'copying' for 'printing', producing a different word and changing the specific service described. The response is otherwise fluent and clearly pronounced.",
     perfectCalibrationResponse:
-      "Primary diagnosis: Oral Fluency. All target words are present, but the student briefly interrupts delivery before 'printing'. Content remains complete and Pronunciation remains clear, so the teacher should focus on the fluency disruption.",
+      "Primary diagnosis: Content. The student says 'copying' instead of the target word 'printing'. This is a lexical substitution because 'copying' is a different word and changes the specific service being described. The rest of the response is fluent and clearly pronounced.",
     coachingAdvice:
-      "Practise 'offering free printing this week' as one continuous phrase. Encourage the student to maintain forward delivery through the object phrase.",
+      "Listen for the actual lexical item before diagnosing Pronunciation. Practise retaining the target word 'printing' and contrast it with the substituted word 'copying'.",
     cefrLevel: {
       level: "C2",
       name: "C2 Proficient",
@@ -9677,11 +9679,11 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     },
     poor: {
       transcript:
-        "The library is offering free ... printing this week.",
+        "The library is offering free copying this week.",
       audioDuration: "Controlled calibration response",
       wordCount: 8,
       characteristics:
-        "All target words are present, but a brief interruption disrupts continuous delivery.",
+        "The student substitutes 'copying' for 'printing' while maintaining otherwise clear and fluent delivery.",
     },
     goodScore: {
       content: 5,
@@ -9689,37 +9691,36 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       pronunciation: 5,
       overall: "90 / 90",
       breakdownText:
-        "Complete Content with clear Pronunciation and natural Oral Fluency.",
+        "Accurate Content with clear Pronunciation and natural Oral Fluency.",
     },
     poorScore: {
-      content: 5,
-      fluency: 3,
+      content: 3,
+      fluency: 5,
       pronunciation: 5,
-      overall: "82 / 90",
+      overall: "78 / 90",
       breakdownText:
-        "Content remains complete, but the interruption reduces Oral Fluency.",
+        "A meaning-changing lexical substitution affects Content while Fluency and Pronunciation remain clear.",
     },
     errorChecklist: [
       {
-        id: "self-correction",
-        label: "Self-correction",
-        keyword: "Self-correction",
+        id: "lexical-substitution",
+        label: "Lexical substitution",
+        keyword: "Lexical substitution",
       },
       {
-        id: "fluency-disruption",
-        label: "Fluency disruption",
-        keyword: "Fluency disruption",
+        id: "meaning-changing-substitution",
+        label: "Meaning-changing substitution",
+        keyword: "Meaning-changing substitution",
       },
       {
-        id: "interrupted-delivery",
-        label: "Interrupted delivery",
-        keyword: "Interrupted delivery",
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy",
       },
     ],
     expertAdvice:
-      "Prioritise Oral Fluency because the Content is complete. The brief interruption is the main diagnostic feature and should not be converted into a Content error.",
+      "Prioritise Content because 'copying' replaces the target word 'printing' and changes the specific meaning. Do not label this as a Pronunciation error when the substituted word is clearly pronounced and delivery is fluent.",
   },
-
   {
     exerciseIndex: 96,
     totalExercises: 100,
@@ -9732,7 +9733,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please follow the instructions carefully.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/137.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-096-prompt-iapetus.mp3",
     promptAudio:
       "Please follow the instructions carefully.",
     studentTranscript:
@@ -9837,7 +9838,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The next class will focus on reading comprehension.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/138.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-097-prompt-achernar.mp3",
     promptAudio:
       "The next class will focus on reading comprehension.",
     studentTranscript:
@@ -9942,7 +9943,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "Please check the lost and found for missing items.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/139.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-098-prompt-orus.mp3",
     promptAudio:
       "Please check the lost and found for missing items.",
     studentTranscript:
@@ -10047,7 +10048,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The teacher will give a short introduction to the topic.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/140.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-099-prompt-leda.mp3",
     promptAudio:
       "The teacher will give a short introduction to the topic.",
     studentTranscript:
@@ -10152,7 +10153,7 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptText:
       "The school will organize a charity event next month.",
     promptAudioUrl:
-      "https://storage.googleapis.com/pte_flow_audio/speaking/repeat_sentence/141.mp3",
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-100-prompt-puck.mp3",
     promptAudio:
       "The school will organize a charity event next month.",
     studentTranscript:

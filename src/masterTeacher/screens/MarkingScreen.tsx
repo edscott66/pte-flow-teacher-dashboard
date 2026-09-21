@@ -314,6 +314,19 @@ export default function MarkingScreen({
   };
 
   const handleSelectQuestion = (qId: string) => {
+    const activeQuestionTypes = new Set(["read-aloud", "repeat-sentence"]);
+
+    if (!activeQuestionTypes.has(qId)) {
+      setAssessmentWarning({
+        title: "Coming Soon",
+        message:
+          "This question type is planned for a future update. Read Aloud and Repeat Sentence are currently available in the Teacher Dashboard.",
+        tip:
+          "Your current question selection has not been changed. You can continue working with Read Aloud or Repeat Sentence.",
+      });
+      return;
+    }
+
     handleStopAudio();
     selectQuestion(qId);
   };
