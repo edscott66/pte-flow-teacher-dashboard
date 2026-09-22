@@ -5571,10 +5571,10 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     exerciseIndex: 56,
     totalExercises: 100,
     difficulty: "Intermediate",
-    trainingSkill: "Pronunciation",
-    diagnosticArea: "Pronunciation — Vowel Distortion",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Content — Lexical Substitution",
     learningObjective:
-      "Identify a pronunciation problem when the target words and sentence structure are otherwise retained, and distinguish the pronunciation issue from a Content omission or Oral Fluency disruption.",
+      "Identify a clearly pronounced lexical substitution that changes the meaning of a Repeat Sentence response and distinguish it from a Pronunciation error.",
     sourceQuestionId: "96",
     promptText:
       "The computer lab is open until eight in the evening.",
@@ -5583,32 +5583,33 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
     promptAudio:
       "The computer lab is open until eight in the evening.",
     studentTranscript:
-      "The computer lab is open until eight in the evening.",
+      "The computer lab is open until wait in the evening.",
     studentResponse: {
       audioDuration: "Controlled calibration response",
       wordCount: 10,
       characteristics:
-        "All target words are reproduced, but the pronunciation of 'eight' contains a noticeable vowel distortion. The intended word remains identifiable from the surrounding sentence.",
+        "The student clearly substitutes 'wait' for the target word 'eight'. The substituted word is clearly pronounced, but it is a different lexical item and therefore changes the accuracy of the response.",
     },
     diagnosticErrors: [
-      "Pronunciation distortion",
-      "Vowel distortion",
-      "Pronunciation accuracy",
+      "Lexical substitution",
+      "Meaning-changing substitution",
+      "Content accuracy",
     ],
     expertEvidence: [
-      "The target word 'eight' is reproduced",
-      "The transcript contains the correct target word",
-      "The spoken realisation of 'eight' contains a noticeable vowel distortion",
-      "The intended word remains identifiable",
-      "There is no meaningful Content omission or substitution",
-      "Delivery remains continuous",
+      "The target word is 'eight'",
+      "The student says 'wait'",
+      "The substituted word is clearly pronounced",
+      "The two words are different lexical items",
+      "The substitution means the target sentence has not been reproduced accurately",
+      "The remainder of the sentence is reproduced accurately",
+      "Oral Fluency remains generally clear",
     ],
     expertDiagnosis:
-      "The primary diagnosis is Pronunciation. The student reproduces the target sentence and retains the correct word 'eight', but the vowel quality in that word is noticeably distorted. Content is complete and Oral Fluency remains continuous, so the teacher should focus on pronunciation rather than incorrectly diagnosing Content.",
+      "The primary diagnosis is Content. The student substitutes 'wait' for the target word 'eight', so the required lexical item is not reproduced accurately. Although the two words share the /eɪt/ sound sequence, 'wait' is a different word because it begins with /w/. The substituted word is clearly pronounced and the response remains fluent, so this should not be diagnosed as a Pronunciation or Oral Fluency problem.",
     perfectCalibrationResponse:
-      "Primary diagnosis: Pronunciation. The student retains all target words, including 'eight', but the vowel in 'eight' is noticeably distorted. Content is complete and delivery remains continuous, so the main issue is Pronunciation rather than Content or Oral Fluency.",
+      "Primary diagnosis: Content. The student substitutes 'wait' for the target word 'eight', so the required lexical item is not reproduced accurately. Although the words sound similar, 'wait' is a different word because it includes an initial /w/ sound. The substituted word is clearly pronounced and the rest of the response is fluent, so the main issue is Content rather than Pronunciation or Oral Fluency.",
     coachingAdvice:
-      "Practise the vowel sound in 'eight' separately, then place it back into the phrase 'until eight in the evening'. Focus on producing the target vowel clearly without changing the surrounding sentence.",
+      "Contrast the target word 'eight' with the student's substitution 'wait'. Practise the exact phrase 'until eight in the evening' and focus on reproducing the correct lexical item rather than accepting a similar-sounding word.",
     cefrLevel: "B1",
     topicTitle: "Computer Lab Opening Hours",
     good: {
@@ -5617,15 +5618,15 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       audioDuration: "Controlled benchmark delivery",
       wordCount: 10,
       characteristics:
-        "Accurate Content with clear Pronunciation and smooth Oral Fluency.",
+        "Accurate reproduction with clear Pronunciation and smooth Oral Fluency.",
     },
     poor: {
       transcript:
-        "The computer lab is open until eight in the evening.",
+        "The computer lab is open until wait in the evening.",
       audioDuration: "Controlled calibration response",
       wordCount: 10,
       characteristics:
-        "All target words are present, but 'eight' contains a noticeable vowel distortion while the rest of the sentence remains clear and fluent.",
+        "The student clearly substitutes 'wait' for 'eight' while maintaining otherwise clear Pronunciation and fluent delivery.",
     },
     goodScore: {
       content: 5,
@@ -5633,35 +5634,35 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       pronunciation: 5,
       overall: "90 / 90",
       breakdownText:
-        "Complete Content with accurate Pronunciation and smooth Oral Fluency.",
+        "Accurate Content with clear Pronunciation and smooth Oral Fluency.",
     },
     poorScore: {
-      content: 5,
+      content: 3,
       fluency: 5,
-      pronunciation: 3,
-      overall: "84 / 90",
+      pronunciation: 5,
+      overall: "78 / 90",
       breakdownText:
-        "Content and Oral Fluency remain strong, but a noticeable vowel distortion affects Pronunciation.",
+        "A meaning-changing lexical substitution reduces Content accuracy while Pronunciation and Oral Fluency remain clear.",
     },
     errorChecklist: [
       {
-        id: "pronunciation-distortion",
-        label: "Pronunciation distortion",
-        keyword: "Pronunciation distortion",
+        id: "lexical-substitution",
+        label: "Lexical substitution",
+        keyword: "Lexical substitution",
       },
       {
-        id: "vowel-distortion",
-        label: "Vowel distortion",
-        keyword: "Vowel distortion",
+        id: "meaning-changing-substitution",
+        label: "Meaning-changing substitution",
+        keyword: "Meaning-changing substitution",
       },
       {
-        id: "pronunciation-accuracy",
-        label: "Pronunciation accuracy",
-        keyword: "Pronunciation accuracy",
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy",
       },
     ],
     expertAdvice:
-      "Prioritise Pronunciation because the target words are present and the sentence is fluent, but 'eight' contains a noticeable vowel distortion. Do not diagnose Content when the correct lexical item is retained.",
+      "Prioritise Content because 'wait' replaces the target word 'eight', so the required lexical item is not reproduced accurately. The substitution is clearly pronounced and delivery remains fluent. Do not diagnose Pronunciation simply because the two words sound similar.",
   },
 
   {
