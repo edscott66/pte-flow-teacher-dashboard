@@ -26,6 +26,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The speaker highlighted the need for greater collaboration between industry and academia.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-001-prompt-achernar.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-001-student-achernar.mp3",
     promptAudio:
       "The speaker highlighted the need for greater collaboration between industry and academia.",
     studentTranscript:
@@ -130,6 +132,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The study found a strong correlation between sleep quality and academic performance.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-002-prompt-orus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-002-student-orus.mp3",
     promptAudio:
       "The study found a strong correlation between sleep quality and academic performance.",
     studentTranscript:
@@ -233,6 +237,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Researchers have identified several variables that may influence the outcome of the study.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-003-prompt-leda.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-003-student-leda.mp3",
     promptAudio:
       "Researchers have identified several variables that may influence the outcome of the study.",
     studentTranscript:
@@ -336,6 +342,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The research team conducted a series of experiments to test the reliability of the new method.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-004-prompt-puck.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-004-student-puck.mp3",
     promptAudio:
       "The research team conducted a series of experiments to test the reliability of the new method.",
     studentTranscript:
@@ -439,6 +447,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The professor encouraged students to think critically about the ethical implications of their work.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-005-prompt-sulafat.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-005-student-sulafat.mp3",
     promptAudio:
       "The professor encouraged students to think critically about the ethical implications of their work.",
     studentTranscript:
@@ -543,6 +553,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The university is committed to creating an inclusive environment for all members of the community.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-006-prompt-iapetus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-006-student-iapetus.mp3",
     promptAudio:
       "The university is committed to creating an inclusive environment for all members of the community.",
     studentTranscript:
@@ -647,6 +659,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The workshop will introduce practical strategies for managing time more effectively.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-007-prompt-achernar.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-007-student-achernar.mp3",
     promptAudio:
       "The workshop will introduce practical strategies for managing time more effectively.",
     studentTranscript:
@@ -751,6 +765,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The results indicate that environmental factors play a significant role in human behaviour.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-008-prompt-orus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-008-student-orus.mp3",
     promptAudio:
       "The results indicate that environmental factors play a significant role in human behaviour.",
     studentTranscript:
@@ -856,6 +872,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
 
   promptAudioUrl:
     "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-009-prompt-leda.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-009-student-leda.mp3",
 
   promptAudio:
     "The speaker discussed several challenges facing the healthcare system in the coming decade.",
@@ -975,6 +993,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The course aims to develop students’ ability to analyze complex information with confidence.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-010-prompt-puck.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-010-student-puck.mp3",
     promptAudio:
       "The course aims to develop students’ ability to analyze complex information with confidence.",
     studentTranscript:
@@ -1083,6 +1103,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
 
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-011-prompt-sulafat.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-011-student-sulafat.mp3",
 
     promptAudio:
       "The library will close early during the holiday period.",
@@ -1209,6 +1231,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
 
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-012-prompt-iapetus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-012-student-iapetus.mp3",
 
     promptAudio:
       "Please submit your assignment before the end of the week.",
@@ -1334,6 +1358,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
 
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-013-prompt-achernar.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-013-student-achernar.mp3",
 
     promptAudio:
       "The lecture tomorrow will start ten minutes later than usual.",
@@ -1460,6 +1486,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
 
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-014-prompt-orus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-014-student-orus.mp3",
 
     promptAudio:
       "Students must wear their ID cards at all times on campus.",
@@ -1587,6 +1615,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
 
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-015-prompt-leda.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-015-student-leda.mp3",
 
     promptAudio:
       "The cafeteria offers vegetarian meals every day.",
@@ -1708,6 +1738,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Your timetable will be available online next Monday.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-016-prompt-puck.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-016-student-puck.mp3",
     promptAudio:
       "Your timetable will be available online next Monday.",
     studentTranscript:
@@ -1805,6 +1837,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The teacher will explain the new topic after the break.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-017-prompt-sulafat.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-017-student-sulafat.mp3",
     promptAudio:
       "The teacher will explain the new topic after the break.",
     studentTranscript:
@@ -1902,6 +1936,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please check your email for important course updates.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-018-prompt-iapetus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-018-student-iapetus.mp3",
     promptAudio:
       "Please check your email for important course updates.",
     studentTranscript:
@@ -1998,6 +2034,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The meeting has been moved to a larger room.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-019-prompt-achernar.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-019-student-achernar.mp3",
     promptAudio:
       "The meeting has been moved to a larger room.",
     studentTranscript:
@@ -2095,6 +2133,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "You can borrow up to five books from the library.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-020-prompt-orus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-020-student-orus.mp3",
     promptAudio:
       "You can borrow up to five books from the library.",
     studentTranscript:
@@ -2192,6 +2232,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The bus to the city leaves every thirty minutes.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-021-prompt-leda.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-021-student-leda.mp3",
     promptAudio:
       "The bus to the city leaves every thirty minutes.",
     studentTranscript:
@@ -2289,6 +2331,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Make sure you save your work before closing the computer.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-022-prompt-puck.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-022-student-puck.mp3",
     promptAudio:
       "Make sure you save your work before closing the computer.",
     studentTranscript:
@@ -2386,6 +2430,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The science lab requires safety goggles for all experiments.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-023-prompt-sulafat.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-023-student-sulafat.mp3",
     promptAudio:
       "The science lab requires safety goggles for all experiments.",
     studentTranscript:
@@ -2482,6 +2528,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please speak clearly so everyone can understand you.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-024-prompt-iapetus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-024-student-iapetus.mp3",
     promptAudio:
       "Please speak clearly so everyone can understand you.",
     studentTranscript:
@@ -2579,6 +2627,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The museum offers free entry on the first Sunday of each month.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-025-prompt-achernar.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-025-student-achernar.mp3",
     promptAudio:
       "The museum offers free entry on the first Sunday of each month.",
     studentTranscript:
@@ -2676,6 +2726,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Your student card can also be used to pay for printing.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-026-prompt-orus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-026-student-orus.mp3",
     promptAudio:
       "Your student card can also be used to pay for printing.",
     studentTranscript:
@@ -2773,6 +2825,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The weather is expected to be warm and sunny this weekend.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-027-prompt-leda.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-027-student-leda.mp3",
     promptAudio:
       "The weather is expected to be warm and sunny this weekend.",
     studentTranscript:
@@ -2870,6 +2924,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The library has extended its opening hours for exam season.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-028-prompt-puck.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-028-student-puck.mp3",
     promptAudio:
       "The library has extended its opening hours for exam season.",
     studentTranscript:
@@ -2966,6 +3022,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please turn off your mobile phone during the presentation.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-029-prompt-sulafat.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-029-student-sulafat.mp3",
     promptAudio:
       "Please turn off your mobile phone during the presentation.",
     studentTranscript:
@@ -3063,6 +3121,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The teacher will give feedback on your project next week.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-030-prompt-iapetus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-030-student-iapetus.mp3",
     promptAudio:
       "The teacher will give feedback on your project next week.",
     studentTranscript:
@@ -3160,6 +3220,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "You must register for the workshop before Friday.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-031-prompt-achernar.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-031-student-achernar.mp3",
     promptAudio:
       "You must register for the workshop before Friday.",
     studentTranscript:
@@ -3257,6 +3319,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The classroom has been rearranged to allow more space.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-032-prompt-orus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-032-student-orus.mp3",
     promptAudio:
       "The classroom has been rearranged to allow more space.",
     studentTranscript:
@@ -3353,6 +3417,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please keep your desk clean and tidy at all times.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-033-prompt-leda.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-033-student-leda.mp3",
     promptAudio:
       "Please keep your desk clean and tidy at all times.",
     studentTranscript:
@@ -3450,6 +3516,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The school will host a cultural festival next month.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-034-prompt-puck.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-034-student-puck.mp3",
     promptAudio:
       "The school will host a cultural festival next month.",
     studentTranscript:
@@ -3547,6 +3615,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The computer system will be updated overnight.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-035-prompt-sulafat.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-035-student-sulafat.mp3",
     promptAudio:
       "The computer system will be updated overnight.",
     studentTranscript:
@@ -3644,6 +3714,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please follow the signs to the main entrance.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-036-prompt-iapetus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-036-student-iapetus.mp3",
     promptAudio:
       "Please follow the signs to the main entrance.",
     studentTranscript:
@@ -3741,6 +3813,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The teacher will check attendance at the beginning of class.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-037-prompt-achernar.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-037-student-achernar.mp3",
     promptAudio:
       "The teacher will check attendance at the beginning of class.",
     studentTranscript:
@@ -3838,6 +3912,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The library is a quiet area for study and reading.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-038-prompt-orus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-038-student-orus.mp3",
     promptAudio:
       "The library is a quiet area for study and reading.",
     studentTranscript:
@@ -3935,6 +4011,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "You can ask the receptionist for help if you need it.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-039-prompt-leda.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-039-student-leda.mp3",
     promptAudio:
       "You can ask the receptionist for help if you need it.",
     studentTranscript:
@@ -4032,6 +4110,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The bus service may be delayed due to heavy traffic.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-040-prompt-puck.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-040-student-puck.mp3",
     promptAudio:
       "The bus service may be delayed due to heavy traffic.",
     studentTranscript:
@@ -4129,6 +4209,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please return the equipment after you finish using it.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-041-prompt-sulafat.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-041-student-sulafat.mp3",
     promptAudio:
       "Please return the equipment after you finish using it.",
     studentTranscript:
@@ -4225,6 +4307,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The school store sells notebooks, pens, and other supplies.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-042-prompt-iapetus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-042-student-iapetus.mp3",
     promptAudio:
       "The school store sells notebooks, pens, and other supplies.",
     studentTranscript:
@@ -4322,6 +4406,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The next class will focus on improving speaking skills.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-043-prompt-achernar.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-043-student-achernar.mp3",
     promptAudio:
       "The next class will focus on improving speaking skills.",
     studentTranscript:
@@ -4418,6 +4504,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please wait in line until it is your turn.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-044-prompt-orus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-044-student-orus.mp3",
     promptAudio:
       "Please wait in line until it is your turn.",
     studentTranscript:
@@ -4514,6 +4602,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The teacher will explain the homework at the end of class.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-045-prompt-leda.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-045-student-leda.mp3",
     promptAudio:
       "The teacher will explain the homework at the end of class.",
     studentTranscript:
@@ -4611,6 +4701,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The library staff can help you find the books you need.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-046-prompt-puck.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-046-student-puck.mp3",
     promptAudio:
       "The library staff can help you find the books you need.",
     studentTranscript:
@@ -4708,6 +4800,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The building will be closed for maintenance this weekend.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-047-prompt-sulafat.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-047-student-sulafat.mp3",
     promptAudio:
       "The building will be closed for maintenance this weekend.",
     studentTranscript:
@@ -4805,6 +4899,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please check the notice board for important announcements.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-048-prompt-iapetus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-048-student-iapetus.mp3",
     promptAudio:
       "Please check the notice board for important announcements.",
     studentTranscript:
@@ -4902,6 +4998,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The school encourages students to join after-school clubs.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-049-prompt-achernar.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-049-student-achernar.mp3",
     promptAudio:
       "The school encourages students to join after-school clubs.",
     studentTranscript:
@@ -4999,6 +5097,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The exam results will be released next Wednesday.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-050-prompt-orus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-050-student-orus.mp3",
     promptAudio:
       "The exam results will be released next Wednesday.",
     studentTranscript:
@@ -5096,6 +5196,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please keep your voice down while others are studying.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-051-prompt-leda.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-051-student-leda.mp3",
     promptAudio:
       "Please keep your voice down while others are studying.",
     studentTranscript:
@@ -5193,6 +5295,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The teacher will hand out the worksheets shortly.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-052-prompt-puck.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-052-student-puck.mp3",
     promptAudio:
       "The teacher will hand out the worksheets shortly.",
     studentTranscript:
@@ -5289,6 +5393,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The bus stop is located just outside the main gate.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-053-prompt-sulafat.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-053-student-sulafat.mp3",
     promptAudio:
       "The bus stop is located just outside the main gate.",
     studentTranscript:
@@ -5386,6 +5492,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please bring your textbook to every class.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-054-prompt-iapetus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-054-student-iapetus.mp3",
     promptAudio:
       "Please bring your textbook to every class.",
     studentTranscript:
@@ -5483,6 +5591,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The school will organize a field trip in early June.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-055-prompt-achernar.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-055-student-achernar.mp3",
     promptAudio:
       "The school will organize a field trip in early June.",
     studentTranscript:
@@ -5580,6 +5690,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The computer lab is open until eight in the evening.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-056-prompt-orus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-056-student-orus.mp3",
     promptAudio:
       "The computer lab is open until eight in the evening.",
     studentTranscript:
@@ -5678,6 +5790,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please make sure your phone is on silent mode.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-057-prompt-leda.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-057-student-leda.mp3",
     promptAudio:
       "Please make sure your phone is on silent mode.",
     studentTranscript:
@@ -5775,6 +5889,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The teacher will review the answers with the class.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-058-prompt-puck.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-058-student-puck.mp3",
     promptAudio:
       "The teacher will review the answers with the class.",
     studentTranscript:
@@ -5871,6 +5987,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The library offers free Wi-Fi for all students.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-059-prompt-sulafat.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-059-student-sulafat.mp3",
     promptAudio:
       "The library offers free Wi-Fi for all students.",
     studentTranscript:
@@ -5968,6 +6086,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please hand in your homework at the front desk.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-060-prompt-iapetus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-060-student-iapetus.mp3",
     promptAudio:
       "Please hand in your homework at the front desk.",
     studentTranscript:
@@ -6066,6 +6186,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The class will begin as soon as everyone is seated.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-061-prompt-achernar.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-061-student-achernar.mp3",
     promptAudio:
       "The class will begin as soon as everyone is seated.",
     studentTranscript:
@@ -6171,6 +6293,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The school cafeteria closes at three in the afternoon.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-062-prompt-orus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-062-student-orus.mp3",
     promptAudio:
       "The school cafeteria closes at three in the afternoon.",
     studentTranscript:
@@ -6276,6 +6400,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please check the schedule for any room changes.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-063-prompt-leda.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-063-student-leda.mp3",
     promptAudio:
       "Please check the schedule for any room changes.",
     studentTranscript:
@@ -6381,6 +6507,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The teacher will give a short quiz at the end of the lesson.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-064-prompt-puck.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-064-student-puck.mp3",
     promptAudio:
       "The teacher will give a short quiz at the end of the lesson.",
     studentTranscript:
@@ -6485,6 +6613,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The building has elevators on both sides of the hall.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-065-prompt-sulafat.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-065-student-sulafat.mp3",
     promptAudio:
       "The building has elevators on both sides of the hall.",
     studentTranscript:
@@ -6590,6 +6720,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please keep your belongings with you at all times.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-066-prompt-iapetus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-066-student-iapetus.mp3",
     promptAudio:
       "Please keep your belongings with you at all times.",
     studentTranscript:
@@ -6695,6 +6827,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The library has a quiet study area on the second floor.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-067-prompt-achernar.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-067-student-achernar.mp3",
     promptAudio:
       "The library has a quiet study area on the second floor.",
     studentTranscript:
@@ -6800,6 +6934,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The school will provide materials for the workshop.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-068-prompt-orus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-068-student-orus.mp3",
     promptAudio:
       "The school will provide materials for the workshop.",
     studentTranscript:
@@ -6905,6 +7041,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please raise your hand if you have a question.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-069-prompt-leda.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-069-student-leda.mp3",
     promptAudio:
       "Please raise your hand if you have a question.",
     studentTranscript:
@@ -7009,6 +7147,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The teacher will explain the project guidelines today.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-070-prompt-puck.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-070-student-puck.mp3",
     promptAudio:
       "The teacher will explain the project guidelines today.",
     studentTranscript:
@@ -7114,6 +7254,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The bus arrives at the station every fifteen minutes.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-071-prompt-sulafat.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-071-student-sulafat.mp3",
     promptAudio:
       "The bus arrives at the station every fifteen minutes.",
     studentTranscript:
@@ -7219,6 +7361,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The school encourages students to read every day.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-072-prompt-iapetus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-072-student-iapetus.mp3",
     promptAudio:
       "The school encourages students to read every day.",
     studentTranscript:
@@ -7323,6 +7467,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The teacher will show a short video during the lesson.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-073-prompt-achernar.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-073-student-achernar.mp3",
     promptAudio:
       "The teacher will show a short video during the lesson.",
     studentTranscript:
@@ -7428,6 +7574,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please keep the classroom clean and organized.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-074-prompt-orus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-074-student-orus.mp3",
     promptAudio:
       "Please keep the classroom clean and organized.",
     studentTranscript:
@@ -7533,6 +7681,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The library offers free workshops on research skills.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-075-prompt-leda.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-075-student-leda.mp3",
     promptAudio:
       "The library offers free workshops on research skills.",
     studentTranscript:
@@ -7638,6 +7788,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The next lesson will focus on listening practice.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-076-prompt-puck.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-076-student-puck.mp3",
     promptAudio:
       "The next lesson will focus on listening practice.",
     studentTranscript:
@@ -7743,6 +7895,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please arrive five minutes early for your appointment.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-077-prompt-sulafat.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-077-student-sulafat.mp3",
     promptAudio:
       "Please arrive five minutes early for your appointment.",
     studentTranscript:
@@ -7847,6 +8001,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The school will host a guest speaker next week.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-078-prompt-iapetus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-078-student-iapetus.mp3",
     promptAudio:
       "The school will host a guest speaker next week.",
     studentTranscript:
@@ -7952,6 +8108,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please check your work carefully before submitting it.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-079-prompt-achernar.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-079-student-achernar.mp3",
     promptAudio:
       "Please check your work carefully before submitting it.",
     studentTranscript:
@@ -8057,6 +8215,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The teacher will collect the forms at the end of class.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-080-prompt-orus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-080-student-orus.mp3",
     promptAudio:
       "The teacher will collect the forms at the end of class.",
     studentTranscript:
@@ -8162,6 +8322,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The cafeteria is offering new menu options this month.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-081-prompt-leda.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-081-student-leda.mp3",
     promptAudio:
       "The cafeteria is offering new menu options this month.",
     studentTranscript:
@@ -8267,6 +8429,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please turn off the lights when you leave the room.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-082-prompt-puck.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-082-student-puck.mp3",
     promptAudio:
       "Please turn off the lights when you leave the room.",
     studentTranscript:
@@ -8372,6 +8536,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The school will send an email with further instructions.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-083-prompt-sulafat.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-083-student-sulafat.mp3",
     promptAudio:
       "The school will send an email with further instructions.",
     studentTranscript:
@@ -8477,6 +8643,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The library has computers available for student use.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-084-prompt-iapetus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-084-student-iapetus.mp3",
     promptAudio:
       "The library has computers available for student use.",
     studentTranscript:
@@ -8582,6 +8750,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please wait outside until the teacher arrives.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-085-prompt-achernar.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-085-student-achernar.mp3",
     promptAudio:
       "Please wait outside until the teacher arrives.",
     studentTranscript:
@@ -8687,6 +8857,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The class will continue after a short break.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-086-prompt-orus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-086-student-orus.mp3",
     promptAudio:
       "The class will continue after a short break.",
     studentTranscript:
@@ -8792,6 +8964,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The school encourages students to participate in sports.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-087-prompt-leda.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-087-student-leda.mp3",
     promptAudio:
       "The school encourages students to participate in sports.",
     studentTranscript:
@@ -8896,6 +9070,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please check the weather before planning outdoor activities.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-088-prompt-puck.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-088-student-puck.mp3",
     promptAudio:
       "Please check the weather before planning outdoor activities.",
     studentTranscript:
@@ -9001,6 +9177,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The teacher will explain the grammar rules again.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-089-prompt-sulafat.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-089-student-sulafat.mp3",
     promptAudio:
       "The teacher will explain the grammar rules again.",
     studentTranscript:
@@ -9106,6 +9284,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The library will host a reading event next Friday.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-090-prompt-iapetus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-090-student-iapetus.mp3",
     promptAudio:
       "The library will host a reading event next Friday.",
     studentTranscript:
@@ -9211,6 +9391,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please bring a notebook to take notes during the lecture.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-091-prompt-achernar.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-091-student-achernar.mp3",
     promptAudio:
       "Please bring a notebook to take notes during the lecture.",
     studentTranscript:
@@ -9316,6 +9498,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The school will provide transportation for the trip.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-092-prompt-orus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-092-student-orus.mp3",
     promptAudio:
       "The school will provide transportation for the trip.",
     studentTranscript:
@@ -9421,6 +9605,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please keep your phone away during the lesson.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-093-prompt-leda.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-093-student-leda.mp3",
     promptAudio:
       "Please keep your phone away during the lesson.",
     studentTranscript:
@@ -9526,6 +9712,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The teacher will answer questions at the end of the class.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-094-prompt-puck.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-094-student-puck.mp3",
     promptAudio:
       "The teacher will answer questions at the end of the class.",
     studentTranscript:
@@ -9631,6 +9819,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The library is offering free printing this week.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-095-prompt-sulafat.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-095-student-sulafat.mp3",
     promptAudio:
       "The library is offering free printing this week.",
     studentTranscript:
@@ -9735,6 +9925,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please follow the instructions carefully.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-096-prompt-iapetus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-096-student-iapetus.mp3",
     promptAudio:
       "Please follow the instructions carefully.",
     studentTranscript:
@@ -9840,6 +10032,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The next class will focus on reading comprehension.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-097-prompt-achernar.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-097-student-achernar.mp3",
     promptAudio:
       "The next class will focus on reading comprehension.",
     studentTranscript:
@@ -9945,6 +10139,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "Please check the lost and found for missing items.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-098-prompt-orus.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-098-student-orus.mp3",
     promptAudio:
       "Please check the lost and found for missing items.",
     studentTranscript:
@@ -10050,6 +10246,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The teacher will give a short introduction to the topic.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-099-prompt-leda.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-099-student-leda.mp3",
     promptAudio:
       "The teacher will give a short introduction to the topic.",
     studentTranscript:
@@ -10155,6 +10353,8 @@ export const REPEAT_SENTENCE_CALIBRATION_EXERCISES = [
       "The school will organize a charity event next month.",
     promptAudioUrl:
       "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/prompts-v1/exercise-100-prompt-puck.mp3",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/repeat-sentence/student-responses-v2/exercise-100-student-puck.mp3",
     promptAudio:
       "The school will organize a charity event next month.",
     studentTranscript:

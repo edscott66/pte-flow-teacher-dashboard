@@ -49,6 +49,7 @@ export default function MarkingScreen({
   const [isPlayingAudio, setIsPlayingAudio] = useState<boolean>(false);
   const [currentPlayingId, setCurrentPlayingId] = useState<string | null>(null);
   const [showResetConfirmation, setShowResetConfirmation] = useState(false);
+  const [isQuestionMenuOpen, setIsQuestionMenuOpen] = useState(false);
   const [assessmentWarning, setAssessmentWarning] = useState<{
     title: string;
     message: string;
@@ -247,9 +248,11 @@ export default function MarkingScreen({
   const handlePlayExternalAudio = (url: string, id: string) => {
     if (isPlayingAudio && currentPlayingId === id) {
       externalAudioRef.current?.pause();
+
       if (externalAudioRef.current) {
         externalAudioRef.current.currentTime = 0;
       }
+
       externalAudioRef.current = null;
       setIsPlayingAudio(false);
       setCurrentPlayingId(null);
@@ -314,21 +317,36 @@ export default function MarkingScreen({
   };
 
   const handleSelectQuestion = (qId: string) => {
-    const activeQuestionTypes = new Set(["read-aloud", "repeat-sentence"]);
+    const selectedQuestion = QUESTIONS_DATA.find((q) => q.id === qId);
 
-    if (!activeQuestionTypes.has(qId)) {
+    if (!selectedQuestion) {
+      return;
+    }
+
+    const activeQuestionTypes = new Set([
+      "read-aloud",
+      "repeat-sentence",
+    ]);
+
+    if (!activeQuestionTypes.has(selectedQuestion.id)) {
       setAssessmentWarning({
         title: "Coming Soon",
         message:
-          "This question type is planned for a future update. Read Aloud and Repeat Sentence are currently available in the Teacher Dashboard.",
+          `${selectedQuestion.title} is planned for a future update. Read Aloud and Repeat Sentence are currently available in the Teacher Dashboard.`,
         tip:
           "Your current question selection has not been changed. You can continue working with Read Aloud or Repeat Sentence.",
       });
       return;
     }
 
+    setAssessmentWarning(null);
     handleStopAudio();
-    selectQuestion(qId);
+    selectQuestion(selectedQuestion.id);
+  };
+
+  const handleQuestionMenuSelect = (qId: string) => {
+    setIsQuestionMenuOpen(false);
+    handleSelectQuestion(qId);
   };
 
   const handleSetExerciseIndex = (idx: number) => {
@@ -340,7 +358,6 @@ export default function MarkingScreen({
     handleStopAudio();
     nextExercise();
   };
-
   const handlePrevExercise = () => {
     handleStopAudio();
     prevExercise();
@@ -357,7 +374,7 @@ export default function MarkingScreen({
   };
 
   // Keep the selected question and the section filter synchronized.
-  // This prevents the browser <select> from displaying a question from one
+  // This prevents the question selector from displaying a question from one
   // section while currentQuestion belongs to another section.
   useEffect(() => {
     if (activeSectionFilter === "ALL") return;
@@ -483,6 +500,7 @@ export default function MarkingScreen({
   const calibrationExerciseMetadata = currentExercise as {
     diagnosticArea?: string;
     promptAudioUrl?: string;
+    studentResponseAudioUrl?: string;
     cefrLevel?: { level?: string };
   } | null;
 
@@ -577,28 +595,23 @@ export default function MarkingScreen({
                 </span>
 
                 <p className="text-slate-300">
-                  Listen to the student response and identify the meaningful
-                  fluency problems you can support with evidence. Select the
-                  applicable items in the <b>Error Tracker Checklist</b>, then
-                  write your own assessment explaining what you heard and why
-                  it matters. <b>Checklist selections do not count as written evidence.</b>{" "}
-                  If no meaningful error is present, leave the checklist
-                  unselected and explain why.
+                  Listen to the student response before reviewing the diagnostic
+                  focus. The response transcript and analysis are hidden during
+                  calibration exercises so your diagnosis is based on what you
+                  actually hear.
                 </p>
               </div>
 
               <div className="calibration-guide-step p-2.5 rounded-lg bg-indigo-950/70 border border-indigo-800/60 space-y-1">
                 <span className="font-bold text-amber-300 flex items-center gap-1">
-                  3️⃣ Write Personal Feedback
+                  3️⃣ Write Your Assessment
                 </span>
 
                 <p className="text-slate-300">
-                  In <b>Your Assessment Feedback</b>, write your own
-                  evidence-based assessment. State the relevant PTE term(s),
-                  describe the evidence you heard, explain the impact on
-                  performance, and give appropriate advice where useful. The
-                  AI will assess the quality of your written rationale
-                  independently of the diagnostic prompts.
+                  State the relevant PTE term(s), describe the evidence you heard,
+                  explain the impact on performance, and give appropriate advice
+                  where useful. The AI will assess the quality of your written
+                  rationale independently of the diagnostic prompts.
                 </p>
               </div>
 
@@ -636,24 +649,79 @@ export default function MarkingScreen({
             )
           )}
         </div>
-
-        {/* Question Selector Dropdown / Scroll */}
-        <div className="calibration-question-selector space-y-1 w-full max-w-full overflow-hidden">
+        {/* Question Selector Dropdown */}
+        <div className="calibration-question-selector space-y-1 w-full max-w-full">
           <label className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
             Select Question Type ({filteredQuestions.length})
           </label>
 
-          <select
-            value={selectedQuestionId}
-            onChange={(e) => handleSelectQuestion(e.target.value)}
-            className="w-full max-w-full p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-xs font-bold text-slate-900 dark:text-slate-100 shadow-xs focus:ring-2 focus:ring-indigo-500 focus:outline-hidden truncate cursor-pointer"
-          >
-            {filteredQuestions.map((q) => (
-              <option key={q.id} value={q.id} className="truncate">
-                [{q.section}] {q.title}
-              </option>
-            ))}
-          </select>
+          <div className="relative">
+            <button
+              type="button"
+              aria-haspopup="listbox"
+              aria-expanded={isQuestionMenuOpen}
+              onClick={() =>
+                setIsQuestionMenuOpen((open) => !open)
+              }
+              className="flex w-full items-center justify-between gap-3 rounded-xl border border-slate-300 bg-white p-2.5 text-left text-xs font-bold text-slate-900 shadow-xs transition-colors hover:border-indigo-400 focus:outline-hidden focus:ring-2 focus:ring-indigo-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100"
+            >
+              <span className="min-w-0 truncate">
+                [{currentQuestion.section}] {currentQuestion.title}
+              </span>
+
+              <ChevronUp
+                className={`h-4 w-4 shrink-0 transition-transform ${
+                  isQuestionMenuOpen
+                    ? "rotate-0"
+                    : "rotate-180"
+                }`}
+              />
+            </button>
+
+            {isQuestionMenuOpen && (
+              <div
+                role="listbox"
+                aria-label="Select Question Type"
+                className="absolute left-0 right-0 top-full z-[10000] mt-1 max-h-72 overflow-y-auto rounded-xl border border-slate-200 bg-white p-1 shadow-2xl dark:border-slate-700 dark:bg-slate-900"
+              >
+                {filteredQuestions.map((q) => {
+                  const isActiveQuestion =
+                    q.id === selectedQuestionId;
+
+                  const isAvailableQuestion =
+                    q.id === "read-aloud" ||
+                    q.id === "repeat-sentence";
+
+                  return (
+                    <button
+                      key={q.id}
+                      type="button"
+                      role="option"
+                      aria-selected={isActiveQuestion}
+                      onClick={() =>
+                        handleQuestionMenuSelect(q.id)
+                      }
+                      className={`flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-left text-xs transition-colors ${
+                        isActiveQuestion
+                          ? "bg-indigo-50 font-extrabold text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300"
+                          : "font-semibold text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"
+                      }`}
+                    >
+                      <span className="min-w-0 truncate">
+                        [{q.section}] {q.title}
+                      </span>
+
+                      {!isAvailableQuestion && (
+                        <span className="shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wide text-amber-700 dark:bg-amber-950 dark:text-amber-300">
+                          Coming Soon
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Selected Question Details Banner */}
@@ -693,7 +761,9 @@ export default function MarkingScreen({
             <div className="flex items-center bg-slate-100 dark:bg-slate-800 p-0.5 rounded-lg border border-slate-200 dark:border-slate-700">
 
               <button
-                onClick={() => handleSetActiveResponseMode("poor")}
+                onClick={() =>
+                  handleSetActiveResponseMode("poor")
+                }
                 className={`calibration-sample-button calibration-weak-button px-2.5 py-1 rounded-md text-[10px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
                   activeResponseMode === "poor"
                     ? "bg-rose-500 text-white shadow-xs"
@@ -705,7 +775,9 @@ export default function MarkingScreen({
               </button>
 
               <button
-                onClick={() => handleSetActiveResponseMode("good")}
+                onClick={() =>
+                  handleSetActiveResponseMode("good")
+                }
                 className={`calibration-sample-button calibration-good-button px-2.5 py-1 rounded-md text-[10px] font-bold flex items-center gap-1 transition-all cursor-pointer ${
                   activeResponseMode === "good"
                     ? "bg-emerald-600 text-white shadow-xs"
@@ -730,14 +802,23 @@ export default function MarkingScreen({
                   PTE Exam Topic
                 </span>
 
-                {(currentExercise as typeof currentExercise & { difficulty?: string })?.difficulty && (
+                {(currentExercise as typeof currentExercise & {
+                  difficulty?: string;
+                })?.difficulty && (
                   <span className="px-2 py-0.5 rounded text-[10px] font-extrabold shadow-xs shrink-0 bg-emerald-100 text-emerald-700 border border-emerald-200">
-                    Calibration: {(currentExercise as typeof currentExercise & { difficulty?: string }).difficulty}
+                    Calibration:{" "}
+                    {
+                      (
+                        currentExercise as typeof currentExercise & {
+                          difficulty?: string;
+                        }
+                      ).difficulty
+                    }
                   </span>
                 )}
               </div>
 
-               {/* Prev / Next / Random & 1/100 Dropdown */}
+              {/* Prev / Next / Random & 1/100 Dropdown */}
               <div className="flex items-center gap-1.5 min-w-0 max-w-full ml-auto">
 
                 <button
@@ -752,80 +833,142 @@ export default function MarkingScreen({
                 <select
                   value={exerciseIndex}
                   onChange={(e) =>
-                    handleSetExerciseIndex(Number(e.target.value))
+                    handleSetExerciseIndex(
+                      Number(e.target.value)
+                    )
                   }
                   className="px-2 py-1 text-[11px] font-extrabold rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:outline-hidden cursor-pointer min-w-0 max-w-[140px] xs:max-w-[190px] sm:max-w-[250px] truncate"
                 >
                   <optgroup label="A1 Level (Beginner • Q 1 - 20)">
-                    {Array.from({ length: 20 }, (_, i) => i + 1).map(
-                      (num) => (
-                        <option key={num} value={num}>
-                          {isRepeatSentenceCalibration
-                            ? `${num}/100 [A1] - ${getExercise(currentQuestion, num).topicTitle}`
-                            : `${num}/100 [A1] - ${COMMON_PTE_TOPICS[num - 1]}`}
-                        </option>
-                      )
-                    )}
+                    {Array.from(
+                      { length: 20 },
+                      (_, i) => i + 1
+                    ).map((num) => (
+                      <option key={num} value={num}>
+                        {isRepeatSentenceCalibration
+                          ? `${num}/100 [A1] - ${
+                              getExercise(
+                                currentQuestion,
+                                num
+                              ).topicTitle
+                            }`
+                          : `${num}/100 [A1] - ${
+                              COMMON_PTE_TOPICS[
+                                num - 1
+                              ]
+                            }`}
+                      </option>
+                    ))}
                   </optgroup>
 
                   <optgroup label="A2 Level (Elementary • Q 21 - 40)">
-                    {Array.from({ length: 20 }, (_, i) => i + 21).map(
-                      (num) => (
-                        <option key={num} value={num}>
-                          {isRepeatSentenceCalibration
-                            ? `${num}/100 [A2] - ${getExercise(currentQuestion, num).topicTitle}`
-                            : `${num}/100 [A2] - ${COMMON_PTE_TOPICS[num - 1]}`}
-                        </option>
-                      )
-                    )}
+                    {Array.from(
+                      { length: 20 },
+                      (_, i) => i + 21
+                    ).map((num) => (
+                      <option key={num} value={num}>
+                        {isRepeatSentenceCalibration
+                          ? `${num}/100 [A2] - ${
+                              getExercise(
+                                currentQuestion,
+                                num
+                              ).topicTitle
+                            }`
+                          : `${num}/100 [A2] - ${
+                              COMMON_PTE_TOPICS[
+                                num - 1
+                              ]
+                            }`}
+                      </option>
+                    ))}
                   </optgroup>
 
                   <optgroup label="B1 Level (Intermediate • Q 41 - 60)">
-                    {Array.from({ length: 20 }, (_, i) => i + 41).map(
-                      (num) => (
-                        <option key={num} value={num}>
-                          {isRepeatSentenceCalibration
-                            ? `${num}/100 [B1] - ${getExercise(currentQuestion, num).topicTitle}`
-                            : `${num}/100 [B1] - ${COMMON_PTE_TOPICS[num - 1]}`}
-                        </option>
-                      )
-                    )}
+                    {Array.from(
+                      { length: 20 },
+                      (_, i) => i + 41
+                    ).map((num) => (
+                      <option key={num} value={num}>
+                        {isRepeatSentenceCalibration
+                          ? `${num}/100 [B1] - ${
+                              getExercise(
+                                currentQuestion,
+                                num
+                              ).topicTitle
+                            }`
+                          : `${num}/100 [B1] - ${
+                              COMMON_PTE_TOPICS[
+                                num - 1
+                              ]
+                            }`}
+                      </option>
+                    ))}
                   </optgroup>
 
                   <optgroup label="B2 Level (Upper Int • Q 61 - 80)">
-                    {Array.from({ length: 20 }, (_, i) => i + 61).map(
-                      (num) => (
-                        <option key={num} value={num}>
-                          {isRepeatSentenceCalibration
-                            ? `${num}/100 [B2] - ${getExercise(currentQuestion, num).topicTitle}`
-                            : `${num}/100 [B2] - ${COMMON_PTE_TOPICS[num - 1]}`}
-                        </option>
-                      )
-                    )}
+                    {Array.from(
+                      { length: 20 },
+                      (_, i) => i + 61
+                    ).map((num) => (
+                      <option key={num} value={num}>
+                        {isRepeatSentenceCalibration
+                          ? `${num}/100 [B2] - ${
+                              getExercise(
+                                currentQuestion,
+                                num
+                              ).topicTitle
+                            }`
+                          : `${num}/100 [B2] - ${
+                              COMMON_PTE_TOPICS[
+                                num - 1
+                              ]
+                            }`}
+                      </option>
+                    ))}
                   </optgroup>
 
                   <optgroup label="C1 Level (Advanced • Q 81 - 90)">
-                    {Array.from({ length: 10 }, (_, i) => i + 81).map(
-                      (num) => (
-                        <option key={num} value={num}>
-                          {isRepeatSentenceCalibration
-                            ? `${num}/100 [C1] - ${getExercise(currentQuestion, num).topicTitle}`
-                            : `${num}/100 [C1] - ${COMMON_PTE_TOPICS[num - 1]}`}
-                        </option>
-                      )
-                    )}
+                    {Array.from(
+                      { length: 10 },
+                      (_, i) => i + 81
+                    ).map((num) => (
+                      <option key={num} value={num}>
+                        {isRepeatSentenceCalibration
+                          ? `${num}/100 [C1] - ${
+                              getExercise(
+                                currentQuestion,
+                                num
+                              ).topicTitle
+                            }`
+                          : `${num}/100 [C1] - ${
+                              COMMON_PTE_TOPICS[
+                                num - 1
+                              ]
+                            }`}
+                      </option>
+                    ))}
                   </optgroup>
 
                   <optgroup label="C2 Level (Mastery • Q 91 - 100)">
-                    {Array.from({ length: 10 }, (_, i) => i + 91).map(
-                      (num) => (
-                        <option key={num} value={num}>
-                          {isRepeatSentenceCalibration
-                            ? `${num}/100 [C2] - ${getExercise(currentQuestion, num).topicTitle}`
-                            : `${num}/100 [C2] - ${COMMON_PTE_TOPICS[num - 1]}`}
-                        </option>
-                      )
-                    )}
+                    {Array.from(
+                      { length: 10 },
+                      (_, i) => i + 91
+                    ).map((num) => (
+                      <option key={num} value={num}>
+                        {isRepeatSentenceCalibration
+                          ? `${num}/100 [C2] - ${
+                              getExercise(
+                                currentQuestion,
+                                num
+                              ).topicTitle
+                            }`
+                          : `${num}/100 [C2] - ${
+                              COMMON_PTE_TOPICS[
+                                num - 1
+                              ]
+                            }`}
+                      </option>
+                    ))}
                   </optgroup>
                 </select>
 
@@ -850,7 +993,7 @@ export default function MarkingScreen({
                 </button>
 
               </div>
-              </div>
+            </div>
 
             {/* Topic Title + Calibration Difficulty */}
             <div className="pt-1.5 border-t border-indigo-100/80 dark:border-indigo-900/50">
@@ -868,7 +1011,6 @@ export default function MarkingScreen({
             </div>
 
           </div>
-
           {/* Task Prompt Context Box */}
           {currentExercise.promptText && (
             <div className="calibration-prompt-card p-3 rounded-xl bg-slate-900 text-indigo-100 text-xs border border-slate-800 space-y-1.5">
@@ -884,10 +1026,16 @@ export default function MarkingScreen({
                   <button
                     onClick={() => {
                       const promptAudioUrl = (
-                        currentExercise as { promptAudioUrl?: string }
+                        currentExercise as {
+                          promptAudioUrl?: string;
+                        }
                       ).promptAudioUrl;
 
-                      if (isRepeatSentenceCalibration && promptAudioUrl) {
+                      if (
+                        (isReadAloudCalibration ||
+                          isRepeatSentenceCalibration) &&
+                        promptAudioUrl
+                      ) {
                         handlePlayExternalAudio(
                           promptAudioUrl,
                           `prompt-${selectedQuestionId}-${exerciseIndex}`
@@ -1005,6 +1153,26 @@ export default function MarkingScreen({
 
                 <button
                   onClick={() => {
+                    const sampleAudioUrl = (
+                      currentExercise as {
+                        studentResponseAudioUrl?: string;
+                      }
+                    ).studentResponseAudioUrl;
+
+                    const sampleAudioId =
+                      `sample-${selectedQuestionId}-${exerciseIndex}-${activeResponseMode}`;
+
+                    // Read Aloud and Repeat Sentence calibration exercises use
+                    // the fixed Gemini-generated student-response recording.
+                    // Other question types continue to use browser TTS.
+                    if (isCalibrationExercise && sampleAudioUrl) {
+                      handlePlayExternalAudio(
+                        sampleAudioUrl,
+                        sampleAudioId
+                      );
+                      return;
+                    }
+
                     const sampleText =
                       currentSample.transcript ||
                       currentSample.text ||
@@ -1016,7 +1184,9 @@ export default function MarkingScreen({
                     if (sampleText) {
                       const sampleSpeechRate =
                         typeof (
-                          currentSample as { speechRate?: unknown }
+                          currentSample as {
+                            speechRate?: unknown;
+                          }
                         )?.speechRate === "number"
                           ? (
                               currentSample as {
@@ -1027,7 +1197,7 @@ export default function MarkingScreen({
 
                       handlePlayAudio(
                         sampleText,
-                        `sample-${selectedQuestionId}-${exerciseIndex}-${activeResponseMode}`,
+                        sampleAudioId,
                         sampleSpeechRate
                       );
                     }
@@ -1039,7 +1209,11 @@ export default function MarkingScreen({
                       ? "bg-rose-600 text-white animate-pulse"
                       : "bg-indigo-600 hover:bg-indigo-500 text-white border border-indigo-500/40"
                   }`}
-                  title="Listen to the selected benchmark response using browser TTS"
+                  title={
+                    isReadAloudCalibration
+                      ? "Listen to the fixed Gemini calibration recording"
+                      : "Listen to the selected benchmark response using browser TTS"
+                  }
                 >
                   {isPlayingAudio &&
                   currentPlayingId ===
@@ -1158,391 +1332,184 @@ export default function MarkingScreen({
                   with evidence from the student response.
                 </p>
               </div>
-
-              <span className="text-[10px] text-amber-700 dark:text-amber-300 font-extrabold bg-amber-50 dark:bg-amber-950/40 px-2 py-1 rounded shrink-0 border border-amber-200 dark:border-amber-800">
-                Listening Prompts
-              </span>
             </div>
 
-            {diagnosticChecklist.length === 0 ? (
-              <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 text-xs text-emerald-800 dark:text-emerald-200">
-                <div className="font-bold">
-                  Diagnostic restraint
-                </div>
-
-                <p className="mt-1 leading-relaxed">
-                  No major fluency error is expected in this exercise. Listen
-                  carefully and do not invent an error. Your assessment should
-                  explain why the response does not require a major fluency
-                  diagnosis.
-                </p>
-              </div>
-            ) : (
-              <div className="calibration-error-grid grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
-                {diagnosticChecklist.map((item: any) => (
-                  <div
-                    key={item.id}
-                    className="diagnostic-focus-card p-3 rounded-2xl border border-indigo-100 dark:border-indigo-900/60 text-slate-800 dark:text-slate-200 shadow-sm"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, #eef2ff 0%, #ffffff 52%, #fff7ed 100%)",
-                    }}
-                  >
-                    <div className="flex items-start gap-2">
-
-                      <div
-                        style={{
-                          width: "34px",
-                          height: "34px",
-                          borderRadius: "10px",
-                          background:
-                            "linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%)",
-                          color: "#4f46e5",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          flexShrink: 0,
-                          border: "1px solid #c7d2fe",
-                          boxShadow:
-                            "0 2px 6px rgba(79, 70, 229, 0.10)",
-                        }}
-                      >
-                        <Target
-                          style={{
-                            width: "16px",
-                            height: "16px",
-                          }}
-                        />
-                      </div>
-
-                      <div className="min-w-0">
-
-                        <div className="flex items-center gap-2">
-                          <div className="text-[12px] font-extrabold leading-tight text-slate-800 dark:text-slate-100">
-                            {item.label}
-                          </div>
-
-                          <span
-                            style={{
-                              fontSize: "9px",
-                              fontWeight: 800,
-                              letterSpacing: "0.04em",
-                              textTransform: "uppercase",
-                              padding: "3px 7px",
-                              borderRadius: "999px",
-                              background: "#fef3c7",
-                              color: "#92400e",
-                              border: "1px solid #fde68a",
-                              whiteSpace: "nowrap",
-                            }}
-                          >
-                            Listen
-                          </span>
-                        </div>
-
-                        <div className="mt-1 text-[10px] leading-relaxed text-slate-500 dark:text-slate-400">
-                          Listen for clear evidence of this feature before
-                          mentioning it in your assessment.
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-          </div>
-        </div>
-
-        {/* Teacher Feedback Text Input Area */}
-        <div className="calibration-feedback-card p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-2">
-
-          <div className="flex items-center justify-between">
-            <div>
-
-              <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800 dark:text-slate-200">
-                <Edit3 className="w-4 h-4 text-emerald-500" />
-                Your Assessment Feedback & Rationale
-              </div>
-
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-                Write your own assessment and evidence. The diagnostic prompts
-                are only listening clues and are not inserted into this field.
-              </p>
-
-            </div>
-
-            <span className="text-[10px] text-slate-400 shrink-0">
-              {teacherFeedbackText.length} chars
-            </span>
-          </div>
-
-          <textarea
-            rows={5}
-            value={teacherFeedbackText}
-            onChange={(e) => setTeacherFeedbackText(e.target.value)}
-            placeholder={
-              isRepeatSentenceCalibration
-                ? "Repeat Sentence calibration: 1) state the primary diagnosis, 2) identify the exact evidence you heard, 3) explain why it is the primary issue, and 4) write what you would say to the student."
-                : "Write your own assessment. Include the relevant PTE term, the evidence you heard, its impact, and appropriate advice (e.g., 'The student shows poor phrasing and word-by-word grouping because natural phrases are split into short chunks...')"
-            }
-            className="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:ring-2 focus:ring-indigo-500 focus:outline-hidden leading-relaxed resize-none font-sans"
-          />
-
-        </div>
-
-        {/* Submit AI Comparison Action Button */}
-        <button
-          onClick={handleSubmitFeedback}
-          disabled={isEvaluatingAi}
-          className={`w-fit mx-auto py-3.5 rounded-xl text-white text-xs font-extrabold flex items-center justify-center gap-2 shadow-md transition-all ${
-            isEvaluatingAi
-              ? "bg-indigo-500 cursor-wait opacity-90"
-              : "bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 active:scale-98 cursor-pointer"
-          }`}
-        >
-          {isEvaluatingAi ? (
-            <>
-              <RefreshCw className="w-4 h-4 animate-spin" />
-              Preparing AI Analysis...
-            </>
-          ) : (
-            <>
-              <Sparkles className="w-4 h-4 text-amber-300" />
-              Compare Feedback with AI Expert
-            </>
-          )}
-        </button>
-
-      </div>
-
-      {/* Assessment Warning Modal */}
-      {assessmentWarning && (
-        <div
-          role="presentation"
-          onMouseDown={(event) => {
-            if (event.target === event.currentTarget) {
-              setAssessmentWarning(null);
-            }
-          }}
-          style={{
-            position: "fixed",
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0,
-            zIndex: 99999,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "20px",
-            backgroundColor: "rgba(15, 23, 42, 0.68)",
-            backdropFilter: "blur(6px)",
-            WebkitBackdropFilter: "blur(6px)",
-          }}
-        >
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="assessment-warning-title"
-            style={{
-              position: "relative",
-              boxSizing: "border-box",
-              width: "100%",
-              maxWidth: "540px",
-              backgroundColor: "#ffffff",
-              border: "1px solid #e2e8f0",
-              borderRadius: "24px",
-              boxShadow:
-                "0 24px 70px rgba(15, 23, 42, 0.30)",
-              overflow: "hidden",
-            }}
-          >
-            <div
-              style={{
-                position: "relative",
-                padding: "28px",
-                textAlign: "center",
-              }}
-            >
-              <button
-                type="button"
-                onClick={() => setAssessmentWarning(null)}
-                aria-label="Close warning"
-                style={{
-                  position: "absolute",
-                  top: "16px",
-                  right: "16px",
-                  width: "36px",
-                  height: "36px",
-                  padding: 0,
-                  border: "none",
-                  borderRadius: "50%",
-                  backgroundColor: "#f1f5f9",
-                  color: "#64748b",
-                  fontSize: "24px",
-                  lineHeight: "36px",
-                  cursor: "pointer",
-                }}
-              >
-                ×
-              </button>
-
-              <div
-                style={{
-                  width: "68px",
-                  height: "68px",
-                  margin: "0 auto 18px",
-                  borderRadius: "50%",
-                  backgroundColor: "#ffe4e6",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  boxShadow: "0 0 0 9px #fff1f2",
-                }}
-              >
-                <AlertTriangle
-                  style={{
-                    width: "34px",
-                    height: "34px",
-                    color: "#f43f5e",
-                  }}
-                  strokeWidth={2.5}
-                />
-              </div>
-
-              <h2
-                id="assessment-warning-title"
-                style={{
-                  margin: 0,
-                  padding: "0 34px",
-                  color: "#0f172a",
-                  fontSize: "24px",
-                  lineHeight: "1.2",
-                  fontWeight: 900,
-                }}
-              >
-                {assessmentWarning.title}
-              </h2>
-
-              <p
-                style={{
-                  margin: "12px 0 0",
-                  padding: "0 8px",
-                  color: "#475569",
-                  fontSize: "15px",
-                  lineHeight: "1.65",
-                }}
-              >
-                {assessmentWarning.message}
-              </p>
-
-              {assessmentWarning.tip && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 pt-1">
+              {diagnosticChecklist.map((item: any) => (
                 <div
+                  key={item.id}
+                  className="diagnostic-focus-card p-3 rounded-2xl min-h-[145px] border border-indigo-100 dark:border-indigo-900/60 text-slate-800 dark:text-slate-200 shadow-sm"
                   style={{
-                    marginTop: "20px",
-                    padding: "16px",
-                    textAlign: "left",
-                    borderRadius: "17px",
                     background:
-                      "linear-gradient(135deg, #fff1f2 0%, #fffbeb 100%)",
-                    border: "1px solid #ffe4e6",
+                      "linear-gradient(135deg, #eef2ff 0%, #ffffff 52%, #fff7ed 100%)",
                   }}
                 >
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: "12px",
-                    }}
-                  >
+                  <div className="flex flex-col items-start gap-2">
                     <div
                       style={{
-                        flex: "0 0 auto",
-                        width: "38px",
-                        height: "38px",
-                        borderRadius: "12px",
-                        backgroundColor: "#ffffff",
+                        width: "34px",
+                        height: "34px",
+                        borderRadius: "10px",
+                        background:
+                          "linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%)",
+                        color: "#4f46e5",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
+                        flexShrink: 0,
+                        border: "1px solid #c7d2fe",
                         boxShadow:
-                          "0 2px 8px rgba(15, 23, 42, 0.08)",
+                          "0 2px 6px rgba(79, 70, 229, 0.10)",
                       }}
                     >
-                      <HelpCircle
+                      <Target
                         style={{
-                          width: "20px",
-                          height: "20px",
-                          color: "#f43f5e",
+                          width: "16px",
+                          height: "16px",
                         }}
                       />
                     </div>
 
-                    <div>
-                      <div
-                        style={{
-                          color: "#e11d48",
-                          fontSize: "12px",
-                          fontWeight: 900,
-                          textTransform: "uppercase",
-                          letterSpacing: "0.08em",
-                        }}
-                      >
-                        Helpful tip
+                    <div className="min-w-0 w-full">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <div className="text-[12px] font-extrabold leading-tight text-slate-800 dark:text-slate-100">
+                          {item.label}
+                        </div>
+
+                        <span
+                          style={{
+                            fontSize: "9px",
+                            fontWeight: 800,
+                            letterSpacing: "0.04em",
+                            textTransform: "uppercase",
+                            padding: "3px 7px",
+                            borderRadius: "999px",
+                            background: "#fef3c7",
+                            color: "#92400e",
+                            border: "1px solid #fde68a",
+                            whiteSpace: "nowrap",
+                          }}
+                        >
+                          Listen
+                        </span>
                       </div>
 
-                      <p
-                        style={{
-                          margin: "4px 0 0",
-                          color: "#475569",
-                          fontSize: "13px",
-                          lineHeight: "1.6",
-                        }}
-                      >
-                        {assessmentWarning.tip}
-                      </p>
+                      <div className="mt-1 text-[10px] leading-relaxed text-slate-500 dark:text-slate-400">
+                        Listen for clear evidence of this feature before mentioning it in your assessment.
+                      </div>
                     </div>
                   </div>
                 </div>
-              )}
-
-              <button
-                type="button"
-                onClick={() => setAssessmentWarning(null)}
-                style={{
-                  width: "100%",
-                  marginTop: "20px",
-                  padding: "14px 18px",
-                  border: "none",
-                  borderRadius: "16px",
-                  background:
-                    "linear-gradient(90deg, #4f46e5 0%, #4338ca 100%)",
-                  color: "#ffffff",
-                  fontSize: "14px",
-                  fontWeight: 900,
-                  cursor: "pointer",
-                  boxShadow:
-                    "0 10px 24px rgba(79, 70, 229, 0.22)",
-                }}
-              >
-                Got it
-                <span
-                  style={{
-                    marginLeft: "6px",
-                    fontSize: "16px",
-                  }}
-                >
-                  →
-                </span>
-              </button>
-
+              ))}
             </div>
           </div>
         </div>
-      )}
 
+        {/* Teacher Assessment */}
+        <div className="calibration-assessment-panel p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
+
+          <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800 dark:text-slate-200">
+            <Edit3 className="w-4 h-4 text-indigo-500" />
+            Your Assessment
+          </div>
+
+          <p className="text-[11px] leading-relaxed text-slate-500 dark:text-slate-400">
+            Write your own diagnostic assessment before comparing it with the
+            AI expert. Use specific evidence from the audio and explain why
+            the issue matters.
+          </p>
+
+          <textarea
+            value={teacherFeedbackText}
+            onChange={(e) => setTeacherFeedbackText(e.target.value)}
+            placeholder="Example: The main issue is Oral Fluency because the student repeats a word and briefly interrupts the flow. Content and Pronunciation remain otherwise clear."
+            className="w-full min-h-[130px] resize-y rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-3 py-2.5 text-xs leading-relaxed text-slate-900 dark:text-slate-100 outline-hidden focus:ring-2 focus:ring-indigo-500"
+          />
+
+          <div className="flex items-center justify-between gap-2 flex-wrap">
+            <span className="text-[10px] text-slate-400">
+              {teacherFeedbackText
+                .trim()
+                .split(/\s+/)
+                .filter(Boolean).length}{" "}
+              words
+            </span>
+
+            <button
+              onClick={handleSubmitFeedback}
+              disabled={isEvaluatingAi}
+              className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed text-white text-[11px] font-extrabold flex items-center gap-1.5 transition-all cursor-pointer"
+            >
+              {isEvaluatingAi ? (
+                <>
+                  <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                  Comparing...
+                </>
+              ) : (
+                <>
+                  <Sparkles className="w-3.5 h-3.5" />
+                  Compare Feedback with AI Expert
+                </>
+              )}
+            </button>
+          </div>
+
+        </div>
+
+        {assessmentWarning && (
+          <div
+            className="fixed inset-0 z-[99999] flex items-center justify-center bg-slate-950/60 px-4 py-6 backdrop-blur-[2px]"
+            role="presentation"
+            onMouseDown={(e) => {
+              if (e.target === e.currentTarget) {
+                setAssessmentWarning(null);
+              }
+            }}
+          >
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="assessment-warning-title"
+              className="w-full max-w-md rounded-2xl border border-amber-300 bg-amber-50 p-5 shadow-2xl dark:border-amber-700 dark:bg-slate-900"
+            >
+              <div className="flex items-start gap-3">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-100 dark:bg-amber-950">
+                  <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                </div>
+
+                <div className="min-w-0 flex-1">
+                  <div
+                    id="assessment-warning-title"
+                    className="text-sm font-extrabold text-amber-950 dark:text-amber-200"
+                  >
+                    {assessmentWarning.title}
+                  </div>
+
+                  <div className="mt-1.5 text-xs leading-relaxed text-amber-900 dark:text-slate-200">
+                    {assessmentWarning.message}
+                  </div>
+
+                  {assessmentWarning.tip && (
+                    <div className="mt-2 rounded-lg border border-amber-200 bg-white/70 px-3 py-2 text-[11px] leading-relaxed text-amber-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                      {assessmentWarning.tip}
+                    </div>
+                  )}
+
+                  <button
+                    type="button"
+                    autoFocus
+                    onClick={() => setAssessmentWarning(null)}
+                    className="mt-4 rounded-lg bg-amber-600 px-4 py-2 text-xs font-bold text-white shadow-sm transition-colors hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+      </div>
     </>
   );
 }

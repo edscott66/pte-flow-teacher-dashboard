@@ -311,6 +311,7 @@ export const ASQ_QUESTIONS = [
 export const READ_ALOUD_CALIBRATION_EXERCISES = [
   {
     exerciseIndex: 1,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-001-prompt-achernar.mp3",
     totalExercises: 100,
     difficulty: "Beginner",
     trainingSkill: "Oral Fluency",
@@ -321,6 +322,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "I usually wake up early in the morning. I get out of bed, wash my face, and make a simple breakfast. Then I check my bag and leave home for work. I like to start my day quietly, but sometimes I need a little more time before I am ready to go. After work, I come home and have dinner with my family.",
     promptAudio:
       "I usually wake up early in the morning. I get out of bed, wash my face, and make a simple breakfast. Then I check my bag and leave home for work. I like to start my day quietly, but sometimes I need a little more time before I am ready to go. After work, I come home and have dinner with my family.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-001-achernar.mp3",
     studentTranscript:
       "I usually wake up, um, early in the morning. I get out of bed, uh, wash my face, and make a simple breakfast. Then I check my bag, er, and leave home for work. I like to start my day quietly, but, um, sometimes I need a little more time before I am ready to go. After work, I come home and have dinner with my family.",
     studentResponse: {
@@ -387,6 +390,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 2,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-002-prompt-orus.mp3",
     totalExercises: 100,
     difficulty: "Beginner",
     trainingSkill: "Oral Fluency",
@@ -397,6 +401,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "My sister lives nearby, and we often meet at the weekend for coffee. Sometimes we sit in a small cafe and talk about our family. We also like to walk around the town together. It is nice to see her because we are both busy during the week. On Sunday, we usually meet in the afternoon before we go home.",
     promptAudio:
       "My sister lives nearby, and we often meet at the weekend for coffee. Sometimes we sit in a small cafe and talk about our family. We also like to walk around the town together. It is nice to see her because we are both busy during the week. On Sunday, we usually meet in the afternoon before we go home.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-002-orus.mp3",
     studentTranscript:
       "My sister lives / nearby, and we / often meet at the weekend / for coffee. Sometimes we sit / in a small cafe / and talk about our family. We also like to walk / around the town together. It is nice to see her / because we are both busy / during the week. On Sunday, we usually meet / in the afternoon / before we go home.",
     studentResponse: {
@@ -463,6 +469,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 3,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-003-prompt-leda.mp3",
     totalExercises: 100,
     difficulty: "Beginner",
     trainingSkill: "Oral Fluency",
@@ -473,6 +480,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "My favorite meal is chicken with rice and fresh vegetables. I usually eat it with my family at home. My mother cooks the chicken, and I help with the vegetables. We sit together at the table, talk about our day, and enjoy the meal slowly. Sometimes we have fruit after dinner, and then I help clean the kitchen.",
     promptAudio:
       "My favorite meal is chicken with rice and fresh vegetables. I usually eat it with my family at home. My mother cooks the chicken, and I help with the vegetables. We sit together at the table, talk about our day, and enjoy the meal slowly. Sometimes we have fruit after dinner, and then I help clean the kitchen.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-003-leda.mp3",
     studentTranscript:
       "My favorite meal is chicken with rice—rice and fresh vegetables. I usually eat it with my family at home. My mother cooks the chicken, and I help with the vegetables. We sit together at the table, talk about our day, and enjoy the meal slowly. Sometimes we have fruit after dinner, and then I... I help clean the kitchen.",
     studentResponse: {
@@ -538,6 +547,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 4,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-004-prompt-puck.mp3",
     totalExercises: 100,
     difficulty: "Beginner",
     trainingSkill: "Oral Fluency",
@@ -548,6 +558,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "I like reading books and listening to music in my free time. I usually read in the evening when my work is finished. Sometimes I listen to music while I clean my room. On weekends, I also visit the library and choose a new book to read. Reading helps me relax, and music makes simple housework more enjoyable.",
     promptAudio:
       "I like reading books and listening to music in my free time. I usually read in the evening when my work is finished. Sometimes I listen to music while I clean my room. On weekends, I also visit the library and choose a new book to read. Reading helps me relax, and music makes simple housework more enjoyable.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-004-puck.mp3",
     studentTranscript:
       "I like / reading books / and listening / to music / in my free time. I usually read / in the evening / when my work / is finished. Sometimes I listen / to music / while I clean / my room. On weekends, I also visit / the library / and choose a new book / to read. Reading helps me relax / and music makes / simple housework more enjoyable.",
     studentResponse: {
@@ -614,6 +626,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 5,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-005-prompt-sulafat.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Oral Fluency",
@@ -624,6 +637,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden. I like the living room because it has a large window. My bedroom is next to the bathroom, and my family often eats together in the kitchen. There is also a small table outside where we sit on warm days. Our home is simple, but it feels calm and friendly.",
     promptAudio:
       "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden. I like the living room because it has a large window. My bedroom is next to the bathroom, and my family often eats together in the kitchen. There is also a small table outside where we sit on warm days. Our home is simple, but it feels calm and friendly.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-005-sulafat.mp3",
     studentTranscript:
       "My home is small but comfortable, with a kitchen, two bedrooms, and a quiet garden. I like the living room because it has a large window. My bedroom is next to the bathroom, and my family often eats together in the kitchen. There is also a small table outside where we sit on warm days. Our home is simple, but it feels calm and friendly.",
     studentResponse: {
@@ -690,6 +705,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 6,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-006-prompt-iapetus.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Oral Fluency",
@@ -700,6 +716,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "In rainy weather, I usually carry an umbrella and wear a light jacket. I also check the weather before I leave home. When the rain is heavy, I walk more carefully and take a bus if I need to travel far. I do not mind rainy days because I enjoy the cool air and the sound of rain. Sometimes I stay home and read a book.",
     promptAudio:
       "In rainy weather, I usually carry an umbrella and wear a light jacket. I also check the weather before I leave home. When the rain is heavy, I walk more carefully and take a bus if I need to travel far. I do not mind rainy days because I enjoy the cool air and the sound of rain. Sometimes I stay home and read a book.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-006-iapetus.mp3",
     studentTranscript:
       "In rainy weather, I usually carry an umbrella and wear a light jacket. I also check the weather before I leave home. When the rain is heavy, I walk more carefully and take a bus if I need to travel far. I do not mind rainy days because I enjoy the cool air and the sound of rain. Sometimes I stay home and read a book.",
     studentResponse: {
@@ -767,6 +785,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
   exerciseIndex: 7,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-007-prompt-achernar.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Oral Fluency",
@@ -777,6 +796,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "I went to the supermarket yesterday to buy milk, bread, and some fresh fruit. I also wanted to buy eggs, but I forgot to take my shopping list. I walked through the store, checked the prices, and put the food in my basket. Then I paid at the front and carried everything home. After that, I put the food away and made a cup of tea.",
     promptAudio:
       "I went to the supermarket yesterday to buy milk, bread, and some fresh fruit. I also wanted to buy eggs, but I forgot to take my shopping list. I walked through the store, checked the prices, and put the food in my basket. Then I paid at the front and carried everything home. After that, I put the food away and made a cup of tea.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-007-achernar.mp3",
     studentTranscript:
       "I went to the supermarket yesterday to buy milk, bread, and some fresh... fresh fruit. I also wanted to buy eggs, but I forgot to take my shopping list. I walked through the store, checked the prices, and put the food in, I mean, put the food in my basket. Then I paid at the front and carried everything home. After that, I put the food away and made a cup of tea.",
     studentResponse: {
@@ -842,6 +863,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
  {
   exerciseIndex: 8,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-008-prompt-orus.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Oral Fluency",
@@ -852,6 +874,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "My dog is friendly and enjoys long walks in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
   promptAudio:
     "My dog is friendly and enjoys long walks in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-008-orus.mp3",
   studentTranscript:
     "My dog... is friendly, um, enjoys long walks—long walks, in the park. He often plays with other dogs and likes to run after a ball. I usually take him outside in the afternoon. Sometimes he stops... ...to smell the trees, and I wait for him before we continue our walk. He is very active, but he is gentle with people. At home, he sleeps near the sofa.",
 
@@ -937,84 +961,107 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "Do not treat all symptoms as equally important. Begin with the hesitation pattern, then address filler use, repetition and phrase-level pausing."
 
 },
-  {
-    exerciseIndex: 9,
-    totalExercises: 100,
-    difficulty: "Advanced",
-    trainingSkill: "Oral Fluency",
-    diagnosticArea: "Subtle Fluency Disruptions",
-    learningObjective:
-      "Identify minor rhythm problems without over-diagnosing an otherwise strong response.",
-    promptText:
-      "My favorite school subject is science because I enjoy learning how plants and animals grow. In class, we read short texts, look at pictures, and sometimes do simple experiments. I like science because it helps me understand things around me. My teacher also gives us small questions to discuss with our classmates. We often share our ideas before the lesson ends.",
-    promptAudio:
-      "My favorite school subject is science because I enjoy learning how plants and animals grow. In class, we read short texts, look at pictures, and sometimes do simple experiments. I like science because it helps me understand things around me. My teacher also gives us small questions to discuss with our classmates. We often share our ideas before the lesson ends.",
-    studentTranscript:
-      "My favorite school subject is science / because I enjoy learning how plants and animals grow. In class, we read short texts, look at pictures, and sometimes do simple experiments. I like science because it helps me understand things around me. My teacher also gives us small questions to discuss with our classmates. We often share our ideas before the lesson ends.",
-    studentResponse: {
-      audioDuration: "33.0 seconds",
-      wordCount: 61,
-      characteristics:
-        "Generally strong delivery with one slightly overlong pause after \"science\" that mildly interrupts the rhythm."
-    },
-    diagnosticErrors: ["Subtle phrasing disruption", "Slightly segmented rhythm"],
-    expertEvidence: [
-      "The pause after \"science\" is slightly longer than necessary",
-      "The remaining thought groups are well controlled",
-      "There are no obvious fillers",
-      "There are no repetitions or false starts",
-      "Overall fluency remains strong"
-    ],
-    expertDiagnosis:
-      "The student demonstrates generally strong fluency with a minor rhythm issue. This is a refinement case, not a major fluency failure.",
-    perfectCalibrationResponse:
-      "The student demonstrates generally strong oral fluency with only a minor rhythm issue. The pause after \"science\" is slightly longer than necessary, creating a subtle phrasing disruption, but the remaining thought groups are well controlled. This should be treated as a refinement point, not a major fluency failure.",
-    coachingAdvice:
-      "At an advanced calibration level, avoid treating every pause as a serious error. Focus on slightly smoother continuity while recognising that the overall delivery is already strong.",
-    cefrLevel: "A1",
-    topicTitle: "School Subjects",
-    good: {
-      transcript:
-        "My favorite school subject is science because I enjoy learning how plants and animals grow. In class, we read short texts, look at pictures, and sometimes do simple experiments. I like science because it helps me understand things around me. My teacher also gives us small questions to discuss with our classmates. We often share our ideas before the lesson ends.",
-      audioDuration: "31.0 seconds",
-      wordCount: 61,
-      characteristics:
-        "Natural connected delivery with appropriate rhythm and phrase boundaries."
-    },
-    poor: {
-      transcript:
-        "My favorite school subject is science / because I enjoy learning how plants and animals grow. In class, we read short texts, look at pictures, and sometimes do simple experiments. I like science because it helps me understand things around me. My teacher also gives us small questions to discuss with our classmates. We often share our ideas before the lesson ends.",
-      audioDuration: "33.0 seconds",
-      wordCount: 61,
-      characteristics:
-        "Mostly strong delivery with one subtle rhythm interruption."
-    },
-    goodScore: {
-      content: 5,
-      fluency: 5,
-      pronunciation: 5,
-      overall: "90 / 90",
-      breakdownText:
-        "Natural connected speech with appropriate rhythm."
-    },
-    poorScore: {
-      content: 5,
-      fluency: 4,
-      pronunciation: 5,
-      overall: "84 / 90",
-      breakdownText:
-        "Minor rhythm and continuity issue, but overall fluency remains strong."
-    },
-    errorChecklist: [
-      { id: "subtle-phrasing-disruption", label: "Subtle phrasing disruption", keyword: "Subtle phrasing disruption" },
-      { id: "slightly-segmented-rhythm", label: "Slightly segmented rhythm", keyword: "Slightly segmented rhythm" }
-    ],
-    expertAdvice:
-      "Do not over-diagnose this response. The student is already broadly fluent; feedback should focus on refinement rather than major correction."
+
+{
+  exerciseIndex: 9,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-009-prompt-leda.mp3",
+  totalExercises: 100,
+  difficulty: "Beginner",
+  trainingSkill: "Pronunciation",
+  diagnosticArea: "Pronunciation — Consonant Omission",
+  learningObjective:
+    "Identify the omission of a consonant sound in a familiar word and distinguish a Pronunciation error from a Content or Oral Fluency problem.",
+  promptText:
+    "My favorite school subject is science because I enjoy learning about experiments.",
+  promptAudio:
+    "My favorite school subject is science because I enjoy learning about experiments.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-009-leda.mp3",
+  studentTranscript:
+    "My favorite school suject is science because I enjoy learning about experiments.",
+  studentResponse: {
+    audioDuration: "Controlled calibration response",
+    wordCount: 11,
+    characteristics:
+      "The student clearly pronounces 'suject' instead of the target word 'subject', omitting the /b/ consonant while maintaining otherwise smooth delivery."
   },
+  diagnosticErrors: [
+    "Consonant omission",
+    "Pronunciation",
+    "Missing /b/ sound"
+  ],
+  expertEvidence: [
+    "The target word is 'subject'",
+    "The student says 'suject'",
+    "The /b/ consonant is omitted",
+    "The rest of the sentence is reproduced accurately",
+    "There is no meaningful hesitation or interruption",
+    "The error is primarily a Pronunciation issue rather than an Oral Fluency or Content problem"
+  ],
+  expertDiagnosis:
+    "The primary diagnosis is Pronunciation. The student says 'suject' instead of 'subject', omitting the /b/ consonant in the target word. The rest of the response is delivered smoothly and accurately, so the main issue is the missing consonant sound rather than Content or Oral Fluency.",
+  perfectCalibrationResponse:
+    "Primary diagnosis: Pronunciation. The student says 'suject' instead of 'subject', omitting the /b/ consonant in the target word. The rest of the response is delivered smoothly and accurately, so the main issue is the missing consonant sound rather than Content or Oral Fluency.",
+  coachingAdvice:
+    "Focus on the /b/ sound in 'subject'. Practise saying 'subject' clearly and then use it in the full phrase 'my favorite school subject'.",
+  cefrLevel: "A1",
+  topicTitle: "Favorite School Subject",
+  good: {
+    transcript:
+      "My favorite school subject is science because I enjoy learning about experiments.",
+    audioDuration: "Controlled benchmark delivery",
+    wordCount: 11,
+    characteristics:
+      "Accurate reproduction with clear Pronunciation and smooth Oral Fluency."
+  },
+  poor: {
+    transcript:
+      "My favorite school suject is science because I enjoy learning about experiments.",
+    audioDuration: "Controlled calibration response",
+    wordCount: 11,
+    characteristics:
+      "The student omits the /b/ consonant in 'subject', producing 'suject' while maintaining otherwise smooth delivery."
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Accurate Content with clear Pronunciation and smooth Oral Fluency."
+  },
+  poorScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 3,
+    overall: "78 / 90",
+    breakdownText:
+      "Content and Oral Fluency remain clear, but omission of the /b/ consonant reduces Pronunciation accuracy."
+  },
+  errorChecklist: [
+    {
+      id: "consonant-omission",
+      label: "Consonant omission",
+      keyword: "Consonant omission"
+    },
+    {
+      id: "pronunciation",
+      label: "Pronunciation",
+      keyword: "Pronunciation"
+    },
+    {
+      id: "missing-b-sound",
+      label: "Missing /b/ sound",
+      keyword: "Missing /b/ sound"
+    }
+  ],
+  expertAdvice:
+    "Prioritise Pronunciation because the student omits the /b/ sound in 'subject'. The response remains fluent and the intended meaning is clear, so do not diagnose the issue as Oral Fluency or Content."
+},
 
   {
     exerciseIndex: 10,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-010-prompt-puck.mp3",
     totalExercises: 100,
     difficulty: "Advanced",
     trainingSkill: "Oral Fluency",
@@ -1025,6 +1072,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "City buses provide an affordable way for people to travel to work, school, and local shops. Many people use buses because they are easy to find in busy areas. I often take the bus when I need to go into the city. It is useful, especially when the roads are busy and parking is difficult. I also like using the bus because I can read or look out of the window.",
     promptAudio:
       "City buses provide an affordable way for people to travel to work, school, and local shops. Many people use buses because they are easy to find in busy areas. I often take the bus when I need to go into the city. It is useful, especially when the roads are busy and parking is difficult. I also like using the bus because I can read or look out of the window.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-010-puck.mp3",
     studentTranscript:
       "City buses provide an affordable way for people to travel to work, school, and local shops. Many people use buses because they are easy to find in busy areas. I often take the bus when I need to go into the city. It is useful, especially when the roads are busy and parking is difficult. I also like using the bus because I can read or look out of the window.",
     studentResponse: {
@@ -1088,6 +1137,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 11,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-011-prompt-sulafat.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Oral Fluency",
@@ -1101,6 +1151,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "I usually start work at eight o'clock in the morning. I check my emails and make a short list of tasks for the day. Then I speak with my team about our plans. After lunch, I finish my main tasks and answer any questions from customers. Before I leave, I check my work and prepare for the next morning.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-011-sulafat.mp3",
 
     studentTranscript:
       "I usually start work at eight o'clock in the morning I check my emails and make a short list of tasks for the day then I speak with my team about our plans after lunch I finish my main tasks and answer any questions from customers before I leave I check my work and prepare for the next morning.",
@@ -1196,6 +1249,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
  {
   exerciseIndex: 12,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-012-prompt-iapetus.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Oral Fluency",
@@ -1206,6 +1260,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "My family usually celebrates birthdays at home. We make a simple cake and prepare some food for everyone. In the afternoon, our relatives arrive and we sit together at the table. We sing a birthday song and give the birthday person a small present. After dinner, we talk and take some photos together.",
   promptAudio:
     "My family usually celebrates birthdays at home. We make a simple cake and prepare some food for everyone. In the afternoon, our relatives arrive and we sit together at the table. We sing a birthday song and give the birthday person a small present. After dinner, we talk and take some photos together.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-012-iapetus.mp3",
   studentTranscript:
     "My family usually celebrates birthdays at home. ... ... We make a simple cake and prepare some food for everyone. ... ... In the afternoon, our relatives arrive and we sit together at the table. ... ... We sing a birthday song and give the birthday person a small present. ... ... After dinner, we talk and take some photos together.",
   studentResponse: {
@@ -1284,6 +1340,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
  {
     exerciseIndex: 13,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-013-prompt-achernar.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Content Accuracy",
@@ -1294,6 +1351,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "Many people enjoy sports at the weekend. I usually play football with my friends on Saturday morning. In the afternoon, I sometimes watch basketball on television. On Sunday, my family goes to the park, where we walk, play games, and enjoy the fresh air.",
     promptAudio:
       "Many people enjoy sports at the weekend. I usually play football with my friends on Saturday morning. In the afternoon, I sometimes watch basketball on television. On Sunday, my family goes to the park, where we walk, play games, and enjoy the fresh air.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-013-achernar.mp3",
     studentTranscript:
       "Many people enjoy sports at the weekend. I usually play football with my friends on Sunday morning. In the afternoon, I sometimes watch baseball on television. On Sunday, my family goes to the park, where we walk, play games, and enjoy the fresh air.",
     studentResponse: {
@@ -1373,6 +1432,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
    {
     exerciseIndex: 14,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-014-prompt-orus.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Content Accuracy",
@@ -1383,6 +1443,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "People wear different clothes for different activities. I usually wear a T-shirt and shorts when I play sports. At school, I wear comfortable trousers and a simple shirt. In cold weather, I put on a jacket and warm shoes. My favourite clothes are simple because they are easy to wear.",
     promptAudio:
       "People wear different clothes for different activities. I usually wear a T-shirt and shorts when I play sports. At school, I wear comfortable trousers and a simple shirt. In cold weather, I put on a jacket and warm shoes. My favourite clothes are simple because they are easy to wear.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-014-orus.mp3",
     studentTranscript:
       "People wear different clothes for different activities. I wear a T-shirt and shorts when I play sports. At school, I wear comfortable trousers and a simple new shirt. In cold weather, I put on a jacket and warm shoes. My favourite clothes are simple because they are easy to wear.",
     studentResponse: {
@@ -1468,6 +1530,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 15,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-015-prompt-leda.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Pronunciation",
@@ -1478,6 +1541,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "There are three main colors on the school poster. The first color is red, the second is blue, and the third is yellow. I like these colors because they are bright and easy to see. Three students helped us make the poster.",
     promptAudio:
       "There are three main colors on the school poster. The first color is red, the second is blue, and the third is yellow. I like these colors because they are bright and easy to see. Three students helped us make the poster.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-015-leda.mp3",
     studentTranscript:
       "There are tree main colors on the school poster. The first color is red, the second is blue, and the third is yellow. I like these colors because they are bright and easy to see. Tree students helped us make the poster.",
     studentResponse: {
@@ -1560,9 +1625,10 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     expertAdvice:
       "Do not diagnose this simply as poor fluency or speaking too fast. The student's overall rate and continuity are appropriate. Focus on the repeated /th/ sound problem in words such as \"three\" and provide specific pronunciation coaching."
   },
-  
+
   {
     exerciseIndex: 16,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-016-prompt-puck.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Pronunciation",
@@ -1573,6 +1639,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "Every week, I visit my grandparents on Friday afternoon. We usually have tea together and talk about our plans for the weekend. On Saturday, I help them with some jobs around the house. I enjoy visiting them because we always have a good time.",
     promptAudio:
       "Every week, I visit my grandparents on Friday afternoon. We usually have tea together and talk about our plans for the weekend. On Saturday, I help them with some jobs around the house. I enjoy visiting them because we always have a good time.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-016-puck.mp3",
     studentTranscript:
       "Every week, I wisit my grandparents on Friday afternoon. We usually have tea together and talk about our plans for the weekend. On Saturday, I help them with some jobs around the house. I enjoy wisiting them because we always have a good time.",
     studentResponse: {
@@ -1656,120 +1724,107 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "Do not diagnose this simply as poor fluency or speaking too fast. The student's overall rate and continuity are appropriate. Focus on the repeated /v/ sound problem in words such as \"visit\" and provide specific pronunciation coaching."
   },
 
-     {
-    exerciseIndex: 17,
-    totalExercises: 100,
-    difficulty: "Intermediate",
-    trainingSkill: "Pronunciation",
-    diagnosticArea: "TH Sound Pronunciation",
-
-    learningObjective:
-      "Identify a specific /th/ sound pronunciation problem and distinguish it from problems with oral fluency, speech rate or Content accuracy.",
-
-    promptText:
-      "I think healthy food is important for everyone. I usually eat fruit and vegetables every day, and I drink plenty of water. At home, my family tries to cook simple meals with fresh ingredients. We also enjoy walking together because it helps us stay active and healthy.",
-
-    promptAudio:
-      "I think healthy food is important for everyone. I usually eat fruit and vegetables every day, and I drink plenty of water. At home, my family tries to cook simple meals with fresh ingredients. We also enjoy walking together because it helps us stay active and healthy.",
-
-    studentTranscript:
-      "I tink healthy food is important for everyone. I usually eat fruit and vegetables every day, and I drink plenty of water. At home, my family tries to cook simple meals with fresh ingredients. We also enjoy walking together because it helps us stay active and healthy.",
-
-    studentResponse: {
-      audioDuration: "22.5 seconds",
-      wordCount: 46,
-      characteristics:
-        "Generally clear and appropriately paced delivery, but the initial /th/ sound in 'think' is repeatedly produced more like a /t/ sound."
-    },
-
-    diagnosticErrors: [
-      "TH sound pronunciation",
-      "Consonant substitution",
-      "Pronunciation accuracy"
-    ],
-
-    expertEvidence: [
-      "\"think\" is pronounced more like \"tink\"",
-      "The initial /th/ sound is replaced by a /t/-like sound",
-      "The pronunciation problem occurs at a specific consonant sound rather than across the whole response",
-      "Overall speech rate remains appropriate",
-      "The response is continuous without significant fillers, hesitations or unnatural pauses",
-      "The student's Content remains substantially intact",
-      "The main issue requiring attention is the production of the /th/ sound"
-    ],
-
-    expertDiagnosis:
-      "The main problem is pronunciation, specifically the production of the /th/ sound. The student produces the initial /th/ sound in \"think\" more like a /t/ sound, making the word sound like \"tink.\" The response remains generally clear, continuous and appropriately paced, so this should not be diagnosed as an oral-fluency or speech-rate problem. The teacher should focus on the specific consonant sound and provide targeted pronunciation coaching.",
-
-    perfectCalibrationResponse:
-      "The student's main issue is pronunciation, specifically the /th/ sound in the word \"think.\" The /th/ sound is produced more like a /t/ sound, making \"think\" sound like \"tink.\" The response is otherwise clear, continuous and appropriately paced, with no significant hesitation or pausing problem. The teacher should therefore focus on the specific consonant pronunciation rather than diagnosing poor fluency or an inappropriate speaking rate.",
-
-    coachingAdvice:
-      "Practise the /th/ sound by placing the tongue lightly between or just behind the upper and lower teeth and allowing air to pass through. Contrast /th/ and /t/ in words such as \"think\" and \"tink,\" then practise the target sound in short phrases and sentences while maintaining natural fluency.",
-
-    cefrLevel: "A1",
-    topicTitle: "Food & Drinks",
-
-    good: {
-      transcript:
-        "I think healthy food is important for everyone. I usually eat fruit and vegetables every day, and I drink plenty of water. At home, my family tries to cook simple meals with fresh ingredients. We also enjoy walking together because it helps us stay active and healthy.",
-      audioDuration: "21.5 seconds",
-      wordCount: 46,
-      characteristics:
-        "Clear pronunciation of the /th/ sound with appropriate pace and continuous delivery."
-    },
-
-    poor: {
-      transcript:
-        "I tink healthy food is important for everyone. I usually eat fruit and vegetables every day, and I drink plenty of water. At home, my family tries to cook simple meals with fresh ingredients. We also enjoy walking together because it helps us stay active and healthy.",
-      audioDuration: "22.5 seconds",
-      wordCount: 46,
-      characteristics:
-        "Generally clear and appropriately paced delivery, but the /th/ sound in 'think' is produced more like a /t/ sound."
-    },
-
-    goodScore: {
-      content: 5,
-      fluency: 5,
-      pronunciation: 5,
-      overall: "90 / 90",
-      breakdownText:
-        "Clear pronunciation with appropriate pace and continuous delivery."
-    },
-
-    poorScore: {
-      content: 5,
-      fluency: 5,
-      pronunciation: 3,
-      overall: "84 / 90",
-      breakdownText:
-        "Generally fluent and clear, but the specific /th/ sound error reduces pronunciation performance."
-    },
-
-    errorChecklist: [
-      {
-        id: "th-sound-pronunciation",
-        label: "TH sound pronunciation",
-        keyword: "TH sound pronunciation"
-      },
-      {
-        id: "consonant-substitution",
-        label: "Consonant substitution",
-        keyword: "Consonant substitution"
-      },
-      {
-        id: "pronunciation-accuracy",
-        label: "Pronunciation accuracy",
-        keyword: "Pronunciation accuracy"
-      }
-    ],
-
-    expertAdvice:
-      "Do not diagnose this simply as poor fluency or speaking too fast. The student's overall rate and continuity are appropriate. Focus on the specific /th/ sound problem in the word \"think\" and provide targeted pronunciation coaching."
+  {
+  exerciseIndex: 17,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-017-prompt-sulafat.mp3",
+  totalExercises: 100,
+  difficulty: "Beginner",
+  trainingSkill: "Pronunciation",
+  diagnosticArea: "Pronunciation — Consonant Substitution",
+  learningObjective:
+    "Identify a specific /th/ sound pronunciation problem and distinguish it from problems with oral fluency, speech rate or Content accuracy.",
+  promptText:
+    "I think healthy food is important for everyone. I usually eat fruit and vegetables every day, and I drink plenty of water. At home, my family tries to cook simple meals with fresh ingredients. We also enjoy walking together because it helps us stay active and healthy.",
+  promptAudio:
+    "I think healthy food is important for everyone. I usually eat fruit and vegetables every day, and I drink plenty of water. At home, my family tries to cook simple meals with fresh ingredients. We also enjoy walking together because it helps us stay active and healthy.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-017-sulafat.mp3",
+  studentTranscript:
+  "I think healthy food is important for everyone. I usually eat fruit and vegetables every day, and I drink plenty of water. At gnome, my family tries to cook simple meals with fresh ingredients. We also enjoy walking together because it helps us stay active and healthy.",
+  studentResponse: {
+    audioDuration: "Controlled calibration response",
+    wordCount: 39,
+    characteristics:
+      "The student clearly pronounces 'sink' instead of the target word 'think', replacing the initial /th/ sound with an /s/ sound while maintaining otherwise continuous and natural delivery."
   },
+  diagnosticErrors: [
+    "Consonant substitution",
+    "Pronunciation",
+    "Initial /th/ sound",
+  ],
+  expertEvidence: [
+    "\"think\" is pronounced as \"sink\"",
+    "The initial /th/ sound is replaced by an /s/-like sound",
+    "The pronunciation problem occurs at a specific consonant sound rather than across the whole response",
+    "Overall speech rate remains appropriate",
+    "The response is continuous without significant fillers, hesitations or unnatural pauses",
+    "The student's Content remains substantially intact",
+    "The main issue requiring attention is the production of the initial /th/ sound",
+  ],
+  expertDiagnosis:
+    "The primary diagnosis is Pronunciation. The student says 'sink' instead of 'think', replacing the initial /th/ sound with an /s/ sound. The rest of the response is delivered continuously and the intended meaning remains clear, so the main issue is the production of the initial consonant sound rather than Oral Fluency, Speech Rate or Content.",
+  perfectCalibrationResponse:
+    "Primary diagnosis: Pronunciation. The student says 'sink' instead of 'think', replacing the initial /th/ sound with an /s/ sound. The rest of the response is delivered continuously and the intended meaning remains clear, so the main issue is the production of the initial consonant sound rather than Oral Fluency, Speech Rate or Content.",
+  coachingAdvice:
+    "Focus on the initial /th/ sound in 'think'. Practise contrasting 'think' with 'sink' and make sure the tongue is positioned correctly for the /th/ sound before moving into the rest of the word.",
+  cefrLevel: "A1",
+  topicTitle: "Healthy Food Choices",
+  good: {
+    transcript:
+      "I think healthy food is important for everyone. I usually eat fruit and vegetables every day, and I drink plenty of water. At home, my family tries to cook simple meals with fresh ingredients. We also enjoy walking together because it helps us stay active and healthy.",
+    audioDuration: "Controlled benchmark delivery",
+    wordCount: 39,
+    characteristics:
+      "Accurate reproduction with clear Pronunciation and smooth Oral Fluency.",
+  },
+  poor: {
+    transcript:
+      "I sink healthy food is important for everyone. I usually eat fruit and vegetables every day, and I drink plenty of water. At home, my family tries to cook simple meals with fresh ingredients. We also enjoy walking together because it helps us stay active and healthy.",
+    audioDuration: "Controlled calibration response",
+    wordCount: 39,
+    characteristics:
+      "The student replaces the initial /th/ sound in 'think' with an /s/ sound, producing 'sink' while maintaining otherwise smooth delivery.",
+  },
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Accurate Content with clear Pronunciation and smooth Oral Fluency.",
+  },
+  poorScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 3,
+    overall: "78 / 90",
+    breakdownText:
+      "Content and Oral Fluency remain clear, but the initial /th/ sound is replaced by an /s/ sound, reducing Pronunciation accuracy.",
+  },
+  errorChecklist: [
+    {
+      id: "consonant-substitution",
+      label: "Consonant substitution",
+      keyword: "Consonant substitution",
+    },
+    {
+      id: "initial-th-sound",
+      label: "Initial /th/ sound",
+      keyword: "Initial /th/ sound",
+    },
+    {
+      id: "pronunciation",
+      label: "Pronunciation",
+      keyword: "Pronunciation",
+    },
+  ],
+  expertAdvice:
+    "Prioritise Pronunciation because the student replaces the initial /th/ sound in 'think' with an /s/ sound, producing 'sink'. The response remains fluent and the intended Content is substantially intact. Do not diagnose the issue as Oral Fluency or Speech Rate.",
+},
 
    {
     exerciseIndex: 18,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-018-prompt-iapetus.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Content Accuracy",
@@ -1783,6 +1838,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "I often visit the city park near my home after work. I walk along the paths, sit on a bench, and watch children play. At weekends, I sometimes meet my friends there and we talk while we enjoy the fresh air. The park is a simple place, but I like spending time there.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-018-iapetus.mp3",
 
     studentTranscript:
       "I often visit the city park near my home after work. I walk along the paths, sit on a bench, and watch children play. At weekends, I sometimes meet my friends there and we talk together while we enjoy the fresh air. The park is a simple place, but I like spending time there.",
@@ -1882,6 +1940,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 19,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-019-prompt-achernar.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Content Accuracy",
@@ -1895,6 +1954,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "I enjoy listening to music when I have free time. I usually listen to songs on my phone while I walk in the park. At home, I sometimes play quiet music while I study or relax. Music helps me feel calm after a busy day.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-019-achernar.mp3",
 
     studentTranscript:
       "I enjoy listening to music when I have free time. I usually listen to songs on my phone while I walk in the park. At home, I play quiet music while I study or relax. Music helps me feel calm after a busy day.",
@@ -1995,6 +2057,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
    {
     exerciseIndex: 20,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-020-prompt-orus.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Content Accuracy",
@@ -2008,6 +2071,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "I use my smartphone every day to call my family and check messages. At home, I often use my laptop to study and watch videos. I also take photos when I go out with my friends. These devices help me stay connected and organized.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-020-orus.mp3",
 
     studentTranscript:
       "I use my smartphone every day to call my family and check messages. At home, I often use my tablet to study and watch videos. I also take photos when I go out with my friends. These devices help me stay connected and organized.",
@@ -2110,6 +2176,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 21,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-021-prompt-leda.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Pronunciation",
@@ -2123,6 +2190,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "When I travel by bus or train, I usually buy my ticket before I leave home. I check the departure time and make sure I arrive at the station early. If I need help, I ask a staff member which platform I should use. Planning ahead makes my journey easier.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-021-leda.mp3",
 
     studentTranscript:
       "When I travel by bus or train, I usually buy my ticke before I leave home. I check the departure time and make sure I arrive at the station early. If I need help, I ask a staff member which platform I should use. Planning ahead makes my journey easier.",
@@ -2223,6 +2293,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
    {
     exerciseIndex: 22,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-022-prompt-puck.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Content Accuracy",
@@ -2236,6 +2307,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "When I eat at a restaurant, I usually look at the menu before I order. I often choose a simple meal with rice and vegetables. I also like to have a cold drink with my food. After dinner, I sometimes order a small dessert. Eating out is a nice way to spend time with friends.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-022-puck.mp3",
 
     studentTranscript:
       "When I eat at a restaurant, I usually look at the menu before I order. I often choose a simple meal with rice and vegetables. I also like to have a cold drink with my food. After dinner, I sometimes order a small dessert. Eating out is a nice way to spend time with my friends.",
@@ -2337,6 +2411,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 23,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-023-prompt-sulafat.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Content Accuracy",
@@ -2350,6 +2425,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "When I prepare for a job interview, I usually read about the company first. I think about my experience and prepare answers to common questions. I also choose clean and comfortable clothes for the interview. Before I leave home, I check the time and make sure I know the way to the office.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-023-sulafat.mp3",
 
     studentTranscript:
       "When I prepare for a job interview, I usually read about the company first. I think about my experience and prepare answers to common questions. I also choose clean and comfortable clothes for the interview. Before I leave home, I check the time and make sure I know the office to the way.",
@@ -2451,6 +2529,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     {
     exerciseIndex: 24,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-024-prompt-iapetus.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Oral Fluency",
@@ -2464,6 +2543,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Many people go to the gym to improve their health and fitness. I usually exercise three times a week and spend about an hour at the gym. I often use the machines for my arms and legs, and I also walk on the treadmill. Regular exercise helps me feel stronger and more active.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-024-iapetus.mp3",
 
     studentTranscript:
       "Many people go to the gym, um, to improve their health and fitness. I usually exercise three times a week, um, and spend about an hour at the gym. I often use the machines for my arms and legs, um, and I also walk on the treadmill. Regular exercise helps me feel stronger and more active.",
@@ -2565,6 +2647,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     {
     exerciseIndex: 25,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-025-prompt-achernar.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Oral Fluency",
@@ -2578,6 +2661,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "I enjoy taking short trips at the weekend when I have free time. I usually travel by train because it is comfortable and easy. Sometimes I visit a nearby city with my friends and spend the day walking around. We often take photos, try local food and return home in the evening.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-025-achernar.mp3",
 
     studentTranscript:
       "I enjoy taking short trips at the weekend when I have free time. I usually usually travel by train because it is comfortable and easy. Sometimes I visit a nearby city with my friends and spend the day walking around. We often take photos, try local food and return return home in the evening.",
@@ -2679,6 +2765,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
    {
     exerciseIndex: 26,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-026-prompt-orus.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Content Accuracy",
@@ -2692,6 +2779,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "People can use the public library to borrow books and study quietly. I usually visit the library after school because it is close to my home. There are many useful books about history, science, and travel. The library also has computers that students can use for homework.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-026-orus.mp3",
 
     studentTranscript:
       "People can use the public library to borrow books and study quietly. I visit the library after school because it is close to my home. There are many useful books about history, science, and travel. The library also has computers that students can use for homework.",
@@ -2792,6 +2882,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 27,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-027-prompt-leda.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Content Accuracy",
@@ -2805,6 +2896,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Online shopping is convenient when people are busy. I often choose an item on a website, check the price, and place my order. The store sends a confirmation email after I pay. A few days later, the delivery arrives at my home.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-027-leda.mp3",
 
     studentTranscript:
       "Online shopping is convenient when people are busy. I often choose an item on a website, check the price, and place my order. The store sends a confirmation email quickly after I pay. A few days later, the delivery arrives at my home.",
@@ -2904,6 +2998,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 28,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-028-prompt-puck.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Oral Fluency",
@@ -2917,6 +3012,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Many families try to recycle household waste at home. We separate paper, plastic, glass, and food waste into different containers. Recycling helps reduce the amount of rubbish sent to landfill. It is a simple habit that everyone can practise every day.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-028-puck.mp3",
 
     studentTranscript:
       "Many families try to recycle household waste at home. ... ... We separate paper, plastic, glass, and food waste into different containers. ... ... Recycling helps reduce the amount of rubbish sent to landfill. ... ... It is a simple habit that everyone can practise every day.",
@@ -3017,6 +3115,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 29,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-029-prompt-sulafat.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Oral Fluency",
@@ -3030,6 +3129,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Cultural festivals bring people together and help them learn about local traditions. Families often prepare special food, wear traditional clothes, and enjoy music during these events. Some festivals include dancing and games, while others have parades in the streets. These celebrations are an important part of community life.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-029-sulafat.mp3",
 
     studentTranscript:
       "Cultural festivals bring people together and help them learn about local traditions. Families often often prepare special food, wear traditional traditional clothes, and enjoy music during these events. Some festivals include dancing and games, while others have parades in the streets. These celebrations are an important part of community life.",
@@ -3130,6 +3232,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 30,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-030-prompt-iapetus.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Content Accuracy",
@@ -3143,6 +3246,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Visiting a museum can be an interesting way to learn about history and art. I like looking at old paintings, photographs, and objects from different periods. Many museums also offer short tours for visitors. After the visit, I usually talk with my family about the things we learned.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-030-iapetus.mp3",
 
     studentTranscript:
       "Visiting a museum can be an interesting way to learn about history and art. I like looking at old posters, photographs, and objects from different periods. Many museums also offer short tours for visitors. After the visit, I usually talk with my family about the things we learned.",
@@ -3243,6 +3349,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
    {
     exerciseIndex: 31,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-031-prompt-achernar.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Content Accuracy",
@@ -3256,6 +3363,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Elementary science projects help students understand simple ideas through practical activities. In class, students may observe plants, measure water, or build small models. Teachers usually explain each step before the activity begins. Working carefully helps students record their results and learn from the experiment.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-031-achernar.mp3",
 
     studentTranscript:
       "Elementary science projects help students understand simple ideas through practical activities. In class, students may observe plants, measure water, or build small models. Teachers usually explain each step before the activity begins. Working carefully helps students record their results and learn from the exercise.",
@@ -3356,6 +3466,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
   exerciseIndex: 32,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-032-prompt-orus.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Oral Fluency",
@@ -3366,6 +3477,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "Sending workplace emails is an important part of many jobs. Employees should write clear messages and include the main information in a simple way. A useful email often has a short subject line and a polite greeting. Before sending a message, workers should check the details and make sure the correct person will receive it.",
   promptAudio:
     "Sending workplace emails is an important part of many jobs. Employees should write clear messages and include the main information in a simple way. A useful email often has a short subject line and a polite greeting. Before sending a message, workers should check the details and make sure the correct person will receive it.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-032-orus.mp3",
   studentTranscript:
     "Sending workplace emails is an important part of many jobs. Employees should write clear messages and include the main information in a simple way. A useful email often has a short subject line and a polite greeting / sorry, a professional greeting. Before sending a message, workers should check the details and make sure the correct person will receive it.",
   studentResponse: {
@@ -3452,6 +3565,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 33,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-033-prompt-leda.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Pronunciation",
@@ -3465,6 +3579,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Driving lessons help new drivers learn how to control a car safely. Students practise starting, stopping, changing direction, and following traffic signs. A good instructor explains the rules and gives clear advice during each lesson. Drivers should stay alert, follow the speed limit, and watch carefully for other vehicles.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-033-leda.mp3",
 
     studentTranscript:
       "Driving lessons help new drivers learn how to control a car safely. Students practise starting, stopping, changing direction, and following traffic signs. A good instructor explains the rules and gives clear advice during each lesson. Drivers should stay alert, follow the speed limit, and watch carefully for other veehicles.",
@@ -3565,6 +3682,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 34,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-034-prompt-puck.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Content Accuracy",
@@ -3578,6 +3696,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Cooking simple recipes can be a useful skill for students and families. Before cooking, people should read the recipe carefully and prepare all the ingredients. It is important to follow the instructions in the correct order. After the meal is ready, everyone can sit together and enjoy the food.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-034-puck.mp3",
 
     studentTranscript:
       "Cooking simple recipes can be a useful skill for students and families. Before cooking, people should read the recipe carefully and prepare all the ingredients. It is important to follow the instructions in the correct order. After the meal is ready, everyone can sit together and enjoy the delicious food.",
@@ -3677,6 +3798,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 35,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-035-prompt-sulafat.mp3",
     totalExercises: 100,
     difficulty: "Intermediate",
     trainingSkill: "Oral Fluency",
@@ -3690,6 +3812,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Taking photos and videos is an easy way to remember special moments. People often use their phones to capture pictures when they travel or spend time with friends. Good lighting can make a photo clearer and more attractive. Before sharing a picture online, people should check that it shows what they want others to see.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-035-sulafat.mp3",
 
     studentTranscript:
       "Taking photos / and videos is an easy way / to remember special moments. People often use their phones / to capture pictures when they travel / or spend time with friends. Good lighting can make a photo / clearer and more attractive. Before sharing a picture online / people should check that it shows what they want / others to see.",
@@ -3789,6 +3914,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
   exerciseIndex: 36,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-036-prompt-iapetus.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Content Accuracy",
@@ -3796,9 +3922,11 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
   learningObjective:
     "Identify a specific omitted word in a Read Aloud response and distinguish the Content problem from Oral Fluency and Pronunciation.",
   promptText:
-    "When a home appliance stops working, I first check the instructions before asking for help. Sometimes a small problem can be fixed at home without calling a technician. I usually unplug the appliance and check the power connection carefully. If the problem continues, I contact a repair service to make sure the appliance is safe to use.",
+    "When a home appliance stops working, I first check the instructions before asking for help. Sometimes a small problem can be fixed at home without calling a technician. I usually unplug the appliance and check the power connection. If the problem continues, I contact a repair service to make sure the appliance is safe to use.",
   promptAudio:
     "When a home appliance stops working, I first check the instructions before asking for help. Sometimes a small problem can be fixed at home without calling a technician. I usually unplug the appliance and check the power connection carefully. If the problem continues, I contact a repair service to make sure the appliance is safe to use.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-036-iapetus.mp3",
   studentTranscript:
     "When a home appliance stops working, I first check the instructions before asking for help. Sometimes a small problem can be fixed at home without calling a technician. I usually unplug the appliance and check the power connection carefully. If the problem continues, I contact a repair service to make sure the appliance is safe to use.",
   studentResponse: {
@@ -3883,6 +4011,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
 {
   exerciseIndex: 37,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-037-prompt-achernar.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Pronunciation",
@@ -3893,6 +4022,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "Visiting a wildlife zoo can be an interesting experience for children and adults. People can learn about different animals and see how they live in protected areas. Many zoos provide information about conservation and explain why some species need extra care. Visitors should follow the rules and avoid disturbing the animals during their visit.",
   promptAudio:
     "Visiting a wildlife zoo can be an interesting experience for children and adults. People can learn about different animals and see how they live in protected areas. Many zoos provide information about conservation and explain why some species need extra care. Visitors should follow the rules and avoid disturbing the animals during their visit.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-037-achernar.mp3",
   studentTranscript:
     "Visiting a wildlife zoo can be an interesting experience for children and adults. People can learn about different animals and see how they live in protected areas. Many zoos provide information about conservation and explain why some species need extra care. Bisitors should follow the rules and avoid disturbing the animals during their visit.",
   studentResponse: {
@@ -3978,6 +4109,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
 {
   exerciseIndex: 38,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-038-prompt-orus.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Oral Fluency",
@@ -3988,6 +4120,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "School field trips give students a chance to learn outside the classroom. Teachers may take their classes to museums, science centers, parks, or historical places. Before the trip, students should listen carefully to the instructions and stay with their group. A well-planned field trip can make learning more interesting and memorable.",
   promptAudio:
     "School field trips give students a chance to learn outside the classroom. Teachers may take their classes to museums, science centers, parks, or historical places. Before the trip, students should listen carefully to the instructions and stay with their group. A well-planned field trip can make learning more interesting and memorable.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-038-orus.mp3",
   studentTranscript:
     "School field trips give students a chance / to learn outside the classroom. Teachers may take their classes / to museums, science centers, parks, / or historical places. Before the trip, students should listen carefully / to the instructions and stay with their group. A well-planned field trip / can make learning more interesting and memorable.",
   studentResponse: {
@@ -4075,6 +4209,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
 {
   exerciseIndex: 39,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-039-prompt-leda.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Content Accuracy",
@@ -4085,6 +4220,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "Many people enjoy watching TV shows and movies in their free time. Some people prefer comedies because they are funny and relaxing. Others enjoy action films because they like exciting stories and special effects. Watching a good movie can also be a pleasant way to spend an evening with friends or family.",
   promptAudio:
     "Many people enjoy watching TV shows and movies in their free time. Some people prefer comedies because they are funny and relaxing. Others enjoy action films because they like exciting stories and special effects. Watching a good movie can also be a pleasant way to spend an evening with friends or family.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-039-leda.mp3",
   studentTranscript:
     "Many people enjoy watching TV shows and movies in their free time. Some people prefer comedies because they are funny and relaxing. Others enjoy action films because they like exciting stories and special effects. Watching a good movie can also be a pleasant way to spend an evening with friends or friends.",
   studentResponse: {
@@ -4170,6 +4307,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
 {
   exerciseIndex: 40,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-040-prompt-puck.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Oral Fluency",
@@ -4180,6 +4318,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "Community gardens give people a chance to grow plants in shared spaces. Neighbors can work together to prepare the soil, plant vegetables, and take care of the garden. These projects can provide fresh food and create friendly connections between local residents. Gardening together can also make empty areas more useful and attractive.",
   promptAudio:
     "Community gardens give people a chance to grow plants in shared spaces. Neighbors can work together to prepare the soil, plant vegetables, and take care of the garden. These projects can provide fresh food and create friendly connections between local residents. Gardening together can also make empty areas more useful and attractive.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-040-puck.mp3",
   studentTranscript:
     "Community gardens give people a chance to grow plants in shared spaces. Neighbors can work together to prepare the soil, plant vegetables, and take care of the garden. These projects can provide fresh fresh food and create friendly connections between local residents. Gardening together can also make empty areas more useful and attractive.",
   studentResponse: {
@@ -4265,6 +4405,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
 {
   exerciseIndex: 41,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-041-prompt-sulafat.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Content Accuracy",
@@ -4275,8 +4416,10 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "Remote work has become common in many modern workplaces. Employees can often complete their tasks from home while communicating with colleagues through online tools. Hybrid jobs allow workers to spend some days at home and other days in the office. Good communication and careful planning are important when people work in different locations.",
   promptAudio:
     "Remote work has become common in many modern workplaces. Employees can often complete their tasks from home while communicating with colleagues through online tools. Hybrid jobs allow workers to spend some days at home and other days in the office. Good communication and careful planning are important when people work in different locations.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-041-sulafat.mp3",
   studentTranscript:
-    "Remote work has become common in many modern workplaces. Employees can often complete their tasks from home while communicating with colleagues through online tools. Hybrid jobs allow workers to spend some days at home and other days in the office. Good communication and careful planning are important when people work in different locations.",
+    "Remote work has become common in many modern workplaces. Employees can often complete their tasks from home while communicating with colleagues through online tools. Hybrid jobs allow workers to spend some days at home and other days in the office. Good communication and careful planning are important when people work in locations different.",
   studentResponse: {
     audioDuration: "25.5 seconds",
     wordCount: 64,
@@ -4361,6 +4504,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
 {
   exerciseIndex: 42,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-042-prompt-iapetus.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Oral Fluency",
@@ -4371,6 +4515,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "Social media plays an important role in the lives of many young people. Students use online platforms to communicate with friends, share photos, and discover new ideas. However, spending too much time online can reduce the time available for study, exercise, and face-to-face communication. Young people should try to maintain a healthy balance between online and offline activities.",
   promptAudio:
     "Social media plays an important role in the lives of many young people. Students use online platforms to communicate with friends, share photos, and discover new ideas. However, spending too much time online can reduce the time available for study, exercise, and face-to-face communication. Young people should try to maintain a healthy balance between online and offline activities.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-042-iapetus.mp3",
   studentTranscript:
     "Social media plays an important role in the lives of many young people. Students use online platforms to communicate with friends, um, share photos, and discover new ideas. However, spending too much time online can reduce the time available for study, exercise, um, and face-to-face communication. Young people should try to maintain a healthy balance between online and offline activities.",
   studentResponse: {
@@ -4456,6 +4602,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
 {
   exerciseIndex: 43,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-043-prompt-achernar.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Content Accuracy",
@@ -4466,8 +4613,10 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "Solar power can help households reduce their use of electricity from traditional sources. Many families install solar panels on their roofs to generate energy during the day. The electricity can be used to operate lights, appliances, and other equipment in the home. Over time, solar power may help reduce energy costs and support cleaner energy production.",
   promptAudio:
     "Solar power can help households reduce their use of electricity from traditional sources. Many families install solar panels on their roofs to generate energy during the day. The electricity can be used to operate lights, appliances, and other equipment in the home. Over time, solar power may help reduce energy costs and support cleaner energy production.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-043-achernar.mp3",
   studentTranscript:
-    "Solar power can help households reduce their use of electricity from traditional sources. Many families install solar panels on their roofs to generate energy during the day. The electricity can be used to operate lights, appliances, and other equipment in the home. Over time, solar power may help reduce energy costs and support cleaner energy production.",
+    "Solar power can help households reduce their use of electricity from traditional sources. Many families install solar panels on their roofs to generate energy during the day. The electricity can be used to operate lights, appliances, and other equipment in the home. Over time, solar power may help reduce energy costs significantly and support cleaner energy production.",
   studentResponse: {
     audioDuration: "27.0 seconds",
     wordCount: 63,
@@ -4552,6 +4701,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
 {
   exerciseIndex: 44,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-044-prompt-orus.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Oral Fluency",
@@ -4562,6 +4712,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "Living in a university dormitory can help students become more independent. Students usually share common areas such as kitchens, study rooms, and laundry facilities. They can meet people from different backgrounds and learn how to manage their daily responsibilities. Living with other students can also make university life more social and enjoyable.",
   promptAudio:
     "Living in a university dormitory can help students become more independent. Students usually share common areas such as kitchens, study rooms, and laundry facilities. They can meet people from different backgrounds and learn how to manage their daily responsibilities. Living with other students can also make university life more social and enjoyable.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-044-orus.mp3",
   studentTranscript:
     "Living in a university dormitory can help students / become more independent. Students usually share common areas / such as kitchens, study rooms, and laundry facilities. They can meet people from different backgrounds / and learn how to manage their daily responsibilities. Living with other students / can also make university life more social and enjoyable.",
   studentResponse: {
@@ -4648,44 +4800,48 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
 {
   exerciseIndex: 45,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-045-prompt-leda.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
-  trainingSkill: "Pronunciation",
-  diagnosticArea: "TH Sound Pronunciation",
+  trainingSkill: "Content Accuracy",
+  diagnosticArea: "Word Substitution",
   learningObjective:
-    "Identify a specific TH sound pronunciation problem in a Read Aloud response and distinguish it from Content and Oral Fluency problems.",
+    "Identify a specific word substitution in a Read Aloud response and distinguish it from Oral Fluency and general Pronunciation problems.",
   promptText:
     "Modern public libraries are changing to meet the needs of their communities. Many libraries now provide computers, digital resources, quiet study areas, and spaces for group activities. They may also offer workshops that help people develop useful technology skills. These changes allow libraries to remain valuable places for learning, information, and community connection.",
   promptAudio:
     "Modern public libraries are changing to meet the needs of their communities. Many libraries now provide computers, digital resources, quiet study areas, and spaces for group activities. They may also offer workshops that help people develop useful technology skills. These changes allow libraries to remain valuable places for learning, information, and community connection.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-045-leda.mp3",
   studentTranscript:
-    "Modern public libraries are changing to meet the needs of their communities. Many libraries now provide computers, digital resources, quiet study areas, and spaces for group activities. They may also offer workshops that help people develop useful technology skills. These changes allow libraries to remain valuable places for learning, information, and community connection.",
+    "Modern public libraries are changing to meet the needs of their communities. Many libraries now provide computers, digital resources, quiet study areas, and spaces for group activities. They may also offer workshops that help people develop useful technology skills. Those changes allow libraries to remain valuable places for learning, information, and community connection.",
   studentResponse: {
     audioDuration: "28.5 seconds",
     wordCount: 65,
     characteristics:
-      "Generally clear and appropriately paced delivery, but the initial TH sound in 'These' is replaced by a /t/-like sound."
+      "Generally clear and appropriately paced delivery, but the student substitutes the word 'Those' for the target word 'These'."
   },
   diagnosticErrors: [
-    "TH sound pronunciation",
-    "Initial consonant pronunciation",
-    "Pronunciation accuracy"
+    "Word substitution",
+    "Content accuracy",
+    "Incorrect word reproduction"
   ],
   expertEvidence: [
-    "The target word is 'These'",
-    "The initial voiced TH sound is produced more like a /t/-like sound",
-    "The pronunciation issue occurs at the beginning of one specific word",
-    "The remaining words are delivered clearly",
+    "The prompt says 'These changes'",
+    "The student says 'Those changes'",
+    "The student substitutes one real English word for another",
+    "The substitution occurs in the final sentence",
+    "The remaining reading text is reproduced accurately",
     "Overall speaking rate remains appropriate",
-    "Content remains substantially intact",
-    "The main issue requiring attention is the specific TH sound"
+    "Pronunciation is generally clear",
+    "The main issue requiring attention is Content accuracy"
   ],
   expertDiagnosis:
-    "The student's main issue is Pronunciation accuracy, specifically the initial TH sound in the word \"These.\" The target sound is produced more like a /t/-like sound, creating a localized pronunciation problem. The rest of the response is clear and appropriately paced, with the Content substantially intact. The teacher should therefore focus on the specific TH sound rather than diagnosing poor fluency or speech rate.",
+    "The student's main issue is Content accuracy because they substitute the word 'Those' for the target word 'These.' Both are real English words and the student's pronunciation is clear, but the response does not reproduce the reading text accurately. Oral Fluency remains strong because the delivery is continuous and appropriately paced.",
   perfectCalibrationResponse:
-    "The student's main issue is Pronunciation accuracy, specifically the initial TH sound in the word \"These.\" The target sound is produced more like a /t/-like sound, creating a localized pronunciation problem. The rest of the response is clear and appropriately paced, with the Content substantially intact. The teacher should therefore focus on the specific TH sound rather than diagnosing poor fluency or speech rate.",
+    "The student's main issue is Content accuracy because they substitute the word 'Those' for the target word 'These.' Both are real English words and the student's pronunciation is clear, but the response does not reproduce the reading text accurately. Oral Fluency remains strong because the delivery is continuous and appropriately paced.",
   coachingAdvice:
-    "Practise the voiced TH sound by placing the tongue lightly between or just behind the teeth and allowing the voice to continue through the sound. Contrast 'these' with 'tease,' then practise 'These changes' in short sentences.",
+    "Focus on reproducing the exact words shown in the reading text. Practise the phrase 'These changes' as one unit and avoid replacing the target word with another familiar word.",
   cefrLevel: "B1",
   topicTitle: "Public Library Modernization",
   good: {
@@ -4694,15 +4850,15 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     audioDuration: "28.0 seconds",
     wordCount: 65,
     characteristics:
-      "Clear pronunciation with accurate TH sounds, appropriate pace and continuous delivery."
+      "Clear, continuous and appropriately paced delivery with accurate word reproduction."
   },
   poor: {
     transcript:
-      "Modern public libraries are changing to meet the needs of their communities. Many libraries now provide computers, digital resources, quiet study areas, and spaces for group activities. They may also offer workshops that help people develop useful technology skills. Teese changes allow libraries to remain valuable places for learning, information, and community connection.",
+      "Modern public libraries are changing to meet the needs of their communities. Many libraries now provide computers, digital resources, quiet study areas, and spaces for group activities. They may also offer workshops that help people develop useful technology skills. Those changes allow libraries to remain valuable places for learning, information, and community connection.",
     audioDuration: "28.5 seconds",
     wordCount: 65,
     characteristics:
-      "Generally clear and appropriately paced delivery, but the initial TH sound in 'These' is replaced by a /t/-like sound."
+      "Generally clear and appropriately paced delivery, but 'Those' is substituted for the target word 'These'."
   },
   goodScore: {
     content: 5,
@@ -4710,39 +4866,40 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     pronunciation: 5,
     overall: "90 / 90",
     breakdownText:
-      "Clear pronunciation with accurate TH sounds and continuous delivery."
+      "Accurate word reproduction with clear and continuous delivery."
   },
   poorScore: {
-    content: 5,
+    content: 4,
     fluency: 5,
-    pronunciation: 3,
-    overall: "84 / 90",
+    pronunciation: 5,
+    overall: "87 / 90",
     breakdownText:
-      "A localized TH sound pronunciation problem reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
+      "A specific word substitution reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
   },
   errorChecklist: [
     {
-      id: "th-sound-pronunciation",
-      label: "TH sound pronunciation",
-      keyword: "TH sound pronunciation"
+      id: "word-substitution",
+      label: "Word substitution",
+      keyword: "Word substitution"
     },
     {
-      id: "initial-consonant-pronunciation",
-      label: "Initial consonant pronunciation",
-      keyword: "Initial consonant pronunciation"
+      id: "content-accuracy",
+      label: "Content accuracy",
+      keyword: "Content accuracy"
     },
     {
-      id: "pronunciation-accuracy",
-      label: "Pronunciation accuracy",
-      keyword: "Pronunciation accuracy"
+      id: "incorrect-word-reproduction",
+      label: "Incorrect word reproduction",
+      keyword: "Incorrect word reproduction"
     }
   ],
   expertAdvice:
-    "Do not diagnose this as poor fluency or speaking too fast. The student's overall rate and continuity are appropriate. Focus specifically on the initial TH sound in 'These' and provide targeted pronunciation coaching."
+    "Do not diagnose this as a fluency or general pronunciation problem. The student's delivery is clear and appropriately paced. Focus specifically on the substitution of 'Those' for the target word 'These'."
 },
 
 {
   exerciseIndex: 46,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-046-prompt-puck.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Pronunciation",
@@ -4753,8 +4910,10 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "A healthy diet provides the body with the nutrients it needs to stay strong and active. People should include a variety of fruits, vegetables, grains, and protein in their meals. Drinking enough water is also important for maintaining good health. A balanced diet can improve energy levels and help people develop healthy habits for the future.",
   promptAudio:
     "A healthy diet provides the body with the nutrients it needs to stay strong and active. People should include a variety of fruits, vegetables, grains, and protein in their meals. Drinking enough water is also important for maintaining good health. A balanced diet can improve energy levels and help people develop healthy habits for the future.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-046-puck.mp3",
   studentTranscript:
-    "A healthy diet provides the body with the nutrients it needs to stay strong and active. People should include a variety of fruits, vegetables, grains, and protein in their meals. Drinking enough water is also important for maintaining good health. A balanced diet can improve energy levels and help people develop healthy habits for the future.",
+    "A healthy diet provides the body with the nutrients it needs to stay throng and active. People should include a variety of fruits, vegetables, grains, and protein in their meals. Drinking enough water is also important for maintaining good health. A balanced diet can improve energy levels and help people develop healthy habits for the future.",
   studentResponse: {
     audioDuration: "25.0 seconds",
     wordCount: 62,
@@ -4840,6 +4999,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
   exerciseIndex: 47,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-047-prompt-sulafat.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Content Accuracy",
@@ -4850,8 +5010,10 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "Online classes have become an important part of modern education. Students can attend lessons from home and communicate with teachers through digital platforms. Many courses also provide recorded lectures that students can watch later. This flexibility helps learners manage their study time more effectively.",
   promptAudio:
     "Online classes have become an important part of modern education. Students can attend lessons from home and communicate with teachers through digital platforms. Many courses also provide recorded lectures that students can watch later. This flexibility helps learners manage their study time more effectively.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-047-sulafat.mp3",
   studentTranscript:
-    "Online classes have become an important part of modern education. Students can attend lessons from home and communicate with teachers through digital platforms. Many courses also provide recorded lectures that students can watch later. This flexibility helps learners manage their study time more effectively.",
+    "Online classes have become an important part of modern education. Students can attend lessons from home and communicate with teachers through digital platforms. Many courses also provide recorded lectures that students can watch later. This flexibility helps learners manage their study time very effectively.",
   studentResponse: {
     audioDuration: "23.5 seconds",
     wordCount: 62,
@@ -4935,47 +5097,49 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "Do not diagnose this as a pronunciation or fluency problem. The delivery is clear and appropriately paced. Focus specifically on the inserted word 'very' and exact reproduction of the reading text."
 },
 
-  {
+ {
   exerciseIndex: 48,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-048-prompt-iapetus.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Oral Fluency",
-  diagnosticArea: "Run-On Delivery",
+  diagnosticArea: "Speech Rate — Too Fast",
   learningObjective:
-    "Identify insufficient sentence-boundary pausing and run-on delivery in a Read Aloud response and distinguish it from overall speech rate.",
+    "Identify excessively rapid delivery in a Read Aloud response and distinguish it from Content and Pronunciation problems.",
   promptText:
     "Cities are building more bicycle lanes to make travel safer and reduce traffic. Dedicated lanes can encourage people to cycle instead of driving short distances. However, successful bike networks require careful planning and connections between different parts of the city. Good design can make cycling more convenient for both workers and families.",
   promptAudio:
     "Cities are building more bicycle lanes to make travel safer and reduce traffic. Dedicated lanes can encourage people to cycle instead of driving short distances. However, successful bike networks require careful planning and connections between different parts of the city. Good design can make cycling more convenient for both workers and families.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-048-iapetus.mp3",
   studentTranscript:
-    "Cities are building more bicycle lanes to make travel safer and reduce traffic Dedicated lanes can encourage people to cycle instead of driving short distances However successful bike networks require careful planning and connections between different parts of the city Good design can make cycling more convenient for both workers and families.",
+    "Cities are building more bicycle lanes to make travel safer and reduce traffic. Dedicated lanes can encourage people to cycle instead of driving short distances. However, successful bike networks require careful planning and connections between different parts of the city. Good design can make cycling more convenient for both workers and families.",
   studentResponse: {
-    audioDuration: "22.5 seconds",
+    audioDuration: "17.5 seconds",
     wordCount: 65,
     characteristics:
-      "The student reads at an appropriate overall rate but continues directly across sentence boundaries without natural pauses, creating run-on delivery."
+      "The student reproduces the text accurately but speaks at an excessively rapid rate, reducing clarity and natural control."
   },
   diagnosticErrors: [
-    "Run-on delivery",
-    "Insufficient sentence-boundary pausing",
-    "Oral Fluency disruption"
+    "Speech rate too fast",
+    "Excessively rapid delivery",
+    "Reduced fluency control"
   ],
   expertEvidence: [
-    "The student moves directly from one sentence into the next",
-    "There is little or no audible pause after 'traffic'",
-    "There is little or no audible pause after 'distances'",
-    "There is little or no audible pause after 'city'",
-    "The overall speaking rate is not excessively fast",
-    "The words remain substantially accurate",
-    "Pronunciation is generally clear",
-    "The main issue requiring attention is insufficient sentence-boundary pausing"
+    "The student reproduces the reading text accurately",
+    "The overall speaking rate is excessively fast",
+    "Words and phrases are delivered with very limited processing time",
+    "The response sounds rushed rather than naturally paced",
+    "Content remains accurate",
+    "Pronunciation remains generally understandable",
+    "The main issue requiring attention is excessive speech rate"
   ],
   expertDiagnosis:
-    "The student's main issue is Oral Fluency because they use insufficient pauses at sentence boundaries, causing the response to sound like continuous run-on speech. The overall speaking rate is not excessively fast, so this should not be diagnosed simply as speaking too quickly. Content remains substantially accurate and Pronunciation is generally clear.",
+    "The student's main issue is Oral Fluency because the response is delivered at an excessively rapid rate. The reading text is reproduced accurately and Pronunciation remains generally understandable, but the rushed delivery reduces natural fluency control. The teacher should focus on reducing the speaking rate and maintaining a controlled, natural pace.",
   perfectCalibrationResponse:
-    "The student's main issue is Oral Fluency because they use insufficient pauses at sentence boundaries, causing the response to sound like continuous run-on speech. There is little or no natural break between several complete sentences. The overall speaking rate is not excessively fast, so this should not be diagnosed simply as speaking too quickly. Content remains substantially accurate and Pronunciation is generally clear.",
+    "The student's main issue is Oral Fluency because the response is delivered at an excessively rapid rate. The reading text is reproduced accurately and Pronunciation remains generally understandable, but the rushed delivery reduces natural fluency control. The teacher should focus on reducing the speaking rate and maintaining a controlled, natural pace.",
   coachingAdvice:
-    "Practise taking a short natural pause after each complete sentence. The goal is not to slow the overall speech rate, but to separate complete ideas clearly while maintaining smooth delivery.",
+    "Slow the delivery slightly and focus on maintaining a controlled, natural pace. Practise reading in meaningful phrases while avoiding the urge to rush through the passage.",
   cefrLevel: "B1",
   topicTitle: "Urban Bike Lanes & Congestion",
   good: {
@@ -4984,15 +5148,15 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     audioDuration: "24.5 seconds",
     wordCount: 65,
     characteristics:
-      "Natural sentence-boundary pauses with clear, continuous and appropriately paced delivery."
+      "Natural speaking rate with clear, continuous and controlled delivery."
   },
   poor: {
     transcript:
-      "Cities are building more bicycle lanes to make travel safer and reduce traffic Dedicated lanes can encourage people to cycle instead of driving short distances However successful bike networks require careful planning and connections between different parts of the city Good design can make cycling more convenient for both workers and families.",
-    audioDuration: "22.5 seconds",
+      "Cities are building more bicycle lanes to make travel safer and reduce traffic. Dedicated lanes can encourage people to cycle instead of driving short distances. However, successful bike networks require careful planning and connections between different parts of the city. Good design can make cycling more convenient for both workers and families.",
+    audioDuration: "17.5 seconds",
     wordCount: 65,
     characteristics:
-      "Appropriate overall rate but little or no pausing between complete sentences, creating run-on delivery."
+      "Accurate reproduction of the text but excessively rapid delivery that sounds rushed and reduces natural fluency control."
   },
   goodScore: {
     content: 5,
@@ -5000,39 +5164,40 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     pronunciation: 5,
     overall: "90 / 90",
     breakdownText:
-      "Natural sentence-boundary pauses with continuous and controlled delivery."
+      "Accurate Content with natural and controlled speaking rate."
   },
   poorScore: {
     content: 5,
     fluency: 2,
-    pronunciation: 5,
+    pronunciation: 4,
     overall: "82 / 90",
     breakdownText:
-      "Insufficient sentence-boundary pausing creates run-on delivery and significantly reduces Oral Fluency."
+      "Excessively rapid delivery reduces Oral Fluency and makes clear pronunciation more difficult."
   },
   errorChecklist: [
     {
-      id: "run-on-delivery",
-      label: "Run-on delivery",
-      keyword: "Run-on delivery"
+      id: "speech-rate-too-fast",
+      label: "Speech rate too fast",
+      keyword: "Speech rate too fast"
     },
     {
-      id: "insufficient-sentence-pausing",
-      label: "Insufficient sentence-boundary pausing",
-      keyword: "Insufficient sentence-boundary pausing"
+      id: "excessively-rapid-delivery",
+      label: "Excessively rapid delivery",
+      keyword: "Excessively rapid delivery"
     },
     {
-      id: "oral-fluency-disruption",
-      label: "Oral Fluency disruption",
-      keyword: "Oral Fluency disruption"
+      id: "reduced-fluency-control",
+      label: "Reduced fluency control",
+      keyword: "Reduced fluency control"
     }
   ],
   expertAdvice:
-    "Do not diagnose this simply as speaking too fast. The overall rate is acceptable. The defining problem is insufficient pausing at sentence boundaries, which creates run-on delivery."
+    "Do not diagnose this primarily as a Content problem. The words are reproduced accurately. Focus on the excessively rapid speaking rate and coach the student toward a more controlled and natural pace."
 },
 
 {
   exerciseIndex: 49,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-049-prompt-achernar.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Pronunciation",
@@ -5043,35 +5208,42 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "Reducing plastic waste requires changes in both personal habits and public policy. Many communities encourage residents to reuse containers and avoid unnecessary packaging. Local businesses can also offer alternatives to single-use plastic products. These small changes can reduce pollution and protect the environment over time.",
   promptAudio:
     "Reducing plastic waste requires changes in both personal habits and public policy. Many communities encourage residents to reuse containers and avoid unnecessary packaging. Local businesses can also offer alternatives to single-use plastic products. These small changes can reduce pollution and protect the environment over time.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-049-achernar.mp3",
   studentTranscript:
-    "Reducing plastic waste requires changes in both personal habits and public policy. Many communities encourage residents to reuse containers and avoid unnecessary packaging. Local businesses can also offer alternatives to single-use plastic products. These small changes can reduce pollution and protect the envaironment over time.",
+    "Reducing plastic waste requires changes in both personal habits and public policy. Many communities encourage residents to reuse containers and avoid unnecessary packaging. Local businesses can also offer alternatives to single-use plastic products. These small changes can reduce pollution and protect the enforcement over time.",
   studentResponse: {
-    audioDuration: "24.0 seconds",
-    wordCount: 63,
-    characteristics:
-      "Generally clear and appropriately paced delivery, but the word 'environment' is audibly distorted as 'envaironment'."
-  },
-  diagnosticErrors: [
-    "Word pronunciation distortion",
-    "Vowel sequence pronunciation",
-    "Pronunciation accuracy"
-  ],
-  expertEvidence: [
-    "The target word is 'environment'",
-    "The student produces an altered vowel sequence, sounding like 'envaironment'",
-    "The pronunciation issue is localized to one specific word",
-    "The remaining words are generally clear",
-    "Overall speaking rate remains appropriate",
-    "There are no significant fillers or unnatural pauses",
-    "Content remains substantially intact",
-    "The main issue requiring attention is pronunciation of the target word"
-  ],
-  expertDiagnosis:
-    "The student's main issue is Pronunciation accuracy because the word \"environment\" is distorted and sounds like \"envaironment.\" This is a localized word-pronunciation problem rather than a general fluency or Content problem. The rest of the response is clear and appropriately paced.",
-  perfectCalibrationResponse:
-    "The student's main issue is Pronunciation accuracy because the word \"environment\" is distorted and sounds like \"envaironment.\" This is a localized word-pronunciation problem rather than a general fluency or Content problem. The rest of the response is clear and appropriately paced, with the Content substantially intact. The teacher should focus on accurate pronunciation of the target word.",
-  coachingAdvice:
-    "Break the word 'environment' into manageable sound groups and practise the correct vowel sequence slowly before returning to a natural speaking rate. Then practise the word in the full sentence.",
+  audioDuration: "24.0 seconds",
+  wordCount: 63,
+  characteristics:
+    "Generally clear and appropriately paced delivery, but the target word 'environment' is replaced by the clearly different real word 'enforcement'."
+},
+
+diagnosticErrors: [
+  "Word pronunciation distortion",
+  "Vowel sequence pronunciation",
+  "Pronunciation accuracy"
+],
+
+expertEvidence: [
+  "The target word is 'environment'",
+  "The student produces the real word 'enforcement' instead",
+  "The target word is therefore not reproduced accurately",
+  "The pronunciation issue is localized to one specific word",
+  "The remaining words are generally clear",
+  "Overall speaking rate should remain appropriate",
+  "There are no significant fillers or unnatural pauses",
+  "The main issue requiring attention is pronunciation of the target word"
+],
+
+expertDiagnosis:
+  "The student's main issue is Pronunciation accuracy because the target word 'environment' is replaced by the clearly different real word 'enforcement.' This creates a localized pronunciation problem rather than a general fluency problem. The rest of the response should remain clear and appropriately paced.",
+
+perfectCalibrationResponse:
+  "The student's main issue is Pronunciation accuracy because the target word 'environment' is replaced by the clearly different real word 'enforcement.' This creates a localized pronunciation problem rather than a general fluency problem. The rest of the response should remain clear and appropriately paced.",
+
+coachingAdvice:
+  "Practise the word 'environment' in manageable sound groups and contrast it carefully with 'enforcement'. Then practise the target word in the full sentence while maintaining a natural speaking rate.",
   cefrLevel: "B1",
   topicTitle: "Reducing Plastic Waste",
   good: {
@@ -5129,6 +5301,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
 {
   exerciseIndex: 50,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-050-prompt-orus.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Oral Fluency",
@@ -5139,8 +5312,10 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "Tourism can bring important benefits to local communities. Visitors often spend money at small restaurants, hotels, shops, and cultural attractions. Local tourism can also create jobs and encourage communities to protect interesting places. However, careful planning is needed so that tourism remains sustainable for residents and visitors.",
   promptAudio:
     "Tourism can bring important benefits to local communities. Visitors often spend money at small restaurants, hotels, shops, and cultural attractions. Local tourism can also create jobs and encourage communities to protect interesting places. However, careful planning is needed so that tourism remains sustainable for residents and visitors.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-050-orus.mp3",
   studentTranscript:
-    "Tourism can bring important benefits to local communities. Visitors often spend money at small restaurants, hotels, uh, shops, and cultural attractions. Local tourism can also create jobs and, uh, encourage communities to protect interesting places. However, careful planning is needed so that tourism remains sustainable for residents and visitors.",
+    "Tourism can bring important benefits to local communities. Visitors often spend money at small restaurants, hotels, uh, shops, and cultural attractions. Local tourism can also create jobs and, um, encourage communities to protect interesting places. However, careful planning is needed so that tourism remains sustainable for residents and visitors.",
   studentResponse: {
     audioDuration: "26.5 seconds",
     wordCount: 66,
@@ -5153,16 +5328,16 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "Interrupted fluency"
   ],
   expertEvidence: [
-    "The student inserts an audible 'uh' after 'hotels'",
-    "The student inserts another audible 'uh' before 'encourage'",
-    "The fillers interrupt otherwise continuous delivery",
-    "The overall speaking rate remains appropriate",
-    "Content remains substantially intact",
-    "Pronunciation is generally clear",
-    "The main issue requiring attention is Oral Fluency"
-  ],
+  "The student inserts an audible 'uh' after 'hotels'",
+  "The student inserts another audible 'um' before 'encourage'",
+  "The fillers interrupt otherwise continuous delivery",
+  "The overall speaking rate remains appropriate",
+  "Content remains substantially intact",
+  "Pronunciation is generally clear",
+  "The main issue requiring attention is Oral Fluency"
+],
   expertDiagnosis:
-    "The student's main issue is Oral Fluency because they use audible filler sounds during the reading. The student inserts \"uh\" after \"hotels\" and again before \"encourage,\" interrupting otherwise continuous delivery. Content remains substantially accurate and Pronunciation is generally clear. The teacher should focus on reducing vocalized fillers rather than diagnosing a Content, Pronunciation or speech-rate problem.",
+    "The student's main issue is Oral Fluency because they use audible filler sounds during the reading. The student inserts 'uh' after 'hotels' and again inserts 'um' before 'encourage,' interrupting otherwise continuous delivery. Content remains substantially accurate and Pronunciation is generally clear. The teacher should focus on reducing vocalized fillers rather than diagnosing a Content, Pronunciation or speech-rate problem.",
   perfectCalibrationResponse:
     "The student's main issue is Oral Fluency because they use audible filler sounds during the reading. The student inserts \"uh\" after \"hotels\" and again before \"encourage,\" interrupting otherwise continuous delivery. Content remains substantially accurate and Pronunciation is generally clear. The teacher should focus on reducing vocalized fillers rather than diagnosing a Content, Pronunciation or speech-rate problem.",
   coachingAdvice:
@@ -5222,657 +5397,402 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     "Do not diagnose this as a Content, Pronunciation or general speech-rate problem. The defining issue is the audible use of 'uh' fillers. Coach the student to replace vocalized fillers with brief silent pauses."
 },
 
-{
-  exerciseIndex: 51,
-  totalExercises: 100,
-  difficulty: "Intermediate",
-  trainingSkill: "Content Accuracy",
-  diagnosticArea: "Phrase Omission",
-  learningObjective:
-    "Identify an omitted phrase in a Read Aloud response and distinguish Content accuracy from Pronunciation and Oral Fluency problems.",
-  promptText:
-    "Managing a personal budget can help students control their spending. A simple budget should include regular expenses such as food, transport, and study materials. Students can also set aside a small amount of money for emergencies. Checking a budget each month helps people understand their spending habits and make better financial decisions.",
-  promptAudio:
-    "Managing a personal budget can help students control their spending. A simple budget should include regular expenses such as food, transport, and study materials. Students can also set aside a small amount of money for emergencies. Checking a budget each month helps people understand their spending habits and make better financial decisions.",
-  studentTranscript:
-    "Managing a personal budget can help students control their spending. A simple budget should include regular expenses such as food, transport, and study materials. Students can also set aside a small amount of money for emergencies. Checking a budget each month helps people understand their spending habits and make better financial decisions.",
-  studentResponse: {
-    audioDuration: "24.5 seconds",
-    wordCount: 61,
-    characteristics:
-      "Clear and appropriately paced delivery, but the phrase 'for emergencies' is omitted from the third sentence."
-  },
-  diagnosticErrors: [
-    "Phrase omission",
-    "Content accuracy",
-    "Missing phrase"
-  ],
-  expertEvidence: [
-    "The prompt says 'set aside a small amount of money for emergencies'",
-    "The student says 'set aside a small amount of money'",
-    "The phrase 'for emergencies' is missing",
-    "The omission occurs in the third sentence",
-    "The remaining content is reproduced accurately",
-    "Pronunciation is generally clear",
-    "Overall speaking rate is appropriate",
-    "The response is continuous without significant hesitation"
-  ],
-  expertDiagnosis:
-    "The student's main issue is Content accuracy because they omit the phrase \"for emergencies\" from the third sentence. The prompt says \"set aside a small amount of money for emergencies,\" but the student stops after \"money.\" This omission affects the Read Aloud Content score, while Pronunciation and Oral Fluency remain strong.",
-  perfectCalibrationResponse:
-    "The student's main issue is Content accuracy because they omit the phrase \"for emergencies\" from the third sentence. The prompt says \"set aside a small amount of money for emergencies,\" but the student stops after \"money.\" This omission affects the Read Aloud Content score, while Pronunciation and Oral Fluency remain strong because the response is otherwise clear, continuous and appropriately paced.",
-  coachingAdvice:
-    "Focus on reproducing the complete reading text without leaving out short phrases. Practise reading the third sentence as one complete unit, including 'for emergencies.'",
-  cefrLevel: "B1",
-  topicTitle: "Student Budgeting & Finance",
-  good: {
-    transcript:
+ {
+    exerciseIndex: 51,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-051-prompt-leda.mp3",
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Phrase Omission",
+    learningObjective:
+      "Identify an omitted phrase in a Read Aloud response and distinguish Content accuracy from Pronunciation and Oral Fluency problems.",
+    promptText:
       "Managing a personal budget can help students control their spending. A simple budget should include regular expenses such as food, transport, and study materials. Students can also set aside a small amount of money for emergencies. Checking a budget each month helps people understand their spending habits and make better financial decisions.",
-    audioDuration: "23.5 seconds",
-    wordCount: 64,
-    characteristics:
-      "Clear, continuous and appropriately paced delivery with exact word reproduction."
-  },
-  poor: {
-    transcript:
+    promptAudio:
+      "Managing a personal budget can help students control their spending. A simple budget should include regular expenses such as food, transport, and study materials. Students can also set aside a small amount of money for emergencies. Checking a budget each month helps people understand their spending habits and make better financial decisions.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-051-leda.mp3",
+    studentTranscript:
       "Managing a personal budget can help students control their spending. A simple budget should include regular expenses such as food, transport, and study materials. Students can also set aside a small amount of money. Checking a budget each month helps people understand their spending habits and make better financial decisions.",
-    audioDuration: "24.5 seconds",
-    wordCount: 61,
-    characteristics:
-      "Clear and appropriately paced delivery with the phrase 'for emergencies' omitted."
-  },
-  goodScore: {
-    content: 5,
-    fluency: 5,
-    pronunciation: 5,
-    overall: "90 / 90",
-    breakdownText:
-      "Exact Content reproduction with clear and appropriately paced delivery."
-  },
-  poorScore: {
-    content: 4,
-    fluency: 5,
-    pronunciation: 5,
-    overall: "87 / 90",
-    breakdownText:
-      "The omitted phrase reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
-  },
-  errorChecklist: [
-    {
-      id: "phrase-omission",
-      label: "Phrase omission",
-      keyword: "Phrase omission"
+    studentResponse: {
+      audioDuration: "24.5 seconds",
+      wordCount: 61,
+      characteristics:
+        "Clear and appropriately paced delivery, but the phrase 'for emergencies' is omitted from the third sentence."
     },
-    {
-      id: "content-accuracy",
-      label: "Content accuracy",
-      keyword: "Content accuracy"
+    diagnosticErrors: [
+      "Phrase omission",
+      "Content accuracy",
+      "Missing phrase"
+    ],
+    expertEvidence: [
+      "The prompt says 'set aside a small amount of money for emergencies'",
+      "The student says 'set aside a small amount of money'",
+      "The phrase 'for emergencies' is missing",
+      "The omission occurs in the third sentence",
+      "The remaining content is reproduced accurately",
+      "Pronunciation is generally clear",
+      "Overall speaking rate is appropriate",
+      "The response is continuous without significant hesitation"
+    ],
+    expertDiagnosis:
+      "The student's main issue is Content accuracy because they omit the phrase \"for emergencies\" from the third sentence. The prompt says \"set aside a small amount of money for emergencies,\" but the student stops after \"money.\" This omission affects the Read Aloud Content score, while Pronunciation and Oral Fluency remain strong.",
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they omit the phrase \"for emergencies\" from the third sentence. The prompt says \"set aside a small amount of money for emergencies,\" but the student stops after \"money.\" This omission affects the Read Aloud Content score, while Pronunciation and Oral Fluency remain strong because the response is otherwise clear, continuous and appropriately paced.",
+    coachingAdvice:
+      "Focus on reproducing the complete reading text without leaving out short phrases. Practise reading the third sentence as one complete unit, including 'for emergencies.'",
+    cefrLevel: "B1",
+    topicTitle: "Student Budgeting & Finance",
+    good: {
+      transcript:
+        "Managing a personal budget can help students control their spending. A simple budget should include regular expenses such as food, transport, and study materials. Students can also set aside a small amount of money for emergencies. Checking a budget each month helps people understand their spending habits and make better financial decisions.",
+      audioDuration: "23.5 seconds",
+      wordCount: 64,
+      characteristics:
+        "Clear, continuous and appropriately paced delivery with exact word reproduction."
     },
-    {
-      id: "missing-phrase",
-      label: "Missing phrase",
-      keyword: "Missing phrase"
-    }
-  ],
-  expertAdvice:
-    "Do not diagnose this as a pronunciation or fluency problem. The defining issue is the missing phrase 'for emergencies,' which is a Content accuracy error."
-},
+    poor: {
+      transcript:
+        "Managing a personal budget can help students control their spending. A simple budget should include regular expenses such as food, transport, and study materials. Students can also set aside a small amount of money. Checking a budget each month helps people understand their spending habits and make better financial decisions.",
+      audioDuration: "24.5 seconds",
+      wordCount: 61,
+      characteristics:
+        "Clear and appropriately paced delivery with the phrase 'for emergencies' omitted."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Exact Content reproduction with clear and appropriately paced delivery."
+    },
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "The omitted phrase reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+    errorChecklist: [
+      {
+        id: "phrase-omission",
+        label: "Phrase omission",
+        keyword: "Phrase omission"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "missing-phrase",
+        label: "Missing phrase",
+        keyword: "Missing phrase"
+      }
+    ],
+    expertAdvice:
+      "Do not diagnose this as a pronunciation or fluency problem. The defining issue is the missing phrase 'for emergencies,' which is a Content accuracy error."
+  },
 
 {
-  exerciseIndex: 52,
-  totalExercises: 100,
-  difficulty: "Intermediate",
-  trainingSkill: "Pronunciation",
-  diagnosticArea: "Final Consonant Deletion",
-  learningObjective:
-    "Identify a clearly audible final consonant deletion and distinguish a localized Pronunciation problem from broader Content and Oral Fluency problems.",
-  promptText:
-    "National parks protect many different kinds of wildlife and natural habitats. Visitors may see animals such as deer, birds, and wild monkeys. Rangers help protect these animals and teach visitors how to behave safely in the park. Protecting wildlife and plants also helps preserve important ecosystems for future generations.",
-  promptAudio:
-    "National parks protect many different kinds of wildlife and natural habitats. Visitors may see animals such as deer, birds, and wild monkeys. Rangers help protect these animals and teach visitors how to behave safely in the park. Protecting wildlife and plants also helps preserve important ecosystems for future generations.",
-  studentTranscript:
-    "National parks protect many different kinds of wildlife and natural habitats. Visitors may see animals such as deer, birds, and wild monkeys. Rangers help protect these animals and teach visitors how to behave safely in the park. Protecting wildlife and plant also helps preserve important ecosystems for future generations.",
-  studentResponse: {
-    audioDuration: "24.5 seconds",
-    wordCount: 64,
-    characteristics:
-      "Generally clear and appropriately paced delivery, but the final /s/ sound in 'plants' is deleted, making it sound like 'plant'."
-  },
-  diagnosticErrors: [
-    "Final consonant deletion",
-    "Final /s/ sound deletion",
-    "Pronunciation accuracy"
-  ],
-  expertEvidence: [
-    "The target word is 'plants'",
-    "The final /s/ sound is deleted",
-    "The word sounds like 'plant' rather than 'plants'",
-    "The pronunciation problem is localized to one word",
-    "The remaining words are generally clear",
-    "Overall speaking rate remains appropriate",
-    "There are no significant fillers or unnatural pauses",
-    "The response remains continuous and easy to follow"
-  ],
-  expertDiagnosis:
-    "The student's main issue is Pronunciation accuracy because the final /s/ sound in the word \"plants\" is deleted, making the word sound like \"plant.\" This is a localized final consonant pronunciation problem. The rest of the response is generally clear, continuous and appropriately paced.",
-  perfectCalibrationResponse:
-    "The student's main issue is Pronunciation accuracy because the final /s/ sound in the word \"plants\" is deleted, making the word sound like \"plant.\" This is a localized final consonant pronunciation problem. The rest of the response is generally clear, continuous and appropriately paced. The teacher should focus on the missing final /s/ sound rather than diagnosing a broader Oral Fluency problem.",
-  coachingAdvice:
-    "Practise the final /s/ sound in 'plants' by holding the final consonant briefly before moving to the next word. Then practise 'plants' naturally within the complete sentence.",
-  cefrLevel: "B1",
-  topicTitle: "National Park Wildlife",
-  good: {
-    transcript:
+    exerciseIndex: 52,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-052-prompt-puck.mp3",
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Final Consonant Deletion",
+    learningObjective:
+      "Identify a clearly audible final consonant deletion and distinguish a localized Pronunciation problem from broader Content and Oral Fluency problems.",
+    promptText:
       "National parks protect many different kinds of wildlife and natural habitats. Visitors may see animals such as deer, birds, and wild monkeys. Rangers help protect these animals and teach visitors how to behave safely in the park. Protecting wildlife and plants also helps preserve important ecosystems for future generations.",
-    audioDuration: "24.0 seconds",
-    wordCount: 65,
-    characteristics:
-      "Clear pronunciation with accurate final consonant sounds and natural fluency."
-  },
-  poor: {
-    transcript:
+    promptAudio:
+      "National parks protect many different kinds of wildlife and natural habitats. Visitors may see animals such as deer, birds, and wild monkeys. Rangers help protect these animals and teach visitors how to behave safely in the park. Protecting wildlife and plants also helps preserve important ecosystems for future generations.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-052-puck.mp3",
+    studentTranscript:
       "National parks protect many different kinds of wildlife and natural habitats. Visitors may see animals such as deer, birds, and wild monkeys. Rangers help protect these animals and teach visitors how to behave safely in the park. Protecting wildlife and plant also helps preserve important ecosystems for future generations.",
-    audioDuration: "24.5 seconds",
-    wordCount: 64,
-    characteristics:
-      "Generally clear and appropriately paced delivery, but 'plants' is pronounced without its final /s/ sound."
-  },
-  goodScore: {
-    content: 5,
-    fluency: 5,
-    pronunciation: 5,
-    overall: "90 / 90",
-    breakdownText:
-      "Accurate final consonant pronunciation with natural fluency and Content."
-  },
-  poorScore: {
-    content: 5,
-    fluency: 5,
-    pronunciation: 3,
-    overall: "84 / 90",
-    breakdownText:
-      "A localized final consonant deletion reduces Pronunciation accuracy."
-  },
-  errorChecklist: [
-    {
-      id: "final-consonant-deletion",
-      label: "Final consonant deletion",
-      keyword: "Final consonant deletion"
+    studentResponse: {
+      audioDuration: "24.5 seconds",
+      wordCount: 64,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the final /s/ sound in 'plants' is deleted, making it sound like 'plant'."
     },
-    {
-      id: "final-s-sound-deletion",
-      label: "Final /s/ sound deletion",
-      keyword: "Final /s/ sound deletion"
+    diagnosticErrors: [
+      "Final consonant deletion",
+      "Final /s/ sound deletion",
+      "Pronunciation accuracy"
+    ],
+    expertEvidence: [
+      "The target word is 'plants'",
+      "The final /s/ sound is deleted",
+      "The word sounds like 'plant' rather than 'plants'",
+      "The pronunciation problem is localized to one word",
+      "The remaining words are generally clear",
+      "Overall speaking rate remains appropriate",
+      "There are no significant fillers or unnatural pauses",
+      "The response remains continuous and easy to follow"
+    ],
+    expertDiagnosis:
+      "The student's main issue is Pronunciation accuracy because the final /s/ sound in the word \"plants\" is deleted, making the word sound like \"plant.\" This is a localized final consonant pronunciation problem. The rest of the response is generally clear, continuous and appropriately paced.",
+    perfectCalibrationResponse:
+      "The student's main issue is Pronunciation accuracy because the final /s/ sound in the word \"plants\" is deleted, making the word sound like \"plant.\" This is a localized final consonant pronunciation problem. The rest of the response is generally clear, continuous and appropriately paced. The teacher should focus on the missing final /s/ sound rather than diagnosing a broader Oral Fluency problem.",
+    coachingAdvice:
+      "Practise the final /s/ sound in 'plants' by holding the final consonant briefly before moving to the next word. Then practise 'plants' naturally within the complete sentence.",
+    cefrLevel: "B1",
+    topicTitle: "National Park Wildlife",
+    good: {
+      transcript:
+        "National parks protect many different kinds of wildlife and natural habitats. Visitors may see animals such as deer, birds, and wild monkeys. Rangers help protect these animals and teach visitors how to behave safely in the park. Protecting wildlife and plants also helps preserve important ecosystems for future generations.",
+      audioDuration: "24.0 seconds",
+      wordCount: 65,
+      characteristics:
+        "Clear pronunciation with accurate final consonant sounds and natural fluency."
     },
-    {
-      id: "pronunciation-accuracy",
-      label: "Pronunciation accuracy",
-      keyword: "Pronunciation accuracy"
-    }
-  ],
-  expertAdvice:
-    "Focus specifically on the final /s/ sound in 'plants.' Do not diagnose this as a broader Oral Fluency problem."
-},
+    poor: {
+      transcript:
+        "National parks protect many different kinds of wildlife and natural habitats. Visitors may see animals such as deer, birds, and wild monkeys. Rangers help protect these animals and teach visitors how to behave safely in the park. Protecting wildlife and plant also helps preserve important ecosystems for future generations.",
+      audioDuration: "24.5 seconds",
+      wordCount: 64,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but 'plants' is pronounced without its final /s/ sound."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate final consonant pronunciation with natural fluency and Content."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized final consonant deletion reduces Pronunciation accuracy."
+    },
+    errorChecklist: [
+      {
+        id: "final-consonant-deletion",
+        label: "Final consonant deletion",
+        keyword: "Final consonant deletion"
+      },
+      {
+        id: "plural-ending-deletion",
+        label: "Plural ending deletion",
+        keyword: "Plural ending deletion"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+    expertAdvice:
+      "Focus specifically on the missing final /s/ in 'plants'. This is a localized Pronunciation issue. Do not diagnose Content or Oral Fluency because the passage is otherwise accurately and continuously reproduced."
+  },
 
-{
-  exerciseIndex: 53,
-  totalExercises: 100,
-  difficulty: "Intermediate",
-  trainingSkill: "Oral Fluency",
-  diagnosticArea: "False Start and Restart",
-  learningObjective:
-    "Identify an audible false start followed by a corrected phrase and distinguish it from a Content accuracy problem.",
-  promptText:
-    "Managing workplace stress is important for maintaining good health and productivity. Workers can reduce stress by taking short breaks during the day. Regular exercise and enough sleep can also help people feel more relaxed. Talking to colleagues or managers can be useful when work becomes difficult.",
-  promptAudio:
-    "Managing workplace stress is important for maintaining good health and productivity. Workers can reduce stress by taking short breaks during the day. Regular exercise and enough sleep can also help people feel more relaxed. Talking to colleagues or managers can be useful when work becomes difficult.",
-  studentTranscript:
-    "Managing workplace stress is important for maintaining good health and productivity. Workers can reduce stress by taking short breaks during the day. Regular exercise and enough sleep can also help people feel more relaxed. Talking to colleagues or managers can be useful when work becomes / when work becomes difficult.",
-  studentResponse: {
-    audioDuration: "24.5 seconds",
-    wordCount: 66,
-    characteristics:
-      "Generally clear delivery, but the speaker begins a phrase, abandons it, and restarts the phrase before continuing."
-  },
-  diagnosticErrors: [
-    "False start",
-    "Restart",
-    "Interrupted fluency"
-  ],
-  expertEvidence: [
-    "The student begins the final sentence with an incomplete phrase",
-    "The student abandons the initial wording",
-    "The phrase is then restarted and completed",
-    "The false start interrupts otherwise continuous delivery",
-    "Content is substantially accurate",
-    "Pronunciation is generally clear",
-    "Overall speaking rate remains appropriate"
-  ],
-  expertDiagnosis:
-    "The student's main issue is Oral Fluency because they make a false start and restart during the final sentence. The abandoned phrase interrupts otherwise continuous delivery. Content remains substantially accurate and Pronunciation is generally clear.",
-  perfectCalibrationResponse:
-    "The student's main issue is Oral Fluency because they make a false start and restart during the final sentence. The student begins the phrase, abandons it, and then restarts before continuing. This interrupts otherwise continuous delivery, while Content remains substantially accurate and Pronunciation is generally clear.",
-  coachingAdvice:
-    "Practise beginning each phrase with confidence and avoiding abandoned starts. If a mistake occurs, recover smoothly without repeatedly restarting the phrase.",
-  cefrLevel: "B1",
-  topicTitle: "Managing Workplace Stress",
-  good: {
-    transcript:
+  {
+    exerciseIndex: 53,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-053-prompt-sulafat.mp3",
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "False Start and Restart",
+    learningObjective:
+      "Identify an audible false start followed by a corrected phrase and distinguish it from a Content accuracy problem.",
+    promptText:
       "Managing workplace stress is important for maintaining good health and productivity. Workers can reduce stress by taking short breaks during the day. Regular exercise and enough sleep can also help people feel more relaxed. Talking to colleagues or managers can be useful when work becomes difficult.",
-    audioDuration: "23.5 seconds",
-    wordCount: 64,
-    characteristics:
-      "Smooth and continuous delivery without false starts or restarts."
-  },
-  poor: {
-    transcript:
-      "Managing workplace stress is important for maintaining good health and productivity. Workers can reduce stress by taking short breaks during the day. Regular exercise and enough sleep can also help people feel more relaxed. Talking to colleagues or managers can be useful when work becomes / when work becomes difficult.",
-    audioDuration: "24.5 seconds",
-    wordCount: 66,
-    characteristics:
-      "Delivery includes an audible false start and restart in the final sentence."
-  },
-  goodScore: {
-    content: 5,
-    fluency: 5,
-    pronunciation: 5,
-    overall: "90 / 90",
-    breakdownText:
-      "Smooth continuous delivery with accurate Content and clear Pronunciation."
-  },
-  poorScore: {
-    content: 5,
-    fluency: 3,
-    pronunciation: 5,
-    overall: "84 / 90",
-    breakdownText:
-      "A false start and restart interrupt Oral Fluency."
-  },
-  errorChecklist: [
-    {
-      id: "false-start",
-      label: "False start",
-      keyword: "False start"
+    promptAudio:
+      "Managing workplace stress is important for maintaining good health and productivity. Workers can reduce stress by taking short breaks during the day. Regular exercise and enough sleep can also help people feel more relaxed. Talking to colleagues or managers can be useful when work becomes difficult.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-053-sulafat.mp3",
+    studentTranscript:
+      "Managing workplace stress is important for maintaining good health and productivity. Workers can reduce stress by taking short breaks during the day. Regular exercise and enough sleep can also help people feel more relaxed. Talking to colleagues or managers can be useful—no, when work becomes difficult.",
+    studentResponse: {
+      audioDuration: "24.5 seconds",
+      wordCount: 66,
+      characteristics:
+        "Generally clear delivery, but the speaker begins a phrase, audibly corrects it with 'no', and restarts before continuing."
     },
-    {
-      id: "restart",
-      label: "Restart",
-      keyword: "Restart"
+    diagnosticErrors: [
+      "False start",
+      "Restart",
+      "Interrupted fluency"
+    ],
+    expertEvidence: [
+      "The student begins the final sentence with an incomplete phrase",
+      "The student abandons the initial wording",
+      "The student audibly says 'no' before restarting",
+      "The phrase is then restarted and completed",
+      "The false start interrupts otherwise continuous delivery",
+      "Content is substantially accurate",
+      "Pronunciation is generally clear",
+      "Overall speaking rate remains appropriate"
+    ],
+    expertDiagnosis:
+      "The student's main issue is Oral Fluency because they make a false start and restart during the final sentence. The abandoned phrase interrupts otherwise continuous delivery. Content remains substantially accurate and Pronunciation is generally clear.",
+    perfectCalibrationResponse:
+      "The student's main issue is Oral Fluency because they make a false start and restart during the final sentence. The student begins the phrase, says \"no,\" abandons the initial wording, and then restarts before continuing. This interrupts otherwise continuous delivery, while Content remains substantially accurate and Pronunciation is generally clear.",
+    coachingAdvice:
+      "Practise beginning each phrase with confidence and avoiding abandoned starts. If a mistake occurs, recover smoothly without verbally restarting the phrase.",
+    cefrLevel: "B1",
+    topicTitle: "Managing Workplace Stress",
+    good: {
+      transcript:
+        "Managing workplace stress is important for maintaining good health and productivity. Workers can reduce stress by taking short breaks during the day. Regular exercise and enough sleep can also help people feel more relaxed. Talking to colleagues or managers can be useful when work becomes difficult.",
+      audioDuration: "23.5 seconds",
+      wordCount: 64,
+      characteristics:
+        "Smooth and continuous delivery without false starts or restarts."
     },
-    {
-      id: "interrupted-fluency",
-      label: "Interrupted fluency",
-      keyword: "Interrupted fluency"
-    }
-  ],
-  expertAdvice:
-    "Focus on Oral Fluency rather than Content. The important diagnostic feature is the audible abandoned start followed by a restart."
-},
+    poor: {
+      transcript:
+        "Managing workplace stress is important for maintaining good health and productivity. Workers can reduce stress by taking short breaks during the day. Regular exercise and enough sleep can also help people feel more relaxed. Talking to colleagues or managers can be useful—no, when work becomes difficult.",
+      audioDuration: "24.5 seconds",
+      wordCount: 66,
+      characteristics:
+        "Delivery includes an audible false start, correction, and restart in the final sentence."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Smooth continuous delivery with accurate Content and clear Pronunciation."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 3,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "A false start and restart interrupt Oral Fluency."
+    },
+    errorChecklist: [
+      {
+        id: "false-start",
+        label: "False start",
+        keyword: "False start"
+      },
+      {
+        id: "restart",
+        label: "Restart",
+        keyword: "Restart"
+      },
+      {
+        id: "interrupted-fluency",
+        label: "Interrupted fluency",
+        keyword: "Interrupted fluency"
+      }
+    ],
+    expertAdvice:
+      "Focus on Oral Fluency rather than Content. The important diagnostic feature is the audible abandoned start followed by a correction and restart."
+  },
 
 {
   exerciseIndex: 54,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-054-prompt-iapetus.mp3",
   totalExercises: 100,
   difficulty: "Intermediate",
   trainingSkill: "Content Accuracy",
-  diagnosticArea: "Word Order Disruption",
+  diagnosticArea: "Lexical Substitution",
   learningObjective:
-    "Identify a word-order disruption in a Read Aloud response when the individual words are present but their sequence is inaccurate.",
-  promptText:
-    "Modern cities often contain tall skyscrapers that provide space for offices, homes, and hotels. These buildings can help cities use limited land more efficiently. Architects must consider safety, energy use, and the needs of people who work or live inside them. Good design can make tall buildings comfortable as well as attractive.",
-  promptAudio:
-    "Modern cities often contain tall skyscrapers that provide space for offices, homes, and hotels. These buildings can help cities use limited land more efficiently. Architects must consider safety, energy use, and the needs of people who work or live inside them. Good design can make tall buildings comfortable as well as attractive.",
-  studentTranscript:
-    "Modern cities often contain tall skyscrapers that provide space for offices, homes, and hotels. These buildings can help cities use limited land more efficiently. Architects must consider safety, energy use, and the needs of people who work or live inside them. Good design can make tall buildings comfortable as well as attractive.",
-  studentResponse: {
-    audioDuration: "25.0 seconds",
-    wordCount: 65,
-    characteristics:
-      "Clear and appropriately paced delivery, but the word sequence in the final phrase is disrupted."
-  },
-  diagnosticErrors: [
-    "Word order disruption",
-    "Content accuracy",
-    "Incorrect word sequence"
-  ],
-  expertEvidence: [
-    "The prompt says 'make tall buildings comfortable as well as attractive'",
-    "The student changes the order of words in the final phrase",
-    "The individual words remain identifiable",
-    "The altered sequence means the reading is not reproduced exactly",
-    "Pronunciation is generally clear",
-    "Overall speaking rate remains appropriate",
-    "The response is otherwise continuous"
-  ],
-  expertDiagnosis:
-    "The student's main issue is Content accuracy because the word order in the final phrase is disrupted. The words are present, but they are not reproduced in the same sequence as the prompt. Pronunciation and Oral Fluency remain generally strong.",
-  perfectCalibrationResponse:
-    "The student's main issue is Content accuracy because the word order in the final phrase is disrupted. The words are present, but they are not reproduced in the same sequence as the prompt. This word-sequence error affects exact Content reproduction, while Pronunciation and Oral Fluency remain generally strong because the response is clear, continuous and appropriately paced.",
-  coachingAdvice:
-    "Practise reproducing phrases in their exact order rather than relying only on individual words. Pay particular attention to the final phrase and its word sequence.",
-  cefrLevel: "B1",
-  topicTitle: "Modern City Skyscrapers",
-  good: {
-    transcript:
-      "Modern cities often contain tall skyscrapers that provide space for offices, homes, and hotels. These buildings can help cities use limited land more efficiently. Architects must consider safety, energy use, and the needs of people who work or live inside them. Good design can make tall buildings comfortable as well as attractive.",
-    audioDuration: "24.0 seconds",
-    wordCount: 65,
-    characteristics:
-      "Exact word sequence with clear, continuous and appropriately paced delivery."
-  },
-  poor: {
-    transcript:
-      "Modern cities often contain tall skyscrapers that provide space for offices, homes, and hotels. These buildings can help cities use limited land more efficiently. Architects must consider safety, energy use, and the needs of people who work or live inside them. Good design can make tall buildings attractive as well as comfortable.",
-    audioDuration: "25.0 seconds",
-    wordCount: 65,
-    characteristics:
-      "Clear and appropriately paced delivery with the final adjective order reversed."
-  },
-  goodScore: {
-    content: 5,
-    fluency: 5,
-    pronunciation: 5,
-    overall: "90 / 90",
-    breakdownText:
-      "Exact word sequence with strong fluency and pronunciation."
-  },
-  poorScore: {
-    content: 4,
-    fluency: 5,
-    pronunciation: 5,
-    overall: "87 / 90",
-    breakdownText:
-      "The disrupted word order reduces Content accuracy."
-  },
-  errorChecklist: [
-    {
-      id: "word-order-disruption",
-      label: "Word order disruption",
-      keyword: "Word order disruption"
-    },
-    {
-      id: "content-accuracy",
-      label: "Content accuracy",
-      keyword: "Content accuracy"
-    },
-    {
-      id: "incorrect-word-sequence",
-      label: "Incorrect word sequence",
-      keyword: "Incorrect word sequence"
-    }
-  ],
-  expertAdvice:
-    "Do not diagnose this as a fluency or pronunciation problem. The defining error is the changed word sequence in the final phrase."
-},
+    "Identify a content error when a student replaces a word from the reading text with a different real English word.",
 
-{
-  exerciseIndex: 55,
-  totalExercises: 100,
-  difficulty: "Intermediate",
-  trainingSkill: "Pronunciation",
-  diagnosticArea: "Word Pronunciation Distortion",
-  learningObjective:
-    "Identify a clearly audible word-pronunciation distortion and distinguish it from Content and Oral Fluency problems.",
   promptText:
-    "E-commerce has created new opportunities for small businesses. A company can use a website to show its products and reach customers in different locations. Online payments can make buying simple and convenient. Small businesses can also use customer reviews to understand what people like and improve their services.",
+    "Public transport can help reduce traffic in busy cities. Many people choose buses or trains because they are cheaper than driving and can carry large numbers of passengers. Reliable public transport can also make it easier for workers and students to travel across the city. Good transport systems can improve daily life for many residents.",
+
   promptAudio:
-    "E-commerce has created new opportunities for small businesses. A company can use a website to show its products and reach customers in different locations. Online payments can make buying simple and convenient. Small businesses can also use customer reviews to understand what people like and improve their services.",
+    "Public transport can help reduce traffic in busy cities. Many people choose buses or trains because they are cheaper than driving and can carry large numbers of passengers. Reliable public transport can also make it easier for workers and students to travel across the city. Good transport systems can improve daily life for many residents.",
+
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-054-iapetus.mp3",
+
   studentTranscript:
-    "E-commerce has created new opportunities for small businesses. A company can use a website to show its products and reach customers in different locations. Online payments can make buying simple and convenient. Small businesses can also use costumer reviews to understand what people like and improve their services.",
+    "Public transport can help reduce traffic in busy cities. Many people choose buses or trains because they are cheaper than driving and can carry large numbers of passengers. Reliable public transport can also make it easier for workers and teachers to travel across the city. Good transport systems can improve daily life for many residents.",
+
   studentResponse: {
-    audioDuration: "24.5 seconds",
+    audioDuration: "24.0 seconds",
     wordCount: 63,
     characteristics:
-      "Generally clear and appropriately paced delivery, but the word 'customer' is distorted and sounds like 'costumer'."
+      "Clear and appropriately paced delivery, but the student replaces the word 'students' with the different real English word 'teachers'."
   },
+
   diagnosticErrors: [
-    "Word pronunciation distortion",
-    "Consonant-vowel pronunciation",
-    "Pronunciation accuracy"
+    "Lexical substitution",
+    "Content accuracy",
+    "Wrong word"
   ],
+
   expertEvidence: [
-    "The target word is 'customer'",
-    "The student produces 'customer' as 'costumer'",
-    "The resulting word is audibly different",
-    "The pronunciation problem is localized to the target word",
-    "The remaining response is generally clear",
-    "Overall speaking rate is appropriate",
-    "Content remains substantially intact"
+    "The prompt says 'workers and students'",
+    "The student says 'workers and teachers'",
+    "The word 'teachers' is a different lexical item from 'students'",
+    "The substituted word changes the exact reading text",
+    "The remainder of the response follows the prompt accurately",
+    "Pronunciation remains clear",
+    "The response remains continuous",
+    "Speaking rate remains appropriate"
   ],
+
   expertDiagnosis:
-    "The student's main issue is Pronunciation accuracy because the word \"customer\" is pronounced as \"costumer.\" This is a localized word-pronunciation problem. The rest of the response is clear, continuous and appropriately paced.",
+    "The student's main issue is Content accuracy because they replace the word 'students' with the different word 'teachers'. Although both words are real English words and the sentence remains grammatically correct, the student has not reproduced the reading text exactly. Pronunciation and Oral Fluency remain generally strong.",
+
   perfectCalibrationResponse:
-    "The student's main issue is Pronunciation accuracy because the word \"customer\" is pronounced as \"costumer.\" This is a localized word-pronunciation problem. The rest of the response is clear, continuous and appropriately paced, with the Content substantially intact. The teacher should focus on accurate pronunciation of the target word rather than diagnosing a fluency or Content problem.",
+    "The student's main issue is Content accuracy because they replaced the word 'students' with 'teachers'. The prompt says 'workers and students', but the student says 'workers and teachers'. The substituted word changes the exact reading text and therefore affects Content accuracy, while Pronunciation and Oral Fluency remain strong because the response is clear, continuous and appropriately paced.",
+
   coachingAdvice:
-    "Practise the pronunciation of 'customer' slowly, then place it back into the full sentence while maintaining natural fluency.",
+    "Train the student to reproduce each word exactly rather than replacing a word with another word that seems suitable in the context. Practise the phrase 'workers and students' several times while keeping both nouns unchanged.",
+
   cefrLevel: "B1",
-  topicTitle: "E-Commerce & Small Business",
+  topicTitle: "Public Transport",
+
   good: {
     transcript:
-      "E-commerce has created new opportunities for small businesses. A company can use a website to show its products and reach customers in different locations. Online payments can make buying simple and convenient. Small businesses can also use customer reviews to understand what people like and improve their services.",
+      "Public transport can help reduce traffic in busy cities. Many people choose buses or trains because they are cheaper than driving and can carry large numbers of passengers. Reliable public transport can also make it easier for workers and students to travel across the city. Good transport systems can improve daily life for many residents.",
     audioDuration: "23.5 seconds",
     wordCount: 63,
     characteristics:
-      "Clear pronunciation of the target word with natural fluency."
+      "Clear, continuous and appropriately paced delivery with all words reproduced accurately."
   },
+
   poor: {
     transcript:
-      "E-commerce has created new opportunities for small businesses. A company can use a website to show its products and reach customers in different locations. Online payments can make buying simple and convenient. Small businesses can also use costumer reviews to understand what people like and improve their services.",
-    audioDuration: "24.5 seconds",
-    wordCount: 63,
-    characteristics:
-      "Generally clear delivery, but 'customer' is pronounced as the clearly different word 'costumer'."
-  },
-  goodScore: {
-    content: 5,
-    fluency: 5,
-    pronunciation: 5,
-    overall: "90 / 90",
-    breakdownText:
-      "Accurate word pronunciation with clear and continuous delivery."
-  },
-  poorScore: {
-    content: 5,
-    fluency: 5,
-    pronunciation: 3,
-    overall: "84 / 90",
-    breakdownText:
-      "A localized word-pronunciation distortion reduces Pronunciation accuracy."
-  },
-  errorChecklist: [
-    {
-      id: "word-pronunciation-distortion",
-      label: "Word pronunciation distortion",
-      keyword: "Word pronunciation distortion"
-    },
-    {
-      id: "consonant-vowel-pronunciation",
-      label: "Consonant-vowel pronunciation",
-      keyword: "Consonant-vowel pronunciation"
-    },
-    {
-      id: "pronunciation-accuracy",
-      label: "Pronunciation accuracy",
-      keyword: "Pronunciation accuracy"
-    }
-  ],
-  expertAdvice:
-    "Focus on the pronunciation of 'customer.' Do not diagnose this as a Content or Oral Fluency problem."
-},
-
-{
-  exerciseIndex: 56,
-  totalExercises: 100,
-  difficulty: "Intermediate",
-  trainingSkill: "Oral Fluency",
-  diagnosticArea: "Choppy Thought-Group Delivery",
-  learningObjective:
-    "Identify excessive interruptions between natural thought groups and distinguish choppy delivery from an overall slow speaking rate.",
-  promptText:
-    "Passenger flight has changed the way people travel around the world. Early commercial flights were slower and less comfortable than modern journeys. Improvements in aircraft design have made air travel faster, safer, and more reliable. Today, millions of passengers use airplanes for business, education, and holidays.",
-  promptAudio:
-    "Passenger flight has changed the way people travel around the world. Early commercial flights were slower and less comfortable than modern journeys. Improvements in aircraft design have made air travel faster, safer, and more reliable. Today, millions of passengers use airplanes for business, education, and holidays.",
-  studentTranscript:
-    "Passenger flight has changed / the way people travel around the world. Early commercial flights / were slower and less comfortable / than modern journeys. Improvements in aircraft design / have made air travel faster, safer, / and more reliable. Today, millions of passengers / use airplanes for business, education, / and holidays.",
-  studentResponse: {
-    audioDuration: "27.0 seconds",
-    wordCount: 63,
-    characteristics:
-      "The student uses frequent short pauses that break natural thought groups and make the delivery sound choppy."
-  },
-  diagnosticErrors: [
-    "Choppy thought-group delivery",
-    "Interrupted phrasing",
-    "Oral Fluency disruption"
-  ],
-  expertEvidence: [
-    "Pauses occur inside natural phrases",
-    "The first sentence is divided after 'changed'",
-    "The second sentence is broken into several short groups",
-    "The final sentence is also divided unnecessarily",
-    "The overall speech rate is not the primary problem",
-    "Content remains substantially accurate",
-    "Pronunciation is generally clear"
-  ],
-  expertDiagnosis:
-    "The student's main issue is Oral Fluency because frequent pauses break natural thought groups and make the delivery sound choppy. The problem is not simply an overall slow speaking rate. Content remains substantially accurate and Pronunciation is generally clear.",
-  perfectCalibrationResponse:
-    "The student's main issue is Oral Fluency because frequent pauses break natural thought groups and make the delivery sound choppy. The student repeatedly pauses inside meaningful phrases rather than maintaining natural word groups. The problem is not simply an overall slow speaking rate. Content remains substantially accurate and Pronunciation is generally clear.",
-  coachingAdvice:
-    "Practise reading in natural thought groups rather than stopping after individual words or short phrases. Aim for connected speech while keeping the overall rate comfortable.",
-  cefrLevel: "B1",
-  topicTitle: "History of Passenger Flight",
-  good: {
-    transcript:
-      "Passenger flight has changed the way people travel around the world. Early commercial flights were slower and less comfortable than modern journeys. Improvements in aircraft design have made air travel faster, safer, and more reliable. Today, millions of passengers use airplanes for business, education, and holidays.",
+      "Public transport can help reduce traffic in busy cities. Many people choose buses or trains because they are cheaper than driving and can carry large numbers of passengers. Reliable public transport can also make it easier for workers and teachers to travel across the city. Good transport systems can improve daily life for many residents.",
     audioDuration: "24.0 seconds",
     wordCount: 63,
     characteristics:
-      "Natural thought-group phrasing with smooth continuous delivery."
+      "Clear and appropriately paced delivery, but the student substitutes 'teachers' for 'students'."
   },
-  poor: {
-    transcript:
-      "Passenger flight has changed / the way people travel around the world. Early commercial flights / were slower and less comfortable / than modern journeys. Improvements in aircraft design / have made air travel faster, safer, / and more reliable. Today, millions of passengers / use airplanes for business, education, / and holidays.",
-    audioDuration: "27.0 seconds",
-    wordCount: 63,
-    characteristics:
-      "Frequent phrase-internal pauses create choppy and fragmented delivery."
-  },
-  goodScore: {
-    content: 5,
-    fluency: 5,
-    pronunciation: 5,
-    overall: "90 / 90",
-    breakdownText:
-      "Natural thought groups with smooth and controlled delivery."
-  },
-  poorScore: {
-    content: 5,
-    fluency: 2,
-    pronunciation: 5,
-    overall: "82 / 90",
-    breakdownText:
-      "Frequent phrase-internal pauses significantly disrupt Oral Fluency."
-  },
-  errorChecklist: [
-    {
-      id: "choppy-thought-group-delivery",
-      label: "Choppy thought-group delivery",
-      keyword: "Choppy thought-group delivery"
-    },
-    {
-      id: "interrupted-phrasing",
-      label: "Interrupted phrasing",
-      keyword: "Interrupted phrasing"
-    },
-    {
-      id: "oral-fluency-disruption",
-      label: "Oral Fluency disruption",
-      keyword: "Oral Fluency disruption"
-    }
-  ],
-  expertAdvice:
-    "Do not diagnose this simply as speaking too slowly. The defining issue is excessive interruption of natural thought groups."
-},
 
-{
-  exerciseIndex: 57,
-  totalExercises: 100,
-  difficulty: "Intermediate",
-  trainingSkill: "Content Accuracy",
-  diagnosticArea: "Strong Word Substitution",
-  learningObjective:
-    "Identify a clearly audible word substitution with a strong semantic contrast and distinguish it from Pronunciation and Oral Fluency problems.",
-  promptText:
-    "Access to clean drinking water is important for healthy communities. In some areas, people must travel long distances to collect safe water. Governments and local organizations can build wells, pipes, and treatment systems to improve access. Reliable water supplies can reduce disease and make daily life easier for families.",
-  promptAudio:
-    "Access to clean drinking water is important for healthy communities. In some areas, people must travel long distances to collect safe water. Governments and local organizations can build wells, pipes, and treatment systems to improve access. Reliable water supplies can reduce disease and make daily life easier for families.",
-  studentTranscript:
-    "Access to clean drinking water is important for healthy communities. In some areas, people must travel long distances to collect safe water. Governments and local organizations can build wells, pipes, and treatment systems to improve access. Reliable water supplies can reduce disease and make daily life easier for families.",
-  studentResponse: {
-    audioDuration: "25.0 seconds",
-    wordCount: 65,
-    characteristics:
-      "Clear and appropriately paced delivery, but the student replaces 'disease' with the clearly different word 'pollution'."
-  },
-  diagnosticErrors: [
-    "Word substitution",
-    "Content accuracy",
-    "Incorrect word"
-  ],
-  expertEvidence: [
-    "The prompt says 'reduce disease'",
-    "The student says 'reduce pollution'",
-    "The substituted word is clearly different from the prompt",
-    "The error occurs in the final sentence",
-    "The rest of the response is substantially accurate",
-    "Pronunciation is generally clear",
-    "Overall speaking rate remains appropriate"
-  ],
-  expertDiagnosis:
-    "The student's main issue is Content accuracy because they substitute the word \"pollution\" for \"disease\" in the final sentence. This changes the reading text and affects the Read Aloud Content score. Pronunciation and Oral Fluency remain generally strong.",
-  perfectCalibrationResponse:
-    "The student's main issue is Content accuracy because they substitute the word \"pollution\" for \"disease\" in the final sentence. The prompt says \"reduce disease,\" but the student says \"reduce pollution.\" This is a clear word substitution that affects the Read Aloud Content score, while Pronunciation and Oral Fluency remain generally strong.",
-  coachingAdvice:
-    "Focus on exact word reproduction. Practise the final sentence carefully so that the target word 'disease' is reproduced rather than replaced with a related idea.",
-  cefrLevel: "B1",
-  topicTitle: "Clean Drinking Water Access",
-  good: {
-    transcript:
-      "Access to clean drinking water is important for healthy communities. In some areas, people must travel long distances to collect safe water. Governments and local organizations can build wells, pipes, and treatment systems to improve access. Reliable water supplies can reduce disease and make daily life easier for families.",
-    audioDuration: "24.0 seconds",
-    wordCount: 65,
-    characteristics:
-      "Accurate Content with clear and appropriately paced delivery."
-  },
-  poor: {
-    transcript:
-      "Access to clean drinking water is important for healthy communities. In some areas, people must travel long distances to collect safe water. Governments and local organizations can build wells, pipes, and treatment systems to improve access. Reliable water supplies can reduce pollution and make daily life easier for families.",
-    audioDuration: "25.0 seconds",
-    wordCount: 65,
-    characteristics:
-      "Clear delivery with the word 'disease' replaced by 'pollution'."
-  },
   goodScore: {
     content: 5,
     fluency: 5,
     pronunciation: 5,
     overall: "90 / 90",
     breakdownText:
-      "Exact word reproduction with clear and continuous delivery."
+      "Exact content with clear pronunciation and natural continuous delivery."
   },
+
   poorScore: {
     content: 4,
     fluency: 5,
     pronunciation: 5,
     overall: "87 / 90",
     breakdownText:
-      "A clear word substitution reduces Content accuracy."
+      "One lexical substitution reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
   },
+
   errorChecklist: [
     {
-      id: "word-substitution",
-      label: "Word substitution",
-      keyword: "Word substitution"
+      id: "lexical-substitution",
+      label: "Lexical substitution",
+      keyword: "Lexical substitution"
     },
     {
       id: "content-accuracy",
@@ -5880,302 +5800,609 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       keyword: "Content accuracy"
     },
     {
-      id: "incorrect-word",
-      label: "Incorrect word",
-      keyword: "Incorrect word"
+      id: "wrong-word",
+      label: "Wrong word",
+      keyword: "Wrong word"
     }
   ],
+
   expertAdvice:
-    "Focus on exact reproduction of the reading text. Do not diagnose this as a pronunciation or fluency problem."
+    "Focus on exact word reproduction. When reading aloud, do not replace a word with another word simply because it has a similar meaning or fits the sentence."
 },
 
 {
-  exerciseIndex: 58,
-  totalExercises: 100,
-  difficulty: "Intermediate",
-  trainingSkill: "Pronunciation",
-  diagnosticArea: "Consonant Sound Deletion",
-  learningObjective:
-    "Identify a clearly audible missing consonant sound within a common word and distinguish it from Content and Oral Fluency problems.",
-  promptText:
-    "Language learning apps can help people practise new vocabulary every day. Many apps use short exercises, games, and reminders to support regular study. Repeating new words several times can help learners remember them more easily. Some applications also provide listening activities and pronunciation practice.",
-  promptAudio:
-    "Language learning apps can help people practise new vocabulary every day. Many apps use short exercises, games, and reminders to support regular study. Repeating new words several times can help learners remember them more easily. Some applications also provide listening activities and pronunciation practice.",
-  studentTranscript:
-    "Language learning apps can help people practise new vocabulary every day. Many apps use short exercises, games, and reminders to support regular study. Repeating new words several times can help learners remember them more easily. Some applications also provide listening activities and pronunciation practice.",
-  studentResponse: {
-    audioDuration: "25.0 seconds",
-    wordCount: 65,
-    characteristics:
-      "Generally clear and appropriately paced delivery, but the /l/ sound in 'learning' is omitted, making the word sound like 'earning'."
+    exerciseIndex: 55,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-055-prompt-achernar.mp3",
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Word Pronunciation Distortion",
+    learningObjective:
+      "Identify a clearly audible word-pronunciation distortion and distinguish it from Content and Oral Fluency problems.",
+    promptText:
+      "E-commerce has created new opportunities for small businesses. A company can use a website to show its products and reach customers in different locations. Online payments can make buying simple and convenient. Small businesses can also use customer reviews to understand what people like and improve their services.",
+    promptAudio:
+      "E-commerce has created new opportunities for small businesses. A company can use a website to show its products and reach customers in different locations. Online payments can make buying simple and convenient. Small businesses can also use customer reviews to understand what people like and improve their services.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-055-achernar.mp3",
+    studentTranscript:
+      "E-commerce has created new opportunities for small businesses. A company can use a website to show its products and reach customers in different locations. Online payments can make buying simple and convenient. Small businesses can also use costumer reviews to understand what people like and improve their services.",
+    studentResponse: {
+      audioDuration: "25.0 seconds",
+      wordCount: 65,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the word 'customer' is distorted and sounds like 'costumer'."
+    },
+    diagnosticErrors: [
+      "Word pronunciation distortion",
+      "Consonant-vowel pronunciation",
+      "Pronunciation accuracy"
+    ],
+    expertEvidence: [
+      "The target word is 'customer'",
+      "The student produces 'customer' as 'costumer'",
+      "The resulting word is audibly different",
+      "The pronunciation problem is localized to the target word",
+      "The remaining response is generally clear",
+      "Overall speaking rate is appropriate",
+      "Content remains substantially intact",
+      "There are no significant fluency problems"
+    ],
+    expertDiagnosis:
+      "The student's main issue is Pronunciation accuracy because the word \"customer\" is pronounced as \"costumer.\" This is a localized word-pronunciation problem. The rest of the response is clear, continuous and appropriately paced.",
+    perfectCalibrationResponse:
+      "The student's main issue is Pronunciation accuracy because the word \"customer\" is pronounced as \"costumer.\" This is a localized word-pronunciation problem. The rest of the response is clear, continuous and appropriately paced, with the Content substantially intact. The teacher should focus on accurate pronunciation of the target word rather than diagnosing a fluency or Content problem.",
+    coachingAdvice:
+      "Practise the target word 'customer' slowly, then place it back into the complete sentence. Focus on the vowel sequence rather than changing the surrounding words.",
+    cefrLevel: "B1",
+    topicTitle: "E-commerce for Small Businesses",
+    good: {
+      transcript:
+        "E-commerce has created new opportunities for small businesses. A company can use a website to show its products and reach customers in different locations. Online payments can make buying simple and convenient. Small businesses can also use customer reviews to understand what people like and improve their services.",
+      audioDuration: "24.5 seconds",
+      wordCount: 65,
+      characteristics:
+        "Clear pronunciation with accurate production of the target word and natural fluency."
+    },
+    poor: {
+      transcript:
+        "E-commerce has created new opportunities for small businesses. A company can use a website to show its products and reach customers in different locations. Online payments can make buying simple and convenient. Small businesses can also use costumer reviews to understand what people like and improve their services.",
+      audioDuration: "25.0 seconds",
+      wordCount: 65,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but 'customer' is pronounced as the clearly different word 'costumer'."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate word pronunciation with clear Content and natural fluency."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized word-pronunciation distortion reduces Pronunciation accuracy."
+    },
+    errorChecklist: [
+      {
+        id: "word-pronunciation-distortion",
+        label: "Word pronunciation distortion",
+        keyword: "Word pronunciation distortion"
+      },
+      {
+        id: "consonant-vowel-pronunciation",
+        label: "Consonant-vowel pronunciation",
+        keyword: "Consonant-vowel pronunciation"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+    expertAdvice:
+      "Focus on the pronunciation of 'customer'. Do not diagnose this as a Content or Oral Fluency problem because the target word is the only localized issue."
   },
-  diagnosticErrors: [
-    "Consonant sound deletion",
-    "Missing consonant sound",
-    "Pronunciation accuracy"
-  ],
-  expertEvidence: [
-    "The target word is 'learning'",
-    "The initial /l/ sound is omitted",
-    "The result sounds like 'earning'",
-    "The pronunciation problem is localized to one word",
-    "The remaining response is generally clear",
-    "Overall speaking rate is appropriate",
-    "Content remains substantially intact"
-  ],
-  expertDiagnosis:
-    "The student's main issue is Pronunciation accuracy because the initial /l/ sound in the word \"learning\" is omitted, making it sound like \"earning.\" This is a localized consonant sound deletion. Content and Oral Fluency remain generally strong.",
-  perfectCalibrationResponse:
-    "The student's main issue is Pronunciation accuracy because the initial /l/ sound in the word \"learning\" is omitted, making it sound like \"earning.\" This is a localized consonant sound deletion. Content and Oral Fluency remain generally strong because the rest of the response is clear, continuous and appropriately paced.",
-  coachingAdvice:
-    "Practise the initial /l/ sound in 'learning' clearly before the rest of the word. Then practise the complete word in the sentence while maintaining natural fluency.",
-  cefrLevel: "B1",
-  topicTitle: "Language Apps & Memory",
-  good: {
-    transcript:
+
+ {
+    exerciseIndex: 56,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-056-prompt-orus.mp3",
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Choppy Thought-Group Delivery",
+    learningObjective:
+      "Identify excessive interruptions between natural thought groups and distinguish choppy delivery from an overall slow speaking rate.",
+    promptText:
+      "Passenger flight has changed the way people travel around the world. Early commercial flights were slower and less comfortable than modern journeys. Improvements in aircraft design have made air travel faster, safer, and more reliable. Today, millions of passengers use airplanes for business, education, and holidays.",
+    promptAudio:
+      "Passenger flight has changed the way people travel around the world. Early commercial flights were slower and less comfortable than modern journeys. Improvements in aircraft design have made air travel faster, safer, and more reliable. Today, millions of passengers use airplanes for business, education, and holidays.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-056-orus.mp3",
+    studentTranscript:
+      "Passenger flight has changed—the way people travel around the world. Early commercial flights were slower and less comfortable—than modern journeys. Improvements in aircraft design have made air travel faster, safer—and more reliable. Today, millions of passengers use airplanes for business, education—and holidays.",
+    studentResponse: {
+      audioDuration: "27.0 seconds",
+      wordCount: 63,
+      characteristics:
+        "The student uses frequent short pauses that break natural thought groups and make the delivery sound choppy."
+    },
+    diagnosticErrors: [
+      "Choppy thought-group delivery",
+      "Interrupted phrasing",
+      "Oral Fluency disruption"
+    ],
+    expertEvidence: [
+      "Pauses occur inside natural phrases",
+      "The first sentence is divided after 'changed'",
+      "The second sentence is broken into several short groups",
+      "The final sentence is also divided unnecessarily",
+      "The overall speech rate is not the primary problem",
+      "Content remains substantially accurate",
+      "Pronunciation is generally clear"
+    ],
+    expertDiagnosis:
+      "The student's main issue is Oral Fluency because frequent pauses break natural thought groups and make the delivery sound choppy. The problem is not simply an overall slow speaking rate. Content remains substantially accurate and Pronunciation is generally clear.",
+    perfectCalibrationResponse:
+      "The student's main issue is Oral Fluency because frequent pauses break natural thought groups and make the delivery sound choppy. The student repeatedly pauses inside meaningful phrases rather than maintaining natural word groups. The problem is not simply an overall slow speaking rate. Content remains substantially accurate and Pronunciation is generally clear.",
+    coachingAdvice:
+      "Practise reading in natural thought groups rather than stopping after individual words or short phrases. Aim for connected speech while keeping the overall rate comfortable.",
+    cefrLevel: "B1",
+    topicTitle: "History of Passenger Flight",
+    good: {
+      transcript:
+        "Passenger flight has changed the way people travel around the world. Early commercial flights were slower and less comfortable than modern journeys. Improvements in aircraft design have made air travel faster, safer, and more reliable. Today, millions of passengers use airplanes for business, education, and holidays.",
+      audioDuration: "24.0 seconds",
+      wordCount: 63,
+      characteristics:
+        "Natural thought-group phrasing with smooth continuous delivery."
+    },
+    poor: {
+      transcript:
+        "Passenger flight has changed—the way people travel around the world. Early commercial flights were slower and less comfortable—than modern journeys. Improvements in aircraft design have made air travel faster, safer—and more reliable. Today, millions of passengers use airplanes for business, education—and holidays.",
+      audioDuration: "27.0 seconds",
+      wordCount: 63,
+      characteristics:
+        "Frequent phrase-internal pauses create choppy and fragmented delivery."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Natural thought groups with smooth and controlled delivery."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 2,
+      pronunciation: 5,
+      overall: "82 / 90",
+      breakdownText:
+        "Frequent phrase-internal pauses significantly disrupt Oral Fluency."
+    },
+    errorChecklist: [
+      {
+        id: "choppy-thought-group-delivery",
+        label: "Choppy thought-group delivery",
+        keyword: "Choppy thought-group delivery"
+      },
+      {
+        id: "interrupted-phrasing",
+        label: "Interrupted phrasing",
+        keyword: "Interrupted phrasing"
+      },
+      {
+        id: "oral-fluency-disruption",
+        label: "Oral Fluency disruption",
+        keyword: "Oral Fluency disruption"
+      }
+    ],
+    expertAdvice:
+      "Focus on connected thought groups. Do not diagnose this simply as slow speech; the defining problem is the repeated interruption of meaningful phrases."
+  },
+
+{
+    exerciseIndex: 57,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-057-prompt-leda.mp3",
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Strong Word Substitution",
+    learningObjective:
+      "Identify a clearly audible word substitution with a strong semantic contrast and distinguish it from Pronunciation and Oral Fluency problems.",
+    promptText:
+      "Access to clean drinking water is important for healthy communities. In some areas, people must travel long distances to collect safe water. Governments and local organizations can build wells, pipes, and treatment systems to improve access. Reliable water supplies can reduce disease and make daily life easier for families.",
+    promptAudio:
+      "Access to clean drinking water is important for healthy communities. In some areas, people must travel long distances to collect safe water. Governments and local organizations can build wells, pipes, and treatment systems to improve access. Reliable water supplies can reduce disease and make daily life easier for families.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-057-leda.mp3",
+    studentTranscript:
+      "Access to clean drinking water is important for healthy communities. In some areas, people must travel long distances to collect safe water. Governments and local organizations can build wells, pipes, and treatment systems to improve access. Reliable water supplies can reduce pollution and make daily life easier for families.",
+    studentResponse: {
+      audioDuration: "25.5 seconds",
+      wordCount: 65,
+      characteristics:
+        "Clear and appropriately paced delivery, but the student replaces 'disease' with the clearly different word 'pollution'."
+    },
+    diagnosticErrors: [
+      "Word substitution",
+      "Content accuracy",
+      "Incorrect word"
+    ],
+    expertEvidence: [
+      "The prompt says 'reduce disease'",
+      "The student says 'reduce pollution'",
+      "The substituted word is clearly different from the prompt",
+      "The error occurs in the final sentence",
+      "The rest of the response is substantially accurate",
+      "Pronunciation is generally clear",
+      "Overall speaking rate is appropriate",
+      "The response remains continuous"
+    ],
+    expertDiagnosis:
+      "The student's main issue is Content accuracy because they substitute the word \"pollution\" for \"disease\" in the final sentence. This changes the reading text and affects the Read Aloud Content score. Pronunciation and Oral Fluency remain generally strong.",
+    perfectCalibrationResponse:
+      "The student's main issue is Content accuracy because they substitute the word \"pollution\" for \"disease\" in the final sentence. The prompt says \"reduce disease,\" but the student says \"reduce pollution.\" This is a clear word substitution that affects the Read Aloud Content score, while Pronunciation and Oral Fluency remain generally strong.",
+    coachingAdvice:
+      "Compare the spoken word with the printed word rather than relying only on the overall meaning. Practise reproducing the exact target word 'disease' before returning to the complete sentence.",
+    cefrLevel: "B1",
+    topicTitle: "Clean Drinking Water",
+    good: {
+      transcript:
+        "Access to clean drinking water is important for healthy communities. In some areas, people must travel long distances to collect safe water. Governments and local organizations can build wells, pipes, and treatment systems to improve access. Reliable water supplies can reduce disease and make daily life easier for families.",
+      audioDuration: "25.0 seconds",
+      wordCount: 65,
+      characteristics:
+        "Clear, continuous and appropriately paced delivery with exact word reproduction."
+    },
+    poor: {
+      transcript:
+        "Access to clean drinking water is important for healthy communities. In some areas, people must travel long distances to collect safe water. Governments and local organizations can build wells, pipes, and treatment systems to improve access. Reliable water supplies can reduce pollution and make daily life easier for families.",
+      audioDuration: "25.5 seconds",
+      wordCount: 65,
+      characteristics:
+        "Clear and appropriately paced delivery with the strong word substitution 'pollution' for 'disease'."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Exact Content reproduction with clear pronunciation and natural fluency."
+    },
+    poorScore: {
+      content: 4,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "87 / 90",
+      breakdownText:
+        "A strong word substitution reduces Content accuracy while Oral Fluency and Pronunciation remain strong."
+    },
+    errorChecklist: [
+      {
+        id: "word-substitution",
+        label: "Word substitution",
+        keyword: "Word substitution"
+      },
+      {
+        id: "content-accuracy",
+        label: "Content accuracy",
+        keyword: "Content accuracy"
+      },
+      {
+        id: "incorrect-word",
+        label: "Incorrect word",
+        keyword: "Incorrect word"
+      }
+    ],
+    expertAdvice:
+      "Do not diagnose this as a pronunciation problem simply because the student says a different word clearly. The main issue is the substitution of 'pollution' for 'disease', which is a Content accuracy error."
+  },
+
+  {
+    exerciseIndex: 58,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-058-prompt-puck.mp3",
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Pronunciation",
+    diagnosticArea: "Consonant Sound Deletion",
+    learningObjective:
+      "Identify a clearly audible missing consonant sound within a common word and distinguish it from Content and Oral Fluency problems.",
+    promptText:
       "Language learning apps can help people practise new vocabulary every day. Many apps use short exercises, games, and reminders to support regular study. Repeating new words several times can help learners remember them more easily. Some applications also provide listening activities and pronunciation practice.",
-    audioDuration: "24.0 seconds",
-    wordCount: 65,
-    characteristics:
-      "Clear consonant pronunciation with natural fluency."
-  },
-  poor: {
-    transcript:
+    promptAudio:
+      "Language learning apps can help people practise new vocabulary every day. Many apps use short exercises, games, and reminders to support regular study. Repeating new words several times can help learners remember them more easily. Some applications also provide listening activities and pronunciation practice.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-058-puck.mp3",
+    studentTranscript:
       "Language earning apps can help people practise new vocabulary every day. Many apps use short exercises, games, and reminders to support regular study. Repeating new words several times can help learners remember them more easily. Some applications also provide listening activities and pronunciation practice.",
-    audioDuration: "25.0 seconds",
-    wordCount: 64,
-    characteristics:
-      "Generally clear delivery, but 'learning' is pronounced without the initial /l/ sound."
-  },
-  goodScore: {
-    content: 5,
-    fluency: 5,
-    pronunciation: 5,
-    overall: "90 / 90",
-    breakdownText:
-      "Accurate consonant pronunciation with clear and continuous delivery."
-  },
-  poorScore: {
-    content: 5,
-    fluency: 5,
-    pronunciation: 3,
-    overall: "84 / 90",
-    breakdownText:
-      "A localized consonant deletion reduces Pronunciation accuracy."
-  },
-  errorChecklist: [
-    {
-      id: "consonant-sound-deletion",
-      label: "Consonant sound deletion",
-      keyword: "Consonant sound deletion"
+    studentResponse: {
+      audioDuration: "25.0 seconds",
+      wordCount: 64,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the initial /l/ sound in 'learning' is omitted, making the word sound like 'earning'."
     },
-    {
-      id: "missing-consonant-sound",
-      label: "Missing consonant sound",
-      keyword: "Missing consonant sound"
+    diagnosticErrors: [
+      "Consonant sound deletion",
+      "Missing consonant sound",
+      "Pronunciation accuracy"
+    ],
+    expertEvidence: [
+      "The target word is 'learning'",
+      "The initial /l/ sound is omitted",
+      "The result sounds like 'earning'",
+      "The pronunciation problem is localized to one word",
+      "The remaining response is generally clear",
+      "Overall speaking rate is appropriate",
+      "There are no significant fluency problems"
+    ],
+    expertDiagnosis:
+      "The student's main issue is Pronunciation accuracy because the initial /l/ sound in the word \"learning\" is omitted, making it sound like \"earning.\" This is a localized consonant sound deletion. Content and Oral Fluency remain generally strong.",
+    perfectCalibrationResponse:
+      "The student's main issue is Pronunciation accuracy because the initial /l/ sound in the word \"learning\" is omitted, making it sound like \"earning.\" This is a localized consonant sound deletion. Content and Oral Fluency remain generally strong because the rest of the response is clear, continuous and appropriately paced.",
+    coachingAdvice:
+      "Practise the initial /l/ sound in 'learning' by clearly touching the tongue to the correct position before continuing into the word. Then practise the word naturally in the complete sentence.",
+    cefrLevel: "B1",
+    topicTitle: "Language Learning Apps",
+    good: {
+      transcript:
+        "Language learning apps can help people practise new vocabulary every day. Many apps use short exercises, games, and reminders to support regular study. Repeating new words several times can help learners remember them more easily. Some applications also provide listening activities and pronunciation practice.",
+      audioDuration: "24.5 seconds",
+      wordCount: 64,
+      characteristics:
+        "Clear pronunciation with accurate initial consonant production and natural fluency."
     },
-    {
-      id: "pronunciation-accuracy",
-      label: "Pronunciation accuracy",
-      keyword: "Pronunciation accuracy"
-    }
-  ],
-  expertAdvice:
-    "Focus specifically on the missing initial /l/ sound in 'learning.' Do not diagnose this as a Content or fluency problem."
-},
+    poor: {
+      transcript:
+        "Language earning apps can help people practise new vocabulary every day. Many apps use short exercises, games, and reminders to support regular study. Repeating new words several times can help learners remember them more easily. Some applications also provide listening activities and pronunciation practice.",
+      audioDuration: "25.0 seconds",
+      wordCount: 64,
+      characteristics:
+        "Generally clear and appropriately paced delivery, but the initial /l/ in 'learning' is omitted, producing 'earning'."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Accurate consonant production with clear Content and natural fluency."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 3,
+      overall: "84 / 90",
+      breakdownText:
+        "A localized initial consonant deletion reduces Pronunciation accuracy."
+    },
+    errorChecklist: [
+      {
+        id: "consonant-sound-deletion",
+        label: "Consonant sound deletion",
+        keyword: "Consonant sound deletion"
+      },
+      {
+        id: "missing-consonant-sound",
+        label: "Missing consonant sound",
+        keyword: "Missing consonant sound"
+      },
+      {
+        id: "pronunciation-accuracy",
+        label: "Pronunciation accuracy",
+        keyword: "Pronunciation accuracy"
+      }
+    ],
+    expertAdvice:
+      "Focus specifically on the initial /l/ sound in 'learning'. Do not diagnose Content or Oral Fluency because the rest of the response is clear and continuous."
+  },
 
-{
-  exerciseIndex: 59,
-  totalExercises: 100,
-  difficulty: "Intermediate",
-  trainingSkill: "Oral Fluency",
-  diagnosticArea: "Self-Correction",
-  learningObjective:
-    "Identify an audible self-correction during a Read Aloud response and distinguish it from a Content accuracy error.",
-  promptText:
-    "Artificial intelligence apps are becoming more common in everyday life. People use them to organise information, answer questions, create images, and complete simple tasks. Some applications can also help students practise languages or understand difficult subjects. Users should still check important information before relying on an AI system.",
-  promptAudio:
-    "Artificial intelligence apps are becoming more common in everyday life. People use them to organise information, answer questions, create images, and complete simple tasks. Some applications can also help students practise languages or understand difficult subjects. Users should still check important information before relying on an AI system.",
-  studentTranscript:
-    "Artificial intelligence apps are becoming more common in everyday life. People use them to organise information, answer questions, create images, and complete simple tasks. Some applications can also help students practise languages or understand difficult subjects. Users should still check important information before relying on an AI application / no, before relying on an AI system.",
-  studentResponse: {
-    audioDuration: "27.0 seconds",
-    wordCount: 69,
-    characteristics:
-      "The student begins a phrase incorrectly, audibly corrects it with 'no', and then continues with the intended wording."
-  },
-  diagnosticErrors: [
-    "Self-correction",
-    "False start",
-    "Interrupted fluency"
-  ],
-  expertEvidence: [
-    "The student begins the final sentence with an incorrect phrase",
-    "The student audibly says 'no' while correcting the phrase",
-    "The intended phrase is then produced",
-    "The correction interrupts otherwise continuous delivery",
-    "The final intended Content is substantially accurate",
-    "Pronunciation is generally clear",
-    "Overall speaking rate remains appropriate"
-  ],
-  expertDiagnosis:
-    "The student's main issue is Oral Fluency because they make an audible self-correction during the final sentence. The student begins the phrase incorrectly, says \"no,\" and then continues with the intended wording. The correction interrupts the flow, while the final Content is substantially accurate and Pronunciation is generally clear.",
-  perfectCalibrationResponse:
-    "The student's main issue is Oral Fluency because they make an audible self-correction during the final sentence. The student begins the phrase incorrectly, says \"no,\" and then continues with the intended wording. This correction interrupts otherwise continuous delivery, while the final Content is substantially accurate and Pronunciation is generally clear.",
-  coachingAdvice:
-    "Practise maintaining the planned wording while reading. If a correction is necessary, recover smoothly and avoid verbal interruptions that break the flow.",
-  cefrLevel: "B1",
-  topicTitle: "Artificial Intelligence Apps",
-  good: {
-    transcript:
+  {
+    exerciseIndex: 59,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-059-prompt-sulafat.mp3",
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Self-Correction",
+    learningObjective:
+      "Identify an audible self-correction during a Read Aloud response and distinguish it from a Content accuracy error.",
+    promptText:
       "Artificial intelligence apps are becoming more common in everyday life. People use them to organise information, answer questions, create images, and complete simple tasks. Some applications can also help students practise languages or understand difficult subjects. Users should still check important information before relying on an AI system.",
-    audioDuration: "25.0 seconds",
-    wordCount: 65,
-    characteristics:
-      "Smooth continuous delivery without false starts or self-correction."
-  },
-  poor: {
-    transcript:
-      "Artificial intelligence apps are becoming more common in everyday life. People use them to organise information, answer questions, create images, and complete simple tasks. Some applications can also help students practise languages or understand difficult subjects. Users should still check important information before relying on an AI application / no, before relying on an AI system.",
-    audioDuration: "27.0 seconds",
-    wordCount: 69,
-    characteristics:
-      "Audible self-correction interrupts the final sentence before the intended wording is completed."
-  },
-  goodScore: {
-    content: 5,
-    fluency: 5,
-    pronunciation: 5,
-    overall: "90 / 90",
-    breakdownText:
-      "Smooth continuous delivery with accurate Content."
-  },
-  poorScore: {
-    content: 5,
-    fluency: 3,
-    pronunciation: 5,
-    overall: "84 / 90",
-    breakdownText:
-      "An audible self-correction interrupts Oral Fluency."
-  },
-  errorChecklist: [
-    {
-      id: "self-correction",
-      label: "Self-correction",
-      keyword: "Self-correction"
+    promptAudio:
+      "Artificial intelligence apps are becoming more common in everyday life. People use them to organise information, answer questions, create images, and complete simple tasks. Some applications can also help students practise languages or understand difficult subjects. Users should still check important information before relying on an AI system.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-059-sulafat.mp3",
+    studentTranscript:
+      "Artificial intelligence apps are becoming more common in everyday life. People use them to organise information, answer questions, create images, and complete simple tasks. Some applications can also help students practise languages or understand difficult subjects. Users should still check important information before relying on an AI application, no, before relying on an AI system.",
+    studentResponse: {
+      audioDuration: "27.0 seconds",
+      wordCount: 69,
+      characteristics:
+        "The student begins a phrase incorrectly, audibly corrects it with 'no', and then continues with the intended wording."
     },
-    {
-      id: "false-start",
-      label: "False start",
-      keyword: "False start"
+    diagnosticErrors: [
+      "Self-correction",
+      "False start",
+      "Interrupted fluency"
+    ],
+    expertEvidence: [
+      "The student begins the final sentence with an incorrect phrase",
+      "The student audibly says 'no' while correcting the phrase",
+      "The intended phrase is then produced",
+      "The correction interrupts otherwise continuous delivery",
+      "The final intended Content is substantially accurate",
+      "Pronunciation is generally clear",
+      "Overall speaking rate remains appropriate"
+    ],
+    expertDiagnosis:
+      "The student's main issue is Oral Fluency because they make an audible self-correction during the final sentence. The student begins the phrase incorrectly, says \"no,\" and then continues with the intended wording. The correction interrupts the flow, while the final Content is substantially accurate and Pronunciation is generally clear.",
+    perfectCalibrationResponse:
+      "The student's main issue is Oral Fluency because they make an audible self-correction during the final sentence. The student begins the phrase incorrectly, says \"no,\" and then continues with the intended wording. This correction interrupts otherwise continuous delivery, while the final Content is substantially accurate and Pronunciation is generally clear.",
+    coachingAdvice:
+      "Practise maintaining the planned wording while reading. If a correction is necessary, recover smoothly and avoid verbal interruptions that break the flow.",
+    cefrLevel: "B1",
+    topicTitle: "Artificial Intelligence Apps",
+    good: {
+      transcript:
+        "Artificial intelligence apps are becoming more common in everyday life. People use them to organise information, answer questions, create images, and complete simple tasks. Some applications can also help students practise languages or understand difficult subjects. Users should still check important information before relying on an AI system.",
+      audioDuration: "25.0 seconds",
+      wordCount: 65,
+      characteristics:
+        "Smooth continuous delivery without false starts or self-correction."
     },
-    {
-      id: "interrupted-fluency",
-      label: "Interrupted fluency",
-      keyword: "Interrupted fluency"
-    }
-  ],
-  expertAdvice:
-    "Focus on Oral Fluency rather than Content. The defining feature is the audible self-correction and resulting interruption to continuous delivery."
-},
+    poor: {
+      transcript:
+        "Artificial intelligence apps are becoming more common in everyday life. People use them to organise information, answer questions, create images, and complete simple tasks. Some applications can also help students practise languages or understand difficult subjects. Users should still check important information before relying on an AI application, no, before relying on an AI system.",
+      audioDuration: "27.0 seconds",
+      wordCount: 69,
+      characteristics:
+        "Audible self-correction interrupts the final sentence before the intended wording is completed."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Smooth continuous delivery with accurate Content."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 3,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "An audible self-correction interrupts Oral Fluency."
+    },
+    errorChecklist: [
+      {
+        id: "self-correction",
+        label: "Self-correction",
+        keyword: "Self-correction"
+      },
+      {
+        id: "false-start",
+        label: "False start",
+        keyword: "False start"
+      },
+      {
+        id: "interrupted-fluency",
+        label: "Interrupted fluency",
+        keyword: "Interrupted fluency"
+      }
+    ],
+    expertAdvice:
+      "Focus on Oral Fluency rather than Content. The defining feature is the audible self-correction and resulting interruption to continuous delivery."
+  },
 
-{
-  exerciseIndex: 60,
-  totalExercises: 100,
-  difficulty: "Intermediate",
-  trainingSkill: "Oral Fluency",
-  diagnosticArea: "Prolonged Hesitation",
-  learningObjective:
-    "Identify unusually long silent hesitation during a Read Aloud response and distinguish it from a general speech-rate problem.",
-  promptText:
-    "Public health campaigns provide information that can help people make healthier choices. Governments may use television, social media, posters, and community events to share important messages. Campaigns can encourage people to exercise, eat well, and protect themselves from illness. Clear information can help communities respond more effectively to health problems.",
-  promptAudio:
-    "Public health campaigns provide information that can help people make healthier choices. Governments may use television, social media, posters, and community events to share important messages. Campaigns can encourage people to exercise, eat well, and protect themselves from illness. Clear information can help communities respond more effectively to health problems.",
-  studentTranscript:
-    "Public health campaigns provide information that can help people make healthier choices. Governments may use television, social media, posters, and community events to share important messages. Campaigns can encourage people to exercise, eat well, and protect themselves from illness. ... ... Clear information can help communities respond more effectively to health problems.",
-  studentResponse: {
-    audioDuration: "28.0 seconds",
-    wordCount: 64,
-    characteristics:
-      "The student maintains an appropriate speaking rate but has an unusually long silent hesitation before completing the final sentence."
-  },
-  diagnosticErrors: [
-    "Prolonged hesitation",
-    "Extended silent pause",
-    "Oral Fluency disruption"
-  ],
-  expertEvidence: [
-    "The student has an unusually long silent hesitation before the final sentence",
-    "The hesitation interrupts otherwise continuous delivery",
-    "The speech rate before and after the hesitation is appropriate",
-    "The problem is not simply that the student speaks too slowly",
-    "Content remains substantially accurate",
-    "Pronunciation is generally clear"
-  ],
-  expertDiagnosis:
-    "The student's main issue is Oral Fluency because there is an unusually long silent hesitation before the final sentence. The speaking rate before and after the hesitation is appropriate, so this should not be diagnosed simply as slow speech. Content remains substantially accurate and Pronunciation is generally clear.",
-  perfectCalibrationResponse:
-    "The student's main issue is Oral Fluency because there is an unusually long silent hesitation before the final sentence. The extended pause interrupts otherwise continuous delivery, while the speaking rate before and after the hesitation remains appropriate. This should not be diagnosed simply as slow speech. Content remains substantially accurate and Pronunciation is generally clear.",
-  coachingAdvice:
-    "Practise maintaining forward momentum through the passage. Replace long silent hesitations with a brief, controlled pause while keeping the overall speaking rate natural.",
-  cefrLevel: "B1",
-  topicTitle: "Public Health Campaigns",
-  good: {
-    transcript:
+  {
+    exerciseIndex: 60,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-060-prompt-iapetus.mp3",
+    totalExercises: 100,
+    difficulty: "Intermediate",
+    trainingSkill: "Oral Fluency",
+    diagnosticArea: "Vocalized Hesitation",
+    learningObjective:
+      "Identify a repeated vocalized hesitation during a Read Aloud response and distinguish it from a general speech-rate problem.",
+    promptText:
       "Public health campaigns provide information that can help people make healthier choices. Governments may use television, social media, posters, and community events to share important messages. Campaigns can encourage people to exercise, eat well, and protect themselves from illness. Clear information can help communities respond more effectively to health problems.",
-    audioDuration: "24.5 seconds",
-    wordCount: 64,
-    characteristics:
-      "Smooth continuous delivery with natural brief pauses and appropriate speaking rate."
-  },
-  poor: {
-    transcript:
-      "Public health campaigns provide information that can help people make healthier choices. Governments may use television, social media, posters, and community events to share important messages. Campaigns can encourage people to exercise, eat well, and protect themselves from illness. ... ... Clear information can help communities respond more effectively to health problems.",
-    audioDuration: "28.0 seconds",
-    wordCount: 64,
-    characteristics:
-      "Appropriate speaking rate but an unusually long silent hesitation occurs before the final sentence."
-  },
-  goodScore: {
-    content: 5,
-    fluency: 5,
-    pronunciation: 5,
-    overall: "90 / 90",
-    breakdownText:
-      "Natural pauses with smooth and appropriately paced delivery."
-  },
-  poorScore: {
-    content: 5,
-    fluency: 3,
-    pronunciation: 5,
-    overall: "84 / 90",
-    breakdownText:
-      "A prolonged silent hesitation interrupts Oral Fluency."
-  },
-  errorChecklist: [
-    {
-      id: "prolonged-hesitation",
-      label: "Prolonged hesitation",
-      keyword: "Prolonged hesitation"
+    promptAudio:
+      "Public health campaigns provide information that can help people make healthier choices. Governments may use television, social media, posters, and community events to share important messages. Campaigns can encourage people to exercise, eat well, and protect themselves from illness. Clear information can help communities respond more effectively to health problems.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-060-iapetus.mp3",
+    studentTranscript:
+      "Public health campaigns provide information that can help people make healthier choices. Governments may use television, social media, posters, and community events to share important messages. Campaigns can encourage people to exercise, eat well, and protect themselves from illness. Um, um, clear information can help communities respond more effectively to health problems.",
+    studentResponse: {
+      audioDuration: "28.0 seconds",
+      wordCount: 66,
+      characteristics:
+        "The student maintains an appropriate speaking rate but has a repeated vocalized hesitation before completing the final sentence."
     },
-    {
-      id: "extended-silent-pause",
-      label: "Extended silent pause",
-      keyword: "Extended silent pause"
+    diagnosticErrors: [
+      "Vocalized hesitation",
+      "Repeated filler",
+      "Oral Fluency disruption"
+    ],
+    expertEvidence: [
+      "The student repeats the filler 'um' before the final sentence",
+      "The repeated vocalized hesitation interrupts otherwise continuous delivery",
+      "The speech rate before and after the hesitation is appropriate",
+      "The problem is not simply that the student speaks too slowly",
+      "Content remains substantially accurate",
+      "Pronunciation is generally clear"
+    ],
+    expertDiagnosis:
+      "The student's main issue is Oral Fluency because there is a repeated vocalized hesitation before the final sentence. The speaking rate before and after the hesitation is appropriate, so this should not be diagnosed simply as slow speech. Content remains substantially accurate and Pronunciation is generally clear.",
+    perfectCalibrationResponse:
+      "The student's main issue is Oral Fluency because there is a repeated vocalized hesitation before the final sentence. The repeated filler interrupts otherwise continuous delivery, while the speaking rate before and after the hesitation remains appropriate. This should not be diagnosed simply as slow speech. Content remains substantially accurate and Pronunciation is generally clear.",
+    coachingAdvice:
+      "Practise maintaining forward momentum through the passage. Replace repeated vocalized hesitations with a brief, controlled pause while keeping the overall speaking rate natural.",
+    cefrLevel: "B1",
+    topicTitle: "Public Health Campaigns",
+    good: {
+      transcript:
+        "Public health campaigns provide information that can help people make healthier choices. Governments may use television, social media, posters, and community events to share important messages. Campaigns can encourage people to exercise, eat well, and protect themselves from illness. Clear information can help communities respond more effectively to health problems.",
+      audioDuration: "24.5 seconds",
+      wordCount: 64,
+      characteristics:
+        "Smooth continuous delivery with natural brief pauses and appropriate speaking rate."
     },
-    {
-      id: "oral-fluency-disruption",
-      label: "Oral Fluency disruption",
-      keyword: "Oral Fluency disruption"
-    }
-  ],
-  expertAdvice:
-    "Do not diagnose this simply as slow speech. The defining problem is the unusually long hesitation that interrupts otherwise appropriately paced delivery."
-},
+    poor: {
+      transcript:
+        "Public health campaigns provide information that can help people make healthier choices. Governments may use television, social media, posters, and community events to share important messages. Campaigns can encourage people to exercise, eat well, and protect themselves from illness. Um, um, clear information can help communities respond more effectively to health problems.",
+      audioDuration: "28.0 seconds",
+      wordCount: 66,
+      characteristics:
+        "Appropriate speaking rate but repeated vocalized hesitation occurs before the final sentence."
+    },
+    goodScore: {
+      content: 5,
+      fluency: 5,
+      pronunciation: 5,
+      overall: "90 / 90",
+      breakdownText:
+        "Natural pauses with smooth and appropriately paced delivery."
+    },
+    poorScore: {
+      content: 5,
+      fluency: 3,
+      pronunciation: 5,
+      overall: "84 / 90",
+      breakdownText:
+        "Repeated vocalized hesitation interrupts Oral Fluency."
+    },
+    errorChecklist: [
+      {
+        id: "vocalized-hesitation",
+        label: "Vocalized hesitation",
+        keyword: "Vocalized hesitation"
+      },
+      {
+        id: "repeated-filler",
+        label: "Repeated filler",
+        keyword: "Repeated filler"
+      },
+      {
+        id: "oral-fluency-disruption",
+        label: "Oral Fluency disruption",
+        keyword: "Oral Fluency disruption"
+      }
+    ],
+    expertAdvice:
+      "Do not diagnose this simply as slow speech. The defining problem is the repeated vocalized hesitation that interrupts otherwise appropriately paced delivery."
+  },
 
 // B2 Level
   {
     exerciseIndex: 61,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-061-prompt-achernar.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
     trainingSkill: "Pronunciation",
@@ -6188,6 +6415,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Effective market research helps companies understand consumer behaviour before they make important strategic decisions. By analysing customer preferences, competitors, and changing demand, businesses can identify opportunities and reduce unnecessary risks. A well-designed research process also provides useful evidence for developing products, improving services, and strengthening long-term strategy.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-061-achernar.mp3",
 
     studentTranscript:
       "Effective market research helps companies understand consumer behaviour before they make important strategic decisions. By analysing customer preferences, competative businesses, and changing demand, businesses can identify opportunities and reduce unnecessary risks. A well-designed research process also provides useful evidence for developing products, improving services, and strengthening long-term strategy.",
@@ -6286,6 +6516,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 62,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-062-prompt-orus.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
     trainingSkill: "Content Accuracy",
@@ -6298,6 +6529,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Climate change mitigation requires governments and businesses to reduce greenhouse gas emissions while maintaining economic stability. Effective policies may combine renewable energy investment, improved public transport, energy-efficient buildings, and incentives for lower-carbon technologies. However, successful mitigation also depends on long-term planning, reliable monitoring, and cooperation between governments, industries, and local communities.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-062-orus.mp3",
 
     studentTranscript:
       "Climate change mitigation requires governments and businesses to reduce greenhouse gas emissions while maintaining economic stability. Effective policies may combine renewable energy investment, improved public transport, energy-efficient buildings, and incentives for lower-carbon technologies. However, successful mitigation also depends on planning, reliable monitoring, and cooperation between governments, industries, and local communities.",
@@ -6399,6 +6633,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 63,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-063-prompt-leda.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
     trainingSkill: "Pronunciation",
@@ -6411,6 +6646,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "AI medical diagnostics are becoming increasingly useful in modern healthcare. Machine-learning systems can examine medical images and patient data to identify patterns that may be difficult to detect quickly. When used responsibly, these tools can support clinical teams, improve early detection, and help hospitals allocate resources more efficiently. However, human oversight remains essential when diagnostic decisions could affect patient care.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-063-leda.mp3",
 
     studentTranscript:
       "AI medical diagnostics are becoming increasingly useful in modern healthcare. Machine-learning systems can examine medical images and patient data to identify patterns that may be difficult to detect quickly. When used responsibly, these tools can support crinical teams, improve early detection, and help hospitals allocate resources more efficiently. However, human oversight remains essential when diagnostic decisions could affect patient care.",
@@ -6512,6 +6750,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
  {
     exerciseIndex: 64,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-064-prompt-puck.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
     trainingSkill: "Oral Fluency",
@@ -6524,6 +6763,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Higher education mobility allows students and researchers to study or work across national borders. International programmes can broaden academic experience, develop intercultural skills, and create opportunities for collaboration. However, mobility can also involve financial pressures, differences in academic systems, and difficulties with accommodation. Universities therefore need effective support systems to ensure that international participants can benefit fully from their experience.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-064-puck.mp3",
 
     studentTranscript:
       "Higher education mobility allows students and researchers to study / or work across national borders. International programmes can broaden academic experience, develop intercultural skills, and create opportunities for collaboration. However, mobility can also involve financial pressures, differences in academic systems, and difficulties with accommodation. Universities therefore need effective support systems to ensure that international participants can benefit fully from their experience.",
@@ -6624,6 +6866,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 65,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-065-prompt-sulafat.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
     trainingSkill: "Content Accuracy",
@@ -6636,6 +6879,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Smart grids use digital technologies to manage electricity generation, distribution, and consumption more efficiently. Advanced monitoring systems can balance demand, integrate renewable energy, and respond rapidly to changes in the network. Battery storage is particularly important because it can help maintain supply when solar or wind generation fluctuates. As smart grids expand, cybersecurity and reliable infrastructure will also become increasingly important.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-065-sulafat.mp3",
 
     studentTranscript:
       "Smart grids use digital technologies to manage electricity generation, distribution, and consumption more efficiently. Advanced monitoring systems can balance demand, integrate renewable energy, and respond rapidly to changes in the network. Battery shortage is particularly important because it can help maintain supply when solar or wind generation fluctuates. As smart grids expand, cybersecurity and reliable infrastructure will also become increasingly important.",
@@ -6737,6 +6983,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 66,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-066-prompt-iapetus.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
     trainingSkill: "Content Accuracy",
@@ -6749,6 +6996,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Biodiversity conservation aims to protect the variety of plants, animals, and ecosystems found across the planet. Protected areas can preserve habitats that are threatened by development, pollution, and climate change. Conservation programmes may also restore damaged ecosystems and support species recovery. However, protecting biodiversity requires long-term cooperation between governments, scientists, local communities, and environmental organisations. Effective conservation therefore depends on both scientific evidence and practical community action.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-066-iapetus.mp3",
 
     studentTranscript:
       "Biodiversity conservation aims to protect the variety of plants, animals, and ecosystems found across the planet. Protected areas can preserve habitats that are threatened by development, pollution, and climate change. Conservation programmes may also restore damaged ecosystems and support species recovery. Effective conservation therefore depends on both scientific evidence and practical community action.",
@@ -6847,231 +7097,235 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
   },
 
  {
-    exerciseIndex: 67,
-    totalExercises: 100,
-    difficulty: "Upper Intermediate",
-    trainingSkill: "Pronunciation",
-    diagnosticArea: "Vowel Sound Substitution",
-    learningObjective:
-      "Identify a localized vowel-quality substitution in a B2 Read Aloud response and distinguish it from Oral Fluency, Content, and general pronunciation problems.",
+  exerciseIndex: 67,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-067-prompt-achernar.mp3",
+  difficulty: "Upper Intermediate",
+  trainingSkill: "Pronunciation",
+  diagnosticArea: "Initial Consonant Sound Substitution",
+  learningObjective:
+    "Identify a localized initial-consonant substitution in a B2 Read Aloud response while distinguishing it from Content and Oral Fluency problems.",
 
-    promptText:
-      "Cognitive psychology examines how people process information, form memories, and make decisions. Sleep is closely connected with these processes because adequate rest can support attention, learning, and memory consolidation. Researchers have found that sleep quality can influence how effectively people perform demanding mental tasks. Understanding these relationships may help individuals develop healthier study routines, seek appropriate advice, and improve their ability to retain new information.",
+  promptText:
+    "Cognitive psychology has shown that sleep plays an important role in memory consolidation and learning. During different stages of sleep, the brain processes information acquired during the day and strengthens important memories. Researchers have found that sufficient sleep can improve attention, problem-solving, and emotional regulation. These findings have practical implications for students, professionals, and anyone seeking to improve cognitive performance.",
 
-    promptAudio:
-      "Cognitive psychology examines how people process information, form memories, and make decisions. Sleep is closely connected with these processes because adequate rest can support attention, learning, and memory consolidation. Researchers have found that sleep quality can influence how effectively people perform demanding mental tasks. Understanding these relationships may help individuals develop healthier study routines, seek appropriate advice, and improve their ability to retain new information.",
+  promptAudio:
+    "Cognitive psychology has shown that sleep plays an important role in memory consolidation and learning. During different stages of sleep, the brain processes information acquired during the day and strengthens important memories. Researchers have found that sufficient sleep can improve attention, problem-solving, and emotional regulation. These findings have practical implications for students, professionals, and anyone seeking to improve cognitive performance.",
 
-    studentTranscript:
-      "Cognitive psychology examines how people process information, form memories, and make decisions. Sleep is closely connected with these processes because adequate rest can support attention, learning, and memory consolidation. Researchers have found that sleep quality can influence how effectively people perform demanding mental tasks. Understanding these relationships may help individuals develop healthier study routines, seek appropriate advoce, and improve their ability to retain new information.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-067-achernar.mp3",
 
-    studentResponse: {
-      audioDuration: "30.0 seconds",
-      wordCount: 65,
-      characteristics:
-        "The student maintains clear and continuous delivery but changes the vowel quality in the word 'advice', producing a sound closer to 'advoce'. The surrounding words remain appropriately paced and understandable."
-    },
+  studentTranscript:
+    "Cognitive psychology has shown that sleep plays an important role in memory consolidation and burning. During different stages of sleep, the brain processes information acquired during the day and strengthens important memories. Researchers have found that sufficient sleep can improve attention, problem-solving, and emotional regulation. These findings have practical implications for students, professionals, and anyone seeking to improve cognitive performance.",
 
-    diagnosticErrors: [
-      "Vowel sound substitution",
-      "Vowel quality",
-      "Pronunciation accuracy"
-    ],
-
-    expertEvidence: [
-      "The target word is 'advice'.",
-      "The student produces a vowel quality that sounds closer to 'advoce'.",
-      "The difference is localized to the vowel sound within one specific word.",
-      "The student does not repeat the word or restart the phrase.",
-      "The overall speaking rate remains appropriate.",
-      "The response remains continuous.",
-      "The surrounding pronunciation is generally clear.",
-      "The main issue requiring attention is the localized vowel sound."
-    ],
-
-    expertDiagnosis:
-      "The main issue is Pronunciation accuracy, specifically a localized vowel sound substitution in the word 'advice'. The student's production sounds closer to 'advoce', changing the vowel quality while the rest of the response remains clear and continuous. There is no significant hesitation, restart, or Content problem. The teacher should therefore focus on the vowel quality in the target word rather than diagnosing Oral Fluency or Content.",
-
-    perfectCalibrationResponse:
-      "The student's main issue is Pronunciation, specifically the vowel sound in the word 'advice'. The student produces the vowel with a quality closer to 'advoce', creating a localized vowel substitution. The remainder of the response is clear, continuous, and appropriately paced, with Content intact. The teacher should therefore focus on the specific vowel quality rather than diagnosing an Oral Fluency or Content problem.",
-
-    coachingAdvice:
-      "Practise the vowel in 'advice' slowly and compare the correct /aɪ/ sound with the student's 'advoce'-like production. Then practise 'appropriate advice' in short phrases before returning to the complete passage.",
-
-    cefrLevel: "B2",
-    topicTitle: "Cognitive Psychology & Sleep",
-
-    good: {
-      transcript:
-        "Cognitive psychology examines how people process information, form memories, and make decisions. Sleep is closely connected with these processes because adequate rest can support attention, learning, and memory consolidation. Researchers have found that sleep quality can influence how effectively people perform demanding mental tasks. Understanding these relationships may help individuals develop healthier study routines, seek appropriate advice, and improve their ability to retain new information.",
-      audioDuration: "29.5 seconds",
-      wordCount: 65,
-      characteristics:
-        "Clear vowel production in 'advice' with smooth pacing, continuous delivery, and accurate Content."
-    },
-
-    poor: {
-      transcript:
-        "Cognitive psychology examines how people process information, form memories, and make decisions. Sleep is closely connected with these processes because adequate rest can support attention, learning, and memory consolidation. Researchers have found that sleep quality can influence how effectively people perform demanding mental tasks. Understanding these relationships may help individuals develop healthier study routines, seek appropriate advoce, and improve their ability to retain new information.",
-      audioDuration: "30.0 seconds",
-      wordCount: 65,
-      characteristics:
-        "Generally clear and appropriately paced delivery, but the vowel in 'advice' is produced with a quality closer to 'advoce'."
-    },
-
-    goodScore: {
-      content: 5,
-      fluency: 5,
-      pronunciation: 5,
-      overall: "90 / 90",
-      breakdownText:
-        "Accurate Content with clear vowel production in 'advice' and smooth Oral Fluency."
-    },
-
-    poorScore: {
-      content: 5,
-      fluency: 5,
-      pronunciation: 3,
-      overall: "84 / 90",
-      breakdownText:
-        "A localized vowel-quality substitution in 'advice' reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
-    },
-
-    errorChecklist: [
-      {
-        id: "vowel-sound-substitution",
-        label: "Vowel sound substitution",
-        keyword: "Vowel sound substitution"
-      },
-      {
-        id: "vowel-quality",
-        label: "Vowel quality",
-        keyword: "Vowel quality"
-      },
-      {
-        id: "pronunciation-accuracy",
-        label: "Pronunciation accuracy",
-        keyword: "Pronunciation accuracy"
-      }
-    ],
-
-    expertAdvice:
-      "Focus specifically on the vowel quality in 'advice'. Do not diagnose this as an Oral Fluency or Content problem because the student's delivery remains continuous and the passage is accurately reproduced."
+  studentResponse: {
+    audioDuration: "29.0 seconds",
+    wordCount: 62,
+    characteristics:
+      "The student delivers the passage clearly and continuously but substitutes the initial /l/ sound in 'learning' with /b/, producing the real English word 'burning'. The remainder of the response is delivered accurately and at an appropriate pace."
   },
 
-  {
-    exerciseIndex: 68,
-    totalExercises: 100,
-    difficulty: "Upper Intermediate",
-    trainingSkill: "Pronunciation",
-    diagnosticArea: "Consonant Cluster Reduction",
-    learningObjective:
-      "Identify a localized consonant-cluster reduction in a B2 Read Aloud response and distinguish it from Content substitution, syllable omission, and general Oral Fluency problems.",
+  diagnosticErrors: [
+    "Initial consonant sound substitution",
+    "Pronunciation accuracy",
+    "Lexical substitution"
+  ],
 
-    promptText:
-      "Space exploration technology has advanced rapidly through improvements in robotics, communications, and scientific instrumentation. Modern spacecraft can collect detailed information from distant planets, moons, and asteroids. Robotic missions are particularly valuable because they can operate in environments that would be dangerous for human crews. Engineers must also design systems that can survive extreme temperatures, radiation, and long periods without direct maintenance.",
+  expertEvidence: [
+    "The target word is 'learning'.",
+    "The student produces 'burning' instead.",
+    "The substitution changes the initial consonant from /l/ to /b/.",
+    "The substituted form is a real English word, making the error audible without relying on artificial spelling.",
+    "The remainder of the response is accurate and continuous.",
+    "The response does not show a significant general Oral Fluency problem."
+  ],
 
-    promptAudio:
-      "Space exploration technology has advanced rapidly through improvements in robotics, communications, and scientific instrumentation. Modern spacecraft can collect detailed information from distant planets, moons, and asteroids. Robotic missions are particularly valuable because they can operate in environments that would be dangerous for human crews. Engineers must also design systems that can survive extreme temperatures, radiation, and long periods without direct maintenance.",
+  expertDiagnosis:
+    "The primary issue is Pronunciation accuracy, specifically substitution of the initial /l/ sound with /b/ in 'learning', resulting in the real word 'burning'. The error is localized to one word, while the remainder of the response is clear, continuous, and appropriately paced.",
 
-    studentTranscript:
-      "Space exploration technology has advanced rapidly through improvements in robotics, communications, and scientific instrumentation. Modern spacecraft can collect detailed information from distant planets, moons, and asteroids. Robotic missions are particularly valuable because they can operate in environments that would be dangerous for human crews. Engineers must also design systems that can survive ex-teem temperatures, radiation, and long periods without direct maintenance.",
+  perfectCalibrationResponse:
+    "The student's main issue is Pronunciation, specifically an initial consonant substitution in 'learning'. The student produces 'burning' instead, replacing the initial /l/ with /b/. The rest of the response is clear, accurate, and appropriately paced.",
 
-    studentResponse: {
-      audioDuration: "30.0 seconds",
-      wordCount: 64,
-      characteristics:
-        "The student delivers the passage clearly and continuously but reduces the /tr/ consonant cluster in the word 'extreme', producing it more like 'ex-teem'. The target word remains identifiable."
-    },
+  coachingAdvice:
+    "Practise distinguishing the initial /l/ and /b/ sounds. Start with isolated contrasts such as 'learning' and 'burning', then practise the target word in the full phrase and finally in the complete sentence at a natural speaking rate.",
 
-    diagnosticErrors: [
-      "Consonant cluster reduction",
-      "Consonant sound reduction",
-      "Pronunciation accuracy"
-    ],
+  cefrLevel: "B2",
+  topicTitle: "Cognitive Psychology and Sleep",
 
-    expertEvidence: [
-      "The target word is 'extreme'.",
-      "The student reduces the consonant cluster in 'extreme', weakening the /tr/ sequence.",
-      "The word remains identifiable despite the consonant-cluster reduction.",
-      "The pronunciation issue is localized to one word containing the /tr/ consonant cluster.",
-      "The response remains continuous without significant hesitation or restart.",
-      "Overall speaking rate remains appropriate.",
-      "Content remains intact.",
-      "The defining issue is consonant-cluster reduction rather than syllable omission or general Fluency."
-    ],
-
-    expertDiagnosis:
-      "The main issue is Pronunciation accuracy, specifically reduction of the /tr/ consonant cluster in the word 'extreme'. The student produces it more like 'ex-teem', but the target word remains identifiable. The remainder of the response is clear, continuous, and appropriately paced, with Content intact. The teacher should therefore focus on the consonant cluster rather than diagnosing syllable omission or Oral Fluency problems.",
-
-    perfectCalibrationResponse:
-      "The student's main issue is Pronunciation, specifically reduction of the /tr/ consonant cluster in 'extreme'. The student produces it more like 'ex-teem', creating a localized consonant reduction while the target remains identifiable. The rest of the response is clear, continuous, and appropriately paced, and Content remains intact. The teacher should therefore focus on the consonant cluster rather than diagnosing syllable omission, Content, or Oral Fluency problems.",
-
-    coachingAdvice:
-      "Practise the /tr/ cluster in 'extreme' slowly, keeping both consonants audible. Contrast 'extreme' with the student's 'ex-teem'-like production, then practise 'extreme temperatures' before returning to the complete sentence.",
-
-    cefrLevel: "B2",
-    topicTitle: "Space Exploration Technology",
-
-    good: {
-      transcript:
-        "Space exploration technology has advanced rapidly through improvements in robotics, communications, and scientific instrumentation. Modern spacecraft can collect detailed information from distant planets, moons, and asteroids. Robotic missions are particularly valuable because they can operate in environments that would be dangerous for human crews. Engineers must also design systems that can survive extreme temperatures, radiation, and long periods without direct maintenance.",
-      audioDuration: "29.0 seconds",
-      wordCount: 64,
-      characteristics:
-        "Accurate /tr/ consonant-cluster production with smooth pacing, clear pronunciation, and continuous delivery."
-    },
-
-    poor: {
-      transcript:
-        "Space exploration technology has advanced rapidly through improvements in robotics, communications, and scientific instrumentation. Modern spacecraft can collect detailed information from distant planets, moons, and asteroids. Robotic missions are particularly valuable because they can operate in environments that would be dangerous for human crews. Engineers must also design systems that can survive ex-teem temperatures, radiation, and long periods without direct maintenance.",
-      audioDuration: "30.0 seconds",
-      wordCount: 64,
-      characteristics:
-        "Generally clear and appropriately paced delivery, but the /tr/ consonant cluster in 'extreme' is reduced, making the word sound more like 'ex-teem'."
-    },
-
-    goodScore: {
-      content: 5,
-      fluency: 5,
-      pronunciation: 5,
-      overall: "90 / 90",
-      breakdownText:
-        "Accurate Content with clear /tr/ cluster production, clear Pronunciation, and smooth Oral Fluency."
-    },
-
-    poorScore: {
-      content: 5,
-      fluency: 5,
-      pronunciation: 3,
-      overall: "84 / 90",
-      breakdownText:
-        "A localized consonant-cluster reduction in 'extreme' reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
-    },
-
-    errorChecklist: [
-      {
-        id: "consonant-cluster-reduction",
-        label: "Consonant cluster reduction",
-        keyword: "Consonant cluster reduction"
-      },
-      {
-        id: "consonant-sound-reduction",
-        label: "Consonant sound reduction",
-        keyword: "Consonant sound reduction"
-      },
-      {
-        id: "pronunciation-accuracy",
-        label: "Pronunciation accuracy",
-        keyword: "Pronunciation accuracy"
-      }
-    ],
-
-    expertAdvice:
-      "Focus on the /tr/ consonant cluster in 'extreme'. Do not diagnose syllable omission or general Fluency problems because the target word remains identifiable and the response is otherwise continuous and appropriately paced."
+  good: {
+    transcript:
+      "Cognitive psychology has shown that sleep plays an important role in memory consolidation and learning. During different stages of sleep, the brain processes information acquired during the day and strengthens important memories. Researchers have found that sufficient sleep can improve attention, problem-solving, and emotional regulation. These findings have practical implications for students, professionals, and anyone seeking to improve cognitive performance.",
+    audioDuration: "28.0 seconds",
+    wordCount: 62,
+    characteristics:
+      "Accurate production of 'learning' with a clear initial /l/ sound, correct Content, clear Pronunciation, and smooth Oral Fluency."
   },
+
+  poor: {
+    transcript:
+      "Cognitive psychology has shown that sleep plays an important role in memory consolidation and burning. During different stages of sleep, the brain processes information acquired during the day and strengthens important memories. Researchers have found that sufficient sleep can improve attention, problem-solving, and emotional regulation. These findings have practical implications for students, professionals, and anyone seeking to improve cognitive performance.",
+    audioDuration: "29.0 seconds",
+    wordCount: 62,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but 'learning' is produced as 'burning' through an initial consonant substitution."
+  },
+
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Accurate Content with correct production of 'learning', clear Pronunciation, and smooth Oral Fluency."
+  },
+
+  poorScore: {
+    content: 4,
+    fluency: 5,
+    pronunciation: 3,
+    overall: "82 / 90",
+    breakdownText:
+      "A localized initial-consonant substitution changes 'learning' to 'burning', while Oral Fluency remains strong."
+  },
+
+  errorChecklist: [
+    {
+      id: "initial-consonant-substitution",
+      label: "Initial consonant sound substitution",
+      keyword: "Initial consonant sound substitution"
+    },
+    {
+      id: "pronunciation-accuracy",
+      label: "Pronunciation accuracy",
+      keyword: "Pronunciation accuracy"
+    },
+    {
+      id: "lexical-substitution",
+      label: "Lexical substitution",
+      keyword: "Lexical substitution"
+    }
+  ],
+
+  expertAdvice:
+    "Focus on the contrast between the initial /l/ in 'learning' and /b/ in 'burning'. The student should maintain the intended word while keeping the rest of the sentence flowing naturally. Because the error is localized, do not diagnose a general Oral Fluency problem."
+},
+
+ {
+  exerciseIndex: 68,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-068-prompt-orus.mp3",
+  difficulty: "Upper Intermediate",
+  trainingSkill: "Pronunciation",
+  diagnosticArea: "Final Consonant Sound Addition",
+  learningObjective:
+    "Identify a localized final-consonant addition in a B2 Read Aloud response and recognise the associated grammar error, while distinguishing it from Content substitution and general Oral Fluency problems.",
+
+  promptText:
+    "Space exploration technology has advanced rapidly through improvements in robotics, communications, and scientific instrumentation. Modern spacecraft can collect detailed information from distant planets, moons, and asteroids. Robotic missions are particularly valuable because they can operate in environments that would be dangerous for human crews. Engineers must also design systems that can survive extreme temperatures, radiation, and long periods without direct maintenance.",
+
+  promptAudio:
+    "Space exploration technology has advanced rapidly through improvements in robotics, communications, and scientific instrumentation. Modern spacecraft can collect detailed information from distant planets, moons, and asteroids. Robotic missions are particularly valuable because they can operate in environments that would be dangerous for human crews. Engineers must also design systems that can survive extreme temperatures, radiation, and long periods without direct maintenance.",
+
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-068-orus.mp3",
+
+  studentTranscript:
+    "Space exploration technology has advanced rapidly through improvements in robotics, communications, and scientific instrumentation. Modern spacecraft can collect detailed information from distant planets, moons, and asteroids. Robotics missions are particularly valuable because they can operate in environments that would be dangerous for human crews. Engineers must also design systems that can survive extreme temperatures, radiation, and long periods without direct maintenance.",
+
+  studentResponse: {
+    audioDuration: "30.0 seconds",
+    wordCount: 64,
+    characteristics:
+      "The student delivers the passage clearly and continuously but adds a final /s/ sound to 'robotic', producing the real English word 'robotics'. This creates a localized pronunciation error and an accompanying grammatical error because 'robotics' is a noun rather than the required adjective 'robotic'."
+  },
+
+  diagnosticErrors: [
+    "Final consonant sound addition",
+    "Grammar error",
+    "Pronunciation accuracy"
+  ],
+
+  expertEvidence: [
+    "The target word is 'robotic'.",
+    "The student produces 'robotics' instead.",
+    "The student adds a final /s/ sound to the target word.",
+    "The substituted form is a real English word, making the pronunciation difference clearly audible.",
+    "The substitution also creates a grammatical error because 'robotics' is a noun while 'robotic' is the required adjective before 'missions'.",
+    "The remainder of the response is accurate and continuous.",
+    "The response does not show a significant general Oral Fluency problem."
+  ],
+
+  expertDiagnosis:
+    "The primary issue is Pronunciation accuracy, specifically the addition of a final /s/ sound to 'robotic', resulting in the real word 'robotics'. This also creates a grammatical error because the noun 'robotics' is used where the adjective 'robotic' is required. The remainder of the response is clear, continuous, and appropriately paced.",
+
+  perfectCalibrationResponse:
+    "The student's main issue is Pronunciation, specifically the addition of a final /s/ sound to 'robotic'. The student produces 'robotics' instead, creating both a localized pronunciation error and a grammar error. The rest of the response is clear, accurate, and appropriately paced.",
+
+  coachingAdvice:
+    "Practise distinguishing 'robotic' from 'robotics', paying particular attention to the final /s/ sound. Practise the target word in the phrase 'robotic missions', then repeat the complete sentence at a natural speaking rate.",
+
+  cefrLevel: "B2",
+  topicTitle: "Space Exploration Technology",
+
+  good: {
+    transcript:
+      "Space exploration technology has advanced rapidly through improvements in robotics, communications, and scientific instrumentation. Modern spacecraft can collect detailed information from distant planets, moons, and asteroids. Robotic missions are particularly valuable because they can operate in environments that would be dangerous for human crews. Engineers must also design systems that can survive extreme temperatures, radiation, and long periods without direct maintenance.",
+    audioDuration: "29.0 seconds",
+    wordCount: 63,
+    characteristics:
+      "Accurate production of 'robotic' without an added final /s/ sound, with correct grammar, smooth pacing, clear pronunciation, and continuous delivery."
+  },
+
+  poor: {
+    transcript:
+      "Space exploration technology has advanced rapidly through improvements in robotics, communications, and scientific instrumentation. Modern spacecraft can collect detailed information from distant planets, moons, and asteroids. Robotics missions are particularly valuable because they can operate in environments that would be dangerous for human crews. Engineers must also design systems that can survive extreme temperatures, radiation, and long periods without direct maintenance.",
+    audioDuration: "30.0 seconds",
+    wordCount: 64,
+    characteristics:
+      "Generally clear and appropriately paced delivery, but the student adds a final /s/ sound to 'robotic', producing 'robotics' and creating an accompanying grammar error."
+  },
+
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Accurate Content with correct production of 'robotic', clear Pronunciation, correct grammar, and smooth Oral Fluency."
+  },
+
+  poorScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 3,
+    overall: "84 / 90",
+    breakdownText:
+      "A localized final-consonant addition changes 'robotic' to 'robotics', creating a pronunciation error and accompanying grammar error while Content and Oral Fluency remain strong."
+  },
+
+  errorChecklist: [
+    {
+      id: "final-consonant-addition",
+      label: "Final consonant sound addition",
+      keyword: "Final consonant sound addition"
+    },
+    {
+      id: "grammar-error",
+      label: "Grammar error",
+      keyword: "Grammar error"
+    },
+    {
+      id: "pronunciation-accuracy",
+      label: "Pronunciation accuracy",
+      keyword: "Pronunciation accuracy"
+    }
+  ],
+
+  expertAdvice:
+    "Focus on the distinction between 'robotic' and 'robotics'. The student should avoid adding the final /s/ sound and maintain the adjective 'robotic' before 'missions'. Because the error is localized, do not diagnose a general Oral Fluency problem."
+},
 
   {
     exerciseIndex: 69,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-069-prompt-leda.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
     trainingSkill: "Pronunciation",
@@ -7084,6 +7338,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Global economic inflation can affect household budgets, business costs, and government policy. When prices rise across many sectors, consumers may need to reduce spending or change their purchasing habits. Central banks often respond by adjusting interest rates in an effort to control inflationary pressure. However, economic conditions can vary between countries, so policymakers must consider local employment, investment, consumer confidence, and provide clear advice to the public.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-069-leda.mp3",
 
     studentTranscript:
       "Global economic inflation can affect household budgets, business costs, and government policy. When prices rise across many sectors, consumers may need to reduce spending or change their purchasing habits. Central banks often respond by adjusting interest rates in an effort to control inflationary pressure. However, economic conditions can vary between countries, so policymakers must consider local employment, investment, consumer confidence, and provide clear advise to the public.",
@@ -7184,6 +7441,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 70,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-070-prompt-puck.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
     trainingSkill: "Content Accuracy",
@@ -7196,6 +7454,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Archaeology uses scientific methods to investigate human societies and their material remains. Radiocarbon dating is particularly useful because it can help researchers estimate the age of organic materials found at archaeological sites. Samples such as charcoal, bone, and seeds may provide evidence about when people occupied particular locations. Researchers must interpret these results carefully because contamination, environmental conditions, and sampling methods can affect the accuracy of a date.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-070-puck.mp3",
 
     studentTranscript:
       "Archaeology uses scientific methods to investigate human societies and their material remains. Radiocarbon dating is particularly useful because it can help researchers estimate the age of organic materials found at archaeological sites. Samples such as charcoal, bone, and seeds may provide evidence about when people occupied particular locations. Archaeologists often combine several forms of evidence when studying ancient sites. Researchers must interpret these results carefully because contamination, environmental conditions, and sampling methods can affect the accuracy of a date.",
@@ -7295,6 +7556,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
      {
     exerciseIndex: 71,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-071-prompt-sulafat.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
     trainingSkill: "Content Accuracy",
@@ -7307,6 +7569,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Agricultural biotechnology uses scientific techniques to improve crops, livestock, and food production. Researchers may develop plants with greater resistance to pests, diseases, or environmental stress. These technologies can also improve nutritional quality and increase the efficiency of agricultural production. However, biotechnology must be carefully evaluated because changes to living organisms may create environmental, economic, and ethical concerns. Responsible development therefore requires scientific evidence, effective regulation, and careful monitoring.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-071-sulafat.mp3",
 
     studentTranscript:
       "Agricultural biotechnology uses scientific techniques to improve crops, livestock, and food production. Researchers may develop plants with greater resistance to pests, diseases, or environmental stress. These technologies can also improve nutritional quality and increase the efficiency of agricultural production. However, biotechnology must be carefully evaluated because changes to living organisms may create environmental, economic, and ethical concern. Responsible development therefore requires scientific evidence, effective regulation, and careful monitoring.",
@@ -7407,6 +7672,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 72,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-072-prompt-iapetus.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
     trainingSkill: "Content Accuracy",
@@ -7419,6 +7685,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Hydropower generates electricity by using the movement of water through turbines connected to generators. Large dams can provide a reliable source of renewable energy while also supporting water storage and flood management. However, hydropower projects can alter river ecosystems by changing natural water flows and affecting fish migration. Engineers and environmental scientists therefore need to balance energy production with the long-term health of river systems. Careful planning can reduce ecological damage while maintaining the benefits of renewable electricity.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-072-iapetus.mp3",
 
     studentTranscript:
       "Hydropower generates electricity by using the movement of water through turbines connected to generators. Large dams can provide a reliable source of renewable energy while also supporting water storage and flood management. However, hydropower projects can alter river ecosystems by changing natural water flows and affecting fish migration. Engineers and environmental scientists therefore need to balance energy production with the health long-term of river systems. Careful planning can reduce ecological damage while maintaining the benefits of renewable electricity.",
@@ -7519,10 +7788,11 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
 {
     exerciseIndex: 73,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-073-prompt-achernar.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
-    trainingSkill: "Pronunciation",
-    diagnosticArea: "Vowel Sound Substitution",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Word Substitution",
     learningObjective:
       "Identify a localized vowel-quality substitution in a B2 Read Aloud response and distinguish it from a Content error or Oral Fluency problem.",
 
@@ -7532,8 +7802,11 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     promptAudio:
       "Neurobiology examines how the nervous system controls behaviour, movement, learning, and memory. Researchers study communication between neurons to understand how information is processed within the brain. Memory formation depends on complex interactions between neural networks and chemical signals. Sleep, attention, and repeated practice can influence these processes and affect how efficiently new information is stored. Understanding these mechanisms may contribute to better approaches to learning and neurological care.",
 
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-073-achernar.mp3",
+
     studentTranscript:
-      "Neurobiology examines how the nervous system controls behaviour, movement, learning, and memory. Researchers study communication between neurons to understand how information is processed within the brin. Memory formation depends on complex interactions between neural networks and chemical signals. Sleep, attention, and repeated practice can influence these processes and affect how efficiently new information is stored. Understanding these mechanisms may contribute to better approaches to learning and neurological care.",
+      "Neurobiology examines how the nervous system controls behaviour, movement, learning, and memory. Researchers study communication between neurons to understand how information is processed within the crane. Memory formation depends on complex interactions between neural networks and chemical signals. Sleep, attention, and repeated practice can influence these processes and affect how efficiently new information is stored. Understanding these mechanisms may contribute to better approaches to learning and neurological care.",
 
     studentResponse: {
       audioDuration: "31.5 seconds",
@@ -7549,19 +7822,19 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     ],
 
     expertEvidence: [
-      "The target word is 'brain'.",
-      "The student produces the target word with a vowel quality closer to 'brin'.",
-      "The difference is localized to the vowel sound within one specific word.",
-      "The target word remains identifiable from the surrounding phrase.",
-      "The remainder of the passage is accurately reproduced.",
-      "The student does not repeat the word or restart the phrase.",
-      "The overall speaking rate remains appropriate.",
-      "The response remains continuous.",
-      "The main issue requiring attention is the localized vowel sound."
-    ],
+    "The prompt uses the target word 'brain'.",
+    "The student produces the real word 'crane' instead.",
+    "The substitution occurs at one localized position in the passage.",
+    "The substituted word is clearly audible and identifiable.",
+    "The remainder of the passage is accurately reproduced.",
+    "The student does not repeat the word or restart the phrase.",
+    "The overall speaking rate remains appropriate.",
+    "The response remains continuous.",
+    "The main issue is Content accuracy rather than Pronunciation or Oral Fluency."
+  ],
 
     expertDiagnosis:
-      "The main issue is Pronunciation accuracy, specifically a localized vowel sound substitution in the word 'brain'. The student produces a vowel quality closer to 'brin', creating a clear vowel contrast while the remainder of the response remains accurate, continuous, and appropriately paced. The teacher should therefore focus on the vowel quality in the target word rather than diagnosing Content or Oral Fluency.",
+      "The main issue is Content accuracy because the student substitutes the real word 'crane' for the prompt's target word 'brain'. The substituted word is clearly spoken and identifiable, while the remainder of the response remains accurate, continuous, and appropriately paced. The teacher should therefore identify the localized word substitution rather than diagnosing Pronunciation or Oral Fluency.",
 
     perfectCalibrationResponse:
       "The student's main issue is Pronunciation, specifically the vowel sound in the word 'brain'. The student produces the vowel with a quality closer to 'brin', creating a localized vowel substitution. The remainder of the response is clear, continuous, and appropriately paced, with Content intact. The teacher should therefore focus on the specific vowel quality rather than diagnosing an Oral Fluency or Content problem.",
@@ -7627,11 +7900,12 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     ],
 
     expertAdvice:
-      "Focus specifically on the vowel quality in 'brain'. Do not diagnose Content or Oral Fluency because the passage is otherwise accurately reproduced and delivered continuously."
+      "Focus on the substitution of 'crane' for 'brain' as a Content accuracy error. Do not diagnose Pronunciation simply because the substituted word sounds different; the student has produced a different real word. Do not diagnose Oral Fluency because the response remains continuous and appropriately paced."
   },
 
   {
     exerciseIndex: 74,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-074-prompt-orus.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
     trainingSkill: "Content Accuracy",
@@ -7644,6 +7918,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Oceanic microplastics are tiny plastic particles that accumulate in marine environments and can be transported across large distances by currents. Scientists have detected these particles in surface waters, sediments, and even within marine organisms. Microplastics may enter food webs when animals consume contaminated material, creating potential risks for ecosystems and human health. Researchers are therefore investigating how plastic waste moves through the ocean and how its effects can be reduced.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-074-orus.mp3",
 
     studentTranscript:
       "Oceanic microplastics are tiny plastic particles that accumulate in marine environments and can be transported across large distances by currents. Scientists have detected these particles in surface waters, sediments, and even within marine organisms. Microplastics may enter food webs when animals consume contaminated material, creating potential risks for ecosystems and health. Researchers are therefore investigating how plastic waste moves through the ocean and how its effects can be reduced.",
@@ -7744,6 +8021,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 75,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-075-prompt-leda.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
     trainingSkill: "Oral Fluency",
@@ -7757,8 +8035,11 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     promptAudio:
       "Endangered languages can provide valuable information about the history, culture, and identity of the communities that speak them. When a language has very few remaining speakers, researchers may document vocabulary, grammar, oral traditions, and patterns of everyday communication. Language revitalisation programmes can help younger generations learn these languages and use them in education and community life. Long-term success often depends on cooperation between speakers, teachers, researchers, and local organisations.",
 
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-075-leda.mp3",
+
     studentTranscript:
-      "Endangered languages can provide valuable information about the history, culture, and identity of the communities that speak them. When a language has very few remaining speakers, researchers may document vocabulary, grammar, oral traditions, and patterns of everyday communication. Language revitalisation programmes can help younger generations learn these languages and use them in education / and community life. Long-term success often depends on cooperation between speakers, teachers, researchers, and local organisations.",
+      "Endangered languages can provide valuable information about the history, culture, and identity of the communities that speak them. When a language has very few remaining speakers, researchers may document vocabulary, grammar, oral traditions, and patterns of everyday communication. Language revitalisation programmes can help younger generations learn these languages and use them in education ... and community life. Long-term success often depends on cooperation between speakers, teachers, researchers, and local organisations.",
 
     studentResponse: {
       audioDuration: "32.5 seconds",
@@ -7856,6 +8137,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 76,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-076-prompt-puck.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
     trainingSkill: "Content Accuracy",
@@ -7868,6 +8150,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Architectural acoustics examines how sound behaves within buildings and how spaces can be designed to support clear communication. Concert halls, lecture theatres, and recording studios require careful control of reverberation, reflection, and sound absorption. Designers may use specialised wall panels, ceiling structures, and seating materials to influence the acoustic environment. Effective design must balance technical performance with the practical needs of people who use the space. Careful acoustic planning can therefore improve both comfort and communication.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-076-puck.mp3",
 
     studentTranscript:
       "Architectural acoustics examines how sound behaves within buildings and how spaces can be designed to support clear communication. Concert halls, lecture theatres, and recording studios require careful control of reverberation, reflection, and sound absorption. Designers may use specialised wall panels, ceiling structures, and seating materials to influence the acoustic environment. Effective design must balance technical performance with the practical needs of people who use the space. Careful acoustic planning can therefore improve both comfort and conversation.",
@@ -7969,10 +8254,11 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 77,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-077-prompt-sulafat.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
-    trainingSkill: "Pronunciation",
-    diagnosticArea: "Vowel Sound Substitution",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Semantic Word Substitution",
     learningObjective:
       "Identify a localized vowel-quality substitution in a B2 academic vocabulary item and distinguish it from Content and Oral Fluency problems.",
 
@@ -7982,8 +8268,11 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     promptAudio:
       "Consumer behavioral trends can change rapidly as people respond to economic conditions, technological developments, and social influences. Researchers analyse purchasing patterns to understand why consumers adopt certain products and abandon others. Online platforms have also increased the amount of behavioural data available to businesses, allowing companies to identify emerging preferences more quickly. However, interpreting these patterns requires careful attention to context because consumer decisions are not always predictable.",
 
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-077-sulafat.mp3",
+
     studentTranscript:
-      "Consumer behavioral trends can change rapidly as people respond to economic conditions, technological developments, and social influences. Researchers analyse purchasing patterns to understand why consumers adopt certain products and abandon others. Online platforms have also increased the amount of behavioural data available to businesses, allowing companies to identify emerging preferences more quickly. However, interpreting these patterns requires careful attention to context because consumer decisions are not always predictable.",
+      "Consumer behavioral trends can change rapidly as people respond to economic conditions, technical developments, and social influences. Researchers analyse purchasing patterns to understand why consumers adopt certain products and abandon others. Online platforms have also increased the amount of behavioural data available to businesses, allowing companies to identify emerging preferences more quickly. However, interpreting these patterns requires careful attention to context because consumer decisions are not always predictable.",
 
     studentResponse: {
       audioDuration: "32.5 seconds",
@@ -7999,21 +8288,22 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     ],
 
     expertEvidence: [
-      "The target word is 'predictable'.",
-      "The student produces a noticeably altered vowel quality in the target word.",
-      "The production is closer to 'predicktable' than the expected pronunciation.",
-      "The difference is localized to one lexical item.",
-      "The target word remains identifiable from the surrounding context.",
-      "Content is accurately reproduced.",
-      "The response remains continuous without significant hesitation or restart.",
-      "Overall speaking rate remains appropriate.",
-      "The defining issue is the localized vowel sound rather than Content or Oral Fluency."
-    ],
+  "The prompt uses the phrase 'technological developments'.",
+  "The student produces 'technical developments' instead.",
+  "The substituted word is a real English word but does not exactly match the reading text.",
+  "The substitution occurs at one localized position.",
+  "The substituted word is clearly audible and identifiable.",
+  "The remainder of the passage is accurately reproduced.",
+  "The student does not hesitate or restart at the affected phrase.",
+  "The overall speaking rate remains appropriate.",
+  "The response remains continuous.",
+  "The main issue is Content accuracy rather than Pronunciation or Oral Fluency."
+],
 
     expertDiagnosis:
-      "The main issue is Pronunciation accuracy, specifically a localized vowel-quality substitution in the word 'predictable'. The student's production is closer to 'predicktable', creating a noticeable vowel difference while the target word remains identifiable. Content is accurately reproduced and the response remains continuous and appropriately paced. The teacher should therefore focus on the specific vowel quality rather than diagnosing Content or Oral Fluency.",
+      "The main issue is Content accuracy because the student substitutes 'technical' for the prompt's 'technological' in the phrase 'technological developments'. Although the words are related in meaning, the student's response does not exactly reproduce the reading text. The substitution is clearly spoken and the remainder of the response is accurate, continuous, and appropriately paced. The teacher should therefore identify the semantic word substitution rather than diagnosing Pronunciation or Oral Fluency.",
 
-    perfectCalibrationResponse:
+      perfectCalibrationResponse:
       "The student's main issue is Pronunciation, specifically the vowel sound in 'predictable'. The student produces a vowel quality closer to 'predicktable', creating a localized vowel substitution while the target word remains identifiable. The remainder of the passage is accurately reproduced with clear, continuous, appropriately paced delivery. The teacher should therefore focus on the specific vowel quality rather than diagnosing Content or Oral Fluency.",
 
     coachingAdvice:
@@ -8077,11 +8367,12 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     ],
 
     expertAdvice:
-      "Focus specifically on the altered vowel in 'predictable'. Do not diagnose Content or Oral Fluency because the passage remains accurate and the delivery is continuous and appropriately paced."
+      "Focus on the substitution of 'technical' for 'technological' as a Content accuracy error. Do not treat the semantically related word as exact reproduction, and do not diagnose Pronunciation or Oral Fluency because the substituted word is clearly spoken and delivery remains continuous."
   },
 
   {
     exerciseIndex: 78,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-078-prompt-iapetus.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
     trainingSkill: "Content Accuracy",
@@ -8094,6 +8385,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Plate tectonics explains how large sections of Earth's lithosphere move and interact over geological time. Evidence from seismic activity, magnetic patterns on the ocean floor, and the distribution of fossils supports the theory of moving plates. At convergent boundaries, one plate may move beneath another in a process known as subduction. These interactions can produce earthquakes, volcanic activity, and mountain formation. Scientists combine geological and seismic data to understand how these processes shape the planet.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-078-iapetus.mp3",
 
     studentTranscript:
       "Plate tectonics explains how large sections of Earth's lithosphere move and interact over geological time. Evidence from seismic activity, magnetic patterns on the ocean floor, and the distribution of fossils supports the theory of moving plates. At convergent boundaries, one plate may move beneath another in a process known as subduction. These interactions can produce earthquakes, volcanic activity, and mountain formation. Scientists combine geological and seismic evidence to understand how these processes shape the planet.",
@@ -8195,6 +8489,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 79,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-079-prompt-achernar.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
     trainingSkill: "Oral Fluency",
@@ -8207,6 +8502,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Vaccine distribution logistics involves coordinating manufacturing, transportation, storage, and delivery across multiple locations. Some vaccines require strict temperature controls throughout the supply chain, making reliable refrigeration essential. Distribution planners must also account for population needs, transportation distances, staffing levels, and changing demand. Efficient systems depend on accurate forecasting and close coordination between health authorities, suppliers, and local clinics. Even small delays can affect the availability of vaccines in communities that need them.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-079-achernar.mp3",
 
     studentTranscript:
       "Vaccine distribution logistics involves coordinating manufacturing, transportation, storage, and delivery across multiple locations. Some vaccines require strict temperature controls throughout the supply chain, making reliable refrigeration essential. Distribution planners must also account for population needs, transportation distances, staffing levels, and changing demand. Efficient systems depend on accurate forecasting and close coordination between health authorities, suppliers, and local clinics. Even small delays can affect the availability / of vaccines in communities that need them.",
@@ -8308,10 +8606,11 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 80,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-080-prompt-orus.mp3",
     totalExercises: 100,
     difficulty: "Upper Intermediate",
-    trainingSkill: "Pronunciation",
-    diagnosticArea: "Initial Consonant Cluster Reduction",
+    trainingSkill: "Content Accuracy",
+    diagnosticArea: "Grammatical Word-Form Change",
     learningObjective:
       "Identify a localized initial consonant-cluster reduction in an advanced B2 technical vocabulary item and distinguish it from Content and Oral Fluency problems.",
 
@@ -8321,8 +8620,11 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     promptAudio:
       "Quantum cryptography applies principles of quantum mechanics to secure the exchange of information. Unlike conventional encryption methods, some quantum communication systems can reveal attempts to intercept data because measurement can disturb the transmitted state. Researchers are investigating how these principles might improve the security of future communication networks. However, practical implementation remains challenging because specialised equipment and highly controlled conditions are often required. Continued research may eventually make quantum-based security more accessible.",
 
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-080-orus.mp3",
+
     studentTranscript:
-      "Cantum cryptography applies principles of quantum mechanics to secure the exchange of information. Unlike conventional encryption methods, some quantum communication systems can reveal attempts to intercept data because measurement can disturb the transmitted state. Researchers are investigating how these principles might improve the security of future communication networks. However, practical implementation remains challenging because specialised equipment and highly controlled conditions are often required. Continued research may eventually make quantum-based security more accessible.",
+      "Cantum cryptography applies principles of quantum mechanics to secure the exchange of information. Unlike conventional encryption method, some quantum communication systems can reveal attempts to intercept data because measurement can disturb the transmitted state. Researchers are investigating how these principles might improve the security of future communication networks. However, practical implementation remains challenging because specialised equipment and highly controlled conditions are often required. Continued research may eventually make quantum-based security more accessible.",
 
     studentResponse: {
       audioDuration: "34.0 seconds",
@@ -8338,21 +8640,21 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     ],
 
     expertEvidence: [
-      "The target word is 'Quantum'.",
-      "The student produces a form closer to 'Cantum'.",
-      "The initial /kw/ consonant cluster is reduced, with the /w/ component absent from the student's production.",
-      "The pronunciation difference is localized to one technical word.",
-      "The target word remains identifiable from the surrounding sentence.",
+      "The prompt uses the plural noun 'methods'.",
+      "The student produces the singular form 'method' instead.",
+      "The change is localized to one grammatical word form.",
+      "The altered word is clearly audible and identifiable.",
       "The remainder of the passage is accurately reproduced.",
-      "The student maintains continuous delivery.",
-      "Overall speaking rate remains appropriate.",
-      "The main issue is Pronunciation accuracy rather than Content or Oral Fluency."
+      "The student does not hesitate or restart at the affected phrase.",
+      "The overall speaking rate remains appropriate.",
+      "The response remains continuous.",
+      "The main issue is Content accuracy rather than Pronunciation or Oral Fluency."
     ],
 
     expertDiagnosis:
-      "The main issue is Pronunciation accuracy, specifically reduction of the initial /kw/ consonant cluster in the word 'Quantum'. The student produces a form closer to 'Cantum', omitting the /w/ component while the target word remains identifiable. The remainder of the passage is accurately reproduced with continuous, appropriately paced delivery. The teacher should therefore focus on the localized consonant-cluster reduction rather than diagnosing Content or Oral Fluency.",
+      "The main issue is Content accuracy because the student changes the plural noun 'methods' to the singular form 'method'. The altered word is clearly spoken, while the remainder of the response remains accurate, continuous, and appropriately paced. The teacher should therefore identify the localized grammatical word-form change rather than diagnosing Pronunciation or Oral Fluency.",
 
-    perfectCalibrationResponse:
+      perfectCalibrationResponse:
       "The student's main issue is Pronunciation, specifically reduction of the initial /kw/ consonant cluster in the word 'Quantum'. The student produces a form closer to 'Cantum', with the /w/ component missing from the initial cluster. Content remains intact and the remainder of the response is clear, continuous, and appropriately paced. The teacher should therefore focus on the localized consonant reduction rather than diagnosing Content or Oral Fluency.",
 
     coachingAdvice:
@@ -8415,12 +8717,13 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       }
     ],
 
-    expertAdvice:
-      "Focus specifically on the initial /kw/ consonant cluster in 'Quantum'. Do not diagnose Content or Oral Fluency because the target word remains identifiable and the response is otherwise accurate, continuous, and appropriately paced."
+   expertAdvice:
+      "Focus on the change from 'methods' to 'method' as a Content accuracy error. Check the singular and plural form carefully and do not diagnose Pronunciation or Oral Fluency because the word is clearly spoken and the response remains continuous."
   },
 
-  {
+    {
     exerciseIndex: 81,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-081-prompt-leda.mp3",
     totalExercises: 100,
     difficulty: "Advanced",
     trainingSkill: "Content Accuracy",
@@ -8434,12 +8737,15 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     promptAudio:
       "Choice architecture examines how the design of a decision environment can influence behaviour without removing freedom of choice. Nudge theory proposes that relatively small changes in how options are presented can affect decisions while leaving the underlying alternatives available. Common examples include default settings, reminders, simplified information, and strategically organised choices. However, the effectiveness of a nudge depends heavily on context, because individuals may respond differently according to their goals, knowledge, and circumstances. Researchers therefore evaluate both behavioural outcomes and the ethical implications of influencing decisions.",
 
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-081-leda.mp3",
+
     studentTranscript:
-      "Choice architecture examines how the design of a decision environment can influence behaviour without removing freedom of choice. Nudge theory proposes that relatively small changes in how options are presented can affect decisions while leaving the underlying alternatives available. Common examples include default settings, reminders, simplified information, and strategically organised choices. However, the effectiveness of a nudge depends heavily on context, because individuals may respond differently according to their goals, knowledge, and circumstances. Researchers therefore evaluate both behavioural outcomes and the ethical implications of influencing decisions.",
+      "Choice architecture examines how the design of a decision environment can influence behaviour without removing freedom of choice. Nudge theory proposes that relatively small changes in how options are presented can affect decisions while leaving the underlying alternatives available. Common examples include default settings, reminders, simplified information, and strategically organised choices. However, the effectiveness of a nudge depends heavily on context, because individuals may respond differently according to their goals, knowledge, and circumstances. Researchers therefore evaluate both behavioural outcomes of influencing decisions.",
 
     studentResponse: {
       audioDuration: "35.5 seconds",
-      wordCount: 95,
+      wordCount: 91,
       characteristics:
         "The student reproduces the passage clearly and continuously but omits the phrase 'and the ethical implications' from the final sentence. The remaining material is accurately reproduced."
     },
@@ -8532,120 +8838,124 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
   },
 
   {
-    exerciseIndex: 82,
-    totalExercises: 100,
-    difficulty: "Advanced",
-    trainingSkill: "Pronunciation",
-    diagnosticArea: "Consonant Sound Deletion",
-    learningObjective:
-      "Identify a localized consonant deletion in a C1 technical vocabulary item and distinguish it from syllable omission, Content loss, and general intelligibility problems.",
+  exerciseIndex: 82,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-082-prompt-puck.mp3",
+  totalExercises: 100,
+  difficulty: "Advanced",
+  trainingSkill: "Pronunciation",
+  diagnosticArea: "Word Substitution",
+  learningObjective:
+    "Identify a localized lexical substitution in a C1 technical vocabulary item and distinguish it from Content loss, syllable omission, and general intelligibility problems.",
 
-    promptText:
-      "Nanotechnology has attracted considerable interest in oncology because engineered particles may be designed to deliver therapeutic compounds more selectively to tumour tissue. Researchers are investigating whether nanoscale delivery systems can improve treatment efficiency while reducing exposure to healthy cells. Some approaches use surface modifications to encourage particles to accumulate in specific biological environments. However, translating these techniques from experimental studies into clinical practice requires extensive testing, regulatory oversight, and careful evaluation of long-term safety.",
+  promptText:
+    "Nanotechnology has attracted considerable interest in oncology because engineered particles may be designed to deliver therapeutic compounds more selectively to tumour tissue. Researchers are investigating whether nanoscale delivery systems can improve treatment efficiency while reducing exposure to healthy cells. Some approaches use surface modifications to encourage particles to accumulate in specific biological environments. However, translating these techniques from experimental studies into clinical practice requires extensive testing, regulatory oversight, and careful evaluation of long-term safety.",
 
-    promptAudio:
-      "Nanotechnology has attracted considerable interest in oncology because engineered particles may be designed to deliver therapeutic compounds more selectively to tumour tissue. Researchers are investigating whether nanoscale delivery systems can improve treatment efficiency while reducing exposure to healthy cells. Some approaches use surface modifications to encourage particles to accumulate in specific biological environments. However, translating these techniques from experimental studies into clinical practice requires extensive testing, regulatory oversight, and careful evaluation of long-term safety.",
+  promptAudio:
+    "Nanotechnology has attracted considerable interest in oncology because engineered particles may be designed to deliver therapeutic compounds more selectively to tumour tissue. Researchers are investigating whether nanoscale delivery systems can improve treatment efficiency while reducing exposure to healthy cells. Some approaches use surface modifications to encourage particles to accumulate in specific biological environments. However, translating these techniques from experimental studies into clinical practice requires extensive testing, regulatory oversight, and careful evaluation of long-term safety.",
 
-    studentTranscript:
-      "Nanotechnology has attracted considerable interest in oncology because engineered particles may be designed to deliver therapeutic compounds more selectively to tumour tissue. Researchers are investigating whether nanoscale delivery systems can improve treatment efficiency while reducing exposure to healthy cells. Some approaches use surface modifications to encourage particles to accumulate in specific biological environments. However, translating these techniques from experimental studies into linical practice requires extensive testing, regulatory oversight, and careful evaluation of long-term safety.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-082-puck.mp3",
 
-    studentResponse: {
-      audioDuration: "35.5 seconds",
-      wordCount: 91,
-      characteristics:
-        "The student maintains clear and continuous delivery but omits the initial /k/ consonant in 'clinical', producing a form closer to 'linical'. The target word remains identifiable in context."
-    },
+  studentTranscript:
+    "Nanotechnology has attracted considerable interest in oncology because engineered particles may be designed to deliver therapeutic compounds more selectively to tumour tissue. Researchers are investigating whether nanoscale delivery systems can improve treatment efficiency while reducing exposure to healthy cells. Some approaches use surface modifications to encourage particles to accumulate in specific biological environments. However, translating these techniques from experimental studies into critical practice requires extensive testing, regulatory oversight, and careful evaluation of long-term safety.",
 
-    diagnosticErrors: [
-      "Consonant sound deletion",
-      "Initial consonant deletion",
-      "Pronunciation accuracy"
-    ],
-
-    expertEvidence: [
-      "The target word is 'clinical'.",
-      "The student produces a form closer to 'linical'.",
-      "The initial /k/ consonant is absent from the student's production.",
-      "The remainder of the word and sentence remains identifiable.",
-      "The issue is localized to one technical vocabulary item.",
-      "Content is otherwise accurately reproduced.",
-      "The response remains continuous without hesitation or restart.",
-      "Overall speaking rate remains appropriate.",
-      "The defining issue is a localized consonant deletion rather than syllable omission or general intelligibility failure."
-    ],
-
-    expertDiagnosis:
-      "The main issue is Pronunciation accuracy, specifically deletion of the initial /k/ consonant in the word 'clinical'. The student produces a form closer to 'linical', while the target word remains identifiable from context. The remainder of the passage is accurately reproduced with continuous and appropriately paced delivery. The teacher should therefore identify the localized consonant deletion rather than diagnosing syllable omission, Content loss, or general Fluency problems.",
-
-    perfectCalibrationResponse:
-      "The student's main issue is Pronunciation, specifically deletion of the initial /k/ consonant in 'clinical'. The student produces the word closer to 'linical', creating a localized consonant deletion while the target remains identifiable. Content remains intact and the response is clear, continuous, and appropriately paced. The teacher should therefore focus on the missing consonant rather than diagnosing syllable omission, Content, or Oral Fluency.",
-
-    coachingAdvice:
-      "Practise the initial /k/ in 'clinical' slowly, then repeat 'clinical practice' several times. Make sure the consonant is audible without adding an extra syllable, and then return to the complete passage at a natural rate.",
-
-    cefrLevel: "C1",
-    topicTitle: "Nanotechnology Oncology Delivery",
-
-    good: {
-      transcript:
-        "Nanotechnology has attracted considerable interest in oncology because engineered particles may be designed to deliver therapeutic compounds more selectively to tumour tissue. Researchers are investigating whether nanoscale delivery systems can improve treatment efficiency while reducing exposure to healthy cells. Some approaches use surface modifications to encourage particles to accumulate in specific biological environments. However, translating these techniques from experimental studies into clinical practice requires extensive testing, regulatory oversight, and careful evaluation of long-term safety.",
-      audioDuration: "35.0 seconds",
-      wordCount: 91,
-      characteristics:
-        "Accurate technical vocabulary with clear initial /k/ production, natural pacing, and continuous delivery."
-    },
-
-    poor: {
-      transcript:
-        "Nanotechnology has attracted considerable interest in oncology because engineered particles may be designed to deliver therapeutic compounds more selectively to tumour tissue. Researchers are investigating whether nanoscale delivery systems can improve treatment efficiency while reducing exposure to healthy cells. Some approaches use surface modifications to encourage particles to accumulate in specific biological environments. However, translating these techniques from experimental studies into linical practice requires extensive testing, regulatory oversight, and careful evaluation of long-term safety.",
-      audioDuration: "35.5 seconds",
-      wordCount: 91,
-      characteristics:
-        "Generally clear and appropriately paced delivery, but the initial /k/ consonant in 'clinical' is deleted, producing a form closer to 'linical'."
-    },
-
-    goodScore: {
-      content: 5,
-      fluency: 5,
-      pronunciation: 5,
-      overall: "90 / 90",
-      breakdownText:
-        "Accurate Content with clear technical pronunciation and smooth Oral Fluency."
-    },
-
-    poorScore: {
-      content: 5,
-      fluency: 5,
-      pronunciation: 3,
-      overall: "84 / 90",
-      breakdownText:
-        "A localized initial consonant deletion reduces Pronunciation accuracy while Content and Oral Fluency remain strong."
-    },
-
-    errorChecklist: [
-      {
-        id: "consonant-sound-deletion",
-        label: "Consonant sound deletion",
-        keyword: "Consonant sound deletion"
-      },
-      {
-        id: "initial-consonant-deletion",
-        label: "Initial consonant deletion",
-        keyword: "Initial consonant deletion"
-      },
-      {
-        id: "pronunciation-accuracy",
-        label: "Pronunciation accuracy",
-        keyword: "Pronunciation accuracy"
-      }
-    ],
-
-    expertAdvice:
-      "Focus specifically on the missing initial /k/ in 'clinical'. Do not diagnose syllable omission or general intelligibility problems because the target remains identifiable and the rest of the response is clear and continuous."
+  studentResponse: {
+    audioDuration: "35.5 seconds",
+    wordCount: 91,
+    characteristics:
+      "The student maintains clear and continuous delivery but substitutes the real word 'critical' for the target word 'clinical'. The substituted word is clearly intelligible in context."
   },
+
+  diagnosticErrors: [
+    "Word substitution",
+    "Pronunciation accuracy",
+    "Technical vocabulary substitution"
+  ],
+
+  expertEvidence: [
+    "The target word in the prompt is 'clinical'.",
+    "The student produces the real word 'critical' instead.",
+    "The substitution changes the target lexical item while remaining clearly intelligible.",
+    "The remainder of the passage is accurately reproduced.",
+    "Content is otherwise substantially intact.",
+    "The response remains continuous without hesitation or restart.",
+    "Overall speaking rate remains appropriate.",
+    "The defining issue is the localized substitution of one lexical item."
+  ],
+
+  expertDiagnosis:
+    "The main issue is Pronunciation and lexical accuracy at the target word 'clinical'. The student substitutes the clearly intelligible real word 'critical', changing the intended lexical item while reproducing the remainder of the passage accurately. The response remains continuous and appropriately paced. The teacher should therefore identify the localized word substitution rather than diagnosing Content loss or general Fluency problems.",
+
+  perfectCalibrationResponse:
+    "The student's main issue is the substitution of 'critical' for the target word 'clinical'. The substituted word is clearly intelligible, but it changes the intended lexical item. The remainder of the passage is accurately reproduced with continuous and appropriately paced delivery. The teacher should therefore identify the localized word substitution rather than diagnosing Content loss or a broader Fluency problem.",
+
+  coachingAdvice:
+    "Practise the target word 'clinical' in the phrase 'clinical practice'. Contrast it clearly with similar words such as 'critical', then return to the complete passage at a natural rate.",
+
+  cefrLevel: "C1",
+  topicTitle: "Nanotechnology Oncology Delivery",
+
+  good: {
+    transcript:
+      "Nanotechnology has attracted considerable interest in oncology because engineered particles may be designed to deliver therapeutic compounds more selectively to tumour tissue. Researchers are investigating whether nanoscale delivery systems can improve treatment efficiency while reducing exposure to healthy cells. Some approaches use surface modifications to encourage particles to accumulate in specific biological environments. However, translating these techniques from experimental studies into clinical practice requires extensive testing, regulatory oversight, and careful evaluation of long-term safety.",
+    audioDuration: "35.0 seconds",
+    wordCount: 91,
+    characteristics:
+      "Accurate technical vocabulary with clear pronunciation, natural pacing, and continuous delivery."
+  },
+
+  poor: {
+    transcript:
+      "Nanotechnology has attracted considerable interest in oncology because engineered particles may be designed to deliver therapeutic compounds more selectively to tumour tissue. Researchers are investigating whether nanoscale delivery systems can improve treatment efficiency while reducing exposure to healthy cells. Some approaches use surface modifications to encourage particles to accumulate in specific biological environments. However, translating these techniques from experimental studies into critical practice requires extensive testing, regulatory oversight, and careful evaluation of long-term safety.",
+    audioDuration: "35.5 seconds",
+    wordCount: 91,
+    characteristics:
+      "Clear and continuous delivery, but the target word 'clinical' is replaced by the real word 'critical'."
+  },
+
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Accurate Content with clear technical pronunciation and smooth Oral Fluency."
+  },
+
+  poorScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 3,
+    overall: "84 / 90",
+    breakdownText:
+      "A localized word substitution reduces lexical and Pronunciation accuracy while Content and Oral Fluency remain strong."
+  },
+
+  errorChecklist: [
+    {
+      id: "word-substitution",
+      label: "Word substitution",
+      keyword: "Word substitution"
+    },
+    {
+      id: "pronunciation-accuracy",
+      label: "Pronunciation accuracy",
+      keyword: "Pronunciation accuracy"
+    },
+    {
+      id: "technical-vocabulary-substitution",
+      label: "Technical vocabulary substitution",
+      keyword: "Technical vocabulary substitution"
+    }
+  ],
+
+  expertAdvice:
+    "Focus specifically on the substitution of 'critical' for 'clinical'. The substituted word is clearly audible, so the teacher should identify the localized lexical error rather than diagnosing Content loss or general Fluency problems."
+},
 
   {
     exerciseIndex: 83,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-083-prompt-sulafat.mp3",
     totalExercises: 100,
     difficulty: "Advanced",
     trainingSkill: "Oral Fluency",
@@ -8658,6 +8968,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Aquifer hydrogeology examines the movement, storage, and quality of groundwater within geological formations. Excessive extraction can lower water tables and gradually reduce the capacity of an aquifer to support ecosystems and human consumption. Monitoring groundwater levels is therefore essential for identifying long-term depletion before serious shortages occur. Scientists combine measurements from observation wells with geological models to estimate recharge rates and assess whether current extraction remains sustainable. Effective management requires coordination between researchers, regulators, agricultural users, and local communities.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-083-sulafat.mp3",
 
     studentTranscript:
       "Aquifer hydrogeology examines the movement, storage, and quality of groundwater within geological formations. Excessive extraction can lower water tables and gradually reduce the capacity of an aquifer to support ecosystems and human consumption. Monitoring groundwater levels is therefore essential for identifying long-term depletion before serious shortages occur. Scientists combine measurements from observation wells with geological models to estimate recharge rates and assess whether current extraction remains sustainable. Effective management requires coordination between researchers, regulators, agricultural users, and / local communities.",
@@ -8759,6 +9072,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 84,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-084-prompt-iapetus.mp3",
     totalExercises: 100,
     difficulty: "Advanced",
     trainingSkill: "Content Accuracy",
@@ -8772,8 +9086,11 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
     promptAudio:
       "Volcanic eruptions can inject sulphur compounds and other particles into the stratosphere, where they may influence atmospheric chemistry and temporarily alter global climate patterns. Large eruptions can produce extensive aerosol layers that reflect incoming solar radiation and contribute to short-term surface cooling. The magnitude and duration of this effect depend on the amount of material released, its chemical composition, and atmospheric circulation. Researchers use satellite observations, climate models, and historical records to estimate the consequences of major volcanic events. These studies also help scientists distinguish volcanic influences from other causes of climate variability.",
 
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-084-iapetus.mp3",
+
     studentTranscript:
-      "Volcanic eruptions can inject sulphur compounds and other particles into the stratosphere, where they may influence atmospheric chemistry and temporarily alter global climate patterns. Large eruptions can produce extensive aerosol layers that reflect incoming solar radiation and contribute to short-term surface cooling. The magnitude and duration of this effect depend on the amount of material released, its chemical composition, and atmospheric circulation. Researchers use satellite observations, climate models, and historical records to estimate the consequences of major volcanic events. These studies also help scientists distinguish volcanic influences from other causes of climate variability.",
+      "Volcanic eruptions can inject sulphur compounds and other particles into the stratosphere, where they may influence atmospheric chemistry and temporarily alter global climate patterns. Large eruptions can produce extensive aerosol layers that reflect incoming solar radiation and contribute to short-term surface cooling. The magnitude and duration of this effect depend on the amount of material released, its chemical composition, and atmospheric circulation. Researchers use satellite observations, climate models, and historical records to estimate the consequences of major volcanic events. These studies also help scientists distinguish other causes from volcanic influences of climate variability.",
 
     studentResponse: {
       audioDuration: "38.0 seconds",
@@ -8871,6 +9188,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 85,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-085-prompt-achernar.mp3",
     totalExercises: 100,
     difficulty: "Advanced",
     trainingSkill: "Oral Fluency",
@@ -8883,6 +9201,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Ocean acidification occurs when increased concentrations of atmospheric carbon dioxide are absorbed by seawater, altering its chemical balance. One important consequence is a reduction in the availability of carbonate ions, which many marine organisms require to construct shells and skeletons. Calcifying species such as corals, oysters, and some plankton may therefore become more vulnerable as ocean chemistry changes. The effects are not uniform across all ecosystems, because temperature, nutrient availability, and local environmental conditions can modify the response. Long-term monitoring is essential for determining how marine communities adapt to these changing conditions.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-085-achernar.mp3",
 
     studentTranscript:
       "Ocean acidification occurs when increased concentrations of atmospheric carbon dioxide are absorbed by seawater, altering its chemical balance. One important consequence is a reduction in the availability of carbonate ions, which many marine organisms require to construct shells and skeletons. Calcifying species such as corals, oysters, and some plankton may therefore become more vulnerable as ocean chemistry changes. The effects are not uniform across all ecosystems, because temperature, nutrient availability, and local environmental conditions can modify the response. Long-term monitoring is essential for determining how marine communities / adapt, adapt to these changing conditions.",
@@ -8982,8 +9303,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "Focus on the repeated 'adapt' as evidence of an audible self-repair. Do not diagnose Content loss because the student ultimately produces the correct phrase. The primary issue is the interruption to continuous delivery."
   },
 
-    {
+  {
     exerciseIndex: 86,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-086-prompt-orus.mp3",
     totalExercises: 100,
     difficulty: "Advanced",
     trainingSkill: "Content Accuracy",
@@ -8996,6 +9318,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "CRISPR-based genomic editing has transformed research into the mechanisms underlying inherited diseases. By allowing scientists to modify specific sequences of DNA, the technology may eventually support treatments for conditions that were previously difficult to address. However, the ability to alter genetic material also raises complex ethical questions concerning consent, equity, and the boundaries of medical intervention. Researchers and policymakers must therefore consider not only the scientific potential of genomic editing but also its broader social consequences.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-086-orus.mp3",
 
     studentTranscript:
       "CRISPR-based genomic editing has transformed research into the mechanisms underlying inherited diseases. By allowing scientists to modify specific sequences of DNA, the technology may eventually support treatments for conditions that were previously difficult to address. However, the ability to alter genetic material also raises complex ethical questions concerning consent, fairness, and the boundaries of medical intervention. Researchers and policymakers must therefore consider not only the scientific potential of genomic editing but also its broader social consequences.",
@@ -9096,6 +9421,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 87,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-087-prompt-leda.mp3",
     totalExercises: 100,
     difficulty: "Advanced",
     trainingSkill: "Pronunciation",
@@ -9108,6 +9434,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "The epistemology of machine learning examines how computational systems generate, justify, and update claims derived from data. A central concern is whether predictive accuracy should be treated as sufficient evidence that a model represents the underlying phenomenon reliably. Researchers therefore investigate the assumptions embedded in training data, model architecture, and evaluation procedures. These questions become particularly important when automated systems are used to support decisions in medicine, finance, education, or public administration.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-087-leda.mp3",
 
     studentTranscript:
       "The epistemology of machine learning examines how computational systems generate, justify, and update claims derived from data. A central concern is whether predictive accuracy should be treated as sufficient evidence that a modal represents the underlying phenomenon reliably. Researchers therefore investigate the assumptions embedded in training data, model architecture, and evaluation procedures. These questions become particularly important when automated systems are used to support decisions in medicine, finance, education, or public administration.",
@@ -9207,120 +9536,126 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
   },
 
   {
-    exerciseIndex: 88,
-    totalExercises: 100,
-    difficulty: "Advanced",
-    trainingSkill: "Oral Fluency",
-    diagnosticArea: "Phrase-Internal Pausing",
-    learningObjective:
-      "Identify a short phrase-internal pause in a C1 Read Aloud response and distinguish it from natural sentence-boundary pausing and overall slow speech.",
+  exerciseIndex: 88,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-088-prompt-puck.mp3",
+  totalExercises: 100,
+  difficulty: "Advanced",
+  trainingSkill: "Oral Fluency",
+  diagnosticArea: "Unnecessary Word Repetition",
+  learningObjective:
+    "Identify an unnecessary repeated word in a C1 Read Aloud response and distinguish it from a pronunciation or general fluency problem.",
 
-    promptText:
-      "Central banks use sovereign debt policy as one component of broader macroeconomic management. When governments face persistent fiscal pressures, decisions about borrowing costs and debt maturity can influence financial stability. Monetary authorities must therefore assess how interest-rate changes interact with government financing conditions, inflation expectations, and investor confidence. Effective policy requires careful coordination while preserving the independence of institutions responsible for monetary decisions.",
+  promptText:
+    "Central banks use sovereign debt policy as one component of broader macroeconomic management. When governments face persistent fiscal pressures, decisions about borrowing costs and debt maturity can influence financial stability. Monetary authorities must therefore assess how interest-rate changes interact with government financing conditions, inflation expectations, and investor confidence. Effective policy requires careful coordination while preserving the independence of institutions responsible for monetary decisions.",
 
-    promptAudio:
-      "Central banks use sovereign debt policy as one component of broader macroeconomic management. When governments face persistent fiscal pressures, decisions about borrowing costs and debt maturity can influence financial stability. Monetary authorities must therefore assess how interest-rate changes interact with government financing conditions, inflation expectations, and investor confidence. Effective policy requires careful coordination while preserving the independence of institutions responsible for monetary decisions.",
+  promptAudio:
+    "Central banks use sovereign debt policy as one component of broader macroeconomic management. When governments face persistent fiscal pressures, decisions about borrowing costs and debt maturity can influence financial stability. Monetary authorities must therefore assess how interest-rate changes interact with government financing conditions, inflation expectations, and investor confidence. Effective policy requires careful coordination while preserving the independence of institutions responsible for monetary decisions.",
 
-    studentTranscript:
-      "Central banks use sovereign debt policy as one component of broader macroeconomic management. When governments face persistent fiscal pressures, decisions about borrowing costs and debt maturity can influence financial stability. Monetary authorities must therefore assess how interest-rate changes interact with government financing conditions, inflation expectations, and / investor confidence. Effective policy requires careful coordination while preserving the independence of institutions responsible for monetary decisions.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-088-puck.mp3",
 
-    studentResponse: {
-      audioDuration: "35.5 seconds",
-      wordCount: 63,
-      characteristics:
-        "The student reproduces the passage accurately but inserts a short pause between 'and' and 'investor confidence', interrupting the final coordinated phrase of the third sentence."
-    },
+  studentTranscript:
+    "Central banks use sovereign debt policy as one component of broader macroeconomic management. When governments face persistent fiscal pressures, decisions about borrowing costs and debt maturity can influence financial financial stability. Monetary authorities must therefore assess how interest-rate changes interact with government financing conditions, inflation expectations, and investor confidence. Effective policy requires careful coordination while preserving the independence of institutions responsible for monetary decisions.",
 
-    diagnosticErrors: [
-      "Phrase-internal pausing",
-      "Thought-group disruption",
-      "Oral Fluency"
-    ],
-
-    expertEvidence: [
-      "The pause occurs between 'and' and 'investor confidence' in the third sentence.",
-      "The pause interrupts the coordinated phrase 'and investor confidence'.",
-      "Both sides of the phrase are present and clearly pronounced.",
-      "The pause is not required by the grammatical structure.",
-      "The overall speaking rate remains appropriate.",
-      "The remainder of the response is continuous.",
-      "There are no significant fillers, repetitions, or false starts.",
-      "Content remains intact.",
-      "The primary issue is the interruption of a meaningful thought group rather than generally slow speech."
-    ],
-
-    expertDiagnosis:
-      "The main issue is Oral Fluency, specifically an inappropriate phrase-internal pause between 'and' and 'investor confidence' in the third sentence. All Content is present and pronunciation remains clear. The overall speaking rate is appropriate and the rest of the response is continuous. The teacher should therefore focus on maintaining the coordinated thought group rather than diagnosing slow speech, Content loss, or Pronunciation problems.",
-
-    perfectCalibrationResponse:
-      "The student's main issue is Oral Fluency because they introduce a short pause inside the coordinated phrase 'and investor confidence'. All Content is present and clearly pronounced, and the overall speaking rate remains appropriate. The pause nevertheless disrupts natural thought grouping within the third sentence. The teacher should therefore focus on phrase-internal pausing and connected delivery rather than Content or Pronunciation.",
-
-    coachingAdvice:
-      "Practise 'inflation expectations, and investor confidence' as one connected thought group. Maintain forward movement through the conjunction 'and' instead of inserting a pause before the final noun phrase.",
-
-    cefrLevel: "C1",
-    topicTitle: "Central Bank Sovereign Debt Policy",
-
-    good: {
-      transcript:
-        "Central banks use sovereign debt policy as one component of broader macroeconomic management. When governments face persistent fiscal pressures, decisions about borrowing costs and debt maturity can influence financial stability. Monetary authorities must therefore assess how interest-rate changes interact with government financing conditions, inflation expectations, and investor confidence. Effective policy requires careful coordination while preserving the independence of institutions responsible for monetary decisions.",
-      audioDuration: "35.0 seconds",
-      wordCount: 63,
-      characteristics:
-        "Natural thought grouping with continuous delivery, clear pronunciation, and appropriate pacing."
-    },
-
-    poor: {
-      transcript:
-        "Central banks use sovereign debt policy as one component of broader macroeconomic management. When governments face persistent fiscal pressures, decisions about borrowing costs and debt maturity can influence financial stability. Monetary authorities must therefore assess how interest-rate changes interact with government financing conditions, inflation expectations, and / investor confidence. Effective policy requires careful coordination while preserving the independence of institutions responsible for monetary decisions.",
-      audioDuration: "35.5 seconds",
-      wordCount: 63,
-      characteristics:
-        "Accurate and generally fluent delivery, but a short pause interrupts the phrase 'and investor confidence' in the third sentence."
-    },
-
-    goodScore: {
-      content: 5,
-      fluency: 5,
-      pronunciation: 5,
-      overall: "90 / 90",
-      breakdownText:
-        "Accurate Content with natural thought grouping and clear Pronunciation."
-    },
-
-    poorScore: {
-      content: 5,
-      fluency: 3,
-      pronunciation: 5,
-      overall: "84 / 90",
-      breakdownText:
-        "A localized phrase-internal pause disrupts Oral Fluency while Content and Pronunciation remain strong."
-    },
-
-    errorChecklist: [
-      {
-        id: "phrase-internal-pausing",
-        label: "Phrase-internal pausing",
-        keyword: "Phrase-internal pausing"
-      },
-      {
-        id: "thought-group-disruption",
-        label: "Thought-group disruption",
-        keyword: "Thought-group disruption"
-      },
-      {
-        id: "oral-fluency",
-        label: "Oral Fluency",
-        keyword: "Oral Fluency"
-      }
-    ],
-
-    expertAdvice:
-      "Focus on the pause between 'and' and 'investor confidence'. Do not diagnose slow speech because the overall rate is appropriate. The defining problem is the interruption of a meaningful phrase."
+  studentResponse: {
+    audioDuration: "35.5 seconds",
+    wordCount: 64,
+    characteristics:
+      "The student reproduces the passage accurately but unnecessarily repeats the word 'financial', producing 'financial financial stability' and creating a brief fluency disruption."
   },
+
+  diagnosticErrors: [
+    "Unnecessary word repetition",
+    "Word repetition",
+    "Oral Fluency"
+  ],
+
+  expertEvidence: [
+    "The student repeats the word 'financial' in the second sentence.",
+    "The repetition occurs in the phrase 'influence financial financial stability'.",
+    "Both instances of 'financial' are clearly pronounced.",
+    "The second occurrence is unnecessary and is not part of the intended sentence.",
+    "The repetition creates an audible fluency disruption.",
+    "The overall speaking rate remains appropriate.",
+    "The remainder of the response is continuous.",
+    "There are no significant pauses, fillers, or false starts.",
+    "Content remains otherwise intact.",
+    "The primary issue is unnecessary word repetition rather than pronunciation difficulty or generally slow speech."
+  ],
+
+  expertDiagnosis:
+    "The student unnecessarily repeats the word 'financial', creating an audible repetition that disrupts otherwise fluent delivery.",
+
+  perfectCalibrationResponse:
+    "The student's main issue is Oral Fluency because they unnecessarily repeat the word 'financial'. The repeated word is clearly pronounced, Content remains intact, and the overall speaking rate is appropriate. The teacher should therefore identify the unnecessary word repetition rather than diagnosing a Pronunciation or Content problem.",
+
+  coachingAdvice:
+    "Practise the phrase 'influence financial stability' as one continuous thought. Avoid repeating 'financial' before continuing to 'stability'.",
+
+  cefrLevel: "C1",
+  topicTitle: "Central Bank Sovereign Debt Policy",
+
+  good: {
+    transcript:
+      "Central banks use sovereign debt policy as one component of broader macroeconomic management. When governments face persistent fiscal pressures, decisions about borrowing costs and debt maturity can influence financial stability. Monetary authorities must therefore assess how interest-rate changes interact with government financing conditions, inflation expectations, and investor confidence. Effective policy requires careful coordination while preserving the independence of institutions responsible for monetary decisions.",
+    audioDuration: "35.0 seconds",
+    wordCount: 63,
+    characteristics:
+      "Accurate and continuous delivery with natural thought grouping, clear pronunciation, and appropriate pacing."
+  },
+
+  poor: {
+    transcript:
+      "Central banks use sovereign debt policy as one component of broader macroeconomic management. When governments face persistent fiscal pressures, decisions about borrowing costs and debt maturity can influence financial financial stability. Monetary authorities must therefore assess how interest-rate changes interact with government financing conditions, inflation expectations, and investor confidence. Effective policy requires careful coordination while preserving the independence of institutions responsible for monetary decisions.",
+    audioDuration: "35.5 seconds",
+    wordCount: 64,
+    characteristics:
+      "Accurate content and clear pronunciation, but the student unnecessarily repeats 'financial', disrupting otherwise fluent delivery."
+  },
+
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Accurate Content with natural thought grouping, clear Pronunciation, and smooth Oral Fluency."
+  },
+
+  poorScore: {
+    content: 5,
+    fluency: 3,
+    pronunciation: 5,
+    overall: "84 / 90",
+    breakdownText:
+      "An unnecessary word repetition disrupts Oral Fluency while Content and Pronunciation remain strong."
+  },
+
+  errorChecklist: [
+    {
+      id: "unnecessary-word-repetition",
+      label: "Unnecessary word repetition",
+      keyword: "Unnecessary word repetition"
+    },
+    {
+      id: "word-repetition",
+      label: "Word repetition",
+      keyword: "Word repetition"
+    },
+    {
+      id: "oral-fluency",
+      label: "Oral Fluency",
+      keyword: "Oral Fluency"
+    }
+  ],
+
+  expertAdvice:
+    "Focus on the unnecessary repetition of 'financial'. The word should occur only once in the phrase 'influence financial stability'."
+},
 
   {
     exerciseIndex: 89,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-089-prompt-sulafat.mp3",
     totalExercises: 100,
     difficulty: "Advanced",
     trainingSkill: "Content Accuracy",
@@ -9333,6 +9668,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Magnetospheric disturbances are often triggered when intense solar activity sends streams of charged particles toward Earth. These particles interact with the planet's magnetic field and can generate geomagnetic storms of varying intensity. Severe storms may interfere with satellite operations, navigation systems, radio communication, and electrical infrastructure. Scientists monitor solar conditions continuously in order to estimate the likelihood of major disturbances and reduce their potential impact on technological systems.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-089-sulafat.mp3",
 
     studentTranscript:
       "Magnetospheric disturbances are often triggered when intense solar activity sends streams of charged particles toward Earth. These particles interact with the planet's magnetic field and can generate geomagnetic storms of varying intensity. Severe storms may interfere with satellite operations, navigation systems, and electrical infrastructure. Scientists monitor solar conditions continuously in order to estimate the likelihood of major disturbances and reduce their potential impact on technological systems.",
@@ -9434,6 +9772,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 90,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-090-prompt-iapetus.mp3",
     totalExercises: 100,
     difficulty: "Advanced",
     trainingSkill: "Content Accuracy",
@@ -9446,6 +9785,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Comparative evolutionary syntax investigates how grammatical structures emerge, change, and diverge across languages over time. Researchers compare patterns of word order, agreement, and clause formation to determine which features may reflect shared ancestry or independent development. Because languages can undergo substantial structural change, similarities between modern systems do not necessarily provide direct evidence of common origin. Linguists therefore combine historical records, cross-linguistic comparison, and theoretical modelling when reconstructing earlier stages of grammatical development.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-090-iapetus.mp3",
 
     studentTranscript:
       "Comparative evolutionary syntax investigates how grammatical structures emerge, change, and diverge across languages over time. Researchers compare patterns of word order, agreement, and clause formation to determine which features may reflect shared ancestry or independent development. Because languages can undergo substantial structural change, similarities between modern systems do not necessarily provide direct evidence of common origin. Linguists therefore combine historical records, cross-linguistic comparison, and theoretical modelling when reconstructing grammatical development of earlier stages.",
@@ -9546,6 +9888,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
    {
     exerciseIndex: 91,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-091-prompt-achernar.mp3",
     totalExercises: 100,
     difficulty: "Mastery",
     trainingSkill: "Content Accuracy",
@@ -9558,6 +9901,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Quantum chromodynamics provides the theoretical framework for describing the strong interaction between quarks and gluons. Within this framework, hadrons are composite particles whose internal structure reflects the dynamics of colour charge. Although quarks are never observed in isolation under ordinary conditions, high-energy collisions allow physicists to infer their behaviour from measurable patterns in particle production. Experimental results must therefore be interpreted alongside sophisticated calculations of confinement, asymptotic freedom, and the emergence of hadronic states.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-091-achernar.mp3",
 
     studentTranscript:
       "Quantum chromodynamics provides the theoretical framework for describing the strong interaction between quarks and gluons. Within this framework, hadrons are composite particles whose internal structure reflects the dynamics of colour charge. Although quarks are never observed in isolation under ordinary conditions, high-energy collisions allow physicists to infer their behaviour from measurable patterns in particle production. Experimental results must therefore be interpreted alongside sophisticated calculations of confinement, asymptotic freedom, and the formation of hadronic states.",
@@ -9658,6 +10004,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 92,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-092-prompt-orus.mp3",
     totalExercises: 100,
     difficulty: "Mastery",
     trainingSkill: "Pronunciation",
@@ -9670,6 +10017,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Palaeoclimatological ice proxy analysis reconstructs aspects of past climate by examining chemical and physical signals preserved in ancient ice cores. Variations in stable isotopes can provide evidence about historical temperature patterns, while trapped atmospheric gases offer information about changes in greenhouse-gas concentrations. Researchers must account for dating uncertainties, diffusion within the ice, and potential contamination before comparing records from different locations. The resulting reconstructions can reveal climatic fluctuations that occurred long before systematic instrumental measurements became available.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-092-orus.mp3",
 
     studentTranscript:
       "Palaeoclimatological ice proxy analysis reconstructs aspects of past climate by examining chemical and physical signal preserved in ancient ice cores. Variations in stable isotopes can provide evidence about historical temperature patterns, while trapped atmospheric gases offer information about changes in greenhouse-gas concentrations. Researchers must account for dating uncertainties, diffusion within the ice, and potential contamination before comparing records from different locations. The resulting reconstructions can reveal climatic fluctuations that occurred long before systematic instrumental measurements became available.",
@@ -9768,121 +10118,124 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "Focus specifically on the missing final /z/ in 'signals'. This is a localized Pronunciation issue. Do not diagnose Content or Oral Fluency because the passage is otherwise accurately and continuously reproduced."
   },
 
-  {
-    exerciseIndex: 93,
-    totalExercises: 100,
-    difficulty: "Mastery",
-    trainingSkill: "Oral Fluency",
-    diagnosticArea: "Phrase-Internal Pausing",
-    learningObjective:
-      "Identify a subtle phrase-internal pause in a C2 Read Aloud response and distinguish it from legitimate sentence-boundary pausing or generally slow delivery.",
+ {
+  exerciseIndex: 93,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-093-prompt-leda.mp3",
+  totalExercises: 100,
+  difficulty: "Mastery",
+  trainingSkill: "Oral Fluency",
+  diagnosticArea: "Unnecessary Filler",
+  learningObjective:
+    "Identify an unnecessary filler in a C2 Read Aloud response and distinguish it from a legitimate phrase boundary or general speaking-rate issue.",
 
-    promptText:
-      "Phenomenological philosophy examines conscious experience from the first-person perspective, asking how phenomena are structured before they are reduced to explanations from the natural sciences. Rather than treating perception as a passive reception of external information, phenomenologists analyse the ways in which attention, embodiment, memory, and anticipation shape what becomes meaningful to a subject. This approach does not necessarily reject scientific explanation; instead, it investigates dimensions of experience that may be obscured when subjective awareness is described solely in objective terms.",
+  promptText:
+    "Phenomenological philosophy examines conscious experience from the first-person perspective, asking how phenomena are structured before they are reduced to explanations from the natural sciences. Rather than treating perception as a passive reception of external information, phenomenologists analyse the ways in which attention, embodiment, memory, and anticipation shape what becomes meaningful to a subject. This approach does not necessarily reject scientific explanation; instead, it investigates dimensions of experience that may be obscured when subjective awareness is described solely in objective terms.",
 
-    promptAudio:
-      "Phenomenological philosophy examines conscious experience from the first-person perspective, asking how phenomena are structured before they are reduced to explanations from the natural sciences. Rather than treating perception as a passive reception of external information, phenomenologists analyse the ways in which attention, embodiment, memory, and anticipation shape what becomes meaningful to a subject. This approach does not necessarily reject scientific explanation; instead, it investigates dimensions of experience that may be obscured when subjective awareness is described solely in objective terms.",
+  promptAudio:
+    "Phenomenological philosophy examines conscious experience from the first-person perspective, asking how phenomena are structured before they are reduced to explanations from the natural sciences. Rather than treating perception as a passive reception of external information, phenomenologists analyse the ways in which attention, embodiment, memory, and anticipation shape what becomes meaningful to a subject. This approach does not necessarily reject scientific explanation; instead, it investigates dimensions of experience that may be obscured when subjective awareness is described solely in objective terms.",
 
-    studentTranscript:
-      "Phenomenological philosophy examines conscious experience from the first-person perspective, asking how phenomena are structured before they are reduced to explanations from the natural sciences. Rather than treating perception as a passive reception of external information, phenomenologists analyse the ways in which attention, embodiment, memory, / and anticipation shape what becomes meaningful to a subject. This approach does not necessarily reject scientific explanation; instead, it investigates dimensions of experience that may be obscured when subjective awareness is described solely in objective terms.",
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-093-leda.mp3",
 
-    studentResponse: {
-      audioDuration: "36.5 seconds",
-      wordCount: 80,
-      characteristics:
-        "The student reproduces the passage accurately but inserts a short pause between 'memory' and 'and anticipation', interrupting a closely connected list."
-    },
+  studentTranscript:
+    "Phenomenological philosophy examines conscious experience from the first-person perspective, asking how phenomena are structured before they are reduced to explanations from the natural sciences. Rather than treating perception as a passive reception of external information, phenomenologists analyse the ways in which attention, embodiment, memory, um, and anticipation shape what becomes meaningful to a subject. This approach does not necessarily reject scientific explanation; instead, it investigates dimensions of experience that may be obscured when subjective awareness is described solely in objective terms.",
 
-    diagnosticErrors: [
-      "Phrase-internal pausing",
-      "Thought-group disruption",
-      "Oral Fluency"
-    ],
-
-    expertEvidence: [
-      "The pause occurs between 'memory' and 'and anticipation' in the second sentence.",
-      "The pause interrupts the coordinated list 'attention, embodiment, memory, and anticipation'.",
-      "All words in the list are present and clearly pronounced.",
-      "The pause is not required by the grammatical structure.",
-      "The overall speaking rate remains appropriate.",
-      "The remainder of the response is continuous.",
-      "There are no significant fillers, repetitions, or false starts.",
-      "Content remains intact.",
-      "The primary issue is disruption of a meaningful thought group rather than generally slow speech."
-    ],
-
-    expertDiagnosis:
-      "The main issue is Oral Fluency, specifically an inappropriate phrase-internal pause between 'memory' and 'and anticipation'. The pause interrupts a closely connected coordinated list even though all Content is present and clearly pronounced. The overall speaking rate is appropriate and the remainder of the response is continuous. The teacher should therefore focus on phrase-internal pausing and thought-group disruption rather than slow speech, Content loss, or Pronunciation.",
-
-    perfectCalibrationResponse:
-      "The student's main issue is Oral Fluency because they introduce a short pause inside the coordinated list 'attention, embodiment, memory, and anticipation'. The pause occurs between 'memory' and 'and anticipation', where the ideas should remain connected. Content is fully preserved, pronunciation is clear, and the overall speaking rate is appropriate. The teacher should therefore focus on the localized thought-group disruption rather than diagnosing Content or Pronunciation.",
-
-    coachingAdvice:
-      "Practise 'attention, embodiment, memory, and anticipation' as one connected thought group. Maintain forward movement through 'memory and anticipation' rather than inserting a pause before the conjunction.",
-
-    cefrLevel: "C2",
-    topicTitle: "Phenomenological Mind Philosophy",
-
-    good: {
-      transcript:
-        "Phenomenological philosophy examines conscious experience from the first-person perspective, asking how phenomena are structured before they are reduced to explanations from the natural sciences. Rather than treating perception as a passive reception of external information, phenomenologists analyse the ways in which attention, embodiment, memory, and anticipation shape what becomes meaningful to a subject. This approach does not necessarily reject scientific explanation; instead, it investigates dimensions of experience that may be obscured when subjective awareness is described solely in objective terms.",
-      audioDuration: "36.0 seconds",
-      wordCount: 80,
-      characteristics:
-        "Natural C2-level thought grouping with continuous delivery, clear pronunciation, and appropriate pacing."
-    },
-
-    poor: {
-      transcript:
-        "Phenomenological philosophy examines conscious experience from the first-person perspective, asking how phenomena are structured before they are reduced to explanations from the natural sciences. Rather than treating perception as a passive reception of external information, phenomenologists analyse the ways in which attention, embodiment, memory, / and anticipation shape what becomes meaningful to a subject. This approach does not necessarily reject scientific explanation; instead, it investigates dimensions of experience that may be obscured when subjective awareness is described solely in objective terms.",
-      audioDuration: "36.5 seconds",
-      wordCount: 80,
-      characteristics:
-        "Accurate and generally fluent delivery, but a short pause interrupts the coordinated list before 'and anticipation'."
-    },
-
-    goodScore: {
-      content: 5,
-      fluency: 5,
-      pronunciation: 5,
-      overall: "90 / 90",
-      breakdownText:
-        "Accurate Content with natural thought grouping and clear Pronunciation."
-    },
-
-    poorScore: {
-      content: 5,
-      fluency: 3,
-      pronunciation: 5,
-      overall: "84 / 90",
-      breakdownText:
-        "A localized phrase-internal pause disrupts Oral Fluency while Content and Pronunciation remain strong."
-    },
-
-    errorChecklist: [
-      {
-        id: "phrase-internal-pausing",
-        label: "Phrase-internal pausing",
-        keyword: "Phrase-internal pausing"
-      },
-      {
-        id: "thought-group-disruption",
-        label: "Thought-group disruption",
-        keyword: "Thought-group disruption"
-      },
-      {
-        id: "oral-fluency",
-        label: "Oral Fluency",
-        keyword: "Oral Fluency"
-      }
-    ],
-
-    expertAdvice:
-      "Focus on the pause between 'memory' and 'and anticipation'. The overall rate is appropriate; the defining issue is the interruption of a closely connected thought group."
+  studentResponse: {
+    audioDuration: "36.5 seconds",
+    wordCount: 81,
+    characteristics:
+      "The student reproduces the passage accurately but inserts an unnecessary 'um' inside the coordinated list 'attention, embodiment, memory, and anticipation'. The filler briefly interrupts an otherwise controlled response."
   },
+
+  diagnosticErrors: [
+    "Unnecessary filler",
+    "Filler insertion",
+    "Oral Fluency"
+  ],
+
+  expertEvidence: [
+    "The student inserts the filler 'um' between 'memory' and 'and anticipation'.",
+    "The filler is not present in the prompt.",
+    "The insertion occurs inside a closely connected coordinated list.",
+    "All required Content remains present.",
+    "The surrounding words are clearly pronounced.",
+    "The response remains generally controlled and appropriately paced.",
+    "The primary issue is the unnecessary filler rather than Content omission or Pronunciation."
+  ],
+
+  expertDiagnosis:
+    "The main issue is Oral Fluency, specifically an unnecessary filler inserted between 'memory' and 'and anticipation'. The filler is not part of the reading text and briefly interrupts an otherwise controlled response. Content remains intact, pronunciation is generally clear, and the overall speaking rate is appropriate. The teacher should therefore identify the unnecessary filler rather than diagnosing Content or Pronunciation.",
+
+  perfectCalibrationResponse:
+    "The student's main issue is Oral Fluency because they insert an unnecessary 'um' between 'memory' and 'and anticipation'. The filler is not present in the reading text and briefly disrupts an otherwise controlled thought group. Content remains intact, pronunciation is generally clear, and the overall speaking rate is appropriate. The teacher should therefore identify the unnecessary filler rather than diagnosing Content or Pronunciation.",
+
+  coachingAdvice:
+    "Practise the phrase 'attention, embodiment, memory, and anticipation' without inserting a filler. Maintain continuous forward movement through the list while keeping the overall speaking rate natural.",
+
+  cefrLevel: "C2",
+  topicTitle: "Phenomenological Mind Philosophy",
+
+  good: {
+    transcript:
+      "Phenomenological philosophy examines conscious experience from the first-person perspective, asking how phenomena are structured before they are reduced to explanations from the natural sciences. Rather than treating perception as a passive reception of external information, phenomenologists analyse the ways in which attention, embodiment, memory, and anticipation shape what becomes meaningful to a subject. This approach does not necessarily reject scientific explanation; instead, it investigates dimensions of experience that may be obscured when subjective awareness is described solely in objective terms.",
+    audioDuration: "36.0 seconds",
+    wordCount: 80,
+    characteristics:
+      "Natural C2-level thought grouping with continuous delivery, clear pronunciation, and appropriate pacing."
+  },
+
+  poor: {
+    transcript:
+      "Phenomenological philosophy examines conscious experience from the first-person perspective, asking how phenomena are structured before they are reduced to explanations from the natural sciences. Rather than treating perception as a passive reception of external information, phenomenologists analyse the ways in which attention, embodiment, memory, um, and anticipation shape what becomes meaningful to a subject. This approach does not necessarily reject scientific explanation; instead, it investigates dimensions of experience that may be obscured when subjective awareness is described solely in objective terms.",
+    audioDuration: "36.5 seconds",
+    wordCount: 81,
+    characteristics:
+      "Generally clear and controlled delivery, but an unnecessary 'um' interrupts the coordinated list before 'and anticipation'."
+  },
+
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Accurate Content with natural thought grouping and clear Pronunciation."
+  },
+
+  poorScore: {
+    content: 5,
+    fluency: 3,
+    pronunciation: 5,
+    overall: "84 / 90",
+    breakdownText:
+      "An unnecessary filler briefly disrupts Oral Fluency while Content and Pronunciation remain strong."
+  },
+
+  errorChecklist: [
+    {
+      id: "unnecessary-filler",
+      label: "Unnecessary filler",
+      keyword: "Unnecessary filler"
+    },
+    {
+      id: "filler-insertion",
+      label: "Filler insertion",
+      keyword: "Filler insertion"
+    },
+    {
+      id: "oral-fluency",
+      label: "Oral Fluency",
+      keyword: "Oral Fluency"
+    }
+  ],
+
+  expertAdvice:
+    "Focus on the unnecessary 'um' between 'memory' and 'and anticipation'. The overall rate and Content are appropriate; the defining issue is the audible filler interrupting an otherwise controlled thought group."
+},
 
   {
     exerciseIndex: 94,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-094-prompt-puck.mp3",
     totalExercises: 100,
     difficulty: "Mastery",
     trainingSkill: "Content Accuracy",
@@ -9895,6 +10248,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Epigenetic transgenerational inheritance refers to the possibility that environmental exposures may influence biological characteristics across generations without altering the underlying DNA sequence itself. Researchers investigate whether molecular changes in germ cells can persist after the original exposure has ended and subsequently affect descendants. Establishing such effects is methodologically difficult because genetic inheritance, maternal environment, and postnatal conditions can produce overlapping patterns. Consequently, experimental designs must separate inherited molecular signals from environmental transmission before strong causal conclusions can be justified.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-094-puck.mp3",
 
     studentTranscript:
       "Epigenetic transgenerational inheritance refers to the possibility that environmental exposures may influence biological characteristics across generations without altering the underlying DNA sequence itself. Researchers investigate whether molecular changes in germ cells can persist after the original exposure has ended and subsequently affect descendants. Establishing such effects is methodologically difficult because genetic inheritance, maternal environment, and postnatal conditions can produce overlapping patterns. Consequently, experimental designs must separate environmental transmission from inherited molecular signals before strong causal conclusions can be justified.",
@@ -9995,6 +10351,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 95,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-095-prompt-sulafat.mp3",
     totalExercises: 100,
     difficulty: "Mastery",
     trainingSkill: "Content Accuracy",
@@ -10007,6 +10364,9 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
     promptAudio:
       "Algorithmic game theory studies strategic behaviour in computational systems where the choices of individual participants can influence collective outcomes. A central problem is to determine whether mechanisms that produce stable equilibria also generate outcomes that are efficient, fair, or resistant to manipulation. Researchers therefore analyse incentives alongside computational complexity, since a theoretically desirable equilibrium may be difficult to reach when participants have limited information or computational resources. The field connects economic reasoning with algorithm design to evaluate how strategic constraints shape complex systems.",
+
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-095-sulafat.mp3",
 
     studentTranscript:
       "Algorithmic game theory studies strategic behaviour in computational systems where the choices of individual participants can influence collective outcomes. A central problem is to determine whether mechanisms that produce stable equilibria also generate outcomes that are efficient, fair, or resistant to manipulations. Researchers therefore analyse incentives alongside computational complexity, since a theoretically desirable equilibrium may be difficult to reach when participants have limited information or computational resources. The field connects economic reasoning with algorithm design to evaluate how strategic constraints shape complex systems.",
@@ -10107,6 +10467,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 96,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-096-prompt-iapetus.mp3",
     totalExercises: 100,
     difficulty: "Advanced",
     trainingSkill: "Content Accuracy",
@@ -10117,6 +10478,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "Biosemiotics examines how living systems use and interpret signs in processes that extend beyond human language. Researchers may study chemical signals, visual displays, and patterned behaviours as forms of communication between organisms and their environments. A major challenge is to distinguish a genuine signalling relationship from a correlation that has no communicative function. Careful experiments therefore consider whether a receiver changes its behaviour in response to a signal and whether that response provides a measurable advantage.",
     promptAudio:
       "Biosemiotics examines how living systems use and interpret signs in processes that extend beyond human language. Researchers may study chemical signals, visual displays, and patterned behaviours as forms of communication between organisms and their environments. A major challenge is to distinguish a genuine signalling relationship from a correlation that has no communicative function. Careful experiments therefore consider whether a receiver changes its behaviour in response to a signal and whether that response provides a measurable advantage.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-096-iapetus.mp3",
     studentTranscript:
       "Biosemiotics examines how living systems use and interpret signs in processes that extend beyond human language. Researchers may study chemical signals, visual displays, and patterned behaviours as forms of communication between organisms and their environments. A major challenge is to distinguish a genuine signalling relationship from a correlation that has no communicative function. Careful experiments therefore consider whether a sender changes its behaviour in response to a signal and whether that response provides a measurable advantage.",
     studentResponse: {
@@ -10185,94 +10548,123 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
   },
 
   {
-    exerciseIndex: 97,
-    totalExercises: 100,
-    difficulty: "Advanced",
-    trainingSkill: "Oral Fluency",
-    diagnosticArea: "Subtle Phrase-Internal Pausing",
-    learningObjective:
-      "Recognise a subtle phrase-internal pause within a complex technical sentence and distinguish it from normal sentence-boundary pausing.",
-    promptText:
-      "Thermohaline circulation links changes in ocean temperature and salinity to large-scale movement of seawater through the global ocean. Freshwater input from melting ice can reduce surface-water density in high-latitude regions, potentially weakening the sinking that helps drive deep-ocean circulation. Scientists therefore examine interactions among atmospheric forcing, sea-ice processes, and ocean stratification when assessing the stability of the circulation system. Because these processes operate across different timescales, abrupt changes are difficult to predict with confidence.",
-    promptAudio:
-      "Thermohaline circulation links changes in ocean temperature and salinity to large-scale movement of seawater through the global ocean. Freshwater input from melting ice can reduce surface-water density in high-latitude regions, potentially weakening the sinking that helps drive deep-ocean circulation. Scientists therefore examine interactions among atmospheric forcing, sea-ice processes, and ocean stratification when assessing the stability of the circulation system. Because these processes operate across different timescales, abrupt changes are difficult to predict with confidence.",
-    studentTranscript:
-      "Thermohaline circulation links changes in ocean temperature and salinity to large-scale movement of seawater through the global ocean. Freshwater input from melting ice can reduce surface-water density in high-latitude regions, potentially weakening the sinking that helps drive deep-ocean circulation. Scientists therefore examine interactions among atmospheric forcing, sea-ice processes, and ocean stratification when assessing the stability of the circulation system. Because these processes operate across different / timescales, abrupt changes are difficult to predict with confidence.",
-    studentResponse: {
-      audioDuration: "32.5 seconds",
-      wordCount: 75,
-      characteristics:
-        "The response is otherwise fluent and controlled, but contains one subtle pause inside the closely connected phrase \"different timescales.\""
-    },
-    diagnosticErrors: [
-      "Phrase-internal pause",
-      "Thought-group disruption"
-    ],
-    expertEvidence: [
-      "A pause occurs between \"different\" and \"timescales\"",
-      "The two words form a closely connected phrase",
-      "The pause is localized rather than part of a general hesitation pattern",
-      "There are no significant fillers, repetitions, or restarts",
-      "Content is complete and Pronunciation remains generally clear"
-    ],
-    expertDiagnosis:
-      "The primary issue is Oral Fluency, specifically a subtle phrase-internal pause between \"different\" and \"timescales.\" The pause disrupts a closely connected noun phrase near the end of the passage. The response otherwise remains continuous and appropriately paced, with accurate Content and generally clear Pronunciation. The teacher should identify the localized thought-group disruption rather than diagnosing slow speech or Content error.",
-    perfectCalibrationResponse:
-      "The student's main issue is Oral Fluency because there is a subtle pause inside the phrase \"different timescales,\" separating two words that should remain connected. This creates a localized thought-group disruption near the end of the passage. The response otherwise maintains accurate Content, clear Pronunciation, and an appropriate overall speaking rate, with no significant fillers or restarts. The teacher should therefore focus on the phrase-internal pause rather than over-diagnosing a broader fluency problem.",
-    coachingAdvice:
-      "At C2 level, listen for small disruptions inside otherwise fluent speech. Encourage the student to preserve natural thought groups and avoid inserting pauses between closely connected words.",
-    cefrLevel: "C2",
-    topicTitle: "Thermohaline Circulation Collapse",
-    good: {
-      transcript:
-        "Thermohaline circulation links changes in ocean temperature and salinity to large-scale movement of seawater through the global ocean. Freshwater input from melting ice can reduce surface-water density in high-latitude regions, potentially weakening the sinking that helps drive deep-ocean circulation. Scientists therefore examine interactions among atmospheric forcing, sea-ice processes, and ocean stratification when assessing the stability of the circulation system. Because these processes operate across different timescales, abrupt changes are difficult to predict with confidence.",
-      audioDuration: "32.0 seconds",
-      wordCount: 74,
-      characteristics:
-        "Smooth continuous delivery with natural phrase grouping and controlled pacing."
-    },
-    poor: {
-      transcript:
-        "Thermohaline circulation links changes in ocean temperature and salinity to large-scale movement of seawater through the global ocean. Freshwater input from melting ice can reduce surface-water density in high-latitude regions, potentially weakening the sinking that helps drive deep-ocean circulation. Scientists therefore examine interactions among atmospheric forcing, sea-ice processes, and ocean stratification when assessing the stability of the circulation system. Because these processes operate across different / timescales, abrupt changes are difficult to predict with confidence.",
-      audioDuration: "32.5 seconds",
-      wordCount: 75,
-      characteristics:
-        "Mostly natural delivery with one subtle phrase-internal pause between \"different\" and \"timescales.\""
-    },
-    goodScore: {
-      content: 5,
-      fluency: 5,
-      pronunciation: 5,
-      overall: "90 / 90",
-      breakdownText:
-        "Continuous, naturally grouped delivery with accurate Content and clear Pronunciation."
-    },
-    poorScore: {
-      content: 5,
-      fluency: 4,
-      pronunciation: 5,
-      overall: "85 / 90",
-      breakdownText:
-        "A localized phrase-internal pause mildly disrupts an otherwise fluent thought group."
-    },
-    errorChecklist: [
-      {
-        id: "phrase-internal-pause",
-        label: "Phrase-internal pause",
-        keyword: "Phrase-internal pause"
-      },
-      {
-        id: "thought-group-disruption",
-        label: "Thought-group disruption",
-        keyword: "Thought-group disruption"
-      }
-    ],
-    expertAdvice:
-      "Focus on Oral Fluency rather than Content or Pronunciation. The important evidence is the pause inside the connected phrase \"different timescales.\" Do not over-diagnose the response as generally slow or hesitant."
+  exerciseIndex: 97,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-097-prompt-achernar.mp3",
+  totalExercises: 100,
+  difficulty: "Advanced",
+  trainingSkill: "Oral Fluency",
+  diagnosticArea: "Unnecessary Word Repetition",
+  learningObjective:
+    "Identify an unnecessary repeated word in a complex C2 Read Aloud response and distinguish it from a pronunciation or Content problem.",
+
+  promptText:
+    "Thermohaline circulation links changes in ocean temperature and salinity to large-scale movement of seawater through the global ocean. Freshwater input from melting ice can reduce surface-water density in high-latitude regions, potentially weakening the sinking that helps drive deep-ocean circulation. Scientists therefore examine interactions among atmospheric forcing, sea-ice processes, and ocean stratification when assessing the stability of the circulation system. Because these processes operate across different timescales, abrupt changes are difficult to predict with confidence.",
+
+  promptAudio:
+    "Thermohaline circulation links changes in ocean temperature and salinity to large-scale movement of seawater through the global ocean. Freshwater input from melting ice can reduce surface-water density in high-latitude regions, potentially weakening the sinking that helps drive deep-ocean circulation. Scientists therefore examine interactions among atmospheric forcing, sea-ice processes, and ocean stratification when assessing the stability of the circulation system. Because these processes operate across different timescales, abrupt changes are difficult to predict with confidence.",
+
+  studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-097-achernar.mp3",
+
+  studentTranscript:
+    "Thermohaline circulation links changes in ocean temperature and salinity to large-scale movement of seawater through the global ocean. Freshwater input from melting ice can reduce surface-water density in high-latitude regions, potentially weakening the sinking that helps drive deep-ocean circulation. Scientists therefore examine interactions among atmospheric forcing, sea-ice processes, and ocean stratification when assessing the stability of the circulation system. Because these processes operate across different timescales, circulation abrupt changes are difficult to predict with confidence.",
+
+  studentResponse: {
+    audioDuration: "32.5 seconds",
+    wordCount: 76,
+    characteristics:
+      "The response is otherwise fluent and controlled, but the student unnecessarily repeats 'circulation' near the end of the final sentence, creating a clear local disruption in Oral Fluency."
   },
+
+  diagnosticErrors: [
+    "Unnecessary word repetition",
+    "Word repetition",
+    "Oral Fluency"
+  ],
+
+  expertEvidence: [
+    "The prompt does not contain the second occurrence of 'circulation' in the final sentence.",
+    "The student inserts an unnecessary 'circulation' before 'abrupt changes'.",
+    "The repeated word creates a localized disruption in the final sentence.",
+    "The surrounding Content remains substantially intact.",
+    "Pronunciation is generally clear.",
+    "There are no significant rate problems or widespread hesitations.",
+    "The primary issue is unnecessary word repetition rather than Content omission or Pronunciation."
+  ],
+
+  expertDiagnosis:
+    "The primary issue is Oral Fluency, specifically an unnecessary repetition of the word 'circulation' near the end of the final sentence. The student inserts a word that is not present in the reading text, creating a localized disruption in an otherwise fluent response. Pronunciation remains generally clear and there is no broader speaking-rate problem. The teacher should therefore identify the unnecessary repetition rather than diagnosing Pronunciation or a major Content error.",
+
+  perfectCalibrationResponse:
+    "The student's main issue is Oral Fluency because they unnecessarily repeat the word 'circulation' before 'abrupt changes' in the final sentence. The added word is not present in the reading text and creates a localized disruption in an otherwise controlled response. Pronunciation remains generally clear and there is no broader rate problem. The teacher should therefore identify the unnecessary word repetition rather than diagnosing Pronunciation or a major Content problem.",
+
+  coachingAdvice:
+    "Practise the final sentence without repeating 'circulation'. Maintain forward movement from 'different timescales' directly into 'abrupt changes' while keeping the delivery natural and controlled.",
+
+  cefrLevel: "C2",
+  topicTitle: "Thermohaline Circulation Collapse",
+
+  good: {
+    transcript:
+      "Thermohaline circulation links changes in ocean temperature and salinity to large-scale movement of seawater through the global ocean. Freshwater input from melting ice can reduce surface-water density in high-latitude regions, potentially weakening the sinking that helps drive deep-ocean circulation. Scientists therefore examine interactions among atmospheric forcing, sea-ice processes, and ocean stratification when assessing the stability of the circulation system. Because these processes operate across different timescales, abrupt changes are difficult to predict with confidence.",
+    audioDuration: "32.0 seconds",
+    wordCount: 74,
+    characteristics:
+      "Smooth continuous delivery with natural phrase grouping and controlled pacing."
+  },
+
+  poor: {
+    transcript:
+      "Thermohaline circulation links changes in ocean temperature and salinity to large-scale movement of seawater through the global ocean. Freshwater input from melting ice can reduce surface-water density in high-latitude regions, potentially weakening the sinking that helps drive deep-ocean circulation. Scientists therefore examine interactions among atmospheric forcing, sea-ice processes, and ocean stratification when assessing the stability of the circulation system. Because these processes operate across different timescales, circulation abrupt changes are difficult to predict with confidence.",
+    audioDuration: "32.5 seconds",
+    wordCount: 76,
+    characteristics:
+      "Mostly natural delivery with one unnecessary repetition of 'circulation' near the end of the passage."
+  },
+
+  goodScore: {
+    content: 5,
+    fluency: 5,
+    pronunciation: 5,
+    overall: "90 / 90",
+    breakdownText:
+      "Continuous, naturally grouped delivery with accurate Content and clear Pronunciation."
+  },
+
+  poorScore: {
+    content: 5,
+    fluency: 3,
+    pronunciation: 5,
+    overall: "84 / 90",
+    breakdownText:
+      "An unnecessary repeated word creates a localized Oral Fluency disruption while Content and Pronunciation remain strong."
+  },
+
+  errorChecklist: [
+    {
+      id: "unnecessary-word-repetition",
+      label: "Unnecessary word repetition",
+      keyword: "Unnecessary word repetition"
+    },
+    {
+      id: "word-repetition",
+      label: "Word repetition",
+      keyword: "Word repetition"
+    },
+    {
+      id: "oral-fluency",
+      label: "Oral Fluency",
+      keyword: "Oral Fluency"
+    }
+  ],
+
+  expertAdvice:
+    "Focus on the unnecessary repetition of 'circulation' near the end of the final sentence. The response is otherwise controlled, so do not diagnose a broader Fluency or Pronunciation problem."
+},
 
  {
     exerciseIndex: 98,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-098-prompt-orus.mp3",
     totalExercises: 100,
     difficulty: "Advanced",
     trainingSkill: "Pronunciation",
@@ -10283,6 +10675,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "Computational aerodynamic turbulence modelling seeks to represent irregular fluid motion around aircraft, turbines, and other engineered surfaces. Direct numerical simulation can resolve a wide range of turbulent scales, but its computational cost becomes prohibitive at high Reynolds numbers. Engineers therefore use approaches such as large-eddy simulation and Reynolds-averaged models to approximate unresolved motion. The reliability of these methods depends on how well their assumptions capture separation, energy transfer, and near-wall behaviour under the relevant flow conditions.",
     promptAudio:
       "Computational aerodynamic turbulence modelling seeks to represent irregular fluid motion around aircraft, turbines, and other engineered surfaces. Direct numerical simulation can resolve a wide range of turbulent scales, but its computational cost becomes prohibitive at high Reynolds numbers. Engineers therefore use approaches such as large-eddy simulation and Reynolds-averaged models to approximate unresolved motion. The reliability of these methods depends on how well their assumptions capture separation, energy transfer, and near-wall behaviour under the relevant flow conditions.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-098-orus.mp3",
     studentTranscript:
       "Computational aerodynamic turbulence modelling seeks to represent irregular fluid motion around aircraft, turbines, and other engineered surfaces. Direct numerical simulation can resolve a wide range of turbulent scales, but its computational cost becomes prohibitive at high Reynolds numbers. Engineers therefore use approaches such as large-eddy simulation and Reynolds-averaged models to approximate unresolved motion. The reliability of these methods depends on how well their assumptions capture separation, energy transfer, and near-wall behaviour under the levant flow conditions.",
     studentResponse: {
@@ -10352,6 +10746,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 99,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-099-prompt-leda.mp3",
     totalExercises: 100,
     difficulty: "Advanced",
     trainingSkill: "Content Accuracy",
@@ -10362,6 +10757,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "Structural hermeneutics examines how the organization of a text or inscription contributes to its interpretation. In epigraphic research, scholars may compare repeated formulas, spatial arrangement, damaged passages, and changes in script to reconstruct how an inscription was produced and understood. Interpretation becomes especially difficult when material evidence and later textual conventions point in different directions. A careful analysis must therefore distinguish what is directly attested on the object from what is inferred through comparison with related sources.",
     promptAudio:
       "Structural hermeneutics examines how the organization of a text or inscription contributes to its interpretation. In epigraphic research, scholars may compare repeated formulas, spatial arrangement, damaged passages, and changes in script to reconstruct how an inscription was produced and understood. Interpretation becomes especially difficult when material evidence and later textual conventions point in different directions. A careful analysis must therefore distinguish what is directly attested on the object from what is inferred through comparison with related sources.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-099-leda.mp3",
     studentTranscript:
       "Structural hermeneutics examines how the organization of a text or inscription contributes to its interpretation. In epigraphic research, scholars may compare repeated formulas, spatial arrangement, damaged passages, and changes in script to reconstruct how an inscription was produced and understood. Interpretation becomes especially difficult when material evidence and later textual conventions point in different directions. A careful analysis must therefore distinguish what is inferred on the object from what is directly attested through comparison with related sources.",
     studentResponse: {
@@ -10436,6 +10833,7 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
 
   {
     exerciseIndex: 100,
+    promptAudioUrl: "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/prompts-v1/exercise-100-prompt-puck.mp3",
     totalExercises: 100,
     difficulty: "Advanced",
     trainingSkill: "Diagnostic Restraint",
@@ -10446,6 +10844,8 @@ export const READ_ALOUD_CALIBRATION_EXERCISES = [
       "Entangled photon quantum cryptanalysis studies how quantum correlations can be exploited to test the security assumptions of cryptographic protocols. In an idealized entanglement-based experiment, measurements performed on separated photons can exhibit correlations that cannot be reproduced by simple classical models. Practical systems, however, are affected by detector inefficiency, channel loss, imperfect state preparation, and background noise. Reliable security analysis must therefore connect the observed correlations with a carefully specified threat model rather than treating entanglement itself as automatic proof of secrecy.",
     promptAudio:
       "Entangled photon quantum cryptanalysis studies how quantum correlations can be exploited to test the security assumptions of cryptographic protocols. In an idealized entanglement-based experiment, measurements performed on separated photons can exhibit correlations that cannot be reproduced by simple classical models. Practical systems, however, are affected by detector inefficiency, channel loss, imperfect state preparation, and background noise. Reliable security analysis must therefore connect the observed correlations with a carefully specified threat model rather than treating entanglement itself as automatic proof of secrecy.",
+    studentResponseAudioUrl:
+      "https://storage.googleapis.com/pte-flow-teacher-dashboard-audio/calibration-audio/read-aloud/student-responses-v1/read-aloud-100-puck.mp3",
     studentTranscript:
       "Entangled photon quantum cryptanalysis studies how quantum correlations can be exploited to test the security assumptions of cryptographic protocols. In an idealized entanglement-based experiment, measurements performed on separated photons can exhibit correlations that cannot be reproduced by simple classical models. Practical systems, however, are affected by detector inefficiency, channel loss, imperfect state preparation, and background noise. Reliable security analysis must therefore connect the observed correlations with a carefully specified threat model rather than treating entanglement itself as automatic proof of secrecy.",
     studentResponse: {
