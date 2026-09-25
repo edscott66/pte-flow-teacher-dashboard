@@ -757,8 +757,8 @@ export default function MarkingScreen({
         <div className="calibration-workspace p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
 
           {/* Toggle between Good and Poor Response Header */}
-          <div className="calibration-sample-toggle flex items-center justify-end flex-wrap gap-2">
-            <div className="flex items-center bg-slate-100 dark:bg-slate-800 p-0.5 rounded-lg border border-slate-200 dark:border-slate-700">
+          <div className="calibration-sample-toggle flex flex-wrap items-center gap-2">
+            <div className="flex items-center shrink-0 bg-slate-100 dark:bg-slate-800 p-0.5 rounded-lg border border-slate-200 dark:border-slate-700">
 
               <button
                 onClick={() =>
@@ -786,6 +786,16 @@ export default function MarkingScreen({
               >
                 <ShieldCheck className="w-3 h-3" />
                 High Score Sample
+              </button>
+
+              <button
+                type="button"
+                onClick={handleRandomCalibrationExercise}
+                className="calibration-random-button ml-0.5 flex h-[37px] shrink-0 items-center justify-center gap-1.5 rounded-lg border border-indigo-500 bg-indigo-600 px-3 py-1 text-[10px] font-extrabold text-white shadow-sm transition-all cursor-pointer hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                title="Choose a random authored Calibration Lab exercise"
+              >
+                <RefreshCw className="h-3.5 w-3.5" />
+                <span>Random</span>
               </button>
 
             </div>
@@ -818,7 +828,7 @@ export default function MarkingScreen({
                 )}
               </div>
 
-              {/* Prev / Next / Random & 1/100 Dropdown */}
+              {/* Prev / Next & 1/100 Dropdown */}
               <div className="flex items-center gap-1.5 min-w-0 max-w-full ml-auto">
 
                 <button
@@ -981,17 +991,6 @@ export default function MarkingScreen({
                   <ChevronRight className="w-4 h-4" />
                 </button>
 
-                <button
-                  onClick={handleRandomCalibrationExercise}
-                  className="calibration-nav-button px-2 py-1 rounded-lg bg-indigo-600 text-white border border-indigo-500 hover:bg-indigo-500 transition-all cursor-pointer shrink-0 flex items-center gap-1"
-                  title="Choose a random authored Calibration Lab exercise"
-                >
-                  <RefreshCw className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline text-[10px] font-extrabold">
-                    Random
-                  </span>
-                </button>
-
               </div>
             </div>
 
@@ -1117,11 +1116,9 @@ export default function MarkingScreen({
                 </div>
               </div>
 
-              {!isCalibrationExercise && (
-                <p className="leading-relaxed font-sans font-medium text-slate-200">
-                  {currentExercise.promptText}
-                </p>
-              )}
+              <p className="leading-relaxed font-sans font-medium text-slate-200">
+                {currentExercise.promptText}
+              </p>
 
               {currentQuestion.id === "summarize-group-discussion" && (
                 <p className="text-[10px] leading-relaxed text-indigo-300 border-t border-slate-800 pt-1.5">

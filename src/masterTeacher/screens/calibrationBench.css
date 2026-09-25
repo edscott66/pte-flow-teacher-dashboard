@@ -2520,3 +2520,97 @@ span {
     padding: 9px 9px !important;
   }
 }
+
+
+/* ============================================================
+   WEAK / HIGH-SCORE / RANDOM SAMPLE CONTROLS
+   Random button matches the existing sample buttons.
+   ============================================================ */
+
+/* Keep an even 10px gap between the sample-button group
+   and the Random button. */
+.calibration-bench .calibration-sample-toggle {
+  gap: 10px !important;
+}
+
+/* Random button — indigo to distinguish it from the
+   Weak (red) and High Score (green) sample controls. */
+.calibration-bench .calibration-sample-toggle .calibration-random-button {
+  appearance: none !important;
+  min-width: 110px !important;
+  width: 110px !important;
+  min-height: 37px !important;
+  height: 40px !important;
+  padding: 7px 12px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  border: 1px solid #818cf8 !important;
+  border-radius: 8px !important;
+  background: #eef2ff !important;
+  color: #4338ca !important;
+  box-shadow: none !important;
+  font-size: 10.5px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  margin-left: 10px !important;
+  position: relative !important;
+  top: -2px !important;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease !important;
+}
+
+/* Keep the Random icon aligned with the other buttons. */
+.calibration-bench .calibration-sample-toggle .calibration-random-button svg {
+  width: 15px !important;
+  height: 15px !important;
+  flex: 0 0 auto !important;
+  color: #4f46e5 !important;
+}
+
+/* Hover */
+.calibration-bench .calibration-sample-toggle .calibration-random-button:hover {
+  background: #e0e7ff !important;
+  border-color: #6366f1 !important;
+  color: #3730a3 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 11px rgba(79, 70, 229, 0.14) !important;
+}
+
+/* Hover icon */
+.calibration-bench .calibration-sample-toggle .calibration-random-button:hover svg {
+  color: #4338ca !important;
+}
+
+/* Keyboard focus */
+.calibration-bench .calibration-sample-toggle .calibration-random-button:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.18) !important;
+  outline-offset: 1px !important;
+}
+
+/* Pressed state */
+.calibration-bench .calibration-sample-toggle .calibration-random-button:active {
+  transform: translateY(0) !important;
+  box-shadow: none !important;
+}
+
+/* On narrow screens, allow the controls to wrap cleanly while
+   retaining the same visual spacing. */
+@media (max-width: 560px) {
+  .calibration-bench .calibration-sample-toggle {
+    gap: 8px !important;
+  }
+
+  .calibration-bench .calibration-sample-toggle .calibration-random-button {
+    min-width: 100px !important;
+    width: auto !important;
+  }
+}
