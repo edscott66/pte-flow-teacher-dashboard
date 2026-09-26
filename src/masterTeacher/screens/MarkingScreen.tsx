@@ -329,15 +329,8 @@ export default function MarkingScreen({
     ]);
 
     if (!activeQuestionTypes.has(selectedQuestion.id)) {
-      setAssessmentWarning({
-        title: "Coming Soon",
-        message:
-          `${selectedQuestion.title} is planned for a future update. Read Aloud and Repeat Sentence are currently available in the Teacher Dashboard.`,
-        tip:
-          "Your current question selection has not been changed. You can continue working with Read Aloud or Repeat Sentence.",
-      });
-      return;
-    }
+          return;
+        }
 
     setAssessmentWarning(null);
     handleStopAudio();
