@@ -1,4 +1,4 @@
-import { defineConfig, loadEnv } from "vite";
+﻿import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import { GoogleGenAI, Type } from "@google/genai";
 
@@ -12,6 +12,231 @@ import { GoogleGenAI, Type } from "@google/genai";
  * - The browser calls /api/evaluate-feedback and never receives the key.
  */
 
+function liveEvaluationTranscriptionPlugin(apiKey) {
+  return {
+    name: "live-evaluation-transcription-api",
+
+    configureServer(server) {
+      server.middlewares.use(
+        "/api/live-evaluation-transcribe",
+        async (req, res, next) => {
+          if (req.method !== "POST") {
+            next();
+            return;
+          }
+
+          let body = "";
+
+          req.on("data", (chunk) => {
+            body += chunk.toString();
+          });
+
+          req.on("end", async () => {
+            let uploadedFile = null;
+
+            try {
+              const {
+                audioBase64,
+                mimeType = "audio/webm",
+              } = JSON.parse(body || "{}");
+
+              res.setHeader("Content-Type", "application/json");
+
+              if (!apiKey) {
+                res.statusCode = 503;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error: "GEMINI_API_KEY_MISSING",
+                    message:
+                      "No GEMINI_API_KEY was found in the Teacher Dashboard environment.",
+                  })
+                );
+                return;
+              }
+
+              if (
+                typeof audioBase64 !== "string" ||
+                !audioBase64.trim()
+              ) {
+                res.statusCode = 400;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error: "AUDIO_MISSING",
+                    message: "No recorded audio was supplied.",
+                  })
+                );
+                return;
+              }
+
+              if (mimeType !== "audio/webm") {
+                res.statusCode = 400;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error: "AUDIO_FORMAT_UNSUPPORTED",
+                    message:
+                      "Live Evaluation currently expects an audio/webm recording.",
+                  })
+                );
+                return;
+              }
+
+              const audioBuffer = Buffer.from(
+                audioBase64,
+                "base64"
+              );
+
+              const maxAudioBytes = 20 * 1024 * 1024;
+
+              if (
+                !audioBuffer.length ||
+                audioBuffer.length > maxAudioBytes
+              ) {
+                res.statusCode = 413;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error: "AUDIO_TOO_LARGE",
+                    message:
+                      "The recorded audio is empty or exceeds the 20 MB Live Evaluation limit.",
+                  })
+                );
+                return;
+              }
+
+              const ai = new GoogleGenAI({
+                apiKey,
+                httpOptions: {
+                  headers: {
+                    "User-Agent": "PTE-Flow-Teacher-Dashboard",
+                  },
+                },
+              });
+
+              const audioBlob = new Blob(
+                [audioBuffer],
+                { type: mimeType }
+              );
+
+              uploadedFile = await ai.files.upload({
+                file: audioBlob,
+                config: {
+                  mimeType,
+                  displayName: "pte-live-evaluation-recording.webm",
+                },
+              });
+
+              const interaction =
+                await ai.interactions.create({
+                  model: "gemini-3.5-transcribe",
+                  input: [
+                    {
+                      type: "audio",
+                      uri: uploadedFile.uri,
+                      mime_type:
+                        uploadedFile.mimeType ||
+                        mimeType,
+                    },
+                  ],
+                });
+
+              const transcript =
+                typeof interaction.output_text === "string"
+                  ? interaction.output_text.trim()
+                  : "";
+
+              if (!transcript) {
+                res.statusCode = 502;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error: "TRANSCRIPTION_EMPTY",
+                    message:
+                      "Gemini did not return a transcript for the recording.",
+                  })
+                );
+                return;
+              }
+
+              res.statusCode = 200;
+              res.end(
+                JSON.stringify({
+                  isLiveAi: true,
+                  transcript,
+                })
+              );
+            } catch (error) {
+              console.error(
+                "Live Evaluation transcription API error:",
+                error
+              );
+
+              res.statusCode = 500;
+              res.end(
+                JSON.stringify({
+                  isLiveAi: false,
+                  error: "LIVE_TRANSCRIPTION_FAILED",
+                  message:
+                    error instanceof Error
+                      ? error.message
+                      : "Gemini transcription failed.",
+                })
+              );
+            } finally {
+              if (uploadedFile?.name) {
+                try {
+                  const cleanupAi = new GoogleGenAI({
+                    apiKey,
+                    httpOptions: {
+                      headers: {
+                        "User-Agent": "PTE-Flow-Teacher-Dashboard",
+                      },
+                    },
+                  });
+
+                  await cleanupAi.files.delete({
+                    name: uploadedFile.name,
+                  });
+                } catch (cleanupError) {
+                  console.error(
+                    "Live Evaluation uploaded-file cleanup failed:",
+                    cleanupError
+                  );
+                }
+              }
+            }
+          });
+
+          req.on("error", (error) => {
+            console.error(
+              "Live Evaluation request body error:",
+              error
+            );
+
+            if (!res.headersSent) {
+              res.statusCode = 400;
+              res.setHeader(
+                "Content-Type",
+                "application/json"
+              );
+
+              res.end(
+                JSON.stringify({
+                  isLiveAi: false,
+                  error: "INVALID_REQUEST",
+                  message:
+                    "The Live Evaluation audio request could not be read.",
+                })
+              );
+            }
+          });
+        }
+      );
+    },
+  };
+}
 function evaluateFeedbackPlugin(apiKey) {
   return {
     name: "evaluate-feedback-api",
@@ -123,7 +348,7 @@ Selected Diagnostic Categories: ${JSON.stringify(
                 )
               )}
 
-=== CALIBRATION SCORING RULES — IMPORTANT ===
+=== CALIBRATION SCORING RULES â€” IMPORTANT ===
 This is a teacher-calibration exercise, NOT a checkbox recognition quiz. The teacher must earn the score through the independently written assessment.
 
 IMPORTANT: The Diagnostic Focus cards and Error Checklist are no longer part of the teacher's scoring task. Any checklist data supplied with this request is contextual only. Do NOT award, remove, or cap points because of a checklist selection or because the teacher did not select one. Never tell the teacher to select a checklist item.
@@ -133,7 +358,7 @@ A. DIAGNOSIS (50 points): Did the teacher correctly identify the main score-impa
 B. EVIDENCE & JUSTIFICATION (30 points): Did the teacher state specific evidence from what the student said or did, and clearly connect that evidence to the diagnosis and its effect on the score?
 C. PROFESSIONAL ASSESSMENT (20 points): Did the teacher use appropriate PTE terminology, distinguish the main problem from similar issues, explain the performance impact accurately, and give useful practical advice where appropriate?
 
-=== SCORING ANCHORS — USE THESE CONSISTENTLY ===
+=== SCORING ANCHORS â€” USE THESE CONSISTENTLY ===
 Diagnosis / 50:
 - 45-50: Correct primary diagnosis, accurate prioritisation, and no unsupported major diagnosis.
 - 35-44: Correct primary diagnosis but with a minor omission, imprecision, or unnecessary secondary focus.
@@ -688,7 +913,8 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       react(),
-      evaluateFeedbackPlugin(apiKey),
+    liveEvaluationTranscriptionPlugin(apiKey),
+    evaluateFeedbackPlugin(apiKey),
     ],
 
     resolve: {
@@ -718,3 +944,4 @@ export default defineConfig(({ mode }) => {
     },
   };
 });
+

@@ -4,6 +4,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ChevronUp,
+  Mic,
 } from "lucide-react";
 
 import {
@@ -96,6 +97,12 @@ export default function LiveEvaluationScreen({
     useState("");
   const [teacherAssessmentSubmitted, setTeacherAssessmentSubmitted] =
     useState(false);
+  const [liveAiTranscriptionStatus, setLiveAiTranscriptionStatus] =
+    useState("idle");
+  const [liveAiTranscript, setLiveAiTranscript] =
+    useState("");
+  const [liveAiError, setLiveAiError] =
+    useState("");
 
   /*
    * ============================================================
@@ -420,6 +427,9 @@ export default function LiveEvaluationScreen({
     setTeacherScores({});
     setTeacherFeedback("");
     setTeacherAssessmentSubmitted(false);
+    setLiveAiTranscriptionStatus("idle");
+    setLiveAiTranscript("");
+    setLiveAiError("");
   };
 
   const handleTeacherScoreChange = (
@@ -434,7 +444,7 @@ export default function LiveEvaluationScreen({
     setTeacherAssessmentSubmitted(false);
   };
 
-  const handleSubmitTeacherAssessment = () => {
+  const handleSubmitTeacherAssessment = async () => {
     const allCriteriaScored =
       assessmentCriteria.length > 0 &&
       assessmentCriteria.every(
@@ -451,7 +461,112 @@ export default function LiveEvaluationScreen({
       return;
     }
 
+    // Teacher assessment is submitted first.
+    // AI is introduced only after submission.
     setTeacherAssessmentSubmitted(true);
+    setLiveAiTranscript("");
+    setLiveAiError("");
+
+    if (!recordedAudioBlob) {
+      setLiveAiTranscriptionStatus("error");
+      setLiveAiError(
+        "The teacher assessment was submitted, but no recording is available for AI transcription."
+      );
+      return;
+    }
+
+    try {
+      setLiveAiTranscriptionStatus("transcribing");
+
+      const audioBase64 = await new Promise(
+        (resolve, reject) => {
+          const reader = new FileReader();
+
+          reader.onloadend = () => {
+            const result = reader.result;
+
+            if (typeof result !== "string") {
+              reject(
+                new Error(
+                  "The recorded audio could not be prepared for transcription."
+                )
+              );
+              return;
+            }
+
+            const commaIndex = result.indexOf(",");
+
+            if (commaIndex === -1) {
+              reject(
+                new Error(
+                  "The recorded audio data was not in the expected format."
+                )
+              );
+              return;
+            }
+
+            resolve(result.slice(commaIndex + 1));
+          };
+
+          reader.onerror = () => {
+            reject(
+              new Error("The recorded audio could not be read.")
+            );
+          };
+
+          reader.readAsDataURL(recordedAudioBlob);
+        }
+      );
+
+      const response = await fetch(
+        "/api/live-evaluation-transcribe",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            audioBase64,
+            mimeType: "audio/webm",
+          }),
+        }
+      );
+
+      const result = await response.json();
+
+      if (!response.ok || !result.isLiveAi) {
+        throw new Error(
+          result?.message ||
+            "Live Evaluation transcription failed."
+        );
+      }
+
+      const transcript =
+        typeof result.transcript === "string"
+          ? result.transcript.trim()
+          : "";
+
+      if (!transcript) {
+        throw new Error(
+          "Gemini did not return a transcript for the recording."
+        );
+      }
+
+      setLiveAiTranscript(transcript);
+      setLiveAiTranscriptionStatus("complete");
+    } catch (error) {
+      console.error(
+        "Live Evaluation AI transcription failed:",
+        error
+      );
+
+      setLiveAiTranscriptionStatus("error");
+      setLiveAiError(
+        error instanceof Error
+          ? error.message
+          : "Live Evaluation transcription failed."
+      );
+    }
   };
 
   /*
@@ -865,7 +980,7 @@ export default function LiveEvaluationScreen({
 
         <div className="master-teacher-hero-badge">
           <span className="master-teacher-hero-icon">
-            🎙️
+            <Mic size={20} strokeWidth={2.5} />
           </span>
 
           <div>
@@ -2567,7 +2682,8 @@ export default function LiveEvaluationScreen({
                       }}
                     >
                       Your assessment is independent of
-                      AI and is not being sent anywhere yet.
+                      AI. AI transcription begins only after
+                      you submit this assessment.
                     </span>
 
                     <button
@@ -2626,23 +2742,99 @@ export default function LiveEvaluationScreen({
                 </div>
 
                 {teacherAssessmentSubmitted && (
-                  <div
-                    style={{
-                      marginTop: "10px",
-                      padding: "10px 12px",
-                      borderRadius: "8px",
-                      backgroundColor: "#f0fdf4",
-                      border: "1px solid #bbf7d0",
-                      color: "#166534",
-                      fontSize: "10px",
-                      fontWeight: 800,
-                      lineHeight: 1.45,
-                    }}
-                  >
-                    Teacher assessment submitted locally.
-                    No AI evaluation or permanent storage has
-                    been triggered.
-                  </div>
+                  <>
+                    <div
+                      style={{
+                        marginTop: "10px",
+                        padding: "10px 12px",
+                        borderRadius: "8px",
+                        backgroundColor: "#f0fdf4",
+                        border: "1px solid #bbf7d0",
+                        color: "#166534",
+                        fontSize: "10px",
+                        fontWeight: 800,
+                        lineHeight: 1.45,
+                      }}
+                    >
+                      Teacher assessment submitted locally.
+                      AI transcription has now been requested.
+                      No permanent storage has been triggered.
+                    </div>
+
+                    <div
+                      style={{
+                        marginTop: "10px",
+                        padding: "12px",
+                        borderRadius: "10px",
+                        backgroundColor: "#eff6ff",
+                        border: "1px solid #bfdbfe",
+                      }}
+                    >
+                      <div
+                        style={{
+                          fontSize: "10px",
+                          fontWeight: 900,
+                          textTransform: "uppercase",
+                          letterSpacing: "0.05em",
+                          color: "#1e40af",
+                          marginBottom: "7px",
+                        }}
+                      >
+                        AI Transcription
+                      </div>
+
+                      {liveAiTranscriptionStatus ===
+                        "transcribing" && (
+                        <div
+                          style={{
+                            color: "#1d4ed8",
+                            fontSize: "10px",
+                            fontWeight: 800,
+                            lineHeight: 1.45,
+                          }}
+                        >
+                          Transcribing the student's recording...
+                        </div>
+                      )}
+
+                      {liveAiTranscriptionStatus ===
+                        "error" && (
+                        <div
+                          style={{
+                            padding: "8px 10px",
+                            borderRadius: "7px",
+                            backgroundColor: "#fff7f7",
+                            border: "1px solid #fecaca",
+                            color: "#b91c1c",
+                            fontSize: "10px",
+                            fontWeight: 700,
+                            lineHeight: 1.45,
+                          }}
+                        >
+                          {liveAiError}
+                        </div>
+                      )}
+
+                      {liveAiTranscriptionStatus ===
+                        "complete" && (
+                        <div
+                          style={{
+                            padding: "10px",
+                            borderRadius: "8px",
+                            backgroundColor: "#ffffff",
+                            border: "1px solid #dbeafe",
+                            color: "#0f172a",
+                            fontSize: "11px",
+                            fontWeight: 600,
+                            lineHeight: 1.5,
+                            whiteSpace: "pre-wrap",
+                          }}
+                        >
+                          {liveAiTranscript}
+                        </div>
+                      )}
+                    </div>
+                  </>
                 )}
               </>
             )}
