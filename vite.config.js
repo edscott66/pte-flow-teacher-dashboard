@@ -237,6 +237,363 @@ function liveEvaluationTranscriptionPlugin(apiKey) {
     },
   };
 }
+/*
+ * ============================================================
+ * LIVE EVALUATION AI EVALUATION
+ * ============================================================
+ *
+ * This endpoint is deliberately separate from the Calibration
+ * Bench /api/evaluate-feedback endpoint.
+ *
+ * It evaluates a student's Live Evaluation performance after
+ * the teacher has already submitted an independent assessment.
+ */
+
+function liveEvaluationAiEvaluationPlugin(apiKey) {
+  return {
+    name: "live-evaluation-ai-evaluation-api",
+
+    configureServer(server) {
+      server.middlewares.use(
+        "/api/live-evaluation-evaluate",
+        async (req, res, next) => {
+          if (req.method !== "POST") {
+            next();
+            return;
+          }
+
+          let body = "";
+
+          req.on("data", (chunk) => {
+            body += chunk.toString();
+          });
+
+          req.on("end", async () => {
+            try {
+              const {
+                questionType,
+                exercisePrompt,
+                studentTranscript,
+                teacherScores,
+                teacherFeedback,
+                assessmentCriteria,
+              } = JSON.parse(body || "{}");
+
+              res.setHeader(
+                "Content-Type",
+                "application/json"
+              );
+
+              if (!apiKey) {
+                res.statusCode = 503;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error: "GEMINI_API_KEY_MISSING",
+                    message:
+                      "No GEMINI_API_KEY was found in the Teacher Dashboard environment.",
+                  })
+                );
+                return;
+              }
+
+              if (
+                typeof questionType !== "string" ||
+                !questionType.trim()
+              ) {
+                res.statusCode = 400;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error: "QUESTION_TYPE_MISSING",
+                    message:
+                      "No Live Evaluation question type was supplied.",
+                  })
+                );
+                return;
+              }
+
+              if (
+                typeof exercisePrompt !== "string" ||
+                !exercisePrompt.trim()
+              ) {
+                res.statusCode = 400;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error: "EXERCISE_PROMPT_MISSING",
+                    message:
+                      "No Live Evaluation exercise prompt was supplied.",
+                  })
+                );
+                return;
+              }
+
+              if (
+                typeof studentTranscript !== "string" ||
+                !studentTranscript.trim()
+              ) {
+                res.statusCode = 400;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error: "STUDENT_TRANSCRIPT_MISSING",
+                    message:
+                      "No student transcript was supplied.",
+                  })
+                );
+                return;
+              }
+
+              if (
+                !Array.isArray(assessmentCriteria) ||
+                assessmentCriteria.length === 0
+              ) {
+                res.statusCode = 400;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error: "ASSESSMENT_CRITERIA_MISSING",
+                    message:
+                      "No Live Evaluation assessment criteria were supplied.",
+                  })
+                );
+                return;
+              }
+
+              const ai = new GoogleGenAI({
+                apiKey,
+                httpOptions: {
+                  headers: {
+                    "User-Agent":
+                      "PTE-Flow-Teacher-Dashboard",
+                  },
+                },
+              });
+
+              const criteriaText =
+                assessmentCriteria
+                  .map(
+                    (criterion) =>
+                      `- ${criterion.name}: maximum ${criterion.max}. ${criterion.description || ""}`
+                  )
+                  .join("\n");
+
+              const teacherScoresText =
+                teacherScores &&
+                typeof teacherScores === "object"
+                  ? Object.entries(
+                      teacherScores
+                    )
+                      .map(
+                        ([name, score]) =>
+                          `- ${name}: ${score}`
+                      )
+                      .join("\n")
+                  : "No teacher scores supplied.";
+
+              const prompt = `
+You are evaluating a student's performance in a PTE Academic Live Evaluation.
+
+This is an independent AI assessment. The teacher has already submitted a separate assessment. Do not change, overwrite, or treat the teacher's scores as ground truth.
+
+QUESTION TYPE:
+${questionType}
+
+EXERCISE PROMPT:
+${exercisePrompt}
+
+STUDENT TRANSCRIPT:
+${studentTranscript}
+
+ASSESSMENT CRITERIA:
+${criteriaText}
+
+TEACHER SCORES:
+${teacherScoresText}
+
+TEACHER FEEDBACK:
+${typeof teacherFeedback === "string" && teacherFeedback.trim()
+  ? teacherFeedback
+  : "No teacher feedback supplied."}
+
+Evaluate the student's performance against the exercise prompt and the supplied assessment criteria.
+
+Important rules:
+1. Assess the student's actual transcript against the exercise prompt.
+2. Do not simply copy the teacher's scores.
+3. Do not assume that the teacher is correct or incorrect.
+4. Keep each AI score within the maximum specified for that criterion.
+5. Provide concise evidence for the AI assessment.
+6. Do not invent pronunciation problems that cannot reasonably be inferred from the supplied information.
+7. For Content, compare the student's transcript with the exercise prompt.
+8. For Oral Fluency and Pronunciation, use the available evidence conservatively. The transcript can support observations about hesitation, repetition, phrasing, and intelligibility, but do not claim to hear acoustic details that are not available in the transcript.
+9. Return only the requested JSON object.
+`;
+
+              const response =
+                await ai.models.generateContent({
+                  model: "gemini-3.6-flash",
+                  contents: prompt,
+                  config: {
+                    temperature: 0,
+                    responseMimeType:
+                      "application/json",
+                    responseSchema: {
+                      type: Type.OBJECT,
+                      properties: {
+                        isLiveAi: {
+                          type: Type.BOOLEAN,
+                        },
+                        questionType: {
+                          type: Type.STRING,
+                        },
+                        scores: {
+                          type: Type.ARRAY,
+                          items: {
+                            type: Type.OBJECT,
+                            properties: {
+                              criterion: {
+                                type: Type.STRING,
+                              },
+                              score: {
+                                type: Type.NUMBER,
+                              },
+                              maxScore: {
+                                type: Type.NUMBER,
+                              },
+                              evidence: {
+                                type: Type.STRING,
+                              },
+                            },
+                            required: [
+                              "criterion",
+                              "score",
+                              "maxScore",
+                              "evidence",
+                            ],
+                          },
+                        },
+                        overallFeedback: {
+                          type: Type.STRING,
+                        },
+                        keyObservations: {
+                          type: Type.ARRAY,
+                          items: {
+                            type: Type.STRING,
+                          },
+                        },
+                      },
+                      required: [
+                        "isLiveAi",
+                        "questionType",
+                        "scores",
+                        "overallFeedback",
+                        "keyObservations",
+                      ],
+                    },
+                  },
+                });
+
+              const responseText =
+                typeof response.text ===
+                "string"
+                  ? response.text.trim()
+                  : "";
+
+              if (!responseText) {
+                res.statusCode = 502;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error: "AI_EVALUATION_EMPTY",
+                    message:
+                      "Gemini did not return a Live Evaluation assessment.",
+                  })
+                );
+                return;
+              }
+
+              let evaluation;
+
+              try {
+                evaluation =
+                  JSON.parse(responseText);
+              } catch (parseError) {
+                console.error(
+                  "Live Evaluation AI response JSON parse failed:",
+                  parseError
+                );
+
+                res.statusCode = 502;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error:
+                      "AI_EVALUATION_INVALID_JSON",
+                    message:
+                      "Gemini returned an invalid Live Evaluation assessment.",
+                  })
+                );
+                return;
+              }
+
+              res.statusCode = 200;
+              res.end(
+                JSON.stringify({
+                  isLiveAi: true,
+                  evaluation,
+                })
+              );
+            } catch (error) {
+              console.error(
+                "Live Evaluation AI evaluation API error:",
+                error
+              );
+
+              res.statusCode = 500;
+              res.end(
+                JSON.stringify({
+                  isLiveAi: false,
+                  error:
+                    "LIVE_AI_EVALUATION_FAILED",
+                  message:
+                    error instanceof Error
+                      ? error.message
+                      : "Live Evaluation AI assessment failed.",
+                })
+              );
+            }
+          });
+
+          req.on("error", (error) => {
+            console.error(
+              "Live Evaluation AI request body error:",
+              error
+            );
+
+            if (!res.headersSent) {
+              res.statusCode = 400;
+              res.setHeader(
+                "Content-Type",
+                "application/json"
+              );
+
+              res.end(
+                JSON.stringify({
+                  isLiveAi: false,
+                  error: "INVALID_REQUEST",
+                  message:
+                    "The Live Evaluation AI request could not be read.",
+                })
+              );
+            }
+          });
+        }
+      );
+    },
+  };
+}
 function evaluateFeedbackPlugin(apiKey) {
   return {
     name: "evaluate-feedback-api",
@@ -914,6 +1271,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
     liveEvaluationTranscriptionPlugin(apiKey),
+    liveEvaluationAiEvaluationPlugin(apiKey),
     evaluateFeedbackPlugin(apiKey),
     ],
 
@@ -944,4 +1302,7 @@ export default defineConfig(({ mode }) => {
     },
   };
 });
+
+
+
 
