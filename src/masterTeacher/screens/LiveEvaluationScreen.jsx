@@ -83,6 +83,22 @@ export default function LiveEvaluationScreen({
 
   /*
    * ============================================================
+   * TEACHER ASSESSMENT STATE
+   * ============================================================
+   *
+   * This assessment is independent of AI.
+   * It remains local to the current Live Evaluation session
+   * until persistence is designed in a later step.
+   */
+  const [teacherScores, setTeacherScores] =
+    useState({});
+  const [teacherFeedback, setTeacherFeedback] =
+    useState("");
+  const [teacherAssessmentSubmitted, setTeacherAssessmentSubmitted] =
+    useState(false);
+
+  /*
+   * ============================================================
    * CURRENT QUESTION
    * ============================================================
    */
@@ -103,6 +119,9 @@ export default function LiveEvaluationScreen({
     currentQuestion,
     exerciseIndex
   );
+
+  const assessmentCriteria =
+    currentQuestion?.scoringCriteria || [];
 
   /*
    * ============================================================
@@ -393,6 +412,50 @@ export default function LiveEvaluationScreen({
 
   /*
    * ============================================================
+   * TEACHER ASSESSMENT HANDLERS
+   * ============================================================
+   */
+
+  const resetTeacherAssessment = () => {
+    setTeacherScores({});
+    setTeacherFeedback("");
+    setTeacherAssessmentSubmitted(false);
+  };
+
+  const handleTeacherScoreChange = (
+    criterionName,
+    score
+  ) => {
+    setTeacherScores((current) => ({
+      ...current,
+      [criterionName]: Number(score),
+    }));
+
+    setTeacherAssessmentSubmitted(false);
+  };
+
+  const handleSubmitTeacherAssessment = () => {
+    const allCriteriaScored =
+      assessmentCriteria.length > 0 &&
+      assessmentCriteria.every(
+        (criterion) =>
+          teacherScores[criterion.name] !==
+          undefined
+      );
+
+    if (!allCriteriaScored) {
+      return;
+    }
+
+    if (!teacherFeedback.trim()) {
+      return;
+    }
+
+    setTeacherAssessmentSubmitted(true);
+  };
+
+  /*
+   * ============================================================
    * RECORDING HANDLERS
    * ============================================================
    */
@@ -415,6 +478,7 @@ export default function LiveEvaluationScreen({
     try {
       setRecordingError("");
       setRecordedAudioBlob(null);
+      resetTeacherAssessment();
 
       if (recordedAudioUrl) {
         URL.revokeObjectURL(recordedAudioUrl);
@@ -549,6 +613,7 @@ export default function LiveEvaluationScreen({
     setRecordedAudioBlob(null);
     setRecordedAudioUrl("");
     setRecordingError("");
+    resetTeacherAssessment();
     setRecordingStatus("ready");
   };
 
@@ -600,6 +665,7 @@ export default function LiveEvaluationScreen({
     }
 
     setRecordingError("");
+    resetTeacherAssessment();
 
     /*
      * Always start the new question type at
@@ -630,6 +696,7 @@ export default function LiveEvaluationScreen({
     }
 
     setRecordingError("");
+    resetTeacherAssessment();
   };
 
   const handleNextExercise = () => {
@@ -646,6 +713,7 @@ export default function LiveEvaluationScreen({
     }
 
     setRecordingError("");
+    resetTeacherAssessment();
   };
 
   const handleExerciseSelect = (
@@ -675,6 +743,7 @@ export default function LiveEvaluationScreen({
     }
 
     setRecordingError("");
+    resetTeacherAssessment();
   };
 
   /*
@@ -2208,6 +2277,375 @@ export default function LiveEvaluationScreen({
                 </div>
               )}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          STEP 8 — TEACHER ASSESSMENT
+          ============================================================ */}
+
+      <section className="master-teacher-section">
+        <div className="master-teacher-section-heading">
+          <div>
+            <h3>
+              Teacher Assessment
+            </h3>
+
+            <p>
+              Assess the student's response independently
+              before any AI evaluation is introduced.
+            </p>
+          </div>
+        </div>
+
+        <div
+          className="master-teacher-notice"
+          style={{
+            position: "relative",
+            overflow: "visible",
+          }}
+        >
+          <span className="master-teacher-notice-icon">
+            5
+          </span>
+
+          <div
+            style={{
+              width: "100%",
+              minWidth: 0,
+            }}
+          >
+            <strong>
+              Independent Teacher Assessment
+            </strong>
+
+            <p>
+              Listen to the recording and make your own
+              professional assessment. AI feedback is not
+              shown at this stage.
+            </p>
+
+            {!recordedAudioBlob && (
+              <div
+                style={{
+                  marginTop: "10px",
+                  padding: "10px 12px",
+                  borderRadius: "8px",
+                  backgroundColor: "#ffffff",
+                  border: "1px solid #dbeafe",
+                  color: "#64748b",
+                  fontSize: "10px",
+                  fontWeight: 700,
+                  lineHeight: 1.45,
+                }}
+              >
+                Complete a recording and stop it before
+                entering the teacher assessment.
+              </div>
+            )}
+
+            {recordedAudioBlob && (
+              <>
+                <div
+                  style={{
+                    marginTop: "12px",
+                    padding: "12px",
+                    borderRadius: "10px",
+                    backgroundColor: "#f8fafc",
+                    border: "1px solid #e2e8f0",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: "10px",
+                      fontWeight: 900,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.05em",
+                      color: "#334155",
+                      marginBottom: "9px",
+                    }}
+                  >
+                    Teacher Score
+                  </div>
+
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns:
+                        "repeat(auto-fit, minmax(220px, 1fr))",
+                      gap: "10px",
+                    }}
+                  >
+                    {assessmentCriteria.map(
+                      (criterion) => (
+                        <div
+                          key={criterion.name}
+                          style={{
+                            padding: "10px",
+                            borderRadius: "9px",
+                            backgroundColor: "#ffffff",
+                            border: "1px solid #e2e8f0",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                              gap: "8px",
+                              marginBottom: "7px",
+                            }}
+                          >
+                            <span
+                              style={{
+                                fontSize: "11px",
+                                fontWeight: 900,
+                                color: "#0f172a",
+                              }}
+                            >
+                              {criterion.name}
+                            </span>
+
+                            <span
+                              style={{
+                                fontSize: "9px",
+                                fontWeight: 800,
+                                color: "#64748b",
+                              }}
+                            >
+                              / {criterion.max}
+                            </span>
+                          </div>
+
+                          <select
+                            value={
+                              teacherScores[
+                                criterion.name
+                              ] ?? ""
+                            }
+                            onChange={(event) =>
+                              handleTeacherScoreChange(
+                                criterion.name,
+                                event.target.value
+                              )
+                            }
+                            disabled={
+                              teacherAssessmentSubmitted
+                            }
+                            style={{
+                              width: "100%",
+                              minHeight: "36px",
+                              padding: "7px 9px",
+                              border:
+                                "1px solid #cbd5e1",
+                              borderRadius: "7px",
+                              backgroundColor:
+                                teacherAssessmentSubmitted
+                                  ? "#f1f5f9"
+                                  : "#ffffff",
+                              color: "#0f172a",
+                              fontSize: "11px",
+                              fontWeight: 800,
+                            }}
+                          >
+                            <option value="">
+                              Select score
+                            </option>
+
+                            {Array.from(
+                              {
+                                length:
+                                  criterion.max + 1,
+                              },
+                              (_, index) => (
+                                <option
+                                  key={index}
+                                  value={index}
+                                >
+                                  {index} /{" "}
+                                  {criterion.max}
+                                </option>
+                              )
+                            )}
+                          </select>
+
+                          <p
+                            style={{
+                              margin:
+                                "7px 0 0",
+                              color: "#64748b",
+                              fontSize: "9px",
+                              lineHeight: 1.4,
+                            }}
+                          >
+                            {criterion.description}
+                          </p>
+                        </div>
+                      )
+                    )}
+                  </div>
+                </div>
+
+                <div
+                  style={{
+                    marginTop: "10px",
+                    padding: "12px",
+                    borderRadius: "10px",
+                    backgroundColor: "#ffffff",
+                    border: "1px solid #dbeafe",
+                  }}
+                >
+                  <label
+                    htmlFor="live-teacher-assessment"
+                    style={{
+                      display: "block",
+                      marginBottom: "7px",
+                      fontSize: "10px",
+                      fontWeight: 900,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.05em",
+                      color: "#1e3a8a",
+                    }}
+                  >
+                    Teacher Assessment & Feedback
+                  </label>
+
+                  <textarea
+                    id="live-teacher-assessment"
+                    value={teacherFeedback}
+                    onChange={(event) => {
+                      setTeacherFeedback(
+                        event.target.value
+                      );
+                      setTeacherAssessmentSubmitted(
+                        false
+                      );
+                    }}
+                    disabled={
+                      teacherAssessmentSubmitted
+                    }
+                    rows={5}
+                    placeholder="Write your independent assessment of the student's performance. Refer to the evidence you heard in the recording."
+                    style={{
+                      width: "100%",
+                      boxSizing: "border-box",
+                      resize: "vertical",
+                      minHeight: "110px",
+                      padding: "10px",
+                      border:
+                        "1px solid #cbd5e1",
+                      borderRadius: "8px",
+                      backgroundColor:
+                        teacherAssessmentSubmitted
+                          ? "#f1f5f9"
+                          : "#ffffff",
+                      color: "#0f172a",
+                      fontSize: "11px",
+                      fontWeight: 600,
+                      lineHeight: 1.5,
+                      outline: "none",
+                    }}
+                  />
+
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent:
+                        "space-between",
+                      alignItems: "center",
+                      gap: "10px",
+                      flexWrap: "wrap",
+                      marginTop: "8px",
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: "#64748b",
+                        fontSize: "9px",
+                        fontWeight: 700,
+                      }}
+                    >
+                      Your assessment is independent of
+                      AI and is not being sent anywhere yet.
+                    </span>
+
+                    <button
+                      type="button"
+                      onClick={
+                        handleSubmitTeacherAssessment
+                      }
+                      disabled={
+                        teacherAssessmentSubmitted ||
+                        assessmentCriteria.some(
+                          (criterion) =>
+                            teacherScores[
+                              criterion.name
+                            ] === undefined
+                        ) ||
+                        !teacherFeedback.trim()
+                      }
+                      style={{
+                        minHeight: "38px",
+                        padding: "8px 14px",
+                        border:
+                          "1px solid #166534",
+                        borderRadius: "8px",
+                        backgroundColor:
+                          teacherAssessmentSubmitted ||
+                          assessmentCriteria.some(
+                            (criterion) =>
+                              teacherScores[
+                                criterion.name
+                              ] === undefined
+                          ) ||
+                          !teacherFeedback.trim()
+                            ? "#94a3b8"
+                            : "#166534",
+                        color: "#ffffff",
+                        fontSize: "11px",
+                        fontWeight: 900,
+                        cursor:
+                          teacherAssessmentSubmitted ||
+                          assessmentCriteria.some(
+                            (criterion) =>
+                              teacherScores[
+                                criterion.name
+                              ] === undefined
+                          ) ||
+                          !teacherFeedback.trim()
+                            ? "not-allowed"
+                            : "pointer",
+                      }}
+                    >
+                      {teacherAssessmentSubmitted
+                        ? "Teacher Assessment Submitted"
+                        : "Submit Teacher Assessment"}
+                    </button>
+                  </div>
+                </div>
+
+                {teacherAssessmentSubmitted && (
+                  <div
+                    style={{
+                      marginTop: "10px",
+                      padding: "10px 12px",
+                      borderRadius: "8px",
+                      backgroundColor: "#f0fdf4",
+                      border: "1px solid #bbf7d0",
+                      color: "#166534",
+                      fontSize: "10px",
+                      fontWeight: 800,
+                      lineHeight: 1.45,
+                    }}
+                  >
+                    Teacher assessment submitted locally.
+                    No AI evaluation or permanent storage has
+                    been triggered.
+                  </div>
+                )}
+              </>
+            )}
           </div>
         </div>
       </section>
