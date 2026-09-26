@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import {
   ChevronLeft,
@@ -62,6 +62,24 @@ export default function LiveEvaluationScreen({
    */
   const [recordingStatus, setRecordingStatus] =
     useState("ready");
+
+  /*
+   * ============================================================
+   * LIVE RECORDING STATE
+   * ============================================================
+   *
+   * The recording is kept temporarily in browser memory.
+   * Nothing is uploaded or saved to Firebase at this stage.
+   */
+  const mediaRecorderRef = useRef(null);
+  const mediaStreamRef = useRef(null);
+  const audioChunksRef = useRef([]);
+  const [recordedAudioBlob, setRecordedAudioBlob] =
+    useState(null);
+  const [recordedAudioUrl, setRecordedAudioUrl] =
+    useState("");
+  const [recordingError, setRecordingError] =
+    useState("");
 
   /*
    * ============================================================
@@ -180,6 +198,20 @@ export default function LiveEvaluationScreen({
       exercise.topicTitle ||
       exercise.topic ||
       `Exercise ${exerciseIndex}`
+    );
+  };
+
+  const getExercisePrompt = (exercise) => {
+    if (!exercise) {
+      return "";
+    }
+
+    return (
+      exercise.promptText ||
+      exercise.prompt ||
+      exercise.questionText ||
+      exercise.text ||
+      ""
     );
   };
 
@@ -328,6 +360,200 @@ export default function LiveEvaluationScreen({
 
   /*
    * ============================================================
+   * RECORDING CLEANUP
+   * ============================================================
+   */
+
+  useEffect(() => {
+    return () => {
+      if (mediaRecorderRef.current) {
+        mediaRecorderRef.current.ondataavailable = null;
+        mediaRecorderRef.current.onstop = null;
+        mediaRecorderRef.current.onerror = null;
+
+        if (
+          mediaRecorderRef.current.state !==
+          "inactive"
+        ) {
+          mediaRecorderRef.current.stop();
+        }
+      }
+
+      if (mediaStreamRef.current) {
+        mediaStreamRef.current
+          .getTracks()
+          .forEach((track) => track.stop());
+      }
+
+      if (recordedAudioUrl) {
+        URL.revokeObjectURL(recordedAudioUrl);
+      }
+    };
+  }, [recordedAudioUrl]);
+
+  /*
+   * ============================================================
+   * RECORDING HANDLERS
+   * ============================================================
+   */
+
+  const handleStartRecording = async () => {
+    if (!selectedStudent) {
+      return;
+    }
+
+    if (
+      !navigator.mediaDevices ||
+      !navigator.mediaDevices.getUserMedia
+    ) {
+      setRecordingError(
+        "Microphone recording is not supported by this browser."
+      );
+      return;
+    }
+
+    try {
+      setRecordingError("");
+      setRecordedAudioBlob(null);
+
+      if (recordedAudioUrl) {
+        URL.revokeObjectURL(recordedAudioUrl);
+        setRecordedAudioUrl("");
+      }
+
+      audioChunksRef.current = [];
+
+      const stream =
+        await navigator.mediaDevices.getUserMedia({
+          audio: true,
+        });
+
+      mediaStreamRef.current = stream;
+
+      const mimeType =
+        MediaRecorder.isTypeSupported(
+          "audio/webm;codecs=opus"
+        )
+          ? "audio/webm;codecs=opus"
+          : "";
+
+      const recorder = mimeType
+        ? new MediaRecorder(stream, {
+            mimeType,
+          })
+        : new MediaRecorder(stream);
+
+      mediaRecorderRef.current = recorder;
+
+      recorder.ondataavailable = (event) => {
+        if (event.data && event.data.size > 0) {
+          audioChunksRef.current.push(
+            event.data
+          );
+        }
+      };
+
+      recorder.onstop = () => {
+        const audioBlob = new Blob(
+          audioChunksRef.current,
+          {
+            type:
+              recorder.mimeType ||
+              "audio/webm",
+          }
+        );
+
+        setRecordedAudioBlob(audioBlob);
+
+        const audioUrl =
+          URL.createObjectURL(audioBlob);
+
+        setRecordedAudioUrl(audioUrl);
+        setRecordingStatus("stopped");
+
+        if (mediaStreamRef.current) {
+          mediaStreamRef.current
+            .getTracks()
+            .forEach((track) => track.stop());
+
+          mediaStreamRef.current = null;
+        }
+
+        mediaRecorderRef.current = null;
+      };
+
+      recorder.onerror = () => {
+        setRecordingError(
+          "The browser could not complete the recording."
+        );
+        setRecordingStatus("ready");
+
+        if (mediaStreamRef.current) {
+          mediaStreamRef.current
+            .getTracks()
+            .forEach((track) => track.stop());
+
+          mediaStreamRef.current = null;
+        }
+
+        mediaRecorderRef.current = null;
+      };
+
+      recorder.start();
+      setRecordingStatus("recording");
+    } catch (error) {
+      console.error(
+        "Failed to start Live Evaluation recording:",
+        error
+      );
+
+      if (mediaStreamRef.current) {
+        mediaStreamRef.current
+          .getTracks()
+          .forEach((track) => track.stop());
+
+        mediaStreamRef.current = null;
+      }
+
+      mediaRecorderRef.current = null;
+      setRecordingStatus("ready");
+      setRecordingError(
+        "Microphone access was not granted. Please allow microphone access and try again."
+      );
+    }
+  };
+
+  const handleStopRecording = () => {
+    const recorder = mediaRecorderRef.current;
+
+    if (!recorder) {
+      return;
+    }
+
+    if (recorder.state !== "inactive") {
+      recorder.stop();
+    }
+  };
+
+  /*
+   * ============================================================
+   * RETAKE HANDLER
+   * ============================================================
+   */
+
+  const handleRetakeRecording = () => {
+    if (recordedAudioUrl) {
+      URL.revokeObjectURL(recordedAudioUrl);
+    }
+
+    setRecordedAudioBlob(null);
+    setRecordedAudioUrl("");
+    setRecordingError("");
+    setRecordingStatus("ready");
+  };
+
+  /*
+   * ============================================================
    * QUESTION TYPE HANDLER
    * ============================================================
    */
@@ -366,6 +592,14 @@ export default function LiveEvaluationScreen({
      * state.
      */
     setRecordingStatus("ready");
+    setRecordedAudioBlob(null);
+
+    if (recordedAudioUrl) {
+      URL.revokeObjectURL(recordedAudioUrl);
+      setRecordedAudioUrl("");
+    }
+
+    setRecordingError("");
 
     /*
      * Always start the new question type at
@@ -388,6 +622,14 @@ export default function LiveEvaluationScreen({
     );
 
     setRecordingStatus("ready");
+    setRecordedAudioBlob(null);
+
+    if (recordedAudioUrl) {
+      URL.revokeObjectURL(recordedAudioUrl);
+      setRecordedAudioUrl("");
+    }
+
+    setRecordingError("");
   };
 
   const handleNextExercise = () => {
@@ -396,6 +638,14 @@ export default function LiveEvaluationScreen({
     );
 
     setRecordingStatus("ready");
+    setRecordedAudioBlob(null);
+
+    if (recordedAudioUrl) {
+      URL.revokeObjectURL(recordedAudioUrl);
+      setRecordedAudioUrl("");
+    }
+
+    setRecordingError("");
   };
 
   const handleExerciseSelect = (
@@ -417,6 +667,14 @@ export default function LiveEvaluationScreen({
     );
 
     setRecordingStatus("ready");
+    setRecordedAudioBlob(null);
+
+    if (recordedAudioUrl) {
+      URL.revokeObjectURL(recordedAudioUrl);
+      setRecordedAudioUrl("");
+    }
+
+    setRecordingError("");
   };
 
   /*
@@ -505,6 +763,9 @@ export default function LiveEvaluationScreen({
 
   const exerciseTopic =
     getExerciseTopic(currentExercise);
+
+  const exercisePrompt =
+    getExercisePrompt(currentExercise);
 
   const exerciseDifficulty =
     getExerciseDifficulty(
@@ -1496,6 +1757,8 @@ export default function LiveEvaluationScreen({
                           .value
                       );
                       setRecordingStatus("ready");
+                      setRecordedAudioBlob(null);
+                      setRecordingError("");
                     }}
                     style={{
                       width:
@@ -1650,6 +1913,63 @@ export default function LiveEvaluationScreen({
                 : "Select a student above before starting the recording."}
             </p>
 
+            {(selectedQuestionId === "repeat-sentence" ||
+              selectedQuestionId === "read-aloud") &&
+              exercisePrompt && (
+                <div
+                  style={{
+                    marginTop: "10px",
+                    padding: "12px",
+                    borderRadius: "12px",
+                    backgroundColor: "#ffffff",
+                    border: "1px solid #bbf7d0",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: "10px",
+                      fontWeight: 900,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.05em",
+                      color: "#166534",
+                    }}
+                  >
+                    {selectedQuestionId === "read-aloud"
+                      ? "Read this passage"
+                      : "Repeat this sentence"}
+                  </div>
+
+                  <div
+                    style={{
+                      marginTop: "6px",
+                      padding: "10px 11px",
+                      borderRadius: "8px",
+                      backgroundColor: "#f0fdf4",
+                      border: "1px solid #dcfce7",
+                      color: "#1d4ed8",
+                      fontSize: "14px",
+                      fontWeight: 900,
+                      lineHeight: 1.55,
+                    }}
+                  >
+                    {exercisePrompt}
+                  </div>
+
+                  <div
+                    style={{
+                      marginTop: "6px",
+                      color: "#64748b",
+                      fontSize: "10px",
+                      fontWeight: 700,
+                    }}
+                  >
+                    {selectedQuestionId === "read-aloud"
+                      ? "The teacher should present this passage to the student before starting the recording."
+                      : "The teacher should present this sentence to the student before starting the recording."}
+                  </div>
+                </div>
+              )}
+
             <div
               style={{
                 marginTop: "10px",
@@ -1743,39 +2063,58 @@ export default function LiveEvaluationScreen({
                 }}
               >
                 {recordingStatus !== "recording" && (
-                  <button
-                    type="button"
-                    disabled={!selectedStudent}
-                    onClick={() =>
-                      setRecordingStatus("recording")
-                    }
-                    style={{
-                      minHeight: "38px",
-                      padding: "8px 14px",
-                      border: "1px solid #166534",
-                      borderRadius: "8px",
-                      backgroundColor: selectedStudent
-                        ? "#166534"
-                        : "#94a3b8",
-                      color: "#ffffff",
-                      fontSize: "11px",
-                      fontWeight: 900,
-                      cursor: selectedStudent
-                        ? "pointer"
-                        : "not-allowed",
-                      opacity: selectedStudent ? 1 : 0.7,
-                    }}
-                  >
-                    Start Recording
-                  </button>
+                  <>
+                    <button
+                      type="button"
+                      disabled={!selectedStudent}
+                      onClick={handleStartRecording}
+                      style={{
+                        minHeight: "38px",
+                        padding: "8px 14px",
+                        border: "1px solid #166534",
+                        borderRadius: "8px",
+                        backgroundColor: selectedStudent
+                          ? "#166534"
+                          : "#94a3b8",
+                        color: "#ffffff",
+                        fontSize: "11px",
+                        fontWeight: 900,
+                        cursor: selectedStudent
+                          ? "pointer"
+                          : "not-allowed",
+                        opacity: selectedStudent ? 1 : 0.7,
+                      }}
+                    >
+                      Start Recording
+                    </button>
+
+                    {recordingStatus === "stopped" &&
+                      recordedAudioBlob && (
+                        <button
+                          type="button"
+                          onClick={handleRetakeRecording}
+                          style={{
+                            minHeight: "38px",
+                            padding: "8px 14px",
+                            border: "1px solid #2563eb",
+                            borderRadius: "8px",
+                            backgroundColor: "#ffffff",
+                            color: "#1d4ed8",
+                            fontSize: "11px",
+                            fontWeight: 900,
+                            cursor: "pointer",
+                          }}
+                        >
+                          Retake Recording
+                        </button>
+                      )}
+                  </>
                 )}
 
                 {recordingStatus === "recording" && (
                   <button
                     type="button"
-                    onClick={() =>
-                      setRecordingStatus("stopped")
-                    }
+                    onClick={handleStopRecording}
                     style={{
                       minHeight: "38px",
                       padding: "8px 14px",
@@ -1793,23 +2132,60 @@ export default function LiveEvaluationScreen({
                 )}
               </div>
 
-              {recordingStatus === "stopped" && (
+              {recordingStatus === "stopped" &&
+                recordedAudioBlob && (
+                  <div
+                    style={{
+                      marginTop: "9px",
+                      padding: "8px 10px",
+                      borderRadius: "7px",
+                      backgroundColor: "#ffffff",
+                      border: "1px solid #bbf7d0",
+                      color: "#166534",
+                      fontSize: "10px",
+                      fontWeight: 700,
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    Audio captured successfully in temporary
+                    browser memory. It has not been uploaded
+                    or saved.
+
+                    {recordedAudioUrl && (
+                      <div
+                        style={{
+                          marginTop: "8px",
+                        }}
+                      >
+                        <audio
+                          controls
+                          preload="metadata"
+                          src={recordedAudioUrl}
+                          style={{
+                            width: "100%",
+                            height: "36px",
+                          }}
+                        />
+                      </div>
+                    )}
+                  </div>
+                )}
+
+              {recordingError && (
                 <div
                   style={{
                     marginTop: "9px",
                     padding: "8px 10px",
                     borderRadius: "7px",
-                    backgroundColor: "#ffffff",
-                    border: "1px solid #dbeafe",
-                    color: "#64748b",
+                    backgroundColor: "#fff7f7",
+                    border: "1px solid #fecaca",
+                    color: "#b91c1c",
                     fontSize: "10px",
                     fontWeight: 700,
                     lineHeight: 1.4,
                   }}
                 >
-                  The recording interface is now ready for
-                  the next development step: audio playback
-                  and retake.
+                  {recordingError}
                 </div>
               )}
 
