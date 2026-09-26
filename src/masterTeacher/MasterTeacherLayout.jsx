@@ -5,6 +5,7 @@ import MasterTeacherHome from "./MasterTeacherHome";
 import MarkingScreen from "./screens/MarkingScreen";
 import ComparisonScreen from "./screens/ComparisonScreen";
 import CalibrationProgressScreen from "./screens/CalibrationProgressScreen";
+import LiveEvaluationScreen from "./screens/LiveEvaluationScreen";
 
 function ComingSoon({ title, onNavigate }) {
   return (
@@ -158,10 +159,7 @@ export default function MasterTeacherLayout() {
 
         {/* Live Evaluation */}
         {activeKey === "students-evaluator" && (
-          <ComingSoon
-            title="Live Evaluation"
-            onNavigate={navigateWithinSuite}
-          />
+          <LiveEvaluationScreen onNavigate={navigateWithinSuite} />
         )}
 
         {/* Lesson Plans */}

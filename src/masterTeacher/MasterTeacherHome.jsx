@@ -26,8 +26,8 @@ export default function MasterTeacherHome({ onNavigate }) {
       icon: "🎙️",
       description:
         "Evaluate a student's spoken or written response using the desktop evaluation workflow.",
-      action: "Stage 3",
-      ready: false,
+      action: "Open Live Evaluation",
+      ready: true,
     },
     {
       id: "lessons",
