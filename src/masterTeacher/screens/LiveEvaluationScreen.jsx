@@ -53,6 +53,18 @@ export default function LiveEvaluationScreen({
 
   /*
    * ============================================================
+   * RECORDING STATE
+   * ============================================================
+   *
+   * Step 4 currently controls the Live Evaluation recording
+   * interface only. Actual microphone recording will be added
+   * in a later step.
+   */
+  const [recordingStatus, setRecordingStatus] =
+    useState("ready");
+
+  /*
+   * ============================================================
    * CURRENT QUESTION
    * ============================================================
    */
@@ -350,6 +362,12 @@ export default function LiveEvaluationScreen({
     );
 
     /*
+     * A new question type starts a fresh recording
+     * state.
+     */
+    setRecordingStatus("ready");
+
+    /*
      * Always start the new question type at
      * Exercise 1.
      */
@@ -368,12 +386,16 @@ export default function LiveEvaluationScreen({
     setExerciseIndex((current) =>
       Math.max(1, current - 1)
     );
+
+    setRecordingStatus("ready");
   };
 
   const handleNextExercise = () => {
     setExerciseIndex((current) =>
       Math.min(100, current + 1)
     );
+
+    setRecordingStatus("ready");
   };
 
   const handleExerciseSelect = (
@@ -393,6 +415,8 @@ export default function LiveEvaluationScreen({
         Math.min(100, nextIndex)
       )
     );
+
+    setRecordingStatus("ready");
   };
 
   /*
@@ -1466,12 +1490,13 @@ export default function LiveEvaluationScreen({
                     }
                     onChange={(
                       event
-                    ) =>
+                    ) => {
                       setSelectedStudentId(
                         event.target
                           .value
-                      )
-                    }
+                      );
+                      setRecordingStatus("ready");
+                    }}
                     style={{
                       width:
                         "100%",
@@ -1571,6 +1596,239 @@ export default function LiveEvaluationScreen({
                       </span>
                     </div>
                   )}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          STEP 4 — RECORDING
+          ============================================================ */}
+
+      <section className="master-teacher-section">
+        <div className="master-teacher-section-heading">
+          <div>
+            <h3>
+              Record Student
+            </h3>
+
+            <p>
+              Record the selected student's response
+              to the exercise.
+            </p>
+          </div>
+        </div>
+
+        <div
+          className="master-teacher-notice"
+          style={{
+            position: "relative",
+            overflow: "visible",
+          }}
+        >
+          <span className="master-teacher-notice-icon">
+            4
+          </span>
+
+          <div
+            style={{
+              width: "100%",
+              minWidth: 0,
+            }}
+          >
+            <strong>
+              Recording
+            </strong>
+
+            <p>
+              {selectedStudent
+                ? `Ready to record ${getStudentDisplayName(
+                    selectedStudent
+                  )}'s response.`
+                : "Select a student above before starting the recording."}
+            </p>
+
+            <div
+              style={{
+                marginTop: "10px",
+                padding: "14px",
+                borderRadius: "12px",
+                backgroundColor:
+                  recordingStatus === "recording"
+                    ? "#fff7ed"
+                    : "#eef2ff",
+                border:
+                  recordingStatus === "recording"
+                    ? "1px solid #fed7aa"
+                    : "1px solid #dbeafe",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: "10px",
+                  flexWrap: "wrap",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    minWidth: 0,
+                  }}
+                >
+                  <span
+                    style={{
+                      width: "9px",
+                      height: "9px",
+                      flexShrink: 0,
+                      borderRadius: "50%",
+                      backgroundColor:
+                        recordingStatus === "recording"
+                          ? "#dc2626"
+                          : "#16a34a",
+                      boxShadow:
+                        recordingStatus === "recording"
+                          ? "0 0 0 4px rgba(220, 38, 38, 0.12)"
+                          : "none",
+                    }}
+                  />
+
+                  <span
+                    style={{
+                      fontSize: "11px",
+                      fontWeight: 900,
+                      color:
+                        recordingStatus === "recording"
+                          ? "#b91c1c"
+                          : "#166534",
+                    }}
+                  >
+                    {recordingStatus === "recording"
+                      ? "Recording..."
+                      : recordingStatus === "stopped"
+                        ? "Recording stopped"
+                        : "Ready to Record"}
+                  </span>
+                </div>
+
+                <span
+                  style={{
+                    fontSize: "10px",
+                    fontWeight: 800,
+                    color: "#64748b",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {selectedStudent
+                    ? `${getStudentDisplayName(
+                        selectedStudent
+                      )} • Exercise ${exerciseIndex}`
+                    : "Student required"}
+                </span>
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  marginTop: "12px",
+                  flexWrap: "wrap",
+                }}
+              >
+                {recordingStatus !== "recording" && (
+                  <button
+                    type="button"
+                    disabled={!selectedStudent}
+                    onClick={() =>
+                      setRecordingStatus("recording")
+                    }
+                    style={{
+                      minHeight: "38px",
+                      padding: "8px 14px",
+                      border: "1px solid #166534",
+                      borderRadius: "8px",
+                      backgroundColor: selectedStudent
+                        ? "#166534"
+                        : "#94a3b8",
+                      color: "#ffffff",
+                      fontSize: "11px",
+                      fontWeight: 900,
+                      cursor: selectedStudent
+                        ? "pointer"
+                        : "not-allowed",
+                      opacity: selectedStudent ? 1 : 0.7,
+                    }}
+                  >
+                    Start Recording
+                  </button>
+                )}
+
+                {recordingStatus === "recording" && (
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setRecordingStatus("stopped")
+                    }
+                    style={{
+                      minHeight: "38px",
+                      padding: "8px 14px",
+                      border: "1px solid #b91c1c",
+                      borderRadius: "8px",
+                      backgroundColor: "#b91c1c",
+                      color: "#ffffff",
+                      fontSize: "11px",
+                      fontWeight: 900,
+                      cursor: "pointer",
+                    }}
+                  >
+                    Stop Recording
+                  </button>
+                )}
+              </div>
+
+              {recordingStatus === "stopped" && (
+                <div
+                  style={{
+                    marginTop: "9px",
+                    padding: "8px 10px",
+                    borderRadius: "7px",
+                    backgroundColor: "#ffffff",
+                    border: "1px solid #dbeafe",
+                    color: "#64748b",
+                    fontSize: "10px",
+                    fontWeight: 700,
+                    lineHeight: 1.4,
+                  }}
+                >
+                  The recording interface is now ready for
+                  the next development step: audio playback
+                  and retake.
+                </div>
+              )}
+
+              {!selectedStudent && (
+                <div
+                  style={{
+                    marginTop: "9px",
+                    padding: "8px 10px",
+                    borderRadius: "7px",
+                    backgroundColor: "#ffffff",
+                    border: "1px solid #dbeafe",
+                    color: "#64748b",
+                    fontSize: "10px",
+                    fontWeight: 700,
+                    lineHeight: 1.4,
+                  }}
+                >
+                  Select a student in Step 3 to enable
+                  recording.
                 </div>
               )}
             </div>
