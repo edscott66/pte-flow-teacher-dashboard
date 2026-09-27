@@ -99,8 +99,16 @@ export default function LiveEvaluationScreen({
     useState(false);
   const [liveAiTranscriptionStatus, setLiveAiTranscriptionStatus] =
     useState("idle");
+
   const [liveAiTranscript, setLiveAiTranscript] =
     useState("");
+
+  const [liveAiEvaluationStatus, setLiveAiEvaluationStatus] =
+    useState("idle");
+
+  const [liveAiEvaluation, setLiveAiEvaluation] =
+    useState(null);
+
   const [liveAiError, setLiveAiError] =
     useState("");
 
@@ -429,6 +437,8 @@ export default function LiveEvaluationScreen({
     setTeacherAssessmentSubmitted(false);
     setLiveAiTranscriptionStatus("idle");
     setLiveAiTranscript("");
+    setLiveAiEvaluationStatus("idle");
+    setLiveAiEvaluation(null);
     setLiveAiError("");
   };
 
@@ -552,8 +562,63 @@ export default function LiveEvaluationScreen({
         );
       }
 
-      setLiveAiTranscript(transcript);
+            setLiveAiTranscript(transcript);
       setLiveAiTranscriptionStatus("complete");
+
+      setLiveAiEvaluationStatus("evaluating");
+      setLiveAiEvaluation(null);
+
+      try {
+        const evaluationResponse = await fetch(
+          "/api/live-evaluation-evaluate",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              questionType: currentQuestion?.title || "",
+              exercisePrompt:
+                getExercisePrompt(currentExercise),
+              studentTranscript: transcript,
+              teacherScores,
+              teacherFeedback:
+                teacherFeedback.trim(),
+              assessmentCriteria,
+            }),
+          }
+        );
+
+        const evaluationResult =
+          await evaluationResponse.json();
+
+        if (
+          !evaluationResponse.ok ||
+          !evaluationResult.isLiveAi
+        ) {
+          throw new Error(
+            evaluationResult?.message ||
+              "Live Evaluation AI evaluation failed."
+          );
+        }
+
+        setLiveAiEvaluation(
+          evaluationResult.evaluation
+        );
+        setLiveAiEvaluationStatus("complete");
+      } catch (evaluationError) {
+        console.error(
+          "Live Evaluation AI evaluation failed:",
+          evaluationError
+        );
+
+        setLiveAiEvaluationStatus("error");
+        setLiveAiError(
+          evaluationError instanceof Error
+            ? evaluationError.message
+            : "Live Evaluation AI evaluation failed."
+        );
+      }
     } catch (error) {
       console.error(
         "Live Evaluation AI transcription failed:",
@@ -2833,6 +2898,259 @@ export default function LiveEvaluationScreen({
                           {liveAiTranscript}
                         </div>
                       )}
+                    </div>
+
+                    {/* ==================================================
+                        AI EVALUATION
+                        ================================================== */}
+
+                    <div
+                      style={{
+                        marginTop: "10px",
+                        padding: "12px",
+                        borderRadius: "10px",
+                        backgroundColor: "#f5f3ff",
+                        border: "1px solid #ddd6fe",
+                      }}
+                    >
+                      <div
+                        style={{
+                          fontSize: "10px",
+                          fontWeight: 900,
+                          textTransform: "uppercase",
+                          letterSpacing: "0.05em",
+                          color: "#6d28d9",
+                          marginBottom: "7px",
+                        }}
+                      >
+                        AI Evaluation
+                      </div>
+
+                      {liveAiEvaluationStatus ===
+                        "evaluating" && (
+                        <div
+                          style={{
+                            color: "#6d28d9",
+                            fontSize: "10px",
+                            fontWeight: 800,
+                            lineHeight: 1.45,
+                          }}
+                        >
+                          Gemini is evaluating the student's
+                          transcript against the exercise and
+                          scoring criteria...
+                        </div>
+                      )}
+
+                      {liveAiEvaluationStatus ===
+                        "error" && (
+                        <div
+                          style={{
+                            padding: "8px 10px",
+                            borderRadius: "7px",
+                            backgroundColor: "#fff7f7",
+                            border: "1px solid #fecaca",
+                            color: "#b91c1c",
+                            fontSize: "10px",
+                            fontWeight: 700,
+                            lineHeight: 1.45,
+                          }}
+                        >
+                          {liveAiError}
+                        </div>
+                      )}
+
+                      {liveAiEvaluationStatus ===
+                        "complete" &&
+                        liveAiEvaluation && (
+                          <div
+                            style={{
+                              display: "grid",
+                              gap: "10px",
+                            }}
+                          >
+                            {Array.isArray(
+                              liveAiEvaluation.scores
+                            ) &&
+                              liveAiEvaluation.scores.length >
+                                0 && (
+                                <div
+                                  style={{
+                                    display: "grid",
+                                    gridTemplateColumns:
+                                      "repeat(auto-fit, minmax(220px, 1fr))",
+                                    gap: "8px",
+                                  }}
+                                >
+                                  {liveAiEvaluation.scores.map(
+                                    (scoreItem, index) => (
+                                      <div
+                                        key={`${scoreItem.criterion || "criterion"}-${index}`}
+                                        style={{
+                                          padding: "9px",
+                                          borderRadius: "8px",
+                                          backgroundColor: "#ffffff",
+                                          border:
+                                            "1px solid #ddd6fe",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            justifyContent:
+                                              "space-between",
+                                            alignItems: "center",
+                                            gap: "8px",
+                                            marginBottom: "6px",
+                                          }}
+                                        >
+                                          <span
+                                            style={{
+                                              fontSize: "11px",
+                                              fontWeight: 900,
+                                              color: "#0f172a",
+                                            }}
+                                          >
+                                            {scoreItem.criterion}
+                                          </span>
+
+                                          <span
+                                            style={{
+                                              padding: "3px 7px",
+                                              borderRadius: "999px",
+                                              backgroundColor:
+                                                "#ede9fe",
+                                              color: "#6d28d9",
+                                              fontSize: "10px",
+                                              fontWeight: 900,
+                                              whiteSpace: "nowrap",
+                                            }}
+                                          >
+                                            {scoreItem.score} /{" "}
+                                            {scoreItem.maxScore}
+                                          </span>
+                                        </div>
+
+                                        <p
+                                          style={{
+                                            margin: 0,
+                                            color: "#475569",
+                                            fontSize: "9px",
+                                            lineHeight: 1.45,
+                                          }}
+                                        >
+                                          {scoreItem.evidence}
+                                        </p>
+                                      </div>
+                                    )
+                                  )}
+                                </div>
+                              )}
+
+                            {liveAiEvaluation.overallFeedback && (
+                              <div
+                                style={{
+                                  padding: "9px 10px",
+                                  borderRadius: "8px",
+                                  backgroundColor: "#ffffff",
+                                  border:
+                                    "1px solid #ddd6fe",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    fontSize: "9px",
+                                    fontWeight: 900,
+                                    textTransform: "uppercase",
+                                    letterSpacing: "0.04em",
+                                    color: "#6d28d9",
+                                    marginBottom: "5px",
+                                  }}
+                                >
+                                  AI Overall Feedback
+                                </div>
+
+                                <p
+                                  style={{
+                                    margin: 0,
+                                    color: "#334155",
+                                    fontSize: "10px",
+                                    lineHeight: 1.5,
+                                  }}
+                                >
+                                  {
+                                    liveAiEvaluation.overallFeedback
+                                  }
+                                </p>
+                              </div>
+                            )}
+
+                            {Array.isArray(
+                              liveAiEvaluation.keyObservations
+                            ) &&
+                              liveAiEvaluation.keyObservations
+                                .length > 0 && (
+                                <div
+                                  style={{
+                                    padding: "9px 10px",
+                                    borderRadius: "8px",
+                                    backgroundColor: "#ffffff",
+                                    border:
+                                      "1px solid #ddd6fe",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      fontSize: "9px",
+                                      fontWeight: 900,
+                                      textTransform: "uppercase",
+                                      letterSpacing: "0.04em",
+                                      color: "#6d28d9",
+                                      marginBottom: "5px",
+                                    }}
+                                  >
+                                    Key Observations
+                                  </div>
+
+                                  <ul
+                                    style={{
+                                      margin: 0,
+                                      paddingLeft: "18px",
+                                      color: "#334155",
+                                      fontSize: "10px",
+                                      lineHeight: 1.5,
+                                    }}
+                                  >
+                                    {liveAiEvaluation.keyObservations.map(
+                                      (observation, index) => (
+                                        <li key={index}>
+                                          {observation}
+                                        </li>
+                                      )
+                                    )}
+                                  </ul>
+                                </div>
+                              )}
+
+                            <div
+                              style={{
+                                padding: "7px 9px",
+                                borderRadius: "7px",
+                                backgroundColor: "#ede9fe",
+                                color: "#5b21b6",
+                                fontSize: "9px",
+                                fontWeight: 700,
+                                lineHeight: 1.4,
+                              }}
+                            >
+                              AI evaluation is based on the
+                              student's transcript, the exercise
+                              prompt, and the supplied scoring
+                              criteria. It does not replace the
+                              teacher's independent assessment.
+                            </div>
+                          </div>
+                        )}
                     </div>
                   </>
                 )}
