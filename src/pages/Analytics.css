@@ -3125,3 +3125,386 @@
     margin: 0 18px 20px;
   }
 }
+
+/* ---------------------------------------------------------
+   Teacher Performance — Calibration Evidence Coverage
+   --------------------------------------------------------- */
+
+.analytics-performance-evidence-section {
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.analytics-performance-evidence-section .analytics-section-header {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.analytics-performance-evidence-section .analytics-section-header::before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  top: 22px;
+  width: 4px;
+  height: 38px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #10b981, #3b82f6);
+}
+
+.analytics-performance-evidence-section .analytics-section-header > div {
+  padding-left: 16px;
+}
+
+.analytics-performance-evidence-section .analytics-section-header h3 {
+  color: #0f172a;
+}
+
+.analytics-performance-evidence-section .analytics-section-header p {
+  max-width: 760px;
+}
+
+.analytics-performance-evidence-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding: 22px 28px 20px;
+}
+
+.analytics-performance-evidence-summary-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 116px;
+  padding: 20px 20px 18px;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background: #f8fafc;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+}
+
+.analytics-performance-evidence-summary-card::after {
+  content: "";
+  position: absolute;
+  right: -24px;
+  top: -28px;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.analytics-performance-evidence-summary-card:nth-child(1) {
+  border-color: rgba(59, 130, 246, 0.18);
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+}
+
+.analytics-performance-evidence-summary-card:nth-child(2) {
+  border-color: rgba(124, 58, 237, 0.16);
+  background: linear-gradient(135deg, #faf5ff 0%, #ede9fe 100%);
+}
+
+.analytics-performance-evidence-summary-card:nth-child(3) {
+  border-color: rgba(16, 185, 129, 0.17);
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+}
+
+.analytics-performance-evidence-summary-card span {
+  position: relative;
+  z-index: 1;
+  display: block;
+  color: #475569;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.analytics-performance-evidence-summary-card strong {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-top: 8px;
+  color: var(--header-text-color, #111827);
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.analytics-performance-evidence-summary-card small {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-top: 9px;
+  color: #64748b;
+  font-size: 9px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.analytics-performance-evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 0 28px 24px;
+}
+
+.analytics-performance-evidence-panel {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.07);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.025);
+}
+
+.analytics-performance-evidence-panel:nth-child(1) {
+  border-color: rgba(245, 158, 11, 0.16);
+  background: linear-gradient(180deg, #fffaf0 0%, #ffffff 38%);
+}
+
+.analytics-performance-evidence-panel:nth-child(2) {
+  border-color: rgba(59, 130, 246, 0.15);
+  background: linear-gradient(180deg, #f7fbff 0%, #ffffff 38%);
+}
+
+.analytics-performance-evidence-panel-wide {
+  grid-column: 1 / -1;
+  border-color: rgba(236, 72, 153, 0.15);
+  background: linear-gradient(180deg, #fff7fc 0%, #ffffff 44%);
+}
+
+.analytics-performance-evidence-panel-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.analytics-performance-evidence-panel-header strong {
+  color: var(--header-text-color, #111827);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.analytics-performance-evidence-panel-header span {
+  color: #94a3b8;
+  font-size: 9px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.analytics-performance-evidence-list {
+  display: grid;
+  gap: 8px;
+}
+
+.analytics-performance-evidence-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 42px;
+  padding: 8px 10px 8px 12px;
+  border-radius: 11px;
+  background: #f8fafc;
+}
+
+.analytics-performance-evidence-row:nth-child(1) {
+  background: linear-gradient(90deg, #ecfdf5, #f8fafc);
+}
+
+.analytics-performance-evidence-row:nth-child(2) {
+  background: linear-gradient(90deg, #eff6ff, #f8fafc);
+}
+
+.analytics-performance-evidence-row:nth-child(3) {
+  background: linear-gradient(90deg, #f5f3ff, #f8fafc);
+}
+
+.analytics-performance-evidence-row span {
+  color: #334155;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.analytics-performance-evidence-row strong {
+  display: inline-flex;
+  min-width: 34px;
+  min-height: 26px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 9px;
+  border-radius: 999px;
+  color: #0f172a;
+  background: rgba(148, 163, 184, 0.13);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.analytics-performance-evidence-row:nth-child(1) strong {
+  color: #b91c1c;
+  background: rgba(248, 113, 113, 0.18);
+}
+
+.analytics-performance-evidence-row:nth-child(2) strong {
+  color: #1d4ed8;
+  background: rgba(96, 165, 250, 0.18);
+}
+
+.analytics-performance-evidence-row:nth-child(3) strong {
+  color: #6d28d9;
+  background: rgba(167, 139, 250, 0.18);
+}
+
+.analytics-performance-evidence-cefr-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.analytics-performance-evidence-cefr-item {
+  display: flex;
+  min-height: 78px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid rgba(15, 23, 42, 0.07);
+  border-radius: 11px;
+  background: #f8fafc;
+}
+
+.analytics-performance-evidence-cefr-item strong {
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.analytics-performance-evidence-cefr-item span {
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.analytics-performance-evidence-has-data {
+  background: linear-gradient(180deg, #ecfdf5 0%, #d1fae5 100%);
+  border-color: rgba(16, 185, 129, 0.22);
+  color: #047857;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
+.analytics-performance-evidence-no-data {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  color: #94a3b8;
+}
+
+.analytics-performance-evidence-cefr-item::after {
+  content: "";
+  display: block;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.analytics-performance-evidence-has-data::after {
+  content: "Evidence recorded";
+  color: #059669;
+}
+
+.analytics-performance-evidence-no-data::after {
+  content: "No evidence";
+  color: #94a3b8;
+}
+
+.analytics-performance-evidence-exercise-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.analytics-performance-evidence-exercise-summary span {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  color: #475569;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.analytics-performance-evidence-exercise-summary span:nth-child(2) {
+  background: linear-gradient(135deg, #faf5ff 0%, #ede9fe 100%);
+  border-color: rgba(124, 58, 237, 0.12);
+}
+
+.analytics-performance-evidence-exercise-summary strong {
+  color: var(--header-text-color, #111827);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.analytics-performance-evidence-note {
+  position: relative;
+  margin: 0 28px 28px;
+  padding: 15px 18px 15px 42px;
+  border: 1px solid rgba(16, 185, 129, 0.18);
+  border-radius: 13px;
+  background: linear-gradient(90deg, #ecfdf5 0%, #f0fdfa 100%);
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.analytics-performance-evidence-note::before {
+  content: "💡";
+  position: absolute;
+  left: 15px;
+  top: 14px;
+  font-size: 16px;
+}
+
+.analytics-performance-evidence-note strong {
+  color: #047857;
+}
+
+@media (max-width: 900px) {
+  .analytics-performance-evidence-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-performance-evidence-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-performance-evidence-panel-wide {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .analytics-performance-evidence-summary-grid {
+    padding: 18px 18px 16px;
+  }
+
+  .analytics-performance-evidence-grid {
+    padding: 0 18px 20px;
+  }
+
+  .analytics-performance-evidence-cefr-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .analytics-performance-evidence-panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .analytics-performance-evidence-panel-header span {
+    text-align: left;
+  }
+
+  .analytics-performance-evidence-note {
+    margin: 0 18px 20px;
+  }
+}

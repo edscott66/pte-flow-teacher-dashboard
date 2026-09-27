@@ -946,6 +946,52 @@ const historyAttempts = attempts;
       ? `The recorded scores span ${teacherPerformanceConsistencyRange} points, with a standard deviation of ${teacherPerformanceConsistencyStandardDeviation.toFixed(1)} points.`
       : "At least two recorded evaluations are needed before score variation can be described.";
 
+  const teacherPerformanceEvidenceCefrLevels = ["A1", "A2", "B1", "B2", "C1", "C2"];
+
+  const teacherPerformanceEvidenceCefrCoverage =
+    teacherPerformanceEvidenceCefrLevels.map((level) => ({
+      level,
+      evaluations: teacherPerformanceAllAttempts.filter(
+        (attempt) => getLiveEvaluationCefrLevel(attempt) === level
+      ).length,
+    }));
+
+  const teacherPerformanceEvidenceDiagnosticCoverage =
+    teacherPerformanceDiagnosticSkillDefinitions.map((skillDefinition) => ({
+      ...skillDefinition,
+      evaluations: teacherPerformanceAllAttempts.filter(
+        (attempt) =>
+          getLiveEvaluationDiagnosticSkill(attempt) ===
+          skillDefinition.key
+      ).length,
+    }));
+
+  const teacherPerformanceEvidenceExerciseCoverage = Array.from(
+    new Set(
+      teacherPerformanceAllAttempts
+        .map((attempt) => Number(attempt?.exerciseIndex))
+        .filter((exerciseIndex) => Number.isFinite(exerciseIndex))
+    )
+  ).sort((a, b) => a - b);
+
+  const teacherPerformanceEvidenceExerciseCounts =
+    teacherPerformanceEvidenceExerciseCoverage.map((exerciseIndex) => ({
+      exerciseIndex,
+      evaluations: teacherPerformanceAllAttempts.filter(
+        (attempt) => Number(attempt?.exerciseIndex) === exerciseIndex
+      ).length,
+    }));
+
+  const teacherPerformanceEvidenceRepeatedExercises =
+    teacherPerformanceEvidenceExerciseCounts.filter(
+      (exercise) => exercise.evaluations >= 2
+    );
+
+  const teacherPerformanceEvidenceSingleEvaluationExercises =
+    teacherPerformanceEvidenceExerciseCounts.filter(
+      (exercise) => exercise.evaluations === 1
+    );
+
   const getLiveEvaluationScoreTier = (score) => {
     if (score >= 85) return "PTE Master";
     if (score >= 70) return "Proficient";
@@ -2948,6 +2994,131 @@ const historyAttempts = attempts;
 
             <div className="analytics-performance-profile-note">
               <strong>How to read this:</strong> this profile brings together the evidence already shown in the Teacher Performance Analytics sections above. It is descriptive rather than predictive, and it does not convert the record into a single overall rating.
+            </div>
+          </>
+        )}
+      </section>
+
+      <section className="analytics-section-card analytics-performance-evidence-section">
+        <div className="analytics-section-header">
+          <div>
+            <h3>Calibration Evidence Coverage</h3>
+            <p>
+              See where your current Live Evaluation record has evidence and where additional evaluations would make the profile more informative.
+            </p>
+          </div>
+
+          <span className="analytics-result-count analytics-performance-result-count">
+            {teacherPerformanceAllAttempts.length} evaluation
+            {teacherPerformanceAllAttempts.length === 1 ? "" : "s"}
+          </span>
+        </div>
+
+        {teacherPerformanceAllAttempts.length === 0 ? (
+          <div className="analytics-empty-state">
+            <div className="analytics-empty-icon">🧩</div>
+            <strong>Evidence coverage will appear here</strong>
+            <p>
+              Complete Live Evaluation assessments to build evidence across diagnostic areas, CEFR levels and exercises.
+            </p>
+          </div>
+        ) : (
+          <>
+            <div className="analytics-performance-evidence-summary-grid">
+              <article className="analytics-performance-evidence-summary-card">
+                <span>Diagnostic areas</span>
+                <strong>
+                  {teacherPerformanceEvidenceDiagnosticCoverage.filter(
+                    (item) => item.evaluations > 0
+                  ).length}/3
+                </strong>
+                <small>Areas with at least one recorded evaluation</small>
+              </article>
+
+              <article className="analytics-performance-evidence-summary-card">
+                <span>CEFR levels</span>
+                <strong>
+                  {teacherPerformanceEvidenceCefrCoverage.filter(
+                    (item) => item.evaluations > 0
+                  ).length}/6
+                </strong>
+                <small>Levels with at least one recorded evaluation</small>
+              </article>
+
+              <article className="analytics-performance-evidence-summary-card">
+                <span>Exercises</span>
+                <strong>{teacherPerformanceEvidenceExerciseCoverage.length}</strong>
+                <small>
+                  {teacherPerformanceEvidenceRepeatedExercises.length} revisited
+                </small>
+              </article>
+            </div>
+
+            <div className="analytics-performance-evidence-grid">
+              <div className="analytics-performance-evidence-panel">
+                <div className="analytics-performance-evidence-panel-header">
+                  <strong>Diagnostic evidence</strong>
+                  <span>Recorded evaluations</span>
+                </div>
+
+                <div className="analytics-performance-evidence-list">
+                  {teacherPerformanceEvidenceDiagnosticCoverage.map((item) => (
+                    <div
+                      className="analytics-performance-evidence-row"
+                      key={item.key}
+                    >
+                      <span>{item.label}</span>
+                      <strong>{item.evaluations}</strong>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="analytics-performance-evidence-panel">
+                <div className="analytics-performance-evidence-panel-header">
+                  <strong>CEFR evidence</strong>
+                  <span>Recorded evaluations</span>
+                </div>
+
+                <div className="analytics-performance-evidence-cefr-grid">
+                  {teacherPerformanceEvidenceCefrCoverage.map((item) => (
+                    <div
+                      className={`analytics-performance-evidence-cefr-item ${
+                        item.evaluations > 0
+                          ? "analytics-performance-evidence-has-data"
+                          : "analytics-performance-evidence-no-data"
+                      }`}
+                      key={item.level}
+                    >
+                      <strong>{item.level}</strong>
+                      <span>{item.evaluations}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="analytics-performance-evidence-panel analytics-performance-evidence-panel-wide">
+                <div className="analytics-performance-evidence-panel-header">
+                  <strong>Exercise evidence</strong>
+                  <span>
+                    {teacherPerformanceEvidenceSingleEvaluationExercises.length} single-evaluation
+                    {teacherPerformanceEvidenceSingleEvaluationExercises.length === 1 ? "" : "s"} • {teacherPerformanceEvidenceRepeatedExercises.length} revisited
+                  </span>
+                </div>
+
+                <div className="analytics-performance-evidence-exercise-summary">
+                  <span>
+                    <strong>{teacherPerformanceEvidenceExerciseCoverage.length}</strong> unique exercises recorded
+                  </span>
+                  <span>
+                    <strong>{teacherPerformanceEvidenceRepeatedExercises.length}</strong> revisited exercises
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="analytics-performance-evidence-note">
+              <strong>How to read this:</strong> coverage shows where evidence exists, not where performance is strong or weak. An area with little or no evidence should not be interpreted as a weakness, and an area with one evaluation is not yet a strong basis for a longitudinal conclusion.
             </div>
           </>
         )}
