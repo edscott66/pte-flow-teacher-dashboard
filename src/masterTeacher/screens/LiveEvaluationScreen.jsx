@@ -17,6 +17,9 @@ import { useAuth } from "../../AuthContext";
 
 import { QUESTIONS_DATA } from "../constants/questionsData";
 import { getExercise } from "../constants/exerciseBank";
+import {
+  saveLiveEvaluationCalibrationAttempt,
+} from "../../services/teacherAnalyticsService";
 
 export default function LiveEvaluationScreen({
   onNavigate,
@@ -668,8 +671,32 @@ export default function LiveEvaluationScreen({
           setLiveAiTeacherReview(
             teacherReviewResult.review
           );
+
+          await saveLiveEvaluationCalibrationAttempt({
+            questionId: currentQuestion?.id || "",
+            questionTitle: currentQuestion?.title || "",
+            exerciseIndex,
+            trainingSkill:
+              currentExercise?.trainingSkill || "",
+            teacherScores,
+            teacherFeedback:
+              teacherFeedback.trim(),
+            studentTranscript: transcript,
+            aiEvaluation:
+              evaluationResult.evaluation,
+            teacherReview:
+              teacherReviewResult.review,
+            calibrationScore:
+              teacherReviewResult.review.calibrationScore,
+            scoreBreakdown:
+              teacherReviewResult.review.scoreBreakdown,
+            scoreExplanation:
+              teacherReviewResult.review.scoreExplanation || "",
+            timestamp: new Date().toISOString(),
+          });
+
           setLiveAiTeacherReviewStatus("complete");
-        } catch (teacherReviewError) {
+	} catch (teacherReviewError) {
           console.error(
             "Live Evaluation teacher assessment review failed:",
             teacherReviewError
@@ -3297,6 +3324,217 @@ export default function LiveEvaluationScreen({
                               gap: "10px",
                             }}
                           >
+                                                        {liveAiTeacherReview.calibrationScore !== undefined && (
+                              <div
+                                style={{
+                                  marginBottom: "14px",
+                                  padding: "14px",
+                                  borderRadius: "10px",
+                                  backgroundColor: "#f0fdf4",
+                                  border: "1px solid #86efac",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "space-between",
+                                    gap: "12px",
+                                    marginBottom: "12px",
+                                  }}
+                                >
+                                  <div>
+                                    <div
+                                      style={{
+                                        fontSize: "15px",
+                                        fontWeight: 800,
+                                        color: "#166534",
+                                      }}
+                                    >
+                                      Teacher Calibration Score
+                                    </div>
+                                    <div
+                                      style={{
+                                        marginTop: "3px",
+                                        fontSize: "12px",
+                                        color: "#4b5563",
+                                      }}
+                                    >
+                                      Measures the quality of your assessment and feedback.
+                                    </div>
+                                  </div>
+
+                                  <div
+                                    style={{
+                                      fontSize: "28px",
+                                      fontWeight: 900,
+                                      color: "#166534",
+                                      whiteSpace: "nowrap",
+                                    }}
+                                  >
+                                    {liveAiTeacherReview.calibrationScore} / 100
+                                  </div>
+                                </div>
+
+                                {liveAiTeacherReview.scoreBreakdown && (
+                                  <div
+                                    style={{
+                                      display: "grid",
+                                      gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+                                      gap: "8px",
+                                      marginBottom: "12px",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        padding: "9px",
+                                        borderRadius: "8px",
+                                        backgroundColor: "#ffffff",
+                                        border: "1px solid #bbf7d0",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          fontSize: "11px",
+                                          fontWeight: 800,
+                                          color: "#166534",
+                                        }}
+                                      >
+                                        Assessment Accuracy
+                                      </div>
+                                      <div
+                                        style={{
+                                          marginTop: "3px",
+                                          fontSize: "16px",
+                                          fontWeight: 800,
+                                          color: "#111827",
+                                        }}
+                                      >
+                                        {liveAiTeacherReview.scoreBreakdown.assessmentAccuracy} / 40
+                                      </div>
+                                    </div>
+
+                                    <div
+                                      style={{
+                                        padding: "9px",
+                                        borderRadius: "8px",
+                                        backgroundColor: "#ffffff",
+                                        border: "1px solid #bbf7d0",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          fontSize: "11px",
+                                          fontWeight: 800,
+                                          color: "#166534",
+                                        }}
+                                      >
+                                        Evidence &amp; Observation
+                                      </div>
+                                      <div
+                                        style={{
+                                          marginTop: "3px",
+                                          fontSize: "16px",
+                                          fontWeight: 800,
+                                          color: "#111827",
+                                        }}
+                                      >
+                                        {liveAiTeacherReview.scoreBreakdown.evidenceAndObservation} / 25
+                                      </div>
+                                    </div>
+
+                                    <div
+                                      style={{
+                                        padding: "9px",
+                                        borderRadius: "8px",
+                                        backgroundColor: "#ffffff",
+                                        border: "1px solid #bbf7d0",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          fontSize: "11px",
+                                          fontWeight: 800,
+                                          color: "#166534",
+                                        }}
+                                      >
+                                        Written Feedback Accuracy
+                                      </div>
+                                      <div
+                                        style={{
+                                          marginTop: "3px",
+                                          fontSize: "16px",
+                                          fontWeight: 800,
+                                          color: "#111827",
+                                        }}
+                                      >
+                                        {liveAiTeacherReview.scoreBreakdown.writtenFeedbackAccuracy} / 20
+                                      </div>
+                                    </div>
+
+                                    <div
+                                      style={{
+                                        padding: "9px",
+                                        borderRadius: "8px",
+                                        backgroundColor: "#ffffff",
+                                        border: "1px solid #bbf7d0",
+                                      }}
+                                    >
+                                      <div
+                                        style={{
+                                          fontSize: "11px",
+                                          fontWeight: 800,
+                                          color: "#166534",
+                                        }}
+                                      >
+                                        Calibration Discipline
+                                      </div>
+                                      <div
+                                        style={{
+                                          marginTop: "3px",
+                                          fontSize: "16px",
+                                          fontWeight: 800,
+                                          color: "#111827",
+                                        }}
+                                      >
+                                        {liveAiTeacherReview.scoreBreakdown.calibrationDiscipline} / 15
+                                      </div>
+                                    </div>
+                                  </div>
+                                )}
+
+                                {liveAiTeacherReview.scoreExplanation && (
+                                  <div
+                                    style={{
+                                      padding: "10px",
+                                      borderRadius: "8px",
+                                      backgroundColor: "#ffffff",
+                                      border: "1px solid #dcfce7",
+                                    }}
+                                  >
+                                    <div
+                                      style={{
+                                        fontSize: "11px",
+                                        fontWeight: 800,
+                                        color: "#166534",
+                                        marginBottom: "4px",
+                                      }}
+                                    >
+                                      Why this score:
+                                    </div>
+                                    <div
+                                      style={{
+                                        fontSize: "12px",
+                                        lineHeight: 1.5,
+                                        color: "#374151",
+                                      }}
+                                    >
+                                      {liveAiTeacherReview.scoreExplanation}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            )}
                             {liveAiTeacherReview.overallCalibration && (
                               <div
                                 style={{

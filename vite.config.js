@@ -1,4 +1,4 @@
-﻿import { defineConfig, loadEnv } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import { GoogleGenAI, Type } from "@google/genai";
 
@@ -814,6 +814,38 @@ For each criterion, determine whether the teacher's assessment is:
 - "potentially_over_scored"
 - "insufficient_evidence"
 
+CALIBRATION SCORE
+
+After reviewing the teacher's assessment, assign a Teacher Calibration Score based on the quality of the teacher's assessment process.
+
+The score must NOT simply measure agreement with the independent AI evaluation.
+
+Use these four categories:
+
+1. Assessment Accuracy — maximum 40 points
+   Evaluate whether the teacher's scores appropriately reflect the available evidence and the applicable scoring criteria.
+
+2. Evidence & Observation — maximum 25 points
+   Evaluate whether the teacher identified and responded to concrete evidence in the student's performance, including meaningful omissions, additions, substitutions, matches, repetitions, or other observable evidence.
+
+3. Written Feedback Accuracy — maximum 20 points
+   Evaluate whether the teacher's written feedback accurately describes what the student actually did and avoids claims that contradict the available evidence.
+
+4. Calibration Discipline — maximum 15 points
+   Evaluate whether the teacher appropriately distinguishes between evidence that can be established and evidence that requires audio or other unavailable evidence. Do not penalize a teacher merely because a criterion is "insufficient_evidence" when the teacher's score itself was reasonable given the available evidence.
+
+IMPORTANT SCORING PRINCIPLES:
+
+- Do not penalize a teacher simply because their score differs from the independent AI evaluation.
+- Do not reward a teacher simply because their score agrees with the independent AI evaluation.
+- Base scoring on the exercise prompt, student transcript, teacher scores, teacher written feedback, assessment criteria, and the Teacher Assessment Review.
+- For Oral Fluency and Pronunciation, do not penalize the teacher merely because transcript evidence is insufficient to fully verify those criteria.
+- A teacher should lose points when there is concrete evidence that they overlooked, misunderstood, or inaccurately described important student performance.
+- Written feedback that contradicts a clearly demonstrated transcript discrepancy should reduce Written Feedback Accuracy.
+- The four category scores must be whole numbers within their stated maximums.
+- The four category scores must add up to the final calibration score out of 100.
+- The score should represent teacher calibration quality, not English ability.
+
 Return a valid JSON object matching the requested schema.
 `;
 
@@ -916,6 +948,38 @@ Return a valid JSON object matching the requested schema.
                             type: Type.STRING,
                           },
                         },
+
+                        calibrationScore: {
+                          type: Type.NUMBER,
+                        },
+
+                        scoreBreakdown: {
+                          type: Type.OBJECT,
+                          properties: {
+                            assessmentAccuracy: {
+                              type: Type.NUMBER,
+                            },
+                            evidenceAndObservation: {
+                              type: Type.NUMBER,
+                            },
+                            writtenFeedbackAccuracy: {
+                              type: Type.NUMBER,
+                            },
+                            calibrationDiscipline: {
+                              type: Type.NUMBER,
+                            },
+                          },
+                          required: [
+                            "assessmentAccuracy",
+                            "evidenceAndObservation",
+                            "writtenFeedbackAccuracy",
+                            "calibrationDiscipline",
+                          ],
+                        },
+
+                        scoreExplanation: {
+                          type: Type.STRING,
+                        },
                       },
                       required: [
                         "isLiveAi",
@@ -925,6 +989,9 @@ Return a valid JSON object matching the requested schema.
                         "lineByLineReview",
                         "teacherFeedbackReview",
                         "calibrationAdvice",
+                        "calibrationScore",
+                        "scoreBreakdown",
+                        "scoreExplanation",
                       ],
                     },
                   },
@@ -1009,6 +1076,53 @@ Return a valid JSON object matching the requested schema.
 
                     return item;
                   });
+              }
+
+              // ----------------------------------------------------------
+              // Deterministic Teacher Calibration Score
+              //
+              // Gemini supplies the four component scores, but the final
+              // score is calculated here so the /100 total cannot drift
+              // from the displayed breakdown.
+              // ----------------------------------------------------------
+              if (review?.scoreBreakdown) {
+                const clampScore = (value, maximum) => {
+                  const numericValue = Number(value);
+
+                  if (!Number.isFinite(numericValue)) {
+                    return 0;
+                  }
+
+                  return Math.min(
+                    maximum,
+                    Math.max(0, Math.round(numericValue))
+                  );
+                };
+
+                review.scoreBreakdown = {
+                  assessmentAccuracy: clampScore(
+                    review.scoreBreakdown.assessmentAccuracy,
+                    40
+                  ),
+                  evidenceAndObservation: clampScore(
+                    review.scoreBreakdown.evidenceAndObservation,
+                    25
+                  ),
+                  writtenFeedbackAccuracy: clampScore(
+                    review.scoreBreakdown.writtenFeedbackAccuracy,
+                    20
+                  ),
+                  calibrationDiscipline: clampScore(
+                    review.scoreBreakdown.calibrationDiscipline,
+                    15
+                  ),
+                };
+
+                review.calibrationScore =
+                  review.scoreBreakdown.assessmentAccuracy +
+                  review.scoreBreakdown.evidenceAndObservation +
+                  review.scoreBreakdown.writtenFeedbackAccuracy +
+                  review.scoreBreakdown.calibrationDiscipline;
               }
 
               // Keep the overall message aligned with the deterministic
@@ -1847,13 +1961,3 @@ export default defineConfig(({ mode }) => {
     },
   };
 });
-
-
-
-
-
-
-
-
-
-

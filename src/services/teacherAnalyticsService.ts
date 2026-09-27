@@ -61,6 +61,37 @@ export interface CalibrationAttemptRecord
   createdAt?: unknown;
 }
 
+export interface LiveEvaluationCalibrationAttemptData {
+  questionId: string;
+  questionTitle: string;
+  section?: string;
+
+  exerciseIndex: number;
+  topicTitle?: string;
+  trainingSkill?: string;
+  cefrLevel?: string;
+
+  responseMode: "live-evaluation";
+
+  teacherScores: Record<string, number>;
+  teacherFeedback: string;
+
+  studentTranscript: string;
+
+  aiEvaluation: unknown;
+  teacherReview: unknown;
+
+  calibrationScore: number;
+  scoreBreakdown: {
+    assessmentAccuracy: number;
+    evidenceAndObservation: number;
+    writtenFeedbackAccuracy: number;
+    calibrationDiscipline: number;
+  };
+  scoreExplanation: string;
+
+  timestamp: string;
+}
 export function getCurrentTeacher() {
   return teacherAuth.currentUser;
 }
@@ -202,6 +233,36 @@ function normalizeCefrLevel(
   return getLegacyCefrLevel(exerciseIndex);
 }
 
+export async function saveLiveEvaluationCalibrationAttempt(
+  attemptData: Omit<
+    LiveEvaluationCalibrationAttemptData,
+    "responseMode"
+  >
+): Promise<string> {
+  const teacher = getCurrentTeacher();
+
+  if (!teacher) {
+    throw new Error(
+      "No Teacher Dashboard user is authenticated. Live Evaluation calibration attempt cannot be saved."
+    );
+  }
+
+  await ensureTeacherProfile();
+
+  const attemptsCollection = collection(
+    teacherDb,
+    "liveEvaluationCalibrationAttempts"
+  );
+
+  const attemptDoc = await addDoc(attemptsCollection, {
+    ...attemptData,
+    teacherId: teacher.uid,
+    responseMode: "live-evaluation",
+    createdAt: serverTimestamp(),
+  });
+
+  return attemptDoc.id;
+}
 export async function getTeacherCalibrationAttempts(): Promise<
   CalibrationAttemptRecord[]
 > {
