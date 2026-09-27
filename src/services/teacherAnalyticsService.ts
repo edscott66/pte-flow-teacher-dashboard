@@ -92,6 +92,14 @@ export interface LiveEvaluationCalibrationAttemptData {
 
   timestamp: string;
 }
+
+export interface LiveEvaluationCalibrationAttemptRecord
+  extends LiveEvaluationCalibrationAttemptData {
+  id: string;
+  teacherId: string;
+  createdAt?: unknown;
+}
+
 export function getCurrentTeacher() {
   return teacherAuth.currentUser;
 }
@@ -263,6 +271,7 @@ export async function saveLiveEvaluationCalibrationAttempt(
 
   return attemptDoc.id;
 }
+
 export async function getTeacherCalibrationAttempts(): Promise<
   CalibrationAttemptRecord[]
 > {
@@ -362,6 +371,186 @@ export async function getTeacherCalibrationAttempts(): Promise<
         timestamp: String(
           data.timestamp ?? ""
         ),
+        createdAt: data.createdAt,
+      };
+    });
+
+  attempts.sort((a, b) => {
+    const aTime =
+      a.createdAt &&
+      typeof a.createdAt === "object" &&
+      "toMillis" in a.createdAt &&
+      typeof a.createdAt.toMillis === "function"
+        ? a.createdAt.toMillis()
+        : 0;
+
+    const bTime =
+      b.createdAt &&
+      typeof b.createdAt === "object" &&
+      "toMillis" in b.createdAt &&
+      typeof b.createdAt.toMillis === "function"
+        ? b.createdAt.toMillis()
+        : 0;
+
+    return bTime - aTime;
+  });
+
+  return attempts;
+}
+
+/**
+ * Load Live Evaluation calibration attempts for the
+ * currently authenticated Teacher Dashboard teacher.
+ *
+ * This collection is intentionally separate from the
+ * existing Calibration Lab "calibrationAttempts"
+ * collection.
+ */
+export async function getTeacherLiveEvaluationCalibrationAttempts(): Promise<
+  LiveEvaluationCalibrationAttemptRecord[]
+> {
+  const teacher = getCurrentTeacher();
+
+  if (!teacher) {
+    throw new Error(
+      "No Teacher Dashboard user is authenticated. Live Evaluation calibration attempts cannot be loaded."
+    );
+  }
+
+  const attemptsRef = collection(
+    teacherDb,
+    "liveEvaluationCalibrationAttempts"
+  );
+
+  const attemptsQuery = query(
+    attemptsRef,
+    where("teacherId", "==", teacher.uid)
+  );
+
+  const snapshot = await getDocs(attemptsQuery);
+
+  const attempts: LiveEvaluationCalibrationAttemptRecord[] =
+    snapshot.docs.map((attemptDoc) => {
+      const data = attemptDoc.data();
+
+      const teacherScores =
+        data.teacherScores &&
+        typeof data.teacherScores === "object" &&
+        !Array.isArray(data.teacherScores)
+          ? Object.fromEntries(
+              Object.entries(data.teacherScores).map(
+                ([key, value]) => [
+                  key,
+                  typeof value === "number"
+                    ? value
+                    : Number(value) || 0,
+                ]
+              )
+            )
+          : {};
+
+      const scoreBreakdownData =
+        data.scoreBreakdown &&
+        typeof data.scoreBreakdown === "object" &&
+        !Array.isArray(data.scoreBreakdown)
+          ? data.scoreBreakdown
+          : {};
+
+      const scoreBreakdown = {
+        assessmentAccuracy:
+          typeof scoreBreakdownData.assessmentAccuracy ===
+          "number"
+            ? scoreBreakdownData.assessmentAccuracy
+            : Number(
+                scoreBreakdownData.assessmentAccuracy
+              ) || 0,
+
+        evidenceAndObservation:
+          typeof scoreBreakdownData.evidenceAndObservation ===
+          "number"
+            ? scoreBreakdownData.evidenceAndObservation
+            : Number(
+                scoreBreakdownData.evidenceAndObservation
+              ) || 0,
+
+        writtenFeedbackAccuracy:
+          typeof scoreBreakdownData.writtenFeedbackAccuracy ===
+          "number"
+            ? scoreBreakdownData.writtenFeedbackAccuracy
+            : Number(
+                scoreBreakdownData.writtenFeedbackAccuracy
+              ) || 0,
+
+        calibrationDiscipline:
+          typeof scoreBreakdownData.calibrationDiscipline ===
+          "number"
+            ? scoreBreakdownData.calibrationDiscipline
+            : Number(
+                scoreBreakdownData.calibrationDiscipline
+              ) || 0,
+      };
+
+      return {
+        id: attemptDoc.id,
+        teacherId: String(data.teacherId ?? ""),
+
+        questionId: String(data.questionId ?? ""),
+        questionTitle: String(
+          data.questionTitle ?? ""
+        ),
+        section:
+          data.section !== undefined
+            ? String(data.section)
+            : undefined,
+
+        exerciseIndex: Number(
+          data.exerciseIndex ?? 0
+        ),
+
+        topicTitle:
+          data.topicTitle !== undefined
+            ? String(data.topicTitle)
+            : undefined,
+
+        trainingSkill:
+          data.trainingSkill !== undefined
+            ? String(data.trainingSkill)
+            : undefined,
+
+        cefrLevel:
+          data.cefrLevel !== undefined
+            ? String(data.cefrLevel)
+            : undefined,
+
+        responseMode: "live-evaluation",
+
+        teacherScores,
+        teacherFeedback: String(
+          data.teacherFeedback ?? ""
+        ),
+
+        studentTranscript: String(
+          data.studentTranscript ?? ""
+        ),
+
+        aiEvaluation: data.aiEvaluation ?? null,
+        teacherReview: data.teacherReview ?? null,
+
+        calibrationScore:
+          typeof data.calibrationScore === "number"
+            ? data.calibrationScore
+            : Number(data.calibrationScore) || 0,
+
+        scoreBreakdown,
+
+        scoreExplanation: String(
+          data.scoreExplanation ?? ""
+        ),
+
+        timestamp: String(
+          data.timestamp ?? ""
+        ),
+
         createdAt: data.createdAt,
       };
     });

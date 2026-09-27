@@ -681,6 +681,392 @@
 }
 
 /* ---------------------------------------------------------
+   Live Evaluation Performance
+   --------------------------------------------------------- */
+
+.analytics-live-evaluation-section {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.analytics-live-result-count {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.analytics-live-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  padding: 20px 24px 24px;
+}
+
+.analytics-live-stat-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 118px;
+  padding: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.05);
+}
+
+.analytics-live-stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.analytics-live-stat-completed::before {
+  background: #2563eb;
+}
+
+.analytics-live-stat-average::before {
+  background: #8b5cf6;
+}
+
+.analytics-live-stat-highest::before {
+  background: #10b981;
+}
+
+.analytics-live-stat-lowest::before {
+  background: #f59e0b;
+}
+
+.analytics-live-stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  background: #f3f4f6;
+  font-size: 22px;
+}
+
+.analytics-live-stat-completed .analytics-live-stat-icon {
+  background: #eff6ff;
+}
+
+.analytics-live-stat-average .analytics-live-stat-icon {
+  background: #f5f3ff;
+}
+
+.analytics-live-stat-highest .analytics-live-stat-icon {
+  background: #ecfdf5;
+}
+
+.analytics-live-stat-lowest .analytics-live-stat-icon {
+  background: #fffbeb;
+}
+
+.analytics-live-stat-content {
+  min-width: 0;
+}
+
+.analytics-live-stat-content span {
+  display: block;
+  margin-bottom: 5px;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.analytics-live-stat-content strong {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--header-text-color, #111827);
+  font-size: 27px;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.analytics-live-stat-content small {
+  display: block;
+  color: #9ca3af;
+  font-size: 11px;
+}
+
+@media (max-width: 1050px) {
+  .analytics-live-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .analytics-live-summary-grid {
+    grid-template-columns: 1fr;
+    padding: 16px 15px 18px;
+  }
+}
+
+/* ---------------------------------------------------------
+   Live Evaluation CEFR Performance
+   --------------------------------------------------------- */
+
+.analytics-live-cefr-section {
+  margin-bottom: 24px;
+}
+
+.analytics-live-cefr-level {
+  background: #f5f3ff;
+  color: #7c3aed;
+}
+
+.analytics-live-cefr-bar-master {
+  background: #059669;
+}
+
+.analytics-live-cefr-bar-proficient {
+  background: #4f46e5;
+}
+
+.analytics-live-cefr-bar-developing {
+  background: #d97706;
+}
+
+.analytics-live-cefr-bar-needs-calibration {
+  background: #e11d48;
+}
+
+/* ---------------------------------------------------------
+   Live Evaluation Performance Trend
+   --------------------------------------------------------- */
+
+.analytics-live-trend-section {
+  margin-bottom: 24px;
+}
+
+.analytics-live-trend-chart {
+  display: flex;
+  min-height: 270px;
+  padding: 24px 24px 18px;
+}
+
+.analytics-live-trend-scale {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 42px;
+  padding: 2px 8px 25px 0;
+  color: #9ca3af;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.analytics-live-trend-plot {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 228px;
+}
+
+.analytics-live-trend-grid {
+  position: absolute;
+  inset: 0 0 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.analytics-live-trend-grid span {
+  width: 100%;
+  height: 1px;
+  background: rgba(15, 23, 42, 0.07);
+}
+
+.analytics-live-trend-bars {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  gap: 8px;
+  padding: 0 4px;
+}
+
+.analytics-live-trend-point {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-width: 24px;
+  max-width: 72px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.analytics-live-trend-score {
+  min-height: 17px;
+  margin-bottom: 5px;
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.analytics-live-trend-score-master {
+  color: #059669;
+}
+
+.analytics-live-trend-score-proficient {
+  color: #4f46e5;
+}
+
+.analytics-live-trend-score-developing {
+  color: #d97706;
+}
+
+.analytics-live-trend-score-needs-calibration {
+  color: #e11d48;
+}
+
+.analytics-live-trend-bar-track {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: min(34px, 70%);
+  height: 180px;
+  overflow: hidden;
+  border-radius: 8px 8px 3px 3px;
+  background: #eff6ff;
+}
+
+.analytics-live-trend-bar {
+  width: 100%;
+  min-height: 2px;
+  border-radius: 8px 8px 3px 3px;
+  transition: height 0.4s ease;
+}
+
+.analytics-live-trend-bar-master {
+  background: #059669;
+}
+
+.analytics-live-trend-bar-proficient {
+  background: #4f46e5;
+}
+
+.analytics-live-trend-bar-developing {
+  background: #d97706;
+}
+
+.analytics-live-trend-bar-needs-calibration {
+  background: #e11d48;
+}
+
+.analytics-live-trend-label {
+  margin-top: 7px;
+  color: #6b7280;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.analytics-live-trend-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+  margin: 0 24px 20px 66px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.analytics-live-trend-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.analytics-live-trend-legend-dot {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.analytics-live-trend-dot-master {
+  background: #059669;
+}
+
+.analytics-live-trend-dot-proficient {
+  background: #4f46e5;
+}
+
+.analytics-live-trend-dot-developing {
+  background: #d97706;
+}
+
+.analytics-live-trend-dot-needs-calibration {
+  background: #e11d48;
+}
+
+.analytics-live-trend-legend-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.analytics-live-trend-legend-item strong {
+  color: #374151;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.analytics-live-trend-legend-item span:not(.analytics-live-trend-legend-dot) {
+  color: #6b7280;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+@media (max-width: 500px) {
+  .analytics-live-trend-chart {
+    min-height: 245px;
+    padding: 20px 15px 15px;
+  }
+
+  .analytics-live-trend-scale {
+    width: 36px;
+    padding-right: 6px;
+    font-size: 9px;
+  }
+
+  .analytics-live-trend-plot {
+    height: 210px;
+  }
+
+  .analytics-live-trend-bar-track {
+    width: min(28px, 70%);
+    height: 165px;
+  }
+
+  .analytics-live-trend-bars {
+    gap: 4px;
+    padding: 0 2px;
+  }
+
+  .analytics-live-trend-score {
+    font-size: 9px;
+  }
+
+  .analytics-live-trend-legend {
+    gap: 12px 16px;
+    margin: 0 15px 15px 51px;
+    padding: 10px 12px;
+  }
+}
+
+/* ---------------------------------------------------------
    Main Results Card
    --------------------------------------------------------- */
 
