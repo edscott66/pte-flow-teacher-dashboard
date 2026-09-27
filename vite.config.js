@@ -594,6 +594,550 @@ Important rules:
     },
   };
 }
+function liveEvaluationTeacherReviewPlugin(apiKey) {
+  return {
+    name: "live-evaluation-teacher-review-api",
+
+    configureServer(server) {
+      server.middlewares.use(
+        "/api/live-evaluation-teacher-review",
+        async (req, res, next) => {
+          if (req.method !== "POST") {
+            next();
+            return;
+          }
+
+          let body = "";
+
+          req.on("data", (chunk) => {
+            body += chunk.toString();
+          });
+
+          req.on("end", async () => {
+            try {
+              const {
+                questionType,
+                exercisePrompt,
+                studentTranscript,
+                teacherScores,
+                teacherFeedback,
+                assessmentCriteria,
+                aiEvaluation,
+              } = JSON.parse(body || "{}");
+
+              res.setHeader(
+                "Content-Type",
+                "application/json"
+              );
+
+              if (!apiKey) {
+                res.statusCode = 503;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error: "GEMINI_API_KEY_MISSING",
+                    message:
+                      "No GEMINI_API_KEY was found in the Teacher Dashboard environment.",
+                  })
+                );
+                return;
+              }
+
+              if (
+                typeof questionType !== "string" ||
+                !questionType.trim()
+              ) {
+                res.statusCode = 400;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error: "QUESTION_TYPE_MISSING",
+                    message:
+                      "No Live Evaluation question type was supplied.",
+                  })
+                );
+                return;
+              }
+
+              if (
+                typeof exercisePrompt !== "string" ||
+                !exercisePrompt.trim()
+              ) {
+                res.statusCode = 400;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error: "EXERCISE_PROMPT_MISSING",
+                    message:
+                      "No Live Evaluation exercise prompt was supplied.",
+                  })
+                );
+                return;
+              }
+
+              if (
+                typeof studentTranscript !== "string" ||
+                !studentTranscript.trim()
+              ) {
+                res.statusCode = 400;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error: "STUDENT_TRANSCRIPT_MISSING",
+                    message:
+                      "No student transcript was supplied.",
+                  })
+                );
+                return;
+              }
+
+              if (
+                !Array.isArray(assessmentCriteria) ||
+                assessmentCriteria.length === 0
+              ) {
+                res.statusCode = 400;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error: "ASSESSMENT_CRITERIA_MISSING",
+                    message:
+                      "No Live Evaluation assessment criteria were supplied.",
+                  })
+                );
+                return;
+              }
+
+              const ai = new GoogleGenAI({
+                apiKey,
+                httpOptions: {
+                  headers: {
+                    "User-Agent":
+                      "PTE-Flow-Teacher-Dashboard",
+                  },
+                },
+              });
+
+              const criteriaText =
+                assessmentCriteria
+                  .map(
+                    (criterion) =>
+                      `- ${criterion.name}: maximum ${criterion.max}. ${criterion.description || ""}`
+                  )
+                  .join("\n");
+
+              const teacherScoresText =
+                teacherScores &&
+                typeof teacherScores === "object"
+                  ? Object.entries(teacherScores)
+                      .map(
+                        ([name, score]) =>
+                          `- ${name}: ${score}`
+                      )
+                      .join("\n")
+                  : "No teacher scores supplied.";
+
+              const aiEvaluationText =
+                aiEvaluation &&
+                typeof aiEvaluation === "object"
+                  ? JSON.stringify(aiEvaluation, null, 2)
+                  : "No separate AI evaluation supplied.";
+
+              const prompt = `
+You are an expert PTE Academic Master Teacher Trainer conducting a calibration review of a teacher's assessment.
+
+The teacher has already made an independent assessment of the student's recorded response.
+
+Your task is NOT to replace the teacher's assessment automatically.
+
+Your task is to examine the evidence and give the teacher precise, constructive calibration feedback about:
+1. where the teacher's assessment appears well supported;
+2. where the teacher's assessment may be too high, too low, or insufficiently supported;
+3. exactly what evidence in the student transcript supports that conclusion;
+4. the specific differences between the exercise prompt and student transcript;
+5. practical advice that would help the teacher make a more accurate assessment next time.
+
+QUESTION TYPE:
+${questionType}
+
+EXERCISE PROMPT:
+${exercisePrompt}
+
+STUDENT TRANSCRIPT:
+${studentTranscript}
+
+ASSESSMENT CRITERIA:
+${criteriaText}
+
+TEACHER SCORES:
+${teacherScoresText}
+
+TEACHER WRITTEN FEEDBACK:
+${typeof teacherFeedback === "string" && teacherFeedback.trim()
+  ? teacherFeedback.trim()
+  : "No teacher feedback supplied."}
+
+INDEPENDENT AI STUDENT EVALUATION:
+${aiEvaluationText}
+
+IMPORTANT CALIBRATION RULES:
+
+1. Do not simply copy the independent AI evaluation.
+2. Do not automatically assume the teacher is correct.
+3. Do not automatically assume the independent AI evaluation is correct.
+4. Compare the teacher's assessment against the exercise prompt and student transcript first.
+5. Use the AI evaluation as additional evidence, not as unquestionable ground truth.
+6. For Content, identify concrete omissions, additions, substitutions, or exact matches.
+7. For a Read Aloud task, perform a sentence-level or meaningful phrase-level comparison between the exercise prompt and student transcript.
+8. Do not create dozens of trivial one-word comparison rows when a sentence-level comparison is clearer.
+9. Highlight only meaningful discrepancies in the line-by-line review, but include exact matching lines when they are useful for demonstrating that the teacher's assessment was supported.
+10. If there are no meaningful discrepancies, explicitly say that the relevant text matches.
+11. For Oral Fluency, the transcript can support observations about explicit repetitions, false starts, hesitation markers, and other clearly represented textual features. Do not infer smooth pacing, speaking rate, rhythm, pausing, or natural delivery merely because the transcript is grammatically complete or contains no obvious errors.
+12. For Pronunciation, transcript evidence alone is insufficient to judge phonetic accuracy, vowel quality, consonant production, word stress, sentence stress, intonation, or other acoustic pronunciation features. Successful speech recognition may support intelligibility only; it must not be treated as proof of correct pronunciation.
+13. For Pronunciation, when no audio-specific pronunciation evidence is supplied to this endpoint, the criterion assessment MUST be "insufficient_evidence", regardless of the difference between the teacher score and AI score.
+14. For Oral Fluency, use "potentially_under_scored" only when the transcript contains concrete evidence supporting stronger fluency than the teacher's score reflects, such as clearly represented repetitions, false starts, or hesitation markers. If those features are absent and audio has not been supplied for review, use "insufficient_evidence".
+15. Do not label Oral Fluency or Pronunciation as "potentially_under_scored" merely because the transcript matches the prompt or because automatic speech recognition successfully recognized the student's words.
+16. If the available evidence is insufficient to judge a criterion reliably, say so.
+17. Keep the feedback professional, specific, and useful to a teacher.
+18. Do not use insulting, dismissive, or absolute language about the teacher.
+19. Return only the requested JSON object.
+
+The line-by-line review should use the following status values where appropriate:
+- "match"
+- "omission"
+- "addition"
+- "substitution"
+- "unclear"
+
+For each criterion, determine whether the teacher's assessment is:
+- "well_supported"
+- "potentially_under_scored"
+- "potentially_over_scored"
+- "insufficient_evidence"
+
+Return a valid JSON object matching the requested schema.
+`;
+
+              const response =
+                await ai.models.generateContent({
+                  model: "gemini-3.6-flash",
+                  contents: prompt,
+                  config: {
+                    temperature: 0,
+                    responseMimeType:
+                      "application/json",
+                    responseSchema: {
+                      type: Type.OBJECT,
+                      properties: {
+                        isLiveAi: {
+                          type: Type.BOOLEAN,
+                        },
+
+                        questionType: {
+                          type: Type.STRING,
+                        },
+
+                        overallCalibration: {
+                          type: Type.STRING,
+                        },
+
+                        criteriaReview: {
+                          type: Type.ARRAY,
+                          items: {
+                            type: Type.OBJECT,
+                            properties: {
+                              criterion: {
+                                type: Type.STRING,
+                              },
+                              teacherScore: {
+                                type: Type.NUMBER,
+                              },
+                              aiScore: {
+                                type: Type.NUMBER,
+                              },
+                              assessment: {
+                                type: Type.STRING,
+                              },
+                              evidence: {
+                                type: Type.STRING,
+                              },
+                              teacherAdvice: {
+                                type: Type.STRING,
+                              },
+                            },
+                            required: [
+                              "criterion",
+                              "teacherScore",
+                              "aiScore",
+                              "assessment",
+                              "evidence",
+                              "teacherAdvice",
+                            ],
+                          },
+                        },
+
+                        lineByLineReview: {
+                          type: Type.ARRAY,
+                          items: {
+                            type: Type.OBJECT,
+                            properties: {
+                              reference: {
+                                type: Type.STRING,
+                              },
+                              promptText: {
+                                type: Type.STRING,
+                              },
+                              studentText: {
+                                type: Type.STRING,
+                              },
+                              status: {
+                                type: Type.STRING,
+                              },
+                              difference: {
+                                type: Type.STRING,
+                              },
+                            },
+                            required: [
+                              "reference",
+                              "promptText",
+                              "studentText",
+                              "status",
+                              "difference",
+                            ],
+                          },
+                        },
+
+                        teacherFeedbackReview: {
+                          type: Type.STRING,
+                        },
+
+                        calibrationAdvice: {
+                          type: Type.ARRAY,
+                          items: {
+                            type: Type.STRING,
+                          },
+                        },
+                      },
+                      required: [
+                        "isLiveAi",
+                        "questionType",
+                        "overallCalibration",
+                        "criteriaReview",
+                        "lineByLineReview",
+                        "teacherFeedbackReview",
+                        "calibrationAdvice",
+                      ],
+                    },
+                  },
+                });
+
+              const responseText =
+                typeof response.text === "string"
+                  ? response.text.trim()
+                  : "";
+
+              if (!responseText) {
+                res.statusCode = 502;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error:
+                      "TEACHER_REVIEW_EMPTY",
+                    message:
+                      "Gemini did not return a Teacher Assessment Review.",
+                  })
+                );
+                return;
+              }
+
+              let review;
+
+              try {
+                review =
+                  JSON.parse(responseText);
+
+              // ----------------------------------------------------------
+              // Transcript-only calibration guardrails
+              //
+              // This endpoint receives the student transcript, not the
+              // original audio. Pronunciation therefore cannot be judged
+              // from transcript recognition alone.
+              // ----------------------------------------------------------
+              if (Array.isArray(review?.criteriaReview)) {
+                review.criteriaReview =
+                  review.criteriaReview.map((item) => {
+                    const criterionName =
+                      String(item?.criterion || "")
+                        .trim()
+                        .toLowerCase();
+
+                    if (criterionName === "pronunciation") {
+                      return {
+                        ...item,
+                        assessment: "insufficient_evidence",
+                        evidence:
+                          "The transcript provides evidence of word recognition and intelligibility, but pronunciation accuracy, individual sounds, word stress, sentence stress, and intonation require the original audio.",
+                        teacherAdvice:
+                          "Use the recording to judge pronunciation accuracy. Do not lower or raise the pronunciation score solely from transcript matching.",
+                      };
+                    }
+
+                    if (criterionName === "oral fluency") {
+                      const evidenceText =
+                        String(item?.evidence || "");
+
+                      const hasTranscriptFluencyEvidence =
+                        /\b(repetition|repeated|repetitions|false start|false starts|hesitation|hesitations|stumbled|stammer|self-correction|self correction)\b/i.test(
+                          evidenceText
+                        );
+
+                      if (
+                        item?.assessment ===
+                          "potentially_under_scored" &&
+                        !hasTranscriptFluencyEvidence
+                      ) {
+                        return {
+                          ...item,
+                          assessment:
+                            "insufficient_evidence",
+                          evidence:
+                            "The transcript does not contain clear textual evidence of repetitions, false starts, hesitation markers, or similar fluency features. Actual pacing, pauses, rhythm, and delivery require the original audio.",
+                          teacherAdvice:
+                            "Use the recording to judge pacing, pauses, rhythm, and smoothness. Do not infer a stronger fluency score solely from a clean transcript.",
+                        };
+                      }
+                    }
+
+                    return item;
+                  });
+              }
+
+              // Keep the overall message aligned with the deterministic
+              // criterion guardrails above.
+              if (
+                Array.isArray(review?.criteriaReview) &&
+                typeof review?.overallCalibration ===
+                  "string"
+              ) {
+                const pronunciationReview =
+                  review.criteriaReview.find(
+                    (item) =>
+                      String(item?.criterion || "")
+                        .trim()
+                        .toLowerCase() ===
+                      "pronunciation"
+                  );
+
+                const oralFluencyReview =
+                  review.criteriaReview.find(
+                    (item) =>
+                      String(item?.criterion || "")
+                        .trim()
+                        .toLowerCase() ===
+                      "oral fluency"
+                  );
+
+                const limitationNotes = [];
+
+                if (
+                  pronunciationReview?.assessment ===
+                    "insufficient_evidence" ||
+                  oralFluencyReview?.assessment ===
+                    "insufficient_evidence"
+                ) {
+                  limitationNotes.push(
+                    "There is insufficient evidence to fully calibrate Oral Fluency and Pronunciation from the transcript alone. Oral Fluency requires audio to assess pacing, rhythm, and natural phrasing, while Pronunciation requires audio to assess phonetic accuracy, stress, and intonation."
+                  );
+                }
+
+                if (limitationNotes.length > 0) {
+                  const overallText =
+                    review.overallCalibration.trim();
+
+                  const cleanedOverallText =
+                    overallText.replace(
+                      /Oral Fluency and Pronunciation cannot be evaluated accurately without audio recordings, so there is insufficient evidence for those criteria\.\s*/i,
+                      ""
+                    );
+
+                  review.overallCalibration =
+                    `${cleanedOverallText} ${limitationNotes.join(" ")}`.trim();
+                }
+              }
+              } catch (parseError) {
+                console.error(
+                  "Teacher Assessment Review JSON parse failed:",
+                  parseError
+                );
+
+                res.statusCode = 502;
+                res.end(
+                  JSON.stringify({
+                    isLiveAi: false,
+                    error:
+                      "TEACHER_REVIEW_INVALID_JSON",
+                    message:
+                      "Gemini returned invalid Teacher Assessment Review JSON.",
+                  })
+                );
+                return;
+              }
+
+              res.statusCode = 200;
+              res.end(
+                JSON.stringify({
+                  isLiveAi: true,
+                  review,
+                })
+              );
+            } catch (error) {
+              console.error(
+                "Teacher Assessment Review API error:",
+                error
+              );
+
+              res.statusCode = 500;
+              res.end(
+                JSON.stringify({
+                  isLiveAi: false,
+                  error:
+                    "TEACHER_REVIEW_FAILED",
+                  message:
+                    error instanceof Error
+                      ? error.message
+                      : "Teacher Assessment Review failed.",
+                })
+              );
+            }
+          });
+
+          req.on("error", (error) => {
+            console.error(
+              "Teacher Assessment Review request body error:",
+              error
+            );
+
+            if (!res.headersSent) {
+              res.statusCode = 400;
+              res.setHeader(
+                "Content-Type",
+                "application/json"
+              );
+
+              res.end(
+                JSON.stringify({
+                  isLiveAi: false,
+                  error: "INVALID_REQUEST",
+                  message:
+                    "The Teacher Assessment Review request could not be read.",
+                })
+              );
+            }
+          });
+        }
+      );
+    },
+  };
+}
 function evaluateFeedbackPlugin(apiKey) {
   return {
     name: "evaluate-feedback-api",
@@ -1272,6 +1816,7 @@ export default defineConfig(({ mode }) => {
       react(),
     liveEvaluationTranscriptionPlugin(apiKey),
     liveEvaluationAiEvaluationPlugin(apiKey),
+    liveEvaluationTeacherReviewPlugin(apiKey),
     evaluateFeedbackPlugin(apiKey),
     ],
 
@@ -1302,6 +1847,12 @@ export default defineConfig(({ mode }) => {
     },
   };
 });
+
+
+
+
+
+
 
 
 

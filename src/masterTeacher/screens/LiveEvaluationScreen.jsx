@@ -109,6 +109,15 @@ export default function LiveEvaluationScreen({
   const [liveAiEvaluation, setLiveAiEvaluation] =
     useState(null);
 
+  const [liveAiTeacherReviewStatus, setLiveAiTeacherReviewStatus] =
+    useState("idle");
+
+  const [liveAiTeacherReview, setLiveAiTeacherReview] =
+    useState(null);
+
+  const [liveAiTeacherReviewError, setLiveAiTeacherReviewError] =
+    useState("");
+
   const [liveAiError, setLiveAiError] =
     useState("");
 
@@ -439,6 +448,9 @@ export default function LiveEvaluationScreen({
     setLiveAiTranscript("");
     setLiveAiEvaluationStatus("idle");
     setLiveAiEvaluation(null);
+    setLiveAiTeacherReviewStatus("idle");
+    setLiveAiTeacherReview(null);
+    setLiveAiTeacherReviewError("");
     setLiveAiError("");
   };
 
@@ -475,6 +487,11 @@ export default function LiveEvaluationScreen({
     // AI is introduced only after submission.
     setTeacherAssessmentSubmitted(true);
     setLiveAiTranscript("");
+    setLiveAiEvaluationStatus("idle");
+    setLiveAiEvaluation(null);
+    setLiveAiTeacherReviewStatus("idle");
+    setLiveAiTeacherReview(null);
+    setLiveAiTeacherReviewError("");
     setLiveAiError("");
 
     if (!recordedAudioBlob) {
@@ -606,6 +623,65 @@ export default function LiveEvaluationScreen({
           evaluationResult.evaluation
         );
         setLiveAiEvaluationStatus("complete");
+
+        setLiveAiTeacherReviewStatus("reviewing");
+        setLiveAiTeacherReview(null);
+        setLiveAiTeacherReviewError("");
+
+        try {
+          const teacherReviewResponse = await fetch(
+            "/api/live-evaluation-teacher-review",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                questionType: currentQuestion?.title || "",
+                exercisePrompt:
+                  getExercisePrompt(currentExercise),
+                studentTranscript: transcript,
+                teacherScores,
+                teacherFeedback:
+                  teacherFeedback.trim(),
+                assessmentCriteria,
+                aiEvaluation:
+                  evaluationResult.evaluation,
+              }),
+            }
+          );
+
+          const teacherReviewResult =
+            await teacherReviewResponse.json();
+
+          if (
+            !teacherReviewResponse.ok ||
+            !teacherReviewResult.isLiveAi ||
+            !teacherReviewResult.review
+          ) {
+            throw new Error(
+              teacherReviewResult?.message ||
+                "Live Evaluation teacher assessment review failed."
+            );
+          }
+
+          setLiveAiTeacherReview(
+            teacherReviewResult.review
+          );
+          setLiveAiTeacherReviewStatus("complete");
+        } catch (teacherReviewError) {
+          console.error(
+            "Live Evaluation teacher assessment review failed:",
+            teacherReviewError
+          );
+
+          setLiveAiTeacherReviewStatus("error");
+          setLiveAiTeacherReviewError(
+            teacherReviewError instanceof Error
+              ? teacherReviewError.message
+              : "Live Evaluation teacher assessment review failed."
+          );
+        }
       } catch (evaluationError) {
         console.error(
           "Live Evaluation AI evaluation failed:",
@@ -3148,6 +3224,428 @@ export default function LiveEvaluationScreen({
                               prompt, and the supplied scoring
                               criteria. It does not replace the
                               teacher's independent assessment.
+                            </div>
+                          </div>
+                        )}
+                    </div>
+
+                    {/* ==================================================
+                        TEACHER ASSESSMENT REVIEW
+                        ================================================== */}
+
+                    <div
+                      style={{
+                        marginTop: "10px",
+                        padding: "12px",
+                        borderRadius: "10px",
+                        backgroundColor: "#f0fdf4",
+                        border: "1px solid #bbf7d0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          fontSize: "10px",
+                          fontWeight: 900,
+                          textTransform: "uppercase",
+                          letterSpacing: "0.05em",
+                          color: "#166534",
+                          marginBottom: "7px",
+                        }}
+                      >
+                        Teacher Assessment Review
+                      </div>
+
+                      {liveAiTeacherReviewStatus ===
+                        "reviewing" && (
+                        <div
+                          style={{
+                            color: "#166534",
+                            fontSize: "10px",
+                            fontWeight: 800,
+                            lineHeight: 1.45,
+                          }}
+                        >
+                          Gemini is reviewing your independent assessment
+                          against the student evidence and AI evaluation...
+                        </div>
+                      )}
+
+                      {liveAiTeacherReviewStatus ===
+                        "error" && (
+                        <div
+                          style={{
+                            padding: "8px 10px",
+                            borderRadius: "7px",
+                            backgroundColor: "#fff7f7",
+                            border: "1px solid #fecaca",
+                            color: "#b91c1c",
+                            fontSize: "10px",
+                            fontWeight: 700,
+                            lineHeight: 1.45,
+                          }}
+                        >
+                          {liveAiTeacherReviewError}
+                        </div>
+                      )}
+
+                      {liveAiTeacherReviewStatus ===
+                        "complete" &&
+                        liveAiTeacherReview && (
+                          <div
+                            style={{
+                              display: "grid",
+                              gap: "10px",
+                            }}
+                          >
+                            {liveAiTeacherReview.overallCalibration && (
+                              <div
+                                style={{
+                                  padding: "9px 10px",
+                                  borderRadius: "8px",
+                                  backgroundColor: "#ffffff",
+                                  border: "1px solid #bbf7d0",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    fontSize: "9px",
+                                    fontWeight: 900,
+                                    textTransform: "uppercase",
+                                    letterSpacing: "0.04em",
+                                    color: "#166534",
+                                    marginBottom: "5px",
+                                  }}
+                                >
+                                  Overall Calibration
+                                </div>
+                                <p
+                                  style={{
+                                    margin: 0,
+                                    color: "#334155",
+                                    fontSize: "10px",
+                                    lineHeight: 1.5,
+                                  }}
+                                >
+                                  {liveAiTeacherReview.overallCalibration}
+                                </p>
+                              </div>
+                            )}
+
+                            {Array.isArray(
+                              liveAiTeacherReview.criteriaReview
+                            ) &&
+                              liveAiTeacherReview.criteriaReview.length > 0 && (
+                                <div>
+                                  <div
+                                    style={{
+                                      fontSize: "9px",
+                                      fontWeight: 900,
+                                      textTransform: "uppercase",
+                                      letterSpacing: "0.04em",
+                                      color: "#166534",
+                                      marginBottom: "6px",
+                                    }}
+                                  >
+                                    Criteria Review
+                                  </div>
+
+                                  <div
+                                    style={{
+                                      display: "grid",
+                                      gap: "7px",
+                                    }}
+                                  >
+                                    {liveAiTeacherReview.criteriaReview.map(
+                                      (criterionReview, index) => (
+                                        <div
+                                          key={`${criterionReview.criterion || "criterion"}-${index}`}
+                                          style={{
+                                            padding: "9px",
+                                            borderRadius: "8px",
+                                            backgroundColor: "#ffffff",
+                                            border: "1px solid #dcfce7",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              justifyContent: "space-between",
+                                              alignItems: "center",
+                                              gap: "8px",
+                                              marginBottom: "5px",
+                                              flexWrap: "wrap",
+                                            }}
+                                          >
+                                            <span
+                                              style={{
+                                                fontSize: "10px",
+                                                fontWeight: 900,
+                                                color: "#0f172a",
+                                              }}
+                                            >
+                                              {criterionReview.criterion}
+                                            </span>
+
+                                            <span
+                                              style={{
+                                                padding: "3px 7px",
+                                                borderRadius: "999px",
+                                                backgroundColor: "#dcfce7",
+                                                color: "#166534",
+                                                fontSize: "9px",
+                                                fontWeight: 900,
+                                              }}
+                                            >
+                                              Teacher {criterionReview.teacherScore} / AI {criterionReview.aiScore}
+                                            </span>
+                                          </div>
+
+                                          {criterionReview.assessment && (
+                                            <div
+                                              style={{
+                                                fontSize: "9px",
+                                                fontWeight: 800,
+                                                color: "#15803d",
+                                                marginBottom: "4px",
+                                              }}
+                                            >
+                                              {criterionReview.assessment}
+                                            </div>
+                                          )}
+
+                                          {criterionReview.evidence && (
+                                            <p
+                                              style={{
+                                                margin: "0 0 5px",
+                                                color: "#475569",
+                                                fontSize: "9px",
+                                                lineHeight: 1.45,
+                                              }}
+                                            >
+                                              {criterionReview.evidence}
+                                            </p>
+                                          )}
+
+                                          {criterionReview.teacherAdvice && (
+                                            <p
+                                              style={{
+                                                margin: 0,
+                                                color: "#334155",
+                                                fontSize: "9px",
+                                                lineHeight: 1.45,
+                                              }}
+                                            >
+                                              <strong>Teacher advice:</strong>{" "}
+                                              {criterionReview.teacherAdvice}
+                                            </p>
+                                          )}
+                                        </div>
+                                      )
+                                    )}
+                                  </div>
+                                </div>
+                              )}
+
+                            {Array.isArray(
+                              liveAiTeacherReview.lineByLineReview
+                            ) &&
+                              liveAiTeacherReview.lineByLineReview.length > 0 && (
+                                <div
+                                  style={{
+                                    padding: "9px 10px",
+                                    borderRadius: "8px",
+                                    backgroundColor: "#ffffff",
+                                    border: "1px solid #dcfce7",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      fontSize: "9px",
+                                      fontWeight: 900,
+                                      textTransform: "uppercase",
+                                      letterSpacing: "0.04em",
+                                      color: "#166534",
+                                      marginBottom: "6px",
+                                    }}
+                                  >
+                                    Line-by-Line Review
+                                  </div>
+
+                                  <div
+                                    style={{
+                                      display: "grid",
+                                      gap: "7px",
+                                    }}
+                                  >
+                                    {liveAiTeacherReview.lineByLineReview.map(
+                                      (lineReview, index) => (
+                                        <div
+                                          key={`${lineReview.reference || "line"}-${index}`}
+                                          style={{
+                                            padding: "8px",
+                                            borderRadius: "7px",
+                                            backgroundColor: "#f8fafc",
+                                          }}
+                                        >
+                                          <div
+                                            style={{
+                                              display: "flex",
+                                              justifyContent: "space-between",
+                                              gap: "8px",
+                                              marginBottom: "4px",
+                                            }}
+                                          >
+                                            <strong
+                                              style={{
+                                                fontSize: "9px",
+                                                color: "#0f172a",
+                                              }}
+                                            >
+                                              {lineReview.reference}
+                                            </strong>
+                                            <span
+                                              style={{
+                                                fontSize: "9px",
+                                                fontWeight: 900,
+                                                color: "#166534",
+                                              }}
+                                            >
+                                              {lineReview.status}
+                                            </span>
+                                          </div>
+
+                                          <p
+                                            style={{
+                                              margin: "0 0 4px",
+                                              color: "#475569",
+                                              fontSize: "9px",
+                                              lineHeight: 1.45,
+                                            }}
+                                          >
+                                            <strong>Prompt:</strong>{" "}
+                                            {lineReview.promptText}
+                                          </p>
+
+                                          <p
+                                            style={{
+                                              margin: "0 0 4px",
+                                              color: "#475569",
+                                              fontSize: "9px",
+                                              lineHeight: 1.45,
+                                            }}
+                                          >
+                                            <strong>Student:</strong>{" "}
+                                            {lineReview.studentText}
+                                          </p>
+
+                                          {lineReview.difference && (
+                                            <p
+                                              style={{
+                                                margin: 0,
+                                                color: "#334155",
+                                                fontSize: "9px",
+                                                lineHeight: 1.45,
+                                              }}
+                                            >
+                                              {lineReview.difference}
+                                            </p>
+                                          )}
+                                        </div>
+                                      )
+                                    )}
+                                  </div>
+                                </div>
+                              )}
+
+                            {liveAiTeacherReview.teacherFeedbackReview && (
+                              <div
+                                style={{
+                                  padding: "9px 10px",
+                                  borderRadius: "8px",
+                                  backgroundColor: "#ffffff",
+                                  border: "1px solid #dcfce7",
+                                }}
+                              >
+                                <div
+                                  style={{
+                                    fontSize: "9px",
+                                    fontWeight: 900,
+                                    textTransform: "uppercase",
+                                    letterSpacing: "0.04em",
+                                    color: "#166534",
+                                    marginBottom: "5px",
+                                  }}
+                                >
+                                  Teacher Feedback Review
+                                </div>
+                                <p
+                                  style={{
+                                    margin: 0,
+                                    color: "#334155",
+                                    fontSize: "10px",
+                                    lineHeight: 1.5,
+                                  }}
+                                >
+                                  {liveAiTeacherReview.teacherFeedbackReview}
+                                </p>
+                              </div>
+                            )}
+
+                            {Array.isArray(
+                              liveAiTeacherReview.calibrationAdvice
+                            ) &&
+                              liveAiTeacherReview.calibrationAdvice.length > 0 && (
+                                <div
+                                  style={{
+                                    padding: "9px 10px",
+                                    borderRadius: "8px",
+                                    backgroundColor: "#ffffff",
+                                    border: "1px solid #dcfce7",
+                                  }}
+                                >
+                                  <div
+                                    style={{
+                                      fontSize: "9px",
+                                      fontWeight: 900,
+                                      textTransform: "uppercase",
+                                      letterSpacing: "0.04em",
+                                      color: "#166534",
+                                      marginBottom: "5px",
+                                    }}
+                                  >
+                                    Calibration Advice
+                                  </div>
+
+                                  <ul
+                                    style={{
+                                      margin: 0,
+                                      paddingLeft: "18px",
+                                      color: "#334155",
+                                      fontSize: "10px",
+                                      lineHeight: 1.5,
+                                    }}
+                                  >
+                                    {liveAiTeacherReview.calibrationAdvice.map(
+                                      (advice, index) => (
+                                        <li key={index}>{advice}</li>
+                                      )
+                                    )}
+                                  </ul>
+                                </div>
+                              )}
+
+                            <div
+                              style={{
+                                padding: "7px 9px",
+                                borderRadius: "7px",
+                                backgroundColor: "#dcfce7",
+                                color: "#166534",
+                                fontSize: "9px",
+                                fontWeight: 700,
+                                lineHeight: 1.4,
+                              }}
+                            >
+                              This review is designed to support teacher calibration. It compares your independent assessment with the student evidence and AI evaluation; it does not replace professional judgment.
                             </div>
                           </div>
                         )}
