@@ -625,6 +625,50 @@ const historyAttempts = attempts;
       };
     });
 
+  const teacherPerformanceComponentDevelopment =
+    teacherPerformanceComponentDefinitions.map((component) => {
+      const componentRecords = teacherPerformanceAllAttempts
+        .map((attempt) => {
+          const value = attempt?.scoreBreakdown?.[component.key];
+
+          return typeof value === "number" && Number.isFinite(value)
+            ? value
+            : null;
+        })
+        .filter((value) => value !== null);
+
+      const firstScore =
+        componentRecords.length > 0 ? componentRecords[0] : null;
+      const latestScore =
+        componentRecords.length > 0
+          ? componentRecords[componentRecords.length - 1]
+          : null;
+
+      const firstAttainment =
+        firstScore !== null && component.maxScore > 0
+          ? Math.round((firstScore / component.maxScore) * 100)
+          : null;
+
+      const latestAttainment =
+        latestScore !== null && component.maxScore > 0
+          ? Math.round((latestScore / component.maxScore) * 100)
+          : null;
+
+      return {
+        ...component,
+        evaluations: componentRecords.length,
+        firstScore,
+        latestScore,
+        firstAttainment,
+        latestAttainment,
+        change:
+          firstAttainment !== null && latestAttainment !== null &&
+          componentRecords.length >= 2
+            ? latestAttainment - firstAttainment
+            : null,
+      };
+    });
+
   const teacherPerformanceCefrOrder = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
   const teacherPerformanceCefrPerformance = teacherPerformanceCefrOrder
@@ -2543,6 +2587,123 @@ const historyAttempts = attempts;
 
             <div className="analytics-performance-components-note">
               <strong>How to read this:</strong> each component is shown against its defined maximum. The attainment percentage is calculated within that component; it is not a separate overall score.
+            </div>
+          </>
+        )}
+      </section>
+
+      <section className="analytics-section-card analytics-performance-component-development-section">
+        <div className="analytics-section-header">
+          <div>
+            <h3>Calibration Component Development</h3>
+            <p>
+              See how each saved calibration component changes between the first and latest recorded Live Evaluation evidence.
+            </p>
+          </div>
+
+          <span className="analytics-result-count analytics-performance-result-count">
+            {teacherPerformanceAllAttempts.length} evaluation
+            {teacherPerformanceAllAttempts.length === 1 ? "" : "s"}
+          </span>
+        </div>
+
+        {teacherPerformanceAllAttempts.length === 0 ? (
+          <div className="analytics-empty-state">
+            <div className="analytics-empty-icon">📈</div>
+            <strong>Component development will appear here</strong>
+            <p>
+              Complete Live Evaluation assessments to establish first-to-latest component evidence.
+            </p>
+          </div>
+        ) : (
+          <>
+            <div className="analytics-performance-component-development-list">
+              {teacherPerformanceComponentDevelopment.map((component) => (
+                <article
+                  className="analytics-performance-component-development-card"
+                  key={component.key}
+                >
+                  <div className="analytics-performance-component-development-heading">
+                    <div>
+                      <strong>{component.label}</strong>
+                      <span>{component.description}</span>
+                    </div>
+                    <span className="analytics-performance-component-development-weight">
+                      Weight {component.weight}
+                    </span>
+                  </div>
+
+                  {component.evaluations === 0 ? (
+                    <div className="analytics-performance-component-development-no-data">
+                      No recorded evidence for this component yet.
+                    </div>
+                  ) : (
+                    <>
+                      <div className="analytics-performance-component-development-values">
+                        <div>
+                          <span>First recorded</span>
+                          <strong>{component.firstAttainment}%</strong>
+                          <small>{component.firstScore}/{component.maxScore}</small>
+                        </div>
+
+                        <div>
+                          <span>Latest recorded</span>
+                          <strong
+                            className={`analytics-performance-component-development-latest-${getScoreClass(
+                              component.latestAttainment
+                            )}`}
+                          >
+                            {component.latestAttainment}%
+                          </strong>
+                          <small>{component.latestScore}/{component.maxScore}</small>
+                        </div>
+
+                        <div>
+                          <span>First → latest</span>
+                          <strong
+                            className={
+                              component.change === null
+                                ? "analytics-performance-component-development-change-neutral"
+                                : component.change > 0
+                                ? "analytics-performance-component-development-change-positive"
+                                : component.change < 0
+                                ? "analytics-performance-component-development-change-negative"
+                                : "analytics-performance-component-development-change-neutral"
+                            }
+                          >
+                            {component.change === null
+                              ? "—"
+                              : `${component.change > 0 ? "+" : ""}${component.change} pts`}
+                          </strong>
+                          <small>
+                            {component.evaluations === 1
+                              ? "One evaluation recorded"
+                              : `${component.evaluations} evaluations recorded`}
+                          </small>
+                        </div>
+                      </div>
+
+                      <div className="analytics-performance-component-development-track">
+                        <div
+                          className={`analytics-performance-component-development-fill analytics-performance-component-development-fill-${getScoreClass(
+                            component.latestAttainment
+                          )}`}
+                          style={{
+                            width: `${Math.min(
+                              Math.max(component.latestAttainment, 0),
+                              100
+                            )}%`,
+                          }}
+                        />
+                      </div>
+                    </>
+                  )}
+                </article>
+              ))}
+            </div>
+
+            <div className="analytics-performance-component-development-note">
+              <strong>How to read this:</strong> first-to-latest change describes the recorded component values only. A positive or negative change is not, by itself, a judgement about overall teacher development, and one evaluation does not establish a longitudinal pattern.
             </div>
           </>
         )}
