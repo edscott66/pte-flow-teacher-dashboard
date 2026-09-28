@@ -1109,9 +1109,11 @@ export default function MarkingScreen({
                 </div>
               </div>
 
-              <p className="leading-relaxed font-sans font-medium text-slate-200">
-                {currentExercise.promptText}
-              </p>
+              {!isCalibrationExercise && (
+                <p className="leading-relaxed font-sans font-medium text-slate-200">
+                  {currentExercise.promptText}
+                </p>
+              )}
 
               {currentQuestion.id === "summarize-group-discussion" && (
                 <p className="text-[10px] leading-relaxed text-indigo-300 border-t border-slate-800 pt-1.5">

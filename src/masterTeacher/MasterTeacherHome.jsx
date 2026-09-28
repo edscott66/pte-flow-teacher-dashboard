@@ -35,8 +35,8 @@ export default function MasterTeacherHome({ onNavigate }) {
       icon: "📚",
       description:
         "Access structured PTE lesson plans and classroom teaching resources already built into the Teacher Suite.",
-      action: "Coming next",
-      ready: false,
+      action: "Open Lesson Plans",
+      ready: true,
     },
     {
       id: "translator",

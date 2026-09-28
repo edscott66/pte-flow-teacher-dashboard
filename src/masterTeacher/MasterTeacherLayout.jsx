@@ -6,19 +6,17 @@ import MarkingScreen from "./screens/MarkingScreen";
 import ComparisonScreen from "./screens/ComparisonScreen";
 import CalibrationProgressScreen from "./screens/CalibrationProgressScreen";
 import LiveEvaluationScreen from "./screens/LiveEvaluationScreen";
+import CurriculumLessonLibrary from "../lessonPlans/screens/CurriculumLessonLibrary";
 
 function ComingSoon({ title, onNavigate }) {
   return (
     <div className="master-teacher-empty-state">
       <div className="master-teacher-empty-icon">🚀</div>
-
       <h2>{title}</h2>
-
       <p>
         This part of the Master Teacher Suite will be connected in the next
         integration stage. The existing dashboard remains fully available.
       </p>
-
       <button
         type="button"
         className="master-teacher-primary-button"
@@ -96,7 +94,6 @@ export default function MasterTeacherLayout() {
           <span className="master-teacher-workspace-title">
             👑 PTE Master Teacher
           </span>
-
           <span className="master-teacher-workspace-current">
             {titleMap[activeKey] || "Master Teacher"}
           </span>
@@ -163,12 +160,7 @@ export default function MasterTeacherLayout() {
         )}
 
         {/* Lesson Plans */}
-        {activeKey === "lessons" && (
-          <ComingSoon
-            title="Lesson Plans"
-            onNavigate={navigateWithinSuite}
-          />
-        )}
+        {activeKey === "lessons" && <CurriculumLessonLibrary />}
 
         {/* Band & Score Translator */}
         {activeKey === "translator" && (
