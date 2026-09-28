@@ -1659,6 +1659,29 @@
   overflow: hidden;
 }
 
+/* ---------------------------------------------------------
+   Teacher Performance — Simple Analytics Guide
+   --------------------------------------------------------- */
+
+.analytics-performance-guide { margin: 0 0 24px; padding: 22px 24px 20px; border: 1px solid rgba(124, 58, 237, 0.14); border-radius: 18px; background: linear-gradient(135deg, #faf8ff 0%, #f4f8ff 100%); box-shadow: 0 6px 20px rgba(15, 23, 42, 0.045); }
+.analytics-performance-guide-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; }
+.analytics-performance-guide-icon { display: flex; align-items: center; justify-content: center; width: 42px; min-width: 42px; height: 42px; border-radius: 13px; background: linear-gradient(135deg, #ede9fe, #dbeafe); font-size: 20px; }
+.analytics-performance-guide-label { display: block; margin-bottom: 3px; color: #6d28d9; font-size: 9px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.07em; }
+.analytics-performance-guide-header h4 { margin: 0; color: var(--header-text-color, #111827); font-size: 16px; line-height: 1.3; font-weight: 900; }
+.analytics-performance-guide-header p { max-width: 880px; margin: 6px 0 0; color: #64748b; font-size: 11px; line-height: 1.55; }
+.analytics-performance-guide-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.analytics-performance-guide-item { display: flex; align-items: center; gap: 11px; min-width: 0; padding: 12px 13px; border: 1px solid rgba(124, 58, 237, 0.09); border-radius: 13px; background: rgba(255, 255, 255, 0.82); color: inherit; text-decoration: none; transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease; }
+.analytics-performance-guide-item:hover { border-color: rgba(124, 58, 237, 0.24); box-shadow: 0 5px 14px rgba(15, 23, 42, 0.06); transform: translateY(-1px); }
+.analytics-performance-guide-item:focus-visible { outline: 3px solid rgba(124, 58, 237, 0.22); outline-offset: 2px; }
+.analytics-performance-guide-item-icon { display: flex; align-items: center; justify-content: center; width: 32px; min-width: 32px; height: 32px; border-radius: 10px; background: #f1f5f9; font-size: 15px; }
+.analytics-performance-guide-item-content { flex: 1; min-width: 0; }
+.analytics-performance-guide-item-content strong { display: block; color: var(--header-text-color, #111827); font-size: 11px; line-height: 1.35; font-weight: 850; }
+.analytics-performance-guide-item-content small { display: block; margin-top: 3px; color: #64748b; font-size: 9px; line-height: 1.45; font-weight: 600; }
+.analytics-performance-guide-link { flex-shrink: 0; color: #6d28d9; font-size: 9px; font-weight: 900; white-space: nowrap; }
+.analytics-performance-guide-important { margin-top: 12px; padding: 11px 13px; border: 1px solid rgba(16, 185, 129, 0.14); border-radius: 11px; background: rgba(236, 253, 245, 0.72); color: #475569; font-size: 10px; line-height: 1.5; }
+.analytics-performance-guide-important strong { color: #047857; }
+.analytics-performance-development-section, .analytics-performance-components-section, .analytics-performance-component-development-section, .analytics-performance-cefr-section, .analytics-performance-diagnostic-section, .analytics-performance-exercise-section, .analytics-performance-consistency-section, .analytics-performance-profile-section, .analytics-performance-evidence-section { scroll-margin-top: 24px; }
+
 .analytics-performance-result-count {
   background: rgba(124, 58, 237, 0.08);
   color: #6d28d9;
@@ -2543,9 +2566,45 @@
 }
 
 .analytics-performance-diagnostic-score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   flex-shrink: 0;
   min-width: 110px;
   text-align: right;
+}
+
+.analytics-performance-diagnostic-evidence {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 22px;
+  margin-bottom: 7px;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.analytics-performance-diagnostic-evidence-none {
+  border-color: #e2e8f0;
+  background: #f8fafc;
+  color: #64748b;
+}
+
+.analytics-performance-diagnostic-evidence-limited {
+  border-color: #fcd34d;
+  background: #fffbeb;
+  color: #b45309;
+}
+
+.analytics-performance-diagnostic-evidence-repeated {
+  border-color: #86efac;
+  background: #f0fdf4;
+  color: #15803d;
 }
 
 .analytics-performance-diagnostic-score strong {
@@ -2650,6 +2709,7 @@
   }
 
   .analytics-performance-diagnostic-score {
+    align-items: flex-start;
     min-width: 0;
     text-align: left;
   }
@@ -3246,6 +3306,156 @@
   }
 }
 /* ---------------------------------------------------------
+   Teacher Calibration Bench — Simple Guide
+   --------------------------------------------------------- */
+
+.analytics-calibration-guide {
+  margin: 0 0 24px;
+  padding: 18px 20px 16px;
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f8fbff 0%, #f8f6ff 100%);
+  box-shadow: 0 5px 16px rgba(15, 23, 42, 0.035);
+}
+
+.analytics-calibration-guide-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.analytics-calibration-guide-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  min-width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #dbeafe, #ede9fe);
+  font-size: 18px;
+}
+
+.analytics-calibration-guide-label {
+  display: block;
+  margin-bottom: 3px;
+  color: #2563eb;
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.analytics-calibration-guide-header h4 {
+  margin: 0;
+  color: var(--header-text-color, #111827);
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: 900;
+}
+
+.analytics-calibration-guide-header p {
+  max-width: 900px;
+  margin: 5px 0 0;
+  color: #64748b;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.analytics-calibration-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.analytics-calibration-guide-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 10px 11px;
+  border: 1px solid rgba(37, 99, 235, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.82);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.analytics-calibration-guide-item:hover {
+  border-color: rgba(37, 99, 235, 0.2);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  transform: translateY(-1px);
+}
+
+.analytics-calibration-guide-item:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.18);
+  outline-offset: 2px;
+}
+
+.analytics-calibration-guide-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: #eff6ff;
+  font-size: 14px;
+}
+
+.analytics-calibration-guide-item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.analytics-calibration-guide-item-content strong {
+  display: block;
+  color: var(--header-text-color, #111827);
+  font-size: 10px;
+  line-height: 1.35;
+  font-weight: 850;
+}
+
+.analytics-calibration-guide-item-content small {
+  display: block;
+  margin-top: 2px;
+  color: #64748b;
+  font-size: 8.5px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.analytics-calibration-guide-link {
+  flex-shrink: 0;
+  color: #2563eb;
+  font-size: 8.5px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+#calibration-bench-summary,
+#calibration-bench-trend,
+#calibration-bench-cefr,
+#calibration-bench-diagnostic,
+#calibration-bench-recent,
+#calibration-bench-history {
+  scroll-margin-top: 24px;
+}
+
+@media (max-width: 700px) {
+  .analytics-calibration-guide {
+    padding: 16px;
+  }
+
+  .analytics-calibration-guide-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------
    Teacher Performance — Calibration Development Profile
    --------------------------------------------------------- */
 
@@ -3316,6 +3526,13 @@
 }
 
 @media (max-width: 700px) {
+  .analytics-performance-guide { padding: 18px; }
+  .analytics-performance-guide-header { gap: 11px; }
+  .analytics-performance-guide-icon { width: 38px; min-width: 38px; height: 38px; font-size: 18px; }
+  .analytics-performance-guide-header h4 { font-size: 15px; }
+  .analytics-performance-guide-grid { grid-template-columns: 1fr; }
+  .analytics-performance-guide-item { align-items: flex-start; }
+  .analytics-performance-guide-link { padding-top: 2px; }
   .analytics-performance-profile-grid {
     grid-template-columns: 1fr;
     padding: 18px;

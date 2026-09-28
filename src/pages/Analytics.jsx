@@ -711,6 +711,11 @@ const historyAttempts = attempts;
           ? latestScore - firstScore
           : null;
 
+      const evidenceStatus =
+        levelScores.length === 1
+          ? "limited"
+          : "repeated";
+
       return {
         level,
         evaluations: levelScores.length,
@@ -718,6 +723,7 @@ const historyAttempts = attempts;
         firstScore,
         latestScore,
         change,
+        evidenceStatus,
       };
     })
     .filter(Boolean);
@@ -774,6 +780,7 @@ const historyAttempts = attempts;
           firstScore: 0,
           latestScore: 0,
           change: null,
+          evidenceStatus: "none",
         };
       }
 
@@ -1121,7 +1128,76 @@ const historyAttempts = attempts;
                 </div>
               </div>
 
-              <section className="analytics-summary-grid">
+              <section className="analytics-calibration-guide" aria-labelledby="calibration-bench-guide-title">
+                <div className="analytics-calibration-guide-header">
+                  <div className="analytics-calibration-guide-icon" aria-hidden="true">📘</div>
+                  <div>
+                    <span className="analytics-calibration-guide-label">Simple guide</span>
+                    <h4 id="calibration-bench-guide-title">How to Read Your Calibration Bench</h4>
+                    <p>
+                      This section shows your direct Calibration Lab results. Use the links below to understand each part of the page without having to work through every number at once.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="analytics-calibration-guide-grid">
+                  <a href="#calibration-bench-summary" className="analytics-calibration-guide-item">
+                    <span className="analytics-calibration-guide-item-icon" aria-hidden="true">🎯</span>
+                    <span className="analytics-calibration-guide-item-content">
+                      <strong>Quick Summary</strong>
+                      <small>Your completed exercises and overall, highest and lowest calibration scores.</small>
+                    </span>
+                    <span className="analytics-calibration-guide-link">View →</span>
+                  </a>
+
+                  <a href="#calibration-bench-trend" className="analytics-calibration-guide-item">
+                    <span className="analytics-calibration-guide-item-icon" aria-hidden="true">📈</span>
+                    <span className="analytics-calibration-guide-item-content">
+                      <strong>Performance Trend</strong>
+                      <small>Your most recent Calibration Lab scores shown over time.</small>
+                    </span>
+                    <span className="analytics-calibration-guide-link">View →</span>
+                  </a>
+
+                  <a href="#calibration-bench-cefr" className="analytics-calibration-guide-item">
+                    <span className="analytics-calibration-guide-item-icon" aria-hidden="true">🎯</span>
+                    <span className="analytics-calibration-guide-item-content">
+                      <strong>Performance by CEFR Level</strong>
+                      <small>How your calibration results are distributed across the CEFR levels.</small>
+                    </span>
+                    <span className="analytics-calibration-guide-link">View →</span>
+                  </a>
+
+                  <a href="#calibration-bench-diagnostic" className="analytics-calibration-guide-item">
+                    <span className="analytics-calibration-guide-item-icon" aria-hidden="true">🧭</span>
+                    <span className="analytics-calibration-guide-item-content">
+                      <strong>Diagnostic Performance</strong>
+                      <small>How your calibration scores vary across the diagnostic skill areas.</small>
+                    </span>
+                    <span className="analytics-calibration-guide-link">View →</span>
+                  </a>
+
+                  <a href="#calibration-bench-recent" className="analytics-calibration-guide-item">
+                    <span className="analytics-calibration-guide-item-icon" aria-hidden="true">📝</span>
+                    <span className="analytics-calibration-guide-item-content">
+                      <strong>Recent Results</strong>
+                      <small>A quick view of your latest completed Calibration Lab attempts.</small>
+                    </span>
+                    <span className="analytics-calibration-guide-link">View →</span>
+                  </a>
+
+                  <a href="#calibration-bench-history" className="analytics-calibration-guide-item">
+                    <span className="analytics-calibration-guide-item-icon" aria-hidden="true">🗂️</span>
+                    <span className="analytics-calibration-guide-item-content">
+                      <strong>Calibration History</strong>
+                      <small>Your complete Calibration Lab attempt history.</small>
+                    </span>
+                    <span className="analytics-calibration-guide-link">View →</span>
+                  </a>
+                </div>
+              </section>
+
+              <section id="calibration-bench-summary" className="analytics-summary-grid">
                 <div className="analytics-stat-card analytics-stat-completed">
                   <div className="analytics-stat-icon">🎯</div>
                   <div className="analytics-stat-content">
@@ -1159,7 +1235,7 @@ const historyAttempts = attempts;
                 </div>
               </section>
 
-              <section className="analytics-section-card analytics-trend-section">
+              <section id="calibration-bench-trend" className="analytics-section-card analytics-trend-section">
                 <div className="analytics-section-header">
                   <div>
                     <h3>Calibration Performance Trend</h3>
@@ -1284,7 +1360,7 @@ const historyAttempts = attempts;
                 )}
               </section>
 
-              <section className="analytics-section-card analytics-cefr-section">
+              <section id="calibration-bench-cefr" className="analytics-section-card analytics-cefr-section">
                 <div className="analytics-section-header">
                   <div>
                     <h3>Performance by CEFR Level</h3>
@@ -1366,7 +1442,7 @@ const historyAttempts = attempts;
                 )}
               </section>
 
-              <section className="analytics-section-card analytics-diagnostic-section">
+              <section id="calibration-bench-diagnostic" className="analytics-section-card analytics-diagnostic-section">
                 <div className="analytics-section-header">
                   <div>
                     <h3>Diagnostic Performance</h3>
@@ -1444,7 +1520,7 @@ const historyAttempts = attempts;
                 )}
               </section>
 
-              <section className="analytics-section-card">
+              <section id="calibration-bench-recent" className="analytics-section-card">
                 <div className="analytics-section-header">
                   <div>
                     <h3>Recent Calibration Results</h3>
@@ -1728,7 +1804,7 @@ const historyAttempts = attempts;
         </div>
       )}
 
-   <details className="analytics-section-card analytics-history-disclosure">
+   <details id="calibration-bench-history" className="analytics-section-card analytics-history-disclosure">
   <summary className="analytics-section-header">
     <div>
       <h3>Calibration History</h3>
@@ -2380,7 +2456,34 @@ const historyAttempts = attempts;
         </div>
       </div>
 
-      <section className="analytics-section-card analytics-performance-development-section">
+      <section className="analytics-performance-guide" aria-labelledby="teacher-analytics-guide-title">
+        <div className="analytics-performance-guide-header">
+          <div className="analytics-performance-guide-icon" aria-hidden="true">📘</div>
+          <div>
+            <span className="analytics-performance-guide-label">Simple guide</span>
+            <h4 id="teacher-analytics-guide-title">How to Read Your Teacher Analytics</h4>
+            <p>
+              This page contains several views of your recorded calibration work. Each one answers a different question; you do not need to study every number at once. Use the links below to jump directly to the section you want to understand.
+            </p>
+          </div>
+        </div>
+
+        <div className="analytics-performance-guide-grid">
+          <a href="#calibration-development" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">📈</span><span className="analytics-performance-guide-item-content"><strong>Calibration Development</strong><small>How your recorded calibration scores change over time.</small></span><span className="analytics-performance-guide-link">View →</span></a>
+          <a href="#calibration-component-performance" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">🧩</span><span className="analytics-performance-guide-item-content"><strong>Calibration Component Performance</strong><small>The four parts of your calibration assessment and how they are performing.</small></span><span className="analytics-performance-guide-link">View →</span></a>
+          <a href="#calibration-component-development" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">🔄</span><span className="analytics-performance-guide-item-content"><strong>Calibration Component Development</strong><small>How each calibration component changes between recorded evaluations.</small></span><span className="analytics-performance-guide-link">View →</span></a>
+          <a href="#calibration-cefr-development" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">🎯</span><span className="analytics-performance-guide-item-content"><strong>CEFR Development</strong><small>Your recorded calibration evidence across different CEFR levels.</small></span><span className="analytics-performance-guide-link">View →</span></a>
+          <a href="#diagnostic-skill-development" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">🧭</span><span className="analytics-performance-guide-item-content"><strong>Diagnostic Skill Development</strong><small>Your recorded evidence across Content Accuracy, Oral Fluency and Pronunciation.</small></span><span className="analytics-performance-guide-link">View →</span></a>
+          <a href="#calibration-consistency" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">📊</span><span className="analytics-performance-guide-item-content"><strong>Calibration Consistency</strong><small>How much your recorded calibration scores vary between evaluations.</small></span><span className="analytics-performance-guide-link">View →</span></a>
+          <a href="#calibration-exercise-progression" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">📝</span><span className="analytics-performance-guide-item-content"><strong>Exercise Progression</strong><small>Your recorded calibration history for individual Live Evaluation exercises.</small></span><span className="analytics-performance-guide-link">View →</span></a>
+          <a href="#calibration-evidence-coverage" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">🔎</span><span className="analytics-performance-guide-item-content"><strong>Evidence Coverage &amp; Depth</strong><small>Where you have evidence and whether it is limited or repeated.</small></span><span className="analytics-performance-guide-link">View →</span></a>
+          <a href="#teacher-calibration-development-profile" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">👤</span><span className="analytics-performance-guide-item-content"><strong>Development Profile</strong><small>A concise summary bringing the recorded evidence together without creating an overall rating.</small></span><span className="analytics-performance-guide-link">View →</span></a>
+        </div>
+
+        <div className="analytics-performance-guide-important"><strong>Important:</strong> missing evidence does not mean poor performance. It means the Analytics page does not yet have enough recorded evidence for that area.</div>
+      </section>
+
+      <section id="calibration-development" className="analytics-section-card analytics-performance-development-section">
         <div className="analytics-section-header">
           <div>
             <h3>Calibration Development</h3>
@@ -2517,7 +2620,7 @@ const historyAttempts = attempts;
         )}
       </section>
 
-      <section className="analytics-section-card analytics-performance-components-section">
+      <section id="calibration-component-performance" className="analytics-section-card analytics-performance-components-section">
         <div className="analytics-section-header">
           <div>
             <h3>Calibration Component Performance</h3>
@@ -2592,7 +2695,7 @@ const historyAttempts = attempts;
         )}
       </section>
 
-      <section className="analytics-section-card analytics-performance-component-development-section">
+      <section id="calibration-component-development" className="analytics-section-card analytics-performance-component-development-section">
         <div className="analytics-section-header">
           <div>
             <h3>Calibration Component Development</h3>
@@ -2709,7 +2812,7 @@ const historyAttempts = attempts;
         )}
       </section>
 
-      <section className="analytics-section-card analytics-performance-cefr-section">
+      <section id="calibration-cefr-development" className="analytics-section-card analytics-performance-cefr-section">
         <div className="analytics-section-header">
           <div>
             <h3>Calibration Development by CEFR Level</h3>
@@ -2759,6 +2862,19 @@ const historyAttempts = attempts;
                       </span>
                     </div>
 
+                    <div className={`analytics-performance-cefr-evidence analytics-performance-cefr-evidence-${item.evidenceStatus}`}>
+                      <strong>
+                        {item.evidenceStatus === "repeated"
+                          ? "Repeated evidence"
+                          : "Limited evidence"}
+                      </strong>
+                      <span>
+                        {item.evidenceStatus === "repeated"
+                          ? "2+ evaluations"
+                          : "1 recorded evaluation"}
+                      </span>
+                    </div>
+
                     <div className="analytics-performance-cefr-change">
                       <span>First → latest</span>
                       <strong>
@@ -2792,7 +2908,7 @@ const historyAttempts = attempts;
                     </span>
                     <span>
                       {item.change === null
-                        ? "Change available after 2+ evaluations"
+                        ? "A trend is not established from one evaluation"
                         : "Change based on first and latest evaluation"}
                     </span>
                   </div>
@@ -2803,7 +2919,7 @@ const historyAttempts = attempts;
         )}
       </section>
 
-      <section className="analytics-section-card analytics-performance-diagnostic-section">
+      <section id="diagnostic-skill-development" className="analytics-section-card analytics-performance-diagnostic-section">
         <div className="analytics-section-header">
           <div>
             <h3>Diagnostic Skill Development</h3>
@@ -2841,6 +2957,15 @@ const historyAttempts = attempts;
                     </div>
 
                     <div className="analytics-performance-diagnostic-score">
+                      <div
+                        className={`analytics-performance-diagnostic-evidence analytics-performance-diagnostic-evidence-${skill.evidenceStatus}`}
+                      >
+                        {skill.evidenceStatus === "repeated"
+                          ? "Repeated evidence"
+                          : skill.evidenceStatus === "limited"
+                            ? "Limited evidence"
+                            : "No evidence"}
+                      </div>
                       <strong
                         className={`analytics-performance-diagnostic-score-value analytics-performance-diagnostic-score-${getScoreClass(
                           skill.average
@@ -2893,13 +3018,13 @@ const historyAttempts = attempts;
             </div>
 
             <div className="analytics-performance-diagnostic-note">
-              <strong>How to read this:</strong> this section describes the teacher's calibration record within each diagnostic skill. A first-to-latest change is shown only when that skill has at least two recorded evaluations.
+              <strong>How to read this:</strong> evidence depth is shown separately from the score. One evaluation is limited evidence, while two or more evaluations provide repeated evidence. No recorded evidence is shown neutrally and is not treated as a low score. A first-to-latest change is shown only when that skill has at least two recorded evaluations.
             </div>
           </>
         )}
       </section>
 
-      <section className="analytics-section-card analytics-performance-exercise-section">
+      <section id="calibration-exercise-progression" className="analytics-section-card analytics-performance-exercise-section">
         <div className="analytics-section-header">
           <div>
             <h3>Calibration Progression by Exercise</h3>
@@ -2994,7 +3119,7 @@ const historyAttempts = attempts;
         )}
       </section>
 
-      <section className="analytics-section-card analytics-performance-consistency-section">
+      <section id="calibration-consistency" className="analytics-section-card analytics-performance-consistency-section">
         <div className="analytics-section-header">
           <div>
             <h3>Calibration Consistency</h3>
@@ -3096,7 +3221,7 @@ const historyAttempts = attempts;
         )}
       </section>
 
-      <section className="analytics-section-card analytics-performance-profile-section">
+      <section id="teacher-calibration-development-profile" className="analytics-section-card analytics-performance-profile-section">
         <div className="analytics-section-header">
           <div>
             <h3>Teacher Calibration Development Profile</h3>
@@ -3160,7 +3285,7 @@ const historyAttempts = attempts;
         )}
       </section>
 
-      <section className="analytics-section-card analytics-performance-evidence-section">
+      <section id="calibration-evidence-coverage" className="analytics-section-card analytics-performance-evidence-section">
         <div className="analytics-section-header">
           <div>
             <h3>Calibration Evidence Coverage</h3>
