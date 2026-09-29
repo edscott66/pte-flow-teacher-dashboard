@@ -1109,11 +1109,9 @@ export default function MarkingScreen({
                 </div>
               </div>
 
-              {!isCalibrationExercise && (
-                <p className="leading-relaxed font-sans font-medium text-slate-200">
-                  {currentExercise.promptText}
-                </p>
-              )}
+              <p className="leading-relaxed font-sans font-medium text-slate-200">
+                {currentExercise.promptText}
+              </p>
 
               {currentQuestion.id === "summarize-group-discussion" && (
                 <p className="text-[10px] leading-relaxed text-indigo-300 border-t border-slate-800 pt-1.5">
@@ -1450,7 +1448,17 @@ export default function MarkingScreen({
 
         {assessmentWarning && (
           <div
-            className="fixed inset-0 z-[99999] flex items-center justify-center bg-slate-950/60 px-4 py-6 backdrop-blur-[2px]"
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 99999,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "rgba(15, 23, 42, 0.6)",
+              padding: "24px 16px",
+              backdropFilter: "blur(2px)",
+            }}
             role="presentation"
             onMouseDown={(e) => {
               if (e.target === e.currentTarget) {
@@ -1462,27 +1470,66 @@ export default function MarkingScreen({
               role="dialog"
               aria-modal="true"
               aria-labelledby="assessment-warning-title"
-              className="w-full max-w-md rounded-2xl border border-amber-300 bg-amber-50 p-5 shadow-2xl dark:border-amber-700 dark:bg-slate-900"
+              style={{
+                width: "100%",
+                maxWidth: "448px",
+                borderRadius: "16px",
+                border: "1px solid #fcd34d",
+                backgroundColor: "#fffbeb",
+                padding: "20px",
+                boxShadow: "0 25px 50px -12px rgba(15, 23, 42, 0.35)",
+              }}
             >
-              <div className="flex items-start gap-3">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-100 dark:bg-amber-950">
-                  <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+              <div style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "12px",
+              }}>
+                <div style={{
+                  display: "flex",
+                  width: "36px",
+                  height: "36px",
+                  flexShrink: 0,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderRadius: "50%",
+                  backgroundColor: "#fef3c7",
+                }}>
+                  <AlertTriangle style={{ width: "20px", height: "20px", color: "#d97706" }} />
                 </div>
 
-                <div className="min-w-0 flex-1">
+                <div style={{ minWidth: 0, flex: 1 }}>
                   <div
                     id="assessment-warning-title"
-                    className="text-sm font-extrabold text-amber-950 dark:text-amber-200"
+                    style={{
+                      fontSize: "14px",
+                      fontWeight: 800,
+                      color: "#451a03",
+                    }}
                   >
                     {assessmentWarning.title}
                   </div>
 
-                  <div className="mt-1.5 text-xs leading-relaxed text-amber-900 dark:text-slate-200">
+                  <div style={{
+                    marginTop: "6px",
+                    fontSize: "12px",
+                    lineHeight: 1.625,
+                    color: "#78350f",
+                  }}>
                     {assessmentWarning.message}
                   </div>
 
                   {assessmentWarning.tip && (
-                    <div className="mt-2 rounded-lg border border-amber-200 bg-white/70 px-3 py-2 text-[11px] leading-relaxed text-amber-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                    <div style={{
+                        marginTop: "8px",
+                        border: "1px solid #fde68a",
+                        borderRadius: "8px",
+                        backgroundColor: "rgba(255, 255, 255, 0.7)",
+                        padding: "8px 12px",
+                        fontSize: "11px",
+                        lineHeight: 1.625,
+                        color: "#92400e",
+                      }}>
                       {assessmentWarning.tip}
                     </div>
                   )}
@@ -1491,7 +1538,18 @@ export default function MarkingScreen({
                     type="button"
                     autoFocus
                     onClick={() => setAssessmentWarning(null)}
-                    className="mt-4 rounded-lg bg-amber-600 px-4 py-2 text-xs font-bold text-white shadow-sm transition-colors hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900"
+                    style={{
+                marginTop: "16px",
+                border: "none",
+                borderRadius: "8px",
+                backgroundColor: "#d97706",
+                padding: "8px 16px",
+                fontSize: "12px",
+                fontWeight: 700,
+                color: "#ffffff",
+                boxShadow: "0 1px 2px rgba(15, 23, 42, 0.05)",
+                cursor: "pointer",
+              }}
                   >
                     Close
                   </button>
