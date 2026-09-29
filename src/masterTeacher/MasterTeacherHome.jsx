@@ -5,7 +5,7 @@ export default function MasterTeacherHome({ onNavigate }) {
     {
       id: "marking",
       title: "Teacher Calibration Bench",
-      icon: "👨‍🏫",
+      icon: "\u{1F468}\u200D\u{1F4BB}",
       description:
         "Practise PTE marking against the existing exercise bank, scoring criteria, error checklist, and benchmark samples.",
       action: "Open Calibration Bench",
@@ -14,7 +14,7 @@ export default function MasterTeacherHome({ onNavigate }) {
     {
       id: "progress",
       title: "Calibration Progress",
-      icon: "📈",
+      icon: "\u{1F4C8}",
       description:
         "Review your calibration performance, average match, best and lowest results, and recent assessment history.",
       action: "View Calibration Progress",
@@ -23,7 +23,7 @@ export default function MasterTeacherHome({ onNavigate }) {
     {
       id: "students_evaluator",
       title: "Live Evaluation",
-      icon: "🎙️",
+      icon: "\u{1F3A4}\uFE0F",
       description:
         "Evaluate a student's spoken or written response using the desktop evaluation workflow.",
       action: "Open Live Evaluation",
@@ -32,7 +32,7 @@ export default function MasterTeacherHome({ onNavigate }) {
     {
       id: "lessons",
       title: "Lesson Plans",
-      icon: "📚",
+      icon: "\u{1F4DA}",
       description:
         "Access structured PTE lesson plans and classroom teaching resources already built into the Teacher Suite.",
       action: "Open Lesson Plans",
@@ -41,20 +41,20 @@ export default function MasterTeacherHome({ onNavigate }) {
     {
       id: "translator",
       title: "Band & Score Translator",
-      icon: "📊",
+      icon: "\u{1F4CA}",
       description:
         "Use the existing PTE-to-IELTS and CEFR reference data for teaching and target-setting conversations.",
-      action: "Coming next",
-      ready: false,
+      action: "Open Band & Score Translator",
+      ready: true,
     },
     {
       id: "tips",
       title: "Examiner Strategy Vault",
-      icon: "💡",
+      icon: "\u{1F4A1}",
       description:
         "Browse the existing examiner strategy and classroom guidance library.",
-      action: "Coming next",
-      ready: false,
+      action: "Open Examiner Strategy Vault",
+      ready: true,
     },
   ];
 
@@ -71,7 +71,9 @@ export default function MasterTeacherHome({ onNavigate }) {
         </div>
 
         <div className="master-teacher-hero-badge">
-          <span className="master-teacher-hero-icon">👑</span>
+          <span className="master-teacher-hero-icon">
+            {"\u{1F451}"}
+          </span>
           <div>
             <strong>Teacher Workspace</strong>
             <span>Desktop tools &amp; resources</span>
@@ -80,7 +82,7 @@ export default function MasterTeacherHome({ onNavigate }) {
       </div>
 
       <div className="master-teacher-notice">
-        <span className="master-teacher-notice-icon">✓</span>
+        <span className="master-teacher-notice-icon">{"\u2713"}</span>
         <div>
           <strong>Integrated with your existing Teacher Dashboard</strong>
           <p>
@@ -113,7 +115,9 @@ export default function MasterTeacherHome({ onNavigate }) {
               onClick={() => card.ready && onNavigate(card.id)}
               disabled={!card.ready}
             >
-              <div className="master-teacher-card-icon">{card.icon}</div>
+              <div className="master-teacher-card-icon">
+                {card.icon}
+              </div>
 
               <div className="master-teacher-card-content">
                 <h4>{card.title}</h4>
@@ -123,7 +127,7 @@ export default function MasterTeacherHome({ onNavigate }) {
               <div className="master-teacher-card-action">
                 <span>{card.action}</span>
                 <span aria-hidden="true">
-                  {card.ready ? "→" : "•"}
+                  {card.ready ? "\u2192" : "\u2022"}
                 </span>
               </div>
             </button>
@@ -134,7 +138,9 @@ export default function MasterTeacherHome({ onNavigate }) {
       <section className="master-teacher-section master-teacher-section-secondary">
         <div className="master-teacher-info-grid">
           <div className="master-teacher-info-card">
-            <span className="master-teacher-info-icon">👨‍🏫</span>
+            <span className="master-teacher-info-icon">
+              {"\u{1F468}\u200D\u{1F4BB}"}
+            </span>
             <div>
               <h4>Student records stay in the existing Dashboard</h4>
               <p>
@@ -145,7 +151,9 @@ export default function MasterTeacherHome({ onNavigate }) {
           </div>
 
           <div className="master-teacher-info-card">
-            <span className="master-teacher-info-icon">🧪</span>
+            <span className="master-teacher-info-icon">
+              {"\u{1F9EA}"}
+            </span>
             <div>
               <h4>Existing Teacher resources are reused</h4>
               <p>

@@ -1,17 +1,27 @@
 import React from "react";
+
 import { useLocation, useNavigate } from "react-router-dom";
 
 import MasterTeacherHome from "./MasterTeacherHome";
+
 import MarkingScreen from "./screens/MarkingScreen";
+
 import ComparisonScreen from "./screens/ComparisonScreen";
+
 import CalibrationProgressScreen from "./screens/CalibrationProgressScreen";
+
 import LiveEvaluationScreen from "./screens/LiveEvaluationScreen";
+
 import CurriculumLessonLibrary from "../lessonPlans/screens/CurriculumLessonLibrary";
+
+import BandScoreTranslator from "./screens/BandScoreTranslator";
+
+import ExaminerStrategyVault from "./screens/ExaminerStrategyVault";
 
 function ComingSoon({ title, onNavigate }) {
   return (
     <div className="master-teacher-empty-state">
-      <div className="master-teacher-empty-icon">🚀</div>
+      <div className="master-teacher-empty-icon">ðŸš€</div>
       <h2>{title}</h2>
       <p>
         This part of the Master Teacher Suite will be connected in the next
@@ -92,7 +102,7 @@ export default function MasterTeacherLayout() {
       <div className="master-teacher-workspace-topbar">
         <div>
           <span className="master-teacher-workspace-title">
-            👑 PTE Master Teacher
+            ðŸ‘‘ PTE Master Teacher
           </span>
           <span className="master-teacher-workspace-current">
             {titleMap[activeKey] || "Master Teacher"}
@@ -163,20 +173,10 @@ export default function MasterTeacherLayout() {
         {activeKey === "lessons" && <CurriculumLessonLibrary />}
 
         {/* Band & Score Translator */}
-        {activeKey === "translator" && (
-          <ComingSoon
-            title="Band & Score Translator"
-            onNavigate={navigateWithinSuite}
-          />
-        )}
+        {activeKey === "translator" && <BandScoreTranslator />}
 
         {/* Examiner Strategy Vault */}
-        {activeKey === "tips" && (
-          <ComingSoon
-            title="Examiner Strategy Vault"
-            onNavigate={navigateWithinSuite}
-          />
-        )}
+        {activeKey === "tips" && <ExaminerStrategyVault />}
       </div>
     </div>
   );
