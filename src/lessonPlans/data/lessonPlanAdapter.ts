@@ -36,6 +36,17 @@ export function getCurriculumLessonId(
 }
 
 /**
+ * Translate curriculum-only module keys to the existing practice-engine IDs.
+ */
+export function getPracticeModuleKey(moduleKey: string): string {
+  if (moduleKey === "multiple-choice-reading") {
+    return "mcq-multiple-reading";
+  }
+
+  return moduleKey;
+}
+
+/**
  * Convert the existing eight-week curriculum into the new Lesson Plans
  * representation without changing the source curriculum.
  */
