@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const STRATEGY_SECTIONS = [
   {
@@ -15,6 +16,100 @@ const STRATEGY_SECTIONS = [
       "Reading task strategies",
       "Listening task strategies",
       "Writing task strategies",
+    ],
+    actions: [
+      {
+        label: "Open Read Aloud Strategy",
+        target: "/master-teacher/tips/read-aloud",
+      },
+      {
+        label: "Open Repeat Sentence Strategy",
+        target: "/master-teacher/tips/repeat-sentence",
+      },
+      {
+        label: "Open Describe Image Strategy",
+        target: "/master-teacher/tips/describe-image",
+      },
+      {
+        label: "Open Retell Lecture Strategy",
+        target: "/master-teacher/tips/retell-lecture",
+      },
+      {
+        label: "Open Answer Short Question Strategy",
+        target: "/master-teacher/tips/answer-short-question",
+      },
+      {
+        label: "Open Summarize Group Discussion Strategy",
+        target: "/master-teacher/tips/summarize-group-discussion",
+      },
+      {
+        label: "Open Respond to a Situation Strategy",
+        target: "/master-teacher/tips/respond-to-a-situation",
+      },
+      {
+        label: "Open Summarize Written Text Strategy",
+        target: "/master-teacher/tips/summarize-written-text",
+      },
+      {
+        label: "Open Write Essay Strategy",
+        target: "/master-teacher/tips/write-essay",
+      },
+      {
+        label: "Open Fill in the Blanks (Dropdown) Strategy",
+        target: "/master-teacher/tips/reading-fill-in-blanks-dropdown",
+      },
+      {
+        label: "Open Reorder Paragraph Strategy",
+        target: "/master-teacher/tips/reading-reorder-paragraph",
+      },
+      {
+        label: "Open Fill in the Blanks (Drag and Drop) Strategy",
+        target: "/master-teacher/tips/reading-fill-in-blanks-drag-drop",
+      },
+      {
+        label: "Open Multiple Choice, Single Answer Strategy",
+        target: "/master-teacher/tips/reading-multiple-choice-single",
+      },
+      {
+        label: "Open Multiple Choice, Multiple Answers Strategy",
+        target: "/master-teacher/tips/reading-multiple-choice-multiple",
+      },
+      {
+        label: "Open Summarize Spoken Text Strategy",
+        target: "/master-teacher/tips/summarize-spoken-text",
+      },
+      {
+        label: "Open Multiple Choice, Multiple Answers (Listening) Strategy",
+        target: "/master-teacher/tips/listening-multiple-choice-multiple",
+      },
+      {
+        label: "Open Fill in the Blanks (Type In) Strategy",
+        target: "/master-teacher/tips/listening-fill-in-blanks-type-in",
+      },
+      {
+        label: "Open Highlight Correct Summary Strategy",
+        target: "/master-teacher/tips/highlight-correct-summary",
+      },
+      {
+        label: "Open Multiple Choice, Single Answer (Listening) Strategy",
+        target: "/master-teacher/tips/listening-multiple-choice-single",
+      },
+      {
+        label: "Open Select Missing Word Strategy",
+        target: "/master-teacher/tips/select-missing-word",
+      },
+      {
+        label: "Open Highlight Incorrect Words Strategy",
+        target: "/master-teacher/tips/highlight-incorrect-words",
+      },
+      {
+        label: "Open Write from Dictation Strategy",
+        target: "/master-teacher/tips/write-from-dictation",
+      },
+      {
+        label: "Open Personal Introduction Strategy",
+        target: "/master-teacher/tips/personal-introduction",
+      },
     ],
   },
   {
@@ -100,6 +195,14 @@ const STRATEGY_SECTIONS = [
 ];
 
 function StrategySectionCard({ section }) {
+  const navigate = useNavigate();
+
+  const handleAction = (target) => {
+    if (target) {
+      navigate(target);
+    }
+  };
+
   return (
     <div
       style={{
@@ -198,21 +301,58 @@ function StrategySectionCard({ section }) {
         ))}
       </div>
 
-      <div
-        style={{
-          marginTop: "14px",
-          padding: "8px 10px",
-          borderRadius: "8px",
-          background: section.accentLight,
-          color: section.accent,
-          fontSize: "10px",
-          fontWeight: 800,
-          textTransform: "uppercase",
-          letterSpacing: "0.04em",
-        }}
-      >
-        Strategy library
-      </div>
+      {section.actions && (
+        <div
+          style={{
+            display: "grid",
+            gap: "8px",
+            marginTop: "14px",
+          }}
+        >
+          {section.actions.map((action) => (
+            <button
+              key={action.target}
+              type="button"
+              onClick={() => handleAction(action.target)}
+              style={{
+                width: "100%",
+                padding: "9px 11px",
+                borderRadius: "8px",
+                border: `1px solid ${section.border}`,
+                background: section.accentLight,
+                color: section.accent,
+                fontSize: "10px",
+                fontWeight: 900,
+                textTransform: "uppercase",
+                letterSpacing: "0.04em",
+                cursor: "pointer",
+                textAlign: "left",
+              }}
+            >
+              {action.label}
+              {" \u2192"}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {!section.actions && (
+        <div
+          style={{
+            marginTop: "14px",
+            padding: "8px 10px",
+            borderRadius: "8px",
+            background: section.accentLight,
+            color: section.accent,
+            fontSize: "10px",
+            fontWeight: 800,
+            textTransform: "uppercase",
+            letterSpacing: "0.04em",
+          }}
+        >
+          Strategy library
+        </div>
+      )}
     </div>
   );
 }
