@@ -127,6 +127,16 @@ const STRATEGY_SECTIONS = [
       "Separating major and minor issues",
       "Distinguishing similar error types",
     ],
+    actions: [
+      {
+        label: "Open Examiner's Eye",
+        target: "/master-teacher/tips/examiner-eye",
+      },
+      {
+        label: "Open Common Assessment Traps",
+        target: "/master-teacher/tips/common-assessment-traps",
+      },
+    ],
   },
   {
     id: "assessment-traps",
@@ -142,6 +152,12 @@ const STRATEGY_SECTIONS = [
       "Hesitation versus fluency problems",
       "Omission versus inaccurate production",
       "Over-correcting minor issues",
+    ],
+    actions: [
+      {
+        label: "Open Common Assessment Traps",
+        target: "/master-teacher/tips/common-assessment-traps",
+      },
     ],
   },
   {
@@ -159,6 +175,12 @@ const STRATEGY_SECTIONS = [
       "Accuracy and recall drills",
       "Timed exam-condition practice",
     ],
+    actions: [
+      {
+        label: "Open Classroom Drills",
+        target: "/master-teacher/tips/classroom-drills",
+      },
+    ],
   },
   {
     id: "feedback-language",
@@ -175,6 +197,12 @@ const STRATEGY_SECTIONS = [
       "Giving actionable advice",
       "Turning assessment into a teaching target",
     ],
+    actions: [
+      {
+        label: "Open Feedback Language",
+        target: "/master-teacher/tips/feedback-language",
+      },
+    ],
   },
   {
     id: "score-targets",
@@ -190,6 +218,12 @@ const STRATEGY_SECTIONS = [
       "Intermediate score targets",
       "Upper-intermediate targets",
       "Advanced score targets",
+    ],
+    actions: [
+      {
+        label: "Open Score Target Strategies",
+        target: "/master-teacher/tips/score-target-strategies",
+      },
     ],
   },
 ];

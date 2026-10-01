@@ -18,6 +18,12 @@ import BandScoreTranslator from "./screens/BandScoreTranslator";
 
 import ExaminerStrategyVault from "./screens/ExaminerStrategyVault";
 
+import ExaminersEye from "./screens/ExaminersEye";
+
+import CommonAssessmentTraps from "./screens/CommonAssessmentTraps";
+
+import ClassroomDrills from "./screens/ClassroomDrills";
+
 import ReadAloudStrategy from "./screens/ReadAloudStrategy";
 
 import RepeatSentenceStrategy from "./screens/RepeatSentenceStrategy";
@@ -51,12 +57,22 @@ import SummarizeSpokenTextStrategy from "./screens/SummarizeSpokenTextStrategy";
 import ListeningMultipleChoiceMultipleStrategy from "./screens/ListeningMultipleChoiceMultipleStrategy";
 
 import ListeningFillInBlanksTypeInStrategy from "./screens/ListeningFillInBlanksTypeInStrategy";
+
 import HighlightCorrectSummaryStrategy from "./screens/HighlightCorrectSummaryStrategy";
+
 import ListeningMultipleChoiceSingleStrategy from "./screens/ListeningMultipleChoiceSingleStrategy";
+
 import SelectMissingWordStrategy from "./screens/SelectMissingWordStrategy";
+
 import HighlightIncorrectWordsStrategy from "./screens/HighlightIncorrectWordsStrategy";
+
 import WriteFromDictationStrategy from "./screens/WriteFromDictationStrategy";
+
 import PersonalIntroductionStrategy from "./screens/PersonalIntroductionStrategy";
+
+import FeedbackLanguage from "./screens/FeedbackLanguage";
+
+import ScoreTargetStrategies from "./screens/ScoreTargetStrategies";
 
 function ComingSoon({ title, onNavigate }) {
   return (
@@ -82,27 +98,10 @@ export default function MasterTeacherLayout() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  /*
-   * Determine which Master Teacher section is currently active.
-   *
-   * Examples:
-   * /master-teacher
-   * /master-teacher/marking
-   * /master-teacher/comparison
-   * /master-teacher/progress
-   * /master-teacher/students-evaluator
-   */
   const subPath = location.pathname
     .replace(/^\/master-teacher\/?/, "")
     .replace(/\/+$/, "");
 
-  /*
-   * Central navigation for the Master Teacher workspace.
-   *
-   * Keeping these routes here means the Home page, top navigation,
-   * Calibration Bench, Evaluation Report and Progress screen all use
-   * the same routing.
-   */
   const navigateWithinSuite = (tab) => {
     const destinations = {
       home: "/master-teacher",
@@ -118,9 +117,6 @@ export default function MasterTeacherLayout() {
     navigate(destinations[tab] || "/master-teacher");
   };
 
-  /*
-   * Titles displayed in the Master Teacher workspace top bar.
-   */
   const titleMap = {
     home: "Master Teacher Home",
     marking: "Calibration Bench",
@@ -130,6 +126,9 @@ export default function MasterTeacherLayout() {
     lessons: "Lesson Plans",
     translator: "Band & Score Translator",
     tips: "Examiner Strategy Vault",
+    "tips/examiner-eye": "Examiner's Eye",
+    "tips/common-assessment-traps": "Common Assessment Traps",
+    "tips/classroom-drills": "Classroom Drills",
     "tips/read-aloud": "Read Aloud — Examiner Strategy",
     "tips/repeat-sentence": "Repeat Sentence — Examiner Strategy",
     "tips/describe-image": "Describe Image — Examiner Strategy",
@@ -170,20 +169,20 @@ export default function MasterTeacherLayout() {
       "Write from Dictation — Examiner Strategy",
     "tips/personal-introduction":
       "Personal Introduction — Examiner Strategy",
+    "tips/feedback-language": "Feedback Language",
+    "tips/score-target-strategies": "Score Target Strategies",
   };
 
   const activeKey = subPath || "home";
 
   return (
     <div className="master-teacher-workspace">
-      {/* ============================================================
-          MASTER TEACHER TOP BAR
-          ============================================================ */}
       <div className="master-teacher-workspace-topbar">
         <div>
           <span className="master-teacher-workspace-title">
             {"\u{1F451}"} PTE Master Teacher
           </span>
+
           <span className="master-teacher-workspace-current">
             {titleMap[activeKey] || "Master Teacher"}
           </span>
@@ -220,80 +219,69 @@ export default function MasterTeacherLayout() {
         </div>
       </div>
 
-      {/* ============================================================
-          MASTER TEACHER PAGE CONTENT
-          ============================================================ */}
       <div className="master-teacher-workspace-body">
-        {/* Home */}
         {activeKey === "home" && (
           <MasterTeacherHome onNavigate={navigateWithinSuite} />
         )}
 
-        {/* Calibration Bench / Marking Simulator */}
         {activeKey === "marking" && (
           <MarkingScreen onNavigate={navigateWithinSuite} />
         )}
 
-        {/* Evaluation Report / AI Comparison */}
         {activeKey === "comparison" && (
           <ComparisonScreen onNavigate={navigateWithinSuite} />
         )}
 
-        {/* Calibration Progress */}
         {activeKey === "progress" && (
           <CalibrationProgressScreen onNavigate={navigateWithinSuite} />
         )}
 
-        {/* Live Evaluation */}
         {activeKey === "students-evaluator" && (
           <LiveEvaluationScreen onNavigate={navigateWithinSuite} />
         )}
 
-        {/* Lesson Plans */}
         {activeKey === "lessons" && <CurriculumLessonLibrary />}
 
-        {/* Band & Score Translator */}
         {activeKey === "translator" && <BandScoreTranslator />}
 
-        {/* Examiner Strategy Vault */}
         {activeKey === "tips" && <ExaminerStrategyVault />}
 
-        {/* Read Aloud Strategy */}
+        {activeKey === "tips/examiner-eye" && <ExaminersEye />}
+
+        {activeKey === "tips/common-assessment-traps" && (
+          <CommonAssessmentTraps />
+        )}
+
+        {activeKey === "tips/classroom-drills" && (
+          <ClassroomDrills />
+        )}
+
         {activeKey === "tips/read-aloud" && <ReadAloudStrategy />}
 
-        {/* Repeat Sentence Strategy */}
         {activeKey === "tips/repeat-sentence" && <RepeatSentenceStrategy />}
 
-        {/* Describe Image Strategy */}
         {activeKey === "tips/describe-image" && <DescribeImageStrategy />}
 
-        {/* Retell Lecture Strategy */}
         {activeKey === "tips/retell-lecture" && <RetellLectureStrategy />}
 
-        {/* Answer Short Question Strategy */}
         {activeKey === "tips/answer-short-question" && (
           <AnswerShortQuestionStrategy />
         )}
 
-        {/* Summarize Group Discussion Strategy */}
         {activeKey === "tips/summarize-group-discussion" && (
           <SummarizeGroupDiscussionStrategy />
         )}
 
-        {/* Respond to a Situation Strategy */}
         {activeKey === "tips/respond-to-a-situation" && (
           <RespondToSituationStrategy />
         )}
 
-        {/* Summarize Written Text Strategy */}
         {activeKey === "tips/summarize-written-text" && (
           <SummarizeWrittenTextStrategy />
         )}
 
-        {/* Write Essay Strategy */}
         {activeKey === "tips/write-essay" && <WriteEssayStrategy />}
 
-        {/* Fill in the Blanks (Dropdown) Strategy */}
         {activeKey === "tips/reading-fill-in-blanks-dropdown" && (
           <ReadingFillInBlanksDropdownStrategy />
         )}
@@ -314,7 +302,6 @@ export default function MasterTeacherLayout() {
           <ReadingMultipleChoiceMultipleStrategy />
         )}
 
-        {/* Summarize Spoken Text Strategy */}
         {activeKey === "tips/summarize-spoken-text" && (
           <SummarizeSpokenTextStrategy />
         )}
@@ -327,27 +314,22 @@ export default function MasterTeacherLayout() {
           <ListeningFillInBlanksTypeInStrategy />
         )}
 
-        {/* Highlight Correct Summary Strategy */}
         {activeKey === "tips/highlight-correct-summary" && (
           <HighlightCorrectSummaryStrategy />
         )}
 
-        {/* Multiple Choice, Single Answer (Listening) Strategy */}
         {activeKey === "tips/listening-multiple-choice-single" && (
           <ListeningMultipleChoiceSingleStrategy />
         )}
 
-        {/* Select Missing Word Strategy */}
         {activeKey === "tips/select-missing-word" && (
           <SelectMissingWordStrategy />
         )}
 
-        {/* Highlight Incorrect Words Strategy */}
         {activeKey === "tips/highlight-incorrect-words" && (
           <HighlightIncorrectWordsStrategy />
         )}
 
-        {/* Write from Dictation Strategy */}
         {activeKey === "tips/write-from-dictation" && (
           <WriteFromDictationStrategy />
         )}
@@ -355,6 +337,15 @@ export default function MasterTeacherLayout() {
         {/* Personal Introduction Strategy */}
         {activeKey === "tips/personal-introduction" && (
           <PersonalIntroductionStrategy />
+        )}
+
+        {/* Feedback Language */}
+        {activeKey === "tips/feedback-language" && (
+          <FeedbackLanguage />
+        )}
+
+        {activeKey === "tips/score-target-strategies" && (
+          <ScoreTargetStrategies />
         )}
       </div>
     </div>
