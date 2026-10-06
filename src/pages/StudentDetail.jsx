@@ -106,6 +106,7 @@ export default function StudentDetail() {
 
   const [student, setStudent] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [saveConfirmation, setSaveConfirmation] = useState(false);
 
   const isAdmin = role === "admin";
   const isTeacher = role === "teacher";
@@ -144,10 +145,10 @@ export default function StudentDetail() {
             courseId: generateNewCourseId(),
             startDate: today(),
             endDate: nextTwoMonths(),
-            lessonsCompleted: 0,
-            practiceTests: 0,
-            averageScore: null,
-            activity: []
+            lessonsCompleted: data.lessonsCompleted || 0,
+            practiceTests: data.practiceTests || 0,
+            averageScore: data.averageScore ?? null,
+            activity: data.activity || []
           };
         }
 
@@ -165,7 +166,7 @@ export default function StudentDetail() {
     }
 
     fetchStudent();
-  }, [id, role, teacherClass, consultantList, navigate]);
+  }, [id, role, teacherClass, navigate]);
 
   if (loading) return <p>Loading student...</p>;
   if (!student) return <p>Student not found.</p>;
@@ -178,8 +179,8 @@ export default function StudentDetail() {
 
     const newCourse = {
       courseId: generateNewCourseId(),
-      startDate: today(),
-      endDate: nextTwoMonths(),
+      startDate: "",
+      endDate: student.currentCourse.endDate,
       lessonsCompleted: 0,
       practiceTests: 0,
       averageScore: null,
@@ -202,7 +203,11 @@ export default function StudentDetail() {
 
   // Chart data: currentCourse.activity should be an array of objects like:
   // { date: "2026-08-15", lessons: 1, tests: 0, score: 78 }
-  const activityData = parseActivityLog(student.currentCourse.activity || []);
+  const activityData = parseActivityLog(
+  student.currentCourse.activity?.length
+    ? student.currentCourse.activity
+    : student.activity || []
+  );
   const pastCoursesData = student.courses || [];
 
   return (
@@ -278,6 +283,22 @@ export default function StudentDetail() {
             <p>{student.id}</p>
           </div>
 
+          {/* Passport / ID */}
+          <div className="info-card">
+            <h4>Passport / ID</h4>
+            {isAdmin || isTeacher ? (
+              <input
+                type="text"
+                value={student.passportNumber || ""}
+                onChange={(e) =>
+                  setStudent({ ...student, passportNumber: e.target.value })
+                }
+              />
+            ) : (
+              <p>{student.passportNumber || "N/A"}</p>
+            )}
+          </div>
+
           {/* Activation Code */}
           {(isAdmin || student.activationCode) && (
             <div className="info-card">
@@ -351,13 +372,39 @@ export default function StudentDetail() {
                 status: student.status,
                 phone: student.phone,
                 email: student.email,
-                consultant: student.consultant
+                consultant: student.consultant,
+                passportNumber: student.passportNumber,
+                currentCourse: student.currentCourse
               });
-              alert("Student details updated!");
+              setSaveConfirmation(true);
             }}
           >
             Save Changes
           </button>
+        )}
+
+        {saveConfirmation && (
+          <div className="student-save-modal-overlay">
+            <div
+              className="student-save-modal"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="student-save-title"
+            >
+              <div className="student-save-modal-icon">✓</div>
+              <h3 id="student-save-title">Student Details Updated</h3>
+              <p>
+                The student information has been saved successfully.
+              </p>
+              <button
+                type="button"
+                className="student-save-modal-button"
+                onClick={() => setSaveConfirmation(false)}
+              >
+                Done
+              </button>
+            </div>
+          </div>
         )}
 
         {/* COURSE CYCLE SYSTEM */}
@@ -368,8 +415,40 @@ export default function StudentDetail() {
             <div className="current-course-card">
               <h4>Current Course</h4>
               <p><strong>Course ID:</strong> {student.currentCourse.courseId}</p>
-              <p><strong>Start:</strong> {student.currentCourse.startDate}</p>
-              <p><strong>End:</strong> {student.currentCourse.endDate}</p>
+              <p>
+                <strong>Course Start:</strong>
+                <input
+                  type="text"
+                  value={student.currentCourse.startDate || ""}
+                  placeholder="e.g. 12 Jan 2024"
+                  onChange={(e) =>
+                    setStudent({
+                      ...student,
+                      currentCourse: {
+                        ...student.currentCourse,
+                        startDate: e.target.value
+                      }
+                    })
+                  }
+                />
+              </p>
+              <p>
+                <strong>Course Finish:</strong>
+                <input
+                  type="text"
+                  value={student.currentCourse.endDate || ""}
+                  placeholder="e.g. 12 Mar 2024"
+                  onChange={(e) =>
+                    setStudent({
+                      ...student,
+                      currentCourse: {
+                        ...student.currentCourse,
+                        endDate: e.target.value
+                      }
+                    })
+                  }
+                />
+              </p>
               <p><strong>Lessons:</strong> {student.currentCourse.lessonsCompleted}</p>
               <p><strong>Tests:</strong> {student.currentCourse.practiceTests}</p>
               <p><strong>Average Score:</strong> {student.currentCourse.averageScore || "N/A"}</p>

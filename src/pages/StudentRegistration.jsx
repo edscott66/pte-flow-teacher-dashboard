@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  doc,
+  getDoc,
+  setDoc,
+  serverTimestamp
+} from "firebase/firestore";
 import { db } from "../firebase";
 import "./StudentRegistration.css";
 
 export default function StudentRegistration() {
-  console.log("✅ StudentRegistration component is rendering!");
+  console.log("âœ… StudentRegistration component is rendering!");
 
   const [searchParams] = useSearchParams();
   const className = searchParams.get("class") || "";
@@ -41,6 +48,23 @@ export default function StudentRegistration() {
 
       const studentsCollection = collection(db, "students");
 
+      const courseCycleRef = doc(db, "courseCycles", form.className);
+      const courseCycleSnap = await getDoc(courseCycleRef);
+
+      let courseFinishDate;
+
+      if (courseCycleSnap.exists()) {
+        courseFinishDate = courseCycleSnap.data().courseFinishDate;
+      } else {
+        courseFinishDate = nextTwoMonths();
+
+        await setDoc(courseCycleRef, {
+          className: form.className,
+          courseFinishDate,
+          status: "active"
+        });
+      }
+
       const newStudent = {
         ...form,
         status: "active",
@@ -58,7 +82,7 @@ export default function StudentRegistration() {
         currentCourse: {
           courseId: generateNewCourseId(),
           startDate: new Date().toLocaleDateString("en-GB"),
-          endDate: nextTwoMonths(),
+          endDate: courseFinishDate,
           lessonsCompleted: 0,
           practiceTests: 0,
           averageScore: null,
@@ -112,15 +136,15 @@ export default function StudentRegistration() {
 
         {error && (
           <div className="registration-error">
-            <p>❌ {error}</p>
+            <p>âŒ {error}</p>
           </div>
         )}
 
         {success ? (
           <div className="registration-success">
-            <div className="success-icon">✅</div>
+            <div className="success-icon">âœ…</div>
             <h2>Registration Successful!</h2>
-            <p>You have been added to the class. Welcome aboard! 🎉</p>
+            <p>You have been added to the class. Welcome aboard! ðŸŽ‰</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="registration-form">
@@ -189,7 +213,11 @@ export default function StudentRegistration() {
               />
             </div>
 
-            <button type="submit" disabled={isSubmitting} className="register-btn">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="register-btn"
+            >
               {isSubmitting ? "Registering..." : "Register Now"}
             </button>
           </form>

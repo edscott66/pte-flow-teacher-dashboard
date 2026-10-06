@@ -1,5 +1,6 @@
-import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../../firebase";
+import { teacherDb } from "../../teacherFirebase";
 
 export const createStudentRecord = async (data) => {
   try {
@@ -13,6 +14,26 @@ export const createStudentRecord = async (data) => {
     } = data;
 
     const studentId = passportNumber || `student_${Date.now()}`;
+
+    const courseCycleRef = doc(teacherDb, "courseCycles", className);
+    const courseCycleSnap = await getDoc(courseCycleRef);
+
+    let courseFinishDate;
+
+    if (courseCycleSnap.exists()) {
+      courseFinishDate = courseCycleSnap.data().courseFinishDate;
+    } else {
+      const d = new Date();
+      d.setMonth(d.getMonth() + 2);
+      courseFinishDate = d.toLocaleDateString("en-GB");
+    }
+
+    const now = new Date();
+    const courseId = `${now.getFullYear()}-${String(
+      now.getMonth() + 1
+    ).padStart(2, "0")}`;
+
+    const courseStartDate = now.toLocaleDateString("en-GB");
 
     await setDoc(doc(db, "students", studentId), {
       name,
@@ -39,6 +60,16 @@ export const createStudentRecord = async (data) => {
       practiceTests: 0,
       averageScore: null,
       activity: [],
+
+      currentCourse: {
+        courseId,
+        startDate: courseStartDate,
+        endDate: courseFinishDate,
+        lessonsCompleted: 0,
+        practiceTests: 0,
+        averageScore: null,
+        activity: []
+      }
     });
 
     return { success: true, studentId };

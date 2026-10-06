@@ -14,7 +14,10 @@ import Settings from "./pages/Settings";
 import AdminTools from "./pages/AdminTools";
 import Profile from "./pages/Profile";
 import StudentRegistration from "./pages/StudentRegistration";
+
 import AttendanceDashboard from "./pages/AttendanceDashboard";
+import ArchivedClass from "./pages/ArchivedClass";
+
 
 import Login from "./pages/Login";
 import "./styles/global.css";
@@ -62,7 +65,11 @@ export default function App() {
           onToggle={toggleSidebar}
         />
 
-        <Header />
+        <Header
+          onAddStudent={() =>
+            navigate("/students", { state: { showAddForm: true } })
+          }
+        />
 
         <div
           className={`app-content ${
@@ -70,6 +77,8 @@ export default function App() {
           }`}
         >
           <Routes>
+            <Route path="/archived-class/:archiveId" element={<ArchivedClass />} />
+
             {/* ============================================================
                 EXISTING TEACHER DASHBOARD ROUTES
                 ============================================================ */}
@@ -105,6 +114,7 @@ export default function App() {
               path="/attendance"
               element={<AttendanceDashboard />}
             />
+
 
             {/* ============================================================
                 PTE MASTER TEACHER SUITE

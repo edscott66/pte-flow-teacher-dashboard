@@ -1,0 +1,132 @@
+.archived-class-page {
+  padding: 28px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.archived-class-header {
+  margin-bottom: 20px;
+}
+
+.archived-class-header h1 {
+  margin: 8px 0 6px;
+}
+
+.archived-class-header p {
+  margin: 0;
+  color: #64748b;
+}
+
+.archived-class-badge {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.archived-class-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 20px;
+}
+
+.archived-class-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.archived-class-summary span {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.archived-class-summary strong {
+  display: block;
+  font-size: 15px;
+  color: #1e293b;
+}
+
+.archived-class-section-heading {
+  margin-bottom: 18px;
+}
+
+.archived-class-section-heading h2 {
+  margin: 0 0 5px;
+}
+
+.archived-class-section-heading p {
+  margin: 0;
+  color: #64748b;
+}
+
+.archived-class-table-wrap {
+  overflow-x: auto;
+}
+
+.archived-class-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.archived-class-table th,
+.archived-class-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.archived-class-table th {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.archived-class-table td {
+  font-size: 14px;
+  color: #334155;
+}
+
+.archived-class-empty {
+  padding: 24px;
+  text-align: center;
+  color: #64748b;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+
+.archived-class-error {
+  border-color: #fecaca;
+}
+
+.archived-class-error h1 {
+  margin-top: 0;
+}
+
+.archived-class-error p {
+  color: #b91c1c;
+}
+
+@media (max-width: 900px) {
+  .archived-class-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .archived-class-page {
+    padding: 18px;
+  }
+
+  .archived-class-summary {
+    grid-template-columns: 1fr;
+  }
+}
