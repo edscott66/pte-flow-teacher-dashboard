@@ -5,14 +5,14 @@ import {
   addDoc,
   doc,
   getDoc,
-  setDoc,
   serverTimestamp
 } from "firebase/firestore";
 import { db } from "../firebase";
+import { teacherDb } from "../teacherFirebase";
 import "./StudentRegistration.css";
 
 export default function StudentRegistration() {
-  console.log("âœ… StudentRegistration component is rendering!");
+  console.log("Ã¢Å“â€¦ StudentRegistration component is rendering!");
 
   const [searchParams] = useSearchParams();
   const className = searchParams.get("class") || "";
@@ -21,6 +21,7 @@ export default function StudentRegistration() {
   const [form, setForm] = useState({
     name: "",
     passportNumber: "",
+    activationCode: "",
     consultant: consultant,
     className: className,
     phone: "",
@@ -40,33 +41,57 @@ export default function StudentRegistration() {
     setError("");
 
     try {
-      if (!form.name || !form.passportNumber) {
-        setError("Name and Passport Number are required.");
+      if (!form.name || !form.passportNumber || !form.activationCode) {
+        setError(
+          "Name, Passport Number and Activation Code are required."
+        );
+        setIsSubmitting(false);
+        return;
+      }
+
+      const activationCode = form.activationCode.trim().toUpperCase();
+      const activationCodeRef = doc(
+        db,
+        "verification_codes",
+        activationCode
+      );
+      const activationCodeSnap = await getDoc(activationCodeRef);
+
+      if (!activationCodeSnap.exists()) {
+        setError("Invalid activation code. Please check the code and try again.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      const activationData = activationCodeSnap.data();
+
+      if (activationData.isUsed) {
+        setError(
+          "This activation code has already been used. Please ask your teacher for a new code."
+        );
         setIsSubmitting(false);
         return;
       }
 
       const studentsCollection = collection(db, "students");
 
-      const courseCycleRef = doc(db, "courseCycles", form.className);
+      const courseCycleRef = doc(teacherDb, "courseCycles", form.className);
       const courseCycleSnap = await getDoc(courseCycleRef);
 
-      let courseFinishDate;
-
-      if (courseCycleSnap.exists()) {
-        courseFinishDate = courseCycleSnap.data().courseFinishDate;
-      } else {
-        courseFinishDate = nextTwoMonths();
-
-        await setDoc(courseCycleRef, {
-          className: form.className,
-          courseFinishDate,
-          status: "active"
-        });
+      if (!courseCycleSnap.exists()) {
+        setError(
+          "This class does not have an active course cycle configured. Please ask your teacher to configure the course dates before registering."
+        );
+        setIsSubmitting(false);
+        return;
       }
+
+      const courseFinishDate =
+        courseCycleSnap.data().courseFinishDate;
 
       const newStudent = {
         ...form,
+        activationCode,
         status: "active",
         joined: new Date().toLocaleDateString("en-GB", {
           day: "2-digit",
@@ -97,6 +122,7 @@ export default function StudentRegistration() {
       setForm({
         name: "",
         passportNumber: "",
+        activationCode: "",
         consultant: consultant,
         className: className,
         phone: "",
@@ -136,15 +162,15 @@ export default function StudentRegistration() {
 
         {error && (
           <div className="registration-error">
-            <p>âŒ {error}</p>
+            <p>Ã¢Å’ {error}</p>
           </div>
         )}
 
         {success ? (
           <div className="registration-success">
-            <div className="success-icon">âœ…</div>
+            <div className="success-icon">Ã¢Å“â€¦</div>
             <h2>Registration Successful!</h2>
-            <p>You have been added to the class. Welcome aboard! ðŸŽ‰</p>
+            <p>You have been added to the class. Welcome aboard! Ã°Å¸Å½â€°</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="registration-form">
@@ -165,6 +191,17 @@ export default function StudentRegistration() {
                 name="passportNumber"
                 placeholder="Enter your passport number"
                 value={form.passportNumber}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Activation Code *</label>
+              <input
+                name="activationCode"
+                placeholder="Enter the activation code provided by your teacher"
+                value={form.activationCode}
                 onChange={handleChange}
                 required
               />
