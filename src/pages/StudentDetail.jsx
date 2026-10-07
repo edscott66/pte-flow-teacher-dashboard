@@ -6,15 +6,11 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 
 import { db } from "../firebase";
 
-
-
 import { useAuth } from "../AuthContext";
 
 import Avatar from "../components/Avatar";
 
 import "./StudentDetail.css";
-
-
 
 // Recharts imports (make sure recharts is installed)
 
@@ -42,8 +38,6 @@ import {
 
 } from "recharts";
 
-
-
 const classOptions = [
 
   "Beginners",
@@ -64,13 +58,9 @@ const classOptions = [
 
 ];
 
-
-
 function parseActivityLog(activityArray) {
 
   if (!Array.isArray(activityArray)) return [];
-
-
 
   return activityArray.map((entry) => {
 
@@ -87,8 +77,6 @@ function parseActivityLog(activityArray) {
       score: null
 
     };
-
-
 
     // Extract date (last part of string)
 
@@ -118,8 +106,6 @@ function parseActivityLog(activityArray) {
 
     }
 
-
-
     // Detect lesson completion
 
     if (entry.toLowerCase().includes("lesson")) {
@@ -128,8 +114,6 @@ function parseActivityLog(activityArray) {
 
     }
 
-
-
     // Detect practice test
 
     if (entry.toLowerCase().includes("test")) {
@@ -137,8 +121,6 @@ function parseActivityLog(activityArray) {
       parsed.tests = 1;
 
     }
-
-
 
     // Detect score
 
@@ -150,15 +132,11 @@ function parseActivityLog(activityArray) {
 
     }
 
-
-
     return parsed;
 
   });
 
 }
-
-
 
 // Helper functions for course cycles
 
@@ -170,15 +148,11 @@ function generateNewCourseId() {
 
 }
 
-
-
 function today() {
 
   return new Date().toLocaleDateString("en-GB");
 
 }
-
-
 
 function nextTwoMonths() {
 
@@ -190,8 +164,6 @@ function nextTwoMonths() {
 
 }
 
-
-
 export default function StudentDetail() {
 
   const { id } = useParams();
@@ -200,15 +172,11 @@ export default function StudentDetail() {
 
   const { roleData } = useAuth();
 
-
-
   const role = roleData?.role;
 
   const teacherClass = roleData?.className;
 
   const consultantList = roleData?.assignedStudents || [];
-
-
 
   const [student, setStudent] = useState(null);
 
@@ -218,21 +186,15 @@ export default function StudentDetail() {
 
   const [studentAppData, setStudentAppData] = useState(null);
 
-
-
   const isAdmin = role === "admin";
 
   const isTeacher = role === "teacher";
 
   const isConsultant = role === "consultant";
 
-
-
   const canSeeAnalytics = isAdmin || isTeacher || isConsultant;
 
   const canManageCourses = isAdmin || isTeacher;
-
-
 
   useEffect(() => {
 
@@ -244,8 +206,6 @@ export default function StudentDetail() {
 
         const snap = await getDoc(ref);
 
-
-
         if (!snap.exists()) {
 
           setStudent(null);
@@ -256,11 +216,7 @@ export default function StudentDetail() {
 
         }
 
-
-
         const data = { id, ...snap.data() };
-
-
 
         if (isTeacher && data.className !== teacherClass) {
 
@@ -270,8 +226,6 @@ export default function StudentDetail() {
 
         }
 
-
-
         if (isConsultant && !consultantList.includes(id)) {
 
           navigate("/students");
@@ -280,58 +234,196 @@ export default function StudentDetail() {
 
         }
 
-
-
         // Read-only Student App lookup through the existing activation code.
+
         setStudentAppData(null);
 
         if (data.activationCode) {
+
           const activationRef = doc(
+
             db,
+
             "verification_codes",
+
             data.activationCode
+
           );
+
           const activationSnap = await getDoc(activationRef);
 
           if (activationSnap.exists()) {
+
             const activationData = activationSnap.data();
 
             if (activationData.isUsed && activationData.usedBy) {
+
               const leaderboardRef = doc(
+
                 db,
+
                 "leaderboard",
+
                 activationData.usedBy
+
               );
+
               const leaderboardSnap = await getDoc(leaderboardRef);
 
               if (leaderboardSnap.exists()) {
+
                 const leaderboardData = leaderboardSnap.data();
 
                 setStudentAppData({
+
                   status: "Active",
+
                   name:
+
                     leaderboardData?.localBackup?.name ||
+
                     leaderboardData?.name ||
+
                     "N/A",
+
                   lastUpdate: leaderboardData?.lastUpdate || null,
+
                   score:
+
                     leaderboardData?.localBackup?.score ??
+
                     leaderboardData?.score ??
-                    null
+
+                    null,
+
+                  attemptedQuestions: (() => {
+
+                    const rawQuestions =
+
+                      leaderboardData?.localBackup?.pte_flow_attempted_questions ??
+
+                      leaderboardData?.attemptedQuestions;
+
+                    if (Array.isArray(rawQuestions)) {
+
+                      return rawQuestions.length;
+
+                    }
+
+                    if (typeof rawQuestions === "string") {
+
+                      try {
+
+                        const parsed = JSON.parse(rawQuestions);
+
+                        return Array.isArray(parsed) ? parsed.length : 0;
+
+                      } catch {
+
+                        return 0;
+
+                      }
+
+                    }
+
+                    return 0;
+
+                  })(),
+
+                  correctQuestions: Number(
+
+                    leaderboardData?.localBackup?.pte_flow_cfa ?? 0
+
+                  ),
+
+                  incorrectQuestions: Number(
+
+                    leaderboardData?.localBackup?.pte_flow_ffa ?? 0
+
+                  ),
+
+                  totalStudyTime: Number(
+
+                    leaderboardData?.localBackup?.pte_flow_total_study_time ?? 0
+
+                  ),
+
+                  recentActivity: (() => {
+
+                    const rawActivity =
+
+                      leaderboardData?.localBackup?.pte_flow_recent_activity;
+
+                    if (!rawActivity) return null;
+
+                    try {
+
+                      return typeof rawActivity === "string"
+
+                        ? JSON.parse(rawActivity)
+
+                        : rawActivity;
+
+                    } catch {
+
+                      return null;
+
+                    }
+
+                  })(),
+
+                  performanceData: (() => {
+
+                    const rawPerformance =
+
+                      leaderboardData?.localBackup?.pte_flow_performance_data;
+
+                    if (!rawPerformance) return null;
+
+                    try {
+
+                      return typeof rawPerformance === "string"
+
+                        ? JSON.parse(rawPerformance)
+
+                        : rawPerformance;
+
+                    } catch {
+
+                      return null;
+
+                    }
+
+                  })()
+
                 });
+
               } else {
+
                 setStudentAppData({
+
                   status: "Activated — no activity record yet"
+
                 });
+
               }
+
             } else {
+
               setStudentAppData({ status: "Not activated" });
+
             }
+
           } else {
+
             setStudentAppData({ status: "Activation code not found" });
+
           }
+
         } else {
+
           setStudentAppData({ status: "No activation code" });
+
         }
 
         // Ensure course structure exists
@@ -358,15 +450,11 @@ export default function StudentDetail() {
 
         }
 
-
-
         if (!data.courses) {
 
           data.courses = [];
 
         }
-
-
 
         setStudent(data);
 
@@ -378,25 +466,17 @@ export default function StudentDetail() {
 
       }
 
-
-
       setLoading(false);
 
     }
-
-
 
     fetchStudent();
 
   }, [id, role, teacherClass, navigate]);
 
-
-
   if (loading) return <p>Loading student...</p>;
 
   if (!student) return <p>Student not found.</p>;
-
-
 
   // Archive current course and start new one
 
@@ -404,11 +484,7 @@ export default function StudentDetail() {
 
     const ref = doc(db, "students", id);
 
-
-
     const archivedCourse = { ...student.currentCourse };
-
-
 
     const newCourse = {
 
@@ -428,8 +504,6 @@ export default function StudentDetail() {
 
     };
 
-
-
     await updateDoc(ref, {
 
       courses: [...student.courses, archivedCourse],
@@ -437,8 +511,6 @@ export default function StudentDetail() {
       currentCourse: newCourse
 
     });
-
-
 
     setStudent((prev) => ({
 
@@ -450,13 +522,9 @@ export default function StudentDetail() {
 
     }));
 
-
-
     alert("Course archived and new course started!");
 
   }
-
-
 
   // Chart data: currentCourse.activity should be an array of objects like:
 
@@ -474,15 +542,11 @@ export default function StudentDetail() {
 
   const pastCoursesData = student.courses || [];
 
-
-
   return (
 
     <div className="page-content student-detail">
 
       <div className="student-detail-container">
-
-
 
         <div className="top-row">
 
@@ -491,8 +555,6 @@ export default function StudentDetail() {
             ← Back to Students
 
           </button>
-
-
 
           {isAdmin ? (
 
@@ -542,8 +604,6 @@ export default function StudentDetail() {
 
         </div>
 
-
-
         <div className="student-header">
 
           <Avatar name={student.name} photoUrl={student.photoUrl} />
@@ -552,13 +612,9 @@ export default function StudentDetail() {
 
         </div>
 
-
-
         {/* INFO GRID */}
 
         <div className="info-grid">
-
-
 
           {/* Editable Status */}
 
@@ -596,8 +652,6 @@ export default function StudentDetail() {
 
           </div>
 
-
-
           {/* Joined */}
 
           <div className="info-card">
@@ -608,8 +662,6 @@ export default function StudentDetail() {
 
           </div>
 
-
-
           {/* Student ID */}
 
           <div className="info-card">
@@ -619,8 +671,6 @@ export default function StudentDetail() {
             <p>{student.id}</p>
 
           </div>
-
-
 
           {/* Passport / ID */}
 
@@ -652,8 +702,6 @@ export default function StudentDetail() {
 
           </div>
 
-
-
           {/* Activation Code */}
 
           {(isAdmin || student.activationCode) && (
@@ -667,8 +715,6 @@ export default function StudentDetail() {
             </div>
 
           )}
-
-
 
           {/* Editable Phone */}
 
@@ -700,8 +746,6 @@ export default function StudentDetail() {
 
           </div>
 
-
-
           {/* Editable Email */}
 
           <div className="info-card">
@@ -731,8 +775,6 @@ export default function StudentDetail() {
             )}
 
           </div>
-
-
 
           {/* Editable Consultant */}
 
@@ -764,8 +806,6 @@ export default function StudentDetail() {
 
           </div>
 
-
-
           {/* Last Login */}
 
           <div className="info-card">
@@ -779,8 +819,11 @@ export default function StudentDetail() {
           {/* Student App */}
 
           <div
+
             className="info-card"
+
             style={{ gridColumn: "1 / -1" }}
+
           >
 
             <h4>Student App</h4>
@@ -799,20 +842,57 @@ export default function StudentDetail() {
 
             )}
 
-            {studentAppData?.score !== null &&
-              studentAppData?.score !== undefined && (
+            <p>
 
-              <p><strong>Score:</strong> {studentAppData.score}</p>
+              <strong>Attempted Questions:</strong>{" "}
 
-            )}
+              {studentAppData?.attemptedQuestions ?? 0}
+
+            </p>
+
+            <p>
+
+              <strong>Correct Questions:</strong>{" "}
+
+              {studentAppData?.correctQuestions ?? 0}
+
+            </p>
+
+            {studentAppData?.recentActivity && (
+
+            <p>
+
+              <strong>Recent Activity:</strong>{" "}
+
+              {studentAppData.recentActivity.moduleTitle ||
+
+                studentAppData.recentActivity.moduleId ||
+
+                "Activity"}
+
+              {" — Question "}
+
+              {studentAppData.recentActivity.questionIndex ?? "N/A"}
+
+              {" — "}
+
+              {studentAppData.recentActivity.timestamp
+
+                ? new Date(
+
+                    studentAppData.recentActivity.timestamp
+
+                  ).toLocaleString()
+
+                : "Date unavailable"}
+
+            </p>
+
+          )}
 
           </div>
 
-
-
         </div>
-
-
 
         {/* Save Button */}
 
@@ -851,8 +931,6 @@ export default function StudentDetail() {
           </button>
 
         )}
-
-
 
         {saveConfirmation && (
 
@@ -900,8 +978,6 @@ export default function StudentDetail() {
 
         )}
 
-
-
         {/* COURSE CYCLE SYSTEM */}
 
         {canManageCourses && (
@@ -909,8 +985,6 @@ export default function StudentDetail() {
           <div className="course-section">
 
             <h3>Course Cycle</h3>
-
-
 
             <div className="current-course-card">
 
@@ -992,8 +1066,6 @@ export default function StudentDetail() {
 
               <p><strong>Average Score:</strong> {student.currentCourse.averageScore || "N/A"}</p>
 
-
-
               <button className="end-course-button" onClick={endCourse}>
 
                 End Course & Start New
@@ -1002,19 +1074,13 @@ export default function StudentDetail() {
 
             </div>
 
-
-
             {/* Accordion Past Courses */}
 
             <div className="past-courses">
 
               <h4>Past Courses</h4>
 
-
-
               {student.courses.length === 0 && <p>No past courses</p>}
-
-
 
               {student.courses.map((course, index) => (
 
@@ -1062,8 +1128,6 @@ export default function StudentDetail() {
 
         )}
 
-
-
         {/* ANALYTICS + CHARTS */}
 
         {canSeeAnalytics && (
@@ -1071,8 +1135,6 @@ export default function StudentDetail() {
           <div className="detail-section">
 
             <h3>Progress & Activity</h3>
-
-
 
             <div className="progress-card">
 
@@ -1083,8 +1145,6 @@ export default function StudentDetail() {
               <p><strong>Average Score:</strong> {student.averageScore || "N/A"}</p>
 
             </div>
-
-
 
             <div className="activity-section">
 
@@ -1106,139 +1166,131 @@ export default function StudentDetail() {
 
             </div>
 
-
-
             {/* COURSE PROGRESS CHARTS */}
 
             <div className="charts-section">
 
-
-
-              {/* Lessons Completed Over Time */}
+              {/* Reading Performance */}
 
               <div className="chart-card">
-
-                <h4>Lessons Completed Over Time</h4>
-
+                <h4>Reading Performance</h4>
                 <ResponsiveContainer width="100%" height={250}>
-
-                  <LineChart data={activityData}>
-
+                  <BarChart
+                    data={
+                      studentAppData?.performanceData
+                        ? [
+                            {
+                              metric: "Reading Speed",
+                              score: Number(studentAppData.performanceData.reading_speed ?? 0)
+                            }
+                          ]
+                        : []
+                    }
+                  >
                     <CartesianGrid strokeDasharray="3 3" />
-
-                    <XAxis dataKey="date" />
-
+                    <XAxis dataKey="metric" />
                     <YAxis />
-
                     <Tooltip />
-
-                    <Line type="monotone" dataKey="lessons" stroke="#4f46e5" />
-
-                  </LineChart>
-
-                </ResponsiveContainer>
-
-              </div>
-
-
-
-              {/* Practice Tests Over Time */}
-
-              <div className="chart-card">
-
-                <h4>Practice Tests Over Time</h4>
-
-                <ResponsiveContainer width="100%" height={250}>
-
-                  <BarChart data={activityData}>
-
-                    <CartesianGrid strokeDasharray="3 3" />
-
-                    <XAxis dataKey="date" />
-
-                    <YAxis />
-
-                    <Tooltip />
-
-                    <Bar dataKey="tests" fill="#10b981" />
-
+                    <Bar dataKey="score" fill="#4f46e5" name="Reading" />
                   </BarChart>
-
                 </ResponsiveContainer>
-
               </div>
 
-
-
-              {/* Average Score Trend */}
+              {/* Writing Performance */}
 
               <div className="chart-card">
-
-                <h4>Average Score Trend</h4>
-
+                <h4>Writing Performance</h4>
                 <ResponsiveContainer width="100%" height={250}>
-
-                  <LineChart data={activityData}>
-
+                  <BarChart
+                    data={
+                      studentAppData?.performanceData
+                        ? [
+                            {
+                              metric: "Grammar",
+                              score: Number(studentAppData.performanceData.grammar ?? 0)
+                            },
+                            {
+                              metric: "Vocabulary",
+                              score: Number(studentAppData.performanceData.vocabulary ?? 0)
+                            },
+                            {
+                              metric: "Accuracy",
+                              score: Number(studentAppData.performanceData.writing_accuracy ?? 0)
+                            }
+                          ]
+                        : []
+                    }
+                  >
                     <CartesianGrid strokeDasharray="3 3" />
-
-                    <XAxis dataKey="date" />
-
+                    <XAxis dataKey="metric" />
                     <YAxis domain={[0, 100]} />
-
                     <Tooltip />
-
-                    <Line type="monotone" dataKey="score" stroke="#f59e0b" />
-
-                  </LineChart>
-
+                    <Bar dataKey="score" fill="#10b981" name="Writing" />
+                  </BarChart>
                 </ResponsiveContainer>
-
               </div>
 
-
-
-              {/* Past Course Comparison */}
+              {/* Speaking Performance */}
 
               <div className="chart-card">
-
-                <h4>Past Course Comparison</h4>
-
-                <ResponsiveContainer width="100%" height={300}>
-
-                  <BarChart data={pastCoursesData}>
-
+                <h4>Speaking Performance</h4>
+                <ResponsiveContainer width="100%" height={250}>
+                  <BarChart
+                    data={
+                      studentAppData?.performanceData
+                        ? [
+                            {
+                              metric: "Fluency",
+                              score: Number(studentAppData.performanceData.fluency ?? 0)
+                            },
+                            {
+                              metric: "Pronunciation",
+                              score: Number(studentAppData.performanceData.pronunciation ?? 0)
+                            }
+                          ]
+                        : []
+                    }
+                  >
                     <CartesianGrid strokeDasharray="3 3" />
-
-                    <XAxis dataKey="courseId" />
-
-                    <YAxis />
-
+                    <XAxis dataKey="metric" />
+                    <YAxis domain={[0, 100]} />
                     <Tooltip />
-
-                    <Legend />
-
-                    <Bar dataKey="lessonsCompleted" fill="#4f46e5" name="Lessons" />
-
-                    <Bar dataKey="practiceTests" fill="#10b981" name="Tests" />
-
-                    <Bar dataKey="averageScore" fill="#f59e0b" name="Score" />
-
+                    <Bar dataKey="score" fill="#f59e0b" name="Speaking" />
                   </BarChart>
-
                 </ResponsiveContainer>
-
               </div>
 
+              {/* Listening Performance */}
 
+              <div className="chart-card">
+                <h4>Listening Performance</h4>
+                <ResponsiveContainer width="100%" height={250}>
+                  <BarChart
+                    data={
+                      studentAppData?.performanceData
+                        ? [
+                            {
+                              metric: "Listening Recall",
+                              score: Number(studentAppData.performanceData.listening_recall ?? 0)
+                            }
+                          ]
+                        : []
+                    }
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="metric" />
+                    <YAxis domain={[0, 100]} />
+                    <Tooltip />
+                    <Bar dataKey="score" fill="#ec4899" name="Listening" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
 
             </div>
 
           </div>
 
         )}
-
-
 
       </div>
 
