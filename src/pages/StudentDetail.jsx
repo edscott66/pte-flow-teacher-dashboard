@@ -480,6 +480,56 @@ export default function StudentDetail() {
 
   // Archive current course and start new one
 
+  async function addMockTestResult(date, score) {
+
+    const normalizedScore = Number(score);
+
+    if (!date || !Number.isFinite(normalizedScore) || normalizedScore < 0 || normalizedScore > 90) {
+
+      alert("Please enter a valid date and a score from 0 to 90.");
+
+      return false;
+
+    }
+
+    const existingResults = Array.isArray(student.mockTestResults)
+
+      ? student.mockTestResults
+
+      : [];
+
+    const newResult = {
+
+      id: String(Date.now()),
+
+      testNumber: existingResults.length + 1,
+
+      date,
+
+      score: normalizedScore
+
+    };
+
+    const updatedResults = [...existingResults, newResult];
+
+    await updateDoc(doc(db, "students", id), {
+
+      mockTestResults: updatedResults
+
+    });
+
+    setStudent((prev) => ({
+
+      ...prev,
+
+      mockTestResults: updatedResults
+
+    }));
+
+    return true;
+
+  }
+
   async function endCourse() {
 
     const ref = doc(db, "students", id);
@@ -806,16 +856,6 @@ export default function StudentDetail() {
 
           </div>
 
-          {/* Last Login */}
-
-          <div className="info-card">
-
-            <h4>Last Login</h4>
-
-            <p>{student.lastLogin || "N/A"}</p>
-
-          </div>
-
           {/* Student App */}
 
           <div
@@ -828,7 +868,19 @@ export default function StudentDetail() {
 
             <h4>Student App</h4>
 
-            <p>{studentAppData?.status || "Checking..."}</p>
+            <p
+              style={{
+                color:
+                  studentAppData?.status === "Active"
+                    ? "#15803d"
+                    : studentAppData?.status === "Inactive"
+                      ? "#dc2626"
+                      : undefined,
+                fontWeight: 700,
+              }}
+            >
+              {studentAppData?.status || "Checking..."}
+            </p>
 
             {studentAppData?.name && (
 
@@ -838,7 +890,27 @@ export default function StudentDetail() {
 
             {studentAppData?.lastUpdate && (
 
-              <p><strong>Last Update:</strong> {studentAppData.lastUpdate}</p>
+              <p>
+
+                <strong>Last Update:</strong>{" "}
+
+                <span
+                  style={{
+                    color:
+                      Date.now() - new Date(studentAppData.lastUpdate).getTime() <=
+                      24 * 60 * 60 * 1000
+                        ? "#15803d"
+                        : Date.now() - new Date(studentAppData.lastUpdate).getTime() <=
+                            72 * 60 * 60 * 1000
+                          ? "#d97706"
+                          : "#dc2626",
+                    fontWeight: 700,
+                  }}
+                >
+                  {new Date(studentAppData.lastUpdate).toLocaleString()}
+                </span>
+
+              </p>
 
             )}
 
@@ -858,33 +930,61 @@ export default function StudentDetail() {
 
             </p>
 
+            <p>
+              <strong>Accuracy:</strong>{" "}
+              <span
+                className="font-bold"
+                style={{
+                  color:
+                    (studentAppData?.attemptedQuestions
+                      ? Math.round(
+                          ((studentAppData.correctQuestions ?? 0) /
+                            studentAppData.attemptedQuestions) *
+                            100
+                        )
+                      : 0) >= 80
+                      ? "#047857"
+                      : (studentAppData?.attemptedQuestions
+                          ? Math.round(
+                              ((studentAppData.correctQuestions ?? 0) /
+                                studentAppData.attemptedQuestions) *
+                                100
+                            )
+                          : 0) >= 60
+                      ? "#d97706"
+                      : "#dc2626"
+                }}
+              >
+                {studentAppData?.attemptedQuestions
+                  ? Math.round(
+                      ((studentAppData.correctQuestions ?? 0) /
+                        studentAppData.attemptedQuestions) *
+                        100
+                    )
+                  : 0}
+                %
+              </span>
+            </p>
+
             {studentAppData?.recentActivity && (
 
             <p>
 
-              <strong>Recent Activity:</strong>{" "}
+              <strong>Recent Activity:</strong>
 
-              {studentAppData.recentActivity.moduleTitle ||
+              <span style={{ display: "block", marginTop: "2px" }}>
 
-                studentAppData.recentActivity.moduleId ||
+                {studentAppData.recentActivity.moduleTitle ||
 
-                "Activity"}
+                  studentAppData.recentActivity.moduleId ||
 
-              {" — Question "}
+                  "Activity"}
 
-              {studentAppData.recentActivity.questionIndex ?? "N/A"}
+                {" — Question "}
 
-              {" — "}
+                {studentAppData.recentActivity.questionIndex ?? "N/A"}
 
-              {studentAppData.recentActivity.timestamp
-
-                ? new Date(
-
-                    studentAppData.recentActivity.timestamp
-
-                  ).toLocaleString()
-
-                : "Date unavailable"}
+              </span>
 
             </p>
 
@@ -1060,11 +1160,119 @@ export default function StudentDetail() {
 
               </p>
 
-              <p><strong>Lessons:</strong> {student.currentCourse.lessonsCompleted}</p>
+              <p><strong>Exercises Completed:</strong> {studentAppData?.attemptedQuestions ?? 0} / 3,188</p>
 
-              <p><strong>Tests:</strong> {student.currentCourse.practiceTests}</p>
+              <div
 
-              <p><strong>Average Score:</strong> {student.currentCourse.averageScore || "N/A"}</p>
+                className="mock-test-results-section"
+
+                style={{ marginTop: "20px", paddingTop: "16px", borderTop: "1px solid #E2E8F0" }}
+
+              >
+
+                <h4>Mock Test Results</h4>
+
+                {(student.mockTestResults || []).length > 0 ? (
+
+                  <div
+
+                    className="mock-test-results-list"
+
+                    style={{ display: "grid", gap: "8px", marginBottom: "12px" }}
+
+                  >
+
+                    {student.mockTestResults.map((result) => (
+
+                      <div
+
+                        key={result.id}
+
+                        className="mock-test-result-row"
+
+                        style={{ display: "flex", justifyContent: "space-between", gap: "12px", alignItems: "center", padding: "10px 12px", background: "#F8FAFC", border: "1px solid #E2E8F0", borderRadius: "8px" }}
+
+                      >
+
+                        <span>Mock Test {result.testNumber}</span>
+
+                        <span>{result.date}</span>
+
+                        <strong>{result.score} / 90</strong>
+
+                      </div>
+
+                    ))}
+
+                  </div>
+
+                ) : (
+
+                  <p>No Mock Test results recorded.</p>
+
+                )}
+
+                <form
+
+                  style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}
+
+                  onSubmit={async (e) => {
+
+                    e.preventDefault();
+
+                    const form = e.currentTarget;
+
+                    const date = form.elements.mockTestDate.value.trim();
+
+                    const score = form.elements.mockTestScore.value.trim();
+
+                    const saved = await addMockTestResult(date, score);
+
+                    if (saved) form.reset();
+
+                  }}
+
+                >
+
+                  <input
+
+                    name="mockTestDate"
+
+                    type="text"
+
+                    placeholder="Date e.g. 07/10/2026"
+
+                    aria-label="Mock Test date"
+
+                    style={{ flex: "1 1 180px", minWidth: "160px" }}
+
+                  />
+
+                  <input
+
+                    name="mockTestScore"
+
+                    type="number"
+
+                    min="0"
+
+                    max="90"
+
+                    step="1"
+
+                    placeholder="Score / 90"
+
+                    aria-label="Mock Test score"
+
+                    style={{ flex: "0 1 130px", minWidth: "110px" }}
+
+                  />
+
+                  <button type="submit" className="save-button">Add Mock Test Result</button>
+
+                </form>
+
+              </div>
 
               <button className="end-course-button" onClick={endCourse}>
 
@@ -1097,12 +1305,6 @@ export default function StudentDetail() {
                     <p><strong>Start:</strong> {course.startDate}</p>
 
                     <p><strong>End:</strong> {course.endDate}</p>
-
-                    <p><strong>Lessons:</strong> {course.lessonsCompleted}</p>
-
-                    <p><strong>Tests:</strong> {course.practiceTests}</p>
-
-                    <p><strong>Average Score:</strong> {course.averageScore || "N/A"}</p>
 
                     <p><strong>Activity:</strong></p>
 
@@ -1138,11 +1340,9 @@ export default function StudentDetail() {
 
             <div className="progress-card">
 
-              <p><strong>Lessons Completed:</strong> {student.lessonsCompleted || 0}</p>
+              <p><strong>Exercises Completed:</strong> {studentAppData?.attemptedQuestions ?? 0} / 3,188</p>
 
-              <p><strong>Practice Tests:</strong> {student.practiceTests || 0}</p>
-
-              <p><strong>Average Score:</strong> {student.averageScore || "N/A"}</p>
+              <p><strong>Correct Questions:</strong> {studentAppData?.correctQuestions ?? 0}</p>
 
             </div>
 
@@ -1152,13 +1352,21 @@ export default function StudentDetail() {
 
               <ul className="activity-list">
 
-                {student.activity?.length > 0
+                {studentAppData?.recentActivity
 
-                  ? student.activity.map((item, index) => (
+                  ? <li>
 
-                      <li key={index}>{item}</li>
+                      {studentAppData.recentActivity.moduleTitle ||
 
-                    ))
+                        studentAppData.recentActivity.moduleId ||
+
+                        "Activity"}
+
+                      {" — Question "}
+
+                      {studentAppData.recentActivity.questionIndex ?? "N/A"}
+
+                    </li>
 
                   : <li>No recent activity</li>}
 
@@ -1180,7 +1388,7 @@ export default function StudentDetail() {
                       studentAppData?.performanceData
                         ? [
                             {
-                              metric: "Reading Speed",
+                              metric: "Reading Speed (words/min)",
                               score: Number(studentAppData.performanceData.reading_speed ?? 0)
                             }
                           ]
@@ -1206,15 +1414,15 @@ export default function StudentDetail() {
                       studentAppData?.performanceData
                         ? [
                             {
-                              metric: "Grammar",
+                              metric: "Grammar (%)",
                               score: Number(studentAppData.performanceData.grammar ?? 0)
                             },
                             {
-                              metric: "Vocabulary",
+                              metric: "Vocabulary (%)",
                               score: Number(studentAppData.performanceData.vocabulary ?? 0)
                             },
                             {
-                              metric: "Accuracy",
+                              metric: "Accuracy (%)",
                               score: Number(studentAppData.performanceData.writing_accuracy ?? 0)
                             }
                           ]
@@ -1240,11 +1448,11 @@ export default function StudentDetail() {
                       studentAppData?.performanceData
                         ? [
                             {
-                              metric: "Fluency",
+                              metric: "Fluency (%)",
                               score: Number(studentAppData.performanceData.fluency ?? 0)
                             },
                             {
-                              metric: "Pronunciation",
+                              metric: "Pronunciation (%)",
                               score: Number(studentAppData.performanceData.pronunciation ?? 0)
                             }
                           ]
@@ -1270,7 +1478,7 @@ export default function StudentDetail() {
                       studentAppData?.performanceData
                         ? [
                             {
-                              metric: "Listening Recall",
+                              metric: "Listening Recall (%)",
                               score: Number(studentAppData.performanceData.listening_recall ?? 0)
                             }
                           ]
