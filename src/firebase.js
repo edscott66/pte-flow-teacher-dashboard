@@ -17,6 +17,14 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
+// Main Firebase services
 export const db = getFirestore(app);
 export const auth = getAuth(app);
 export const storage = getStorage(app);
+
+// Separate Auth instance used when an Admin creates another user.
+// This prevents the newly created account from replacing the
+// currently signed-in Admin session.
+const adminCreationAuth = getAuth(app, "admin-user-creation");
+
+export { adminCreationAuth };
