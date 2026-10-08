@@ -1,4 +1,4 @@
-// src/teacherFirebase.js
+// src/teacherFirebase.ts
 
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
@@ -20,5 +20,19 @@ const teacherApp = initializeApp(
   "teacher-dashboard"
 );
 
+// Separate Firebase app instance used only for Admin-created users.
+// It connects to the same Teacher Dashboard Firebase project but
+// maintains a separate Authentication state.
+const teacherUserCreationApp = initializeApp(
+  teacherFirebaseConfig,
+  "teacher-dashboard-user-creation"
+);
+
 export const teacherDb = getFirestore(teacherApp);
 export const teacherAuth = getAuth(teacherApp);
+
+const teacherUserCreationAuth = getAuth(
+  teacherUserCreationApp
+);
+
+export { teacherUserCreationAuth };

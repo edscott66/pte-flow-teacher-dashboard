@@ -1,7 +1,13 @@
 import { useState } from "react";
-import { auth, db } from "../firebase";
+import { db } from "../firebase";
+import { teacherUserCreationAuth } from "../teacherFirebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc, updateDoc } from "firebase/firestore";
+import {
+  doc,
+  setDoc,
+  updateDoc,
+  arrayUnion
+} from "firebase/firestore";
 import { useAuth } from "../AuthContext";
 
 export default function AdminTools() {
@@ -11,7 +17,7 @@ export default function AdminTools() {
     return <p>Access denied.</p>;
   }
 
-  // ⭐ Form states
+  // Form states
   const [teacherEmail, setTeacherEmail] = useState("");
   const [teacherName, setTeacherName] = useState("");
   const [teacherClass, setTeacherClass] = useState("");
@@ -24,14 +30,14 @@ export default function AdminTools() {
 
   const [message, setMessage] = useState("");
 
-  // ⭐ Add Teacher
+  // Add Teacher
   async function addTeacher(e) {
     e.preventDefault();
     try {
       const userCred = await createUserWithEmailAndPassword(
-        auth,
+        teacherUserCreationAuth,
         teacherEmail,
-        "default123" // You can change this
+        "default123"
       );
 
       const uid = userCred.user.uid;
@@ -49,12 +55,12 @@ export default function AdminTools() {
     }
   }
 
-  // ⭐ Add Consultant
+  // Add Consultant
   async function addConsultant(e) {
     e.preventDefault();
     try {
       const userCred = await createUserWithEmailAndPassword(
-        auth,
+        teacherUserCreationAuth,
         consultantEmail,
         "default123"
       );
@@ -74,17 +80,20 @@ export default function AdminTools() {
     }
   }
 
-  // ⭐ Assign Student to Consultant
+  // Assign Student to Consultant
   async function assignStudent(e) {
     e.preventDefault();
+
     try {
       const ref = doc(db, "consultants", consultantId);
 
       await updateDoc(ref, {
-        assignedStudents: [...roleData.assignedStudents, studentId]
+        assignedStudents: arrayUnion(studentId)
       });
 
-      setMessage(`Student ${studentId} assigned to consultant ${consultantId}.`);
+      setMessage(
+        `Student ${studentId} assigned to consultant ${consultantId}.`
+      );
     } catch (err) {
       setMessage("Error assigning student: " + err.message);
     }
@@ -96,7 +105,7 @@ export default function AdminTools() {
 
       <p>{message}</p>
 
-      {/* ⭐ Add Teacher */}
+      {/* Add Teacher */}
       <div className="admin-section">
         <h3>Add Teacher</h3>
         <form onSubmit={addTeacher}>
@@ -106,23 +115,26 @@ export default function AdminTools() {
             value={teacherName}
             onChange={(e) => setTeacherName(e.target.value)}
           />
+
           <input
             type="email"
             placeholder="Teacher Email"
             value={teacherEmail}
             onChange={(e) => setTeacherEmail(e.target.value)}
           />
+
           <input
             type="text"
             placeholder="Class Name (A1, A2, B1+)"
             value={teacherClass}
             onChange={(e) => setTeacherClass(e.target.value)}
           />
+
           <button type="submit">Create Teacher</button>
         </form>
       </div>
 
-      {/* ⭐ Add Consultant */}
+      {/* Add Consultant */}
       <div className="admin-section">
         <h3>Add Consultant</h3>
         <form onSubmit={addConsultant}>
@@ -132,17 +144,19 @@ export default function AdminTools() {
             value={consultantName}
             onChange={(e) => setConsultantName(e.target.value)}
           />
+
           <input
             type="email"
             placeholder="Consultant Email"
             value={consultantEmail}
             onChange={(e) => setConsultantEmail(e.target.value)}
           />
+
           <button type="submit">Create Consultant</button>
         </form>
       </div>
 
-      {/* ⭐ Assign Student */}
+      {/* Assign Student */}
       <div className="admin-section">
         <h3>Assign Student to Consultant</h3>
         <form onSubmit={assignStudent}>
@@ -152,12 +166,14 @@ export default function AdminTools() {
             value={consultantId}
             onChange={(e) => setConsultantId(e.target.value)}
           />
+
           <input
             type="text"
             placeholder="Student ID"
             value={studentId}
             onChange={(e) => setStudentId(e.target.value)}
           />
+
           <button type="submit">Assign Student</button>
         </form>
       </div>

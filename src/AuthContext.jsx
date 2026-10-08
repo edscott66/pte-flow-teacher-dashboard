@@ -1,5 +1,6 @@
 ﻿import { createContext, useContext, useEffect, useState } from "react";
-import { auth, db } from "./firebase";
+import { db } from "./firebase";
+import { teacherAuth } from "./teacherFirebase";
 import { doc, getDoc } from "firebase/firestore";
 
 const AuthContext = createContext();
@@ -10,7 +11,7 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
+    const unsubscribe = teacherAuth.onAuthStateChanged(async (currentUser) => {
       setUser(currentUser);
 
       if (currentUser) {

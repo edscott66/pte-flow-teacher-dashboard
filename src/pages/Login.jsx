@@ -1,8 +1,7 @@
 import { useState } from "react";
 import {
   sendPasswordResetEmail,
-  signInWithEmailAndPassword,
-  signOut
+  signInWithEmailAndPassword
 } from "firebase/auth";
 import { auth } from "../firebase";
 import { teacherAuth } from "../teacherFirebase";
@@ -24,9 +23,6 @@ export default function Login() {
     setSuccess("");
     setLoggingIn(true);
 
-    let teacherDashboardSignedIn = false;
-    let existingDashboardSignedIn = false;
-
     try {
       await signInWithEmailAndPassword(
         teacherAuth,
@@ -34,37 +30,12 @@ export default function Login() {
         password
       );
 
-      teacherDashboardSignedIn = true;
-
-      await signInWithEmailAndPassword(
-        auth,
-        email.trim(),
-        password
-      );
-
-      existingDashboardSignedIn = true;
-
       // The selector is UI context only.
       // Firebase authentication and Firestore role data
       // remain authoritative for permissions.
       console.log("Login role selected:", selectedRole);
     } catch (err) {
       console.error("Login error:", err);
-
-      try {
-        if (teacherDashboardSignedIn) {
-          await signOut(teacherAuth);
-        }
-
-        if (existingDashboardSignedIn) {
-          await signOut(auth);
-        }
-      } catch (signOutError) {
-        console.error(
-          "Error rolling back partial authentication:",
-          signOutError
-        );
-      }
 
       if (err?.code === "auth/invalid-credential") {
         setError("Invalid email or password.");
