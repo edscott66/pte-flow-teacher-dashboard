@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+﻿import { createContext, useContext, useEffect, useState } from "react";
 import { auth, db } from "./firebase";
 import { doc, getDoc } from "firebase/firestore";
 
@@ -24,10 +24,18 @@ export function AuthProvider({ children }) {
         const teacherSnap = await getDoc(teacherRef);
         const teacherInfo = teacherSnap.exists() ? teacherSnap.data() : {};
 
-        // Merge both documents
+        // Load consultant profile document
+        const consultantRef = doc(db, "consultants", currentUser.uid);
+        const consultantSnap = await getDoc(consultantRef);
+        const consultantInfo = consultantSnap.exists()
+          ? consultantSnap.data()
+          : {};
+
+        // Merge role, teacher, and consultant data
         setRoleData({
           ...roleInfo,
-          ...teacherInfo
+          ...teacherInfo,
+          ...consultantInfo
         });
       } else {
         setRoleData(null);
