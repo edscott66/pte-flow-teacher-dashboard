@@ -31,11 +31,19 @@ export function AuthProvider({ children }) {
           ? consultantSnap.data()
           : {};
 
-        // Merge role, teacher, and consultant data
+        // Load admin profile document
+        const adminRef = doc(db, "admins", currentUser.uid);
+        const adminSnap = await getDoc(adminRef);
+        const adminInfo = adminSnap.exists()
+          ? adminSnap.data()
+          : {};
+
+        // Merge role, teacher, consultant, and admin data
         setRoleData({
           ...roleInfo,
           ...teacherInfo,
-          ...consultantInfo
+          ...consultantInfo,
+          ...adminInfo
         });
       } else {
         setRoleData(null);
