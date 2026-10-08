@@ -3,7 +3,6 @@ import {
   sendPasswordResetEmail,
   signInWithEmailAndPassword
 } from "firebase/auth";
-import { auth } from "../firebase";
 import { teacherAuth } from "../teacherFirebase";
 import "./Login.css";
 
@@ -70,7 +69,7 @@ export default function Login() {
     setResettingPassword(true);
 
     try {
-      await sendPasswordResetEmail(auth, trimmedEmail);
+      await sendPasswordResetEmail(teacherAuth, trimmedEmail);
 
       setSuccess(
         "Password reset email sent. Please check your inbox."
