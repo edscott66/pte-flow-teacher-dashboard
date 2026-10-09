@@ -1,3 +1,4 @@
+
 /* WRAPPER HOLDS BOTH SIDEBAR + TOGGLE */
 .sidebar-wrapper {
   position: fixed;
@@ -29,13 +30,15 @@
 /* SIDEBAR CARD */
 .sidebar-card {
   background: #2563eb;
-  padding: 20px;
+  padding: 12px 20px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   height: 100%;
-  min-height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* TITLE */
@@ -48,17 +51,41 @@
 
 /* LINKS */
 .sidebar-links {
-  flex-grow: 1;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   gap: 4px;
+
+  /* Discreet scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+
+.sidebar-links::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar-links::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-links::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 10px;
+}
+
+.sidebar-links::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.38);
 }
 
 .sidebar-links a {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 12px 16px;
+  padding: 8px 16px;
   text-decoration: none;
   border-radius: 8px;
   transition: all 0.2s ease;
