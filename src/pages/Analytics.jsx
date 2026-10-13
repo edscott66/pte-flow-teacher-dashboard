@@ -1,9 +1,16 @@
-import "./Analytics.css";
+﻿import "./Analytics.css";
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
+import { onAuthStateChanged, signInWithEmailAndPassword, signOut,} from "firebase/auth";
+import { teacherAnalyticsAdminAuth } from "../teacherFirebase";
 import {
   getTeacherCalibrationAttempts,
   getTeacherLiveEvaluationCalibrationAttempts,
+  getTeacherProfiles,
+  getCurrentTeacherProfile,
+  getAdminCalibrationAttempts,
+  getAdminLiveEvaluationCalibrationAttempts,
 } from "../services/teacherAnalyticsService";
 import {
   READ_ALOUD_CALIBRATION_EXERCISES,
@@ -12,18 +19,231 @@ import {
 import { QUESTIONS_DATA } from "../masterTeacher/constants/questionsData";
 
 export default function Analytics() {
-  const { roleData } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const searchParams = new URLSearchParams(location.search);
+
+  const navigationTeacherId =
+    location.state?.selectedTeacherId ||
+    searchParams.get("teacherId") ||
+    "";
+
+   const navigationTeacherName =
+    location.state?.selectedTeacherName ||
+    searchParams.get("teacherName") ||
+    "";
+
+  const analyticsView =
+    location.state?.analyticsView === "written-report" ||
+    searchParams.get("view") === "written-report"
+      ? "written-report"
+      : "analytics";
+
+  const { roleData, loading: authLoading } = useAuth();
 
   const role = roleData?.role;
-  const displayName = roleData?.name || "User";
+  const [teacherProfileName, setTeacherProfileName] = useState("");
 
-  const [attempts, setAttempts] = useState([]);
-  const [liveEvaluationAttempts, setLiveEvaluationAttempts] = useState([]);
+  const displayName =
+    navigationTeacherId
+      ? navigationTeacherName || teacherProfileName || roleData?.name || "User"
+      : teacherProfileName || roleData?.name || "User";
+
+  const [teacherAttempts, setAttempts] = useState([]);
+  const [teacherLiveEvaluationAttempts, setLiveEvaluationAttempts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [selectedAttempt, setSelectedAttempt] = useState(null);
 
+  const [adminAnalyticsEmail, setAdminAnalyticsEmail] = useState(
+    "bbapteflow@gmail.com"
+  );
+  const [adminAnalyticsPassword, setAdminAnalyticsPassword] = useState("");
+  const [adminAnalyticsSignedIn, setAdminAnalyticsSignedIn] = useState(
+    teacherAnalyticsAdminAuth.currentUser?.uid ===
+      "qBmXU22ln4UoVDqiiDa455miIIT2"
+  );
+  const [adminAnalyticsError, setAdminAnalyticsError] = useState("");
+  const [adminAnalyticsLoading, setAdminAnalyticsLoading] = useState(false);
+  const [adminTeachers, setAdminTeachers] = useState([]);
+  const [adminSelectedTeacherId, setAdminSelectedTeacherId] = useState(navigationTeacherId);
+  const [adminCalibrationAttempts, setAdminCalibrationAttempts] = useState([]);
+  const [adminLiveEvaluationAttempts, setAdminLiveEvaluationAttempts] = useState([]);
+  const [adminReportLoading, setAdminReportLoading] = useState(false);
+  const [adminReportError, setAdminReportError] = useState("");
+
+  const isAdminViewingSelectedTeacher =
+    adminAnalyticsSignedIn &&
+    Boolean(navigationTeacherId) &&
+    analyticsView === "analytics";
+
+  const attempts = isAdminViewingSelectedTeacher
+    ? adminCalibrationAttempts
+    : teacherAttempts;
+
+  const liveEvaluationAttempts = isAdminViewingSelectedTeacher
+    ? adminLiveEvaluationAttempts
+    : teacherLiveEvaluationAttempts;
+
+  const dashboardLoading = isAdminViewingSelectedTeacher
+    ? adminReportLoading
+    : loading;
+
+  const dashboardError = isAdminViewingSelectedTeacher
+    ? adminReportError
+    : error;
+
+  async function handleAdminAnalyticsSignIn(event) {
+    event.preventDefault();
+    setAdminAnalyticsError("");
+    setAdminAnalyticsLoading(true);
+
+    try {
+      const credential = await signInWithEmailAndPassword(
+        teacherAnalyticsAdminAuth,
+        adminAnalyticsEmail.trim(),
+        adminAnalyticsPassword
+      );
+
+      if (credential.user.uid !== "qBmXU22ln4UoVDqiiDa455miIIT2") {
+        await signOut(teacherAnalyticsAdminAuth);
+        setAdminAnalyticsError(
+          "This account is not authorised for Admin Analytics."
+        );
+        setAdminAnalyticsSignedIn(false);
+        return;
+      }
+
+      setAdminAnalyticsSignedIn(true);
+      setAdminAnalyticsPassword("");
+      await loadAdminTeachers();
+
+      if (location.state?.returnToAdminCentre) {
+        navigate("/admin-teacher-analytics", { replace: true });
+      }
+    } catch (err) {
+      console.error("Admin Analytics sign-in failed:", err);
+      setAdminAnalyticsError(
+        "Sign-in failed. Check the dedicated Admin Analytics account credentials."
+      );
+      setAdminAnalyticsSignedIn(false);
+    } finally {
+      setAdminAnalyticsLoading(false);
+    }
+  }
+
+  async function handleAdminAnalyticsSignOut() {
+    await signOut(teacherAnalyticsAdminAuth);
+    setAdminAnalyticsSignedIn(false);
+    setAdminAnalyticsPassword("");
+    setAdminAnalyticsError("");
+    setAdminTeachers([]);
+    setAdminSelectedTeacherId("");
+    setAdminCalibrationAttempts([]);
+    setAdminLiveEvaluationAttempts([]);
+    setAdminReportError("");
+  }
+
+  
+  async function loadAdminTeachers() {
+    setAdminReportError("");
+    setAdminReportLoading(true);
+
+    try {
+      const teachers = await getTeacherProfiles();
+      setAdminTeachers(teachers);
+
+      const selectedTeacherExists = teachers.some(
+        (teacher) => teacher.teacherId === navigationTeacherId
+      );
+
+      const initialTeacherId = selectedTeacherExists
+        ? navigationTeacherId
+        : "";
+
+      setAdminSelectedTeacherId(initialTeacherId);
+      setAdminCalibrationAttempts([]);
+      setAdminLiveEvaluationAttempts([]);
+
+      if (initialTeacherId) {
+        await loadAdminTeacherReport(initialTeacherId);
+      }
+    } catch (err) {
+      console.error("Failed to load Admin teacher list:", err);
+      setAdminReportError(
+        err instanceof Error
+          ? err.message
+          : "Unable to load teacher profiles."
+      );
+    } finally {
+      setAdminReportLoading(false);
+    }
+  }
+
+  async function loadAdminTeacherReport(teacherId) {
+    if (!teacherId) {
+      setAdminCalibrationAttempts([]);
+      setAdminLiveEvaluationAttempts([]);
+      setAdminReportError("");
+      return;
+    }
+
+    setAdminReportError("");
+    setAdminReportLoading(true);
+
+    try {
+      const [calibration, liveEvaluation] = await Promise.all([
+        getAdminCalibrationAttempts(teacherId),
+        getAdminLiveEvaluationCalibrationAttempts(teacherId),
+      ]);
+
+      setAdminCalibrationAttempts(calibration);
+      setAdminLiveEvaluationAttempts(liveEvaluation);
+    } catch (err) {
+      console.error("Failed to load selected teacher report:", err);
+      setAdminReportError(
+        err instanceof Error
+          ? err.message
+          : "Unable to load the selected teacher's report."
+      );
+      setAdminCalibrationAttempts([]);
+      setAdminLiveEvaluationAttempts([]);
+    } finally {
+      setAdminReportLoading(false);
+    }
+  }
+
+  // Restore the dedicated Admin Analytics authentication session.
   useEffect(() => {
+    const unsubscribe = onAuthStateChanged(
+      teacherAnalyticsAdminAuth,
+      async (user) => {
+        const isAuthorisedAdmin =
+          user?.uid === "qBmXU22ln4UoVDqiiDa455miIIT2";
+
+        setAdminAnalyticsSignedIn(isAuthorisedAdmin);
+
+        if (isAuthorisedAdmin) {
+          await loadAdminTeachers();
+        } else {
+          setAdminTeachers([]);
+          setAdminSelectedTeacherId("");
+          setAdminCalibrationAttempts([]);
+          setAdminLiveEvaluationAttempts([]);
+        }
+      }
+    );
+
+    return unsubscribe;
+  }, []);
+
+  // Load the current teacher's ordinary analytics.
+
+  useEffect(() => {
+    if (authLoading) {
+      return;
+    }
+
     let isMounted = true;
 
     async function loadAnalytics() {
@@ -62,7 +282,29 @@ export default function Analytics() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [authLoading]);
+
+  useEffect(() => {
+  let isMounted = true;
+
+  async function loadTeacherProfileName() {
+    try {
+      const profile = await getCurrentTeacherProfile();
+
+      if (isMounted && profile?.displayName) {
+        setTeacherProfileName(profile.displayName);
+      }
+    } catch (err) {
+      console.error("Failed to load teacher profile name:", err);
+    }
+  }
+
+  loadTeacherProfileName();
+
+  return () => {
+    isMounted = false;
+  };
+}, []);
 
   const scores = attempts
     .map((attempt) => attempt.matchPercentage)
@@ -1073,9 +1315,72 @@ const historyAttempts = attempts;
 
     return question?.title || "Live Evaluation";
   };
+    
+  const adminCalibrationScores = adminCalibrationAttempts
+    .map((attempt) => attempt.matchPercentage)
+    .filter(
+      (score) => typeof score === "number" && Number.isFinite(score)
+    );
+
+  const adminCalibrationAverage =
+    adminCalibrationScores.length > 0
+      ? Math.round(
+          adminCalibrationScores.reduce((total, score) => total + score, 0) /
+            adminCalibrationScores.length
+        )
+      : null;
+
+  const adminCalibrationHighest =
+    adminCalibrationScores.length > 0
+      ? Math.max(...adminCalibrationScores)
+      : null;
+
+  const adminCalibrationLowest =
+    adminCalibrationScores.length > 0
+      ? Math.min(...adminCalibrationScores)
+      : null;
+
+  const adminLiveEvaluationScores = adminLiveEvaluationAttempts
+    .map((attempt) => attempt.calibrationScore)
+    .filter(
+      (score) => typeof score === "number" && Number.isFinite(score)
+    );
+
+  const adminLiveEvaluationAverage =
+    adminLiveEvaluationScores.length > 0
+      ? Math.round(
+          adminLiveEvaluationScores.reduce(
+            (total, score) => total + score,
+            0
+          ) / adminLiveEvaluationScores.length
+        )
+      : null;
+
+  const adminLiveEvaluationHighest =
+    adminLiveEvaluationScores.length > 0
+      ? Math.max(...adminLiveEvaluationScores)
+      : null;
+
+  const adminLiveEvaluationLowest =
+    adminLiveEvaluationScores.length > 0
+      ? Math.min(...adminLiveEvaluationScores)
+      : null;
+
+  if (authLoading) {
+    return (
+      <div className="page-content analytics-page">
+        <div className="analytics-status-card">
+          <div className="analytics-loading-spinner" />
+          <p>Loading your account and permissions...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="page-content analytics-page">
+      {analyticsView !== "written-report" && (
+        <>
       <div className="analytics-header">
         <div>
           <h2>Teacher Analytics</h2>
@@ -1096,26 +1401,26 @@ const historyAttempts = attempts;
         </div>
       </div>
 
-      {role === "teacher" && (
+      {(role === "teacher" || isAdminViewingSelectedTeacher) && (
         <>
-          {loading && (
+          {dashboardLoading && (
             <div className="analytics-status-card">
               <div className="analytics-loading-spinner" />
               <p>Loading Calibration Lab analytics...</p>
             </div>
           )}
 
-          {!loading && error && (
+          {!dashboardLoading && dashboardError && (
             <div className="analytics-status-card analytics-error-card">
               <div className="analytics-status-icon">⚠️</div>
               <div>
                 <strong>Unable to load analytics</strong>
-                <p>{error}</p>
+                <p>{dashboardError}</p>
               </div>
             </div>
           )}
 
-          {!loading && !error && (
+          {!dashboardLoading && !dashboardError && (
             <>
               <div className="analytics-domain-header analytics-calibration-domain-header">
                 <div className="analytics-domain-header-accent" aria-hidden="true" />
@@ -1130,7 +1435,7 @@ const historyAttempts = attempts;
 
               <section className="analytics-calibration-guide" aria-labelledby="calibration-bench-guide-title">
                 <div className="analytics-calibration-guide-header">
-                  <div className="analytics-calibration-guide-icon" aria-hidden="true">📘</div>
+                   <div className="analytics-calibration-guide-icon" aria-hidden="true">📚</div>
                   <div>
                     <span className="analytics-calibration-guide-label">Simple guide</span>
                     <h4 id="calibration-bench-guide-title">How to Read Your Calibration Bench</h4>
@@ -1140,7 +1445,7 @@ const historyAttempts = attempts;
                   </div>
                 </div>
 
-                <div className="analytics-calibration-guide-grid">
+                                <div className="analytics-calibration-guide-grid">
                   <a href="#calibration-bench-summary" className="analytics-calibration-guide-item">
                     <span className="analytics-calibration-guide-item-icon" aria-hidden="true">🎯</span>
                     <span className="analytics-calibration-guide-item-content">
@@ -1169,7 +1474,7 @@ const historyAttempts = attempts;
                   </a>
 
                   <a href="#calibration-bench-diagnostic" className="analytics-calibration-guide-item">
-                    <span className="analytics-calibration-guide-item-icon" aria-hidden="true">🧭</span>
+                    <span className="analytics-calibration-guide-item-icon" aria-hidden="true">💭</span>
                     <span className="analytics-calibration-guide-item-content">
                       <strong>Diagnostic Performance</strong>
                       <small>How your calibration scores vary across the diagnostic skill areas.</small>
@@ -1178,7 +1483,7 @@ const historyAttempts = attempts;
                   </a>
 
                   <a href="#calibration-bench-recent" className="analytics-calibration-guide-item">
-                    <span className="analytics-calibration-guide-item-icon" aria-hidden="true">📝</span>
+                    <span className="analytics-calibration-guide-item-icon" aria-hidden="true">📊</span>
                     <span className="analytics-calibration-guide-item-content">
                       <strong>Recent Results</strong>
                       <small>A quick view of your latest completed Calibration Lab attempts.</small>
@@ -1187,7 +1492,7 @@ const historyAttempts = attempts;
                   </a>
 
                   <a href="#calibration-bench-history" className="analytics-calibration-guide-item">
-                    <span className="analytics-calibration-guide-item-icon" aria-hidden="true">🗂️</span>
+                    <span className="analytics-calibration-guide-item-icon" aria-hidden="true">📚</span>
                     <span className="analytics-calibration-guide-item-content">
                       <strong>Calibration History</strong>
                       <small>Your complete Calibration Lab attempt history.</small>
@@ -1253,8 +1558,8 @@ const historyAttempts = attempts;
                 {trendAttempts.length === 0 ? (
                   <div className="analytics-empty-state">
                     <div className="analytics-empty-icon">
-                      📈
-                    </div>
+                      📈              
+                    </div>     
                     <strong>
                       Your performance trend will appear here
                     </strong>
@@ -1330,28 +1635,28 @@ const historyAttempts = attempts;
                       <div className="analytics-trend-legend-item">
                         <span className="analytics-trend-legend-dot analytics-trend-dot-master" />
                         <div>
-                          <strong>85–100%</strong>
+                          <strong>85-100%</strong>
                           <span>PTE Master</span>
                         </div>
                       </div>
                       <div className="analytics-trend-legend-item">
                         <span className="analytics-trend-legend-dot analytics-trend-dot-proficient" />
                         <div>
-                          <strong>70–84%</strong>
+                          <strong>70-84%</strong>
                           <span>Proficient</span>
                         </div>
                       </div>
                       <div className="analytics-trend-legend-item">
                         <span className="analytics-trend-legend-dot analytics-trend-dot-developing" />
                         <div>
-                          <strong>50–69%</strong>
+                          <strong>50-69%</strong>
                           <span>Developing</span>
                         </div>
                       </div>
                       <div className="analytics-trend-legend-item">
                         <span className="analytics-trend-legend-dot analytics-trend-dot-needs-calibration" />
                         <div>
-                          <strong>0–49%</strong>
+                          <strong>0-49%</strong>
                           <span>Needs Calibration</span>
                         </div>
                       </div>
@@ -1461,7 +1766,7 @@ const historyAttempts = attempts;
                 {diagnosticPerformance.length === 0 ? (
                   <div className="analytics-empty-state">
                     <div className="analytics-empty-icon">
-                      🧭
+                      💬
                     </div>
                     <strong>
                       Diagnostic performance will appear here
@@ -1590,7 +1895,7 @@ const historyAttempts = attempts;
                             </span>
 
                             <span className="analytics-result-meta">
-                              {attempt.questionTitle ||
+                                                            {attempt.questionTitle ||
                                 "Read Aloud"}{" "}
                               •{" "}
                               {attempt.section ||
@@ -1656,13 +1961,13 @@ const historyAttempts = attempts;
               </div>
 
               <button
-                type="button"
-                className="analytics-detail-close"
-                aria-label="Close calibration result details"
-                onClick={() => setSelectedAttempt(null)}
-              >
-                ×
-              </button>
+              type="button"
+              className="analytics-detail-close"
+              aria-label="Close calibration result details"
+              onClick={() => setSelectedAttempt(null)}
+            >
+              ×
+            </button>
             </div>
 
             <div className="analytics-detail-summary">
@@ -1814,14 +2119,14 @@ const historyAttempts = attempts;
     </div>
 
     <span className="analytics-history-toggle">
-      View History ▾
+      View History ↓
     </span>
   </summary>
 
   {historyAttempts.length === 0 ? (
     <div className="analytics-empty-state">
       <div className="analytics-empty-icon">
-        🗂️
+        📋
       </div>
       <strong>No Calibration History yet</strong>
       <p>
@@ -1868,8 +2173,11 @@ const historyAttempts = attempts;
               </span>
 
               <span className="analytics-result-meta">
-                {attempt.questionTitle || "Read Aloud"} •{" "}
-                {attempt.section || "Speaking"} • {attemptDate}
+                {attempt.questionTitle ||
+                  "Read Aloud"}{" "}
+                •{" "}
+                {attempt.section ||
+                  "Speaking"}
               </span>
             </div>
 
@@ -1921,7 +2229,7 @@ const historyAttempts = attempts;
           {liveEvaluationCompleted === 0 ? (
             <div className="analytics-empty-state">
               <div className="analytics-empty-icon">
-                🎙️
+                🎤
               </div>
               <strong>
                 No Live Evaluation attempts yet
@@ -1934,7 +2242,7 @@ const historyAttempts = attempts;
           ) : (
             <div className="analytics-live-summary-grid">
               <div className="analytics-live-stat-card analytics-live-stat-completed">
-                <div className="analytics-live-stat-icon">🎙️</div>
+                <div className="analytics-live-stat-icon">📝</div>
                 <div className="analytics-live-stat-content">
                   <span>Evaluations Completed</span>
                   <strong>{liveEvaluationCompleted}</strong>
@@ -2079,7 +2387,7 @@ const historyAttempts = attempts;
               <div className="analytics-live-trend-legend-item">
                 <span className="analytics-live-trend-legend-dot analytics-live-trend-dot-proficient" />
                 <div>
-                  <strong>70–84%</strong>
+                <strong>70–84%</strong>
                   <span>Proficient</span>
                 </div>
               </div>
@@ -2124,7 +2432,7 @@ const historyAttempts = attempts;
         {liveEvaluationCefrPerformance.length === 0 ? (
           <div className="analytics-empty-state">
             <div className="analytics-empty-icon">
-              📊
+              🎯
             </div>
             <strong>
               Live Evaluation CEFR performance will appear here
@@ -2203,9 +2511,7 @@ const historyAttempts = attempts;
 
         {liveEvaluationDiagnosticPerformance.length === 0 ? (
           <div className="analytics-empty-state">
-            <div className="analytics-empty-icon">
-              🧭
-            </div>
+            <div className="analytics-empty-icon">{"\u{1F3A4}"}</div>
             <strong>
               Live Evaluation diagnostic performance will appear here
             </strong>
@@ -2296,7 +2602,7 @@ const historyAttempts = attempts;
         {liveEvaluationRecentAttempts.length === 0 ? (
           <div className="analytics-empty-state">
             <div className="analytics-empty-icon">
-              🎙️
+              {"\u{1F3A4}"}
             </div>
             <strong>No Live Evaluation results yet</strong>
             <p>
@@ -2342,7 +2648,8 @@ const historyAttempts = attempts;
                     </span>
 
                     <span className="analytics-result-meta">
-                      {attempt.trainingSkill || "Live Evaluation"} • {getLiveEvaluationAttemptDate(attempt)}
+                      {attempt.trainingSkill || "Live Evaluation"} •{" "}
+                      {getLiveEvaluationAttemptDate(attempt)}
                     </span>
                   </div>
 
@@ -2371,14 +2678,14 @@ const historyAttempts = attempts;
           </div>
 
           <span className="analytics-history-toggle">
-            View History ▾
+            View History ↓
           </span>
         </summary>
 
         {liveEvaluationAttempts.length === 0 ? (
           <div className="analytics-empty-state">
             <div className="analytics-empty-icon">
-              🗂️
+              📋
             </div>
 
             <strong>No Live Evaluation History yet</strong>
@@ -2426,7 +2733,7 @@ const historyAttempts = attempts;
                     </span>
 
                     <span className="analytics-result-meta">
-                      {attempt.trainingSkill || "Live Evaluation"} • {getLiveEvaluationAttemptDate(attempt)}
+                      {attempt.trainingSkill || "Live Evaluation"} •{" "} {getLiveEvaluationAttemptDate(attempt)}
                     </span>
                   </div>
 
@@ -2458,7 +2765,7 @@ const historyAttempts = attempts;
 
       <section className="analytics-performance-guide" aria-labelledby="teacher-analytics-guide-title">
         <div className="analytics-performance-guide-header">
-          <div className="analytics-performance-guide-icon" aria-hidden="true">📘</div>
+          <div className="analytics-performance-guide-icon" aria-hidden="true">📚</div>
           <div>
             <span className="analytics-performance-guide-label">Simple guide</span>
             <h4 id="teacher-analytics-guide-title">How to Read Your Teacher Analytics</h4>
@@ -2466,20 +2773,89 @@ const historyAttempts = attempts;
               This page contains several views of your recorded calibration work. Each one answers a different question; you do not need to study every number at once. Use the links below to jump directly to the section you want to understand.
             </p>
           </div>
-        </div>
-
+        </div> 
         <div className="analytics-performance-guide-grid">
-          <a href="#calibration-development" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">📈</span><span className="analytics-performance-guide-item-content"><strong>Calibration Development</strong><small>How your recorded calibration scores change over time.</small></span><span className="analytics-performance-guide-link">View →</span></a>
-          <a href="#calibration-component-performance" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">🧩</span><span className="analytics-performance-guide-item-content"><strong>Calibration Component Performance</strong><small>The four parts of your calibration assessment and how they are performing.</small></span><span className="analytics-performance-guide-link">View →</span></a>
-          <a href="#calibration-component-development" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">🔄</span><span className="analytics-performance-guide-item-content"><strong>Calibration Component Development</strong><small>How each calibration component changes between recorded evaluations.</small></span><span className="analytics-performance-guide-link">View →</span></a>
-          <a href="#calibration-cefr-development" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">🎯</span><span className="analytics-performance-guide-item-content"><strong>CEFR Development</strong><small>Your recorded calibration evidence across different CEFR levels.</small></span><span className="analytics-performance-guide-link">View →</span></a>
-          <a href="#diagnostic-skill-development" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">🧭</span><span className="analytics-performance-guide-item-content"><strong>Diagnostic Skill Development</strong><small>Your recorded evidence across Content Accuracy, Oral Fluency and Pronunciation.</small></span><span className="analytics-performance-guide-link">View →</span></a>
-          <a href="#calibration-consistency" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">📊</span><span className="analytics-performance-guide-item-content"><strong>Calibration Consistency</strong><small>How much your recorded calibration scores vary between evaluations.</small></span><span className="analytics-performance-guide-link">View →</span></a>
-          <a href="#calibration-exercise-progression" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">📝</span><span className="analytics-performance-guide-item-content"><strong>Exercise Progression</strong><small>Your recorded calibration history for individual Live Evaluation exercises.</small></span><span className="analytics-performance-guide-link">View →</span></a>
-          <a href="#calibration-evidence-coverage" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">🔎</span><span className="analytics-performance-guide-item-content"><strong>Evidence Coverage &amp; Depth</strong><small>Where you have evidence and whether it is limited or repeated.</small></span><span className="analytics-performance-guide-link">View →</span></a>
-          <a href="#teacher-calibration-development-profile" className="analytics-performance-guide-item"><span className="analytics-performance-guide-item-icon" aria-hidden="true">👤</span><span className="analytics-performance-guide-item-content"><strong>Development Profile</strong><small>A concise summary bringing the recorded evidence together without creating an overall rating.</small></span><span className="analytics-performance-guide-link">View →</span></a>
-        </div>
+          <a href="#calibration-development" className="analytics-performance-guide-item">
+            <span className="analytics-performance-guide-item-icon" aria-hidden="true">📈</span>
+            <span className="analytics-performance-guide-item-content">
+              <strong>Calibration Development</strong>
+              <small>How your recorded calibration scores change over time.</small>
+            </span>
+            <span className="analytics-performance-guide-link">View →</span>
+          </a>
 
+          <a href="#calibration-component-performance" className="analytics-performance-guide-item">
+            <span className="analytics-performance-guide-item-icon" aria-hidden="true">🧩</span>
+            <span className="analytics-performance-guide-item-content">
+              <strong>Calibration Component Performance</strong>
+              <small>The four parts of your calibration assessment and how they are performing.</small>
+            </span>
+            <span className="analytics-performance-guide-link">View →</span>
+          </a>
+
+          <a href="#calibration-component-development" className="analytics-performance-guide-item">
+            <span className="analytics-performance-guide-item-icon" aria-hidden="true">🛠️</span>
+            <span className="analytics-performance-guide-item-content">
+              <strong>Calibration Component Development</strong>
+              <small>How each calibration component changes between recorded evaluations.</small>
+            </span>
+            <span className="analytics-performance-guide-link">View →</span>
+          </a>
+
+          <a href="#calibration-cefr-development" className="analytics-performance-guide-item">
+            <span className="analytics-performance-guide-item-icon" aria-hidden="true">🎯</span>
+            <span className="analytics-performance-guide-item-content">
+              <strong>CEFR Development</strong>
+              <small>Your recorded calibration evidence across different CEFR levels.</small>
+            </span>
+            <span className="analytics-performance-guide-link">View →</span>
+          </a>
+
+          <a href="#diagnostic-skill-development" className="analytics-performance-guide-item">
+            <span className="analytics-performance-guide-item-icon" aria-hidden="true">🧠</span>
+            <span className="analytics-performance-guide-item-content">
+              <strong>Diagnostic Skill Development</strong>
+              <small>Your recorded evidence across Content Accuracy, Oral Fluency and Pronunciation.</small>
+            </span>
+            <span className="analytics-performance-guide-link">View →</span>
+          </a>
+
+          <a href="#calibration-consistency" className="analytics-performance-guide-item">
+            <span className="analytics-performance-guide-item-icon" aria-hidden="true">📊</span>
+            <span className="analytics-performance-guide-item-content">
+              <strong>Calibration Consistency</strong>
+              <small>How much your recorded calibration scores vary between evaluations.</small>
+            </span>
+            <span className="analytics-performance-guide-link">View →</span>
+          </a>
+
+          <a href="#calibration-exercise-progression" className="analytics-performance-guide-item">
+            <span className="analytics-performance-guide-item-icon" aria-hidden="true">📋</span>
+            <span className="analytics-performance-guide-item-content">
+              <strong>Exercise Progression</strong>
+              <small>Your recorded calibration history for individual Live Evaluation exercises.</small>
+            </span>
+            <span className="analytics-performance-guide-link">View →</span>
+          </a>
+
+          <a href="#calibration-evidence-coverage" className="analytics-performance-guide-item">
+            <span className="analytics-performance-guide-item-icon" aria-hidden="true">🔎</span>
+            <span className="analytics-performance-guide-item-content">
+              <strong>Evidence Coverage &amp; Depth</strong>
+              <small>Where you have evidence and whether it is limited or repeated.</small>
+            </span>
+            <span className="analytics-performance-guide-link">View →</span>
+          </a>
+
+          <a href="#teacher-calibration-development-profile" className="analytics-performance-guide-item">
+            <span className="analytics-performance-guide-item-icon" aria-hidden="true">👤</span>
+            <span className="analytics-performance-guide-item-content">
+              <strong>Development Profile</strong>
+              <small>A concise summary bringing the recorded evidence together without creating an overall rating.</small>
+            </span>
+            <span className="analytics-performance-guide-link">View →</span>
+          </a>
+        </div>
         <div className="analytics-performance-guide-important"><strong>Important:</strong> missing evidence does not mean poor performance. It means the Analytics page does not yet have enough recorded evidence for that area.</div>
       </section>
 
@@ -2500,7 +2876,7 @@ const historyAttempts = attempts;
 
         {teacherPerformanceDevelopment.length === 0 ? (
           <div className="analytics-empty-state">
-            <div className="analytics-empty-icon">📈</div>
+            <div className="analytics-empty-icon">📋</div>
             <strong>Calibration development will appear here</strong>
             <p>
               Complete Live Evaluation assessments to begin building your teacher performance development record.
@@ -2540,7 +2916,7 @@ const historyAttempts = attempts;
               </div>
 
               <div className="analytics-performance-summary-card analytics-performance-summary-change">
-                <span>First → latest score change</span>
+                <span>First-to-latest change</span>
                 <strong>
                   {teacherPerformanceScoreChange === null
                     ? "—"
@@ -2712,7 +3088,7 @@ const historyAttempts = attempts;
 
         {teacherPerformanceAllAttempts.length === 0 ? (
           <div className="analytics-empty-state">
-            <div className="analytics-empty-icon">📈</div>
+            <div className="analytics-empty-icon">🛠️</div>
             <strong>Component development will appear here</strong>
             <p>
               Complete Live Evaluation assessments to establish first-to-latest component evidence.
@@ -2936,7 +3312,7 @@ const historyAttempts = attempts;
 
         {teacherPerformanceAllAttempts.length === 0 ? (
           <div className="analytics-empty-state">
-            <div className="analytics-empty-icon">🧭</div>
+            <div className="analytics-empty-icon">🧠</div>
             <strong>Diagnostic development will appear here</strong>
             <p>
               Complete Live Evaluation assessments to build a developmental profile across Content Accuracy, Oral Fluency, and Pronunciation.
@@ -2944,7 +3320,7 @@ const historyAttempts = attempts;
           </div>
         ) : (
           <>
-            <div className="analytics-performance-diagnostic-list">
+          <div className="analytics-performance-diagnostic-list">
               {teacherPerformanceDiagnosticDevelopment.map((skill) => (
                 <div
                   className="analytics-performance-diagnostic-row"
@@ -3000,13 +3376,24 @@ const historyAttempts = attempts;
 
                   <div className="analytics-performance-diagnostic-meta">
                     <span>
-                      First: <strong>{skill.evaluations > 0 ? `${skill.firstScore}/100` : "—"}</strong>
+                      First:{" "}
+                      <strong>
+                        {skill.evaluations > 0
+                          ? `${skill.firstScore}/100`
+                          : "—"}
+                      </strong>
                     </span>
                     <span>
-                      Latest: <strong>{skill.evaluations > 0 ? `${skill.latestScore}/100` : "—"}</strong>
+                      Latest:{" "}
+                      <strong>
+                        {skill.evaluations > 0
+                          ? `${skill.latestScore}/100`
+                          : "—"}
+                      </strong>
                     </span>
                     <span>
-                      Change: <strong>
+                      Change:{" "}
+                      <strong>
                         {skill.change === null
                           ? "—"
                           : `${skill.change > 0 ? "+" : ""}${skill.change}`}
@@ -3018,7 +3405,12 @@ const historyAttempts = attempts;
             </div>
 
             <div className="analytics-performance-diagnostic-note">
-              <strong>How to read this:</strong> evidence depth is shown separately from the score. One evaluation is limited evidence, while two or more evaluations provide repeated evidence. No recorded evidence is shown neutrally and is not treated as a low score. A first-to-latest change is shown only when that skill has at least two recorded evaluations.
+              <strong>How to read this:</strong> evidence depth is shown
+              separately from the score. One evaluation is limited evidence,
+              while two or more evaluations provide repeated evidence. No
+              recorded evidence is shown neutrally and is not treated as a low
+              score. A first-to-latest change is shown only when that skill has
+              at least two recorded evaluations.
             </div>
           </>
         )}
@@ -3041,7 +3433,7 @@ const historyAttempts = attempts;
 
         {teacherPerformanceExerciseProgressionVisible.length === 0 ? (
           <div className="analytics-empty-state">
-            <div className="analytics-empty-icon">🧩</div>
+            <div className="analytics-empty-icon">📋</div>
             <strong>Exercise progression will appear here</strong>
             <p>
               Complete Live Evaluation exercises with recorded calibration scores to build this progression view.
@@ -3136,7 +3528,7 @@ const historyAttempts = attempts;
 
         {teacherPerformanceAllAttempts.length === 0 ? (
           <div className="analytics-empty-state">
-            <div className="analytics-empty-icon">📏</div>
+            <div className="analytics-empty-icon">📊</div>
             <strong>Calibration consistency will appear here</strong>
             <p>
               Complete Live Evaluation assessments to build enough evidence to examine how closely your calibration scores cluster.
@@ -3158,7 +3550,7 @@ const historyAttempts = attempts;
               <div className="analytics-performance-consistency-card">
                 <span>Score range</span>
                 <strong>{teacherPerformanceConsistencyRange} points</strong>
-                <small>Lowest {teacherPerformanceConsistencyMinimum} → highest {teacherPerformanceConsistencyMaximum}</small>
+                <small>Lowest {teacherPerformanceConsistencyMinimum} – highest {teacherPerformanceConsistencyMaximum}</small>
               </div>
 
               <div className="analytics-performance-consistency-card">
@@ -3238,7 +3630,7 @@ const historyAttempts = attempts;
 
         {teacherPerformanceAllAttempts.length === 0 ? (
           <div className="analytics-empty-state">
-            <div className="analytics-empty-icon">🧭</div>
+            <div className="analytics-empty-icon">📊</div>
             <strong>Your development profile will appear here</strong>
             <p>
               Complete Live Evaluation assessments to build the recorded evidence used by this profile.
@@ -3302,7 +3694,7 @@ const historyAttempts = attempts;
 
         {teacherPerformanceAllAttempts.length === 0 ? (
           <div className="analytics-empty-state">
-            <div className="analytics-empty-icon">🧩</div>
+            <div className="analytics-empty-icon">🔎</div>
             <strong>Evidence coverage will appear here</strong>
             <p>
               Complete Live Evaluation assessments to build evidence across diagnostic areas, CEFR levels and exercises.
@@ -3410,14 +3802,306 @@ const historyAttempts = attempts;
         )}
       </section>
 
-      {role === "admin" && (
-        <div className="analytics-role-card">
+      
+        </>
+      )}
+
+      {(role === "admin" || adminAnalyticsSignedIn || location.state?.requireAdminAnalyticsSignIn) && analyticsView === "written-report" && (
+
+        <div className="analytics-role-card admin-analytics-panel">
           <h3>Admin Analytics</h3>
-          <p>
-            Admin analytics will be available here.
-          </p>
+          <div className="admin-analytics-return">
+            <button type="button" onClick={() => navigate("/admin-teacher-analytics")}>
+              Back to Admin Teacher Analytics Centre
+            </button>
+          </div>
+
+          {!adminAnalyticsSignedIn ? (
+            <form onSubmit={handleAdminAnalyticsSignIn}>
+              <p>
+                Sign in with the dedicated Admin Analytics account
+                to access teacher reports.
+              </p>
+
+              <label htmlFor="admin-analytics-email">Admin email</label>
+              <input
+                id="admin-analytics-email"
+                type="email"
+                autoComplete="username"
+                value={adminAnalyticsEmail}
+                onChange={(event) =>
+                  setAdminAnalyticsEmail(event.target.value)
+                }
+                required
+              />
+
+              <label htmlFor="admin-analytics-password">Password</label>
+              <input
+                id="admin-analytics-password"
+                type="password"
+                autoComplete="current-password"
+                value={adminAnalyticsPassword}
+                onChange={(event) =>
+                  setAdminAnalyticsPassword(event.target.value)
+                }
+                required
+              />
+
+              {adminAnalyticsError && (
+                <p role="alert">{adminAnalyticsError}</p>
+              )}
+
+              <button type="submit" disabled={adminAnalyticsLoading}>
+                {adminAnalyticsLoading
+                  ? "Signing in..."
+                  : "Sign in to Admin Analytics"}
+              </button>
+            </form>
+          ) : (
+            <div className="admin-analytics-content">
+              <div className="admin-analytics-toolbar">
+                <p>Admin Analytics account authenticated.</p>
+                <button
+                  type="button"
+                  onClick={handleAdminAnalyticsSignOut}
+                >
+                  Sign out of Admin Analytics
+                </button>
+              </div>
+
+              <div className="admin-analytics-teacher-picker">
+                <label htmlFor="admin-analytics-teacher">
+                  Select teacher
+                </label>
+                <select
+                  id="admin-analytics-teacher"
+                  value={adminSelectedTeacherId}
+                  disabled={adminReportLoading || adminTeachers.length === 0}
+                  onChange={(event) => {
+                    const teacherId = event.target.value;
+                    setAdminSelectedTeacherId(teacherId);
+                    loadAdminTeacherReport(teacherId);
+                  }}
+                >
+                  <option value="">
+                    {adminReportLoading
+                      ? "Loading..."
+                      : adminTeachers.length === 0
+                        ? "No teachers available"
+                        : "Choose a teacher"}
+                  </option>
+                  {adminTeachers.map((teacher) => (
+                    <option key={teacher.teacherId} value={teacher.teacherId}>
+                      {teacher.displayName}
+                      {teacher.email ? ` (${teacher.email})` : ""}
+                    </option>
+                  ))}
+                </select>
+
+                {adminReportError && (
+                  <p role="alert">{adminReportError}</p>
+                )}
+              </div>
+                  {adminSelectedTeacherId && (
+                    <div className="admin-analytics-report">
+                      <div className="admin-analytics-report-header">
+                        <div className="admin-analytics-report-heading">
+                          <h4>
+                            {adminTeachers.find(
+                              (teacher) =>
+                                teacher.teacherId === adminSelectedTeacherId
+                            )?.displayName || "Teacher"}{" "}
+                            Calibration Report
+                          </h4>
+                          <p>
+                            Calibration Lab and Live Evaluation attempt history
+                          </p>
+                        </div>
+
+                        <div className="admin-analytics-report-date">
+                          <span>Report date</span>
+                          <strong>{new Date().toLocaleDateString()}</strong>
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={() => window.print()}
+                          disabled={adminReportLoading}
+                        >
+                          Print report
+                        </button>
+                      </div>
+
+                      {adminReportLoading ? (
+                        <p>Loading selected teacher's history...</p>
+                      ) : (
+                        <>
+                      <div className="admin-analytics-summary">
+                        <div>
+                          <strong>{adminCalibrationAttempts.length}</strong>
+                          <span>Calibration Lab attempts</span>
+                        </div>
+                        <div>
+                          <strong>{adminLiveEvaluationAttempts.length}</strong>
+                          <span>Live Evaluation attempts</span>
+                        </div>
+                        <div>
+                          <strong>
+                            {adminCalibrationAttempts.length +
+                              adminLiveEvaluationAttempts.length}
+                          </strong>
+                          <span>Total attempts</span>
+                        </div>
+                        <div>
+                          <strong>
+                            {adminCalibrationAverage === null
+                              ? "—"
+                              : `${adminCalibrationAverage}%`}
+                          </strong>
+                          <span>Calibration Lab average</span>
+                        </div>
+                        <div>
+                          <strong>
+                            {adminCalibrationHighest === null
+                              ? "—"
+                              : `${adminCalibrationHighest}%`}
+                          </strong>
+                          <span>Calibration Lab highest</span>
+                        </div>
+                        <div>
+                          <strong>
+                            {adminCalibrationLowest === null
+                              ? "—"
+                              : `${adminCalibrationLowest}%`}
+                          </strong>
+                          <span>Calibration Lab lowest</span>
+                        </div>
+                        <div>
+                          <strong>
+                            {adminLiveEvaluationAverage === null
+                              ? "—"
+                              : `${adminLiveEvaluationAverage}/100`}
+                          </strong>
+                          <span>Live Evaluation average</span>
+                        </div>
+                        <div>
+                          <strong>
+                            {adminLiveEvaluationHighest === null
+                              ? "—"
+                              : `${adminLiveEvaluationHighest}/100`}
+                          </strong>
+                          <span>Live Evaluation highest</span>
+                        </div>
+                        <div>
+                          <strong>
+                            {adminLiveEvaluationLowest === null
+                              ? "—"
+                              : `${adminLiveEvaluationLowest}/100`}
+                          </strong>
+                          <span>Live Evaluation lowest</span>
+                        </div>
+                      </div>
+
+                      <h4>Calibration Lab history</h4>
+                      {adminCalibrationAttempts.length === 0 ? (
+                        <p>No Calibration Lab attempts found.</p>
+                      ) : (
+                        <div className="admin-analytics-table-wrapper">
+                          <table className="admin-analytics-table admin-live-evaluation-history-table">
+                            <thead>
+                              <tr>
+                                <th>Date</th>
+                                <th>Question</th>
+                                <th>Section</th>
+                                <th>Level</th>
+                                <th>Match</th>
+                                <th>Tier</th>
+                                <th>Feedback</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {adminCalibrationAttempts.map((attempt) => (
+                                <tr key={attempt.id}>
+                                  <td>
+                                    {attempt.createdAt?.toDate
+                                      ? attempt.createdAt
+                                          .toDate()
+                                          .toLocaleDateString()
+                                      : attempt.timestamp || "—"}
+                                  </td>
+                                  <td>{attempt.questionTitle || "—"}</td>
+                                  <td>{attempt.section || QUESTIONS_DATA.find((question) => question.id === attempt.questionId)?.section || "Not recorded"}</td>
+                                  <td>{attempt.cefrLevel || "—"}</td>
+                                  <td>
+                                    {typeof attempt.matchPercentage === "number"
+                                      ? `${attempt.matchPercentage}%`
+                                      : "—"}
+                                  </td>
+                                  <td>{attempt.tier || "—"}</td>
+                                  <td>
+                                    {attempt.feedbackSummary ||
+                                      attempt.expertFeedbackText ||
+                                      "—"}
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      )}
+
+                      <h4>Live Evaluation history</h4>
+                      {adminLiveEvaluationAttempts.length === 0 ? (
+                        <p>No Live Evaluation attempts found.</p>
+                      ) : (
+                        <div className="admin-analytics-table-wrapper">
+                          <table className="admin-analytics-table">
+                            <thead>
+                              <tr>
+                                <th>Date</th>
+                                <th>Question</th>
+                                <th>Section</th>
+                                <th>Calibration score</th>
+                                <th>Feedback</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {adminLiveEvaluationAttempts.map((attempt) => (
+                                <tr key={attempt.id}>
+                                  <td>
+                                    {attempt.createdAt?.toDate
+                                      ? attempt.createdAt
+                                          .toDate()
+                                          .toLocaleDateString()
+                                      : attempt.timestamp || "—"}
+                                  </td>
+                                  <td>{attempt.questionTitle || "—"}</td>
+                                  <td>
+                                    {QUESTIONS_DATA.find(
+                                      (question) => question.id === attempt.questionId
+                                    )?.section || "Not recorded"}
+                                  </td>
+                                  <td>{attempt.calibrationScore}</td>
+                                  <td>
+                                    {attempt.teacherFeedback ||
+                                      attempt.scoreExplanation ||
+                                      "—"}
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
         </div>
       )}
+
 
       {role === "consultant" && (
         <div className="analytics-role-card">
@@ -3430,3 +4114,4 @@ const historyAttempts = attempts;
     </div>
   );
 }
+

@@ -9,6 +9,7 @@ import {
   arrayUnion
 } from "firebase/firestore";
 import { useAuth } from "../AuthContext";
+import "./AdminTools.css";
 
 export default function AdminTools() {
   const { roleData } = useAuth();
@@ -17,27 +18,28 @@ export default function AdminTools() {
     return <p>Access denied.</p>;
   }
 
-  // Form states
   const [teacherEmail, setTeacherEmail] = useState("");
   const [teacherName, setTeacherName] = useState("");
   const [teacherClass, setTeacherClass] = useState("");
+  const [teacherPassword, setTeacherPassword] = useState("");
 
   const [consultantEmail, setConsultantEmail] = useState("");
   const [consultantName, setConsultantName] = useState("");
+  const [consultantPassword, setConsultantPassword] = useState("");
 
   const [consultantId, setConsultantId] = useState("");
   const [studentId, setStudentId] = useState("");
 
   const [message, setMessage] = useState("");
 
-  // Add Teacher
   async function addTeacher(e) {
     e.preventDefault();
+
     try {
       const userCred = await createUserWithEmailAndPassword(
         teacherUserCreationAuth,
         teacherEmail,
-        "default123"
+        teacherPassword
       );
 
       const uid = userCred.user.uid;
@@ -55,14 +57,14 @@ export default function AdminTools() {
     }
   }
 
-  // Add Consultant
   async function addConsultant(e) {
     e.preventDefault();
+
     try {
       const userCred = await createUserWithEmailAndPassword(
         teacherUserCreationAuth,
         consultantEmail,
-        "default123"
+        consultantPassword
       );
 
       const uid = userCred.user.uid;
@@ -80,7 +82,6 @@ export default function AdminTools() {
     }
   }
 
-  // Assign Student to Consultant
   async function assignStudent(e) {
     e.preventDefault();
 
@@ -100,82 +101,197 @@ export default function AdminTools() {
   }
 
   return (
-    <div className="admin-tools">
-      <h2>Admin Tools</h2>
-
-      <p>{message}</p>
-
-      {/* Add Teacher */}
-      <div className="admin-section">
-        <h3>Add Teacher</h3>
-        <form onSubmit={addTeacher}>
-          <input
-            type="text"
-            placeholder="Teacher Name"
-            value={teacherName}
-            onChange={(e) => setTeacherName(e.target.value)}
-          />
-
-          <input
-            type="email"
-            placeholder="Teacher Email"
-            value={teacherEmail}
-            onChange={(e) => setTeacherEmail(e.target.value)}
-          />
-
-          <input
-            type="text"
-            placeholder="Class Name (A1, A2, B1+)"
-            value={teacherClass}
-            onChange={(e) => setTeacherClass(e.target.value)}
-          />
-
-          <button type="submit">Create Teacher</button>
-        </form>
+    <div className="admin-tools-page">
+      <div className="admin-tools-header">
+        <div>
+          <span className="admin-tools-eyebrow">ADMINISTRATION</span>
+          <h1>Admin Tools</h1>
+          <p>Manage teacher accounts, consultants and student assignments.</p>
+        </div>
       </div>
 
-      {/* Add Consultant */}
-      <div className="admin-section">
-        <h3>Add Consultant</h3>
-        <form onSubmit={addConsultant}>
-          <input
-            type="text"
-            placeholder="Consultant Name"
-            value={consultantName}
-            onChange={(e) => setConsultantName(e.target.value)}
-          />
+      {message && (
+        <div
+          className={`admin-tools-message ${
+            message.startsWith("Error") ? "admin-tools-message--error" : ""
+          }`}
+          role="status"
+          aria-live="polite"
+        >
+          {message}
+        </div>
+      )}
 
-          <input
-            type="email"
-            placeholder="Consultant Email"
-            value={consultantEmail}
-            onChange={(e) => setConsultantEmail(e.target.value)}
-          />
+      <div className="admin-tools-grid">
+        <section className="admin-section admin-section--teacher">
+          <div className="admin-section-heading">
+            <div className="admin-section-icon" aria-hidden="true">
+              🎓
+            </div>
+            <div>
+              <h2>Add Teacher</h2>
+              <p>Create a teacher account and assign a class.</p>
+            </div>
+          </div>
 
-          <button type="submit">Create Consultant</button>
-        </form>
-      </div>
+          <form onSubmit={addTeacher} className="admin-tools-form">
+            <div className="admin-form-field">
+              <label htmlFor="teacher-name">Teacher Name</label>
+              <input
+                id="teacher-name"
+                type="text"
+                placeholder="Enter teacher name"
+                value={teacherName}
+                onChange={(e) => setTeacherName(e.target.value)}
+                required
+              />
+            </div>
 
-      {/* Assign Student */}
-      <div className="admin-section">
-        <h3>Assign Student to Consultant</h3>
-        <form onSubmit={assignStudent}>
-          <input
-            type="text"
-            placeholder="Consultant UID"
-            value={consultantId}
-            onChange={(e) => setConsultantId(e.target.value)}
-          />
+            <div className="admin-form-field">
+              <label htmlFor="teacher-email">Teacher Email</label>
+              <input
+                id="teacher-email"
+                type="email"
+                placeholder="Enter teacher email"
+                value={teacherEmail}
+                onChange={(e) => setTeacherEmail(e.target.value)}
+                required
+              />
+            </div>
 
-          <input
-            type="text"
-            placeholder="Student ID"
-            value={studentId}
-            onChange={(e) => setStudentId(e.target.value)}
-          />
+            <div className="admin-form-field">
+              <label htmlFor="teacher-class">Class Name</label>
+              <input
+                id="teacher-class"
+                type="text"
+                placeholder="e.g. A1, A2, B1+"
+                value={teacherClass}
+                onChange={(e) => setTeacherClass(e.target.value)}
+                required
+              />
+            </div>
 
-          <button type="submit">Assign Student</button>
-        </form>
+            <div className="admin-form-field">
+              <label htmlFor="teacher-password">Initial Password</label>
+              <input
+                id="teacher-password"
+                type="password"
+                placeholder="Minimum 6 characters"
+                value={teacherPassword}
+                onChange={(e) => setTeacherPassword(e.target.value)}
+                minLength={6}
+                required
+              />
+            </div>
+
+            <div className="admin-form-actions">
+              <button type="submit" className="admin-action-button">
+                Create Teacher
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <section className="admin-section admin-section--consultant">
+          <div className="admin-section-heading">
+            <div className="admin-section-icon" aria-hidden="true">
+              👥
+            </div>
+            <div>
+              <h2>Add Consultant</h2>
+              <p>Create a consultant account for student support.</p>
+            </div>
+          </div>
+
+          <form onSubmit={addConsultant} className="admin-tools-form">
+            <div className="admin-form-field">
+              <label htmlFor="consultant-name">Consultant Name</label>
+              <input
+                id="consultant-name"
+                type="text"
+                placeholder="Enter consultant name"
+                value={consultantName}
+                onChange={(e) => setConsultantName(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="admin-form-field">
+              <label htmlFor="consultant-email">Consultant Email</label>
+              <input
+                id="consultant-email"
+                type="email"
+                placeholder="Enter consultant email"
+                value={consultantEmail}
+                onChange={(e) => setConsultantEmail(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="admin-form-field">
+              <label htmlFor="consultant-password">Initial Password</label>
+              <input
+                id="consultant-password"
+                type="password"
+                placeholder="Minimum 6 characters"
+                value={consultantPassword}
+                onChange={(e) => setConsultantPassword(e.target.value)}
+                minLength={6}
+                required
+              />
+            </div>
+
+            <div className="admin-form-actions">
+              <button type="submit" className="admin-action-button">
+                Create Consultant
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <section className="admin-section admin-section--assignment">
+          <div className="admin-section-heading">
+            <div className="admin-section-icon" aria-hidden="true">
+              🔗
+            </div>
+            <div>
+              <h2>Assign Student to Consultant</h2>
+              <p>Connect a student record to the responsible consultant.</p>
+            </div>
+          </div>
+
+          <form onSubmit={assignStudent} className="admin-tools-form">
+            <div className="admin-form-field">
+              <label htmlFor="consultant-uid">Consultant UID</label>
+              <input
+                id="consultant-uid"
+                type="text"
+                placeholder="Enter consultant UID"
+                value={consultantId}
+                onChange={(e) => setConsultantId(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="admin-form-field">
+              <label htmlFor="student-id">Student ID</label>
+              <input
+                id="student-id"
+                type="text"
+                placeholder="Enter student ID"
+                value={studentId}
+                onChange={(e) => setStudentId(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="admin-form-actions">
+              <button type="submit" className="admin-action-button">
+                Assign Student
+              </button>
+            </div>
+          </form>
+        </section>
       </div>
     </div>
   );

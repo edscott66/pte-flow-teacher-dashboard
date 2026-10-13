@@ -1,9 +1,9 @@
 ﻿import { createContext, useContext, useEffect, useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "./firebase";
 import { teacherAuth } from "./teacherFirebase";
-import { doc, getDoc } from "firebase/firestore";
 
-const AuthContext = createContext();
+const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -11,49 +11,59 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = teacherAuth.onAuthStateChanged(async (currentUser) => {
-      setUser(currentUser);
+    let active = true;
 
-      if (currentUser) {
-        // Load role document
-        const roleRef = doc(db, "roles", currentUser.uid);
-        const roleSnap = await getDoc(roleRef);
-        const roleInfo = roleSnap.exists() ? roleSnap.data() : {};
+    const unsubscribe = teacherAuth.onAuthStateChanged(
+      async (currentUser) => {
+        if (!active) return;
 
-        // Load teacher profile document
-        const teacherRef = doc(db, "teachers", currentUser.uid);
-        const teacherSnap = await getDoc(teacherRef);
-        const teacherInfo = teacherSnap.exists() ? teacherSnap.data() : {};
-
-        // Load consultant profile document
-        const consultantRef = doc(db, "consultants", currentUser.uid);
-        const consultantSnap = await getDoc(consultantRef);
-        const consultantInfo = consultantSnap.exists()
-          ? consultantSnap.data()
-          : {};
-
-        // Load admin profile document
-        const adminRef = doc(db, "admins", currentUser.uid);
-        const adminSnap = await getDoc(adminRef);
-        const adminInfo = adminSnap.exists()
-          ? adminSnap.data()
-          : {};
-
-        // Merge role, teacher, consultant, and admin data
-        setRoleData({
-          ...roleInfo,
-          ...teacherInfo,
-          ...consultantInfo,
-          ...adminInfo
-        });
-      } else {
+        setLoading(true);
+        setUser(currentUser);
         setRoleData(null);
+
+        try {
+          if (!currentUser) {
+            return;
+          }
+
+          const collectionNames = [
+            "roles",
+            "teachers",
+            "consultants",
+            "admins",
+          ];
+
+          const snapshots = await Promise.all(
+            collectionNames.map((collectionName) =>
+              getDoc(doc(db, collectionName, currentUser.uid))
+            )
+          );
+
+          if (!active) return;
+
+          const [roleSnap, teacherSnap, consultantSnap, adminSnap] =
+            snapshots;
+
+          setRoleData({
+            ...(roleSnap.exists() ? roleSnap.data() : {}),
+            ...(teacherSnap.exists() ? teacherSnap.data() : {}),
+            ...(consultantSnap.exists() ? consultantSnap.data() : {}),
+            ...(adminSnap.exists() ? adminSnap.data() : {}),
+          });
+        } catch (error) {
+          console.error("Failed to load user role/profile:", error);
+        } finally {
+          if (active) {
+            setLoading(false);
+          }
+        }
       }
+    );
 
-      setLoading(false);
-    });
-
-    return unsubscribe;
+    return () => {
+      active = false;
+      unsubscribe();
+    };
   }, []);
 
   return (
@@ -63,4 +73,6 @@ export function AuthProvider({ children }) {
   );
 }
 
-export const useAuth = () => useContext(AuthContext);
+export function useAuth() {
+  return useContext(AuthContext);
+}

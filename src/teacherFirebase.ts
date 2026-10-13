@@ -28,7 +28,15 @@ const teacherUserCreationApp = initializeApp(
   "teacher-dashboard-user-creation"
 );
 
+const teacherAnalyticsAdminApp = initializeApp(
+  teacherFirebaseConfig,
+  "teacher-dashboard-analytics-admin"
+);
+
 export const teacherDb = getFirestore(teacherApp);
+export const teacherAnalyticsAdminAuth = getAuth(
+  teacherAnalyticsAdminApp
+);
 export const teacherAuth = getAuth(teacherApp);
 
 const teacherUserCreationAuth = getAuth(

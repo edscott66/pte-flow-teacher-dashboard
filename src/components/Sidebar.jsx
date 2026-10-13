@@ -56,14 +56,14 @@ export default function Sidebar({ sidebarOpen, onToggle }) {
                   <span>Admin Tools</span>
                 </NavLink>
 
+                <NavLink to="/admin-teacher-analytics" className={({ isActive }) => (isActive ? "active" : "")}>
+                  <span className="sidebar-icon" style={{ color: "#0d9488", fontSize: "22px" }} >📊</span>
+                  <span>Teacher Analytics Centre</span>
+                </NavLink>
+
                 <NavLink to="/classroom" className={({ isActive }) => (isActive ? "active" : "")}>
                   <span className="sidebar-icon" style={{ color: "#06b6d4", fontSize: "22px" }}>🏫</span>
                   <span>Classroom</span>
-                </NavLink>
-
-                <NavLink to="/analytics" className={({ isActive }) => (isActive ? "active" : "")}>
-                  <span className="sidebar-icon" style={{ color: "#8b5cf6", fontSize: "22px" }}>📈</span>
-                  <span>Analytics</span>
                 </NavLink>
 
                 <NavLink to="/broadcast" className={({ isActive }) => (isActive ? "active" : "")}>

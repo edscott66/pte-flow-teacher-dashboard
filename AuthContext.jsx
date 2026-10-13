@@ -1,124 +1,139 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth } from "./firebase";
-import { teacherAuth } from "./teacherFirebase";
+import { auth, db } from "./firebase";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "./firebase";
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  // Existing Teacher Dashboard / Student App Firebase user.
-  // This remains responsible for the existing dashboard functionality.
   const [user, setUser] = useState(null);
-
-  // New Teacher Dashboard Firebase user.
-  // This is the authenticated identity used for analytics.
-  const [teacherUser, setTeacherUser] = useState(null);
-
   const [roleData, setRoleData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let active = true;
+    const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
+      console.log(
+        "AUTH CONTEXT - auth state changed:",
+        currentUser?.email || "NO USER"
+      );
+      console.log(
+        "AUTH CONTEXT - UID:",
+        currentUser?.uid || "NO UID"
+      );
 
-    let legacyAuthReady = false;
-    let teacherAuthReady = false;
+      setUser(currentUser);
 
-    const finishInitialLoading = () => {
-      if (legacyAuthReady && teacherAuthReady && active) {
-        setLoading(false);
-      }
-    };
+      if (currentUser) {
+        try {
+          // Load generic role document
+          const roleRef = doc(db, "roles", currentUser.uid);
+          const roleSnap = await getDoc(roleRef);
+          const roleInfo = roleSnap.exists()
+            ? roleSnap.data()
+            : {};
 
-    // ============================================================
-    // EXISTING FIREBASE AUTHENTICATION
-    //
-    // This remains connected to the existing Student App / BBA-Web
-    // Firebase project and continues to provide roleData and the
-    // existing dashboard permissions.
-    // ============================================================
+          console.log(
+            "AUTH CONTEXT - roles document exists:",
+            roleSnap.exists()
+          );
 
-    const unsubscribeLegacyAuth = auth.onAuthStateChanged(
-      async (currentUser) => {
-        if (!active) return;
+          // Load teacher profile
+          const teacherRef = doc(
+            db,
+            "teachers",
+            currentUser.uid
+          );
+          const teacherSnap = await getDoc(teacherRef);
+          const teacherInfo = teacherSnap.exists()
+            ? teacherSnap.data()
+            : {};
 
-        setUser(currentUser);
+          console.log(
+            "AUTH CONTEXT - teacher document exists:",
+            teacherSnap.exists()
+          );
 
-        if (currentUser) {
-          try {
-            // Load existing role document.
-            const roleRef = doc(db, "roles", currentUser.uid);
-            const roleSnap = await getDoc(roleRef);
-            const roleInfo = roleSnap.exists() ? roleSnap.data() : {};
+          // Load consultant profile
+          const consultantRef = doc(
+            db,
+            "consultants",
+            currentUser.uid
+          );
+          const consultantSnap = await getDoc(
+            consultantRef
+          );
+          const consultantInfo = consultantSnap.exists()
+            ? consultantSnap.data()
+            : {};
 
-            // Load existing teacher profile document.
-            const teacherRef = doc(db, "teachers", currentUser.uid);
-            const teacherSnap = await getDoc(teacherRef);
-            const teacherInfo = teacherSnap.exists()
-              ? teacherSnap.data()
-              : {};
+          console.log(
+            "AUTH CONTEXT - consultant document exists:",
+            consultantSnap.exists()
+          );
 
-            if (!active) return;
+          // Load admin profile
+          const adminRef = doc(
+            db,
+            "admins",
+            currentUser.uid
+          );
+          const adminSnap = await getDoc(adminRef);
+          const adminInfo = adminSnap.exists()
+            ? adminSnap.data()
+            : {};
 
-            // Preserve the existing dashboard role/profile behaviour.
-            setRoleData({
-              ...roleInfo,
-              ...teacherInfo,
-            });
-          } catch (error) {
-            console.error(
-              "Error loading existing teacher role/profile:",
-              error
-            );
+          console.log(
+            "AUTH CONTEXT - admin document exists:",
+            adminSnap.exists()
+          );
+          console.log(
+            "AUTH CONTEXT - admin data:",
+            adminInfo
+          );
 
-            if (active) {
-              setRoleData(null);
-            }
-          }
-        } else {
+          // Merge available profile data.
+          // Later collections override earlier collections
+          // when the same field exists.
+          const mergedRoleData = {
+            ...roleInfo,
+            ...teacherInfo,
+            ...consultantInfo,
+            ...adminInfo
+          };
+
+          console.log(
+            "AUTH CONTEXT - final roleData:",
+            mergedRoleData
+          );
+
+          setRoleData(mergedRoleData);
+        } catch (err) {
+          console.error(
+            "Error loading user role data:",
+            err
+          );
+
           setRoleData(null);
         }
+      } else {
+        console.log(
+          "AUTH CONTEXT - no authenticated user, clearing roleData"
+        );
 
-        legacyAuthReady = true;
-        finishInitialLoading();
+        setRoleData(null);
       }
-    );
 
-    // ============================================================
-    // NEW TEACHER DASHBOARD FIREBASE AUTHENTICATION
-    //
-    // This is deliberately separate from the existing Student App
-    // Firebase authentication.
-    //
-    // teacherUser is the identity used by the new analytics service.
-    // ============================================================
+      setLoading(false);
+    });
 
-    const unsubscribeTeacherAuth = teacherAuth.onAuthStateChanged(
-      (currentTeacher) => {
-        if (!active) return;
-
-        setTeacherUser(currentTeacher);
-
-        teacherAuthReady = true;
-        finishInitialLoading();
-      }
-    );
-
-    return () => {
-      active = false;
-
-      unsubscribeLegacyAuth();
-      unsubscribeTeacherAuth();
-    };
+    return unsubscribe;
   }, []);
 
   return (
     <AuthContext.Provider
       value={{
         user,
-        teacherUser,
         roleData,
-        loading,
+        loading
       }}
     >
       {children}

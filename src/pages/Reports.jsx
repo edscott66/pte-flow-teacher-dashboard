@@ -3,6 +3,7 @@ import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebase";
 import { useAuth } from "../AuthContext";
+import "./Reports.css";
 
 function parseJsonValue(value) {
   if (!value) return null;

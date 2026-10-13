@@ -1,6 +1,8 @@
+
 import { useState } from "react";
 import { useAuth } from "../AuthContext";
 import { auth, db } from "../firebase";
+import { teacherAuth } from "../teacherFirebase";
 import {
   updateProfile,
   updatePassword,
@@ -38,7 +40,8 @@ export default function Profile() {
     setMessage("");
 
     try {
-      // Update Firebase Auth
+      // Update Firebase Auth profile.
+      // This existing profile-saving behaviour is unchanged.
       await updateProfile(auth.currentUser, {
         displayName: name,
         photoURL: photoUrl
@@ -64,16 +67,23 @@ export default function Profile() {
     setMessage("");
 
     try {
-      // Re-authenticate user
+      // Use the same Firebase Authentication instance as Dashboard login.
+      const currentUser = teacherAuth.currentUser;
+
+      if (!currentUser) {
+        throw new Error("No authenticated Dashboard user was found.");
+      }
+
+      // Re-authenticate the user with Teacher Dashboard Authentication.
       const credential = EmailAuthProvider.credential(
-        user.email,
+        currentUser.email,
         currentPassword
       );
 
-      await reauthenticateWithCredential(auth.currentUser, credential);
+      await reauthenticateWithCredential(currentUser, credential);
 
-      // Update password
-      await updatePassword(auth.currentUser, newPassword);
+      // Update the password for the authenticated Dashboard account.
+      await updatePassword(currentUser, newPassword);
 
       setMessage("Password updated successfully.");
       setNewPassword("");
@@ -133,6 +143,7 @@ export default function Profile() {
           value={currentPassword}
           disabled={saving}
           onChange={(e) => setCurrentPassword(e.target.value)}
+          required
         />
 
         <label>New Password</label>
@@ -141,6 +152,8 @@ export default function Profile() {
           value={newPassword}
           disabled={saving}
           onChange={(e) => setNewPassword(e.target.value)}
+          minLength={6}
+          required
         />
 
         <button type="submit" className="btn-warning" disabled={saving}>

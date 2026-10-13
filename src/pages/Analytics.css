@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    Teacher Analytics
    ========================================================= */
 
@@ -1657,10 +1657,11 @@
 
 .analytics-performance-development-section {
   overflow: hidden;
+  margin-bottom: 24px;
 }
 
 /* ---------------------------------------------------------
-   Teacher Performance — Simple Analytics Guide
+   Teacher Performance â€” Simple Analytics Guide
    --------------------------------------------------------- */
 
 .analytics-performance-guide { margin: 0 0 24px; padding: 22px 24px 20px; border: 1px solid rgba(124, 58, 237, 0.14); border-radius: 18px; background: linear-gradient(135deg, #faf8ff 0%, #f4f8ff 100%); box-shadow: 0 6px 20px rgba(15, 23, 42, 0.045); }
@@ -1961,7 +1962,7 @@
 }
 
 /* ---------------------------------------------------------
-   Teacher Performance — Calibration Components
+   Teacher Performance â€” Calibration Components
    --------------------------------------------------------- */
 
 .analytics-performance-components-section {
@@ -2128,7 +2129,7 @@
 }
 
 /* ---------------------------------------------------------
-   Teacher Performance — Calibration Component Development
+   Teacher Performance â€” Calibration Component Development
    --------------------------------------------------------- */
 
 .analytics-performance-component-development-section {
@@ -2332,7 +2333,7 @@
 }
 
 /* ---------------------------------------------------------
-   Teacher Performance — CEFR Development
+   Teacher Performance â€” CEFR Development
    --------------------------------------------------------- */
 
 .analytics-performance-cefr-section {
@@ -2516,7 +2517,7 @@
 }
 
 /* ---------------------------------------------------------
-   Teacher Performance — Diagnostic Skill Development
+   Teacher Performance â€” Diagnostic Skill Development
    --------------------------------------------------------- */
 
 .analytics-performance-diagnostic-section {
@@ -2725,7 +2726,7 @@
 }
 
 /* ---------------------------------------------------------
-   Teacher Performance — Calibration Progression by Exercise
+   Teacher Performance â€” Calibration Progression by Exercise
    --------------------------------------------------------- */
 
 .analytics-performance-exercise-section {
@@ -2960,7 +2961,7 @@
 }
 
 /* ---------------------------------------------------------
-   Teacher Performance — Calibration Consistency
+   Teacher Performance â€” Calibration Consistency
    --------------------------------------------------------- */
 
 .analytics-performance-consistency-section {
@@ -3306,7 +3307,7 @@
   }
 }
 /* ---------------------------------------------------------
-   Teacher Calibration Bench — Simple Guide
+   Teacher Calibration Bench â€” Simple Guide
    --------------------------------------------------------- */
 
 .analytics-calibration-guide {
@@ -3456,7 +3457,7 @@
 }
 
 /* ---------------------------------------------------------
-   Teacher Performance — Calibration Development Profile
+   Teacher Performance â€” Calibration Development Profile
    --------------------------------------------------------- */
 
 .analytics-performance-profile-section {
@@ -3548,7 +3549,7 @@
 }
 
 /* ---------------------------------------------------------
-   Teacher Performance — Calibration Evidence Coverage
+   Teacher Performance â€” Calibration Evidence Coverage
    --------------------------------------------------------- */
 
 .analytics-performance-evidence-section {
@@ -3928,4 +3929,720 @@
   .analytics-performance-evidence-note {
     margin: 0 18px 20px;
   }
+}
+
+
+/* =========================================
+   Admin Analytics â€” dashboard-matched styling
+   ========================================= */
+
+.admin-analytics-panel {
+  position: relative;
+  overflow: hidden;
+  margin: 24px 0;
+  padding: 28px;
+  border: 1px solid #e2eaf5;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 10px 30px rgba(30, 64, 175, 0.08);
+  color: #172554;
+}
+
+.admin-analytics-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: linear-gradient(90deg, #2563eb, #60a5fa, #38bdf8);
+}
+
+.admin-analytics-panel > h3 {
+  margin: 0 0 22px;
+  color: #172554;
+  font-size: 25px;
+  font-weight: 850;
+  letter-spacing: -0.5px;
+}
+
+.admin-analytics-panel h4 {
+  margin: 28px 0 14px;
+  color: #1e3a8a;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.admin-analytics-panel p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.admin-analytics-panel label {
+  display: block;
+  margin: 14px 0 7px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.admin-analytics-panel input,
+.admin-analytics-panel select {
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: 10px 13px;
+  border: 1px solid #cbdaf0;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #172554;
+  font: inherit;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.admin-analytics-panel input {
+  width: 100%;
+  max-width: 420px;
+  display: block;
+}
+
+.admin-analytics-panel select {
+  width: 100%;
+  max-width: 560px;
+  cursor: pointer;
+}
+
+.admin-analytics-panel input:focus,
+.admin-analytics-panel select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.admin-analytics-panel button {
+  min-height: 40px;
+  padding: 10px 16px;
+  border: 1px solid #2563eb;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #ffffff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 750;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.16);
+  transition: background 160ms ease, transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.admin-analytics-panel button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #1d4ed8;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.22);
+}
+
+.admin-analytics-panel button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.admin-analytics-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.admin-analytics-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 15px 18px;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  background: #eff6ff;
+}
+
+.admin-analytics-toolbar p {
+  margin: 0;
+  color: #1d4ed8;
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.admin-analytics-toolbar button {
+  background: #ffffff;
+  color: #1d4ed8;
+  box-shadow: none;
+}
+
+.admin-analytics-toolbar button:hover:not(:disabled) {
+  background: #dbeafe;
+}
+
+.admin-analytics-teacher-picker {
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.admin-analytics-teacher-picker label {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.admin-analytics-report {
+  min-width: 0;
+}
+
+.admin-analytics-report-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 22px;
+  padding: 22px;
+  border: 1px solid #bfdbfe;
+  border-radius: 16px;
+  background: linear-gradient(120deg, #eff6ff 0%, #ffffff 80%);
+}
+
+.admin-analytics-report-header h4 {
+  margin: 0 0 7px;
+  color: #1e40af;
+  font-size: 21px;
+}
+
+.admin-analytics-report-header p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.admin-analytics-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0 30px;
+}
+
+.admin-analytics-summary > div {
+  position: relative;
+  display: flex;
+  min-height: 120px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 9px;
+  overflow: hidden;
+  padding: 22px;
+  border: 1px solid #dbeafe;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #ffffff 0%, #eff6ff 100%);
+  box-shadow: 0 5px 16px rgba(30, 64, 175, 0.06);
+}
+
+.admin-analytics-summary > div::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: #3b82f6;
+}
+
+.admin-analytics-summary > div:nth-child(2) {
+  border-color: #c7d2fe;
+  background: linear-gradient(145deg, #ffffff 0%, #eef2ff 100%);
+}
+
+.admin-analytics-summary > div:nth-child(2)::before {
+  background: #6366f1;
+}
+
+.admin-analytics-summary > div:nth-child(3) {
+  border-color: #a7f3d0;
+  background: linear-gradient(145deg, #ffffff 0%, #ecfdf5 100%);
+}
+
+.admin-analytics-summary > div:nth-child(3)::before {
+  background: #10b981;
+}
+
+.admin-analytics-summary strong {
+  color: #1d4ed8;
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.admin-analytics-summary > div:nth-child(2) strong {
+  color: #4f46e5;
+}
+
+.admin-analytics-summary > div:nth-child(3) strong {
+  color: #047857;
+}
+
+.admin-analytics-summary span {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.5;
+}
+
+
+.admin-analytics-table {
+  width: 100%;
+  min-width: 1180px;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  color: #334155;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.admin-analytics-table th,
+.admin-analytics-table td {
+  box-sizing: border-box;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.admin-analytics-table th:first-child,
+.admin-analytics-table td:first-child {
+  width: 90px;
+}
+
+.admin-analytics-table th:nth-child(2),
+.admin-analytics-table td:nth-child(2) {
+  width: 125px;
+}
+
+
+.admin-analytics-table th:nth-child(3),
+.admin-analytics-table td:nth-child(3) {
+  width: 90px;
+}
+
+.admin-analytics-table th:nth-child(4),
+.admin-analytics-table td:nth-child(4) {
+  width: 48px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.admin-analytics-table th:nth-child(5),
+.admin-analytics-table td:nth-child(5) {
+  width: 58px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.admin-analytics-table th:nth-child(6),
+.admin-analytics-table td:nth-child(6) {
+  width: 125px;
+}
+
+
+.admin-analytics-table th:last-child,
+.admin-analytics-table td:last-child {
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+
+.admin-analytics-table-wrapper {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 0 0 26px;
+  border: 1px solid #dbe5f2;
+  border-radius: 13px;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+  -webkit-overflow-scrolling: touch;
+}
+
+
+.admin-analytics-report {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.admin-analytics-table {
+  width: 100%;
+  min-width: 1050px;
+  table-layout: fixed;
+}
+
+.admin-analytics-table td:last-child {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+
+.admin-analytics-table td:last-child {
+  line-height: 1.65;
+}
+
+
+.admin-analytics-panel [role="alert"] {
+  margin: 12px 0 0;
+  padding: 12px 14px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 13px;
+}
+
+
+/* Admin sign-in form spacing */
+.admin-analytics-panel form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.admin-analytics-panel form label {
+  margin: 4px 0 0;
+}
+
+.admin-analytics-panel form input {
+  margin-bottom: 4px;
+}
+
+.admin-analytics-panel form button {
+  margin-top: 8px;
+}
+
+
+/* Responsive layout */
+@media (max-width: 760px) {
+  .admin-analytics-panel {
+    margin: 16px 0;
+    padding: 22px 16px;
+    border-radius: 15px;
+  }
+
+  .admin-analytics-panel > h3 {
+    font-size: 22px;
+  }
+
+  .admin-analytics-summary {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .admin-analytics-summary > div {
+    min-height: 94px;
+    padding: 18px 20px;
+  }
+
+  .admin-analytics-report-header {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 18px;
+  }
+
+  .admin-analytics-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-analytics-teacher-picker {
+    padding: 16px;
+  }
+}
+
+/* Print only the selected teacher's report */
+
+
+@media print {
+  @page {
+    size: landscape;
+    margin: 10mm;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Remove the dashboard shell from print layout */
+ 
+.header,
+.sidebar-wrapper,
+.sidebar,
+.app-header,
+.analytics-header,
+.admin-analytics-toolbar,
+.admin-analytics-teacher-picker,
+.admin-analytics-panel > h3 {
+  display: none !important;
+}
+
+  .app-content,
+  .app-content.shifted,
+  .page-content,
+  .analytics-page {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    transform: none !important;
+  }
+
+  /* Hide the page for printing, then reveal only the selected teacher's report */
+  body * {
+    visibility: hidden !important;
+  }
+
+  .admin-analytics-report,
+  .admin-analytics-report * {
+    visibility: visible !important;
+  }
+
+  .admin-analytics-report {
+    display: block !important;
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    transform: none !important;
+    color: #111827 !important;
+  }
+
+  .admin-analytics-report-header {
+    display: flex !important;
+    margin: 0 0 12px !important;
+    padding: 12px !important;
+    border: 1px solid #bfdbfe !important;
+    background: #eff6ff !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  .admin-analytics-report-header button {
+    display: none !important;
+  }
+
+  .admin-analytics-summary {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    margin: 12px 0 18px !important;
+    break-inside: avoid;
+  }
+
+  .admin-analytics-summary > div {
+    min-height: 60px !important;
+    padding: 10px !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+
+  .admin-analytics-summary strong {
+    font-size: 20px !important;
+  }
+
+  .admin-analytics-report h4 {
+    margin: 14px 0 8px !important;
+    break-after: avoid;
+  }
+
+  .admin-analytics-table-wrapper {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    margin: 0 0 14px !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    break-inside: auto !important;
+  }
+
+  .admin-analytics-table {
+    display: table !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    font-size: 8px !important;
+    line-height: 1.35 !important;
+  }
+
+  .admin-analytics-table th,
+  .admin-analytics-table td {
+    box-sizing: border-box !important;
+    padding: 5px 6px !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+    vertical-align: top !important;
+  }
+
+  .admin-analytics-table th {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+  }
+
+  .admin-analytics-table th:first-child,
+  .admin-analytics-table td:first-child {
+    width: 10% !important;
+  }
+
+  .admin-analytics-table th:nth-child(2),
+  .admin-analytics-table td:nth-child(2) {
+    width: 16% !important;
+  }
+
+  .admin-analytics-table th:nth-child(3),
+  .admin-analytics-table td:nth-child(3) {
+    width: 10% !important;
+  }
+
+  .admin-analytics-table th:nth-child(4),
+  .admin-analytics-table td:nth-child(4) {
+    width: 6% !important;
+  }
+
+  .admin-analytics-table th:nth-child(5),
+  .admin-analytics-table td:nth-child(5) {
+    width: 7% !important;
+  }
+
+  .admin-analytics-table th:nth-child(6),
+  .admin-analytics-table td:nth-child(6) {
+    width: 13% !important;
+  }
+
+  .admin-analytics-table th:last-child,
+  .admin-analytics-table td:last-child {
+    width: 38% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+  }
+
+  .admin-analytics-table thead {
+    display: table-header-group;
+  }
+
+  .admin-analytics-table tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+
+/* Centre the first three Calibration Lab report columns */
+.admin-analytics-table:not(.admin-live-evaluation-history-table)
+  th:nth-child(-n+3),
+.admin-analytics-table:not(.admin-live-evaluation-history-table)
+  td:nth-child(-n+3) {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Centre the first five columns; left-align Feedback */
+.admin-live-evaluation-history-table th,
+.admin-live-evaluation-history-table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.admin-live-evaluation-history-table th:last-child,
+.admin-live-evaluation-history-table td:last-child {
+  text-align: left !important;
+}
+
+/* Keep Feedback text left-aligned even in print */
+@media print {
+  .admin-live-evaluation-history-table th:last-child,
+  .admin-live-evaluation-history-table td:last-child {
+    text-align: left !important;
+  }
+}
+
+/* Spacing for the Admin Analytics return button */
+.admin-analytics-return {
+  margin-bottom: 12px;
+}
+
+ @media print {
+  /* Existing print rules remain above */
+
+  /* Centre the report title and subtitle */
+  .admin-analytics-report-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .admin-analytics-report-header > div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .admin-analytics-report-header h4,
+  .admin-analytics-report-header p {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* Align Live Evaluation history text to the left in the report */
+.admin-live-evaluation-history-table th,
+.admin-live-evaluation-history-table td {
+  text-align: left !important;
+}
+
 }

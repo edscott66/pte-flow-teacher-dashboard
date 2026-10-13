@@ -4,6 +4,7 @@ import {
   addDoc,
   collection,
   doc,
+  getDoc,
   getDocs,
   query,
   serverTimestamp,
@@ -11,7 +12,11 @@ import {
   where,
 } from "firebase/firestore";
 
-import { teacherAuth, teacherDb } from "../teacherFirebase";
+import {
+  teacherAnalyticsAdminAuth,
+  teacherAuth,
+  teacherDb,
+} from "../teacherFirebase";
 
 export interface TeacherProfileData {
   displayName?: string;
@@ -104,6 +109,53 @@ export function getCurrentTeacher() {
   return teacherAuth.currentUser;
 }
 
+export async function getCurrentTeacherProfile(): Promise<
+  TeacherProfileRecord | null
+> {
+  const teacher = getCurrentTeacher();
+
+  if (!teacher) {
+    return null;
+  }
+
+  const teacherRef = doc(teacherDb, "teachers", teacher.uid);
+  const teacherSnap = await getDoc(teacherRef);
+
+  if (!teacherSnap.exists()) {
+    return null;
+  }
+
+  const data = teacherSnap.data();
+
+  const storedDisplayName =
+    typeof data.displayName === "string"
+      ? data.displayName.trim()
+      : "";
+
+  const storedName =
+    typeof data.name === "string"
+      ? data.name.trim()
+      : "";
+
+  return {
+    teacherId: teacher.uid,
+    displayName:
+      storedDisplayName ||
+      storedName ||
+      teacher.displayName ||
+      teacher.email?.split("@")[0] ||
+      "Teacher",
+    email:
+      typeof data.email === "string"
+        ? data.email
+        : teacher.email ?? "",
+    photoURL:
+      typeof data.photoURL === "string"
+        ? data.photoURL
+        : null,
+  };
+}
+
 export async function ensureTeacherProfile(
   profileData: TeacherProfileData = {}
 ): Promise<void> {
@@ -130,6 +182,45 @@ export async function ensureTeacherProfile(
   };
 
   await setDoc(teacherRef, profile, { merge: true });
+}
+
+export interface TeacherProfileRecord {
+  teacherId: string;
+  displayName: string;
+  email: string;
+  photoURL?: string | null;
+}
+
+export async function getTeacherProfiles(): Promise<
+  TeacherProfileRecord[]
+> {
+  
+    requireAnalyticsAdmin();
+
+  const teachersRef = collection(teacherDb, "teachers");
+  const snapshot = await getDocs(teachersRef);
+
+  return snapshot.docs.map((teacherDoc) => {
+    const data = teacherDoc.data();
+
+    return {
+      teacherId: teacherDoc.id,
+      displayName:
+        typeof data.displayName === "string"
+          ? data.displayName
+          : typeof data.name === "string"
+            ? data.name
+            : "Teacher",
+      email:
+        typeof data.email === "string"
+          ? data.email
+          : "",
+      photoURL:
+        typeof data.photoURL === "string"
+          ? data.photoURL
+          : null,
+    };
+  });
 }
 
 export async function saveCalibrationAttempt(
@@ -551,6 +642,247 @@ export async function getTeacherLiveEvaluationCalibrationAttempts(): Promise<
           data.timestamp ?? ""
         ),
 
+        createdAt: data.createdAt,
+      };
+    });
+
+  attempts.sort((a, b) => {
+    const aTime =
+      a.createdAt &&
+      typeof a.createdAt === "object" &&
+      "toMillis" in a.createdAt &&
+      typeof a.createdAt.toMillis === "function"
+        ? a.createdAt.toMillis()
+        : 0;
+
+    const bTime =
+      b.createdAt &&
+      typeof b.createdAt === "object" &&
+      "toMillis" in b.createdAt &&
+      typeof b.createdAt.toMillis === "function"
+        ? b.createdAt.toMillis()
+        : 0;
+
+    return bTime - aTime;
+  });
+
+  return attempts;
+}
+
+
+const ADMIN_ANALYTICS_UID =
+  "qBmXU22ln4UoVDqiiDa455miIIT2";
+
+function requireAnalyticsAdmin(): void {
+  if (
+    teacherAnalyticsAdminAuth.currentUser?.uid !==
+    ADMIN_ANALYTICS_UID
+  ) {
+    throw new Error(
+      "Only the authorised Admin Analytics account can load all teachers' records."
+    );
+  }
+}
+
+
+export async function getAdminCalibrationAttempts(
+  teacherId: string
+): Promise<CalibrationAttemptRecord[]> {
+  requireAnalyticsAdmin();
+
+  if (!teacherId.trim()) {
+    throw new Error("Select a teacher first.");
+  }
+
+  const attemptsQuery = query(
+    collection(teacherDb, "calibrationAttempts"),
+    where("teacherId", "==", teacherId)
+  );
+
+  const snapshot = await getDocs(attemptsQuery);
+
+  const attempts: CalibrationAttemptRecord[] =
+    snapshot.docs.map((attemptDoc) => {
+      const data = attemptDoc.data();
+      const exerciseIndex = Number(data.exerciseIndex ?? 0);
+
+      return {
+        id: attemptDoc.id,
+        teacherId: String(data.teacherId ?? ""),
+        questionId: String(data.questionId ?? ""),
+        questionTitle: String(data.questionTitle ?? ""),
+        section: String(data.section ?? ""),
+        exerciseIndex,
+        topicTitle: String(data.topicTitle ?? ""),
+        cefrLevel: normalizeCefrLevel(
+          data.cefrLevel,
+          exerciseIndex
+        ),
+        responseMode: String(data.responseMode ?? ""),
+        teacherInput: String(data.teacherInput ?? ""),
+        matchPercentage:
+          typeof data.matchPercentage === "number"
+            ? data.matchPercentage
+            : null,
+        tier: String(data.tier ?? ""),
+        feedbackSummary: data.feedbackSummary
+          ? String(data.feedbackSummary)
+          : undefined,
+        matchedKeywords: Array.isArray(data.matchedKeywords)
+          ? data.matchedKeywords.map(String)
+          : undefined,
+        missingKeywords: Array.isArray(data.missingKeywords)
+          ? data.missingKeywords.map(String)
+          : undefined,
+        coachingAdviceForTeacher:
+          data.coachingAdviceForTeacher
+            ? String(data.coachingAdviceForTeacher)
+            : undefined,
+        studentFacingScript: data.studentFacingScript
+          ? String(data.studentFacingScript)
+          : undefined,
+        checkedErrorIds: Array.isArray(data.checkedErrorIds)
+          ? data.checkedErrorIds.map(String)
+          : undefined,
+        expertOverallScore: data.expertOverallScore
+          ? String(data.expertOverallScore)
+          : undefined,
+        expertFeedbackText: data.expertFeedbackText
+          ? String(data.expertFeedbackText)
+          : undefined,
+        expertAdvice: data.expertAdvice
+          ? String(data.expertAdvice)
+          : undefined,
+        isLiveAi: Boolean(data.isLiveAi),
+        timestamp: String(data.timestamp ?? ""),
+        createdAt: data.createdAt,
+      };
+    });
+
+  attempts.sort((a, b) => {
+    const aTime =
+      a.createdAt &&
+      typeof a.createdAt === "object" &&
+      "toMillis" in a.createdAt &&
+      typeof a.createdAt.toMillis === "function"
+        ? a.createdAt.toMillis()
+        : 0;
+
+    const bTime =
+      b.createdAt &&
+      typeof b.createdAt === "object" &&
+      "toMillis" in b.createdAt &&
+      typeof b.createdAt.toMillis === "function"
+        ? b.createdAt.toMillis()
+        : 0;
+
+    return bTime - aTime;
+  });
+
+  return attempts;
+}
+
+
+export async function getAdminLiveEvaluationCalibrationAttempts(
+  teacherId: string
+): Promise<LiveEvaluationCalibrationAttemptRecord[]> {
+  requireAnalyticsAdmin();
+
+  if (!teacherId.trim()) {
+    throw new Error("Select a teacher first.");
+  }
+
+  const attemptsQuery = query(
+    collection(teacherDb, "liveEvaluationCalibrationAttempts"),
+    where("teacherId", "==", teacherId)
+  );
+
+  const snapshot = await getDocs(attemptsQuery);
+
+  const attempts: LiveEvaluationCalibrationAttemptRecord[] =
+    snapshot.docs.map((attemptDoc) => {
+      const data = attemptDoc.data();
+
+      const teacherScores =
+        data.teacherScores &&
+        typeof data.teacherScores === "object" &&
+        !Array.isArray(data.teacherScores)
+          ? Object.fromEntries(
+              Object.entries(data.teacherScores).map(
+                ([key, value]) => [
+                  key,
+                  typeof value === "number"
+                    ? value
+                    : Number(value) || 0,
+                ]
+              )
+            )
+          : {};
+
+      const scoreBreakdownData =
+        data.scoreBreakdown &&
+        typeof data.scoreBreakdown === "object" &&
+        !Array.isArray(data.scoreBreakdown)
+          ? data.scoreBreakdown
+          : {};
+
+      const scoreBreakdown = {
+        assessmentAccuracy:
+          typeof scoreBreakdownData.assessmentAccuracy === "number"
+            ? scoreBreakdownData.assessmentAccuracy
+            : Number(scoreBreakdownData.assessmentAccuracy) || 0,
+
+        evidenceAndObservation:
+          typeof scoreBreakdownData.evidenceAndObservation === "number"
+            ? scoreBreakdownData.evidenceAndObservation
+            : Number(scoreBreakdownData.evidenceAndObservation) || 0,
+
+        writtenFeedbackAccuracy:
+          typeof scoreBreakdownData.writtenFeedbackAccuracy === "number"
+            ? scoreBreakdownData.writtenFeedbackAccuracy
+            : Number(scoreBreakdownData.writtenFeedbackAccuracy) || 0,
+
+        calibrationDiscipline:
+          typeof scoreBreakdownData.calibrationDiscipline === "number"
+            ? scoreBreakdownData.calibrationDiscipline
+            : Number(scoreBreakdownData.calibrationDiscipline) || 0,
+      };
+
+      return {
+        id: attemptDoc.id,
+        teacherId: String(data.teacherId ?? ""),
+        questionId: String(data.questionId ?? ""),
+        questionTitle: String(data.questionTitle ?? ""),
+        section:
+          data.section !== undefined
+            ? String(data.section)
+            : undefined,
+        exerciseIndex: Number(data.exerciseIndex ?? 0),
+        topicTitle:
+          data.topicTitle !== undefined
+            ? String(data.topicTitle)
+            : undefined,
+        trainingSkill:
+          data.trainingSkill !== undefined
+            ? String(data.trainingSkill)
+            : undefined,
+        cefrLevel:
+          data.cefrLevel !== undefined
+            ? String(data.cefrLevel)
+            : undefined,
+        responseMode: "live-evaluation",
+        teacherScores,
+        teacherFeedback: String(data.teacherFeedback ?? ""),
+        studentTranscript: String(data.studentTranscript ?? ""),
+        aiEvaluation: data.aiEvaluation ?? null,
+        teacherReview: data.teacherReview ?? null,
+        calibrationScore:
+          typeof data.calibrationScore === "number"
+            ? data.calibrationScore
+            : Number(data.calibrationScore) || 0,
+        scoreBreakdown,
+        scoreExplanation: String(data.scoreExplanation ?? ""),
+        timestamp: String(data.timestamp ?? ""),
         createdAt: data.createdAt,
       };
     });

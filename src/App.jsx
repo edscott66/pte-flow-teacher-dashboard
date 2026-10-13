@@ -24,11 +24,14 @@ import "./styles/global.css";
 import "./masterTeacher/masterTeacher.css";
 
 import Analytics from "./pages/Analytics";
+import AdminTeacherAnalyticsCentre from "./pages/AdminTeacherAnalyticsCentre";
 import Broadcast from "./pages/Broadcast";
 import Reports from "./pages/Reports";
 
 import MasterTeacherLayout from "./masterTeacher/MasterTeacherLayout";
 import { FeedbackProvider } from "./masterTeacher/contexts/FeedbackContext";
+
+const ADMIN_ANALYTICS_UID = "qBmXU22ln4UoVDqiiDa455miIIT2";
 
 export default function App() {
   const { user, loading } = useAuth();
@@ -82,7 +85,15 @@ export default function App() {
             {/* ============================================================
                 EXISTING TEACHER DASHBOARD ROUTES
                 ============================================================ */}
-            <Route path="/" element={<Overview />} />
+            <Route
+              path="/login"
+              element={
+                <Navigate
+                  to={user.uid === ADMIN_ANALYTICS_UID ? "/students" : "/"}
+                  replace
+                />
+              }
+            />
 
             <Route path="/classroom" element={<Classroom />} />
 
@@ -103,6 +114,8 @@ export default function App() {
             <Route path="/admin-tools" element={<AdminTools />} />
 
             <Route path="/profile" element={<Profile />} />
+
+            <Route path="/admin-teacher-analytics" element={<AdminTeacherAnalyticsCentre />}  />
 
             <Route path="/analytics" element={<Analytics />} />
 
