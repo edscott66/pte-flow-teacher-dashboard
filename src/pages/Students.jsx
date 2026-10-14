@@ -7,7 +7,6 @@ import DashboardCard from "../components/DashboardCard";
 import StudentsTable from "../components/StudentsTable";
 import AddStudentForm from "../components/Teacher/AddStudentForm";
 import QRCode from "react-qr-code";
-import AttendanceChart from "../components/AttendanceChart";
 import "./Students.css";
 
 import {
@@ -298,14 +297,6 @@ export default function Students() {
         onView={(id) => navigate(`/students/${id}`)}
       />
 
-      {/* ===== ATTENDANCE CHART ===== */}
-      <div className="attendance-section">
-        <div className="attendance-section-header">
-          <h3>📋 Attendance Dashboard</h3>
-          <p>Track student attendance based on network connection</p>
-        </div>
-        <AttendanceChart students={students} />
-      </div>
 
     </div>
   );

@@ -57,7 +57,7 @@ export default function Sidebar({ sidebarOpen, onToggle }) {
                 </NavLink>
 
                 <NavLink to="/admin-teacher-analytics" className={({ isActive }) => (isActive ? "active" : "")}>
-                  <span className="sidebar-icon" style={{ color: "#0d9488", fontSize: "22px" }} >📊</span>
+                  <span className="sidebar-icon" style={{ color: "#0d9488", fontSize: "22px" }}>📊</span>
                   <span>Teacher Analytics Centre</span>
                 </NavLink>
 
@@ -83,7 +83,7 @@ export default function Sidebar({ sidebarOpen, onToggle }) {
               </>
             )}
 
-            {role === "consultant" && (
+            {(role === "consultant" || role === "admin") && (
               <NavLink to="/reports" className={({ isActive }) => (isActive ? "active" : "")}>
                 <span className="sidebar-icon" style={{ color: "#f97316", fontSize: "22px" }}>📋</span>
                 <span>Reports</span>

@@ -226,15 +226,30 @@ function StudentReport({ student, studentAppData, onBack }) {
           />
         </div>
 
+        <h1 className="report-print-title">
+          Big Ben Student Report
+        </h1>
+
         <div className="report-print-details">
           <div>
-            <span>Name</span>
-            <strong>{student.name || "Unnamed Student"}</strong>
+            <span>Report Date</span>
+            <strong>
+              {new Date().toLocaleDateString("en-GB", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric"
+              })}
+            </strong>
           </div>
 
           <div>
             <span>Class</span>
             <strong>{valueOrNA(student.className)}</strong>
+          </div>
+
+          <div>
+            <span>Student</span>
+            <strong>{student.name || "Unnamed Student"}</strong>
           </div>
 
           <div>
@@ -250,7 +265,34 @@ function StudentReport({ student, studentAppData, onBack }) {
         }
 
         @media print {
-          body {
+          @page {
+            size: auto;
+            margin: 12mm;
+          }
+
+          html,
+          body,
+          #root {
+            width: 100% !important;
+            height: auto !important;
+            min-height: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: visible !important;
+            background: #ffffff !important;
+            color: #111827 !important;
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+          }
+
+          .app-container {
+            display: block !important;
+            position: static !important;
+            width: 100% !important;
+            min-height: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: visible !important;
             background: #ffffff !important;
           }
 
@@ -260,45 +302,70 @@ function StudentReport({ student, studentAppData, onBack }) {
           }
 
           .app-content,
-          .app-content.shifted {
-            margin-left: 0 !important;
+          .app-content.shifted,
+          .app-content.collapsed,
+          .page-content {
+            display: block !important;
+            position: static !important;
             width: 100% !important;
+            max-width: none !important;
+            min-width: 0 !important;
+            height: auto !important;
+            min-height: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: visible !important;
+            transform: none !important;
+            background: #ffffff !important;
+            color: #111827 !important;
           }
 
           .report-actions {
             display: none !important;
           }
 
+          .report-print-header,
+          .report-print-header * {
+            visibility: visible !important;
+          }
+
           .report-print-header {
             display: block !important;
             width: 100% !important;
-            margin: -10px 0 24px !important;
+            margin: 0 0 24px !important;
             padding: 0 0 5px !important;
             border-bottom: 2px solid #dbe4ef !important;
             box-sizing: border-box !important;
             overflow: visible !important;
-            position: relative !important;
-            z-index: 9999 !important;
-            top: 0 !important;
+            position: static !important;
           }
 
           .report-print-logo {
             display: flex !important;
             justify-content: center !important;
             align-items: center !important;
-            margin-bottom: 16px !important;
+            margin-bottom: 12px !important;
+          }
+
+          .report-print-title {
+            margin: 0 0 20px !important;
+            color: #1d4ed8 !important;
+            font-size: 26px !important;
+            font-weight: 800 !important;
+            line-height: 1.25 !important;
+            text-align: center !important;
           }
 
           .report-print-logo img {
-            width: 215px !important;
-            height: 215px !important;
+            width: 120px !important;
+            height: 120px !important;
             object-fit: contain !important;
           }
 
           .report-print-details {
             display: grid !important;
-            grid-template-columns: repeat(3, 1fr) !important;
-            gap: 24px !important;
+            grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+            gap: 18px !important;
             text-align: center !important;
           }
 
@@ -321,16 +388,21 @@ function StudentReport({ student, studentAppData, onBack }) {
             font-size: 16px !important;
           }
 
-          .page-content {
-            max-width: none !important;
+          .page-content > section {
+            display: block !important;
+            visibility: visible !important;
             width: 100% !important;
-            padding: 0 !important;
-            margin: 0 !important;
+            max-width: none !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            box-sizing: border-box !important;
+            break-inside: auto;
+            page-break-inside: auto;
+            box-shadow: none !important;
           }
 
-          section {
-            break-inside: avoid;
-            box-shadow: none !important;
+          .page-content > section * {
+            visibility: visible !important;
           }
         }
       `}</style>
@@ -822,69 +894,71 @@ function StudentReport({ student, studentAppData, onBack }) {
         </div>
       </Section>
 
-      <Section
-        title="Attendance"
-        accent="#64748b"
-      >
-        <div
-          style={{
-            border: "1px solid #dbe4ef",
-            borderRadius: "8px",
-            overflow: "hidden",
-            background: "#ffffff"
-          }}
+      {false && (
+        <Section
+          title="Attendance"
+          accent="#64748b"
         >
-          <table
+          <div
             style={{
-              width: "100%",
-              borderCollapse: "collapse"
+              border: "1px solid #dbe4ef",
+              borderRadius: "8px",
+              overflow: "hidden",
+              background: "#ffffff"
             }}
           >
-            <thead>
-              <tr
-                style={{
-                  background: "#f8fafc"
-                }}
-              >
-                <th
+            <table
+              style={{
+                width: "100%",
+                borderCollapse: "collapse"
+              }}
+            >
+              <thead>
+                <tr
                   style={{
-                    padding: "12px",
-                    textAlign: "left",
-                    borderBottom:
-                      "1px solid #dbe4ef"
+                    background: "#f8fafc"
                   }}
                 >
-                  Date
-                </th>
+                  <th
+                    style={{
+                      padding: "12px",
+                      textAlign: "left",
+                      borderBottom:
+                        "1px solid #dbe4ef"
+                    }}
+                  >
+                    Date
+                  </th>
 
-                <th
-                  style={{
-                    padding: "12px",
-                    textAlign: "left",
-                    borderBottom:
-                      "1px solid #dbe4ef"
-                  }}
-                >
-                  Attendance
-                </th>
-              </tr>
-            </thead>
+                  <th
+                    style={{
+                      padding: "12px",
+                      textAlign: "left",
+                      borderBottom:
+                        "1px solid #dbe4ef"
+                    }}
+                  >
+                    Attendance
+                  </th>
+                </tr>
+              </thead>
 
-            <tbody />
-          </table>
-        </div>
+              <tbody />
+            </table>
+          </div>
 
-        <p
-          style={{
-            marginBottom: 0,
-            marginTop: "12px",
-            color: "#64748b"
-          }}
-        >
-          Attendance data is temporarily
-          unavailable and has been left blank.
-        </p>
-      </Section>
+          <p
+            style={{
+              marginBottom: 0,
+              marginTop: "12px",
+              color: "#64748b"
+            }}
+          >
+            Attendance data is temporarily
+            unavailable and has been left blank.
+          </p>
+        </Section>
+      )}
     </div>
   );
 }
@@ -902,8 +976,10 @@ export default function Reports() {
   const [error, setError] = useState("");
 
   const role = roleData?.role;
-  const consultantList =
-    roleData?.assignedStudents || [];
+  const consultantList = useMemo(
+    () => roleData?.assignedStudents || [],
+    [roleData?.assignedStudents]
+  );
 
   useEffect(() => {
     async function loadStudents() {
@@ -1127,6 +1203,31 @@ export default function Reports() {
 
   return (
     <div className="page-content">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-start",
+          marginBottom: "20px"
+        }}
+      >
+        <button
+          type="button"
+          onClick={() =>
+            navigate("/students")
+          }
+          style={{
+            border: "none",
+            background: "#f3f4f6",
+            padding: "10px 16px",
+            borderRadius: "8px",
+            cursor: "pointer",
+            fontSize: "15px",
+            fontWeight: 600
+          }}
+        >
+          ← Back to Students
+        </button>
+      </div>
       <h1 className="page-title">
         My Reports
       </h1>
@@ -1238,22 +1339,6 @@ export default function Reports() {
           </div>
         )}
 
-      <button
-        type="button"
-        onClick={() =>
-          navigate("/students")
-        }
-        style={{
-          marginTop: "24px",
-          border: "none",
-          background: "#f3f4f6",
-          padding: "10px 16px",
-          borderRadius: "8px",
-          cursor: "pointer"
-        }}
-      >
-        ← Back to Students
-      </button>
     </div>
   );
 }
